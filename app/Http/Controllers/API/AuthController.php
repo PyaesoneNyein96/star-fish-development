@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
 
+    // public
 
     public function local_Register(Request $request){
 
