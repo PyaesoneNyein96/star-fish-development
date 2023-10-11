@@ -13,6 +13,7 @@ class AuthController extends Controller
 {
 
     public $total = null;
+    // public
 
     public function local_Register(Request $request){
 
