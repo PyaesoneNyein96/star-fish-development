@@ -2,7 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\LocalAuthController;
+use App\Http\Controllers\API\GlobalAuthController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +28,20 @@ use App\Http\Controllers\API\AuthController;
     });
 
 
-    Route::prefix('auth')->group(function () {
+    Route::prefix('local/auth')->group(function () {
 
-        Route::post('register', [AuthController::class,'local_Register']);
-        Route::post('requestOTP', [AuthController::class,'local_request_otp']);
-        Route::post('submitOTP', [AuthController::class,'local_submit_otp']);
+        Route::post('register', [LocalAuthController::class,'Register']);
+        Route::post('requestOTP', [LocalAuthController::class,'Request_otp']);
+        Route::post('submitOTP', [LocalAuthController::class,'Submit_otp']);
+
+    });
+
+
+
+    //  GLobal
+
+    Route::prefix('global/auth')->group(function () {
+
+            Route::post('register', [GlobalAuthController::class,'Register']);
+
     });
