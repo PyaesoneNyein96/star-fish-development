@@ -18,6 +18,7 @@ class LocalAuthController extends Controller
 
     public function Register(Request $request){
 
+
             $validation =  $this->RegisterValidation($request);
 
             if($validation->fails()){
@@ -30,6 +31,9 @@ class LocalAuthController extends Controller
                LocalStudent::create([
                 'name' => $request->name,
                 'phone' => $request->phone,
+                'age' => $request->age,
+                'country' => $request->country,
+                'city' => $request->city,
                 'password' => Hash::make($request->password),
             ]);
 
@@ -40,7 +44,6 @@ class LocalAuthController extends Controller
                 'token' => $token,
                 'created_at' => Carbon::now(),
             ]);
-
 
 
             DB::commit();
@@ -147,7 +150,10 @@ class LocalAuthController extends Controller
      return  Validator::make($request->all(), [
             'name' =>'required|string',
             'phone' =>'required|unique:local_students,phone',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
+            'age' => 'required',
+            'country' => 'required|min:6',
+            'city' => 'required|string',
         ],[
             'phone.unique' => "An account is already registered with your phone",
         ]);

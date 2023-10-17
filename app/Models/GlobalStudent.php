@@ -10,23 +10,23 @@ class GlobalStudent extends Model
 {
     use HasApiTokens, HasFactory;
 
-    protected $connection = "mysql_2";
-
-    protected $fillable = [
+      protected $fillable = [
+        'id',
         'name',
-        'nick_name',
+        'nickName',
         'email',
-        'otp',
+        'age',
         'profile_picture',
+        'role',
+        'grade',
+        'otp',
+        'token',
+        'device_id',
+        'isAuth',
+        'isSubscriber',
+        'subscription_plans_id',
+        'game',
         'point',
         'status',
-        'grade',
-        'age',
-        'isAuth',
-        'isSubscribe',
-        'password',
-        'country',
-        'token',
     ];
-
 }

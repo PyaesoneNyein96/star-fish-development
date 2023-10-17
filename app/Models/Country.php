@@ -9,15 +9,8 @@ class Country extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
+       protected $fillable = [
         'name',
-        'code',
-        'timezone'
-    ];
-
-
-    public function cities(){
-        return $this->hasMany(City::class);
-    }
-
+        'timezone',
+        ];
 }

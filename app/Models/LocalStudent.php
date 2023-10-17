@@ -8,24 +8,28 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class LocalStudent extends Model
 {
+    use HasApiTokens, HasFactory;
 
-     use HasApiTokens, HasFactory;
-    // use HasFactory;
-
-     protected $fillable = [
+    protected $fillable = [
+        'id',
         'name',
-        'nick_name',
+        'nickName',
         'phone',
-        'otp',
+        'age',
+        'password',
         'profile_picture',
+        'role',
+        'grade',
+        'otp',
+        'token',
+        'device_id',
+        'isAuth',
+        'isSubscriber',
+        'subscription_plans_id',
+        'game',
         'point',
         'status',
-        'grade',
-        'age',
-        'isSubscribe',
-        'isAuth',
-        'password',
-        'token',
     ];
-
 }
+
+

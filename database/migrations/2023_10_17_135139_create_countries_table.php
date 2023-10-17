@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('timezone');
-            $table->string('code')->nullable();
             $table->timestamps();
         });
     }
