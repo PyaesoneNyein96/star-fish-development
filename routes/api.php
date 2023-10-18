@@ -36,12 +36,13 @@ use App\Http\Controllers\API\GlobalAuthController;
 
     });
 
-
+    Route::get('/hello', function (){
+        return "hello from API";
+    });
 
     //  GLobal
 
     Route::prefix('global/auth')->group(function () {
-
             Route::post('register', [GlobalAuthController::class,'Register']);
 
     });
