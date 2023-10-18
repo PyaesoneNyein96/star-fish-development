@@ -10,6 +10,7 @@ use Twilio\Rest\Client;
 use Tzsk\Otp\Facades\Otp;
 use App\Models\LocalStudent;
 use Illuminate\Http\Request;
+use App\Models\GlobalCountries;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -144,9 +145,13 @@ class LocalAuthController extends Controller
     // =============================
 
     public function startUpData(){
-        $countryAndCities = Country::with('cities')->get();
+            $countryAndCities = Country::with('cities')->get();
+            $globalCountriesAndCities = GlobalCountries::with('globalCities')->get();
 
-        return $countryAndCities;
+            $allCountries = $countryAndCities->concat($globalCountriesAndCities);
+            $uniqueAllCountries = $allCountries->unique('id')->values();
+
+        return $uniqueAllCountries;
     }
 
 

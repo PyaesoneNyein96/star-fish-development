@@ -1,3 +1,14 @@
 
-Local-Register (Method: POST) : https://star-fish.myanmargateway.net/api/local/auth/register
 
+startup  (Method: GET) : https://star-fish.myanmargateway.net/api/startUp
+
+
+Local-Register (Method: POST) : https://star-fish.myanmargateway.net/api/local/auth/register
+eg. name, phone, password, country_id, city_id, age, agreeToPolicy, deviceId (formData)
+
+
+Local-Register (Method: POST) : https://star-fish.myanmargateway.net/api/local/auth/requestOTP
+eg. phone, token
+
+Local-Register (Method: POST) : https://star-fish.myanmargateway.net/api/local/auth/submitOTP
+eg. phone, token, otp

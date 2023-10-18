@@ -15,12 +15,17 @@ class CountrySeeder extends Seeder
     {
 
         DB::table('countries')->insert([
+            ['name' => 'Myanmar' ,'timezone' => 'Asia/Yangon'],
+            // ['name' => 'Thailand' ,'timezone' => 'Asia/Bangkok'],
+            // ['name' => 'Cambodia' ,'timezone' => 'Asia/Phnom_Penh'],
+            // ['name' => 'Laos' ,'timezone' => 'Asia/Vientiane'],
+        ]);
 
+        DB::connection('mysql_2')->table('global_countries')->insert([
             ['name' => 'Myanmar' ,'timezone' => 'Asia/Yangon'],
             ['name' => 'Thailand' ,'timezone' => 'Asia/Bangkok'],
             ['name' => 'Cambodia' ,'timezone' => 'Asia/Phnom_Penh'],
             ['name' => 'Laos' ,'timezone' => 'Asia/Vientiane'],
-
         ]);
     }
 }
