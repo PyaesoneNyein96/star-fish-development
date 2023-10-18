@@ -22,7 +22,10 @@ class LocalStudent extends Model
         'grade',
         'otp',
         'token',
-        'device_id',
+        'agreeToPolicy',
+        'deviceId',
+        'country_id',
+        'city_id',
         'isAuth',
         'isSubscriber',
         'subscription_plans_id',
@@ -30,6 +33,18 @@ class LocalStudent extends Model
         'point',
         'status',
     ];
+
+
+    public function city(){
+        return $this->belongsTo(City::class);
+    }
+
+    public function country(){
+        return $this->belongsTo(Country::class);
+    }
+
+
 }
+
 
 

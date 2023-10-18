@@ -23,11 +23,15 @@ use App\Http\Controllers\API\GlobalAuthController;
 // });
 
 
-    Route::get('/test', function (Request $request){
-        return "Authenticated";
-    });
+    // Route::get('/test', function (Request $request){
+    //     return "Authenticated";
+    // });
+
+    Route::get('/startUp', [LocalAuthController::class, 'startUpData']);
 
 
+
+    // LOCAL
     Route::prefix('local/auth')->group(function () {
 
         Route::post('register', [LocalAuthController::class,'Register']);
@@ -36,11 +40,10 @@ use App\Http\Controllers\API\GlobalAuthController;
 
     });
 
-    Route::get('/hello', function (){
-        return "hello from API";
-    });
 
-    //  GLobal
+
+
+    // GLOBAL
 
     Route::prefix('global/auth')->group(function () {
             Route::post('register', [GlobalAuthController::class,'Register']);

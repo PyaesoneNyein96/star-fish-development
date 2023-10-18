@@ -14,4 +14,11 @@ class City extends Model
         'country_id',
         'timezone',
         ];
+
+
+    public function country(){
+        return $this->belongsTo(Country::class);
+    }
+
+
 }

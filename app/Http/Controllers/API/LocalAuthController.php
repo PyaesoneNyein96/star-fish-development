@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\API;
 
 use Carbon\Carbon;
+use App\Models\City;
 use App\Models\User;
+use App\Models\Country;
 use Twilio\Rest\Client;
 use Tzsk\Otp\Facades\Otp;
 use App\Models\LocalStudent;
@@ -16,10 +18,12 @@ use Illuminate\Support\Facades\Validator;
 class LocalAuthController extends Controller
 {
 
+    // REGISTER
+
     public function Register(Request $request){
 
 
-            $validation =  $this->RegisterValidation($request);
+        $validation =  $this->RegisterValidation($request);
 
             if($validation->fails()){
                 return $validation->errors();
@@ -32,12 +36,17 @@ class LocalAuthController extends Controller
                 'name' => $request->name,
                 'phone' => $request->phone,
                 'age' => $request->age,
-                'country' => $request->country,
-                'city' => $request->city,
+                'country_id' => $request->country_id,
+                'city_id' => $request->city_id,
+                'agreeToPolicy' => $request->agreeToPolicy,
+                'deviceId' => $request->deviceId,
                 'password' => Hash::make($request->password),
-            ]);
+                ]);
 
             $user = LocalStudent::where('phone', $request->phone)->first();
+
+
+
             $token = $this->tokenGenerator($user);
 
             LocalStudent::where('phone', $user->phone)->update([
@@ -49,7 +58,7 @@ class LocalAuthController extends Controller
             DB::commit();
 
             return response()->json([
-                'status' => 'success.',
+                'message' => 'success.',
                 'token'  => $token
             ], 200);
 
@@ -67,29 +76,29 @@ class LocalAuthController extends Controller
 
     public function Request_otp(Request $request){
 
-        $isAuth = LocalStudent::where('phone',$request->phone)
+        $isAuthUser = LocalStudent::where('phone',$request->phone)
         ->where('token',$request->token)
         ->first();
 
-        // return $isAuth->isAdmin;
-
-        if(!$isAuth){
+        if(!$isAuthUser){
                return response()->json([
-                'status' => "User Not Match with our database records."
+                'message' => "User Not Match with our database records."
                 ], 401);
-        }else if($isAuth->isAuth == 1){
-
+        }else if($isAuthUser->isAuth == 1) {
             return response()->json([
-                'status' => "Your phone number is already registered !"
+                'message' => "Your phone number is already registered !"
                 ], 401);
         }
 
-        $OTP = Otp::digits(6)->expiry(3)->create($isAuth->phone);
-
-        // $isAuth->update(['otp' => $OTP ]);
+        $OTP = Otp::digits(6)->expiry(3)->create($isAuthUser->phone);
 
         // send SMS process / Functions
-        return $this->sendOTP($isAuth->phone, $OTP);
+        // return $this->sendOTP($isAuthUser->phone, $OTP);
+
+        return response()->json([
+            'message'=> 'success',
+            'OTP'=>  $OTP,
+        ], 200);
 
     }
 
@@ -99,29 +108,45 @@ class LocalAuthController extends Controller
 
     public function Submit_otp(Request $request){
 
-        $user = LocalStudent::where('phone',$request->phone)->first();
+        $user = LocalStudent::where('phone',$request->phone)
+        ->where('token',$request->token)->first();
 
         $isAuth = Otp::digits(6)->expiry(3)->check($request->otp, $request->phone);
 
-        if($isAuth){
+        if($isAuth && $user){
             $user->update(['isAuth' => 1]);
 
             return response()->json([
-              'status' => "Register Success.",
+              'message'  => "success",
             ], 200);
 
-        }else{
+        }else if($user->isAuth == 1){
+             return response()->json([
+            'message' => "already registered."
+            ], 200);
 
-            $user->delete();
+        }
+        else{
+            // $user->delete();
 
             return response()->json([
-            'status' => "Wrong OTP code or User Not Match our DB records,Please re-register again."
+            'message' => "Wrong OTP code or User Not Match our DB records,Please try again."
             ], 401);
-
         }
 
 
 
+    }
+
+
+    // =============================
+    // Startup
+    // =============================
+
+    public function startUpData(){
+        $countryAndCities = Country::with('cities')->get();
+
+        return $countryAndCities;
     }
 
 
@@ -150,15 +175,22 @@ class LocalAuthController extends Controller
      return  Validator::make($request->all(), [
             'name' =>'required|string',
             'phone' =>'required|unique:local_students,phone',
+            'agreeToPolicy' => 'required|numeric' ,
             'password' => 'required|min:6',
             'age' => 'required',
-            'country' => 'required|min:6',
-            'city' => 'required|string',
+            'country_id' => 'required',
+            'city_id' => 'required',
+            'deviceId' => 'required|string',
         ],[
             'phone.unique' => "An account is already registered with your phone",
         ]);
 
     }
+
+
+    // public function userTesting(){
+    //     return LocalStudent::with('country','city')->get();
+    // }
 
 
 

@@ -16,6 +16,9 @@ class CitySeeder extends Seeder
         DB::table('cities')->insert([
 
             ['name' => 'Yangon', 'country_id' => 1],
+            ['name' => 'Mandalay', 'country_id' => 1],
+            ['name' => 'NayPyiTaw', 'country_id' => 1],
+            ['name' => 'TaungGyi', 'country_id' => 1],
             ['name' => 'Bangkok', 'country_id' => 2],
             ['name' => 'Phnom_Penh', 'country_id' => 3],
             ['name' => 'Vientiane', 'country_id' => 4],

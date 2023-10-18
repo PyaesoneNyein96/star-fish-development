@@ -13,4 +13,11 @@ class Country extends Model
         'name',
         'timezone',
         ];
+
+
+        public function cities(){
+            return $this->hasMany(City::class);
+        }
+
+
 }
