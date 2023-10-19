@@ -27,7 +27,7 @@ use App\Http\Controllers\API\GlobalAuthController;
     //     return "Authenticated";
     // });
 
-    Route::get('/startUp', [LocalAuthController::class, 'startUpData']);
+    Route::get('/countries', [LocalAuthController::class, 'startUpData']);
 
 
 
