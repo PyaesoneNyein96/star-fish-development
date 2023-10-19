@@ -27,8 +27,8 @@ return new class extends Migration
             $table->integer('agreeToPolicy')->default(0);
             $table->string('point')->nullable();
             $table->integer('status')->default(0);
-            $table->integer('country_id');
-            $table->integer('city_id');
+            $table->string('country');
+            $table->string('city');
             $table->string('password');
             $table->string('isSubscriber')->default(0);
             $table->foreignId('subscription_plans_id')->nullable();

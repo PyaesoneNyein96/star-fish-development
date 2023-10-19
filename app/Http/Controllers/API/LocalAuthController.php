@@ -23,7 +23,6 @@ class LocalAuthController extends Controller
 
     public function Register(Request $request){
 
-
         $validation =  $this->RegisterValidation($request);
 
             if($validation->fails()){
@@ -37,8 +36,8 @@ class LocalAuthController extends Controller
                 'name' => $request->name,
                 'phone' => $request->phone,
                 'age' => $request->age,
-                'country_id' => $request->country_id,
-                'city_id' => $request->city_id,
+                'country' => $request->country,
+                'city' => $request->city,
                 'agreeToPolicy' => $request->agreeToPolicy,
                 'deviceId' => $request->deviceId,
                 'password' => Hash::make($request->password),
@@ -81,6 +80,7 @@ class LocalAuthController extends Controller
         ->where('token',$request->token)
         ->first();
 
+
         if(!$isAuthUser){
                return response()->json([
                 'message' => "User Not Match with our database records."
@@ -114,22 +114,28 @@ class LocalAuthController extends Controller
 
         $isAuth = Otp::digits(6)->expiry(3)->check($request->otp, $request->phone);
 
-        if($isAuth && $user){
-            $user->update(['isAuth' => 1]);
+
+        if($isAuth && $user->isAuth != 1){
+            $user->update([
+                'isAuth' => 1,
+                'created_at' => Carbon::now('Asia/Yangon'),
+            ]);
 
             return response()->json([
               'message'  => "success",
+              'auth' => true
             ], 200);
 
-        }else if($user->isAuth == 1){
+
+        }else if($user && $user->isAuth == 1){
              return response()->json([
-            'message' => "already registered."
-            ], 200);
+            'message' => "already registered.",
+            'auth' => false
+            ], 403);
 
         }
         else{
             // $user->delete();
-
             return response()->json([
             'message' => "Wrong OTP code or User Not Match our DB records,Please try again."
             ], 401);
@@ -146,12 +152,20 @@ class LocalAuthController extends Controller
 
     public function startUpData(){
             $countryAndCities = Country::with('cities')->get();
-            $globalCountriesAndCities = GlobalCountries::with('globalCities')->get();
+            $globalCountriesAndCities = GlobalCountries::with('globalCities', function ($q){
+                return $q;
+            })->get();
 
-            $allCountries = $countryAndCities->concat($globalCountriesAndCities);
-            $uniqueAllCountries = $allCountries->unique('id')->values();
+            // $globalCountriesAndCities = GlobalCountries::select(
+            //     'global_cities.*',
+            //     'global_cities.*',
+            // )
+            // ->rightJoin('global_cities','global_countries.id','global_cities.global_country_id')->get();
 
-        return $uniqueAllCountries;
+            // $allCountries = $countryAndCities->concat($globalCountriesAndCities);
+            // $uniqueAllCountries = $allCountries->unique('id')->values();
+
+        return $globalCountriesAndCities;
     }
 
 
@@ -183,8 +197,8 @@ class LocalAuthController extends Controller
             'agreeToPolicy' => 'required|numeric' ,
             'password' => 'required|min:6',
             'age' => 'required',
-            'country_id' => 'required',
-            'city_id' => 'required',
+            'country' => 'required',
+            'city' => 'required',
             'deviceId' => 'required|string',
         ],[
             'phone.unique' => "An account is already registered with your phone",
