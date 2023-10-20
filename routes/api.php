@@ -44,6 +44,7 @@ use App\Http\Controllers\API\GlobalAuthController;
 
         });
 
+
         Route::prefix('global')->group(function () {
             Route::post('register', [GlobalAuthController::class,'Register']);
             Route::post('requestOTP', [LocalAuthController::class,'Request_otp']);

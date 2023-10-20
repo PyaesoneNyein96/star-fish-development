@@ -147,15 +147,15 @@ class LocalAuthController extends Controller
 
     public function logout(Request $request){
 
-        $user = Student::where('phone',$request->phone)->where('deviceId', $request->deviceId)->first();
+        $user = Student::where('deviceId', $request->deviceId)->first();
 
-        return $user;
+
         if($user->isAuth == 1){
             Student::where('phone',$request->phone)->where
             ('deviceId', $request->deviceId)->update(['isAuth' => "0"]);
 
              return response()->json([
-                'message'  => "You are logged out",
+                'message'  => "You've been logged out",
                 'auth' => false
               ], 400);
 
@@ -178,10 +178,7 @@ class LocalAuthController extends Controller
 
     public function login(Request $request){
 
-        $loginStudent = Student::orWhere('phone',$request->phone)->orWhere('name', $request->name)->first();
-
-        $deviceCheck = $loginStudent->where('deviceId',$request->deviceId)->exists();
-        $AuthCheck = $loginStudent->where('isAuth',1)->exists();
+        $loginStudent = Student::where('name', $request->name)->first();
 
 
         if(!$loginStudent){
@@ -191,7 +188,11 @@ class LocalAuthController extends Controller
             ], 401);
         }
 
-        if( $AuthCheck == 0) {  //logged in or not (Any Device)
+        $deviceCheck = $loginStudent->where('deviceId',$request->deviceId)->exists();
+        $AuthCheck = $loginStudent->where('isAuth',1)->exists();
+
+
+        if( $AuthCheck !== 1) {  //logged in or not (Any Device)
              $dbPassword = $loginStudent->password;
              $inputPassword = $request->password;
 
@@ -265,16 +266,16 @@ class LocalAuthController extends Controller
     private function RegisterValidation($request){
 
      return  Validator::make($request->all(), [
-            'name' =>'required|string|max:254',
+            'name' =>'required|string|unique:students,name|max:20',
             'phone' =>'required|unique:students,phone|max:15',
             'email' =>'nullable',
             // 'phone' =>['required_without:email','unique:students,phone|max:15'],
             // 'email' =>['required_without:phone','unique:students,email,'],
             'agreeToPolicy' => 'required|numeric|same_one' ,
             'password' => 'required|min:6',
-            'age' => 'required',
-            'country_id' => 'required',
-            'city_id' => 'required',
+            'age' => 'required|numeric',
+            'country_id' => 'required|numeric',
+            'city_id' => 'required|numeric',
             'deviceId' => 'required|string',
         ],[
             'phone.unique' => "An account is already registered with your phone",
