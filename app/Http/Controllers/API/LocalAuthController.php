@@ -151,8 +151,11 @@ class LocalAuthController extends Controller
 
 
         if($user && $user->isAuth == 1){
-            Student::where('deviceId',$request->deviceId)->where
-            ('deviceId', $request->deviceId)->update(['isAuth' => 0]);
+            Student::where('deviceId',$request->deviceId)
+            ->update([
+                'isAuth' => 0,
+                'deviceId' => null,
+                ]);
 
              return response()->json([
                 'message'  => "You've been logged out",
@@ -183,7 +186,7 @@ class LocalAuthController extends Controller
 
         if(!$loginStudent){
             return response()->json([
-                'message' => "User name or Email Not Match our DB records.",
+                'message' => "User name is not match our DB records.",
                 'auth' => false
             ], 401);
         }
@@ -191,8 +194,7 @@ class LocalAuthController extends Controller
         $deviceCheck = $loginStudent->where('deviceId',$request->deviceId)->exists();
         $AuthCheck = $loginStudent->where('isAuth',1)->exists();
 
-
-        if( $AuthCheck !== 1) {  //logged in or not (Any Device)
+        if( $AuthCheck !== 1) {  // 0 logged in or not (Any Device)
              $dbPassword = $loginStudent->password;
              $inputPassword = $request->password;
 
@@ -200,7 +202,8 @@ class LocalAuthController extends Controller
 
             if($passCheck == 1) {
                 $loginStudent->update([
-                   'isAuth' => 1
+                   'isAuth' => 1,
+                   'deviceId' => $request->deviceId,
                ]);
 
             return response()->json([
@@ -216,7 +219,7 @@ class LocalAuthController extends Controller
             }
 
         }
-        else if ($AuthCheck == 1 && $deviceCheck == 0 ){
+        else if ($AuthCheck == 1 && $deviceCheck !== 1 ){  // device မတူ
 
             return response()->json([
                 'message' => "One Account per device Allowed.",
