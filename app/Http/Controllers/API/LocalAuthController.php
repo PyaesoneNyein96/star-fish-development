@@ -150,9 +150,9 @@ class LocalAuthController extends Controller
         $user = Student::where('deviceId', $request->deviceId)->first();
 
 
-        if($user->isAuth == 1){
-            Student::where('phone',$request->phone)->where
-            ('deviceId', $request->deviceId)->update(['isAuth' => "0"]);
+        if($user && $user->isAuth == 1){
+            Student::where('deviceId',$request->deviceId)->where
+            ('deviceId', $request->deviceId)->update(['isAuth' => 0]);
 
              return response()->json([
                 'message'  => "You've been logged out",
@@ -276,7 +276,7 @@ class LocalAuthController extends Controller
             'age' => 'required|numeric',
             'country_id' => 'required|numeric',
             'city_id' => 'required|numeric',
-            'deviceId' => 'required|string',
+            'deviceId' => 'required|unique:students,deviceId',
         ],[
             'phone.unique' => "An account is already registered with your phone",
             'agreeToPolicy.same_one' => "You must agree to the policy by setting."
