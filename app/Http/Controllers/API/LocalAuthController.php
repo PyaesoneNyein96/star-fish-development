@@ -26,7 +26,7 @@ class LocalAuthController extends Controller
 
 
         if($validation->fails()){
-               return $validation->errors();
+            return $validation->errors();
         }
 
         // return $request;
@@ -39,8 +39,8 @@ class LocalAuthController extends Controller
                 'name' => $request->name,
                 'phone' => $request->phone,
                 'age' => $request->age,
-                'country' => $request->country,
-                'city' => $request->city,
+                'country_id' => $request->country_id,
+                'city_id' => $request->city_id,
                 'agreeToPolicy' => $request->agreeToPolicy,
                 'deviceId' => $request->deviceId,
                 'isLocal' => 1,
@@ -122,6 +122,7 @@ class LocalAuthController extends Controller
         if($isAuth){
             $user->update([
                 'isAuth' => 1,
+                'status' => 1,
                 'created_at' => Carbon::now('Asia/Yangon'),
             ]);
 
@@ -264,14 +265,16 @@ class LocalAuthController extends Controller
     private function RegisterValidation($request){
 
      return  Validator::make($request->all(), [
-            'name' =>'required|string',
-            'phone' =>'required|unique:students,phone',
-            'email' =>'nullable|unique:students,email',
+            'name' =>'required|string|max:254',
+            'phone' =>'required|unique:students,phone|max:15',
+            'email' =>'nullable',
+            // 'phone' =>['required_without:email','unique:students,phone|max:15'],
+            // 'email' =>['required_without:phone','unique:students,email,'],
             'agreeToPolicy' => 'required|numeric|same_one' ,
             'password' => 'required|min:6',
             'age' => 'required',
-            'country' => 'required',
-            'city' => 'required',
+            'country_id' => 'required',
+            'city_id' => 'required',
             'deviceId' => 'required|string',
         ],[
             'phone.unique' => "An account is already registered with your phone",

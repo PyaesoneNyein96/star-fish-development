@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\API\LocalAuthController;
 use App\Http\Controllers\API\GlobalAuthController;
 
@@ -54,6 +55,4 @@ use App\Http\Controllers\API\GlobalAuthController;
 
     // Both
 
-    // Route::prefix('students')->group(function () {
-    //     Route::post('logout',)
-    // });
+    Route::get('test', [WorkshopController::class,'user']);

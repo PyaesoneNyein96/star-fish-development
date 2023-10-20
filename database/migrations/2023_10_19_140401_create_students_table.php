@@ -22,19 +22,27 @@ return new class extends Migration
             $table->string('role')->nullable();
             $table->string('grade')->nullable();
             $table->integer('otp')->nullable();
+
             $table->string('token')->nullable();
             $table->string('deviceId')->nullable();
             $table->string('isAuth')->default(0);
             $table->integer('agreeToPolicy')->default(0);
             $table->string('point')->nullable();
             $table->integer('status')->default(0);
-            $table->string('country');
-            $table->string('city');
             $table->string('isLocal')->default(0);
-            $table->string('password');
             $table->string('isSubscriber')->default(0);
+
+            $table->string('password');
+
             $table->foreignId('subscription_plans_id')->nullable();
             $table->foreign('subscription_plans_id')->references('id')->on('subscription_plans')->onDelete('cascade');
+
+            $table->foreignId('country_id')->nullable();
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+
+            $table->foreignId('city_id')->nullable();
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
