@@ -20,21 +20,20 @@ class CitySeeder extends Seeder
             ['name' => 'NayPyiTaw', 'country_id' => 1],
             ['name' => 'TaungGyi', 'country_id' => 1],
 
+            ['name' => 'Bangkok', 'country_id' => 2],
+            ['name' => 'Chiang Mai', 'country_id' => 2],
+            ['name' => 'Pattaya', 'country_id' => 2],
+
+            ['name' => 'Phnom_Penh', 'country_id' => 3],
+            ['name' => 'Krong Kampong Cham', 'country_id' => 3],
+            ['name' => 'Krong Battambang', 'country_id' => 3],
+
+            ['name' => 'Vientiane', 'country_id' => 4],
+            ['name' => 'Luang Prabang', 'country_id' => 4],
+            ['name' => 'Pakse', 'country_id' => 4],
+
         ]);
 
-        DB::connection('mysql_2')->table('global_cities')->insert([
 
-            ['name' => 'Bangkok', 'global_country_id' => 2],
-            ['name' => 'Chiang Mai', 'global_country_id' => 2],
-            ['name' => 'Pattaya', 'global_country_id' => 2],
-
-            ['name' => 'Phnom_Penh', 'global_country_id' => 3],
-            ['name' => 'Krong Kampong Cham', 'global_country_id' => 3],
-            ['name' => 'Krong Battambang', 'global_country_id' => 3],
-
-            ['name' => 'Vientiane', 'global_country_id' => 4],
-            ['name' => 'Luang Prabang', 'global_country_id' => 4],
-            ['name' => 'Pakse', 'global_country_id' => 4],
-        ]);
     }
 }

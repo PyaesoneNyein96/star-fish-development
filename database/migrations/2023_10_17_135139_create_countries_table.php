@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::connection('mysql')->create('countries', function (Blueprint $table) {
+        Schema::create('countries', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('timezone');

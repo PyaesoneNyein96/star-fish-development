@@ -6,11 +6,10 @@ use Carbon\Carbon;
 use App\Models\City;
 use App\Models\User;
 use App\Models\Country;
+use App\Models\Student;
 use Twilio\Rest\Client;
 use Tzsk\Otp\Facades\Otp;
-use App\Models\LocalStudent;
 use Illuminate\Http\Request;
-use App\Models\GlobalCountries;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -25,14 +24,18 @@ class LocalAuthController extends Controller
 
         $validation =  $this->RegisterValidation($request);
 
-            if($validation->fails()){
-                return $validation->errors();
-            }
+
+        if($validation->fails()){
+               return $validation->errors();
+        }
+
+        // return $request;
 
             DB::beginTransaction();
+
             try {
 
-               LocalStudent::create([
+               Student::create([
                 'name' => $request->name,
                 'phone' => $request->phone,
                 'age' => $request->age,
@@ -40,16 +43,17 @@ class LocalAuthController extends Controller
                 'city' => $request->city,
                 'agreeToPolicy' => $request->agreeToPolicy,
                 'deviceId' => $request->deviceId,
+                'isLocal' => 1,
                 'password' => Hash::make($request->password),
                 ]);
 
-            $user = LocalStudent::where('phone', $request->phone)->first();
-
-
+            $user = Student::where('phone', $request->phone)->first();
 
             $token = $this->tokenGenerator($user);
 
-            LocalStudent::where('phone', $user->phone)->update([
+            $OTP = Otp::digits(6)->expiry(3)->create($user->phone);
+
+            Student::where('phone', $user->phone)->update([
                 'token' => $token,
                 'created_at' => Carbon::now(),
             ]);
@@ -59,7 +63,8 @@ class LocalAuthController extends Controller
 
             return response()->json([
                 'message' => 'success.',
-                'token'  => $token
+                'token'  => $token,
+                'Otp' => "$OTP.from sms",
             ], 200);
 
 
@@ -76,7 +81,7 @@ class LocalAuthController extends Controller
 
     public function Request_otp(Request $request){
 
-        $isAuthUser = LocalStudent::where('phone',$request->phone)
+        $isAuthUser = Student::where('phone',$request->phone)
         ->where('token',$request->token)
         ->first();
 
@@ -85,16 +90,14 @@ class LocalAuthController extends Controller
                return response()->json([
                 'message' => "User Not Match with our database records."
                 ], 401);
-        }else if($isAuthUser->isAuth == 1) {
-            return response()->json([
-                'message' => "Your phone number is already registered !"
-                ], 401);
         }
+        // else if($isAuthUser->isAuth == 1) {
+        //     return response()->json([
+        //         'message' => "Your phone number is already registered !"
+        //         ], 401);
+        // }
 
         $OTP = Otp::digits(6)->expiry(3)->create($isAuthUser->phone);
-
-        // send SMS process / Functions
-        // return $this->sendOTP($isAuthUser->phone, $OTP);
 
         return response()->json([
             'message'=> 'success',
@@ -109,13 +112,14 @@ class LocalAuthController extends Controller
 
     public function Submit_otp(Request $request){
 
-        $user = LocalStudent::where('phone',$request->phone)
+        $user = Student::where('phone',$request->phone)
         ->where('token',$request->token)->first();
 
         $isAuth = Otp::digits(6)->expiry(3)->check($request->otp, $request->phone);
 
 
-        if($isAuth && $user->isAuth != 1){
+
+        if($isAuth){
             $user->update([
                 'isAuth' => 1,
                 'created_at' => Carbon::now('Asia/Yangon'),
@@ -127,45 +131,100 @@ class LocalAuthController extends Controller
             ], 200);
 
 
-        }else if($user && $user->isAuth == 1){
-             return response()->json([
-            'message' => "already registered.",
-            'auth' => false
-            ], 403);
-
         }
-        else{
-            // $user->delete();
+
+        // 401 || 408
+        return response()->json([
+        'message' => "Wrong OTP code or User Not Match our DB records,Please try again."
+        ], 401);
+
+    }
+
+    // =============================
+    // Logout
+    // =============================
+
+    public function logout(Request $request){
+
+        Student::where('phone',$request->phone)->where('deviceId', $request->deviceId)
+        ->update(['isAuth' => 0]);
+
+          return response()->json([
+              'message'  => "you are logged.",
+              'auth' => false
+            ], 200);
+
+    }
+
+
+    // ==============================
+    // Login
+    // ==============================
+
+
+    public function login(Request $request){
+
+        $loginStudent = Student::orWhere('phone',$request->phone)->orWhere('name', $request->name)->first();
+
+        $deviceCheck = $loginStudent->where('deviceId',$request->deviceId)->exists();
+        $AuthCheck = $loginStudent->where('isAuth',1)->exists();
+
+
+        if(!$loginStudent){
             return response()->json([
-            'message' => "Wrong OTP code or User Not Match our DB records,Please try again."
+                'message' => "User name or Email Not Match our DB records.",
+                'auth' => false
             ], 401);
         }
 
+        if( $AuthCheck == 0) {  //logged in or not (Any Device)
+             $dbPassword = $loginStudent->password;
+             $inputPassword = $request->password;
+
+             $passCheck = Hash::check($inputPassword, $dbPassword);
+
+            if($passCheck == 1) {
+                $loginStudent->update([
+                   'isAuth' => 1
+               ]);
+
+            return response()->json([
+              'message' => "welcome",
+              'auth' => true
+            ], 200);
+
+            }else{
+                return response()->json([
+                'message' => "wrong password",
+                'auth' => false
+                ], 401);
+            }
+
+        }
+        else if ($AuthCheck == 1 && $deviceCheck == 0 ){
+
+            return response()->json([
+                'message' => "One Account per device Allowed.",
+                'auth' => false
+            ], 401);
+
+        }
+
+        return response()->json([
+            'message' => "Reject",
+            'auth' => false
+          ], 401);
 
 
     }
 
 
     // =============================
-    // Startup
+    // Startup Countries
     // =============================
 
     public function startUpData(){
-            $countryAndCities = Country::with('cities')->get();
-            $globalCountriesAndCities = GlobalCountries::with('globalCities', function ($q){
-                return $q;
-            })->get();
-
-            // $globalCountriesAndCities = GlobalCountries::select(
-            //     'global_cities.*',
-            //     'global_cities.*',
-            // )
-            // ->rightJoin('global_cities','global_countries.id','global_cities.global_country_id')->get();
-
-            // $allCountries = $countryAndCities->concat($globalCountriesAndCities);
-            // $uniqueAllCountries = $allCountries->unique('id')->values();
-
-        return $globalCountriesAndCities;
+            return Country::with('cities')->get();
     }
 
 
@@ -193,8 +252,9 @@ class LocalAuthController extends Controller
 
      return  Validator::make($request->all(), [
             'name' =>'required|string',
-            'phone' =>'required|unique:local_students,phone',
-            'agreeToPolicy' => 'required|numeric' ,
+            'phone' =>'required|unique:students,phone',
+            'email' =>'nullable|unique:students,email',
+            'agreeToPolicy' => 'required|numeric|same_one' ,
             'password' => 'required|min:6',
             'age' => 'required',
             'country' => 'required',
@@ -202,9 +262,27 @@ class LocalAuthController extends Controller
             'deviceId' => 'required|string',
         ],[
             'phone.unique' => "An account is already registered with your phone",
+            'agreeToPolicy.same_one' => "You must agree to the policy by setting."
         ]);
 
     }
+
+
+    // private function LoginValidation($request){
+
+    // return  Validator::make($request->all(), [
+    //         'name' =>'required|string',
+    //         'phone' =>'required|unique:students,phone',
+    //         'password' => 'required|min:6',
+    //         'age' => 'required',
+    //         'country' => 'required',
+    //         'city' => 'required',
+    //         'deviceId' => 'required|string',
+    //     ],[
+    //         'phone.unique' => "An account is already registered with your phone",
+    //     ]);
+
+    // }
 
 
     // public function userTesting(){

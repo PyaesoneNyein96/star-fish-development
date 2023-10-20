@@ -6,15 +6,16 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class LocalStudent extends Model
+class Student extends Model
 {
-    use HasApiTokens, HasFactory;
+    use HasApiTokens,HasFactory;
 
-    protected $fillable = [
+        protected $fillable = [
         'id',
         'name',
         'nickName',
         'phone',
+        'email',
         'age',
         'password',
         'profile_picture',
@@ -25,6 +26,7 @@ class LocalStudent extends Model
         'agreeToPolicy',
         'deviceId',
         'country',
+        'isLocal',
         'city',
         'isAuth',
         'isSubscriber',
@@ -42,9 +44,4 @@ class LocalStudent extends Model
     public function country(){
         return $this->belongsTo(Country::class);
     }
-
-
 }
-
-
-

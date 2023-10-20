@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::connection('mysql')->create('subscription_plans', function (Blueprint $table) {
+        Schema::create('subscription_plans', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->decimal('price',8,2);

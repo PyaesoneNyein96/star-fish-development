@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,23 +21,34 @@ Route::get('/', function () {
 
 Route::get('/clear', function (){
     Artisan::call('cache:clear');
+    return back();
 });
 Route::get('/config', function (){
     Artisan::call('config:clear');
+    return back();
 });
 Route::get('/route', function (){
     Artisan::call('route:clear');
+    return back();
 });
 
 Route::get('/db1wipe', function (){
     Artisan::call('db:wipe --database=mysql');
+    return back();
 });
 Route::get('/db2wipe', function (){
     Artisan::call('db:wipe --database=mysql_2');
+    return back();
 });
 
 Route::get('/migrate', function (){
-    Artisan::call('migrate ');
+    Artisan::call('migrate');
+    return back();
+});
+
+Route::get('/seed', function (){
+    Artisan::call('db:seed');
+    return back();
 });
 
 

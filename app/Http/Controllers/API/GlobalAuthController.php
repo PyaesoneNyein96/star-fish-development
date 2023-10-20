@@ -12,33 +12,50 @@ use Illuminate\Support\Facades\Validator;
 class GlobalAuthController extends Controller
 {
 
-    public function Register(Request $request){
+ public function Register(Request $request){
+
+        $validation =  $this->RegisterValidation($request);
+
+            if($validation->fails()){
+                return $validation->errors();
+            }
+
+            DB::beginTransaction();
+            try {
+
+               LocalStudent::create([
+                'name' => $request->name,
+                'phone' => $request->phone,
+                'age' => $request->age,
+                'country' => $request->country,
+                'city' => $request->city,
+                'agreeToPolicy' => $request->agreeToPolicy,
+                'deviceId' => $request->deviceId,
+                'password' => Hash::make($request->password),
+                ]);
+
+            $user = LocalStudent::where('phone', $request->phone)->first();
+
+            $token = $this->tokenGenerator($user);
+
+            LocalStudent::where('phone', $user->phone)->update([
+                'token' => $token,
+                'created_at' => Carbon::now(),
+            ]);
 
 
+            DB::commit();
 
-        $validation = $this->RegisterValidation($request);
-
-        if($validation->fails()){
-            return $validation->errors();
-        }
-
-        GlobalStudent::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-
-        $user = GlobalStudent::where('email',$request->email)->first();
-        $token = $user->createToken(Carbon::now())->plainTextToken;
-
-        GlobalStudent::where('email', $request->email)
-        ->update([
-            'token' => $request->token,
-            'created_at' => Carbon::now('')
-        ]);
+            return response()->json([
+                'message' => 'success.',
+                'token'  => $token
+            ], 200);
 
 
-        return $request;
+            } catch (\Throwable $th) {
+                DB::rollback();
+                return $th;
+            }
 
     }
 

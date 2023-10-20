@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::connection('mysql')->create('local_students', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('nickName')->nullable();
-            $table->string('phone')->uniqid();
+            $table->string('phone')->nullable()->uniqid();
+            $table->string('email')->nullable()->uniqid();
             $table->string('age');
             $table->string('profile_picture')->nullable();
             $table->string('role')->nullable();
@@ -29,6 +30,7 @@ return new class extends Migration
             $table->integer('status')->default(0);
             $table->string('country');
             $table->string('city');
+            $table->string('isLocal')->default(0);
             $table->string('password');
             $table->string('isSubscriber')->default(0);
             $table->foreignId('subscription_plans_id')->nullable();
@@ -42,6 +44,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('local_students');
+        Schema::dropIfExists('students');
     }
 };

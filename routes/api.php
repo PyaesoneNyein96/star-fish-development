@@ -34,6 +34,8 @@ use App\Http\Controllers\API\GlobalAuthController;
         Route::post('register', [LocalAuthController::class,'Register']);
         Route::post('requestOTP', [LocalAuthController::class,'Request_otp']);
         Route::post('submitOTP', [LocalAuthController::class,'Submit_otp']);
+        Route::post('logout', [LocalAuthController::class,'logout']);
+        Route::post('login', [LocalAuthController::class,'login']);
 
     });
 
@@ -43,6 +45,15 @@ use App\Http\Controllers\API\GlobalAuthController;
     // GLOBAL
 
     Route::prefix('global/auth')->group(function () {
-            Route::post('register', [GlobalAuthController::class,'Register']);
+        Route::post('register', [GlobalAuthController::class,'Register']);
+        Route::post('requestOTP', [LocalAuthController::class,'Request_otp']);
+        Route::post('submitOTP', [LocalAuthController::class,'Submit_otp']);
 
     });
+
+
+    // Both
+
+    // Route::prefix('students')->group(function () {
+    //     Route::post('logout',)
+    // });
