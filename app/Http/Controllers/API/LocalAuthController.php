@@ -146,13 +146,26 @@ class LocalAuthController extends Controller
 
     public function logout(Request $request){
 
-        Student::where('phone',$request->phone)->where('deviceId', $request->deviceId)
-        ->update(['isAuth' => 0]);
+        $user = Student::where('phone',$request->phone)->where('deviceId', $request->deviceId)->first();
 
-          return response()->json([
-              'message'  => "you are logged.",
-              'auth' => false
-            ], 200);
+        return $user;
+        if($user->isAuth == 1){
+            Student::where('phone',$request->phone)->where
+            ('deviceId', $request->deviceId)->update(['isAuth' => "0"]);
+
+             return response()->json([
+                'message'  => "You are logged out",
+                'auth' => false
+              ], 400);
+
+        }else{
+            return response()->json([
+                'message'  => "something wrong.",
+                'auth' => true
+              ], 400);
+        }
+
+
 
     }
 

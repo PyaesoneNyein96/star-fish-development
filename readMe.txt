@@ -12,3 +12,9 @@ eg. phone, token
 
 Local-Register (Method: POST) : https://star-fish.myanmargateway.net/api/local/auth/submitOTP
 eg. phone, token, otp
+
+Local - Login (Method: POST) : https://star-fish.myanmargateway.net/api/local/auth/login
+eg. username or phone, password, deviceId,
+
+Local - Logout (Method: POST) :  https://star-fish.myanmargateway.net/api/local/auth/logout
+eg. deviceId, Phone
