@@ -30,27 +30,38 @@ use App\Http\Controllers\API\GlobalAuthController;
 
 
     // LOCAL
-    Route::prefix('local/auth')->group(function () {
 
-        Route::post('register', [LocalAuthController::class,'Register']);
-        Route::post('requestOTP', [LocalAuthController::class,'Request_otp']);
-        Route::post('submitOTP', [LocalAuthController::class,'Submit_otp']);
-        Route::post('logout', [LocalAuthController::class,'logout']);
-        Route::post('login', [LocalAuthController::class,'login']);
+
+    Route::prefix('auth')->group(function () {
+
+        Route::prefix('local')->group(function () {
+
+            Route::post('register', [LocalAuthController::class,'Register']);
+            Route::post('requestOTP', [LocalAuthController::class,'Request_otp']);
+            Route::post('submitOTP', [LocalAuthController::class,'Submit_otp']);
+            Route::post('logout', [LocalAuthController::class,'logout']);
+            Route::post('login', [LocalAuthController::class,'login']);
+
+        });
+
+        Route::prefix('global')->group(function () {
+            Route::post('register', [GlobalAuthController::class,'Register']);
+            Route::post('requestOTP', [LocalAuthController::class,'Request_otp']);
+            Route::post('submitOTP', [LocalAuthController::class,'Submit_otp']);
+
+        });
+
 
     });
+
+
 
 
 
 
     // GLOBAL
 
-    Route::prefix('global/auth')->group(function () {
-        Route::post('register', [GlobalAuthController::class,'Register']);
-        Route::post('requestOTP', [LocalAuthController::class,'Request_otp']);
-        Route::post('submitOTP', [LocalAuthController::class,'Submit_otp']);
 
-    });
 
 
     // Both
