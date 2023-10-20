@@ -150,6 +150,7 @@ class LocalAuthController extends Controller
         $user = Student::where('deviceId', $request->deviceId)->first();
 
 
+
         if($user && $user->isAuth == 1){
             Student::where('deviceId',$request->deviceId)
             ->update([
@@ -191,10 +192,10 @@ class LocalAuthController extends Controller
             ], 401);
         }
 
-        $deviceCheck = $loginStudent->where('deviceId',$request->deviceId)->exists();
-        $AuthCheck = $loginStudent->where('isAuth',1)->exists();
+        $deviceCheck = $loginStudent->where('deviceId',$request->deviceId)->first();
+        $AuthCheck = $loginStudent->where('isAuth',1)->first();
 
-        if( $AuthCheck !== 1) {  // 0 logged in or not (Any Device)
+        if( !$deviceCheck && !$AuthCheck ) {  // 0 logged in or not (For Any Device)
              $dbPassword = $loginStudent->password;
              $inputPassword = $request->password;
 
@@ -219,7 +220,7 @@ class LocalAuthController extends Controller
             }
 
         }
-        else if ($AuthCheck == 1 && $deviceCheck !== 1 ){  // device မတူ
+         if ($AuthCheck && !$deviceCheck ){  // device မတူ
 
             return response()->json([
                 'message' => "One Account per device Allowed.",
