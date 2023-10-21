@@ -28,10 +28,6 @@ use App\Http\Controllers\API\GlobalAuthController;
     Route::get('/countries', [LocalAuthController::class, 'startUpData']);
 
 
-
-    // LOCAL
-
-
     Route::prefix('auth')->group(function () {
 
         Route::prefix('local')->group(function () {
@@ -39,16 +35,18 @@ use App\Http\Controllers\API\GlobalAuthController;
             Route::post('register', [LocalAuthController::class,'Register']);
             Route::post('requestOTP', [LocalAuthController::class,'Request_otp']);
             Route::post('submitOTP', [LocalAuthController::class,'Submit_otp']);
-            Route::post('logout', [LocalAuthController::class,'logout']);
             Route::post('login', [LocalAuthController::class,'login']);
+            Route::post('logout', [LocalAuthController::class,'logout']);
 
         });
 
 
         Route::prefix('global')->group(function () {
             Route::post('register', [GlobalAuthController::class,'Register']);
-            Route::post('requestOTP', [LocalAuthController::class,'Request_otp']);
-            Route::post('submitOTP', [LocalAuthController::class,'Submit_otp']);
+            Route::post('requestOTP', [GlobalAuthController::class,'Request_otp']);
+            Route::post('submitOTP', [GlobalAuthController::class,'Submit_otp']);
+            Route::post('login', [GlobalAuthController::class,'login']);
+            Route::post('logout', [GlobalAuthController::class,'logout']);
 
         });
 
@@ -60,11 +58,5 @@ use App\Http\Controllers\API\GlobalAuthController;
 
 
 
-    // GLOBAL
-
-
-
-
-    // Both
 
     Route::get('test', [WorkshopController::class,'user']);
