@@ -57,6 +57,4 @@ use App\Http\Controllers\API\GlobalAuthController;
 
 
 
-
-
     Route::get('test', [WorkshopController::class,'user']);

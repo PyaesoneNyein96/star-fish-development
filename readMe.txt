@@ -28,10 +28,10 @@ Register (Method: POST) : https://star-fish.myanmargateway.net/api/auth/global/r
 field. name, phone, password, country_id, city_id, age, agreeToPolicy, deviceId
 
 Request OTP (Method: POST) : https://star-fish.myanmargateway.net/api/auth/global/requestOTP
-field. phone, token
+field. email, token
 
 Submit OTP (Method: POST) : https://star-fish.myanmargateway.net/api/auth/global/submitOTP
-field. phone, token, otp
+field. email, token, otp
 
 Login (Method: POST) : https://star-fish.myanmargateway.net/api/auth/global/login
 field. username or phone, password, deviceId,

@@ -11,9 +11,14 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Traits\mailTraits;
+
+
 
 class GlobalAuthController extends Controller
 {
+
+    use mailTraits;
 
     //=====================
     // Register
@@ -49,6 +54,9 @@ class GlobalAuthController extends Controller
 
             DB::commit();
 
+            //  OTP Send
+            $this->sendOtp($request->email, $OTP);
+
             return response()->json([
                 'message' => 'success.',
                 'token'  => $token,
@@ -82,6 +90,7 @@ class GlobalAuthController extends Controller
         $OTP = Otp::digits(6)->expiry(5)->make($student->email);
 
         // Otp send process
+        $this->sendOtp($request->email, $OTP);
 
         return response()->json([
             'message'=> 'Otp request success',
@@ -167,7 +176,7 @@ class GlobalAuthController extends Controller
 
         }
 
-        if($student->isAuth == 1 && $student->deviceId == null){
+        if($student->isAuth == 1 && $student->deviceId == null) {
 
             return response()->json([
                 'message' => "One Account per device allowed!",
