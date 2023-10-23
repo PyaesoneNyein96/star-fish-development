@@ -29,7 +29,7 @@ return new class extends Migration
             $table->integer('agreeToPolicy')->default(0);
             $table->string('point')->nullable();
             $table->integer('status')->default(0);
-            $table->string('isLocal')->default(0);
+            $table->string('isLocal')->default(1);
             $table->string('isSubscriber')->default(0);
 
             $table->string('password');

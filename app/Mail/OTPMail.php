@@ -9,15 +9,15 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class OTPSender extends Mailable
+class OTPMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     */
-    public function __construct()
+    public $otp;
+
+    public function __construct($otp)
     {
+        $this->otp = $otp;
         //
     }
 
@@ -27,7 +27,7 @@ class OTPSender extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'O T P Sender',
+            subject: 'Star Fish - Register Confirmation Code',
         );
     }
 
@@ -37,7 +37,7 @@ class OTPSender extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'Emails.register-opt',
         );
     }
 

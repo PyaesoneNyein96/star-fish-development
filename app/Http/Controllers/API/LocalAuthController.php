@@ -23,49 +23,49 @@ class LocalAuthController extends Controller
     public function Register(Request $request){
 
         $validation =  $this->RegisterValidation($request);
-
+        $deviceValidation = Student::where('deviceId',$request->deviceId)->where('isAuth',1)->exists();
 
         if($validation->fails()){
             return $validation->errors();
         }
 
-        // return $request;
-
             DB::beginTransaction();
 
             try {
 
-               Student::create([
-                'name' => $request->name,
-                'phone' => $request->phone,
-                'age' => $request->age,
-                'country_id' => $request->country_id,
-                'city_id' => $request->city_id,
-                'agreeToPolicy' => $request->agreeToPolicy,
-                'deviceId' => $request->deviceId,
-                'isLocal' => 1,
-                'password' => Hash::make($request->password),
+                Student::create([
+                    'name' => $request->name,
+                    'phone' => $request->phone,
+                    'age' => $request->age,
+                    'country_id' => $request->country_id,
+                    'city_id' => $request->city_id,
+                    'agreeToPolicy' => $request->agreeToPolicy,
+                    'deviceId' => $request->deviceId,
+                    'isLocal' => 1,
+                    'password' => Hash::make($request->password),
+
                 ]);
 
-            $user = Student::where('phone', $request->phone)->first();
 
-            $token = $this->tokenGenerator($user);
+                $user = Student::where('phone', $request->phone)->first();
 
-            $OTP = Otp::digits(6)->expiry(3)->create($user->phone);
+                $token = $this->tokenGenerator($user);
 
-            Student::where('phone', $user->phone)->update([
-                'token' => $token,
-                'created_at' => Carbon::now(),
-            ]);
+                $OTP = Otp::digits(6)->expiry(3)->create($user->phone);
+
+                Student::where('phone', $user->phone)->update([
+                    'token' => $token,
+                    'created_at' => Carbon::now(),
+                ]);
 
 
-            DB::commit();
+                DB::commit();
 
-            return response()->json([
-                'message' => 'success.',
-                'token'  => $token,
-                'Otp' => "$OTP.from sms",
-            ], 200);
+                return response()->json([
+                    'message' => 'success.',
+                    'token'  => $token,
+                    'Otp' => "$OTP.from sms",
+                ], 200);
 
 
             } catch (\Throwable $th) {
@@ -88,7 +88,8 @@ class LocalAuthController extends Controller
 
         if(!$isAuthUser){
                return response()->json([
-                'message' => "User Not Match with our database records."
+                'message' => "User Not Match with our database records.",
+                'auth' => false
                 ], 401);
         }
         // else if($isAuthUser->isAuth == 1) {
@@ -99,8 +100,10 @@ class LocalAuthController extends Controller
 
         $OTP = Otp::digits(6)->expiry(3)->create($isAuthUser->phone);
 
+        // Otp send process
+
         return response()->json([
-            'message'=> 'success',
+            'message'=> 'otp request success',
             'OTP'=>  $OTP,
         ], 200);
 
@@ -118,19 +121,18 @@ class LocalAuthController extends Controller
         $isAuth = Otp::digits(6)->expiry(3)->check($request->otp, $request->phone);
 
 
-
-        if($isAuth){
+        if($isAuth && $user){
             $user->update([
                 'isAuth' => 1,
                 'status' => 1,
                 'created_at' => Carbon::now('Asia/Yangon'),
+                'update_at' => Carbon::now('Asia/Yangon'),
             ]);
 
             return response()->json([
               'message'  => "success",
               'auth' => true
             ], 200);
-
 
         }
 
@@ -148,6 +150,7 @@ class LocalAuthController extends Controller
     public function logout(Request $request){
 
         $user = Student::where('deviceId', $request->deviceId)->first();
+
 
 
         if($user && $user->isAuth == 1){
@@ -178,11 +181,9 @@ class LocalAuthController extends Controller
     // Login
     // ==============================
 
-
     public function login(Request $request){
 
         $loginStudent = Student::where('name', $request->name)->first();
-
 
         if(!$loginStudent){
             return response()->json([
@@ -191,16 +192,16 @@ class LocalAuthController extends Controller
             ], 401);
         }
 
-        $deviceCheck = $loginStudent->where('deviceId',$request->deviceId)->exists();
-        $AuthCheck = $loginStudent->where('isAuth',1)->exists();
+        $deviceCheck = $loginStudent->where('deviceId',$request->deviceId)->first();
+        $AuthCheck = $loginStudent->where('isAuth',1)->first();
 
-        if( $AuthCheck !== 1) {  // 0 logged in or not (Any Device)
+        if( !$deviceCheck && !$AuthCheck ) {  // 0 logged in or not (For Any Device)
              $dbPassword = $loginStudent->password;
              $inputPassword = $request->password;
 
-             $passCheck = Hash::check($inputPassword, $dbPassword);
+             $pw = Hash::check($inputPassword, $dbPassword);
 
-            if($passCheck == 1) {
+            if($pw == 1) {
                 $loginStudent->update([
                    'isAuth' => 1,
                    'deviceId' => $request->deviceId,
@@ -219,7 +220,7 @@ class LocalAuthController extends Controller
             }
 
         }
-        else if ($AuthCheck == 1 && $deviceCheck !== 1 ){  // device မတူ
+         if ($AuthCheck && !$deviceCheck ){  // device မတူ
 
             return response()->json([
                 'message' => "One Account per device Allowed.",
@@ -286,7 +287,6 @@ class LocalAuthController extends Controller
         ]);
 
     }
-
 
 
 }
