@@ -288,27 +288,5 @@ class LocalAuthController extends Controller
     }
 
 
-    // private function LoginValidation($request){
-
-    // return  Validator::make($request->all(), [
-    //         'name' =>'required|string',
-    //         'phone' =>'required|unique:students,phone',
-    //         'password' => 'required|min:6',
-    //         'age' => 'required',
-    //         'country' => 'required',
-    //         'city' => 'required',
-    //         'deviceId' => 'required|string',
-    //     ],[
-    //         'phone.unique' => "An account is already registered with your phone",
-    //     ]);
-
-    // }
-
-
-    // public function userTesting(){
-    //     return LocalStudent::with('country','city')->get();
-    // }
-
-
 
 }
