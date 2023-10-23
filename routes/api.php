@@ -32,6 +32,8 @@ use App\Http\Controllers\API\GlobalAuthController;
 
         Route::prefix('local')->group(function () {
 
+            Route::post('nameCheck',[LocalAuthController::class,'nameCheck'] );
+
             Route::post('register', [LocalAuthController::class,'Register']);
             Route::post('requestOTP', [LocalAuthController::class,'Request_otp']);
             Route::post('submitOTP', [LocalAuthController::class,'Submit_otp']);

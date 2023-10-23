@@ -276,7 +276,7 @@ class LocalAuthController extends Controller
             // 'phone' =>['required_without:email','unique:students,phone|max:15'],
             // 'email' =>['required_without:phone','unique:students,email,'],
             'agreeToPolicy' => 'required|numeric|same_one' ,
-            'password' => 'required|min:6',
+            'password' => 'required|min:4',
             'age' => 'required|numeric',
             'country_id' => 'required|numeric',
             'city_id' => 'required|numeric',
@@ -287,6 +287,31 @@ class LocalAuthController extends Controller
         ]);
 
     }
+
+
+    // For Both
+
+    public function nameCheck(Request $request){
+
+        $isAllowed = Student::where('name', $request->name)->exists();
+
+        if($isAllowed){
+            return response()->json([
+                'message' =>  "name is already taken.",
+                 'status' => true
+            ], 401);
+        }
+
+          return response()->json([
+                'status' => true
+            ], 200);
+
+
+    }
+
+
+
+
 
 
 }

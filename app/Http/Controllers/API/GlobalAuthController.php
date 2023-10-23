@@ -260,6 +260,8 @@ class GlobalAuthController extends Controller
         ];
     }
 
+
+
     private function tokenGenerator($request){
         return $request->createToken(Carbon::now())->plainTextToken;
     }
