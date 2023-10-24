@@ -4,6 +4,7 @@ Countries (Method: GET) : https://star-fish.myanmargateway.net/api/Countries
 
 NameCheck (Method: POST) : https://star-fish.myanmargateway.net/api/local/nameCheck
 
+NameCheck (Method: POST) : https://star-fish.myanmargateway.net/api/local/nameCheck
 =========
 # LOCAL
 =========

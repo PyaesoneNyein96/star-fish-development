@@ -166,13 +166,13 @@ class LocalAuthController extends Controller
              return response()->json([
                 'message'  => "You've been logged out",
                 'auth' => false
-              ], 400);
+              ], 200);
 
         }else{
             return response()->json([
                 'message'  => "something wrong.",
                 'auth' => true
-              ], 400);
+              ], 401);
         }
 
 
@@ -215,7 +215,9 @@ class LocalAuthController extends Controller
               'auth' => true
             ], 200);
 
-            }else{
+            }
+            else
+            {
                 return response()->json([
                 'message' => "wrong password",
                 'auth' => false
