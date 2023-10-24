@@ -26,7 +26,10 @@ class LocalAuthController extends Controller
         $deviceValidation = Student::where('deviceId',$request->deviceId)->where('isAuth',1)->exists();
 
         if($validation->fails()){
-            return $validation->errors();
+            return response()->json([
+                "message" => $validation->errors(),
+            ], 401);
+
         }
 
             DB::beginTransaction();
@@ -298,7 +301,7 @@ class LocalAuthController extends Controller
         if($isAllowed){
             return response()->json([
                 'message' =>  "name is already taken.",
-                 'status' => true
+                 'status' => false
             ], 401);
         }
 
