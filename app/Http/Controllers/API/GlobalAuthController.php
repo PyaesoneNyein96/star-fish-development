@@ -29,7 +29,10 @@ class GlobalAuthController extends Controller
         $validation =  $this->RegisterValidation($request);
 
         if($validation->fails()){
-            return $validation->errors();
+            return response()->json([
+                "message" => $validation->errors(),
+            ], 401);
+
         }
 
 

@@ -1,6 +1,8 @@
 
 
-Countries  (Method: GET) : https://star-fish.myanmargateway.net/api/Countries
+Countries (Method: GET) : https://star-fish.myanmargateway.net/api/Countries
+
+NameCheck (Method: POST) : https://star-fish.myanmargateway.net/api/local/nameCheck
 
 =========
 # LOCAL
@@ -18,7 +20,7 @@ Login (Method: POST) : https://star-fish.myanmargateway.net/api/auth/local/login
 field. username or phone, password, deviceId,
 
 Logout (Method: POST) :  https://star-fish.myanmargateway.net/api/auth/local/logout
-field. deviceId, Phone
+field. deviceId,
 
 
 =========
@@ -37,4 +39,4 @@ Login (Method: POST) : https://star-fish.myanmargateway.net/api/auth/global/logi
 field. username or phone, password, deviceId,
 
 Logout (Method: POST) :  https://star-fish.myanmargateway.net/api/auth/global/logout
-field. deviceId, Phone
+field. deviceId,
