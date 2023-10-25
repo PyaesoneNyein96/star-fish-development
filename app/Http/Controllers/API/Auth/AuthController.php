@@ -52,7 +52,7 @@ class AuthController extends Controller
         if(!$student){
             return response()->json([
                 'message' => "User name is not match our DB records.",
-                'auth' => false
+                'auth' => 0
             ], 401);
         }
 
@@ -68,14 +68,14 @@ class AuthController extends Controller
 
                 return response()->json([
                     'message' => 'login success',
-                    'auth' => true,
+                    'auth' => 1,
                     'local' => $student->isLocal,
                 ], 200);
 
             }else{
                 return response()->json([
                     'message' => 'wrong password!',
-                    'auth' => false
+                    'auth' => 0
                 ], 401);
             }
 
@@ -85,14 +85,14 @@ class AuthController extends Controller
 
             return response()->json([
                 'message' => "One Account per device allowed!",
-                'auth' => false
+                'auth' => 0
             ], 200);
 
         }
 
         return response()->json([
             'message' => "something wrong",
-            'auth' => false
+            'auth' => 0
         ], 401);
 
     }
