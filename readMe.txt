@@ -1,10 +1,9 @@
 
 
-Countries (Method: GET) : https://star-fish.myanmargateway.net/api/Countries
+Countries (Method: GET) : https://star-fish.myanmargateway.net/api/countries
 
-NameCheck (Method: POST) : https://star-fish.myanmargateway.net/api/local/nameCheck
+NameCheck (Method: POST) : https://star-fish.myanmargateway.net/api/auth/nameCheck
 
-NameCheck (Method: POST) : https://star-fish.myanmargateway.net/api/local/nameCheck
 =========
 # LOCAL
 =========
@@ -17,11 +16,6 @@ field. phone, token
 Submit OTP (Method: POST) : https://star-fish.myanmargateway.net/api/auth/local/submitOTP
 field. phone, token, otp
 
-Login (Method: POST) : https://star-fish.myanmargateway.net/api/auth/local/login
-field. username or phone, password, deviceId,
-
-Logout (Method: POST) :  https://star-fish.myanmargateway.net/api/auth/local/logout
-field. deviceId,
 
 
 =========
@@ -36,8 +30,13 @@ field. email, token
 Submit OTP (Method: POST) : https://star-fish.myanmargateway.net/api/auth/global/submitOTP
 field. email, token, otp
 
-Login (Method: POST) : https://star-fish.myanmargateway.net/api/auth/global/login
-field. username or phone, password, deviceId,
+==========
+# Both
+==========
 
-Logout (Method: POST) :  https://star-fish.myanmargateway.net/api/auth/global/logout
+Login (Method: POST) : https://star-fish.myanmargateway.net/api/auth/login
+field. username , password, deviceId,
+
+Logout (Method: POST) :  https://star-fish.myanmargateway.net/api/auth/logout
 field. deviceId,
+

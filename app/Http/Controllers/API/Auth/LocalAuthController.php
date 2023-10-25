@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\Auth;
 
 use Carbon\Carbon;
 use App\Models\City;
@@ -15,12 +15,21 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+
 class LocalAuthController extends Controller
 {
+
 
     // REGISTER
 
     public function Register(Request $request){
+
+        $tryAgain = Student::where('deviceId', $request->deviceId)->where('status',0)->where('name',$request->name)->where('phone', $request->phone)->exists();
+
+        if($tryAgain  == 1 && $request->token !== null ){
+           return $this->Request_otp($request);
+        }
+
 
         $validation =  $this->RegisterValidation($request);
         $deviceValidation = Student::where('deviceId',$request->deviceId)->where('isAuth',1)->exists();
@@ -68,6 +77,7 @@ class LocalAuthController extends Controller
                     'message' => 'success.',
                     'token'  => $token,
                     'Otp' => "$OTP.from sms",
+                    'local' => 1,
                 ], 200);
 
 
@@ -92,18 +102,13 @@ class LocalAuthController extends Controller
         if(!$isAuthUser){
                return response()->json([
                 'message' => "User Not Match with our database records.",
-                'auth' => false
+                'auth' => 0
                 ], 401);
         }
-        // else if($isAuthUser->isAuth == 1) {
-        //     return response()->json([
-        //         'message' => "Your phone number is already registered !"
-        //         ], 401);
-        // }
 
         $OTP = Otp::digits(6)->expiry(3)->create($isAuthUser->phone);
 
-        // Otp send process
+        // Otp sending process here .....
 
         return response()->json([
             'message'=> 'otp request success',
@@ -123,7 +128,6 @@ class LocalAuthController extends Controller
 
         $isAuth = Otp::digits(6)->expiry(3)->check($request->otp, $request->phone);
 
-
         if($isAuth && $user){
             $user->update([
                 'isAuth' => 1,
@@ -134,7 +138,8 @@ class LocalAuthController extends Controller
 
             return response()->json([
               'message'  => "success",
-              'auth' => true
+              'auth' => 1,
+              'local' =>1
             ], 200);
 
         }
@@ -146,110 +151,12 @@ class LocalAuthController extends Controller
 
     }
 
-    // =============================
-    // Logout
-    // =============================
-
-    public function logout(Request $request){
-
-        $user = Student::where('deviceId', $request->deviceId)->first();
-
-
-
-        if($user && $user->isAuth == 1){
-            Student::where('deviceId',$request->deviceId)
-            ->update([
-                'isAuth' => 0,
-                'deviceId' => null,
-                ]);
-
-             return response()->json([
-                'message'  => "You've been logged out",
-                'auth' => false
-              ], 200);
-
-        }else{
-            return response()->json([
-                'message'  => "something wrong.",
-                'auth' => true
-              ], 401);
-        }
-
-
-
-    }
-
-
-    // ==============================
-    // Login
-    // ==============================
-
-    public function login(Request $request){
-
-        $loginStudent = Student::where('name', $request->name)->first();
-
-        if(!$loginStudent){
-            return response()->json([
-                'message' => "User name is not match our DB records.",
-                'auth' => false
-            ], 401);
-        }
-
-        $deviceCheck = $loginStudent->where('deviceId',$request->deviceId)->first();
-        $AuthCheck = $loginStudent->where('isAuth',1)->first();
-
-        if( !$deviceCheck && !$AuthCheck ) {  // 0 logged in or not (For Any Device)
-             $dbPassword = $loginStudent->password;
-             $inputPassword = $request->password;
-
-             $pw = Hash::check($inputPassword, $dbPassword);
-
-            if($pw == 1) {
-                $loginStudent->update([
-                   'isAuth' => 1,
-                   'deviceId' => $request->deviceId,
-               ]);
-
-            return response()->json([
-              'message' => "welcome",
-              'auth' => true
-            ], 200);
-
-            }
-            else
-            {
-                return response()->json([
-                'message' => "wrong password",
-                'auth' => false
-                ], 401);
-            }
-
-        }
-         if ($AuthCheck && !$deviceCheck ){  // device မတူ
-
-            return response()->json([
-                'message' => "One Account per device Allowed.",
-                'auth' => false
-            ], 401);
-
-        }
-
-        return response()->json([
-            'message' => "Reject",
-            'auth' => false
-          ], 401);
-
-
-    }
 
 
     // =============================
     // Startup Countries
     // =============================
 
-    public function startUpData(){
-            return Country::with('cities')->get();
-    }
 
 
     // =====================================================================
@@ -294,25 +201,7 @@ class LocalAuthController extends Controller
     }
 
 
-    // For Both
 
-    public function nameCheck(Request $request){
-
-        $isAllowed = Student::where('name', $request->name)->exists();
-
-        if($isAllowed){
-            return response()->json([
-                'message' =>  "name is already taken.",
-                 'status' => false
-            ], 401);
-        }
-
-          return response()->json([
-                'status' => true
-            ], 200);
-
-
-    }
 
 
 

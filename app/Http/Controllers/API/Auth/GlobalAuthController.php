@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\Auth;
 
 use Carbon\Carbon;
 use App\Models\Country;
@@ -26,15 +26,19 @@ class GlobalAuthController extends Controller
 
     public function Register(Request $request){
 
-        $validation =  $this->RegisterValidation($request);
+        $tryAgain = Student::where('deviceId', $request->deviceId)->where('status',0)->where('name',$request->name)->where('email', $request->email)->exists();
 
+        if($tryAgain  == 1 && $request->token !== null ){
+           return $this->Request_otp($request);
+        }
+
+        $validation =  $this->RegisterValidation($request);
         if($validation->fails()){
             return response()->json([
                 "message" => $validation->errors(),
             ], 401);
 
         }
-
 
         DB::beginTransaction();
         try {
@@ -57,13 +61,13 @@ class GlobalAuthController extends Controller
 
             DB::commit();
 
-            //  OTP Send
+            // OTP Send from Traits
             $this->sendOtp($request->email, $OTP);
 
             return response()->json([
                 'message' => 'success.',
                 'token'  => $token,
-                'Otp' => "$OTP.from Email",
+                'local' => 0
             ], 200);
 
 
@@ -138,91 +142,6 @@ class GlobalAuthController extends Controller
     } // end of submit OTP
 
 
-    // ==================
-    // Login
-    // ==================
-
-    public function login(Request $request){
-
-        // return $request;
-
-        $student = Student::where('name',$request->name)->first();
-
-        if(!$student){
-            return response()->json([
-                'message' => "User name is not match our DB records.",
-                'auth' => false
-            ], 401);
-        }
-
-        if($student->isAuth !== 1 && $student->deviceId == null) {
-
-            $pw = Hash::check($request->password, $student->password);
-
-            if($pw == 1){
-                $student->update([
-                    'isAuth' => 1,
-                    'deviceId' => $request->deviceId
-                ]);
-
-                return response()->json([
-                    'message' => 'login success',
-                    'auth' => true
-                ], 200);
-
-            }else{
-                return response()->json([
-                    'message' => 'wrong password!',
-                    'auth' => false
-                ], 401);
-            }
-
-        }
-
-        if($student->isAuth == 1 && $student->deviceId == null) {
-
-            return response()->json([
-                'message' => "One Account per device allowed!",
-                'auth' => false
-            ], 200);
-
-        }
-
-        return response()->json([
-            'message' => "something wrong",
-            'auth' => false
-        ], 401);
-
-    }
-
-
-
-
-    // ========================
-    // Logout
-    // ========================
-
-    public function logout(Request $request){
-
-        $student = Student::where('deviceId',$request->deviceId)->first();
-
-        if($student && $student->isAuth == 1) {
-            $student->update(['isAuth'=> 0, 'deviceId' => null]);
-            return response()->json([
-                'message' => "You've been logged out",
-                'isAuth' => false,
-            ], 200);
-        }
-
-        return response()->json([
-            'message' => 'something wrong!',
-            'auth' =>false
-        ], 401);
-
-
-
-
-    }
 
 
     // ===============================

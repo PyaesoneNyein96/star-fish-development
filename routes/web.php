@@ -14,8 +14,15 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
+Route::get('/test', function (){
+
+    return view('testing');
+
+});
+
+
 Route::get('/', function () {
-    return "hello darkness my old friend";
+   return view('testing');
 });
 
 Route::get('/cache', function (){

@@ -11,9 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('unitaudios', function (Blueprint $table) {
+        Schema::create('exercises', function (Blueprint $table) {
             $table->id();
-            $table->longText('audio');
+            $table->string('name');
+
+            // $table->integer('audio');
+            // $table->integer('image');
+            // $table->integer('video');
+
+            $table->string('question');
+            $table->string('answer');
+            $table->foreignId('unit_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -23,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('unitaudios');
+        Schema::dropIfExists('exercises');
     }
 };
