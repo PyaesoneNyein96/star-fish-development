@@ -6,6 +6,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Database\Seeders\CitySeeder;
+use Database\Seeders\GradeSeeder;
+use Database\Seeders\LessonSeeder;
 use Database\Seeders\CountrySeeder;
 use Database\Seeders\SubscriptionPlanSeeder;
 
@@ -27,7 +29,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CountrySeeder::class);
         $this->call(CitySeeder::class);
-        $this->call(SubscriptionPlanSeeder::class);
+        $this->call(GradeSeeder::class);
+        $this->call(LessonSeeder::class);
 
 
     }

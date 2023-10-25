@@ -132,6 +132,7 @@ class GlobalAuthController extends Controller
 
             return response()->json([
                 'message'  => "success",
+                'local' => 0,
                 'auth' => 1
               ], 200);
 
