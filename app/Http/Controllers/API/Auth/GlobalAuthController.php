@@ -90,7 +90,7 @@ class GlobalAuthController extends Controller
         if(!$student){
             return response()->json([
                 'message' => "User Not Match with our database records.",
-                'auth' => false
+                'auth' => 1
             ], 401);
         }
 
@@ -113,7 +113,9 @@ class GlobalAuthController extends Controller
 
     public function Submit_otp(Request $request){
 
-        $student = Student::where('email', $request->email)->where('token',$request->token)->first();
+        $student = Student::
+        where('email', $request->email)->
+        where('token',$request->token)->first();
 
         $isAuth = Otp::digits(6)->expiry(5)->check($request->otp, $request->email);
 
@@ -130,7 +132,7 @@ class GlobalAuthController extends Controller
 
             return response()->json([
                 'message'  => "success",
-                'auth' => true
+                'auth' => 1
               ], 200);
 
         }
@@ -155,7 +157,7 @@ class GlobalAuthController extends Controller
             'name' =>'required|string|unique:students,name|max:20',
             'email' =>'required|email|unique:students,email', // important validation
             'phone' => 'nullable',
-            'password' => 'required|min:6',
+            'password' => 'required|min:4',
             'agreeToPolicy' => 'required|numeric|same_one',
             'country_id' =>'required|numeric',
             'city_id' =>'required|numeric',
