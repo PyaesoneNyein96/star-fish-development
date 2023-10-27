@@ -9,6 +9,11 @@
 <body>
 <h1>Hello</h1>
 
+    <div class="container">
+        <div class="row">
+            <input type="file" class="">
+        </div>
+    </div>
 
 
 </body>

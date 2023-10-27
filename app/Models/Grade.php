@@ -5,12 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Audio extends Model
+class Grade extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'path',
+        'name',
+        'description'
     ];
+
+    public function lessons(){
+        return $this->hasMany(Lesson::class);
+    }
+
+
+
+
 }

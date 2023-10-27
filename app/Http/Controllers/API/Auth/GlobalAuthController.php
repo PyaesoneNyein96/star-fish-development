@@ -96,7 +96,7 @@ class GlobalAuthController extends Controller
 
         $OTP = Otp::digits(6)->expiry(5)->make($student->email);
 
-        // Otp send process
+        // Otp send process with Email
         $this->sendOtp($request->email, $OTP);
 
         return response()->json([

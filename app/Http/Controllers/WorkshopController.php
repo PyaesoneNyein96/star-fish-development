@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Unit;
+use App\Models\Lesson;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class WorkshopController extends Controller
 {
@@ -26,6 +29,25 @@ class WorkshopController extends Controller
         }
 
     });
+
+    }
+
+
+    public function lessons(){
+
+
+        // Cache::flush();
+
+       $lessons = Cache::rememberForever('lessons', function () {
+
+            return Unit::with(['lesson' => function ($q) {
+                $q->select('id','name');
+            }])->get();
+       });
+
+
+       return  $lessons;
+
 
     }
 

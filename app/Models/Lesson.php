@@ -18,4 +18,8 @@ class Lesson extends Model
         return $this->belongsTo(Grade::class);
     }
 
+    public function games(){
+        return $this->hasMany(Game::class);
+    }
+
 }

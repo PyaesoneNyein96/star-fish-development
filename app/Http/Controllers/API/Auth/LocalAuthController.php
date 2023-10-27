@@ -32,7 +32,8 @@ class LocalAuthController extends Controller
 
 
         $validation =  $this->RegisterValidation($request);
-        $deviceValidation = Student::where('deviceId',$request->deviceId)->where('isAuth',1)->exists();
+        $deviceValidation = Student::where('deviceId',$request->deviceId)
+        ->where('isAuth',1)->exists();
 
         if($validation->fails()){
             return response()->json([
@@ -150,12 +151,6 @@ class LocalAuthController extends Controller
         ], 401);
 
     }
-
-
-
-    // =============================
-    // Startup Countries
-    // =============================
 
 
 

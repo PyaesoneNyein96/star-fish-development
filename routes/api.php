@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\API\Auth\AuthController;
 use App\Http\Controllers\API\Auth\LocalAuthController;
+use App\Http\Controllers\API\Lessons\LessonController;
 use App\Http\Controllers\API\Auth\GlobalAuthController;
 
 
@@ -57,4 +58,5 @@ use App\Http\Controllers\API\Auth\GlobalAuthController;
 
 
 
-    Route::get('test', [WorkshopController::class,'user']);
+    Route::get('lessons', [WorkshopController::class,'lessons']);
+    Route::get('test', [LessonController::class,'lessonTest']);

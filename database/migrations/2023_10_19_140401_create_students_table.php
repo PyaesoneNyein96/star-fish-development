@@ -34,11 +34,12 @@ return new class extends Migration
 
             $table->string('password');
 
-            $table->foreignId('subscription_plans_id')->nullable();
-            $table->foreign('subscription_plans_id')->references('id')->on('subscription_plans')->onDelete('cascade');
+            $table->foreignId('subscription_plans_id')->nullable()->constrained();
+            // $table->foreign('subscription_plans_id')->references('id')->on('subscription_plans')->onDelete('cascade');
 
-            $table->foreignId('country_id')->nullable();
-            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+            $table->foreignId('country_id')->nullable()->constrained();
+            // $table->foreign('country_id')->references('id')->on('countries')
+            // ->onUpdate('cascade')->onDelete('cascade');
 
             $table->foreignId('city_id')->nullable();
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');

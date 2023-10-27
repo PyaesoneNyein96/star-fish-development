@@ -5,18 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Unit extends Model
+class Game extends Model
 {
     use HasFactory;
 
-
-     protected $fillable = [
+    protected $fillable = [
         'name',
         'lesson_id'
     ];
 
     public function lesson(){
-        return $this->belongsTo(Grade::class);
+        return $this->belongsTo(Lesson::class);
+    }
+
+    public function rounds(){
+        return $this->belongsToMany(Round::class);
     }
 
 }
