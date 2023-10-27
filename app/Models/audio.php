@@ -13,4 +13,5 @@ class Audio extends Model
         'title',
         'path',
     ];
+
 }
