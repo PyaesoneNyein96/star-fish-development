@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\WorkshopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,5 +69,8 @@ Route::get('/seed', function (){
     Artisan::call('db:seed');
     return back();
 });
+
+
+Route::get('gameAudio', [WorkshopController::class,'gameAudio']);
 
 

@@ -10,6 +10,7 @@ use Database\Seeders\CitySeeder;
 use Database\Seeders\GameSeeder;
 use Database\Seeders\AudioSeeder;
 use Database\Seeders\GradeSeeder;
+use Database\Seeders\ImageSeeder;
 use Database\Seeders\LessonSeeder;
 use Database\Seeders\CountrySeeder;
 use Database\Seeders\SubscriptionPlanSeeder;
@@ -34,6 +35,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LessonSeeder::class);
         $this->call(GameSeeder::class);
         $this->call(AudioSeeder::class);
+        $this->call(ImageSeeder::class);
 
         // Unit::factory(10)->create();
     }

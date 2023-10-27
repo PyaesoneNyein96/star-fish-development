@@ -13,15 +13,20 @@ class AudioSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('audio')->insert([
-            ['title' => 'A' ,'path' => null],
-            ['title' => 'B' ,'path' => null],
-            ['title' => 'C' ,'path' => null],
-            ['title' => 'D' ,'path' => null],
-            ['title' => 'E' ,'path' => null],
-            ['title' => 'F' ,'path' => null],
-            ['title' => 'G' ,'path' => null],
-            ['title' => 'H' ,'path' => null],
-        ]);
+        $domainAndPath = "http://localhost:8000/storage/AtoZ/";
+        $prefix = "SubBlock_";
+        $words  = range('A','Z');
+
+
+        foreach ($words as $w) {
+
+            DB::table('audio')->insert([
+                ['title' => $prefix.$w ,'path' => $domainAndPath.$prefix.$w.".mp3"],
+            ]);
+
+        }
+
+
+
     }
 }

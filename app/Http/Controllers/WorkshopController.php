@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
 use App\Models\Unit;
 use App\Models\Lesson;
 use App\Models\Student;
+use App\Models\GameAudio;
+use App\Models\GameImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -45,9 +48,26 @@ class WorkshopController extends Controller
             }])->get();
        });
 
-
        return  $lessons;
 
+    }
+
+
+    public function gameAudio(){
+
+        GameAudio::insert([
+            'game_id' => 2,
+            'audio_id' => 2,
+        ]);
+
+        GameImage::insert([
+            'game_id' => 2,
+            'image_id' => 1,
+        ]);
+
+        $games = Game::where('id',2)->with(['images','audios'])->get();
+
+        dd($games->toArray());
 
     }
 

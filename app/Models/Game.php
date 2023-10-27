@@ -22,4 +22,13 @@ class Game extends Model
         return $this->belongsToMany(Round::class);
     }
 
+
+    public function audios(){
+        return $this->belongsToMany(Audio::class,'game_audio', 'game_id','audio_id');
+    }
+
+    public function images(){
+        return $this->belongsToMany(Audio::class,'game_images', 'game_id','image_id');
+    }
+
 }
