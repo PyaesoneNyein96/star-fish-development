@@ -27,6 +27,8 @@ return new class extends Migration
             $table->string('isAuth')->default(0);
             $table->integer('agreeToPolicy')->default(0);
             $table->string('point')->nullable();
+            $table->string('fixed_point')->nullable();
+            $table->string('level')->default(1);
             $table->integer('status')->default(0);
             $table->string('isLocal')->default(1);
 
