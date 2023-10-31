@@ -71,15 +71,15 @@ class LocalAuthController extends Controller
                     'created_at' => Carbon::now(),
                 ]);
 
-                $this->sendOTP($user->phone, $OTP);
 
                 DB::commit();
 
+                $this->sendOTP($user->phone, $OTP);
 
                 return response()->json([
                     'message' => 'success.',
                     'token'  => $token,
-                    'Otp' => "$OTP.from sms",
+                    // 'Otp' => "$OTP.from sms",
                     'local' => 1,
                 ], 200);
 
@@ -175,7 +175,7 @@ class LocalAuthController extends Controller
         // Prepare data for POST request
         $data = [
             "to"        =>      $number,
-            "message"   =>      "Little Star: Do Not Share with Anyone. Your Registration OTP is".$otp ,
+            "message"   =>      "Little Star: Do Not Share with Anyone. Your Registration OTP is ".$otp ,
             "sender"    =>      "Little Star"
         ];
 
