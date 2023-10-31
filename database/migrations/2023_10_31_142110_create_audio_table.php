@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('game_audio', function (Blueprint $table) {
+        Schema::create('audio', function (Blueprint $table) {
             $table->id();
-            $table->integer('game_id');
-            $table->integer('audio_id');
             $table->timestamps();
         });
     }
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('game_audio');
+        Schema::dropIfExists('audio');
     }
 };
