@@ -4,10 +4,12 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Student;
 use Illuminate\Database\Seeder;
 use Database\Seeders\CitySeeder;
 use Database\Seeders\GradeSeeder;
 use Database\Seeders\LessonSeeder;
+use Database\Seeders\RewardSeeder;
 use Database\Seeders\CountrySeeder;
 use Database\Seeders\SubscriptionPlanSeeder;
 
@@ -25,13 +27,13 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-
+        Student::factory(20)->create();
 
         $this->call(CountrySeeder::class);
         $this->call(CitySeeder::class);
         $this->call(GradeSeeder::class);
         $this->call(LessonSeeder::class);
-
+        $this->call(RewardSeeder::class);
 
     }
 }

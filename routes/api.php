@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\API\Auth\AuthController;
+use App\Http\Controllers\API\Reward\RewardController;
 use App\Http\Controllers\API\Auth\LocalAuthController;
 use App\Http\Controllers\API\Auth\GlobalAuthController;
 
@@ -50,11 +51,18 @@ use App\Http\Controllers\API\Auth\GlobalAuthController;
 
         });
 
-
     });
 
+    Route::prefix('points')->group(function() {
+        Route::get('/{id}',[RewardController::class,'getPoint']);
+        Route::post('/',[RewardController::class,'addPoint']);
+    });
 
-
+    Route::prefix('reward')->group(function() {
+        Route::get('/',[RewardController::class,'displayReward']);
+        Route::get('/{id}',[RewardController::class,'getReward']);
+        Route::post('/',[RewardController::class,'buyReward']);
+    });
 
 
     Route::get('test', [WorkshopController::class,'user']);
