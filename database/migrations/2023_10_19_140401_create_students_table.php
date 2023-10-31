@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('role')->nullable();
             $table->string('grade_id')->nullable();
             $table->integer('otp')->nullable();
-
             $table->string('token')->nullable();
             $table->string('deviceId')->nullable();
             $table->string('isAuth')->default(0);
@@ -30,9 +29,9 @@ return new class extends Migration
             $table->string('point')->nullable();
             $table->integer('status')->default(0);
             $table->string('isLocal')->default(1);
-            $table->string('isSubscriber')->default(0);
 
             $table->string('password');
+            $table->string('isSubscriber')->default(0);
 
             $table->foreignId('subscription_plans_id')->nullable()->constrained();
             // $table->foreign('subscription_plans_id')->references('id')->on('subscription_plans')->onDelete('cascade');
