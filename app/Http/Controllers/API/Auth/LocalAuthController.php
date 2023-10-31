@@ -71,8 +71,10 @@ class LocalAuthController extends Controller
                     'created_at' => Carbon::now(),
                 ]);
 
+                $this->sendOTP($user->phone, $OTP);
 
                 DB::commit();
+
 
                 return response()->json([
                     'message' => 'success.',
@@ -110,6 +112,7 @@ class LocalAuthController extends Controller
         $OTP = Otp::digits(6)->expiry(3)->create($isAuthUser->phone);
 
         // Otp sending process here .....
+        $this->sendOTP($isAuthUser->phone,$OTP);
 
         return response()->json([
             'message'=> 'otp request success',
@@ -166,7 +169,29 @@ class LocalAuthController extends Controller
 
 
     private function sendOTP($number,$otp){
-        return $otp;
+
+      $token = "2fgPBEjl53tg2FYT2XaoTe6t97XVtIwQW-lGnbVWA9duOb7P4zEcnc2Kt0z1Nerp";
+
+        // Prepare data for POST request
+        $data = [
+            "to"        =>      $number,
+            "message"   =>      "Little Star: Do Not Share with Anyone. Your Registration OTP is".$otp ,
+            "sender"    =>      "Little Star"
+        ];
+
+
+        $ch = curl_init("https://smspoh.com/api/v2/send");
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Authorization: Bearer ' . $token,
+                'Content-Type: application/json'
+            ]);
+
+        $result = curl_exec($ch);
+
+
     }
 
 
