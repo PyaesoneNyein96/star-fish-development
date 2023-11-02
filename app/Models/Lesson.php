@@ -22,4 +22,8 @@ class Lesson extends Model
         return $this->hasMany(Game::class);
     }
 
+    public function students(){
+        return $this->belongsToMany(Student::class,'student_lessons','lesson_id','student_id');
+    }
+
 }

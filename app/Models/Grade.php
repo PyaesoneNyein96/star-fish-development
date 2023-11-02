@@ -9,6 +9,8 @@ class Grade extends Model
 {
     use HasFactory;
 
+    protected $hidden = ['pivot'];
+
     protected $fillable = [
         'name',
         'description'
@@ -18,7 +20,13 @@ class Grade extends Model
         return $this->hasMany(Lesson::class);
     }
 
+    public function students(){
+        return $this->belongsToMany(Student::class,'student_grades','grade_id','student_id');
+    }
 
+    public function games(){
+        return $this->hasManyThrough(Game::class,Lesson::class);
+    }
 
 
 }

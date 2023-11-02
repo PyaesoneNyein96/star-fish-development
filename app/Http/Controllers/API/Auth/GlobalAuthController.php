@@ -155,7 +155,7 @@ class GlobalAuthController extends Controller
     private function RegisterValidation($request){
 
          return Validator::make($request->all(), [
-            'name' =>'required|string|unique:students,name|max:20',
+            'name' =>'required|string|max:20',
             'email' =>'required|email|unique:students,email', // important validation
             'phone' => 'nullable',
             'password' => 'required|min:4',

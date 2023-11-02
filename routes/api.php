@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\API\Auth\AuthController;
+use App\Http\Controllers\API\Lessons\GameController;
 use App\Http\Controllers\API\Auth\LocalAuthController;
 use App\Http\Controllers\API\Lessons\LessonController;
 use App\Http\Controllers\API\Auth\GlobalAuthController;
@@ -52,6 +53,12 @@ use App\Http\Controllers\API\Auth\GlobalAuthController;
         });
 
 
+    });
+
+    Route::prefix('game')->group(function () {
+        Route::get('grade',[GameController::class,'grade']);
+        Route::get('lesson',[GameController::class,'lesson']);
+        Route::get('/',[GameController::class,'game']);
     });
 
 

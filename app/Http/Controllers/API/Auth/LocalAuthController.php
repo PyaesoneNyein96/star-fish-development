@@ -150,7 +150,8 @@ class LocalAuthController extends Controller
 
         // 401 || 408
         return response()->json([
-        'message' => "Wrong OTP code or User Not Match our DB records,Please try again."
+        'message' => "Wrong OTP code or User Not Match our DB records,Please try again.",
+        'auth' => 0,
         ], 401);
 
     }
@@ -202,11 +203,9 @@ class LocalAuthController extends Controller
     private function RegisterValidation($request){
 
      return  Validator::make($request->all(), [
-            'name' =>'required|string|unique:students,name|max:20',
+            'name' =>'required|string|max:20',
             'phone' =>'required|unique:students,phone|max:15',
             'email' =>'nullable',
-            // 'phone' =>['required_without:email','unique:students,phone|max:15'],
-            // 'email' =>['required_without:phone','unique:students,email,'],
             'agreeToPolicy' => 'required|numeric|same_one' ,
             'password' => 'required|min:4',
             'age' => 'required|numeric',
