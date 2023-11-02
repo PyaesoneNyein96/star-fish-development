@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('deviceId')->nullable();
             $table->string('isAuth')->default(0);
             $table->integer('agreeToPolicy')->default(0);
-            $table->string('point')->nullable();
+            $table->string('point')->default(0);
             $table->string('fixed_point')->nullable();
             $table->string('level')->default(1);
             $table->integer('status')->default(0);

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Lesson;
 use App\Models\Reward;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
@@ -57,7 +58,7 @@ class Student extends Model
     }
 
     public function lessons(){
-        return $this->belongsToMany(Student::class,'student_lessons','student_id','lesson_id');
+        return $this->belongsToMany(Lesson::class,'student_lessons','student_id','lesson_id');
     }
 
 
