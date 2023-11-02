@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API\Auth;
 
 use App\Models\Country;
 use App\Models\Student;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -45,16 +46,23 @@ class AuthController extends Controller
 
     public function login(Request $request){
 
-        if($request->email !== null) {
-            $student = Student::where('email',$request->email)->first();
+
+        // $isEmail = Str::contains($request->emailOrPhone, '@');
+        $isEmail = preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/", $request->emailOrPhone);
+
+        // return $isEmail;
+
+
+        if($isEmail == 1) {
+            $student = Student::where('email',$request->emailOrPhone)->first();
         }else{
-            $student = Student::where('phone',$request->phone)->first();
+            $student = Student::where('phone',$request->emailOrPhone)->first();
         }
 
 
         if(!$student){
             return response()->json([
-                'message' => "No user found.",
+                'message' => "User not found.",
                 'auth' => 0
             ], 401);
         }
