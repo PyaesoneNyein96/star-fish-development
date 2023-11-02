@@ -141,6 +141,9 @@ class AuthController extends Controller
     }
 
 
+    public function userData(Request $request){
+        return $userData = Student::where('token', $request->token)->first();
+    }
 
 
 }

@@ -79,7 +79,7 @@ class LocalAuthController extends Controller
                 return response()->json([
                     'message' => 'success.',
                     'token'  => $token,
-                    // 'Otp' => "$OTP.from sms",
+                    'data' => $user,
                     'local' => 1,
                 ], 200);
 

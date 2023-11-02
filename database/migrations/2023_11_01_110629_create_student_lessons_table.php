@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('lesson_id');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }
