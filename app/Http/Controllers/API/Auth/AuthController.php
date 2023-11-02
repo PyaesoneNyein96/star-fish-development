@@ -54,7 +54,7 @@ class AuthController extends Controller
 
         if(!$student){
             return response()->json([
-                'message' => "User name is not match our DB records.",
+                'message' => "No user found.",
                 'auth' => 0
             ], 401);
         }
