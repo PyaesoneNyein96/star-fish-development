@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\API\Auth\AuthController;
+use App\Http\Controllers\API\Lessons\GameController;
 use App\Http\Controllers\API\Reward\RewardController;
 use App\Http\Controllers\API\Auth\LocalAuthController;
 use App\Http\Controllers\API\Lessons\LessonController;

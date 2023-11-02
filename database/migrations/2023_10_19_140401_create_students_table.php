@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('age');
             $table->string('profile_picture')->nullable();
             $table->string('role')->nullable();
-            $table->string('grade_id')->nullable();
             $table->integer('otp')->nullable();
             $table->string('token')->nullable();
             $table->string('deviceId')->nullable();

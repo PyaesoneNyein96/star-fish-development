@@ -45,13 +45,16 @@ class AuthController extends Controller
 
     public function login(Request $request){
 
-        // return $request;
+        if($request->email !== null) {
+            $student = Student::where('email',$request->email)->first();
+        }else{
+            $student = Student::where('phone',$request->phone)->first();
+        }
 
-        $student = Student::where('name',$request->name)->first();
 
         if(!$student){
             return response()->json([
-                'message' => "User name is not match our DB records.",
+                'message' => "No user found.",
                 'auth' => 0
             ], 401);
         }
@@ -70,6 +73,7 @@ class AuthController extends Controller
                     'message' => 'login success',
                     'auth' => 1,
                     'local' => $student->isLocal,
+                    'data' => $student,
                 ], 200);
 
             }else{
