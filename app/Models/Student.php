@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Models\Lesson;
-use App\Models\Reward;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
