@@ -67,7 +67,6 @@ class GlobalAuthController extends Controller
             return response()->json([
                 'message' => 'success.',
                 'token'  => $token,
-                'data' => $student,
                 'local' => 0
             ], 200);
 
@@ -114,9 +113,8 @@ class GlobalAuthController extends Controller
 
     public function Submit_otp(Request $request){
 
-        $student = Student::
-        where('email', $request->email)->
-        where('token',$request->token)->first();
+        $student = Student::where('email', $request->email)
+        ->where('token',$request->token)->first();
 
         $isAuth = Otp::digits(6)->expiry(5)->check($request->otp, $request->email);
 
@@ -134,7 +132,8 @@ class GlobalAuthController extends Controller
             return response()->json([
                 'message'  => "success",
                 'local' => 0,
-                'auth' => 1
+                'auth' => 1,
+                'data' => $student,
               ], 200);
 
         }

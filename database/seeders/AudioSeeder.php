@@ -21,10 +21,11 @@ class AudioSeeder extends Seeder
         foreach ($words as $w) {
 
             DB::table('audio')->insert([
-                ['title' => $prefix.$w ,'path' => $domainAndPath.$prefix.$w.".mp3"],
+                ['title' => $prefix.$w ,'path' => $domainAndPath.$prefix.$w.".mp3" , 'game_id' => null, 'round_id' => 1],
             ]);
-
         }
+
+
 
 
 

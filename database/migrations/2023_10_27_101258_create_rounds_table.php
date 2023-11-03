@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('rounds', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('round');
             $table->foreignId('game_id')->nullable()->constrained();
             $table->timestamps();
         });

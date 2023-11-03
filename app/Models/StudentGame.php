@@ -9,9 +9,11 @@ class StudentGame extends Model
 {
     use HasFactory;
 
+
     protected $fillable = [
         'student_id',
         'game_id',
     ];
+
 
 }

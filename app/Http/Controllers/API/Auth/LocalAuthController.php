@@ -79,7 +79,6 @@ class LocalAuthController extends Controller
                 return response()->json([
                     'message' => 'success.',
                     'token'  => $token,
-                    'data' => $user,
                     'local' => 1,
                 ], 200);
 
@@ -143,6 +142,7 @@ class LocalAuthController extends Controller
             return response()->json([
               'message'  => "success",
               'auth' => 1,
+              'data' => $user,
               'local' =>1
             ], 200);
 
@@ -151,6 +151,7 @@ class LocalAuthController extends Controller
         // 401 || 408
         return response()->json([
         'message' => "Wrong OTP code or User Not Match our DB records,Please try again.",
+
         'auth' => 0,
         ], 401);
 

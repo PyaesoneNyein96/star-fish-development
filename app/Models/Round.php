@@ -14,5 +14,12 @@ class Round extends Model
         'game_id'
     ];
 
+    public function game(){
+        return $this->belongsTo(Game::class);
+    }
+
+    public function audios(){
+        return $this->hasMany(Audio::class);
+    }
 
 }

@@ -14,20 +14,24 @@ class LessonSeeder extends Seeder
     public function run(): void
     {
 
-          DB::table('lessons')->insert([
+        $grades = range(1,12);
+        $lessons =  range(1,40);
 
-            ['name' => 'lesson_1','grade_id' => 1],
-            ['name' => 'lesson_2','grade_id' => 1],
-            ['name' => 'lesson_3','grade_id' => 1],
-            ['name' => 'lesson_4','grade_id' => 1],
-            ['name' => 'lesson_5','grade_id' => 1],
-            ['name' => 'lesson_6','grade_id' => 1],
-            ['name' => 'lesson_7','grade_id' => 1],
-            ['name' => 'lesson_8','grade_id' => 1],
-            ['name' => 'lesson_9','grade_id' => 1],
-           ['name' => 'lesson_10','grade_id' => 1],
 
-        ]);
+        foreach ($grades as $g ) {
+
+            foreach ($lessons as $l) {
+
+                DB::table('lessons')->insert([
+                    ['lesson' => $l,'grade_id' => $g]
+                ]);
+
+            }
+
+
+        }
+
+
 
     }
 }

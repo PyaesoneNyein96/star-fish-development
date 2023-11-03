@@ -19,24 +19,24 @@ class GameSeeder extends Seeder
 
             // lesson 1's units
 
-            ['name' => 'Video', 'lesson_id' => 1 ],
-            ['name' => 'Read and Practice', 'lesson_id' => 1 ],
-            ['name' => 'Song', 'lesson_id' => 1 ],
-            ['name' => 'Listen and Practice', 'lesson_id' => 1 ],
-            ['name' => 'Writing', 'lesson_id' => 1 ],
-            // ['name' => 'Matching', 'lesson_id' => 1 ],
-            // ['name' => 'Choosing', 'lesson_id' => 1 ],
-            // ['name' => 'Grammar', 'lesson_id' => 1 ],
+            ['game' => 'Video', 'lesson_id' => 1 ],
+            ['game' => 'Read and Practice', 'lesson_id' => 1 ],
+            ['game' => 'Song', 'lesson_id' => 1 ],
+            ['game' => 'Listen and Practice', 'lesson_id' => 1 ],
+            ['game' => 'Writing', 'lesson_id' => 1 ],
+            // ['game' => 'Matching', 'lesson_id' => 1 ],
+            // ['game' => 'Choosing', 'lesson_id' => 1 ],
+            // ['game' => 'Grammar', 'lesson_id' => 1 ],
 
 
              // lesson 2's units
 
-            ['name' => 'Video', 'lesson_id' => 2 ],
-            ['name' => 'Read and Practice', 'lesson_id' => 2 ],
-            ['name' => 'Song', 'lesson_id' => 2 ],
-            ['name' => 'Listen and Practice', 'lesson_id' => 2 ],
-            ['name' => 'Matching', 'lesson_id' => 2 ],
-            ['name' => 'Writing (Arrange Order)', 'lesson_id' => 2 ],
+            ['game' => 'Video', 'lesson_id' => 2 ],
+            ['game' => 'Read and Practice', 'lesson_id' => 2 ],
+            ['game' => 'Song', 'lesson_id' => 2 ],
+            ['game' => 'Listen and Practice', 'lesson_id' => 2 ],
+            ['game' => 'Matching', 'lesson_id' => 2 ],
+            ['game' => 'Writing (Arrange Order)', 'lesson_id' => 2 ],
 
 
         ]);

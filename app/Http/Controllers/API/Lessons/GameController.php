@@ -3,92 +3,121 @@
 namespace App\Http\Controllers\API\Lessons;
 
 use stdClass;
+use App\Models\Game;
 use App\Models\Grade;
 use App\Models\Lesson;
 use App\Models\Student;
 use App\Models\StudentGrade;
 use Illuminate\Http\Request;
+use App\Models\StudentLesson;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
 
 class GameController extends Controller
 {
 
-    public function grade(Request $request){
+    public function grades(Request $request){
 
         $token = $request->header('token');
 
 
-        // return Cache::rememberForever($token, function () use($token) {
+        $student = Student::where('token', $token)->first();
+        $studentGrades = $student->grades;
 
-        //     $grades = Grade::with(['students' => function ($q) use($token){
-        //     $q->where('token', $token)->select('name','token','student_grades.status');
-        //     }])->select('name','id')->get();
-
-
-        //     foreach ($grades as $g) {
-        //         if($g->students !== null){
-        //             foreach ($g->students as $s) {
-        //                 $g->student = $s;
-        //             }
-        //             unset($g->students);
-        //         }
-        //     };
-
-        //     return $grades;
-
-        //      });
+        $isDone = StudentGrade::where('student_id', $student->id)->where('isDone',1)->get();
+        $allGrades = Grade::all();
 
 
-        $grades = Student::with('grades')->where('token', $token)
-        // ->select('students.name','age')
-        ->get();
+        $studentGrade = $allGrades->map(function ($grade) use($studentGrades, $isDone){
+            return [
+                'id' => $grade->id,
+                'grade' => $grade->grade,
+                'paid' => $studentGrades->contains('id',$grade->id),
+                'status' => $isDone->contains('id',$grade->id)
+            ];
+        });
 
-        return $grades;
-
+        return $studentGrade;
 
 
     }
 
 
-    public function lesson(Request $request){
+    public function lessons(Request $request){
 
         $token = $request->header('token');
         $grade = $request->header('grade');
 
-        // $studentLessons = Lesson::with(['students' => function ($q) {
-        //      $q->select('name','students.id','token');
-        // }])->where('grade_id', $grade)->get();
+        $student = Student::where('token', $token)->first();
 
+        $allLessons = Lesson::where('grade_id', $grade)->get();
+        // $studentLessons = StudentLesson::where('student_id',$student->id)->get();
+        $studentLessons = $student->lessons;
 
-        $studentLessons = Student::where('token', $token)
-        ->with(['lessons' => function ($q) use($grade) {
-            $q->where('grade_id',$grade)->select('name','grade_id','lessons.id');
-        }])->select('id','name','token')->get();
+        $lessons = $allLessons->map(function ($lesson) use($studentLessons, $grade){
+            return [
+                'id' => $lesson->id,
+                'grade' =>$grade,
+                'lesson' => $lesson->lesson,
+                'status' => $studentLessons->contains('id',$lesson->id),
+            ];
+        });
 
+        return $lessons;
 
-        // $studentLessons = Lesson::with(['students' => function ($q) use($token) {
-        //     $q->where('token', $token)->select();
-        // }])
-        // ->select('id','name','token')->get();
-
-
-
-        return $studentLessons;
-
-        // return response()->json([
-        //     'studentLessons' => $studentLessons
-        // ], 200);
     }
 
 
-    public function game(Request $request){
-        $games = Grade::with('games')->where('')->get();
+    public function games(Request $request){
 
-        return response()->json([
+        $student = Student::where('token', $request->header('token'))->first();
+        $lesson = $request->header('lesson');
 
-        ], 200);
+        $allGame = Game::all();
+        $studentGames = $student->games;
+
+
+        $Games = $allGame->map(function ($game) use($studentGames){
+            return [
+                'id' => $game->id,
+                'game' => $game->game,
+                'status' => $studentGames->contains('id',$game->id), // true & false
+            ];
+        });
+
+        return $Games;
+
     }
 
+    public function specificGames(Request $request){
+
+        $student = Student::where('token', $request->header('token'))->first();
+        $gameId = $request->header('game');
+
+
+        // $gameRound = Game::with(['rounds'=> function ($q) {
+        //     $q->with('audios')->get();
+        // }])->where('id', $gameId)->first();
+
+
+        $gameRound = Game::with(['rounds.audios'])->where('id', $gameId)->first();
+
+        // return count($gameRound->rounds);
+
+        if(count($gameRound->rounds) === 0){
+            $game = Game::with('audios')->where('id',$gameId)->first();
+            return  $game;
+            // return  "game";
+
+        }else{
+            return $gameRound;
+            // return "Round";
+        }
+
+
+
+
+
+    }
 
 }

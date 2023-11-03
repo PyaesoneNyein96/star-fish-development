@@ -13,20 +13,13 @@ class GradeSeeder extends Seeder
      */
     public function run(): void
     {
-          DB::table('grades')->insert([
+        $grades = range(1,12);
 
-            ['name' => 'Grade_1','description' => null],
-            ['name' => 'Grade_2','description' => null],
-            ['name' => 'Grade_3','description' => null],
-            ['name' => 'Grade_4','description' => null],
-            ['name' => 'Grade_5','description' => null],
-            ['name' => 'Grade_6','description' => null],
-            ['name' => 'Grade_7','description' => null],
-            ['name' => 'Grade_8','description' => null],
-            ['name' => 'Grade_9','description' => null],
-           ['name' => 'Grade_10','description' => null],
+        foreach ($grades as $g) {
+            DB::table('grades')->insert([
+                ['grade' => $g,'description' => null],
+            ]);
+        }
 
-
-        ]);
     }
 }

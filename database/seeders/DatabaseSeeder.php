@@ -11,9 +11,12 @@ use Database\Seeders\GameSeeder;
 use Database\Seeders\AudioSeeder;
 use Database\Seeders\GradeSeeder;
 use Database\Seeders\ImageSeeder;
+use Database\Seeders\RoundSeeder;
 use Database\Seeders\LessonSeeder;
 use Database\Seeders\RewardSeeder;
 use Database\Seeders\CountrySeeder;
+use Illuminate\Support\Facades\Hash;
+use Database\Seeders\StudentGradeSeeder;
 use Database\Seeders\SubscriptionPlanSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,18 +28,36 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
 
-        Student::factory(20)->create();
-        Student::factory(20)->create();
+
+        // Student::factory(20)->create();
+
 
         $this->call(CountrySeeder::class);
         $this->call(CitySeeder::class);
+
+        Student::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password' => Hash::make('admin123'),
+            'age' => 5,
+            'country_id' => 2,
+            'city_id' => 2,
+            'agreeToPolicy' => 1,
+            'deviceId' => 'testDevice',
+            'isAuth' => 1,
+            'token' => "1|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b"
+        ]);
+
+
+
         $this->call(GradeSeeder::class);
         $this->call(LessonSeeder::class);
-        $this->call(RewardSeeder::class);
+        $this->call(GameSeeder::class);
+        $this->call(RoundSeeder::class);
+        $this->call(StudentGradeSeeder::class);
+
+
+        // $this->call(RewardSeeder::class);
     }
 }

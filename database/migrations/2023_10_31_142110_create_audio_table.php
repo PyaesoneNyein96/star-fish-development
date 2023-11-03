@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('audio', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->integer('round_id')->nullable();
+            $table->integer('game_id')->nullable();
             $table->string('path')->nullable();
             $table->timestamps();
         });
