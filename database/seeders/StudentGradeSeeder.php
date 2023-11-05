@@ -15,7 +15,6 @@ class StudentGradeSeeder extends Seeder
     {
        DB::table('student_grades')->insert([
             ['student_id' => 1,'grade_id' => 1,'isDone' => 1],
-            ['student_id' => 1,'grade_id' => 1,'isDone' => 1],
             ['student_id' => 1,'grade_id' => 2,'isDone' => 0],
         ]);
     }

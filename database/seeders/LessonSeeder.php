@@ -14,7 +14,7 @@ class LessonSeeder extends Seeder
     public function run(): void
     {
 
-        $grades = range(1,12);
+        $grades = range(1,4);
         $lessons =  range(1,40);
 
 
@@ -27,7 +27,6 @@ class LessonSeeder extends Seeder
                 ]);
 
             }
-
 
         }
 

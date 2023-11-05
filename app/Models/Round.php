@@ -9,7 +9,10 @@ class Round extends Model
 {
     use HasFactory;
 
-       protected $fillable = [
+
+    protected $hidden = ['pivot','created_at', 'updated_at'];
+
+    protected $fillable = [
         'name',
         'game_id'
     ];
@@ -20,6 +23,14 @@ class Round extends Model
 
     public function audios(){
         return $this->hasMany(Audio::class);
+    }
+
+    public function images(){
+        return $this->hasMany(Audio::class);
+    }
+
+    public function videos(){
+        return $this->hasMany(Video::class);
     }
 
 }

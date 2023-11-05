@@ -7,6 +7,7 @@ use App\Models\Game;
 use App\Models\Grade;
 use App\Models\Lesson;
 use App\Models\Student;
+use App\Models\StudentGame;
 use App\Models\StudentGrade;
 use Illuminate\Http\Request;
 use App\Models\StudentLesson;
@@ -39,7 +40,6 @@ class GameController extends Controller
 
         return $studentGrade;
 
-
     }
 
 
@@ -48,16 +48,19 @@ class GameController extends Controller
         $token = $request->header('token');
         $grade = $request->header('grade');
 
+
         $student = Student::where('token', $token)->first();
 
         $allLessons = Lesson::where('grade_id', $grade)->get();
-        // $studentLessons = StudentLesson::where('student_id',$student->id)->get();
-        $studentLessons = $student->lessons;
+
+        $studentGrade = $student->grades;
+
+        $studentLessons = $student->lessons; // ဆော့ပီးတဲ့ lessons
 
         $lessons = $allLessons->map(function ($lesson) use($studentLessons, $grade){
             return [
                 'id' => $lesson->id,
-                'grade' =>$grade,
+                'grade_id' =>$grade,
                 'lesson' => $lesson->lesson,
                 'status' => $studentLessons->contains('id',$lesson->id),
             ];
@@ -73,51 +76,96 @@ class GameController extends Controller
         $student = Student::where('token', $request->header('token'))->first();
         $lesson = $request->header('lesson');
 
-        $allGame = Game::all();
-        $studentGames = $student->games;
+        $allGame = Game::where('lesson_id',$lesson)->get();
+        $studentGames = $student->games; // ဆော့ပီးတဲ့ ဟာ ရွေးထုတ်
 
-
-        $Games = $allGame->map(function ($game) use($studentGames){
-            return [
-                'id' => $game->id,
-                'game' => $game->game,
-                'status' => $studentGames->contains('id',$game->id), // true & false
-            ];
+        $games = $allGame->map(function ($game) use ($studentGames, $lesson) {
+                return [
+                    'id' => $game->id,
+                    'lesson_id' => $game->lesson_id,
+                    'game' => $game->game,
+                    'status' => $studentGames->contains('id', $game->id)
+                ];
         });
 
-        return $Games;
+        return $games;
 
     }
 
-    public function specificGames(Request $request){
+    public function specificGame(Request $request){
 
         $student = Student::where('token', $request->header('token'))->first();
         $gameId = $request->header('game');
 
-
-        // $gameRound = Game::with(['rounds'=> function ($q) {
-        //     $q->with('audios')->get();
-        // }])->where('id', $gameId)->first();
-
-
-        $gameRound = Game::with(['rounds.audios'])->where('id', $gameId)->first();
-
-        // return count($gameRound->rounds);
+        $gameRound = Game::with(['rounds.audios','rounds.images','rounds.videos'])->where('id', $gameId)->first();
 
         if(count($gameRound->rounds) === 0){
-            $game = Game::with('audios')->where('id',$gameId)->first();
+            $game = Game::with('audios','images','videos')->where('id',$gameId)->first();
             return  $game;
-            // return  "game";
-
         }else{
             return $gameRound;
-            // return "Round";
+        }
+    }
+
+
+    public function match_end(Request $request){
+
+        $token = $request->header('token');
+        $gameId = $request->header('game');
+        $lessonGames = $request->header('lesson');
+
+        $student = Student::where('token', $token)->first();
+        $game = Game::where('id', $gameId)->first();
+
+        $alreadyDone = StudentGame::where('student_id', $student->id)->where('game_id', $gameId)->first();
+
+        $lessonGamesList = Game::where('lesson_id', $lessonGames)->get();
+
+        $gameDone  = StudentGame::where('student_id', $student->id)->get();
+
+
+        if($student && $game && !$alreadyDone){
+
+            StudentGame::insert([
+                'student_id' => $student->id,
+                'game_id' => $gameId,
+            ]);
+
+
+            return response()->json(['status' => 'success and recorded'], 200);
+        }
+         else if
+         ($student && $game &&  $alreadyDone){
+
+            // Rand changed process
+            $filter = $lessonGamesList->filter(function ($g) use($gameDone){
+                return !$gameDone->contains('game_id', $g->id);
+            });
+
+            if($filter->count() == 0){
+
+                StudentLesson::create(['student_id' => $student->id, 'lesson_id' => $lessonGames]);
+                return "all done";
+            }
+
+            return response()->json(['status' => 'success'], 200);
         }
 
 
-
+        return 404;
 
 
     }
+
+
+    private function randChange ($lessonGamesList, $gameDone){
+
+
+
+        return "dong";
+
+    }
+
+
 
 }

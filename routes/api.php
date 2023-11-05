@@ -69,4 +69,6 @@ Route::prefix('reward')->group(function () {
 Route::get('grades', [GameController::class, 'grades']);
 Route::get('lessons', [GameController::class, 'lessons']);
 Route::get('games', [GameController::class, 'games']);
-Route::get('specificGames', [GameController::class, 'specificGames']);
+Route::get('game', [GameController::class, 'specificGame']);
+
+Route::get('match_end',[GameController::class,'match_end']);

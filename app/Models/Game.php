@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Image;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Game extends Model
 {
     use HasFactory;
 
-    protected $hidden = ['pivot'];
+    protected $hidden = ['pivot','created_at', 'updated_at'];
+
+
 
     protected $fillable = [
         'name',
@@ -32,13 +35,21 @@ class Game extends Model
         return $this->hasMany(Audio::class);
     }
 
+    public function images(){
+        return $this->hasMany(Image::class);
+    }
+
+    public function videos(){
+        return $this->hasMany(Video::class);
+    }
+
 
     // public function audios(){
     //     return $this->belongsToMany(Audio::class,'game_audio', 'game_id','audio_id');
     // }
 
-    public function images(){
-        return $this->belongsToMany(Audio::class,'game_images', 'game_id','image_id');
-    }
+    // public function images(){
+    //     return $this->belongsToMany(Audio::class,'game_images', 'game_id','image_id');
+    // }
 
 }

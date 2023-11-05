@@ -9,8 +9,18 @@ class Image extends Model
 {
     use HasFactory;
 
+
+    protected $hidden = ['pivot','created_at', 'updated_at'];
+
     protected $fillable = [
-            'title',
-            'path'
+        'title',
+        'path'
     ];
+
+    public function game(){
+        return $this->belongsTo(Game::class);
+    }
+
+
+
 }
