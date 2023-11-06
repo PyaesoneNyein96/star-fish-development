@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API\Lessons;
 use stdClass;
 use App\Models\Game;
 use App\Models\Grade;
+use App\Models\Round;
 use App\Models\Lesson;
 use App\Models\Student;
 use App\Models\StudentGame;
@@ -16,6 +17,13 @@ use Illuminate\Support\Facades\Cache;
 
 class GameController extends Controller
 {
+
+
+    // public function __construct(){
+
+    // }
+
+
 
     public function grades(Request $request){
 
@@ -77,7 +85,7 @@ class GameController extends Controller
         $lesson = $request->header('lesson');
 
         $allGame = Game::where('lesson_id',$lesson)->get();
-        $studentGames = $student->games; // ဆော့ပီးတဲ့ ဟာ ရွေးထုတ်
+        $studentGames = $student->games; // ဆော့ပီးတဲ့ ဟာ ရွေး
 
         $games = $allGame->map(function ($game) use ($studentGames, $lesson) {
                 return [
@@ -94,17 +102,43 @@ class GameController extends Controller
 
     public function specificGame(Request $request){
 
+
         $student = Student::where('token', $request->header('token'))->first();
         $gameId = $request->header('game');
 
-        $gameRound = Game::with(['rounds.audios','rounds.images','rounds.videos'])->where('id', $gameId)->first();
+        $game = Game::with('images','audios','videos')->where('id', $gameId)->get();
 
-        if(count($gameRound->rounds) === 0){
+        // return $game;
+
+
+        $Rounds = Round::with('audios','images','videos')->where('game_id', $gameId)->get();
+
+
+
+
+        // $gameRound = Game::where('id', $gameId)->get();
+
+
+        if($game->contains('rounds') === []){
             $game = Game::with('audios','images','videos')->where('id',$gameId)->first();
-            return  $game;
-        }else{
-            return $gameRound;
+            return $game;
+        }else {
+
+            // $gameRound = ;
+
+            // $gameRound = $gameRound->map(function ($g){
+            //     return [
+            //         "game_id" => $g->id,
+            //         "lesson_id" => $g->lesson_id,
+            //         "rounds" => $g->rounds->map(function ($r){
+            //             return
+            //         }),
+            //     ];
+            // });
+
         }
+
+        return $Rounds;
     }
 
 
@@ -158,13 +192,7 @@ class GameController extends Controller
     }
 
 
-    private function randChange ($lessonGamesList, $gameDone){
 
-
-
-        return "dong";
-
-    }
 
 
 

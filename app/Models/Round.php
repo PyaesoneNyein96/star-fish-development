@@ -26,7 +26,7 @@ class Round extends Model
     }
 
     public function images(){
-        return $this->hasMany(Audio::class);
+        return $this->hasMany(Image::class);
     }
 
     public function videos(){
