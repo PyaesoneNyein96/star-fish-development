@@ -14,21 +14,22 @@ class LessonSeeder extends Seeder
     public function run(): void
     {
 
-        $grades = range(1,4);
+        // $grades = range(1,4);
+        $grades = 1;
         $lessons =  range(1,40);
 
 
-        foreach ($grades as $g ) {
+        // foreach ($grades as $g ) {
 
-            foreach ($lessons as $l) {
+            foreach ($lessons as $l)  {
 
                 DB::table('lessons')->insert([
-                    ['lesson' => $l,'grade_id' => $g]
+                    ['name' => $l,'grade_id' => 1]
                 ]);
 
             }
 
-        }
+        // }
 
 
 

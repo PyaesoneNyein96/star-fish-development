@@ -8,6 +8,7 @@ use App\Models\Student;
 use Illuminate\Database\Seeder;
 use Database\Seeders\CitySeeder;
 use Database\Seeders\GameSeeder;
+use Database\Seeders\ItemSeeder;
 use Database\Seeders\AudioSeeder;
 use Database\Seeders\GradeSeeder;
 use Database\Seeders\ImageSeeder;
@@ -15,6 +16,7 @@ use Database\Seeders\RoundSeeder;
 use Database\Seeders\LessonSeeder;
 use Database\Seeders\RewardSeeder;
 use Database\Seeders\CountrySeeder;
+use Database\Seeders\CategorySeeder;
 use Illuminate\Support\Facades\Hash;
 use Database\Seeders\StudentGradeSeeder;
 use Database\Seeders\SubscriptionPlanSeeder;
@@ -56,6 +58,8 @@ class DatabaseSeeder extends Seeder
         $this->call(GameSeeder::class);
         $this->call(RoundSeeder::class);
         $this->call(StudentGradeSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(ItemSeeder::class);
 
 
         // $this->call(RewardSeeder::class);

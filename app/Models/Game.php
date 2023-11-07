@@ -10,7 +10,7 @@ class Game extends Model
 {
     use HasFactory;
 
-    protected $hidden = ['pivot','created_at', 'updated_at'];
+    protected $hidden = ['pivot','created_at', 'updated_at','category_id'];
 
 
 
@@ -18,6 +18,10 @@ class Game extends Model
         'name',
         'lesson_id'
     ];
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 
     public function lesson(){
         return $this->belongsTo(Lesson::class);
@@ -29,6 +33,10 @@ class Game extends Model
 
     public function rounds(){
         return $this->hasMany(Round::class);
+    }
+
+    public function items(){
+        return $this->hasMany(Item::class);
     }
 
     public function audios(){

@@ -106,39 +106,20 @@ class GameController extends Controller
         $student = Student::where('token', $request->header('token'))->first();
         $gameId = $request->header('game');
 
-        $game = Game::with('images','audios','videos')->where('id', $gameId)->get();
+        $game = Game::with('images','category','audios','videos','items','rounds')->where('id', $gameId)->first();
 
-        // return $game;
+        // return $game->category;
 
-
-        $Rounds = Round::with('audios','images','videos')->where('game_id', $gameId)->get();
-
-
-
-
-        // $gameRound = Game::where('id', $gameId)->get();
-
-
-        if($game->contains('rounds') === []){
-            $game = Game::with('audios','images','videos')->where('id',$gameId)->first();
+        if(count($game->rounds) == 0){
             return $game;
-        }else {
-
-            // $gameRound = ;
-
-            // $gameRound = $gameRound->map(function ($g){
-            //     return [
-            //         "game_id" => $g->id,
-            //         "lesson_id" => $g->lesson_id,
-            //         "rounds" => $g->rounds->map(function ($r){
-            //             return
-            //         }),
-            //     ];
-            // });
-
+        }else{
+           $rounds = Round::with('backgrounds','questions','answers')->where('game_id', $gameId)->get();
+            return $rounds;
         }
 
-        return $Rounds;
+
+
+
     }
 
 

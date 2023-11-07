@@ -33,4 +33,17 @@ class Round extends Model
         return $this->hasMany(Video::class);
     }
 
+    public function questions(){
+        return $this->hasMany(QuestionContent::class);
+    }
+
+    public function answers(){
+        return $this->hasMany(AnswerContent::class);
+    }
+
+    public function backgrounds(){
+        return $this->hasOne(BackgroundImage::class);
+    }
+
+
 }
