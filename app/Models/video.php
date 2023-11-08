@@ -18,11 +18,11 @@ class Video extends Model
         'path',
     ];
 
-    public function round(){
-        return $this->belongsTo(Round::class);
-    }
+    // public function round(){
+    //     return $this->belongsTo(Round::class);
+    // }
 
-    public function game(){
-        return $this->belongsTo(Game::class);
-    }
+    // public function game(){
+    //     return $this->belongsTo(Game::class);
+    // }
 }

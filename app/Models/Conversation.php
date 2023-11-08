@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model
+class Conversation extends Model
 {
     use HasFactory;
 
-       protected $hidden = ['pivot','created_at','updated_at'];
+    protected $hidden = ['pivot','created_at', 'updated_at','id',];
 
-
-        public function toArray(){
+     public function toArray(){
 
         $data = parent::toArray();
-
 
         $filteredData = array_filter($data, function ($value) {
             return !is_null($value) && (!is_array($value) || !empty($value));
@@ -23,5 +21,6 @@ class Item extends Model
 
         return $filteredData;
     }
+
 
 }

@@ -47,8 +47,20 @@ class Game extends Model
         return $this->hasMany(Image::class);
     }
 
-    public function videos(){
-        return $this->hasMany(Video::class);
+    // public function videos(){
+    //     return $this->hasMany(Video::class);
+    // }
+
+    public function conversations(){
+         return $this->hasMany(Conversation::class);
+        }
+
+    public function characters(){
+        return $this->hasMany(Character::class);
+    }
+
+    public function background(){
+        return $this->hasMany(BackgroundImage::class);
     }
 
 
@@ -59,5 +71,18 @@ class Game extends Model
     // public function images(){
     //     return $this->belongsToMany(Audio::class,'game_images', 'game_id','image_id');
     // }
+
+
+    public function toArray(){
+
+        $data = parent::toArray();
+
+        // Filter out properties with null or empty arrays.
+        $filteredData = array_filter($data, function ($value) {
+            return !is_null($value) && (!is_array($value) || !empty($value));
+        });
+
+        return $filteredData;
+    }
 
 }

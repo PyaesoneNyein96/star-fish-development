@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('question_contents', function (Blueprint $table) {
+        Schema::create('characters', function (Blueprint $table) {
             $table->id();
-            $table->integer('round_id');
-            $table->text('image')->nullable();
-            $table->text('audio')->nullable();
-            // $table->text('video')->nullable();
-            $table->text('other')->nullable();
+            $table->string('path');
+            $table->string('round_id')->nullable();
+            $table->string('game_id')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('question_contents');
+        Schema::dropIfExists('characters');
     }
 };
