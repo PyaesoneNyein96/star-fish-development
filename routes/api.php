@@ -9,8 +9,7 @@ use App\Http\Controllers\API\Reward\RewardController;
 use App\Http\Controllers\API\Auth\LocalAuthController;
 use App\Http\Controllers\API\Lessons\LessonController;
 use App\Http\Controllers\API\Auth\GlobalAuthController;
-
-
+use App\Http\Controllers\API\Chat\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +36,7 @@ Route::prefix('auth')->group(function () {
     Route::post('nameCheck', [AuthController::class, 'nameCheck']);
     Route::post('login', [AuthController::class, 'login']);
     Route::post('logout', [AuthController::class, 'logout']);
-        Route::get('userData', [AuthController::class,'userData']);
+    Route::get('userData', [AuthController::class, 'userData']);
 
     Route::prefix('local')->group(function () {
 
@@ -65,6 +64,10 @@ Route::prefix('reward')->group(function () {
     Route::post('/', [RewardController::class, 'buyReward']);
 });
 
+Route::prefix('chat')->group(function () {
+    Route::get('/', [ChatController::class, 'getChat']);
+    Route::post('/', [ChatController::class, 'sendChat'])->middleware('delaySendMessage');
+});
 
 Route::get('lessons', [WorkshopController::class, 'lessons']);
 Route::get('test', [LessonController::class, 'lessonTest']);

@@ -21,6 +21,11 @@ Route::get('/test', function (){
 
 });
 
+Route::get('/mails',function(){
+    return view('Emails.mail-tp');
+});
+
+
 
 Route::get('/', function () {
    return view('testing');
@@ -72,5 +77,3 @@ Route::get('/seed', function (){
 
 
 Route::get('gameAudio', [WorkshopController::class,'gameAudio']);
-
-

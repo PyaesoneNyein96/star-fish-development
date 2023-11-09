@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Student extends Model
 {
-    use HasApiTokens,HasFactory;
+    use HasApiTokens, HasFactory;
 
-        protected $hidden = ['pivot'];
+    protected $hidden = ['pivot'];
 
-        protected $fillable = [
+    protected $fillable = [
         'id',
         'name',
         'nickName',
@@ -36,29 +36,35 @@ class Student extends Model
         'subscription_plans_id',
         'game',
         'point',
+        'fixed_point',
+        'level',
+        'board',
         'status',
     ];
 
 
-    public function city(){
+    public function city()
+    {
         return $this->belongsTo(City::class);
     }
 
-    public function country(){
+    public function country()
+    {
         return $this->belongsTo(Country::class);
     }
 
-    public function games(){
-        return $this->belongsToMany(Game::class,'student_games','student_id','game_id');
+    public function games()
+    {
+        return $this->belongsToMany(Game::class, 'student_games', 'student_id', 'game_id');
     }
 
-    public function grades(){
-        return $this->belongsToMany(Grade::class,'student_grades','student_id','grade_id');
+    public function grades()
+    {
+        return $this->belongsToMany(Grade::class, 'student_grades', 'student_id', 'grade_id');
     }
 
-    public function lessons(){
-        return $this->belongsToMany(Lesson::class,'student_lessons','student_id','lesson_id');
+    public function lessons()
+    {
+        return $this->belongsToMany(Lesson::class, 'student_lessons', 'student_id', 'lesson_id');
     }
-
-
 }

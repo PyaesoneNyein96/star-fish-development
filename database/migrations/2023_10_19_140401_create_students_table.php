@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('point')->default(0);
             $table->string('fixed_point')->default(0);
             $table->string('level')->default(1);
+            $table->string('board')->default('silver');
+
             $table->integer('status')->default(0);
             $table->string('isLocal')->default(1);
 

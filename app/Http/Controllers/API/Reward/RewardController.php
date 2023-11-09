@@ -18,7 +18,7 @@ class RewardController extends Controller
 
     public function getPoint($id)
     {
-        $point = Student::select('point')->where('id', $id)->first();
+        $point = Student::where('id', $id)->first();
 
         return new RewardResource($point);
     }
@@ -31,14 +31,17 @@ class RewardController extends Controller
             Student::where('id', $request->student_id)->update([
                 'point' => $newPoint[0],
                 'fixed_point' => $newPoint[1],
-                'level' => $level
+                'level' => $level,
+                'board' => $newPoint[2]
             ]);
         } else {
             Student::where('id', $request->id)->update([
                 'point' => $newPoint[0],
-                'fixed_point' => $newPoint[1]
+                'fixed_point' => $newPoint[1],
+                'board' => $newPoint[2]
             ]);
         }
+
         return response()->json([
             'message' => 'points added'
         ]);
@@ -114,9 +117,21 @@ class RewardController extends Controller
     private function addPointFunction($request)
     {
         $oldPoint = Student::where('id', $request->student_id)->first();
-        $newPoint = $oldPoint->point == null ? 0 + (int)$request->point : $oldPoint->point + (int)$request->point;
-        $newFixPoint = $oldPoint->fixed_point == null ? 0 + (int)$request->point : $oldPoint->fixed_point + (int)$request->point;
+        $newPoint = $oldPoint->point + (int)$request->point;
+        $newFixPoint = $oldPoint->fixed_point + (int)$request->point;
 
-        return [$newPoint, $newFixPoint];
+        if ($oldPoint->level >= 1 && $oldPoint->level <= 50) {
+            $board = 'silver';
+        }
+        if ($oldPoint->level >= 51 && $oldPoint->level <= 100) {
+            $board = 'platinum';
+        }
+        if ($oldPoint->level >= 101 && $oldPoint->level <= 200) {
+            $board = 'gold';
+        }
+        if ($oldPoint->level >= 201 && $oldPoint->level <= 300) {
+            $board = 'diamond';
+        }
+        return [$newPoint, $newFixPoint, $board];
     }
 }

@@ -1,21 +1,29 @@
 @extends('Emails.mail-tp')
 
-@section('title', 'SmS OTP')
+@section('title', 'OTP')
 
 @section('mailContent')
 
-    <div class="col-12" style="text-center">
+    <div class="text-start" style="">
 
-        <h1>Star Fish</h1>
-        <div class="img-wrap" style="margin: 20px; padding:20px">
+        <div style="width:150px" class="">
             <img src="https://t4.ftcdn.net/jpg/03/12/62/41/360_F_312624115_GBdbzBnBVaRdUt2Ky2EBoKv0OLueYc1f.jpg"
-                style="width: 30%; height:30%; object-fit:cover">
+                class=" img-thumbnail border-0">
         </div>
-        <h4>Your Register OTP code for StarFish is.</h4>
-        <code style="font-weight: bolder; font-size:30px">
-            - {{ $otp }}
+        <hr>
+        <p class="font">Hi User,</p>
+        <p class=" mb-4 font">Your Register OTP code is :</p>
+        <code style=" letter-spacing: 2px" class=" fw-bold fs-5 border border-warning  rounded-3 bg-light p-2 px-4">
+            {{-- {{ $otp }} --}}
+            66666
         </code>
-
+        <p class="mt-3 font">Enter this verification code to continue your account. This code will expire in 3
+            minutes.</p>
+        <hr>
+        <div class=" text-center mt-5">
+            <small class=" font">from</small>
+            <p class="font fs-6" style=" color:rgb(255, 196, 0)">StarFish</p>
+        </div>
     </div>
 
 @endsection
