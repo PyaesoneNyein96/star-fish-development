@@ -13,14 +13,26 @@ class RoundSeeder extends Seeder
      */
     public function run(): void
     {
+        $g1_l1_u4 = 10;
 
+       for ($i=1; $i <= $g1_l1_u4 ; $i++) {
             DB::table('rounds')->insert([
-                ['round' => 1,'game_id' => 2],
-                ['round' => 2,'game_id' => 2],
-                ['round' => 3,'game_id' => 2],
-                ['round' => 4,'game_id' => 2],
-                ['round' => 5,'game_id' => 2],
+                ['round' => $i,'game_id' => 4],
             ]);
+       }
+    //  G1_L1_U4
+
+
+    $g1_l1_u5 = 3;
+
+    for ($i= 1; $i <= $g1_l1_u5 ; $i++) {
+
+        DB::table('rounds')->insert([
+            ['round' => $i, 'game_id' => 5]
+        ]);
+
+    }
+
 
     }
 }

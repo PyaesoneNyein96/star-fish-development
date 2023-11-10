@@ -21,18 +21,14 @@ class GameController extends Controller
 {
 
 
-    // public function __construct(){
-
-    // }
-
-
 
     public function grades(Request $request){
 
         $token = $request->header('token');
 
-
         $student = Student::where('token', $token)->first();
+
+
         $studentGrades = $student->grades;
 
         $isDone = StudentGrade::where('student_id', $student->id)->where('isDone',1)->get();
@@ -42,7 +38,7 @@ class GameController extends Controller
         $studentGrade = $allGrades->map(function ($grade) use($studentGrades, $isDone){
             return [
                 'id' => $grade->id,
-                'grade' => $grade->name,
+                'name' => $grade->name,
                 'paid' => $studentGrades->contains('id',$grade->id),
                 'status' => $isDone->contains('id',$grade->id)
             ];
@@ -63,6 +59,8 @@ class GameController extends Controller
 
         $allLessons = Lesson::where('grade_id', $grade)->get();
 
+        // return $allLessons;
+
         $studentGrade = $student->grades;
 
         $studentLessons = $student->lessons; // ဆော့ပီးတဲ့ lessons
@@ -71,7 +69,7 @@ class GameController extends Controller
             return [
                 'id' => $lesson->id,
                 'grade_id' =>$grade,
-                'lesson' => $lesson->name,
+                'name' => $lesson->name,
                 'status' => $studentLessons->contains('id',$lesson->id),
             ];
         });
@@ -87,7 +85,6 @@ class GameController extends Controller
         $lesson = $request->header('lesson');
         $gradeId = Lesson::where('id', $lesson)->pluck('grade_id')->first();
 
-        // return $grade;
 
         $allGame = Game::where('lesson_id',$lesson)->get();
         $studentGames = $student->games;
@@ -96,9 +93,10 @@ class GameController extends Controller
                 return [
                     'id' => $game->id,
                     'lesson_id' => $game->lesson_id,
-                    'game' => $game->name,
-                    'gradeId' => $gradeId,
-                    'status' => $studentGames->contains('id', $game->id)
+                    'name' => $game->name,
+                    'grade_id' => $gradeId,
+                    'status' => $studentGames->contains('id', $game->id),
+                    'category' => $game->category
                 ];
         });
 
@@ -125,14 +123,23 @@ class GameController extends Controller
 
             $game = Game::with('category')->where('id', $gameId)->first();
 
-            $game['rounds'] =  $rounds;
+            foreach ($rounds as $r) {
+                if($r['backgrounds']){
+                    $r['background'] = $r['backgrounds']->image;
+                    unset($r['backgrounds']);
+                }
+            }
+
+
+
+            $game['rounds'] = $rounds;
 
             $newData = [
                 "id" => $game["id"],
                 "name" => $game["name"],
-                "lesson_id" => $game["lesson_id"],
-                "category" => $game["category"],
                 "rounds" => $game["rounds"],
+                // "lesson_id" => $game["lesson_id"],
+                // "category" => $game["category"],
             ];
 
             return $newData;

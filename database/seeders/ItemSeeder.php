@@ -13,16 +13,17 @@ class ItemSeeder extends Seeder
      */
     public function run(): void
     {
-        $domain = "http://localhost:8000";
-        $Imagedomain = $domain."/storage/images/AtoZ/";
-        $Audiodomain = $domain."/storage/audios/AtoZ/";
+
+        $domain = app('domain');
+        $ImageDomain = $domain."/storage/images/AtoZ/";
+        $AudioDomain = $domain."/storage/audios/AtoZ/";
 
         $prefix = "SubBlock_";
         $AZ = range("A","Z");
 
         foreach ($AZ as $key) {
             DB::table('items')->insert([
-                    ['item' => $key ,'image' => $Imagedomain.$key.".png", 'audio' => $Audiodomain.$prefix.$key.".mp3", 'game_id' => 2],
+                    ['item' => $key ,'image' => $ImageDomain.$key.".png", 'audio' => $AudioDomain.$prefix.$key.".mp3", 'game_id' => 2],
             ]);
         }
 

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('item');
             $table->string('audio')->nullable();
             $table->string('image')->nullable();
-            // $table->string('video')->nullable();
             $table->foreignId('game_id')->nullable()->constrained();
             $table->timestamps();
         });

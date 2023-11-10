@@ -15,7 +15,6 @@ class QuestionContent extends Model
         'name',
         'round_id',
         'image',
-        // 'video',
         'audio',
         'content',
     ];

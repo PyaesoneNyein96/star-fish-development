@@ -11,7 +11,8 @@ class AudioSeeder extends Seeder
 
     public function run(): void
     {
-        $domainAndPath = "http://localhost:8000/storage/AtoZ/";
+        $domain = app('domain');
+        $domainAndPath = $domain."/storage/AtoZ/";
         $prefix = "SubBlock_";
         $words  = range('A','Z');
 
@@ -23,7 +24,7 @@ class AudioSeeder extends Seeder
             ]);
         }
 
-    //  A TO Z
+    // end- A TO Z
 
 
 

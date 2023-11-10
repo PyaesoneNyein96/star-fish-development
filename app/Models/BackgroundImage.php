@@ -11,8 +11,10 @@ class BackgroundImage extends Model
 
     protected $hidden = ['pivot','created_at', 'updated_at','title','id'];
 
-    public function toArray(){
 
+
+
+    public function toArray(){
 
         $data = parent::toArray();
 
@@ -22,4 +24,6 @@ class BackgroundImage extends Model
 
         return $filteredData;
     }
+
+
 }

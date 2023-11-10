@@ -16,8 +16,8 @@ return new class extends Migration
             $table->integer('round_id');
             $table->text('image')->nullable();
             $table->text('audio')->nullable();
-            // $table->text('video')->nullable();
-            $table->text('other')->nullable();
+            $table->text('content')->nullable();
+            // $table->string('unique_id')->nullable();
             $table->timestamps();
         });
     }

@@ -11,15 +11,51 @@ class ConversationSeeder extends Seeder
 
     public function run(): void
     {
-
-
-        $domain = "http://localhost:8000";
+        $domain = app('domain');
+        // $domain = "http://localhost:8000";
         $ImageDomain = $domain."/storage/images/";
+        $AudioDomain = $domain."/storage/audios/";
 
-        DB::table('conversations')->insert([
+        $G1_L1_U4_path = "Grade_1/"."lesson_1/"."listen_practice/";
 
-                ['round_id' => 1,'content' => $ImageDomain."Grade_1/"."lesson_1/"."listen_practice"."/round_1/"."What_s_ur_name".".png",],
+        $rounds = [ // images
 
-        ]);
+            "What's ur name",
+            "My Name's Mary",
+            "How are you",
+            "I'm Fine",
+            "it's a bag",
+            "My Name's Yuki",
+            "I'm from Japan",
+            "Apples are red",
+            "My name's Tom",
+            "I'm Susan.",
+
+        ];
+
+        $audios = [
+            "What's_your_name", "My_name's_Mary", "How_are_you", "I'm_fine", "Its_a_bag", "My-names-Yuki", "Im-from-Japan", "Apples-are-red", "My-names-Tom", "Im-Susan"
+        ];
+
+
+        for ($r=1; $r <= count($rounds) ; $r++) {
+            DB::table('conversations')->insert([
+                ['content' =>$rounds[$r -1] , 'audio' => $AudioDomain.$G1_L1_U4_path.$audios[$r -1].".mp3", 'round_id' => $r],
+            ]);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        }
     }
-}
+
+

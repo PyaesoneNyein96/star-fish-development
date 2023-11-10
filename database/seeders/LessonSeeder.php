@@ -19,8 +19,6 @@ class LessonSeeder extends Seeder
         $lessons =  range(1,40);
 
 
-        // foreach ($grades as $g ) {
-
             foreach ($lessons as $l)  {
 
                 DB::table('lessons')->insert([
@@ -29,7 +27,7 @@ class LessonSeeder extends Seeder
 
             }
 
-        // }
+
 
 
 

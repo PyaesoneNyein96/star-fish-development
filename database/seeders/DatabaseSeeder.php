@@ -13,11 +13,15 @@ use Database\Seeders\AudioSeeder;
 use Database\Seeders\GradeSeeder;
 use Database\Seeders\ImageSeeder;
 use Database\Seeders\RoundSeeder;
+use Database\Seeders\AnswerSeeder;
 use Database\Seeders\LessonSeeder;
 use Database\Seeders\RewardSeeder;
 use Database\Seeders\CountrySeeder;
 use Database\Seeders\CategorySeeder;
+use Database\Seeders\QuestionSeeder;
 use Illuminate\Support\Facades\Hash;
+use Database\Seeders\BackgroundSeeder;
+use Database\Seeders\ConversationSeeder;
 use Database\Seeders\StudentGradeSeeder;
 use Database\Seeders\SubscriptionPlanSeeder;
 
@@ -60,6 +64,10 @@ class DatabaseSeeder extends Seeder
         $this->call(StudentGradeSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(ItemSeeder::class);
+        $this->call(QuestionSeeder::class);
+        $this->call(AnswerSeeder::class);
+        $this->call(BackgroundSeeder::class);
+        $this->call(ConversationSeeder::class);
 
 
         // $this->call(RewardSeeder::class);

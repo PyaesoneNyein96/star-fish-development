@@ -62,17 +62,15 @@ class Round extends Model
 
 
 
-    //    public function toArray()
-    // {
-    //     $data = parent::toArray();
+       public function toArray(){
 
-    //     // Filter out properties with null or empty arrays.
-    //     $filteredData = array_filter($data, function ($value) {
-    //         return !is_null($value) && (!is_array($value) || !empty($value));
-    //     });
+        $data = parent::toArray();
+        $filteredData = array_filter($data, function ($value) {
+            return !is_null($value) && (!is_array($value) || !empty($value));
+        });
 
-    //     return $filteredData;
-    // }
+        return $filteredData;
+    }
 
 
 

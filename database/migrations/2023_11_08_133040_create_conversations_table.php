@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('conversations', function (Blueprint $table) {
             $table->id();
-            $table->string('content');
+            $table->string('content')->nullable();
+            $table->string('image')->nullable();
+            $table->string('audio')->nullable();
             $table->string('round_id')->nullable();
             $table->string('game_id')->nullable();
             $table->timestamps();

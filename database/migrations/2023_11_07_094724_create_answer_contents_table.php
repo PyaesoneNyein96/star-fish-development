@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('round_id');
             $table->text('answer')->nullable();
             $table->text('correct_answer')->nullable();
+            // $table->string('unique_id')->nullable();
             $table->timestamps();
         });
     }

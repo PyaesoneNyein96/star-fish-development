@@ -1,5 +1,6 @@
 <?php
 
+use App\Providers\GlobalVar;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 use App\Providers\CustomValidationServiceProvider;
@@ -170,7 +171,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        CustomValidationServiceProvider::class
+
+        CustomValidationServiceProvider::class,
+        GlobalVar::class
+
     ])->toArray(),
 
     /*

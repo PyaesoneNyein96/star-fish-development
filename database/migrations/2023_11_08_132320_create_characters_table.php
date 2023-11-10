@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('characters', function (Blueprint $table) {
             $table->id();
-            $table->string('path');
+            $table->string('image');
             $table->string('round_id')->nullable();
             $table->string('game_id')->nullable();
             $table->timestamps();
