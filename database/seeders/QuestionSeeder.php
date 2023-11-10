@@ -25,11 +25,11 @@ class QuestionSeeder extends Seeder
         $rounds = [
 
             ['D','e','f','G','j','k','w'],
-            ['E','H','K','L','M','Small_M','T'],
+            ['E','H','K','L','M','m','T'],
             ['A','H','M','O','R','W','Y'],
             ['A','H','M','O','R','W','Y'],
             ['e','f','g','I','T','W','y'],
-            ['A','e','M','N','r','Small_M','y'],
+            ['A','e','M','N','r','m','y'],
             ['c','F','g','I','J','u','y'],
             ['A','D','E','f','G','k','W'],
             ['B','e','F','I','S','y','Z'],
