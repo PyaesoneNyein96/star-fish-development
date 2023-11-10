@@ -14,6 +14,8 @@ class AnswerSeeder extends Seeder
     public function run(): void
     {
 
+        //  g1 l1 g4
+
         $answers1 = ['W','M','H','I','I','M','I','A','M','I'];
 
         for ($i=1; $i <= count($answers1) ; $i++) {
@@ -21,15 +23,18 @@ class AnswerSeeder extends Seeder
                 ['round_id' => $i ,'answer' => null , 'correct_answer' => $answers1[$i -1]],
             ]);
         }
-        //  g1 l1 g4
 
-        $answers2 = range("A","Z");
+        //  g1 l1 g5
+        // $answers2 = range("A","Z");
+        $answers2 = [11,12,13];
 
-        // for ($i=1; $i <= count($answers2); $i++) {
-        //     DB::table('answer_contents')->insert([
-        //         ''
-        //     ]);
-        // }
+        foreach ($answers2 as $ans) {
+            DB::table('answer_contents')->insert([
+                ['round_id' => $ans, 'answer' => null,
+                'correct_answer' => "ABCDEFGHIJKLMNOPQRSTUVWXYZ"],
+            ]);
+        }
+
 
 
     }

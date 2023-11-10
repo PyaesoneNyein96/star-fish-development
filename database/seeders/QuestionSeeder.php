@@ -45,12 +45,18 @@ class QuestionSeeder extends Seeder
             }
         }
 
-        $AZ = range("A","Z");
+        $g1_l1_u5 = [11,12,13];
 
-        for ($i=1; $i <= count($AZ) ; $i++) {
+        $ans2 = [
+            "A_CD_FGHIJKLMN_PQ_ST_VWXY_",
+            "AB_DEFG_IJ_LMM_0_QRSTUVWX_Z",
+            "ABC_EF_HIJK_MNOP_RS_UV_XYZ",
+        ];
+
+        for ($i = 1; $i <= count($g1_l1_u5) ; $i++) {
 
             DB::table('question_contents')->insert([
-                ['round_id' => 11, "content" => $AZ[$i -1] ],
+                ['round_id' => $g1_l1_u5[$i -1], "content" => $ans2[$i -1] ],
             ]);
 
         }
