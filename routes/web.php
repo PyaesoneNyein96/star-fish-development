@@ -80,3 +80,7 @@ Route::get('gameAudio', [WorkshopController::class, 'gameAudio']);
 
 Route::get('/dashboard/index', [DashboardController::class, 'dashboard']);
 Route::get('/dashboard/students', [DashboardController::class, 'students']);
+Route::get('/dashboard/rewards', [DashboardController::class, 'rewards']);
+Route::get('/dashboard/chat', [DashboardController::class, 'chat']);
+
+Route::post('/dashboard/student/edit', [DashboardController::class, 'postEditData']);

@@ -1,10 +1,12 @@
 <script setup>
 import SideBar from './SideBar.vue';
 import Nav from './Nav.vue';
-import Dashboard from './Dashboard.vue';
+import Dashboard from './Dashboard/Index-Dash.vue';
 defineProps({
     students: Object,
+    chat: Object,
     rewards: Object,
+    rewards_name: Object
 })
 </script>
 
@@ -13,7 +15,7 @@ defineProps({
         <SideBar />
         <div class="col">
             <Nav></Nav>
-            <Dashboard :students="students" :rewards="rewards"></Dashboard>
+            <Dashboard :students="students" :chat="chat" :rewards="rewards" :rewards_name="rewards_name"></Dashboard>
         </div>
     </div>
 </template>

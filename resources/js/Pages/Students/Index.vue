@@ -1,6 +1,9 @@
 <script setup>
 import SideBar from '../SideBar.vue';
 import Nav from '../Nav.vue';
+import Details from './Modals/Details.vue';
+import Edit from './Modals/Edit.vue';
+
 defineProps({
     students: Object
 })
@@ -44,8 +47,12 @@ defineProps({
                             <td>{{ s.level }}</td>
                             <td>{{ s.board }}</td>
                             <td class=" text-center">
-                                <button class=" btn btn-outline-success">View</button>
-                                <button class=" btn btn-outline-warning ms-2">Edit</button>
+                                <button class=" btn btn-outline-success" data-bs-toggle="modal"
+                                    :data-bs-target="`#staticBackdrop${s.id}`">View</button>
+                                <Details :student="s"></Details>
+                                <button class=" btn btn-outline-warning ms-2" data-bs-toggle="modal"
+                                    :data-bs-target="`#staticBackdropEdit${s.id}`">Edit</button>
+                                <Edit :student="s"></Edit>
                                 <button class=" btn btn-outline-danger ms-2">Delete</button>
                             </td>
                         </tr>

@@ -8,6 +8,14 @@ const toDashboard = () => {
 const toStudents = () => {
     router.get('/dashboard/students');
 }
+
+const toRewards = () => {
+    router.get('/dashboard/rewards');
+}
+
+const toChat = () => {
+    router.get('/dashboard/chat');
+}
 </script>
 
 <template>
@@ -24,7 +32,10 @@ const toStudents = () => {
                         </li>
                         <li class=" py-1 ps-3 py-2" style="cursor: pointer;" @click="toStudents"><a><i
                                     class="fa-solid fa-children pe-2 "></i>Students</a></li>
-                        <li class=" py-1 ps-3 py-2">Dashboard</li>
+                        <li class=" py-1 ps-3 py-2" style="cursor: pointer;" @click="toRewards"><i
+                                class="fa-solid fa-trophy pe-2"></i>Rewards</li>
+                        <li class=" py-1 ps-3 py-2" style="cursor: pointer;" @click="toChat"><i
+                                class="fa-solid fa-comment pe-2"></i>Chat</li>
                     </ul>
                 </div>
             </div>
