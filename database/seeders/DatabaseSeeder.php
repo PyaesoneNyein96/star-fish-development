@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Hash;
 use Database\Seeders\BackgroundSeeder;
 use Database\Seeders\ConversationSeeder;
 use Database\Seeders\StudentGradeSeeder;
+use Database\Seeders\GameInstructionSeeder;
 use Database\Seeders\SubscriptionPlanSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -59,15 +60,16 @@ class DatabaseSeeder extends Seeder
 
         $this->call(GradeSeeder::class);
         $this->call(LessonSeeder::class);
+        $this->call(CategorySeeder::class);
         $this->call(GameSeeder::class);
         $this->call(RoundSeeder::class);
         $this->call(StudentGradeSeeder::class);
-        $this->call(CategorySeeder::class);
         $this->call(ItemSeeder::class);
         $this->call(QuestionSeeder::class);
         $this->call(AnswerSeeder::class);
         $this->call(BackgroundSeeder::class);
         $this->call(ConversationSeeder::class);
+        $this->call(GameInstructionSeeder::class);
 
 
         // $this->call(RewardSeeder::class);

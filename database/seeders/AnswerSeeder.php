@@ -15,8 +15,7 @@ class AnswerSeeder extends Seeder
     {
 
         //  g1 l1 g4
-
-        $answers1 = ['W','M','H','I','I','M','I','A','M','I'];
+        $answers1 = ['W','M M','H','I','I','M Y','I J','A','I S ','M T'];
 
         for ($i=1; $i <= count($answers1) ; $i++) {
             DB::table('answer_contents')->insert([

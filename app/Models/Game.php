@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Image;
+use App\Models\GameInstruction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -47,9 +48,6 @@ class Game extends Model
         return $this->hasMany(Image::class);
     }
 
-    // public function videos(){
-    //     return $this->hasMany(Video::class);
-    // }
 
     public function conversations(){
          return $this->hasMany(Conversation::class);
@@ -61,6 +59,10 @@ class Game extends Model
 
     public function background(){
         return $this->hasMany(BackgroundImage::class);
+    }
+
+    public function instructions (){
+        return $this->hasMany(GameInstruction::class);
     }
 
 
