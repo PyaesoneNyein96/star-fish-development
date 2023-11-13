@@ -16,8 +16,8 @@ class GameInstructionSeeder extends Seeder
 
 
         $domain = app('domain');
-        $Path1 = "storage/audios/Grade_1/Lesson_1/listen_practice/instructions/";
-        $Path2 = "storage/audios/Grade_1/Lesson_1/Writing_Arranging_Order/instructions/";
+        $Path1 = "/storage/audios/Grade_1/Lesson_1/listen_practice/instructions/";
+        $Path2 = "/storage/audios/Grade_1/Lesson_1/Writing_Arranging_Order/instructions/";
 
         DB::table('game_instructions')->insert([
             // G-1 lesson_1 U-4
