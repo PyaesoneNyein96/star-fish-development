@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Game;
 use App\Models\Lesson;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
@@ -53,10 +54,7 @@ class Student extends Model
         return $this->belongsTo(Country::class);
     }
 
-    public function games()
-    {
-        return $this->belongsToMany(Game::class, 'student_games', 'student_id', 'game_id');
-    }
+    // Game Relationships
 
     public function grades()
     {
@@ -67,4 +65,21 @@ class Student extends Model
     {
         return $this->belongsToMany(Lesson::class, 'student_lessons', 'student_id', 'lesson_id');
     }
+
+    // Game Relationships
+
+    public function grades(){
+        return $this->belongsToMany(Grade::class,'student_grades','student_id','grade_id');
+    }
+
+    public function lessons(){
+        return $this->belongsToMany(Lesson::class,'student_lessons','student_id','lesson_id');
+    }
+
+    public function games(){
+        return $this->belongsToMany(Game::class,'student_games','student_id','game_id');
+    }
+
+
+
 }

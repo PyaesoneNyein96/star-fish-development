@@ -43,6 +43,30 @@ Field (username , password, deviceId)
 Method (POST) [ https://star-fish.myanmargateway.net/api/auth/logout]( https://star-fish.myanmargateway.net/api/auth/logout)  
 Field (deviceId),
 
+Method (GET) [ https://star-fish.myanmargateway.net/api/auth/userData]( https://star-fish.myanmargateway.net/api/auth/userData)  
+Field (token),
+
+# Game
+
+#### Grades
+Method (GET) [ http://localhost:8000/api/grades ](http://localhost:8000/api/grades)  
+Field (token (Header))
+
+#### Lessons
+Method (GET) [ http://localhost:8000/api/lessons ](http://localhost:8000/api/lessons)  
+Field (token ,grade, (Header))
+
+### Games
+Method (GET) [ http://localhost:8000/api/games ](http://localhost:8000/api/games)  
+Field (token ,lesson, (Header))
+
+### Spec-game
+Method (GET) [ http://localhost:8000/api/game ](http://localhost:8000/api/game)  
+Field (token ,game, (Header))
+
+### ======================================================================
+
+
 ## Point
 ### Point (Method: GET) [https://star-fish.myanmargateway.net/api/points/{student_id}](https://star-fish.myanmargateway.net/api/points).
 

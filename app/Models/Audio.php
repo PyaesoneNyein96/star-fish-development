@@ -8,5 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Audio extends Model
 {
     use HasFactory;
-    // my model
+
+    protected $hidden = ['pivot','created_at', 'updated_at'];
+
+    protected $fillable = [
+        'title',
+        'round_id',
+        'game_id',
+        'path',
+    ];
+
+    public function round(){
+        return $this->belongsTo(Round::class);
+    }
+
+    public function game(){
+        return $this->belongsTo(Game::class);
+    }
+
 }

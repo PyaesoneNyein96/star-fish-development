@@ -8,12 +8,11 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class AudioSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+
     public function run(): void
     {
-        $domainAndPath = "http://localhost:8000/storage/AtoZ/";
+        $domain = app('domain');
+        $domainAndPath = $domain."/storage/AtoZ/";
         $prefix = "SubBlock_";
         $words  = range('A','Z');
 
@@ -21,10 +20,11 @@ class AudioSeeder extends Seeder
         foreach ($words as $w) {
 
             DB::table('audio')->insert([
-                ['title' => $prefix.$w ,'path' => $domainAndPath.$prefix.$w.".mp3"],
+                ['title' => $prefix.$w ,'path' => $domainAndPath.$prefix.$w.".mp3", 'game_id' => null, 'round_id' => 1],
             ]);
-
         }
+
+    // end- A TO Z
 
 
 

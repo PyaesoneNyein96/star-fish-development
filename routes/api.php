@@ -69,5 +69,7 @@ Route::prefix('chat')->group(function () {
     Route::post('/', [ChatController::class, 'sendChat'])->middleware('delaySendMessage');
 });
 
-Route::get('lessons', [WorkshopController::class, 'lessons']);
-Route::get('test', [LessonController::class, 'lessonTest']);
+Route::get('grades', [GameController::class, 'grades']);
+Route::get('lessons', [GameController::class, 'lessons']);
+Route::get('games', [GameController::class, 'games']);
+Route::get('game', [GameController::class, 'specificGame']);
