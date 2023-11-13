@@ -7,6 +7,7 @@ use App\Models\Chat;
 use App\Models\Reward;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -21,6 +22,7 @@ class DashboardController extends Controller
         $rewards = Reward::get();
 
         return inertia('Main', [
+            'user' => Auth::user(),
             'students' => $students,
             'chat' => $chat,
             'rewards' => $rewards,
