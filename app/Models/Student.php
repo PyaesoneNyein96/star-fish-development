@@ -68,17 +68,6 @@ class Student extends Model
 
     // Game Relationships
 
-    public function grades(){
-        return $this->belongsToMany(Grade::class,'student_grades','student_id','grade_id');
-    }
-
-    public function lessons(){
-        return $this->belongsToMany(Lesson::class,'student_lessons','student_id','lesson_id');
-    }
-
-    public function games(){
-        return $this->belongsToMany(Game::class,'student_games','student_id','game_id');
-    }
 
 
 
