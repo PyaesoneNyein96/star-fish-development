@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Cache;
 class GameController extends Controller
 {
 
-    public function grade(Request $request){
+    public function grade(Request $request)
+    {
 
         $token = $request->header('token');
 
@@ -41,17 +42,15 @@ class GameController extends Controller
 
 
         $grades = Student::with('grades')->where('token', $token)
-        // ->select('students.name','age')
-        ->get();
+            // ->select('students.name','age')
+            ->get();
 
         return $grades;
-
-
-
     }
 
 
-    public function lesson(Request $request){
+    public function lesson(Request $request)
+    {
 
         $token = $request->header('token');
         $grade = $request->header('grade');
@@ -62,9 +61,9 @@ class GameController extends Controller
 
 
         $studentLessons = Student::where('token', $token)
-        ->with(['lessons' => function ($q) use($grade) {
-            $q->where('grade_id',$grade)->select('name','grade_id','lessons.id');
-        }])->select('id','name','token')->get();
+            ->with(['lessons' => function ($q) use ($grade) {
+                $q->where('grade_id', $grade)->select('name', 'grade_id', 'lessons.id');
+            }])->select('id', 'name', 'token')->get();
 
 
         // $studentLessons = Lesson::with(['students' => function ($q) use($token) {
@@ -82,13 +81,52 @@ class GameController extends Controller
     }
 
 
-    public function game(Request $request){
+    public function game(Request $request)
+    {
         $games = Grade::with('games')->where('')->get();
 
-        return response()->json([
-
-        ], 200);
+        return response()->json([], 200);
     }
 
 
+
+    // =========
+    // add point
+    // =========
+
+    private function addPointFunction($student_id, $point)
+    {
+        $oldPoint = Student::where('id', $student_id)->first();
+        $newPoint = $oldPoint->point + (int)$point;
+        $newFixPoint = $oldPoint->fixed_point + (int)$point;
+
+        if ($oldPoint->level >= 1 && $oldPoint->level <= 50) {
+            $board = 'silver';
+        }
+        if ($oldPoint->level >= 51 && $oldPoint->level <= 100) {
+            $board = 'platinum';
+        }
+        if ($oldPoint->level >= 101 && $oldPoint->level <= 200) {
+            $board = 'gold';
+        }
+        if ($oldPoint->level >= 201 && $oldPoint->level <= 300) {
+            $board = 'diamond';
+        }
+
+        if ($newFixPoint >= 0 && $newFixPoint <= 3000) {
+            $level = ceil($newFixPoint / 10);
+            Student::where('id', $student_id)->update([
+                'point' => $newPoint,
+                'fixed_point' => $newFixPoint,
+                'level' => $level,
+                'board' => $board
+            ]);
+        } else {
+            Student::where('id', $student_id)->update([
+                'point' => $newPoint,
+                'fixed_point' => $newFixPoint,
+                'board' => $board
+            ]);
+        }
+    }
 }
