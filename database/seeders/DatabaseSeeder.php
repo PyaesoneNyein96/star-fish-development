@@ -72,6 +72,6 @@ class DatabaseSeeder extends Seeder
         $this->call(GameInstructionSeeder::class);
 
 
-        // $this->call(RewardSeeder::class);
+        $this->call(RewardSeeder::class);
     }
 }

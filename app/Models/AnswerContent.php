@@ -19,7 +19,7 @@ class AnswerContent extends Model
         });
 
         return $filteredData;
-    }
+        }
 
 
 }

@@ -36,7 +36,7 @@ Route::prefix('auth')->group(function () {
     Route::post('nameCheck', [AuthController::class, 'nameCheck']);
     Route::post('login', [AuthController::class, 'login']);
     Route::post('logout', [AuthController::class, 'logout']);
-    Route::get('userData', [AuthController::class, 'userData']);
+    Route::post('userData', [AuthController::class, 'userData']);
 
     Route::prefix('local')->group(function () {
 
@@ -73,3 +73,6 @@ Route::get('grades', [GameController::class, 'grades']);
 Route::get('lessons', [GameController::class, 'lessons']);
 Route::get('games', [GameController::class, 'games']);
 Route::get('game', [GameController::class, 'specificGame']);
+
+Route::get('match_end', [GameController::class,'match_end']);
+Route::get('lessonPush', [GameController::class,'lessonPush']);

@@ -12,7 +12,8 @@ class Student extends Model
 {
     use HasApiTokens, HasFactory;
 
-    protected $hidden = ['pivot'];
+    // protected $hidden = ['pivot'];
+     protected $hidden = ['pivot','created_at','updated_at'];
 
     protected $fillable = [
         'id',
@@ -66,8 +67,21 @@ class Student extends Model
         return $this->belongsToMany(Lesson::class, 'student_lessons', 'student_id', 'lesson_id');
     }
 
-    // Game Relationships
+    public function games(){
+        return $this->belongsToMany(Game::class,'student_games','student_id','game_id');
+    }
 
+//============================
+    public function toArray(){
+
+        $data = parent::toArray();
+
+        $filteredData = array_filter($data, function ($value) {
+            return !is_null($value) && (!is_array($value) || !empty($value));
+        });
+
+        return $filteredData;
+    }
 
 
 

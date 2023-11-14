@@ -16,4 +16,17 @@ class Category extends Model
         'type',
     ];
 
+
+
+    public function toArray(){
+
+        $data = parent::toArray();
+
+        $filteredData = array_filter($data, function ($value) {
+            return !is_null($value) && (!is_array($value) || !empty($value));
+        });
+
+        return $filteredData;
+    }
+
 }
