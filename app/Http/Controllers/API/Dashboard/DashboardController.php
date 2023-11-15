@@ -21,7 +21,7 @@ class DashboardController extends Controller
         $rewards_name = Reward::select('name')->distinct()->take(4)->get();
         $rewards = Reward::get();
 
-        return inertia('Main', [
+        return inertia('Dashboard/Main', [
             'user' => Auth::user(),
             'students' => $students,
             'chat' => $chat,
@@ -32,14 +32,25 @@ class DashboardController extends Controller
 
 
     // ===========
+    // Profile
+    // ===========
+    public function profile()
+    {
+        return inertia('Profile/Index', [
+            'user' => Auth::user()
+        ]);
+    }
+
+    // ===========
     // Students
     // ===========
 
     public function students()
     {
-        $students = Student::orderBy('created_at', 'desc')->paginate();
+        $students = Student::get();
 
         return inertia('Students/Index', [
+            'user' => Auth::user(),
             'students' => $students,
         ]);
     }
@@ -55,6 +66,7 @@ class DashboardController extends Controller
         $rewards_name = Reward::select('name')->distinct()->get();
 
         return inertia('Rewards/Index', [
+            'user' => Auth::user(),
             'rewards_name' => $rewards_name,
             'rewards' => $rewards,
         ]);
