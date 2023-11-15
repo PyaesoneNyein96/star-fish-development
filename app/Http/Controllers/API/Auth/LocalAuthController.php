@@ -115,7 +115,6 @@ class LocalAuthController extends Controller
 
         return response()->json([
             'message'=> 'otp request success',
-            'OTP'=>  $OTP,
         ], 200);
 
     }

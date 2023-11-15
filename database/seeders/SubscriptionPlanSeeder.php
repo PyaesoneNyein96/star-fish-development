@@ -14,7 +14,7 @@ class SubscriptionPlanSeeder extends Seeder
     public function run(): void
     {
 
-        DB::table('subscription_plans')->insert([
+        DB::table('subscriptions')->insert([
 
             ['name' => 'Google Pay', 'price' => 35, 'expiry' => "90"],
             ['name' => 'K-pay' , 'price' => 40000 ,'expiry' => "90"],

@@ -36,14 +36,18 @@ return new class extends Migration
             $table->string('password');
             $table->string('isSubscriber')->default(0);
 
-            $table->foreignId('subscription_plans_id')->nullable()->constrained();
+            $table->foreignId('subscription_id')->nullable()
+            ->constrained()->onUpdate('cascade');
 
 
-            $table->foreignId('country_id')->nullable()->constrained();
+            $table->foreignId('country_id')->nullable()
+            ->constrained()->onDelete('cascade')->onUpdate('cascade');
 
 
-            $table->foreignId('city_id')->nullable();
-            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
+            $table->foreignId('city_id')->nullable()->constrained()
+            ->onDelete('cascade')->onUpdate('cascade');
+
+
 
             $table->timestamps();
         });
@@ -55,5 +59,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('students');
+
+
     }
 };

@@ -1,3 +1,6 @@
+
+
+
 ### Countries  
 Method (GET) [https://star-fish.myanmargateway.net/api/countries]( https://star-fish.myanmargateway.net/api/countries) 
 
@@ -38,33 +41,39 @@ Field (email, token, otp)
 ## BOTH
 
 Method (POST) [https://star-fish.myanmargateway.net/api/auth/login]( https://star-fish.myanmargateway.net/api/auth/login)  
-Field (username , password, deviceId)
+Field (emailOrPhone , password, deviceId)
 
 Method (POST) [ https://star-fish.myanmargateway.net/api/auth/logout]( https://star-fish.myanmargateway.net/api/auth/logout)  
 Field (deviceId),
 
-Method (POST) [ https://star-fish.myanmargateway.net/api/auth/userData]( https://star-fish.myanmargateway.net/api/auth/userData)  
-Field (token),
+Method (GET) [ https://star-fish.myanmargateway.net/api/auth/userData]( https://star-fish.myanmargateway.net/api/auth/userData)  
+Field (token (Header)),
 
 # Game
 
 #### Grades
-Method (GET) [ http://localhost:8000/api/grades ](http://localhost:8000/api/grades)  
+Method (GET) [ https://star-fish.myanmargateway.net/api/grades ](https://star-fish.myanmargateway.net/api/grades)  
 Field (token (Header))
 
 #### Lessons
-Method (GET) [ http://localhost:8000/api/lessons ](http://localhost:8000/api/lessons)  
-Field (token ,grade, (Header))
+Method (GET) [ https://star-fish.myanmargateway.net/api/lessons ](https://star-fish.myanmargateway.net/api/lessons)  
+Field (token ,grade_id, (Header))
 
-### Games
-Method (GET) [ http://localhost:8000/api/games ](http://localhost:8000/api/games)  
-Field (token ,lesson, (Header))
+#### Games
+Method (GET) [ hhttps://star-fish.myanmargateway.net/api/games ](https://star-fish.myanmargateway.net/api/games)  
+Field (token ,lesson_id, (Header))
 
-### Spec-game
-Method (GET) [ http://localhost:8000/api/game ](http://localhost:8000/api/game)  
-Field (token ,game, (Header))
+#### Spec-game
+Method (GET) [ https://star-fish.myanmargateway.net/api/game ](https://star-fish.myanmargateway.net/api/game)  
+Field (token ,game_id, (Header))
 
-### ======================================================================
+#### End-Match
+Method (GET) [https://star-fish.myanmargateway.net/api/end_match](https://star-fish.myanmargateway.net/api/end_match)  
+Field (token, game_id, lesson_id, point (Header))
+
+### ==============================================================
+
+
 
 
 ## Point

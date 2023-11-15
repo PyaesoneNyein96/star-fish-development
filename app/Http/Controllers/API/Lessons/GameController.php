@@ -56,7 +56,7 @@ class GameController extends Controller
     public function lessons(Request $request){
 
         $token = $request->header('token');
-        $grade = $request->header('grade');
+        $grade = $request->header('grade_id');
 
 
         $student = Student::where('token', $token)->first();
@@ -84,7 +84,7 @@ class GameController extends Controller
     public function games(Request $request){
 
         $student = Student::where('token', $request->header('token'))->first();
-        $lesson = $request->header('lesson');
+        $lesson = $request->header('lesson_id');
         $gradeId = Lesson::where('id', $lesson)->pluck('grade_id')->first();
 
 
@@ -112,7 +112,7 @@ class GameController extends Controller
     public function specificGame(Request $request){
 
         $student = Student::where('token', $request->header('token'))->first();
-        $gameId = $request->header('game');
+        $gameId = $request->header('game_id');
 
         $game = Game::with('images','category','audios','items','rounds','conversations','characters','background')->where('id', $gameId)->first();
 
@@ -153,7 +153,7 @@ class GameController extends Controller
     }
 
 
-    public function match_end(Request $request){
+    public function end_match(Request $request){
 
         $token = $request->header('token');
         $gameId = $request->header('game_id');
@@ -193,7 +193,7 @@ class GameController extends Controller
             }
 
             //ထူးထူး
-            $this->addPointFunction($student,$request->point);
+            $this->addPointFunction($student,$request->header('point'));
 
             DB::commit();
 
@@ -223,7 +223,7 @@ class GameController extends Controller
 
     }
 
-    public function lessonPush($student, $lesson_id){
+    private function lessonPush($student, $lesson_id){
 
         $alreadyExist =  StudentLesson::where('student_id', $student->id)
         ->where('lesson_id', $lesson_id)->first();
@@ -268,7 +268,7 @@ class GameController extends Controller
 
         if(!$studentGrade){
           return response()->json([
-            'status' => "You have not bought this grade"
+            'status' => "You have not bought this grade yet."
           ], 403);
         }
 
@@ -291,7 +291,6 @@ class GameController extends Controller
     {
 
         $student_id = $student->id;
-
 
         $oldPoint = Student::where('id', $student_id)->first();
         $newPoint = $oldPoint->point + (int)$point;

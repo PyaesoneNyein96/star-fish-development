@@ -42,6 +42,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CountrySeeder::class);
         $this->call(CitySeeder::class);
+        $this->call(SubscriptionPlanSeeder::class);
 
         Student::factory()->create([
             'name' => 'Test User',
@@ -53,7 +54,9 @@ class DatabaseSeeder extends Seeder
             'agreeToPolicy' => 1,
             'deviceId' => 'testDevice',
             'isAuth' => 1,
-            'token' => "1|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b"
+            'token' => "1|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+            'subscription_id' => 2,
+            'isSubscriber' => 1
         ]);
 
 

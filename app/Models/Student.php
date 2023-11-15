@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Game;
 use App\Models\Lesson;
+use App\Models\SubscriptionPlan;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -55,6 +56,11 @@ class Student extends Model
         return $this->belongsTo(Country::class);
     }
 
+    public function subscription()
+    {
+        return $this->belongsTo(Subscription::class);
+    }
+
     // Game Relationships
 
     public function grades()
@@ -70,6 +76,14 @@ class Student extends Model
     public function games(){
         return $this->belongsToMany(Game::class,'student_games','student_id','game_id');
     }
+
+
+
+
+
+
+
+
 
 //============================
     public function toArray(){
