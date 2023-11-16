@@ -1,13 +1,23 @@
 <script setup>
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
+import { router } from '@inertiajs/vue3';
+
 import Header from '../Dashboard/Header/Index.vue';
 import SideBar from '../Dashboard/SideBar/Index.vue';
+import Items from './Modals/Items.vue';
+import AddItem from './Modals/AddItem.vue';
 
-const data = defineProps({
+defineProps({
     user: Object,
     rewards: Object,
     rewards_name: Object,
 })
+
+const search = ref('');
+
+const handleSearch = () => {
+    router.get(`/dashboard/rewards?search=${search._value}`);
+}
 
 onMounted(() => {
     (function () {
@@ -338,54 +348,29 @@ onMounted(() => {
             </div>
         </div>
         <div class=" m-auto " style="width: 80%;">
-            <table class="table rounded-5 ">
+            <div class="  d-flex justify-content-between  mb-4">
+                <input type="text" class=" border-0 shadow-sm  rounded " placeholder="Search . . ." v-model="search"
+                    @keyup.enter="handleSearch">
+                <button class=" btn btn-outline-secondary shadow-sm " data-bs-toggle="modal" data-bs-target="#addNewItem">+
+                    Add New Item</button>
+            </div>
+            <table class="table border shadow-sm ">
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Names</th>
                     </tr>
                 </thead>
-                <tbody style=" font-size: small;" class="w-100 ">
-                    <tr class="accordion-item" v-for="rn in rewards_name" :key="rn.name">
-                        <div class="accordion-header border-bottom d-flex py-3">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                :data-bs-target="`#${rn.name}`" aria-expanded="false" :aria-controls="`${rn.name}`">
-                                {{ rn.name }}
-                            </button>
-                            <button type="button" class="btn" data-bs-toggle="collapse" :data-bs-target="`#${rn.name}`"
-                                aria-expanded="false" :aria-controls="`${rn.name}`">
-                                <small><i class="fa-solid fa-chevron-down text-muted "></i></small>
-                            </button>
-                            <button class="ms-3 btn" title="Edit"><i
-                                    class="fa-regular fa-pen-to-square  text-success "></i></button>
-                            <button class=" btn" title="Delete"><i class="fa-solid fa-trash text-danger "></i></button>
-
-                        </div>
-
-                        <table :id="`${rn.name}`" class="accordion-collapse collapse table table-hover ">
-                            <thead>
-                                <tr>
-                                    <th>Item</th>
-                                    <th>Points</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="accordion-body " v-for="r in rewards" :key="r.id">
-                                    <td class=" py-1 text-muted" v-if="r.name == rn.name">{{ r.item }}</td>
-                                    <td class=" py-1 text-muted" v-if="r.name == rn.name">{{ r.point }}</td>
-                                    <td v-if="r.name == rn.name" class=" text-end ">
-                                        <button class="btn btn-sm  btn-outline-success me-4 "><i
-                                                class="fa-regular fa-pen-to-square  "></i>
-                                        </button>
-                                        <button class="btn btn-sm  btn-outline-danger "><i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </tr>
+                <tbody style=" font-size: small;" class="w-100 bg-white ">
+                    <div class=" ps-5 m-4">
+                        <button class="btn btn-light  btn-sm  rounded-3 border-0  p-3 m-3 shadow-sm" data-bs-toggle="modal"
+                            v-for="rn in rewards_name" :data-bs-target="`#${rn.name.replace(/\s/g, '')}`">{{ rn.name
+                            }}</button>
+                    </div>
                 </tbody>
             </table>
         </div>
+
     </main>
+    <AddItem></AddItem>
+    <Items :rewards_name="rewards_name" :rewards="rewards"></Items>
 </template>

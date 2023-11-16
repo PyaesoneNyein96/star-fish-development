@@ -329,15 +329,6 @@ onMounted(() => {
 });
 </script>
 
-<!-- <template>
-    <div class=" d-flex ">
-        <SideBar />
-        <div class="col">
-            <Nav :user="user"></Nav>
-            <Dashboard :students="students" :chat="chat" :rewards="rewards" :rewards_name="rewards_name"></Dashboard>
-        </div>
-    </div>
-</template> -->
 <template>
     <Header :user="user"></Header>
     <SideBar></SideBar>

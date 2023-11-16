@@ -19,41 +19,38 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return redirect()->route('dashboard');
 });
 
 Route::middleware([
     'auth:sanctum',
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-    Route::get('/dashboard/profile', [DashboardController::class, 'profile'])->name('profile');
-    Route::get('/dashboard/students', [DashboardController::class, 'students']);
-    Route::get('/dashboard/rewards', [DashboardController::class, 'rewards']);
-    // Route::get('/dashboard/chat', [DashboardController::class, 'chat']);
+    Route::prefix('/dashboard')->group(function () {
+        Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+        Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
+        Route::get('/students', [DashboardController::class, 'students']);
+        Route::get('/rewards', [DashboardController::class, 'rewards'])->name('reward');
+        Route::post('/rewards', [DashboardController::class, 'addReward']);
+        Route::get('/rewards/remove/{name}', [DashboardController::class, 'removeReward']);
+        Route::post('/rewards/rename', [DashboardController::class, 'renameReward']);
+        Route::post('/rewards/per/add', [DashboardController::class, 'addPerReward']);
+        Route::post('/rewards/per/edit', [DashboardController::class, 'editPerReward']);
+        Route::post('/rewards/per/delete', [DashboardController::class, 'deletePerReward']);
 
-    // Route::post('/dashboard/student/edit', [DashboardController::class, 'postEditData']);
+        // Route::get('/chat', [DashboardController::class, 'chat']);
+        // Route::post('/student/edit', [DashboardController::class, 'postEditData']);
+    });
 });
 
-Route::get('/test', function () {
 
+Route::get('/test', function () {
     return view('testing');
 });
 
 Route::get('/mails', function () {
     return view('Emails.mail-tp');
 });
-
-
-
-// Route::get('/', function () {
-//     return view('testing');
-// });
 
 Route::get('/cache', function () {
     Artisan::call('cache:clear');
