@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('image')->nullable();
             $table->text('audio')->nullable();
             $table->text('content')->nullable();
-            // $table->string('unique_id')->nullable();
+            $table->string('unique_id')->nullable();
             $table->timestamps();
         });
     }

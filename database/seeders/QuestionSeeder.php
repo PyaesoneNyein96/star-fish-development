@@ -45,21 +45,16 @@ class QuestionSeeder extends Seeder
             }
         }
 
-        $g1_l1_u5 = [11,12,13];
+        // $g1_l1_u5 = [11,12,13];
 
-        $ans2 = [
-            "A_CD_FGHIJKLMN_PQ_ST_VWXY_",
-            "AB_DEFG_IJ_LMM_0_QRSTUVWX_Z",
-            "ABC_EF_HIJK_MNOP_RS_UV_XYZ",
-        ];
 
-        for ($i = 1; $i <= count($g1_l1_u5) ; $i++) {
+        // for ($i = 1; $i <= count($g1_l1_u5) ; $i++) {
 
-            DB::table('question_contents')->insert([
-                ['round_id' => $g1_l1_u5[$i -1], "content" => $ans2[$i -1] ],
-            ]);
+        //     DB::table('question_contents')->insert([
+        //         ['round_id' => $g1_l1_u5[$i -1], "content" => $ans2[$i -1] ],
+        //     ]);
 
-        }
+        // }
 
 
 

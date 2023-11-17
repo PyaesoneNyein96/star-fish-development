@@ -105,6 +105,9 @@ class GameController extends Controller
         $gradeId = $request->header('grade_id');
         // $gradeId = Lesson::where('id', $lesson)->pluck('grade_id')->first();
 
+
+
+
         DB::beginTransaction();
         try {
 
@@ -113,6 +116,8 @@ class GameController extends Controller
                 Student::where('id', $student->id)->update([
                     'grade_chosen' => $gradeId
                 ]);
+
+                }
 
                 $allGame = Game::where('lesson_id',$lesson)->get();
                 $studentGames = $student->games;
@@ -132,7 +137,8 @@ class GameController extends Controller
 
                 return $games;
 
-            }
+
+
 
         } catch (\Throwable $th) {
             return $th;
@@ -153,42 +159,53 @@ class GameController extends Controller
         if(!$game) return null;
 
         if(count($game->rounds) == 0){
-            return $game;
-        }
+            $name = strval($game->category['name']);
+            return $this->$name($game);
 
-         else if (method_exists($this, $game->category['name'])) {
+            // return $game;
+        }
+        else if (method_exists($this, $game->category['name'])) {
 
             $name = strval($game->category['name']);
             return $this->$name($gameId);
 
         }
-        else {
 
-            $rounds = Round::with
-            ('backgrounds','questions','characters','conversations','answers')
-            ->where('game_id', $gameId)->get();
-
-            $game = Game::with('category','instructions')->where('id', $gameId)->first();
-
-            foreach ($rounds as $r) {
-                if($r['backgrounds']){
-                    $r['background'] = $r['backgrounds']->image;
-                    unset($r['backgrounds']);
-                }
-            }
-
-
-            $game['rounds'] = $rounds;
-
-            return  $game = [
-                "id" => $game["id"],
-                "name" => $game["name"],
-                "lesson_id" => $game["lesson_id"],
-                "instructions" => $game['instructions'],
-                "rounds" => $game["rounds"],
-            ];
-
+        else{
+            return "Function not found like Category !!";
         }
+
+        // else
+        // {
+
+
+
+        //     $rounds = Round::with
+        //     ('backgrounds','questions','characters','conversations','answers')
+        //     ->where('game_id', $gameId)->get();
+
+        //     $game = Game::with('category','instructions')->where('id', $gameId)->first();
+
+        //     foreach ($rounds as $r) {
+        //         if($r['backgrounds']){
+        //             $r['background'] = $r['backgrounds']->image;
+        //             unset($r['backgrounds']);
+        //         }
+        //     }
+
+
+        //     $game['rounds'] = $rounds;
+
+        //     return  $game = [
+        //         "id" => $game["id"],
+        //         "name" => $game["name"],
+        //         "lesson_id" => $game["lesson_id"],
+        //         // "category" => $game["category"]['name'],
+        //         "instructions" => $game['instructions'],
+        //         "rounds" => $game["rounds"],
+        //     ];
+
+        // }
 
     }
 
