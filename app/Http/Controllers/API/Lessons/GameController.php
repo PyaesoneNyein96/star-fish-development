@@ -94,8 +94,9 @@ class GameController extends Controller
     // add point
     // =========
 
-    private function addPointFunction($student_id, $point)
+    private function addPointFunction($student, $point)
     {
+        $student_id = $student->id;
         $oldPoint = Student::where('id', $student_id)->first();
         $newPoint = $oldPoint->point + (int)$point;
         $newFixPoint = $oldPoint->fixed_point + (int)$point;
