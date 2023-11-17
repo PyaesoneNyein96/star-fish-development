@@ -2,52 +2,47 @@
 
 namespace App\Http\Controllers\API\Subscribe;
 
+use App\Models\Grade;
 use App\Models\Country;
 use App\Models\Student;
+use App\Models\StudentGrade;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
 use App\Models\SubscriptionPlan;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class SubscriptionController extends Controller
 {
 
-    public function subscriptionPlans(Request $request){
 
 
-        $student = Student::where('token',$request->header('token'))->with('subscription')->first();
+    public function plans(Request $request){
+
         $plans = Subscription::all();
+        $student = Student::where('token', $request->header('token'))->first();
 
-        if($student->isSubscriber == 0 ){
 
-            foreach ($plans as $p) {
-                $p['paid'] = false;
-            }
-            return $plans;
-        }else{
+        $plans = $plans->map(function ($p) use($student){
 
-            $studentPlan = $student->subscription;
-            $result = $plans->map(function ($g) use($studentPlan){
-                return [
-                    'id' => $g->id,
-                    'name' =>  $g->name,
-                    'price' =>  $g->price,
-                    'expiry' => $g->expiry,
-                    'paid' => $studentPlan->id == $g->id,
-                ];
-            });
+            return [
+                'id' => $p->id,
+                'name' => $p->name,
+                'currency' => $p->currency,
+            ];
+        });
 
-            return $result;
-
-        }
+        return $plans;
 
 
     }
 
 
-    public function purchaseSubscription(Request $request){
+    public function purchase(Request $request){
 
         $token = $request->header('token');
+        $grade_id = $request->header('grade_id');
+        $subscription_id = $request->header('payment_id');
 
         $student = Student::where('token', $token)->where('status',1)->first();
 
@@ -57,18 +52,43 @@ class SubscriptionController extends Controller
             ], 403);
         }
 
-        // subscription plan buying process
-        if($student && $this->purchase()){
-            return response()->json($data, 200);
+        $purchasing = $this->purchasing($student, $grade_id, $subscription_id);
+
+
+        if($purchasing){
+
+            StudentGrade::create([
+                'student_id' => $student->id,
+                'grade_id' => $grade_id,
+                'subscription_id' => $subscription_id,
+                'created_at' => Carbon::now(strval($student->country['timezone']))
+            ]);
+
+            $student->update([
+                'isSubscriber' => 1,
+                'grade_chosen' => null,
+                'created_at' => Carbon::now(strval($student->country['timezone'])),
+                'updated_at' => Carbon::now(strval($student->country['timezone']))
+            ]);
+
+            return response()->json([
+                'status' => "successfully purchased.",
+            ], 200);
+
         }
 
-
     }
 
 
-    private function purchase(){
+    private function purchasing($student, $grade_id, $subscription_id){
+
         return true;
+
     }
+
+
+
+
 
 
 

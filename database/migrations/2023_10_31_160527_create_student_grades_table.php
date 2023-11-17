@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger('student_id');
             $table->unsignedInteger('grade_id');
+            $table->unsignedInteger('subscription_id');
             $table->integer('isDone')->default(0);
             $table->timestamps();
         });

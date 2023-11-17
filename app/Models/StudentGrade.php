@@ -15,6 +15,7 @@ class StudentGrade extends Model
        protected $fillable = [
         'student_id',
         'grade_id',
+        'subscription_id',
         'status'
     ];
 

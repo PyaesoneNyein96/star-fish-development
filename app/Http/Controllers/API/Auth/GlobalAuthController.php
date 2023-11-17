@@ -101,7 +101,6 @@ class GlobalAuthController extends Controller
 
         return response()->json([
             'message'=> 'Otp request success',
-            'OTP'=>  $OTP,
         ], 200);
 
     } // end of Request OTP
