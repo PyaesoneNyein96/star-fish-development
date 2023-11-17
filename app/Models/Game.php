@@ -7,7 +7,7 @@ use App\Models\GameInstruction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Game extends Model
+    class Game extends Model
 {
     use HasFactory;
 

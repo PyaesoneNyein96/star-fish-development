@@ -81,7 +81,7 @@ Route::prefix('chat')->group(function () {
 
 
 Route::prefix('subscription')->group(function () {
-    Route::get('plans',[SubscriptionController::class,'subscriptionPlans']);
-    Route::post('purchase',[SubscriptionController::class,'purchaseSubscription']);
+    Route::get('plans',[SubscriptionController::class,'plans']);
+    Route::post('purchase',[SubscriptionController::class,'purchase']);
 });
 

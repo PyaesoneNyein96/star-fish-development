@@ -45,18 +45,33 @@ class DatabaseSeeder extends Seeder
         $this->call(SubscriptionPlanSeeder::class);
 
         Student::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Global User',
+            'email' => 'global@example.com',
             'password' => Hash::make('admin123'),
             'age' => 5,
             'country_id' => 2,
             'city_id' => 2,
             'agreeToPolicy' => 1,
-            'deviceId' => 'testDevice',
+            'deviceId' => 'globalDevice',
             'isAuth' => 1,
+            'status' => 1,
             'token' => "1|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
-            'subscription_id' => 2,
-            'isSubscriber' => 1
+            'isSubscriber' => 0
+        ]);
+
+        Student::factory()->create([
+            'name' => 'Local User',
+            'phone' => '+959795686096',
+            'password' => Hash::make('admin123'),
+            'age' => 5,
+            'country_id' => 2,
+            'city_id' => 2,
+            'agreeToPolicy' => 1,
+            'deviceId' => 'localDevice',
+            'isAuth' => 1,
+            'status' => 1,
+            'token' => "2|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+            'isSubscriber' => 0
         ]);
 
 

@@ -20,5 +20,9 @@ class Subscription extends Model
         return $this->hasMany(Student::class);
     }
 
+    // public function grades(){
+    //     return $this->belongsTo(StudentGrade::class,'subscription_id','grade_id');
+    // }
+
 
 }

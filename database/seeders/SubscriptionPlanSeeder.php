@@ -16,9 +16,13 @@ class SubscriptionPlanSeeder extends Seeder
 
         DB::table('subscriptions')->insert([
 
-            ['name' => 'Google Pay', 'price' => 35, 'expiry' => "90"],
-            ['name' => 'K-pay' , 'price' => 40000 ,'expiry' => "90"],
-            ['name' => 'WaveMony', 'price' => 40000, 'expiry' => "90"],
+            // ['name' => 'Google Pay', 'price' => 35, 'expiry' => "90"],
+            // ['name' => 'K-pay' , 'price' => 40000 ,'expiry' => "90"],
+            // ['name' => 'WaveMony', 'price' => 40000, 'expiry' => "90"],
+
+            ['name' => 'Google-Pay','currency' => 'dollar'],
+            ['name' => 'KBZ-Pay', 'currency' => 'kyats'],
+            ['name' => 'WaveMony', 'currency' => 'kyats'],
 
         ]);
 

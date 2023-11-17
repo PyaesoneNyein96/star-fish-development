@@ -13,9 +13,9 @@ class StudentGradeSeeder extends Seeder
      */
     public function run(): void
     {
-       DB::table('student_grades')->insert([
-            ['student_id' => 1,'grade_id' => 1,'isDone' => 0],
-            // ['student_id' => 1,'grade_id' => 2,'isDone' => 0],
-        ]);
+    //    DB::table('student_grades')->insert([
+    //         ['student_id' => 1,'grade_id' => 1, 'subscription_id' => null ,'isDone' => 0,],
+    //         // ['student_id' => 1,'grade_id' => 2,'isDone' => 0],
+    //     ]);
     }
 }
