@@ -5,20 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class StudentGrade extends Model
+class BackgroundImage extends Model
 {
     use HasFactory;
 
-    // protected $hidden = ['pivot'];
-     protected $hidden = ['pivot','created_at','updated_at'];
+    protected $hidden = ['pivot','created_at', 'updated_at','title','id'];
 
-       protected $fillable = [
-        'student_id',
-        'grade_id',
-        'status'
-    ];
 
-    //========================
+
+
     public function toArray(){
 
         $data = parent::toArray();
@@ -29,5 +24,6 @@ class StudentGrade extends Model
 
         return $filteredData;
     }
+
 
 }

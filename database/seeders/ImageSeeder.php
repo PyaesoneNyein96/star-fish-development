@@ -14,7 +14,7 @@ class ImageSeeder extends Seeder
     public function run(): void
     {
         //
-           DB::table('images')->insert([
+            DB::table('images')->insert([
                 ['title' => "one" ,'path' => "one.jpg"],
             ]);
     }

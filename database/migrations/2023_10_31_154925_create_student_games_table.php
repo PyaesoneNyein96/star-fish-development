@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('student_games', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->nullable()->constrained()->onDelete('cascade');
-            $table->foreignId('grade_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('game_id')->nullable()->constrained()->onDelete('cascade');
             $table->integer('status')->default(0);
             $table->timestamps();
         });

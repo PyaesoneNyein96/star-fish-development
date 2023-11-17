@@ -9,9 +9,12 @@ class StudentGame extends Model
 {
     use HasFactory;
 
+    protected $hidden = ['created_at','updated_at','status'];
+
     protected $fillable = [
         'student_id',
         'game_id',
     ];
+
 
 }

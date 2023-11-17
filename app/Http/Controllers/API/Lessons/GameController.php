@@ -3,89 +3,273 @@
 namespace App\Http\Controllers\API\Lessons;
 
 use stdClass;
+use App\Models\Game;
 use App\Models\Grade;
+use App\Models\Round;
 use App\Models\Lesson;
 use App\Models\Student;
+use App\Models\StudentGame;
 use App\Models\StudentGrade;
 use Illuminate\Http\Request;
+use App\Models\StudentLesson;
+use App\Models\BackgroundImage;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\GameResource;
 use Illuminate\Support\Facades\Cache;
 
 class GameController extends Controller
 {
 
-    public function grade(Request $request)
+
+
+
+
+
+    public function grades(Request $request)
     {
 
         $token = $request->header('token');
 
-
-        // return Cache::rememberForever($token, function () use($token) {
-
-        //     $grades = Grade::with(['students' => function ($q) use($token){
-        //     $q->where('token', $token)->select('name','token','student_grades.status');
-        //     }])->select('name','id')->get();
+        $student = Student::where('token', $token)->first();
 
 
-        //     foreach ($grades as $g) {
-        //         if($g->students !== null){
-        //             foreach ($g->students as $s) {
-        //                 $g->student = $s;
-        //             }
-        //             unset($g->students);
-        //         }
-        //     };
+        $studentGrades = $student->grades;
 
-        //     return $grades;
-
-        //      });
+        $isDone = StudentGrade::where('student_id', $student->id)->where('isDone', 1)->get();
+        $allGrades = Grade::all();
 
 
-        $grades = Student::with('grades')->where('token', $token)
-            // ->select('students.name','age')
-            ->get();
+        $studentGrade = $allGrades->map(function ($grade) use ($studentGrades, $isDone) {
+            return [
+                'id' => $grade->id,
+                'name' => $grade->name,
+                'paid' => $studentGrades->contains('id', $grade->id),
+                'status' => $isDone->contains('id', $grade->id)
+            ];
+        });
 
-        return $grades;
+        return $studentGrade;
     }
 
 
-    public function lesson(Request $request)
+    public function lessons(Request $request)
     {
 
         $token = $request->header('token');
-        $grade = $request->header('grade');
-
-        // $studentLessons = Lesson::with(['students' => function ($q) {
-        //      $q->select('name','students.id','token');
-        // }])->where('grade_id', $grade)->get();
+        $grade = $request->header('grade_id');
 
 
-        $studentLessons = Student::where('token', $token)
-            ->with(['lessons' => function ($q) use ($grade) {
-                $q->where('grade_id', $grade)->select('name', 'grade_id', 'lessons.id');
-            }])->select('id', 'name', 'token')->get();
+        $student = Student::where('token', $token)->first();
 
+        $allLessons = Lesson::where('grade_id', $grade)->get();
 
-        // $studentLessons = Lesson::with(['students' => function ($q) use($token) {
-        //     $q->where('token', $token)->select();
-        // }])
-        // ->select('id','name','token')->get();
+        $studentGrade = $student->grades;
 
+        $studentLessons = $student->lessons; // ဆော့ပီးတဲ့ lessons
 
+        $lessons = $allLessons->map(function ($lesson) use ($studentLessons, $grade) {
+            return [
+                'id' => $lesson->id,
+                'grade_id' => $grade,
+                'name' => $lesson->name,
+                'status' => $studentLessons->contains('id', $lesson->id),
+            ];
+        });
 
-        return $studentLessons;
-
-        // return response()->json([
-        //     'studentLessons' => $studentLessons
-        // ], 200);
+        return $lessons;
     }
 
 
-    public function game(Request $request)
+    public function games(Request $request)
     {
-        $games = Grade::with('games')->where('')->get();
 
-        return response()->json([], 200);
+        $student = Student::where('token', $request->header('token'))->first();
+        $lesson = $request->header('lesson_id');
+        $gradeId = Lesson::where('id', $lesson)->pluck('grade_id')->first();
+
+
+
+        $allGame = Game::where('lesson_id', $lesson)->get();
+        $studentGames = $student->games;
+
+        $games = $allGame->map(function ($game) use ($studentGames, $lesson, $gradeId) {
+            return [
+                'id' => $game->id,
+                'lesson_id' => $game->lesson_id,
+                'name' => $game->name,
+                'grade_id' => $gradeId,
+                'status' => $studentGames->contains('id', $game->id),
+                'category' => $game->category['name']
+            ];
+        });
+
+        return $games;
+    }
+
+
+
+    public function specificGame(Request $request)
+    {
+
+        $student = Student::where('token', $request->header('token'))->first();
+        $gameId = $request->header('game_id');
+
+        $game = Game::with('images', 'category', 'audios', 'items', 'rounds', 'conversations', 'characters', 'background')->where('id', $gameId)->first();
+
+        if (!$game) return null;
+
+        if (count($game->rounds) == 0) {
+            return $game;
+        } else {
+
+            $rounds = Round::with('backgrounds', 'questions', 'characters', 'conversations', 'answers')
+                ->where('game_id', $gameId)->get();
+
+            $game = Game::with('category', 'instructions')->where('id', $gameId)->first();
+
+            foreach ($rounds as $r) {
+                if ($r['backgrounds']) {
+                    $r['background'] = $r['backgrounds']->image;
+                    unset($r['backgrounds']);
+                }
+            }
+
+
+
+            $game['rounds'] = $rounds;
+
+            return  $game = [
+                "id" => $game["id"],
+                "name" => $game["name"],
+                "lesson_id" => $game["lesson_id"],
+                "instructions" => $game['instructions'],
+                "rounds" => $game["rounds"],
+                // "category" => $game["category"],
+            ];
+        }
+    }
+
+
+    public function end_match(Request $request)
+    {
+
+        $token = $request->header('token');
+        $gameId = $request->header('game_id');
+        $lesson_id = $request->header('lesson_id');
+
+        // =================================
+
+        $student = Student::where('token', $token)->first();
+        $game = Game::find($gameId);
+
+        if (!isset($game->lesson)) return 404;
+
+        $exists = $game->lesson['id'] == $lesson_id ? true : false;
+
+        if (!$student || !$game || !$exists) {
+            return 404;
+        }
+
+        $alreadyDone = StudentGame::where('student_id', $student->id)
+            ->where('game_id', $gameId)->first();
+
+        $lessonGamesList = Game::where('lesson_id', $lesson_id)->get();
+
+        if (!$alreadyDone) {
+
+            DB::beginTransaction();
+            try {
+
+                StudentGame::insert([
+                    'student_id' => $student->id,
+                    'game_id' => $gameId,
+                    'status' => 1,
+                ]);
+
+                if ($this->lessonCheck($student, $lessonGamesList)->count() == 0) {
+                    $this->lessonPush($student, $lesson_id);
+                }
+
+                //ထူးထူး
+                $this->addPointFunction($student, $request->header('point'));
+
+                DB::commit();
+
+                return response()->json(['status' => 'success and recorded'], 200);
+            } catch (\Throwable $th) {
+                DB::rollback();
+                return  $th;
+            }
+        }
+
+        return response()->json(['status' => 'already done this game'], 200);
+    }
+
+
+    private function lessonCheck($student, $lessonGamesList)
+    {
+
+        $gameDone  = StudentGame::where('student_id', $student->id)->get();
+
+        return $filter = $lessonGamesList->reject(function ($g) use ($gameDone) {
+            return $gameDone->contains('game_id', $g->id);
+        });
+    }
+
+    private function lessonPush($student, $lesson_id)
+    {
+
+        $alreadyExist =  StudentLesson::where('student_id', $student->id)
+            ->where('lesson_id', $lesson_id)->first();
+
+        if ($alreadyExist) {
+            return "success";
+        }
+
+        StudentLesson::create([
+            'student_id' => $student->id,
+            'lesson_id' => $lesson_id,
+            'status' => 1
+        ]);
+
+        if ($this->gradeCheck($student, $lesson_id)->count() == 0) {
+            $this->gradePush($student, $lesson_id);
+        }
+    }
+
+    private function gradeCheck($student, $lesson_id)
+    {
+
+        $grade = Lesson::find($lesson_id)->grade;
+
+        $lessons = Lesson::where('grade_id', $grade->id)->get();
+        $studentLessons = studentLesson::where('student_id', $student->id)->get();
+
+        return $result = $lessons->filter(function ($i) use ($studentLessons) {
+            return !$studentLessons->contains('lesson_id', $i->id);
+        });
+    }
+
+    private function gradePush($student, $lesson_id)
+    {
+
+        $grade_id = Lesson::find($lesson_id)->grade['id'];
+
+        $studentGrade = StudentGrade::where('student_id', $student->id)
+            ->where('grade_id', $grade_id)->first();
+
+        if (!$studentGrade) {
+            return response()->json([
+                'status' => "You have not bought this grade yet."
+            ], 403);
+        }
+
+        StudentGrade::where('student_id', $student->id)
+            ->where('grade_id', $grade_id)
+            ->update([
+                'isDone' => 1,
+            ]);
     }
 
 
@@ -96,7 +280,9 @@ class GameController extends Controller
 
     private function addPointFunction($student, $point)
     {
+
         $student_id = $student->id;
+
         $oldPoint = Student::where('id', $student_id)->first();
         $newPoint = $oldPoint->point + (int)$point;
         $newFixPoint = $oldPoint->fixed_point + (int)$point;

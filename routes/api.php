@@ -4,12 +4,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\API\Auth\AuthController;
+use App\Http\Controllers\API\Chat\ChatController;
 use App\Http\Controllers\API\Lessons\GameController;
 use App\Http\Controllers\API\Reward\RewardController;
 use App\Http\Controllers\API\Auth\LocalAuthController;
 use App\Http\Controllers\API\Lessons\LessonController;
 use App\Http\Controllers\API\Auth\GlobalAuthController;
-use App\Http\Controllers\API\Chat\ChatController;
+use App\Http\Controllers\API\Subscribe\SubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,5 +70,18 @@ Route::prefix('chat')->group(function () {
     Route::post('/', [ChatController::class, 'sendChat'])->middleware('delaySendMessage');
 });
 
-Route::get('lessons', [WorkshopController::class, 'lessons']);
-Route::get('test', [LessonController::class, 'lessonTest']);
+
+
+    Route::get('grades', [GameController::class, 'grades']);
+    Route::get('lessons', [GameController::class, 'lessons']);
+    Route::get('games', [GameController::class, 'games']);
+    Route::get('game', [GameController::class, 'specificGame']);
+    Route::get('end_match', [GameController::class,'end_match']);
+
+
+
+Route::prefix('subscription')->group(function () {
+    Route::get('plans',[SubscriptionController::class,'subscriptionPlans']);
+    Route::post('purchase',[SubscriptionController::class,'purchaseSubscription']);
+});
+
