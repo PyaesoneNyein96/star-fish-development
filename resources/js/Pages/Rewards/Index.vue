@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { router } from '@inertiajs/vue3';
 
 import Header from '../Dashboard/Header/Index.vue';
@@ -7,7 +7,7 @@ import SideBar from '../Dashboard/SideBar/Index.vue';
 import Items from './Modals/Items.vue';
 import AddItem from './Modals/AddItem.vue';
 
-defineProps({
+const data = defineProps({
     user: Object,
     rewards: Object,
     rewards_name: Object,
@@ -15,9 +15,12 @@ defineProps({
 
 const search = ref('');
 
-const handleSearch = () => {
-    router.get(`/dashboard/rewards?search=${search._value}`);
-}
+const filteredData = computed(() => {
+    const query = search.value.toLowerCase().replace(/\s/g, "");
+    const filtered = data.rewards_name.filter(reward => reward.name.toLowerCase().replace(/\s/g, "").includes(query));
+
+    return filtered;
+});
 
 onMounted(() => {
     (function () {
@@ -349,8 +352,7 @@ onMounted(() => {
         </div>
         <div class=" m-auto " style="width: 80%;">
             <div class="  d-flex justify-content-between  mb-4">
-                <input type="text" class=" border-0 shadow-sm  rounded " placeholder="Search . . ." v-model="search"
-                    @keyup.enter="handleSearch">
+                <input type="text" class=" border-0 shadow-sm  rounded " placeholder="Search . . ." v-model="search">
                 <button class=" btn btn-outline-secondary shadow-sm " data-bs-toggle="modal" data-bs-target="#addNewItem">+
                     Add New Item</button>
             </div>
@@ -363,7 +365,7 @@ onMounted(() => {
                 <tbody style=" font-size: small;" class="w-100 bg-white ">
                     <div class=" ps-5 m-4">
                         <button class="btn btn-light  btn-sm  rounded-3 border-0  p-3 m-3 shadow-sm" data-bs-toggle="modal"
-                            v-for="rn in rewards_name" :data-bs-target="`#${rn.name.replace(/\s/g, '')}`">{{ rn.name
+                            v-for="rn in filteredData" :data-bs-target="`#${rn.name.replace(/\s/g, '')}`">{{ rn.name
                             }}</button>
                     </div>
                 </tbody>

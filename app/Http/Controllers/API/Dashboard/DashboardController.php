@@ -9,6 +9,7 @@ use App\Models\Stud_reward;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -56,6 +57,61 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function postEditStudent(Request $request)
+    {
+        $update = [
+            "name" => $request->name,
+            "nickName" => $request->nickName,
+            "email" => $request->email,
+            "phone" => $request->phone,
+            "age" => $request->age,
+            "point" => $request->point,
+            "level" => $request->level,
+            "board" => $request->board,
+            "status" => $request->status,
+            "isSubscriber" => $request->isSubscriber,
+        ];
+
+        if ($request->hasFile('profile_picture')) {
+            $allowedMimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+            $mimeType = $request->file('profile_picture')->getMimeType();
+
+            if (in_array($mimeType, $allowedMimeTypes)) {
+                $oldProfile = Student::where('id', $request->id)->first();
+                $oldProfile = $oldProfile['profile_picture'];
+
+                $oldProfile != null ? Storage::delete('public/', $oldProfile) : "";
+
+                $newProfile = uniqid() . "_" . $request->file('profile_picture')->getClientOriginalName();
+                $request->file('profile_picture')->storeAs('public', $newProfile);
+
+                $update['profile_picture'] = $newProfile;
+            }
+        }
+
+        Student::where('id', $request->id)->update($update);
+        return redirect()->route('students');
+    }
+
+    public function profilePicRemove($id)
+    {
+        $oldProfile = Student::where('id', $id)->first();
+        $oldProfile = $oldProfile['profile_picture'];
+
+        $oldProfile != null ? Storage::delete('public/', $oldProfile) : "";
+
+        Student::where('id', $id)->update([
+            "profile_picture" => null
+        ]);
+
+        return redirect()->route('students');
+    }
+
+    public function removeStudent($id)
+    {
+        Student::where('id', $id)->delete();
+        return redirect()->route('students');
+    }
 
     // ===========
     // Rewards
@@ -64,10 +120,7 @@ class DashboardController extends Controller
     public function rewards()
     {
         $rewards = Reward::get();
-        $rewards_name = Reward::select('name')->when(request('search'), function ($query) {
-            $query->orWhere('name', 'like', '%' . request('search') . '%');
-        })
-            ->orderBy('name')->distinct()->get();
+        $rewards_name = Reward::select('name')->orderBy('name')->distinct()->get();
 
         return inertia('Rewards/Index', [
             'user' => Auth::user(),

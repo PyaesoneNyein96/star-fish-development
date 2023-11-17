@@ -5,7 +5,10 @@ const data = defineProps({
 });
 
 const form = useForm({
+    id: data.student.id,
+    profile_picture: data.student.profile_picture,
     name: data.student.name,
+    nickName: data.student.nickName,
     email: data.student.email,
     phone: data.student.phone,
     board: data.student.board,
@@ -13,10 +16,23 @@ const form = useForm({
     point: data.student.point,
     status: data.student.status,
     age: data.student.age,
-    accState: data.student.isSubscriber
+    isSubscriber: data.student.isSubscriber
 });
 
+const selectProfile = (event) => {
+    form.profile_picture = event.target.files[0];
+}
+
+const removeProfile = (id) => {
+    const confirmed = confirm(`Are you sure to remove ${data.student.name} 's profile picture ?`)
+    if (confirmed) {
+        $(`#staticBackdropEdit${id}`).modal('hide');
+        router.get(`/dashboard/student/profilepic/remove/${id}`);
+    }
+}
+
 const postEditData = () => {
+    $(`#staticBackdropEdit${form.id}`).modal('hide');
     router.post('/dashboard/student/edit', form);
 }
 </script>
@@ -30,73 +46,115 @@ const postEditData = () => {
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">
                         Student Profile Edit
                     </h1>
-                    <button type="button" class=" rounded border text-white bg-secondary" data-bs-dismiss="modal"
+                    <button type="button" class=" rounded border text-white btn btn-sm bg-secondary" data-bs-dismiss="modal"
                         aria-label="Close">esc</button>
                 </div>
 
-                <form class=" ">
+                <form @submit.prevent="postEditData">
                     <div class="modal-body overflow-y-scroll " style="height: 70vh;">
-                        <div class="row justify-content-center">
-                            <div style="width: 100px">
-                                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                                    alt="" class="w-100 shadow-sm mb-3" />
-                            </div>
-                            <div class="col-lg-6 border rounded  p-3 shadow-sm ">
-                                <div class="name text-start pb-2 ">
-                                    <span class="fw-bold ">Name</span>
-                                    <input type="text" name="name" class=" form-control " v-model="form.name">
-                                </div>
-                                <div class="email text-start pb-2 ">
-                                    <span class="fw-bold ">Email</span>
-                                    <input type="email" name="email" class=" form-control " v-model="form.email">
-                                </div>
-                                <div class="phone text-start pb-2 ">
-                                    <span class="fw-bold ">Phone</span>
-                                    <input type="text" name="phone" class=" form-control " v-model="form.phone">
-                                </div>
-                                <div class="tier text-start pb-2 ">
-                                    <span class="fw-bold ">Tier</span>
-                                    <input type="text" name="board" class=" form-control " v-model="form.board">
-                                </div>
-                                <div class="level text-start pb-2 ">
-                                    <span class="fw-bold ">Level</span>
-                                    <input type="text" name="level" class=" form-control " v-model="form.level">
-                                </div>
-                                <div class="point text-start pb-2 ">
-                                    <span class="fw-bold ">Point</span>
-                                    <input type="text" name="point" class=" form-control " v-model="form.point">
-                                </div>
-                                <div class="status text-start pb-2 ">
-                                    <span class="fw-bold ">Status</span>
-                                    <div class="input-group">
-                                        <select class="form-select" id="inputGroupSelect03" v-model="form.status">
-                                            <option value="1">online</option>
-                                            <option value="0">offline</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="age text-start pb-2 ">
-                                    <span class="fw-bold ">Age</span>
-                                    <input type="text" name="age" class=" form-control " v-model="form.age">
-                                </div>
+                        <div class="container">
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <div style="width: 100px" class=" d-flex ">
+                                                <!-- <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                                                            alt="" class="w-100 shadow-sm mb-3" /> -->
+                                                <img :src="'/storage/' + form.profile_picture" alt="" />
+                                                <div class=" text-end">
+                                                    <button type="button" class="btn btn-sm text-white"
+                                                        title="Upload Profile"><label for="uploadProfile">
+                                                            <i class="fa-solid fa-arrow-up-from-bracket text-secondary"></i>
+                                                        </label>
+                                                        <input type="file" id="uploadProfile" class="d-none"
+                                                            @input="selectProfile"></button>
+                                                    <button type="button" class="btn btn-sm text-white "
+                                                        title="Remove Profile"><i
+                                                            class="fa-regular fa-trash-can text-danger "
+                                                            @click.prevent="removeProfile(student.id)"></i></button>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <th scope="col"> </th>
+                                    </tr>
 
-                                <div class="subscribe text-start ">
-
-                                    <span class="fw-bold ">Account Statement</span>
-
-                                    <div class="input-group">
-                                        <select class="form-select" id="inputGroupSelect03" v-model="form.accState">
-                                            <option value="1">Subscribe User
-                                            </option>
-                                            <option value="0">Free User</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+                                </thead>
+                                <tbody class="text-start">
+                                    <tr>
+                                        <th>Name</th>
+                                        <td><input type="text" v-model="form.name" class=" shadow-sm bg-light w-100"
+                                                placeholder="Enter Name . . . ">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Nickname</th>
+                                        <td><input type="text" v-model="form.nickName" class=" shadow-sm bg-light w-100"
+                                                placeholder="Enter Nickname . . . ">
+                                        </td>
+                                    </tr>
+                                    <tr v-if="form.email != null">
+                                        <th>Email</th>
+                                        <td><input type="text" v-model="form.email" class=" shadow-sm bg-light w-100"
+                                                placeholder="Enter Email . . . "></td>
+                                    </tr>
+                                    <tr v-if="form.phone">
+                                        <th>Phone</th>
+                                        <td><input type="text" v-model="form.phone" class=" shadow-sm bg-light w-100"
+                                                placeholder="Enter Phone . . . "></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tier</th>
+                                        <td>
+                                            <select v-model="form.board" class=" w-100 shadow-sm bg-light">
+                                                <option value="silver" :selected="form.board == 'silver'">Silver</option>
+                                                <option value="platinum" :selected="form.board == 'platinum'">Platinum
+                                                </option>
+                                                <option value="gold" :selected="form.board == 'gold'">Gold</option>
+                                                <option value="diamond" :selected="form.board == 'diamond'">Diamond
+                                                </option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Level</th>
+                                        <td><input type="text" v-model="form.level" class=" shadow-sm bg-light w-100"
+                                                placeholder="Enter Level . . . "></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Stars</th>
+                                        <td><input type="text" v-model="form.point" class=" shadow-sm bg-light w-100"
+                                                placeholder="Enter Stars . . . "></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Status</th>
+                                        <td>
+                                            <select v-model="form.status" class=" w-100 shadow-sm bg-light">
+                                                <option value="1" :selected="form.status == 1">online</option>
+                                                <option value="0" :selected="form.status == 0">offline</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Age</th>
+                                        <td><input type="text" v-model="form.age" class=" shadow-sm bg-light w-100"
+                                                placeholder="Enter Age . . . "></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <select v-model="form.isSubscriber"
+                                                class=" w-100 shadow-sm bg-light text-center">
+                                                <option value="1" :selected="form.isSubscriber == 1">Subscribe User
+                                                </option>
+                                                <option value="0" :selected="form.isSubscriber == 0">Free User</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <div class="modal-footer ">
-                        <button type="submit" class=" btn btn-secondary col">
+                        <button type="submit" class=" btn bg-secondary text-white px-5">
                             Update
                         </button>
                     </div>

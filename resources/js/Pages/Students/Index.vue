@@ -2,6 +2,9 @@
 import { ref, computed, onMounted } from "vue";
 import Header from "../Dashboard/Header/Index.vue";
 import SideBar from "../Dashboard/SideBar/Index.vue";
+import Details from "./Modals/Details.vue";
+import Edit from "./Modals/Edit.vue";
+import { router } from "@inertiajs/core";
 
 const data = defineProps({
     user: Object,
@@ -9,7 +12,8 @@ const data = defineProps({
 });
 
 const search = ref("");
-const perPage = ref(0);
+const perPage = ref(data.students.length);
+const currentPage = ref(1);
 
 const filteredData = computed(() => {
     const query = search.value.toLowerCase().replace(/\s/g, "");
@@ -23,12 +27,36 @@ const filteredData = computed(() => {
                 : ""
     );
 
-    if (perPage.value === 0) {
-        return filtered;
-    } else {
-        return filtered.slice(0, perPage.value);
-    }
+    const start = (currentPage.value - 1) * perPage.value;
+    const end = start + Number(perPage.value);
+
+    return filtered.slice(start, end);
 });
+
+const totalPages = computed(() => Math.ceil(data.students.length / perPage.value));
+
+const nextPage = () => {
+    if (currentPage.value < totalPages.value) {
+        currentPage.value++;
+    }
+};
+
+const prevPage = () => {
+    if (currentPage.value > 1) {
+        currentPage.value--;
+    }
+};
+
+const gotoPage = (page) => {
+    if (page >= 1 && page <= totalPages.value) {
+        currentPage.value = page;
+    }
+};
+
+const deletePerStudent = (id, name) => {
+    const confirmed = confirm(`Are you sure to delete ${name} ?`)
+    confirmed ? router.get(`/dashboard/student/remove/${id}`) : "";
+}
 
 onMounted(() => {
     (function () {
@@ -393,9 +421,10 @@ onMounted(() => {
                     <small class="text-muted" style="cursor: pointer"></small>
                 </div>
             </div>
+            <!-- data numbers  -->
             <div class="d-flex justify-content-between mb-3">
                 <select class="border-0 rounded shadow-sm" style="width: 81px" v-model="perPage">
-                    <option value="0">All</option>
+                    <option :value="`${students.length}`">All</option>
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="25">25</option>
@@ -405,6 +434,7 @@ onMounted(() => {
                 </select>
                 <input type="text" class="shadow-sm" placeholder="Search . . . " v-model="search" />
             </div>
+
             <table class="table table-hover rounded-5">
                 <thead>
                     <tr class=" ">
@@ -417,7 +447,7 @@ onMounted(() => {
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody v-if="filteredData.length > 0">
                     <tr v-for="s in filteredData" :key="s.id">
                         <td>{{ s.id }}</td>
                         <td>
@@ -434,17 +464,47 @@ onMounted(() => {
                                 :data-bs-target="`#staticBackdrop${s.id}`">
                                 View
                             </button>
+                            <Details :student="s"></Details>
+
                             <button class="btn btn-sm btn-warning ms-2" data-bs-toggle="modal"
                                 :data-bs-target="`#staticBackdropEdit${s.id}`">
                                 Edit
                             </button>
-                            <button class="btn btn-sm btn-danger ms-2">
+                            <Edit :student="s"></Edit>
+                            <button class="btn btn-sm btn-danger ms-2" @click.prevent="deletePerStudent(s.id, s.name)">
                                 Delete
                             </button>
                         </td>
                     </tr>
                 </tbody>
+                <tbody v-else class="text-center">
+                    <tr>
+                        <td colspan="7">No results found.</td>
+                    </tr>
+                </tbody>
             </table>
+
+            <!-- pagination  -->
+            <div class=" d-flex justify-content-between mt-4">
+                <p>Showing <strong>1</strong> to <strong>{{ perPage }}</strong> of <strong>{{ students.length }}</strong>
+                    entries</p>
+                <nav aria-label="...">
+                    <ul class="pagination">
+                        <li class="page-item" :class="{ disabled: currentPage === 1 }">
+                            <a class="page-link" @click.prevent="prevPage" href="#">Previous</a>
+                        </li>
+
+                        <li v-for="pageNumber in totalPages" :key="pageNumber" class="page-item"
+                            :class="{ active: pageNumber === currentPage }">
+                            <a class="page-link" @click.prevent="gotoPage(pageNumber)" href="#">{{ pageNumber }}</a>
+                        </li>
+
+                        <li class="page-item" :class="{ disabled: currentPage === totalPages }">
+                            <a class="page-link" @click.prevent="nextPage" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </main>
 </template>

@@ -28,8 +28,17 @@ Route::middleware([
 ])->group(function () {
     Route::prefix('/dashboard')->group(function () {
         Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+        // profile
         Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
-        Route::get('/students', [DashboardController::class, 'students']);
+
+        // students
+        Route::get('/students', [DashboardController::class, 'students'])->name('students');
+        Route::post('/student/edit', [DashboardController::class, 'postEditStudent']);
+        Route::get('/student/remove/{id}', [DashboardController::class, 'removeStudent']);
+        Route::get('/student/profilepic/remove/{id}', [DashboardController::class, 'profilePicRemove']);
+
+        // rewards
         Route::get('/rewards', [DashboardController::class, 'rewards'])->name('reward');
         Route::post('/rewards', [DashboardController::class, 'addReward']);
         Route::get('/rewards/remove/{name}', [DashboardController::class, 'removeReward']);
@@ -39,7 +48,6 @@ Route::middleware([
         Route::post('/rewards/per/delete', [DashboardController::class, 'deletePerReward']);
 
         // Route::get('/chat', [DashboardController::class, 'chat']);
-        // Route::post('/student/edit', [DashboardController::class, 'postEditData']);
     });
 });
 
