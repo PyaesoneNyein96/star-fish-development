@@ -107,16 +107,14 @@ class GameController extends Controller
         // $gradeId = Lesson::where('id', $lesson)->pluck('grade_id')->first();
 
 
-
-
         DB::beginTransaction();
         try {
 
             if($student->isSubscribe == 0 && $student->grade_chosen == null ){
 
-                Student::where('id', $student->id)->update([
-                    'grade_chosen' => $gradeId
-                ]);
+                    Student::where('id', $student->id)->update([
+                        'grade_chosen' => $gradeId
+                    ]);
 
                 }
 
@@ -162,54 +160,19 @@ class GameController extends Controller
 
         if(count($game->rounds) == 0){
             $name = strval($game->category['name']);
-
-            // return $name;
             return $this->$name($game);
 
-            // return $game;
         }
         else if (method_exists($this, $game->category['name'])) {
 
             $name = strval($game->category['name']);
             return $this->$name($gameId);
-
         }
 
-        else{
-            return "Function not found like Category !!";
-        }
-
-        // else
-        // {
+        return "Function not found like Category !!";
 
 
 
-        //     $rounds = Round::with
-        //     ('backgrounds','questions','characters','conversations','answers')
-        //     ->where('game_id', $gameId)->get();
-
-        //     $game = Game::with('category','instructions')->where('id', $gameId)->first();
-
-        //     foreach ($rounds as $r) {
-        //         if($r['backgrounds']){
-        //             $r['background'] = $r['backgrounds']->image;
-        //             unset($r['backgrounds']);
-        //         }
-        //     }
-
-
-        //     $game['rounds'] = $rounds;
-
-        //     return  $game = [
-        //         "id" => $game["id"],
-        //         "name" => $game["name"],
-        //         "lesson_id" => $game["lesson_id"],
-        //         // "category" => $game["category"]['name'],
-        //         "instructions" => $game['instructions'],
-        //         "rounds" => $game["rounds"],
-        //     ];
-
-        // }
 
     }
 
