@@ -18,22 +18,26 @@ class CategorySeeder extends Seeder
     {
 
         $categories = [
-            'video_player',
+            'video_player_song',
+            'video_player_lessons',
             'reading_carousel',
             'reading_diagram',
             'reading_passage',
             'reading_two_columns',
             'reading_conversation',
             'drag_n_drop_and_letter',
-            'drag_n_drop_and_sentence',
             'drag_n_drop_and_columns',
+            // 'drag_n_drop_and_sentence',
             'drag_n_drop_and_pics',
             'matching_columns',
             'speaking_and_recording',
-            'rearrange_a_sentence',
+            'rearrange_a_sentence_with_audio',
+            'rearrange_a_word_with_audio',
+            'rearrange_a_sentence_without_audio',
             'listening_and_record_speaking',
             'listening_and_choosing_pics',
-            'listening_and_choosing_clouds',
+            'listening_and_choosing_clouds_one',
+            'listening_and_choosing_clouds_two',
             'listening_and_choosing_answer',
             'listening_and_search_items',
             'mcq_grammar',
@@ -41,6 +45,7 @@ class CategorySeeder extends Seeder
             'Mcq_tf_grammar',
             'mcq_sentence',
             'letter_tracing',
+            'fill_in_blank_word',
 
         ];
 

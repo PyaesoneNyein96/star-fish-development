@@ -162,6 +162,8 @@ class GameController extends Controller
 
         if(count($game->rounds) == 0){
             $name = strval($game->category['name']);
+
+            // return $name;
             return $this->$name($game);
 
             // return $game;
@@ -348,6 +350,7 @@ class GameController extends Controller
     private function addPointFunction($student, $point)
     {
 
+        // return 'cc';
         $student_id = $student->id;
 
         $oldPoint = Student::where('id', $student_id)->first();
@@ -357,6 +360,7 @@ class GameController extends Controller
         if ($oldPoint->level >= 1 && $oldPoint->level <= 50) {
             $board = 'silver';
         }
+
         if ($oldPoint->level >= 51 && $oldPoint->level <= 100) {
             $board = 'platinum';
         }

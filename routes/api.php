@@ -71,7 +71,6 @@ Route::prefix('chat')->group(function () {
 });
 
 
-
     Route::get('grades', [GameController::class, 'grades']);
     Route::get('lessons', [GameController::class, 'lessons']);
     Route::get('games', [GameController::class, 'games']);
@@ -79,9 +78,7 @@ Route::prefix('chat')->group(function () {
     Route::get('end_match', [GameController::class,'end_match']);
 
 
-
 Route::prefix('subscription')->group(function () {
     Route::get('plans',[SubscriptionController::class,'plans']);
     Route::post('purchase',[SubscriptionController::class,'purchase']);
 });
-

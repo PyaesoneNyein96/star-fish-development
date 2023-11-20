@@ -56,7 +56,7 @@ trait gameTraits{
 
 
     // For Cloud Games
-    public function listening_and_choosing_clouds($gameId){
+    public function listening_and_choosing_clouds_one($gameId){
 
             $rounds = Round::with('backgrounds','questions','characters',
             'conversations','answers')->where('game_id', $gameId)->get();
@@ -87,7 +87,7 @@ trait gameTraits{
 
     // For without rand Games\
     public function reading_carousel($game){
-        return $game;
+        return "cc";
     }
 
 
