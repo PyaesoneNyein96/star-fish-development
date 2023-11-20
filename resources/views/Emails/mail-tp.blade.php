@@ -38,9 +38,8 @@
                     <p class="font">Hi User,</p>
                     <p class=" font" style=" margin-bottom: 35px">Your Register OTP code is :</p>
                     <code
-                        style=" letter-spacing: 2px; background-color: rgb(233, 233, 233); border:1px solid rgb(255, 153, 0); padding: 15px 20px ; font-size: 20px; font-weight:bold; color:rgb(6, 6, 187); border-radius:8px">
+                        style=" letter-spacing: 2px; background-color: rgb(233, 233, 233); border:1px solid rgb(255, 153, 0); padding: 15px 20px ; font-size: 35px; font-weight: bold;  border-radius:8px">
                         {{ $otp }}
-
                     </code>
                     <p class="font" style=" margin-top: 35px">Enter this verification code to continue your
                         account. This code will expire in
