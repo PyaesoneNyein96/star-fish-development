@@ -62,7 +62,7 @@ class GameController extends Controller
                 'price' => $grade->price,
                 'paid' => $paid,
                 'allow' => $lock,
-                'status' => $isDone->contains('id',$grade->id),
+                'complete' => $isDone->contains('id',$grade->id),
             ];
         });
 
@@ -70,6 +70,7 @@ class GameController extends Controller
         return $studentGrade;
     }
 
+    // Lessons
 
     public function lessons(Request $request)
     {
@@ -90,7 +91,7 @@ class GameController extends Controller
                 'id' => $lesson->id,
                 'grade_id' => $grade,
                 'name' => $lesson->name,
-                'status' => $studentLessons->contains('id', $lesson->id),
+                'complete' => $studentLessons->contains('id', $lesson->id),
             ];
         });
 
@@ -107,10 +108,11 @@ class GameController extends Controller
         // $gradeId = Lesson::where('id', $lesson)->pluck('grade_id')->first();
 
 
+
         DB::beginTransaction();
         try {
 
-            if($student->isSubscribe == 0 && $student->grade_chosen == null ){
+            if($student->isSubscriber == 0 && $student->grade_chosen == Null ){
 
                     Student::where('id', $student->id)->update([
                         'grade_chosen' => $gradeId
@@ -127,7 +129,7 @@ class GameController extends Controller
                         'lesson_id' => $game->lesson_id,
                         'name' => $game->name,
                         'grade_id' => $gradeId,
-                        'status' => $studentGames->contains('id', $game->id),
+                        'complete' => $studentGames->contains('id', $game->id),
                         'category' => $game->category['name']
                     ];
                 });
@@ -205,6 +207,7 @@ class GameController extends Controller
         if (!$alreadyDone) {
 
             DB::beginTransaction();
+
             try {
 
                 StudentGame::insert([
@@ -218,11 +221,12 @@ class GameController extends Controller
                 }
 
                 //ထူးထူး
-                $this->addPointFunction($student, $request->header('point'));
+                if($student->grade_chosen == null) $this->addPointFunction($student, $request->header('point'));
 
                 DB::commit();
 
                 return response()->json(['status' => 'success and recorded'], 200);
+
             } catch (\Throwable $th) {
                 DB::rollback();
                 return  $th;
@@ -231,6 +235,10 @@ class GameController extends Controller
 
         return response()->json(['status' => 'already done this game'], 200);
     }
+
+
+
+
 
     private function lessonCheck($student, $lessonGamesList){
 
@@ -264,8 +272,7 @@ class GameController extends Controller
 
     }
 
-    private function gradeCheck($student, $lesson_id)
-    {
+    private function gradeCheck($student, $lesson_id) {
 
         $grade = Lesson::find($lesson_id)->grade;
 

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('student_grades', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('student_id');
-            $table->unsignedInteger('grade_id');
+            $table->foreignId('student_id')->constrained()->onUpdate()->onDelete();
+            $table->unsignedInteger('grade_id')->constrained()->onUpdate()->onDelete();
             $table->unsignedInteger('subscription_id');
             $table->integer('isDone')->default(0);
             $table->timestamps();
