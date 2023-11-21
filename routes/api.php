@@ -82,4 +82,5 @@ Route::get('end_match', [GameController::class, 'end_match']);
 Route::prefix('subscription')->group(function () {
     Route::get('plans', [SubscriptionController::class, 'plans']);
     Route::post('purchase', [SubscriptionController::class, 'purchase']);
+    Route::post('removePlan', [SubscriptionController::class, 'removePlan']);
 });

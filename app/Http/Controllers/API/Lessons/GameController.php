@@ -32,15 +32,10 @@ class GameController extends Controller
     public function grades(Request $request)
     {
 
-
-
         $student = Student::where('token', $request->header('token'))->first();
 
         $studentGrades = $student->grades;
 
-        // Expire Check
-
-        $this->expiryCheck($student,$studentGrades);
 
         $allGrades = Grade::all();
         $isDone = StudentGrade::where('student_id', $student->id)->where('isDone',1)->get();
@@ -52,19 +47,27 @@ class GameController extends Controller
             $lock = false;
             $expiry = null;
 
+            foreach ($studentGrades as $studentGrade) {
+                if($studentGrade->id == $grade->id){
+                    $expiry = StudentGrade::where('grade_id', $studentGrade->id)->first();
+                    $expiry = Carbon::now()->add(1,'day')->diff($expiry->created_at);
+                    $expiry = 365 - $expiry->days;
+                }
+            }
+
             if($student->isSubscriber == 1 && $studentGrades->contains('id', $grade->id) ){
                 $paid = true;
                 $lock = true;
-                $expiry =  $studentGrades->contains('id', $grade->id);
-
 
             } else if ($student->isSubscriber == 0 && $student->grade_chosen == null){
                 $paid = false;
                 $lock = true;
+
             } else if ($student->isSubscriber == 0 && $student->grade_chosen !== null){
                 $paid = false;
                 $lock = $student->grade_chosen == $grade->id;
             }
+
 
             return [
                 'id' => $grade->id,
@@ -73,19 +76,16 @@ class GameController extends Controller
                 'paid' => $paid,
                 'allow' => $lock,
                 'complete' => $isDone->contains('id',$grade->id),
-                // 'startDate' => $
+                'expire_date' => $expiry
             ];
-        });
 
-        // foreach ($studentGrades as $stuG) {
-        //     if($stuG->id == $grade->id){
-        //         $expiry = "xxx";
-        //     }
-        // }
+
+        });
 
 
         return $studentGrade;
     }
+
 
     // Lessons
 
@@ -102,6 +102,8 @@ class GameController extends Controller
         $studentGrade = $student->grades;
 
         $studentLessons = $student->lessons; // ဆော့ပီးတဲ့ lessons
+
+        return $studentLessons;
 
         $lessons = $allLessons->map(function ($lesson) use ($studentLessons, $grade) {
             return [
@@ -129,7 +131,7 @@ class GameController extends Controller
         DB::beginTransaction();
         try {
 
-            if($student->isSubscriber == 0 && $student->grade_chosen == Null ){
+                if($student->isSubscriber == 0 && $student->grade_chosen == Null ){
 
                     Student::where('id', $student->id)->update([
                         'grade_chosen' => $gradeId
@@ -139,6 +141,7 @@ class GameController extends Controller
 
                 $allGame = Game::where('lesson_id',$lesson)->get();
                 $studentGames = $student->games;
+
 
                 $games = $allGame->map(function ($game) use ($studentGames, $lesson, $gradeId) {
                     return [
@@ -177,7 +180,7 @@ class GameController extends Controller
 
         if (!$game) return null;
 
-        if(count($game->rounds) == 0){
+        if(count($game->rounds) == 0 && method_exists($this, $game->category['name'])){
             $name = strval($game->category['name']);
             return $this->$name($game);
 
@@ -189,6 +192,8 @@ class GameController extends Controller
         }
 
         return "Function not found like Category !!";
+
+
 
 
 
@@ -205,7 +210,9 @@ class GameController extends Controller
 
         // =================================
 
+
         $student = Student::where('token', $token)->first();
+
         $game = Game::find($gameId);
 
         if (!isset($game->lesson)) return 404;
@@ -213,6 +220,7 @@ class GameController extends Controller
         $exists = $game->lesson['id'] == $lesson_id ? true : false;
 
         if (!$student || !$game || !$exists) {
+
             return 404;
         }
 
@@ -279,6 +287,7 @@ class GameController extends Controller
         StudentLesson::create([
             'student_id' => $student->id,
             'lesson_id' => $lesson_id,
+            // 'student_grades_id' => null,
             'status' => 1
         ]);
 
@@ -376,11 +385,7 @@ class GameController extends Controller
     }
 
 
-    private function expiryCheck($student, $studentGrades){
 
-        return [$student, $studentGrades];
-
-    }
 
 
 

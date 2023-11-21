@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\API\Subscribe;
 
+use Carbon\Carbon;
 use App\Models\Grade;
 use App\Models\Country;
 use App\Models\Student;
 use App\Models\StudentGrade;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
+use App\Models\StudentLesson;
 use App\Models\SubscriptionPlan;
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
 
 class SubscriptionController extends Controller
 {
@@ -57,6 +58,9 @@ class SubscriptionController extends Controller
 
         if($purchasing){
 
+            // $studentGrades = $student->grades;
+
+
             StudentGrade::create([
                 'student_id' => $student->id,
                 'grade_id' => $this->grade_id,
@@ -81,7 +85,21 @@ class SubscriptionController extends Controller
     }
 
 
-    private function purchasing($student, $grade_id, $subscription_id){
+    public function removePlan(Request $request){
+        $student = Student::where('token', $this->token)->where('status',1)->first();
+
+        $grade = StudentGrade::where('student_id', $student->id)->first();
+
+        $lessons = $student->lessons;
+
+
+        return $lessons;
+        // return $studentLessons;
+
+    }
+
+
+    public function purchasing($student, $grade_id, $subscription_id){
 
         return !$student->grades->contains('id', $grade_id) ? true : false;
 
