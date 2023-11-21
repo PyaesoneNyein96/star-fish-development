@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { router } from '@inertiajs/vue3';
+import { router, usePage } from '@inertiajs/vue3';
 
 import Header from '../Dashboard/Header/Index.vue';
 import SideBar from '../Dashboard/SideBar/Index.vue';
@@ -10,8 +10,11 @@ import AddItem from './Modals/AddItem.vue';
 const data = defineProps({
     user: Object,
     rewards: Object,
-    rewards_name: Object,
-})
+    rewards_name: Object
+});
+// const message = usePage().props.value
+
+// console.log(message);
 
 const search = ref('');
 

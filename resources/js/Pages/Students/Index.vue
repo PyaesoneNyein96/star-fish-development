@@ -1,10 +1,10 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
+import { router } from '@inertiajs/vue3';
 import Header from "../Dashboard/Header/Index.vue";
 import SideBar from "../Dashboard/SideBar/Index.vue";
 import Details from "./Modals/Details.vue";
 import Edit from "./Modals/Edit.vue";
-import { router } from "@inertiajs/core";
 
 const data = defineProps({
     user: Object,

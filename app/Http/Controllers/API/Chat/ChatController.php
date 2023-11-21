@@ -9,6 +9,22 @@ use Illuminate\Http\Request;
 
 class ChatController extends Controller
 {
+    // =========
+    // nick name
+    // =========
+
+    public function changeNName(Request $request)
+    {
+        Student::where('token', $request->id)->update([
+            'nickName' => $request->nickName,
+        ]);
+        return response()->json(['success' => 'created'], 201);
+    }
+
+
+    // ========
+    // message
+    // ========
     public function getChat()
     {
         $silver = Chat::select('chats.*', 'students.name', 'students.nickName', 'students.profile_picture')

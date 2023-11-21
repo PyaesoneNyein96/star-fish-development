@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CanChat;
 use Commands\MigrateInOrder;
 use App\Http\Middleware\Cors;
 use App\Http\Middleware\delayMessageMiddleware;
@@ -70,6 +71,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'delaySendMessage' => delayMessageMiddleware::class,
+        'canChat' => CanChat::class,
         'Cors' => Cors::class
     ];
 

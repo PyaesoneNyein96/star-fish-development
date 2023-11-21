@@ -47,7 +47,9 @@ Route::middleware([
         Route::post('/rewards/per/edit', [DashboardController::class, 'editPerReward']);
         Route::post('/rewards/per/delete', [DashboardController::class, 'deletePerReward']);
 
-        // Route::get('/chat', [DashboardController::class, 'chat']);
+        // chats
+        Route::get('/chats', [DashboardController::class, 'chat']);
+        Route::get('/axios/chats', [DashboardController::class, 'axiosChat']);
     });
 });
 

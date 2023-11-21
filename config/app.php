@@ -171,16 +171,11 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-<<<<<<< HEAD
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
-        CustomValidationServiceProvider::class
-=======
-
         CustomValidationServiceProvider::class,
         GlobalVar::class
 
->>>>>>> 63a31c4b7615a05dfc20c8d5d140f183fa80a49a
     ])->toArray(),
 
     /*

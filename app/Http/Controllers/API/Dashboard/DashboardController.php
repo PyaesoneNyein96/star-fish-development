@@ -172,7 +172,8 @@ class DashboardController extends Controller
             "item" => $request->newItem["_value"]["item"],
             "point" => $request->newItem["_value"]["point"],
         ]);
-        return redirect()->route('reward');
+        // return response()->json(['message' => 'Item created!']);
+        return redirect()->route('reward')->with('message', 'Item created!');
     }
 
     public function editPerReward(Request $request)
@@ -210,6 +211,19 @@ class DashboardController extends Controller
             ->get();
 
         return inertia('Chat/Index', [
+            'user' => Auth::user(),
+            'chat' => $chat
+        ]);
+    }
+
+    public function axiosChat()
+    {
+        $chat = Chat::select('chats.*', 'students.name', 'students.nickName', 'students.profile_picture')
+            ->leftJoin('students', 'chats.student_id', 'students.id')
+            ->where('chats.created_at', '>=', now()->subHours(4))
+            ->get();
+
+        return response()->json([
             'chat' => $chat
         ]);
     }

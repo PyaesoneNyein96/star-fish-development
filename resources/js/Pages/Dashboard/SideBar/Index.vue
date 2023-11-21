@@ -10,6 +10,10 @@ const toStudents = () => {
     router.get("/dashboard/students");
 };
 
+const toChats = () => {
+    router.get("/dashboard/chats");
+};
+
 const toRewards = () => {
     router.get("/dashboard/rewards");
 };
@@ -49,6 +53,13 @@ onMounted(() => {
                 </a>
             </li>
             <!-- End Student Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" id="chats" @click="toChats">
+                    <i class="fa-solid fa-comment"></i><span>Chats</span>
+                </a>
+            </li>
+            <!-- End Chat Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" id="rewards" @click="toRewards">
