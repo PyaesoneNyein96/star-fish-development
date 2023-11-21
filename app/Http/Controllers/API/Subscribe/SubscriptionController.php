@@ -6,11 +6,13 @@ use Carbon\Carbon;
 use App\Models\Grade;
 use App\Models\Country;
 use App\Models\Student;
+use App\Models\StudentGame;
 use App\Models\StudentGrade;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
 use App\Models\StudentLesson;
 use App\Models\SubscriptionPlan;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class SubscriptionController extends Controller
@@ -85,25 +87,53 @@ class SubscriptionController extends Controller
     }
 
 
-    public function removePlan(Request $request){
-        $student = Student::where('token', $this->token)->where('status',1)->first();
+    public function removePlan(Request $request) {
 
-        $grade = StudentGrade::where('student_id', $student->id)->first();
+            $student = Student::where('token', $this->token)->where('status',1)->first();
 
-        $lessons = $student->lessons;
+            $gradeLessons = Grade::find($this->grade_id)->lessons;
+            $gradeGames = Grade::find($this->grade_id)->games;
 
 
-        return $lessons;
-        // return $studentLessons;
+            DB::beginTransaction();
+
+            try {
+
+                $del_lessons = $gradeLessons->filter(function($l) use($student) {
+                    return $student->lessons->contains('id', $l->id);
+                })->pluck('id');
+
+                $res1= StudentLesson::where('student_id', $student->id)->whereIn('id', $del_lessons)->delete();
+
+                $del_games = $gradeGames->filter(function($g) use($student) {
+                    return $student->games->contains('id', $g->id);
+                })->pluck('id');
+
+                $res2 = StudentGame::where('student_id',$student->id)->whereIn('id',$del_games)->delete();
+
+                if($res1 && $res2){
+                    StudentGrade::where('grade_id',$this->grade_id)->delete();
+                }
+
+                DB::commit();
+
+                return true;
+
+
+           } catch (\Throwable $th) {
+                DB::rollback();
+                return $th;
+           }
+
+
+
 
     }
 
 
-    public function purchasing($student, $grade_id, $subscription_id){
+    public function purchasing($student, $grade_id, $subscription_id) {
 
         return !$student->grades->contains('id', $grade_id) ? true : false;
-
-
 
     }
 
