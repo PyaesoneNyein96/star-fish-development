@@ -62,6 +62,7 @@ class DatabaseSeeder extends Seeder
         Student::factory()->create([
             'name' => 'Local User',
             'phone' => '+959795686096',
+            'email' => Null,
             'password' => Hash::make('admin123'),
             'age' => 5,
             'country_id' => 2,
