@@ -172,7 +172,7 @@ class DashboardController extends Controller
             "item" => $request->newItem["_value"]["item"],
             "point" => $request->newItem["_value"]["point"],
         ]);
-        // return response()->json(['message' => 'Item created!']);
+
         return redirect()->route('reward')->with('message', 'Item created!');
     }
 

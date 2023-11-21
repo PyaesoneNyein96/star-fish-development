@@ -66,10 +66,6 @@ const removeItem = (name) => {
     }
 }
 
-const removeAlert = () => {
-    const keyExists = sessionStorage.getItem();
-    console.log(keyExists);
-}
 </script>
 <template>
     <div class="modal fade" v-for="rn in rewards_name" :id="`${rn.name.replace(/\s/g, '')}`" data-bs-keyboard="false"
@@ -89,8 +85,8 @@ const removeAlert = () => {
                     <div class="alert alert-warning alert-dismissible fade show justify-content-between d-flex" role="alert"
                         v-if="$page.props.flash.message">
                         <span>{{ $page.props.flash.message }}</span>
-                        <button type="button" aria-label="Close" @click="removeAlert"><i
-                                class="fa-regular fa-circle-xmark"></i></button>
+                        <button type="button" data-bs-dismiss="alert" aria-label="Close"><i
+                                class=" fa-regular fa-circle-xmark"></i></button>
                     </div>
                     <table class="table table-hover">
                         <thead>
