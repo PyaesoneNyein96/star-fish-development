@@ -19,12 +19,11 @@ class GameSeeder extends Seeder
 
             // lesson 1's games
 
-
-            ['name' => 'Video', 'lesson_id' => 1 ,'category_id' => rand(1,23)],
-            ['name' => 'Read and Practice', 'lesson_id' => 1 ,'category_id' => rand(1,23) ],
-            ['name' => 'Song', 'lesson_id' => 1 ,'category_id' => rand(1,23)],
-            ['name' => 'Listen and Practice', 'lesson_id' => 1 ,'category_id' => rand(1,23)],
-            ['name' => 'Writing', 'lesson_id' => 1 ,'category_id' => rand(1,23)],
+            ['name' => 'Video', 'lesson_id' => 1 ,'category_id' => 2 ],
+            ['name' => 'Read and Practice', 'lesson_id' => 1 ,'category_id' => 3 ],
+            ['name' => 'Song', 'lesson_id' => 1 ,'category_id' => 1],
+            ['name' => 'Listen and Practice', 'lesson_id' => 1 ,'category_id' => 18],
+            ['name' => 'Writing', 'lesson_id' => 1 ,'category_id' => 8],
 
              // lesson 2's games
 

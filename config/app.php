@@ -174,6 +174,7 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
         CustomValidationServiceProvider::class,
+
         GlobalVar::class
 
     ])->toArray(),

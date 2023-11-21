@@ -8,10 +8,12 @@ use App\Models\Grade;
 use App\Models\Round;
 use App\Models\Lesson;
 use App\Models\Student;
+use App\Models\Category;
 use App\Models\StudentGame;
 use App\Models\StudentGrade;
 use Illuminate\Http\Request;
 use App\Models\StudentLesson;
+use App\Http\Traits\gameTraits;
 use App\Models\BackgroundImage;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -22,43 +24,59 @@ class GameController extends Controller
 {
 
 
-
+    use gameTraits;
 
 
 
     public function grades(Request $request)
     {
 
-        $token = $request->header('token');
-
-        $student = Student::where('token', $token)->first();
-
-
+        $student = Student::where('token', $request->header('token'))->first();
         $studentGrades = $student->grades;
 
-        $isDone = StudentGrade::where('student_id', $student->id)->where('isDone', 1)->get();
         $allGrades = Grade::all();
+        $isDone = StudentGrade::where('student_id', $student->id)->where('isDone',1)->get();
 
 
-        $studentGrade = $allGrades->map(function ($grade) use ($studentGrades, $isDone) {
+        $studentGrade = $allGrades->map(function ($grade) use($studentGrades, $isDone,$student){
+
+            $paid = false;
+            $lock = false;
+
+            if($student->isSubscriber == 1 && $studentGrades->contains('id', $grade->id) ){
+                $paid = true;
+                $lock = true;
+
+            } else if ($student->isSubscriber == 0 && $student->grade_chosen == null){
+                $paid = false;
+                $lock = true;
+            } else if ($student->isSubscriber == 0 && $student->grade_chosen !== null){
+                $paid = false;
+                $lock = $student->grade_chosen == $grade->id;
+            }
+
             return [
                 'id' => $grade->id,
                 'name' => $grade->name,
-                'paid' => $studentGrades->contains('id', $grade->id),
-                'status' => $isDone->contains('id', $grade->id)
+                'expiry' => $grade->expiry,
+                'price' => $grade->price,
+                'paid' => $paid,
+                'allow' => $lock,
+                'complete' => $isDone->contains('id',$grade->id),
             ];
         });
+
 
         return $studentGrade;
     }
 
+    // Lessons
 
     public function lessons(Request $request)
     {
 
         $token = $request->header('token');
         $grade = $request->header('grade_id');
-
 
         $student = Student::where('token', $token)->first();
 
@@ -73,7 +91,7 @@ class GameController extends Controller
                 'id' => $lesson->id,
                 'grade_id' => $grade,
                 'name' => $lesson->name,
-                'status' => $studentLessons->contains('id', $lesson->id),
+                'complete' => $studentLessons->contains('id', $lesson->id),
             ];
         });
 
@@ -86,27 +104,49 @@ class GameController extends Controller
 
         $student = Student::where('token', $request->header('token'))->first();
         $lesson = $request->header('lesson_id');
-        $gradeId = Lesson::where('id', $lesson)->pluck('grade_id')->first();
+        $gradeId = $request->header('grade_id');
+        // $gradeId = Lesson::where('id', $lesson)->pluck('grade_id')->first();
 
 
 
-        $allGame = Game::where('lesson_id', $lesson)->get();
-        $studentGames = $student->games;
+        DB::beginTransaction();
+        try {
 
-        $games = $allGame->map(function ($game) use ($studentGames, $lesson, $gradeId) {
-            return [
-                'id' => $game->id,
-                'lesson_id' => $game->lesson_id,
-                'name' => $game->name,
-                'grade_id' => $gradeId,
-                'status' => $studentGames->contains('id', $game->id),
-                'category' => $game->category['name']
-            ];
-        });
+            if($student->isSubscriber == 0 && $student->grade_chosen == Null ){
 
-        return $games;
+                    Student::where('id', $student->id)->update([
+                        'grade_chosen' => $gradeId
+                    ]);
+
+                }
+
+                $allGame = Game::where('lesson_id',$lesson)->get();
+                $studentGames = $student->games;
+
+                $games = $allGame->map(function ($game) use ($studentGames, $lesson, $gradeId) {
+                    return [
+                        'id' => $game->id,
+                        'lesson_id' => $game->lesson_id,
+                        'name' => $game->name,
+                        'grade_id' => $gradeId,
+                        'complete' => $studentGames->contains('id', $game->id),
+                        'category' => $game->category['name']
+                    ];
+                });
+
+                DB::commit();
+
+                return $games;
+
+
+
+
+        } catch (\Throwable $th) {
+            return $th;
+            DB::rollback();
+        }
+
     }
-
 
 
     public function specificGame(Request $request)
@@ -115,39 +155,27 @@ class GameController extends Controller
         $student = Student::where('token', $request->header('token'))->first();
         $gameId = $request->header('game_id');
 
-        $game = Game::with('images', 'category', 'audios', 'items', 'rounds', 'conversations', 'characters', 'background')->where('id', $gameId)->first();
+        $game = Game::with('images','category','audios','items','rounds','conversations','characters','background')->where('id', $gameId)->first();
+
 
         if (!$game) return null;
 
-        if (count($game->rounds) == 0) {
-            return $game;
-        } else {
+        if(count($game->rounds) == 0){
+            $name = strval($game->category['name']);
+            return $this->$name($game);
 
-            $rounds = Round::with('backgrounds', 'questions', 'characters', 'conversations', 'answers')
-                ->where('game_id', $gameId)->get();
-
-            $game = Game::with('category', 'instructions')->where('id', $gameId)->first();
-
-            foreach ($rounds as $r) {
-                if ($r['backgrounds']) {
-                    $r['background'] = $r['backgrounds']->image;
-                    unset($r['backgrounds']);
-                }
-            }
-
-
-
-            $game['rounds'] = $rounds;
-
-            return  $game = [
-                "id" => $game["id"],
-                "name" => $game["name"],
-                "lesson_id" => $game["lesson_id"],
-                "instructions" => $game['instructions'],
-                "rounds" => $game["rounds"],
-                // "category" => $game["category"],
-            ];
         }
+        else if (method_exists($this, $game->category['name'])) {
+
+            $name = strval($game->category['name']);
+            return $this->$name($gameId);
+        }
+
+        return "Function not found like Category !!";
+
+
+
+
     }
 
 
@@ -179,6 +207,7 @@ class GameController extends Controller
         if (!$alreadyDone) {
 
             DB::beginTransaction();
+
             try {
 
                 StudentGame::insert([
@@ -192,11 +221,12 @@ class GameController extends Controller
                 }
 
                 //ထူးထူး
-                $this->addPointFunction($student, $request->header('point'));
+                if($student->grade_chosen == null) $this->addPointFunction($student, $request->header('point'));
 
                 DB::commit();
 
                 return response()->json(['status' => 'success and recorded'], 200);
+
             } catch (\Throwable $th) {
                 DB::rollback();
                 return  $th;
@@ -207,8 +237,10 @@ class GameController extends Controller
     }
 
 
-    private function lessonCheck($student, $lessonGamesList)
-    {
+
+
+
+    private function lessonCheck($student, $lessonGamesList){
 
         $gameDone  = StudentGame::where('student_id', $student->id)->get();
 
@@ -233,13 +265,14 @@ class GameController extends Controller
             'status' => 1
         ]);
 
-        if ($this->gradeCheck($student, $lesson_id)->count() == 0) {
-            $this->gradePush($student, $lesson_id);
-        }
+         if($this->gradeCheck($student, $lesson_id)->count() == 0 ){
+           return $this->gradePush($student, $lesson_id);
+         }
+
+
     }
 
-    private function gradeCheck($student, $lesson_id)
-    {
+    private function gradeCheck($student, $lesson_id) {
 
         $grade = Lesson::find($lesson_id)->grade;
 
@@ -265,22 +298,29 @@ class GameController extends Controller
             ], 403);
         }
 
-        StudentGrade::where('student_id', $student->id)
-            ->where('grade_id', $grade_id)
-            ->update([
-                'isDone' => 1,
-            ]);
+        StudentGrade::where('student_id',$student->id)
+        ->where('grade_id', $grade_id)
+        ->update([
+            'isDone' => 1,
+        ]);
+
+        return response()->json([
+            'status' => 'grade status updated.'
+        ], 200);
+
+
     }
 
 
 
-    // =========
+    // =========***
     // add point
-    // =========
+    // =========***
 
     private function addPointFunction($student, $point)
     {
 
+        // return 'cc';
         $student_id = $student->id;
 
         $oldPoint = Student::where('id', $student_id)->first();
@@ -290,6 +330,7 @@ class GameController extends Controller
         if ($oldPoint->level >= 1 && $oldPoint->level <= 50) {
             $board = 'silver';
         }
+
         if ($oldPoint->level >= 51 && $oldPoint->level <= 100) {
             $board = 'platinum';
         }
@@ -316,4 +357,12 @@ class GameController extends Controller
             ]);
         }
     }
+
+
+
+
+
+
+
+
 }

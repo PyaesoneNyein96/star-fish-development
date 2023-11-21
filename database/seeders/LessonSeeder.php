@@ -16,7 +16,7 @@ class LessonSeeder extends Seeder
 
         // $grades = range(1,4);
         $grades = 1;
-        $lessons =  range(1,7);
+        $lessons =  range(1,2);
 
 
             foreach ($lessons as $l)  {

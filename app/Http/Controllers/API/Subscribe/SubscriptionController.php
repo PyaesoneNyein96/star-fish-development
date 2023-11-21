@@ -2,54 +2,50 @@
 
 namespace App\Http\Controllers\API\Subscribe;
 
+use App\Models\Grade;
 use App\Models\Country;
 use App\Models\Student;
+use App\Models\StudentGrade;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
 use App\Models\SubscriptionPlan;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class SubscriptionController extends Controller
 {
 
-    public function subscriptionPlans(Request $request){
+
+    public $token, $grade_id, $subscription_id;
+
+    public function __construct(Request $request) {
+        $this->token = $request->header('token');
+        $this->grade_id = $request->header('grade_id');
+        $this->subscription_id = $request->header('payment_id');
+    }
 
 
-        $student = Student::where('token',$request->header('token'))->with('subscription')->first();
-        $plans = Subscription::all();
+    public function plans(Request $request){
 
-        if($student->isSubscriber == 0 ){
+        $student = Student::where('token', $this->token)->first();
 
-            foreach ($plans as $p) {
-                $p['paid'] = false;
-            }
-            return $plans;
-        }else{
 
-            $studentPlan = $student->subscription;
-            $result = $plans->map(function ($g) use($studentPlan){
-                return [
-                    'id' => $g->id,
-                    'name' =>  $g->name,
-                    'price' =>  $g->price,
-                    'expiry' => $g->expiry,
-                    'paid' => $studentPlan->id == $g->id,
-                ];
-            });
+        return $plans = Subscription::all()->map(function ($p) use($student){
 
-            return $result;
-
-        }
-
+            return [
+                'id' => $p->id,
+                'name' => $p->name,
+                'currency' => $p->currency,
+            ];
+        });
 
     }
 
 
-    public function purchaseSubscription(Request $request){
+    public function purchase(Request $request){
 
-        $token = $request->header('token');
 
-        $student = Student::where('token', $token)->where('status',1)->first();
+        $student = Student::where('token', $this->token)->where('status',1)->first();
 
         if(!$student){
             return response()->json([
@@ -57,18 +53,45 @@ class SubscriptionController extends Controller
             ], 403);
         }
 
-        // subscription plan buying process
-        if($student && $this->purchase()){
-            return response()->json($data, 200);
+        $purchasing = $this->purchasing($student, $this->grade_id, $this->subscription_id);
+
+        if($purchasing){
+
+            StudentGrade::create([
+                'student_id' => $student->id,
+                'grade_id' => $this->grade_id,
+                'subscription_id' => $this->subscription_id,
+                'created_at' => Carbon::now(strval($student->country['timezone']))
+            ]);
+
+            $student->update([
+                'isSubscriber' => 1,
+                'grade_chosen' => null,
+                'created_at' => Carbon::now(strval($student->country['timezone'])),
+                'updated_at' => Carbon::now(strval($student->country['timezone']))
+            ]);
+
+            return response()->json([
+                'status' => "successfully purchased.",
+            ], 200);
+
         }
+        return "already purchased";
+
+    }
+
+
+    private function purchasing($student, $grade_id, $subscription_id){
+
+        return !$student->grades->contains('id', $grade_id) ? true : false;
+
 
 
     }
 
 
-    private function purchase(){
-        return true;
-    }
+
+
 
 
 

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('age');
             $table->string('profile_picture')->nullable();
             $table->string('role')->nullable();
-            $table->integer('otp')->nullable();
+            $table->string('grade_chosen')->nullable();
             $table->string('token')->nullable();
             $table->string('deviceId')->nullable();
             $table->string('isAuth')->default(0);
@@ -33,21 +33,15 @@ return new class extends Migration
             $table->integer('status')->default(0);
             $table->string('isLocal')->default(1);
 
+
             $table->string('password');
             $table->string('isSubscriber')->default(0);
-
-            $table->foreignId('subscription_id')->nullable()
-            ->constrained()->onUpdate('cascade');
-
 
             $table->foreignId('country_id')->nullable()
             ->constrained()->onDelete('cascade')->onUpdate('cascade');
 
-
             $table->foreignId('city_id')->nullable()->constrained()
             ->onDelete('cascade')->onUpdate('cascade');
-
-
 
             $table->timestamps();
         });

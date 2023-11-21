@@ -17,7 +17,6 @@ class Category extends Model
     ];
 
 
-
     public function toArray(){
 
         $data = parent::toArray();

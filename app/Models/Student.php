@@ -14,7 +14,7 @@ class Student extends Model
     use HasApiTokens, HasFactory;
 
     // protected $hidden = ['pivot'];
-     protected $hidden = ['pivot','created_at','updated_at'];
+    protected $hidden = ['pivot','created_at','updated_at','password'];
 
     protected $fillable = [
         'id',
@@ -43,6 +43,8 @@ class Student extends Model
         'level',
         'board',
         'status',
+        'grade_chosen',
+
     ];
 
 

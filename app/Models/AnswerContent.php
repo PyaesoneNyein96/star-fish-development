@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AnswerContent extends Model
 {
     use HasFactory;
-
+        protected $hidden = ['pivot','created_at', 'updated_at','round_id'];
 
         public function toArray(){
 
