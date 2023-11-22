@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Video extends Model
 {
     use HasFactory;
-    protected $hidden = ['pivot','created_at', 'updated_at'];
+
+     protected $hidden = ['pivot','created_at', 'updated_at'];
 
     protected $fillable = [
         'title',
@@ -25,4 +26,5 @@ class Video extends Model
     // public function game(){
     //     return $this->belongsTo(Game::class);
     // }
+
 }
