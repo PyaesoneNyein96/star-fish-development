@@ -19,12 +19,26 @@ class Video extends Model
         'isLocal',
     ];
 
-    // public function round(){
-    //     return $this->belongsTo(Round::class);
-    // }
+    public function round(){
+        return $this->belongsTo(Round::class);
+    }
 
-    // public function game(){
-    //     return $this->belongsTo(Game::class);
-    // }
+    public function game(){
+        return $this->belongsTo(Game::class);
+    }
+
+
+    //============================
+    public function toArray(){
+
+        $data = parent::toArray();
+
+        $filteredData = array_filter($data, function ($value) {
+            return !is_null($value) && (!is_array($value) || !empty($value));
+        });
+
+        return $filteredData;
+    }
+
 
 }
