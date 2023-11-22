@@ -73,7 +73,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
         return $this->hasMany(Video::class);
     }
     public function songs (){
-        return $this->hasMany(SOng::class);
+        return $this->hasMany(Song::class);
     }
 
 

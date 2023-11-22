@@ -35,10 +35,6 @@ class GameController extends Controller
         $studentGrades = $student->grades;
 
 
-        $status = StudentGrade::where('created_at', '<=', now())->get();
-
-           return $status;
-
         $allGrades = Grade::all();
         $isDone = StudentGrade::where('student_id', $student->id)->where('isDone',1)->get();
 
