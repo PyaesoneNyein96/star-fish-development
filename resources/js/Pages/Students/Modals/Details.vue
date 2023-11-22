@@ -1,31 +1,39 @@
 <script setup>
-defineProps({
+
+const data = defineProps({
     student: Object,
 });
+
+
 </script>
 <template>
     <div class="modal fade" :id="`staticBackdrop${student.id}`" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog  modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">
                         Student Profile
                     </h1>
-                    <button type="button" class=" rounded border text-white btn btn-sm bg-secondary" data-bs-dismiss="modal"
-                        aria-label="Close">esc</button>
+                    <button type="button" class="rounded border text-white btn btn-sm bg-secondary" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        esc
+                    </button>
                 </div>
-                <div class="modal-body">
-
+            <div class="modal-body">
                     <div class="container">
                         <table class="table table-borderless">
-                        <thead>
+                            <thead>
                                 <tr>
                                     <th>
                                         <div style="width: 100px">
                                             <!-- <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                                                        alt="" class="w-100 shadow-sm mb-3" /> -->
-                                            <img :src="'/storage/' + student.profile_picture" alt="" />
+                                                                                                                                                                                                                                                                                                                                                            alt="" class="w-100 shadow-sm mb-3" /> -->
+                                            <img :src="
+                                                '/storage/' +
+                                                student.profile_picture
+                                            " alt="" />
+
                                         </div>
                                     </th>
                                     <th scope="col"></th>
@@ -44,10 +52,12 @@ defineProps({
                                     <th>Email</th>
                                     <td>{{ student.email }}</td>
                                 </tr>
+
                                 <tr v-if="student.phone">
                                     <th>Phone</th>
                                     <td>{{ student.phone }}</td>
                                 </tr>
+
                                 <tr>
                                     <th>Tier</th>
                                     <td>{{ student.board }}</td>
@@ -62,7 +72,14 @@ defineProps({
                                 </tr>
                                 <tr>
                                     <th>Status</th>
-                                    <td>{{ student.isAuth ? "online" : "offline" }}</td>
+                                    <td>
+                                        {{
+                                            student.isAuth
+                                            ? "online"
+                                            : "offline"
+                                        }}
+                                    </td>
+
                                 </tr>
                                 <tr>
                                     <th>Age</th>
@@ -77,6 +94,7 @@ defineProps({
                                                 : "Free User"
                                             }}
                                         </p>
+
                                     </td>
                                 </tr>
                             </tbody>

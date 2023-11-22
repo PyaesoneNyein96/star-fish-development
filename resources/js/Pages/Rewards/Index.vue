@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { router, usePage } from '@inertiajs/vue3';
+import { router } from '@inertiajs/vue3';
 
 import Header from '../Dashboard/Header/Index.vue';
 import SideBar from '../Dashboard/SideBar/Index.vue';
@@ -12,9 +12,6 @@ const data = defineProps({
     rewards: Object,
     rewards_name: Object
 });
-// const message = usePage().props.value
-
-// console.log(message);
 
 const search = ref('');
 
@@ -347,34 +344,34 @@ onMounted(() => {
     <Header :user="user"></Header>
     <SideBar></SideBar>
     <main id="main" class="main">
-        <div class=" d-flex mb-4 pt-3 border-bottom ">
-            <h4>Rewards</h4>
-            <div class="col text-end">
-                <small class=" text-muted " style="cursor: pointer;"></small>
+        <div class="mx-3">
+            <div class="mb-4 pt-3 border-bottom ">
+                <h4>Rewards</h4>
+            </div>
+            <div class=" m-auto " style="width: 80%;">
+                <div class="  d-flex justify-content-between  mb-4">
+                    <button class=" btn btn-outline-secondary shadow-sm " data-bs-toggle="modal"
+                        data-bs-target="#addNewItem">+
+                        Add New Item</button>
+                    <input type="text" class=" border-0 shadow-sm  rounded " placeholder="Search . . ." v-model="search">
+                </div>
+                <table class="table border shadow-sm ">
+                    <thead>
+                        <tr>
+                            <th>Names</th>
+                        </tr>
+                    </thead>
+                    <tbody style=" font-size: small;" class="w-100 bg-white ">
+                        <div class=" ps-5 m-4">
+                            <button class="btn btn-light  btn-sm  rounded-3 border-0  p-3 m-3 shadow-sm"
+                                data-bs-toggle="modal" v-for="rn in filteredData"
+                                :data-bs-target="`#${rn.name.replace(/\s/g, '')}`">{{ rn.name
+                                }}</button>
+                        </div>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class=" m-auto " style="width: 80%;">
-            <div class="  d-flex justify-content-between  mb-4">
-                <input type="text" class=" border-0 shadow-sm  rounded " placeholder="Search . . ." v-model="search">
-                <button class=" btn btn-outline-secondary shadow-sm " data-bs-toggle="modal" data-bs-target="#addNewItem">+
-                    Add New Item</button>
-            </div>
-            <table class="table border shadow-sm ">
-                <thead>
-                    <tr>
-                        <th>Names</th>
-                    </tr>
-                </thead>
-                <tbody style=" font-size: small;" class="w-100 bg-white ">
-                    <div class=" ps-5 m-4">
-                        <button class="btn btn-light  btn-sm  rounded-3 border-0  p-3 m-3 shadow-sm" data-bs-toggle="modal"
-                            v-for="rn in filteredData" :data-bs-target="`#${rn.name.replace(/\s/g, '')}`">{{ rn.name
-                            }}</button>
-                    </div>
-                </tbody>
-            </table>
-        </div>
-
     </main>
     <AddItem></AddItem>
     <Items :rewards_name="rewards_name" :rewards="rewards"></Items>

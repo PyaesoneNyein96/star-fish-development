@@ -20,6 +20,7 @@ class StudentFactory extends Factory
             'name' => fake()->name(),
             'age' => fake()->numberBetween(1, 20),
             'email' => fake()->unique()->safeEmail,
+            'token' => fake()->numberBetween(1, 10),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         ];
     }

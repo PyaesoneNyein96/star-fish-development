@@ -17,6 +17,7 @@ const currentPage = ref(1);
 
 const filteredData = computed(() => {
     const query = search.value.toLowerCase().replace(/\s/g, "");
+    if (data.students == null) return data.students;
     const filtered = data.students.filter((student) =>
         student.phone == null
             ? student.name.toLowerCase().replace(/\s/g, "").includes(query) ||
@@ -24,7 +25,9 @@ const filteredData = computed(() => {
             : student.email == null
                 ? student.name.toLowerCase().replace(/\s/g, "").includes(query) ||
                 student.phone.toLowerCase().replace(/\s/g, "").includes(query)
-                : ""
+                : student.name.toLowerCase().replace(/\s/g, "").includes(query) ||
+                student.phone.toLowerCase().replace(/\s/g, "").includes(query) ||
+                student.email.toLowerCase().replace(/\s/g, "").includes(query)
     );
 
     const start = (currentPage.value - 1) * perPage.value;
@@ -415,11 +418,9 @@ onMounted(() => {
     <SideBar></SideBar>
     <main id="main" class="main">
         <div class="mx-3">
-            <div class="d-flex mb-4 pt-3 border-bottom">
+            <div class=" mb-4 pt-3 border-bottom">
                 <h1>Students</h1>
-                <div class="col text-end">
-                    <small class="text-muted" style="cursor: pointer"></small>
-                </div>
+
             </div>
             <!-- data numbers  -->
             <div class="d-flex justify-content-between mb-3">

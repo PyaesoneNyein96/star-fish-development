@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, computed, ref } from 'vue';
 import { router } from '@inertiajs/vue3';
 import axios from 'axios';
 import Header from '../Dashboard/Header/Index.vue';
@@ -10,6 +10,7 @@ const data = defineProps({
 });
 
 let chat = ref(null);
+const search = ref('');
 
 const fetchData = () => {
     axios.get('/dashboard/axios/chats')
@@ -20,6 +21,33 @@ const fetchData = () => {
             console.error('Error fetching data');
         });
 }
+
+const filteredData = computed(() => {
+    const query = search.value.toLowerCase().replace(/\s/g, "");
+    if (chat.value == null) return chat.value;
+    const filtered = chat.value.filter((student) =>
+
+        student.phone == null
+            ? student.name.toLowerCase().replace(/\s/g, "").includes(query) ||
+            student.message.toLowerCase().replace(/\s/g, "").includes(query) ||
+            student.nickName.toLowerCase().replace(/\s/g, "").includes(query) ||
+            student.email.toLowerCase().replace(/\s/g, "").includes(query)
+
+            : student.email == null
+                ? student.name.toLowerCase().replace(/\s/g, "").includes(query) ||
+                student.message.toLowerCase().replace(/\s/g, "").includes(query) ||
+                student.nickName.toLowerCase().replace(/\s/g, "").includes(query) ||
+                student.phone.toLowerCase().replace(/\s/g, "").includes(query)
+
+                : student.name.toLowerCase().replace(/\s/g, "").includes(query) ||
+                student.message.toLowerCase().replace(/\s/g, "").includes(query) ||
+                student.nickName.toLowerCase().replace(/\s/g, "").includes(query) ||
+                student.phone.toLowerCase().replace(/\s/g, "").includes(query) ||
+                student.email.toLowerCase().replace(/\s/g, "").includes(query)
+    );
+
+    return filtered;
+});
 
 onMounted(() => {
     setInterval(() => {
@@ -345,34 +373,51 @@ onMounted(() => {
     <Header :user="user"></Header>
     <SideBar></SideBar>
     <main id="main" class="main">
-        <div class=" border m-2 rounded  overflow-y-scroll chat" style="height: 83vb;">
-            <table class="table m-1" style="width: 99%;">
-                <thead>
-                    <tr>
-                        <th scope="col">Photo</th>
-                        <th scope="col">Message</th>
-                        <th scope="col">Name</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="c in chat" :key="c.id">
-                        <td>
-                            <div style="width: 35px;">
-                                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                                    alt="" class="w-100">
-                                <img :src="`/storage/${c.profile_picture}`" alt="" class="w-100">
-                            </div>
-                        </td>
-                        <td>{{ c.message }}</td>
-                        <td>{{ c.name }}</td>
-                        <td class=" text-center ">
-                            <button class=" btn btn-danger "><i class="fa-solid fa-ban"></i> Ban </button>
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
+        <div class="mx-3">
+            <div class="mb-4 pt-3 border-bottom ">
+                <h4>Rewards</h4>
+            </div>
+            <div class="  text-end  mb-4">
+                <input type="text" class=" border-0 shadow-sm  rounded " placeholder="Search . . ." v-model="search">
+            </div>
+            <div class=" border m-2 rounded  overflow-y-scroll chat" style="height: 83vb;">
+                <table class="table m-1" style="width: 99%;">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="col">Message</th>
+                            <th class="col-3">Name</th>
+                            <th class="col-3">Nickname</th>
+                            <th class="col-2"></th>
+                        </tr>
+                    </thead>
+                    <tbody v-if="filteredData != null && filteredData.length > 0">
+                        <tr v-for="c in filteredData" :key="c.id">
+                            <td></td>
+                            <!-- <td>
+                                                                                                                                                                                                                                                                                                                                                                                                                        <div style="width: 35px;">
+                                                                                                                                                                                                                                                                                                                                                                                                                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                                                                                                                                                                                                                                                                                                                                                                                                                                alt="" class="w-100">
+                                                                                                                                                                                                                                                                                                                                                                                                                            <img :src="`/storage/${c.profile_picture}`" alt="" class="w-100">
+                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                    </td> -->
+                            <td>{{ c.message }}</td>
+                            <td>{{ c.name }}</td>
+                            <td>{{ c.nickName }}</td>
+                            <td class="d-none">{{ c.email }}</td>
+                            <td class="d-none">{{ c.phone }}</td>
+                            <td class=" text-center ">
+                                <button class=" btn btn-danger "><i class="fa-solid fa-ban"></i> Ban </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody v-else class="text-center">
+                        <tr>
+                            <td colspan="5">No results found.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </main>
 </template>
