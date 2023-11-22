@@ -31,16 +31,7 @@ class SubscriptionController extends Controller
     public function plans(Request $request){
 
         $student = Student::where('token', $this->token)->first();
-
-
-        return $plans = Subscription::all()->map(function ($p) use($student){
-
-            return [
-                'id' => $p->id,
-                'name' => $p->name,
-                'currency' => $p->currency,
-            ];
-        });
+        return Subscription::all();
 
     }
 
@@ -59,9 +50,6 @@ class SubscriptionController extends Controller
         $purchasing = $this->purchasing($student, $this->grade_id, $this->subscription_id);
 
         if($purchasing){
-
-            // $studentGrades = $student->grades;
-
 
             StudentGrade::create([
                 'student_id' => $student->id,
@@ -82,6 +70,7 @@ class SubscriptionController extends Controller
             ], 200);
 
         }
+
         return "already purchased";
 
     }

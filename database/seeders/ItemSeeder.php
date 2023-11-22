@@ -18,6 +18,8 @@ class ItemSeeder extends Seeder
         $ImageDomain = $domain."/storage/images/AtoZ/";
         $AudioDomain = $domain."/storage/audios/AtoZ/";
 
+
+
         $prefix = "SubBlock_";
         $AZ = range("A","Z");
 
@@ -26,6 +28,10 @@ class ItemSeeder extends Seeder
                     ['item' => $key ,'image' => $ImageDomain.$key.".png", 'audio' => $AudioDomain.$prefix.$key.".mp3", 'game_id' => 2],
             ]);
         }
+
+
+
+
 
     }
 }

@@ -86,10 +86,63 @@ trait gameTraits{
 
 
     // For without rand Games\
-    public function reading_carousel($game){
-        return "cc";
+    public function reading_carousel($gameId){
+        return $gameId;
     }
 
+    // Video
+    public function video_player_lessons($game){
+
+        // return $game;
+
+          $collection = [
+            'id' => $game->id,
+            'lesson_id' => $game->lesson_id,
+            // 'category' => $game->category['name'],
+        ];
+
+        foreach ($game->videos as $v) {
+            $collection['video'] = [
+                'video_id' => $v->path,
+                'local' => $v->isLocal,
+                'type' => 'video',
+            ];
+        }
+       return $collection;
+
+        // $result =  $game->videos->map(function ($v){
+        //    return [
+        //         'video_id' => $v->path,
+        //         'local' => $v->isLocal,
+        //         'type' => 'Video',
+        //     ];
+        // });
+        // unset($game->videos);
+        // $game['videos'] = $result;
+        // return $game;
+
+
+
+    }
+
+    // Song
+    public function video_player_song($game){
+
+          $collection = [
+            'id' => $game->id,
+            // 'category' => $game->category['name'],
+        ];
+
+        foreach ($game->songs as $s) {
+            $collection['song'] = [
+                'song_id' => $s->path,
+                'local' => $s->isLocal,
+                'type' => 'Song',
+            ];
+        }
+       return $collection;
+
+    }
 
 
 

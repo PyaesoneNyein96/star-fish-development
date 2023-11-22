@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('student_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('grade_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedInteger('subscription_id');
+            $table->timestamp('expire_date');
             $table->integer('isDone')->default(0);
             $table->timestamps();
         });

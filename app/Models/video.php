@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Video extends Model
 {
     use HasFactory;
-
     protected $hidden = ['pivot','created_at', 'updated_at'];
 
     protected $fillable = [
@@ -16,6 +15,7 @@ class Video extends Model
         'round_id',
         'game_id',
         'path',
+        'isLocal',
     ];
 
     // public function round(){

@@ -9,10 +9,12 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\CitySeeder;
 use Database\Seeders\GameSeeder;
 use Database\Seeders\ItemSeeder;
+use Database\Seeders\SongSeeder;
 use Database\Seeders\AudioSeeder;
 use Database\Seeders\GradeSeeder;
 use Database\Seeders\ImageSeeder;
 use Database\Seeders\RoundSeeder;
+use Database\Seeders\VideoSeeder;
 use Database\Seeders\AnswerSeeder;
 use Database\Seeders\LessonSeeder;
 use Database\Seeders\RewardSeeder;
@@ -89,6 +91,8 @@ class DatabaseSeeder extends Seeder
         $this->call(BackgroundSeeder::class);
         $this->call(ConversationSeeder::class);
         $this->call(GameInstructionSeeder::class);
+        $this->call(VideoSeeder::class);
+        $this->call(SongSeeder::class);
 
 
         $this->call(RewardSeeder::class);

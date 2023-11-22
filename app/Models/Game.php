@@ -24,6 +24,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
         return $this->belongsTo(Category::class);
     }
 
+
+    public function grade(){
+        return $this->belongsTo(Grade::class, Lesson::class);
+    }
+
     public function lesson(){
         return $this->belongsTo(Lesson::class);
     }
@@ -48,7 +53,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
         return $this->hasMany(Image::class);
     }
 
-
     public function conversations(){
          return $this->hasMany(Conversation::class);
         }
@@ -63,6 +67,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
     public function instructions (){
         return $this->hasMany(GameInstruction::class);
+    }
+
+    public function videos (){
+        return $this->hasMany(Video::class);
+    }
+    public function songs (){
+        return $this->hasMany(SOng::class);
     }
 
 

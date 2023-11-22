@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->integer('round_id')->nullable();
             $table->integer('game_id')->nullable();
             $table->string('path')->nullable();
+            $table->integer('isLocal')->nullable();
             $table->timestamps();
         });
     }
