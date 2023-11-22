@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\Lessons;
 
 use stdClass;
+use Carbon\Carbon;
 use App\Models\Game;
 use App\Models\Grade;
 use App\Models\Round;
@@ -31,8 +32,15 @@ class GameController extends Controller
     public function grades(Request $request)
     {
 
+
+
         $student = Student::where('token', $request->header('token'))->first();
+
         $studentGrades = $student->grades;
+
+        // Expire Check
+
+        $this->expiryCheck($student,$studentGrades);
 
         $allGrades = Grade::all();
         $isDone = StudentGrade::where('student_id', $student->id)->where('isDone',1)->get();
@@ -42,10 +50,13 @@ class GameController extends Controller
 
             $paid = false;
             $lock = false;
+            $expiry = null;
 
             if($student->isSubscriber == 1 && $studentGrades->contains('id', $grade->id) ){
                 $paid = true;
                 $lock = true;
+                $expiry =  $studentGrades->contains('id', $grade->id);
+
 
             } else if ($student->isSubscriber == 0 && $student->grade_chosen == null){
                 $paid = false;
@@ -58,13 +69,19 @@ class GameController extends Controller
             return [
                 'id' => $grade->id,
                 'name' => $grade->name,
-                'expiry' => $grade->expiry,
                 'price' => $grade->price,
                 'paid' => $paid,
                 'allow' => $lock,
                 'complete' => $isDone->contains('id',$grade->id),
+                // 'startDate' => $
             ];
         });
+
+        // foreach ($studentGrades as $stuG) {
+        //     if($stuG->id == $grade->id){
+        //         $expiry = "xxx";
+        //     }
+        // }
 
 
         return $studentGrade;
@@ -359,7 +376,11 @@ class GameController extends Controller
     }
 
 
+    private function expiryCheck($student, $studentGrades){
 
+        return [$student, $studentGrades];
+
+    }
 
 
 
