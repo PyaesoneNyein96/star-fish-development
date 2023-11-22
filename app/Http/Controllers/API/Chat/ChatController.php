@@ -15,7 +15,7 @@ class ChatController extends Controller
 
     public function changeNName(Request $request)
     {
-        Student::where('token', $request->id)->update([
+        Student::where('id', $request->id)->update([
             'nickName' => $request->nickName,
         ]);
         return response()->json(['success' => 'created'], 201);

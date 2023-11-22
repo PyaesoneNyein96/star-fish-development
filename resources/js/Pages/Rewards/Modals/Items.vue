@@ -29,6 +29,11 @@ const inputPerItem = (id) => {
     $(`.${id}`).removeAttr('style');
 }
 
+const closePerItem = (id) => {
+    $(`.${id}td`).removeAttr('style');
+    $(`.${id}`).css('display', 'none');
+}
+
 const editPerItem = (id) => {
     const form = { id, item, point };
     router.post('/dashboard/rewards/per/edit', form);
@@ -81,13 +86,6 @@ const removeItem = (name) => {
                     <button type="button" class="btn btn-sm bg-secondary text-light " data-bs-dismiss="modal">esc</button>
                 </div>
                 <div class="modal-body">
-
-                    <div class="alert alert-warning alert-dismissible fade show justify-content-between d-flex" role="alert"
-                        v-if="$page.props.flash.message">
-                        <span>{{ $page.props.flash.message }}</span>
-                        <button type="button" data-bs-dismiss="alert" aria-label="Close"><i
-                                class=" fa-regular fa-circle-xmark"></i></button>
-                    </div>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -131,8 +129,10 @@ const removeItem = (name) => {
                                         @click="inputPerItem(r.id)">Edit</button>
                                     <button :class="`btn btn-sm  btn-primary me-3 ${r.id} `" style="display: none;"
                                         @click="editPerItem(r.id)">Update</button>
-                                    <button class=" btn btn-sm btn-outline-danger"
+                                    <button :class="` btn btn-sm btn-outline-danger ${r.id}td `"
                                         @click="deletePerItem(r.id)">Delete</button>
+                                    <button :class="` btn btn-sm btn-danger ${r.id} `" style="display: none;"
+                                        @click="closePerItem(r.id)">Close</button>
                                 </td>
                             </tr>
                         </tbody>

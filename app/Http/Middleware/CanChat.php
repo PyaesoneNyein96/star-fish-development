@@ -18,6 +18,7 @@ class CanChat
     {
         $token = $request->header('token');
         $isSubScribed = Student::where('token', $token)->first();
+
         if ($isSubScribed->isSubscriber == 0) {
             return response('Forbidden', 403);
         }
