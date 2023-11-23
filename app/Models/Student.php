@@ -13,8 +13,8 @@ class Student extends Model
 {
     use HasApiTokens, HasFactory;
 
-    // protected $hidden = ['pivot'];
-    protected $hidden = ['pivot','created_at','updated_at','password'];
+    protected $hidden = ['pivot', 'password'];
+    // protected $hidden = ['pivot','created_at','updated_at','password'];
 
     protected $fillable = [
         'id',
@@ -75,8 +75,9 @@ class Student extends Model
         return $this->belongsToMany(Lesson::class, 'student_lessons', 'student_id', 'lesson_id');
     }
 
-    public function games(){
-        return $this->belongsToMany(Game::class,'student_games','student_id','game_id');
+    public function games()
+    {
+        return $this->belongsToMany(Game::class, 'student_games', 'student_id', 'game_id');
     }
 
 
@@ -87,8 +88,9 @@ class Student extends Model
 
 
 
-//============================
-    public function toArray(){
+    //============================
+    public function toArray()
+    {
 
         $data = parent::toArray();
 
@@ -98,7 +100,4 @@ class Student extends Model
 
         return $filteredData;
     }
-
-
-
 }

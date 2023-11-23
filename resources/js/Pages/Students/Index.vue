@@ -422,7 +422,7 @@ onMounted(() => {
                 <h1>Students</h1>
 
             </div>
-            <!-- data numbers  -->
+
             <div class="d-flex justify-content-between mb-3">
                 <select class="border-0 rounded shadow-sm" style="width: 81px" v-model="perPage">
                     <option :value="`${students.length}`">All</option>
@@ -433,7 +433,7 @@ onMounted(() => {
                     <option value="250">250</option>
                     <option value="500">500</option>
                 </select>
-                <input type="text" class="shadow-sm" placeholder="Search . . . " v-model="search" />
+                <input type="text" class="shadow-sm" style="width: 250px;" placeholder="Search . . . " v-model="search" />
             </div>
 
             <table class="table table-hover rounded-5">
@@ -445,6 +445,7 @@ onMounted(() => {
                         <th>age</th>
                         <th>level</th>
                         <th>Tier</th>
+                        <th>Status</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -460,6 +461,7 @@ onMounted(() => {
                         <td class="d-none">{{ s.email }}</td>
                         <td class="d-none">{{ s.phone }}</td>
                         <td>{{ s.board }}</td>
+                        <td>{{ s.status ? "online" : "offline" }}</td>
                         <td class="text-end">
                             <button class="btn btn-sm btn-success" data-bs-toggle="modal"
                                 :data-bs-target="`#staticBackdrop${s.id}`">

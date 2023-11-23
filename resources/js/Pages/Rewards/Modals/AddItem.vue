@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import { router } from '@inertiajs/vue3';
 
 const name = ref('');
+const error = ref(false);
 const items = ref([{ itemName: '', stars: '' }]);
 
 const form = { name, items }
@@ -11,10 +12,16 @@ const addInputItem = () => {
     items.value.push({ itemName: '', stars: '' });
 };
 const postNewItem = () => {
-    router.post('/dashboard/rewards', form);
-    name.value = '';
-    items.value = [{ itemName: '', stars: '' }];
-    $('#addNewItem').modal('hide');
+    if (form.name.value == '') {
+        error.value = true
+    }
+    else {
+        error.value = false;
+        router.post('/dashboard/rewards', form);
+        name.value = '';
+        items.value = [{ itemName: '', stars: '' }];
+        $('#addNewItem').modal('hide');
+    }
 }
 </script>
 <template>
@@ -32,7 +39,8 @@ const postNewItem = () => {
                         <div class="name mb-4">
                             <label for="name">Name</label>
                             <input type="text" id="name" class="form-control border-0 shadow-sm rounded bg-light"
-                                placeholder="Enter Name" v-model="name" />
+                                placeholder="Enter Name" v-model="name">
+                            <small class=" text-danger" v-if="error"> * Name field required</small>
                         </div>
 
                         <div class="item mb-4">
