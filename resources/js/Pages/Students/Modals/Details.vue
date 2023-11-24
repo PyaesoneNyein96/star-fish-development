@@ -1,9 +1,41 @@
 <script setup>
+import { ref } from 'vue';
+
 
 const data = defineProps({
     student: Object,
 });
 
+const date = new Date(data.student.created_at);
+const loginDate = new Date(data.student.updated_at);
+
+const month = new Intl.DateTimeFormat('en-US', { month: 'short' }).format(date);
+const day = new Intl.DateTimeFormat('en-US', { day: 'numeric' }).format(date);
+const year = new Intl.DateTimeFormat('en-US', { year: 'numeric' }).format(date);
+
+let timeAgo = ref('');
+
+const timeDifferenceLogin = loginDate - date;
+const secondsDifference = Math.floor(timeDifferenceLogin / 1000);
+const minutesDifference = Math.floor(secondsDifference / 60);
+const hoursDifference = Math.floor(minutesDifference / 60);
+const daysDifference = Math.floor(hoursDifference / 24);
+const monthsDifference = Math.floor(daysDifference / 30);
+const yearsDifference = Math.floor(daysDifference / 365);
+
+if (yearsDifference > 0) {
+    timeAgo = yearsDifference === 1 ? '1 year ago' : `${yearsDifference} years ago`;
+} else if (monthsDifference > 0) {
+    timeAgo = monthsDifference === 1 ? '1 month ago' : `${monthsDifference} months ago`;
+} else if (daysDifference > 0) {
+    timeAgo = daysDifference === 1 ? '1 day ago' : `${daysDifference} days ago`;
+} else if (hoursDifference > 0) {
+    timeAgo = hoursDifference === 1 ? '1 hour ago' : `${hoursDifference} hours ago`;
+} else if (minutesDifference > 0) {
+    timeAgo = minutesDifference === 1 ? '1 minute ago' : `${minutesDifference} minutes ago`;
+} else {
+    timeAgo = secondsDifference <= 10 ? 'just now' : `${secondsDifference} seconds ago`;
+}
 
 </script>
 <template>
@@ -20,15 +52,19 @@ const data = defineProps({
                         esc
                     </button>
                 </div>
-            <div class="modal-body">
+                <div class="modal-body">
                     <div class="container">
+                        <div class="">
+                            <small class="d-block text-decoration-underline "><strong>Account Created Date</strong></small>
+                            <small>{{ day + " " + month + " " + year }}</small>
+                        </div>
                         <table class="table table-borderless">
                             <thead>
                                 <tr>
                                     <th>
                                         <div style="width: 100px">
-                                            <!-- <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                                                                                                                                                                                                                                                                                                                                                            alt="" class="w-100 shadow-sm mb-3" /> -->
+                                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                                                alt="" class="w-100 shadow-sm mb-3" />
                                             <img :src="
                                                 '/storage/' +
                                                 student.profile_picture
@@ -36,7 +72,7 @@ const data = defineProps({
 
                                         </div>
                                     </th>
-                                    <th scope="col"></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody class="text-start">
@@ -73,13 +109,13 @@ const data = defineProps({
                                 <tr>
                                     <th>Status</th>
                                     <td>
-                                        {{
+                                        <span :class="[student.isAuth ? 'text-primary' : '']" class=" me-3 "> {{
                                             student.isAuth
                                             ? "online"
                                             : "offline"
-                                        }}
+                                        }}</span>
+                                        <small v-if="!student.isAuth">( Active {{ timeAgo }} )</small>
                                     </td>
-
                                 </tr>
                                 <tr>
                                     <th>Age</th>
@@ -94,7 +130,6 @@ const data = defineProps({
                                                 : "Free User"
                                             }}
                                         </p>
-
                                     </td>
                                 </tr>
                             </tbody>

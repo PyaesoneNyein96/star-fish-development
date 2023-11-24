@@ -375,10 +375,11 @@ onMounted(() => {
     <main id="main" class="main">
         <div class="mx-3">
             <div class="mb-4 pt-3 border-bottom ">
-                <h4>Rewards</h4>
+                <h4>Chats</h4>
             </div>
-            <div class="  text-end  mb-4">
-                <input type="text" class=" border-0 shadow-sm  rounded " placeholder="Search . . ." v-model="search">
+            <div class="text-end  mb-4">
+                <input type="text" class=" border-0 shadow-sm  rounded " placeholder="Search . . ." v-model="search"
+                    style="width: 250px;">
             </div>
             <div class=" border m-2 rounded  overflow-y-scroll chat" style="height: 83vb;">
                 <table class="table m-1" style="width: 99%;">
@@ -395,12 +396,12 @@ onMounted(() => {
                         <tr v-for="c in filteredData" :key="c.id">
                             <td></td>
                             <!-- <td>
-                                                                                                                                                                                                                                                                                                                                                                                                                        <div style="width: 35px;">
-                                                                                                                                                                                                                                                                                                                                                                                                                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                                                                                                                                                                                                                                                                                                                                                                                                                                alt="" class="w-100">
-                                                                                                                                                                                                                                                                                                                                                                                                                            <img :src="`/storage/${c.profile_picture}`" alt="" class="w-100">
-                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                    </td> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                    <div style="width: 35px;">
+                                                                                                                                                                                                                                                                                                                                                                                                                                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                                                                                                                                                                                                                                                                                                                                                                                                                                            alt="" class="w-100">
+                                                                                                                                                                                                                                                                                                                                                                                                                                        <img :src="`/storage/${c.profile_picture}`" alt="" class="w-100">
+                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                </td> -->
                             <td>{{ c.message }}</td>
                             <td>{{ c.name }}</td>
                             <td>{{ c.nickName }}</td>

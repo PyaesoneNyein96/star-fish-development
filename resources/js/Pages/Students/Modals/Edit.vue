@@ -59,7 +59,7 @@ const postEditData = () => {
                                         <th>
                                             <div style="width: 100px" class=" d-flex ">
                                                 <!-- <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                                                            alt="" class="w-100 shadow-sm mb-3" /> -->
+                                                                alt="" class="w-100 shadow-sm mb-3" /> -->
                                                 <img :src="'/storage/' + form.profile_picture" alt="" />
                                                 <div class=" text-end">
                                                     <button type="button" class="btn btn-sm text-white"
@@ -83,24 +83,24 @@ const postEditData = () => {
                                     <tr>
                                         <th>Name</th>
                                         <td><input type="text" v-model="form.name" class=" shadow-sm bg-light w-100"
-                                                placeholder="Enter Name . . . ">
+                                                placeholder="Enter Name . . . " required>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Nickname</th>
                                         <td><input type="text" v-model="form.nickName" class=" shadow-sm bg-light w-100"
-                                                placeholder="Enter Nickname . . . ">
+                                                placeholder="Enter Nickname . . . " required>
                                         </td>
                                     </tr>
                                     <tr v-if="form.email != null">
                                         <th>Email</th>
                                         <td><input type="text" v-model="form.email" class=" shadow-sm bg-light w-100"
-                                                placeholder="Enter Email . . . "></td>
+                                                placeholder="Enter Email . . . " required></td>
                                     </tr>
                                     <tr v-if="form.phone">
                                         <th>Phone</th>
                                         <td><input type="text" v-model="form.phone" class=" shadow-sm bg-light w-100"
-                                                placeholder="Enter Phone . . . "></td>
+                                                placeholder="Enter Phone . . . " required></td>
                                     </tr>
                                     <tr>
                                         <th>Tier</th>
@@ -118,12 +118,12 @@ const postEditData = () => {
                                     <tr>
                                         <th>Level</th>
                                         <td><input type="text" v-model="form.level" class=" shadow-sm bg-light w-100"
-                                                placeholder="Enter Level . . . "></td>
+                                                placeholder="Enter Level . . . " required></td>
                                     </tr>
                                     <tr>
                                         <th>Stars</th>
                                         <td><input type="text" v-model="form.point" class=" shadow-sm bg-light w-100"
-                                                placeholder="Enter Stars . . . "></td>
+                                                placeholder="Enter Stars . . . " required></td>
                                     </tr>
                                     <tr>
                                         <th>Status</th>
@@ -137,7 +137,7 @@ const postEditData = () => {
                                     <tr>
                                         <th>Age</th>
                                         <td><input type="text" v-model="form.age" class=" shadow-sm bg-light w-100"
-                                                placeholder="Enter Age . . . "></td>
+                                                placeholder="Enter Age . . . " required></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">

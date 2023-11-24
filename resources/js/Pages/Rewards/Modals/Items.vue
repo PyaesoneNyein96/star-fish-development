@@ -13,6 +13,7 @@ const point = ref('');
 let inputToggle = ref(false);
 let addNewItemToggle = ref(false);
 const newItem = ref({ item: '', point: '' });
+const addNewItemError = ref(false);
 
 const rename = () => {
     inputToggle.value = true;
@@ -20,8 +21,13 @@ const rename = () => {
 
 const renameUpdate = (originalName) => {
     const form = { originalName, name };
-    router.post('/dashboard/rewards/rename', form);
-    inputToggle.value = false;
+
+    if (form.name.value == '') {
+        inputToggle.value = false;
+    } else {
+        router.post('/dashboard/rewards/rename', form);
+        inputToggle.value = false;
+    }
 }
 
 const inputPerItem = (id) => {
@@ -36,9 +42,15 @@ const closePerItem = (id) => {
 
 const editPerItem = (id) => {
     const form = { id, item, point };
-    router.post('/dashboard/rewards/per/edit', form);
-    $(`.${id}`).css('display', 'none');
-    $(`.${id}td`).removeAttr('style');
+    if (form.item.value == '' || form.point.value == '') {
+        $(`.${id}`).css('display', 'none');
+        $(`.${id}td`).removeAttr('style');
+    }
+    else {
+        router.post('/dashboard/rewards/per/edit', form);
+        $(`.${id}`).css('display', 'none');
+        $(`.${id}td`).removeAttr('style');
+    }
 }
 
 const deletePerItem = (id) => {
@@ -53,14 +65,22 @@ const addNewItemInputToggle = () => {
 const closeNewItemInput = () => {
     newItem.value = { item: '', point: '' };
     addNewItemToggle.value = false;
+    addNewItemError.value = false;
 }
 
 const addNewItem = (name) => {
     const form = { name, newItem };
-    router.post('/dashboard/rewards/per/add', form);
 
-    newItem.value = { item: '', point: '' };
-    addNewItemToggle.value = false;
+    if (form.newItem.value.item == '' || form.newItem.value.point == '') {
+        addNewItemError.value = true;
+    }
+    else {
+        addNewItemError.value = false;
+        router.post('/dashboard/rewards/per/add', form);
+
+        newItem.value = { item: '', point: '' };
+        addNewItemToggle.value = false;
+    }
 }
 
 const removeItem = (name) => {
@@ -100,9 +120,13 @@ const removeItem = (name) => {
                             <tr v-if="addNewItemToggle">
                                 <td><input type="text" style="width:150px" class="border-0 rounded  shadow-sm bg-light"
                                         placeholder="Enter Item . . . " v-model="newItem.item">
+                                    <small class=" text-danger  d-block " v-if="addNewItemError"> * item field
+                                        required</small>
                                 </td>
                                 <td><input type="text" style="width: 120px;" class="border-0 rounded  shadow-sm bg-light"
                                         placeholder="Enter Stars . . . " v-model="newItem.point">
+                                    <small class=" text-danger  d-block " v-if="addNewItemError"> * stars field
+                                        required</small>
                                 </td>
                                 <td class="text-end">
                                     <button class="btn btn-sm  btn-outline-secondary me-2 " @click="addNewItem(rn.name)">+

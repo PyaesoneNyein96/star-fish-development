@@ -14,12 +14,15 @@ const data = defineProps({
 const search = ref("");
 const perPage = ref(data.students.length);
 const currentPage = ref(1);
+const userTypeFilter = ref("all");
+const statusFilter = ref("all");
+const tierFilter = ref("all");
 
 const filteredData = computed(() => {
     const query = search.value.toLowerCase().replace(/\s/g, "");
     if (data.students == null) return data.students;
-    const filtered = data.students.filter((student) =>
-        student.phone == null
+    const filtered = data.students.filter((student) => {
+        let searching = student.phone == null
             ? student.name.toLowerCase().replace(/\s/g, "").includes(query) ||
             student.email.toLowerCase().replace(/\s/g, "").includes(query)
             : student.email == null
@@ -28,6 +31,26 @@ const filteredData = computed(() => {
                 : student.name.toLowerCase().replace(/\s/g, "").includes(query) ||
                 student.phone.toLowerCase().replace(/\s/g, "").includes(query) ||
                 student.email.toLowerCase().replace(/\s/g, "").includes(query)
+
+        const userTypeMatches =
+            userTypeFilter.value == "free" ? !student.isSubscriber :
+                userTypeFilter.value == "ss" ? student.isSubscriber :
+                    true;
+
+        const statusMatches =
+            statusFilter.value == "online" ? student.isAuth :
+                statusFilter.value == "offline" ? !student.isAuth :
+                    true;
+
+        const tierMatches =
+            tierFilter.value == "silver" ? student.board.includes("silver") :
+                tierFilter.value == "platinum" ? student.board.includes("platinum") :
+                    tierFilter.value == "gold" ? student.board.includes("gold") :
+                        tierFilter.value == "diamond" ? student.board.includes("diamond") :
+                            true;
+
+        return searching && userTypeMatches && statusMatches && tierMatches;
+    }
     );
 
     const start = (currentPage.value - 1) * perPage.value;
@@ -35,6 +58,7 @@ const filteredData = computed(() => {
 
     return filtered.slice(start, end);
 });
+
 
 const totalPages = computed(() => Math.ceil(data.students.length / perPage.value));
 
@@ -422,18 +446,60 @@ onMounted(() => {
                 <h1>Students</h1>
 
             </div>
-            <!-- data numbers  -->
-            <div class="d-flex justify-content-between mb-3">
-                <select class="border-0 rounded shadow-sm" style="width: 81px" v-model="perPage">
-                    <option :value="`${students.length}`">All</option>
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="25">25</option>
-                    <option value="100">100</option>
-                    <option value="250">250</option>
-                    <option value="500">500</option>
+
+
+            <div class="d-flex justify-content-between mb-2">
+                <div class="">
+                    <select class="border-0 rounded shadow-sm" style="width: 81px" v-model="perPage">
+                        <option :value="`${students.length}`">All</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="100">100</option>
+                        <option value="250">250</option>
+                        <option value="500">500</option>
+                    </select>
+                    <!-- <select class="border-0 rounded shadow-sm mb-2" style="width: 190px" v-model="userTypeFilter">
+                                        <option value="all">All Users</option>
+                                        <option value="free">Free User</option>
+                                        <option value="ss">Subscriped User</option>
+                                    </select>
+                                    <select class="border-0 rounded shadow-sm mb-2" style="width: 130px" v-model="tierFilter">
+                                        <option value="all">All Tiers</option>
+                                        <option value="silver">Silver</option>
+                                        <option value="platinum">Platinum</option>
+                                        <option value="gold">Gold</option>
+                                        <option value="diamond">Diamond</option>
+                                    </select>
+                                    <select class="border-0 rounded shadow-sm mb-2" style="width: 140px" v-model="statusFilter">
+                                        <option value="all">All Status</option>
+                                        <option value="online">Online</option>
+                                        <option value="offline">Offline</option>
+                                    </select> -->
+                </div>
+                <div class="">
+                    <input type="text" class="shadow-sm" style="width: 250px;" placeholder="Search . . . "
+                        v-model="search" />
+                </div>
+            </div>
+            <div class=" mb-3">
+                <select class="border-0 rounded shadow-sm mb-2" style="width: 190px" v-model="userTypeFilter">
+                    <option value="all">All Users</option>
+                    <option value="free">Free User</option>
+                    <option value="ss">Subscriped User</option>
                 </select>
-                <input type="text" class="shadow-sm" placeholder="Search . . . " v-model="search" />
+                <select class="border-0 rounded shadow-sm mb-2" style="width: 130px" v-model="tierFilter">
+                    <option value="all">All Tiers</option>
+                    <option value="silver">Silver</option>
+                    <option value="platinum">Platinum</option>
+                    <option value="gold">Gold</option>
+                    <option value="diamond">Diamond</option>
+                </select>
+                <select class="border-0 rounded shadow-sm mb-2" style="width: 140px" v-model="statusFilter">
+                    <option value="all">All Status</option>
+                    <option value="online">Online</option>
+                    <option value="offline">Offline</option>
+                </select>
             </div>
 
             <table class="table table-hover rounded-5">
@@ -445,6 +511,7 @@ onMounted(() => {
                         <th>age</th>
                         <th>level</th>
                         <th>Tier</th>
+                        <th>Status</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -460,6 +527,7 @@ onMounted(() => {
                         <td class="d-none">{{ s.email }}</td>
                         <td class="d-none">{{ s.phone }}</td>
                         <td>{{ s.board }}</td>
+                        <td>{{ s.isAuth ? "online" : "offline" }}</td>
                         <td class="text-end">
                             <button class="btn btn-sm btn-success" data-bs-toggle="modal"
                                 :data-bs-target="`#staticBackdrop${s.id}`">

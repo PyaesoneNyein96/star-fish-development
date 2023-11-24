@@ -353,7 +353,8 @@ onMounted(() => {
                     <button class=" btn btn-outline-secondary shadow-sm " data-bs-toggle="modal"
                         data-bs-target="#addNewItem">+
                         Add New Item</button>
-                    <input type="text" class=" border-0 shadow-sm  rounded " placeholder="Search . . ." v-model="search">
+                    <input type="text" class=" border-0 shadow-sm  rounded " placeholder="Search . . ." v-model="search"
+                        style="width: 250px;">
                 </div>
                 <table class="table border shadow-sm ">
                     <thead>
@@ -361,13 +362,18 @@ onMounted(() => {
                             <th>Names</th>
                         </tr>
                     </thead>
-                    <tbody style=" font-size: small;" class="w-100 bg-white ">
+                    <tbody style=" font-size: small;" class="w-100 bg-white " v-if="filteredData.length > 0">
                         <div class=" ps-5 m-4">
                             <button class="btn btn-light  btn-sm  rounded-3 border-0  p-3 m-3 shadow-sm"
                                 data-bs-toggle="modal" v-for="rn in filteredData"
                                 :data-bs-target="`#${rn.name.replace(/\s/g, '')}`">{{ rn.name
                                 }}</button>
                         </div>
+                    </tbody>
+                    <tbody v-else class="text-center">
+                        <tr>
+                            <td>No results found.</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
