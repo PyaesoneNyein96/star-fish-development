@@ -37,8 +37,6 @@ trait gameTraits{
             }
 
 
-
-
             // return $rounds;
             $game['rounds'] = $rounds;
 
@@ -85,64 +83,100 @@ trait gameTraits{
     }
 
 
-    // For without rand Games\
-    public function reading_carousel($gameId){
-        return $gameId;
+    // For without rand Games
+    public function reading_carousel($game){
+        return $game;
     }
 
     // Video
-    public function video_player_lessons($game){
+    public function video_player_lessons($game,$student){
 
-        // return $game;
+        $videos = $game->videos;
 
-          $collection = [
-            'id' => $game->id,
-            'lesson_id' => $game->lesson_id,
-            // 'category' => $game->category['name'],
-        ];
+        $result = $videos->filter(function ($v) use($student){
+            return $v->isLocal == $student->isLocal;
+        });
 
-        foreach ($game->videos as $v) {
-            $collection['video'] = [
+        $videos = $result->values()->map(function ($v) use($student){
+            return [
                 'video_id' => $v->path,
                 'local' => $v->isLocal,
-                'type' => 'video',
+                'type' => 'Video',
             ];
-        }
+        });
+
+        $collection = [
+            'id' => $game->id,
+            'name' => $game->name,
+            'lesson_id' => $game->lesson_id,
+            'videos' => $videos
+        ];
+
        return $collection;
-
-        // $result =  $game->videos->map(function ($v){
-        //    return [
-        //         'video_id' => $v->path,
-        //         'local' => $v->isLocal,
-        //         'type' => 'Video',
-        //     ];
-        // });
-        // unset($game->videos);
-        // $game['videos'] = $result;
-        // return $game;
-
-
 
     }
 
     // Song
-    public function video_player_song($game){
+    public function video_player_song($game, $student){
 
-          $collection = [
-            'id' => $game->id,
-            // 'category' => $game->category['name'],
-        ];
+        $songs = $game->songs;
 
-        foreach ($game->songs as $s) {
-            $collection['song'] = [
+        $result = $songs->filter(function ($s) use($student){
+            return $s->isLocal == $student->isLocal;
+        });
+
+        $songs = $result->values()->map(function ($s){
+            return [
                 'song_id' => $s->path,
                 'local' => $s->isLocal,
-                'type' => 'Song',
+                'type' =>"song",
             ];
-        }
+        });
+
+         $collection = [
+            'id' => $game->id,
+            'name' => $game->name,
+            'lesson_id' => $game->lesson_id,
+            'songs' => $songs
+        ];
+
        return $collection;
 
     }
+
+  // For Cloud Games Two
+    public function listening_and_choosing_clouds_two($gameId){
+
+
+        $rounds = Round::with('backgrounds','questions','characters',
+        'conversations','answers')->where('game_id', $gameId)->get();
+
+        // return $rounds;
+            $game = Game::with('category','instructions')->where('id', $gameId)->first();
+
+            foreach ($rounds as $r) {
+                if($r['backgrounds']){
+                    $r['background'] = $r['backgrounds']->image;
+                    unset($r['backgrounds']);
+                }
+            }
+
+            $game['rounds'] = $rounds;
+
+            $game = [
+                "id" => $game["id"],
+                "name" => $game["name"],
+                "lesson_id" => $game["lesson_id"],
+                "rounds" => $game["rounds"],
+            ];
+
+
+        return $game;
+
+
+
+    }
+
 
 
 

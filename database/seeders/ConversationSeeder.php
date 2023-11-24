@@ -16,7 +16,7 @@ class ConversationSeeder extends Seeder
         $ImageDomain = $domain."/storage/images/";
         $AudioDomain = $domain."/storage/audios/";
 
-        $G1_L1_U4_path = "Grade_1/"."lesson_1/"."listen_practice/";
+        $G1_L1_U4_path = "Grade_1/"."Lesson_1/"."listen_practice/";
 
         $rounds = [ // images
 
@@ -34,7 +34,7 @@ class ConversationSeeder extends Seeder
         ];
 
         $audios = [
-            "What's_your_name", "My_name's_Mary", "How_are_you", "I'm_fine", "Its_a_bag", "My-names-Yuki", "Im-from-Japan", "Apples-are-red", "My-names-Tom", "Im-Susan"
+            "What's_your_name", "My_name’s_Mary", "How_are_you", "I'm_fine", "Its_a_bag", "My-names-Yuki", "Im-from-Japan", "Apples-are-red", "My-names-Tom", "Im-Susan"
         ];
 
 

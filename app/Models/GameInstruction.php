@@ -9,19 +9,19 @@ class GameInstruction extends Model
 {
     use HasFactory;
 
+    protected $hidden = ['pivot','created_at','updated_at'];
 
-        public function toArray(){
+
+
+    public function toArray(){
 
         $data = parent::toArray();
-
-        // Filter out properties with null or empty arrays.
         $filteredData = array_filter($data, function ($value) {
             return !is_null($value) && (!is_array($value) || !empty($value));
         });
 
         return $filteredData;
     }
-
 
 
 }

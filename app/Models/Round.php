@@ -62,7 +62,7 @@ class Round extends Model
 
 
 
-       public function toArray(){
+    public function toArray(){
 
         $data = parent::toArray();
         $filteredData = array_filter($data, function ($value) {

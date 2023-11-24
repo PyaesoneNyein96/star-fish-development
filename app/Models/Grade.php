@@ -9,7 +9,7 @@ class Grade extends Model
 {
     use HasFactory;
 
-     protected $hidden = ['pivot','created_at','updated_at'];
+    protected $hidden = ['pivot','created_at','updated_at'];
 
     protected $fillable = [
         'name',

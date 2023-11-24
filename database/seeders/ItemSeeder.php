@@ -15,17 +15,25 @@ class ItemSeeder extends Seeder
     {
 
         $domain = app('domain');
-        $ImageDomain = $domain."/storage/images/AtoZ/";
+        $ImageDomainAZ = $domain."/storage/images/AtoZ/";
+        $ImageDomainAZ_small = $domain."/storage/images/AtoZ_Small/";
         $AudioDomain = $domain."/storage/audios/AtoZ/";
 
 
 
         $prefix = "SubBlock_";
-        $AZ = range("A","Z");
 
+        $AZ = range("A","Z");
         foreach ($AZ as $key) {
             DB::table('items')->insert([
-                    ['item' => $key ,'image' => $ImageDomain.$key.".png", 'audio' => $AudioDomain.$prefix.$key.".mp3", 'game_id' => 2],
+                    ['item' => $key ,'image' => $ImageDomainAZ.$key.".png", 'audio' => $AudioDomain.$prefix.$key.".mp3", 'game_id' => 2],
+            ]);
+        }
+
+        $az = range("a","z");
+        foreach ($az as $key) {
+            DB::table('items')->insert([
+                    ['item' => $key ,'image' => $ImageDomainAZ_small.$key.".png", 'audio' => $AudioDomain.$prefix.$key.".mp3", 'game_id' => 7],
             ]);
         }
 

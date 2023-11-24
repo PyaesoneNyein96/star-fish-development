@@ -77,6 +77,22 @@ class DatabaseSeeder extends Seeder
             'isSubscriber' => 0
         ]);
 
+         Student::factory()->create([
+            'name' => 'thhs',
+            'phone' => null,
+            'email' => "devsophiesoe@gmail.com",
+            'password' => Hash::make('admin123'),
+            'age' => 5,
+            'country_id' => 2,
+            'city_id' => 5,
+            'agreeToPolicy' => 1,
+            'deviceId' => '0961e4e2-1b95-4a49-ae72-d7770dcd8ac9',
+            'isAuth' => 1,
+            'isLocal' => 0,
+            'status' => 1,
+            'token' => "1|MntwdmQMZc1tQ0Is3oGFEa6WPF1mI5RwbcllKPjE33e80309",
+            'isSubscriber' => 0
+        ]);
 
 
         $this->call(GradeSeeder::class);

@@ -103,17 +103,30 @@ class GameController extends Controller
 
         $studentLessons = $student->lessons; // ဆော့ပီးတဲ့ lessons
 
-
         $lessons = $allLessons->map(function ($lesson) use ($studentLessons, $grade) {
-            return [
+
+        return [
                 'id' => $lesson->id,
                 'grade_id' => $grade,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
+                // 'allow' => $key == 0 ? true: false,
             ];
+
         });
 
+        // $lessons = $allLessons->each(function ($lesson, $key) use ($studentLessons, $grade) {
+        //         $lesson->id = $lesson->id;
+        //         $lesson->grade_id = $grade;
+        //         $lesson->name = $lesson->name;
+        //         $lesson->complete = $studentLessons->contains('id', $lesson->id);
+        //         // $lesson->complete = $key === 0 ? "true" : "false";
+        //         $lesson->allow = $key === 0 ? "true" : "false";
+
+        //     });
+
         return $lessons;
+
     }
 
 
@@ -156,8 +169,6 @@ class GameController extends Controller
                 return $games;
 
 
-
-
         } catch (\Throwable $th) {
             return $th;
             DB::rollback();
@@ -171,29 +182,30 @@ class GameController extends Controller
 
         $student = Student::where('token', $request->header('token'))->first();
         $gameId = $request->header('game_id');
+        $lesson_id = $request->header('lesson_id');
 
-        $game = Game::with('images','category','audios','items','rounds','videos','songs','conversations','characters','background')->where('id', $gameId)->first();
+        $game = Game::with('images','category','audios','items','rounds','videos','songs','conversations','characters','background')->where('id', $gameId)
+        // ->where('lesson_id',$lesson_id)
+        ->first();
 
 
-        if (!$game) return null;
+        if (!$game) return "null";
 
         if(count($game->rounds) == 0 && method_exists($this, $game->category['name'])){
+
             $name = strval($game->category['name']);
-            return $this->$name($game);
+
+            return $this->$name($game, $student);
 
         }
         else if (method_exists($this, $game->category['name'])) {
 
             $name = strval($game->category['name']);
+
             return $this->$name($gameId);
         }
 
-        return "Function not found like Category !!";
-
-
-
-
-
+        return "Function not found .!!" ;
 
     }
 
@@ -216,6 +228,7 @@ class GameController extends Controller
 
         $exists = $game->lesson['id'] == $lesson_id ? true : false;
 
+
         if (!$student || !$game || !$exists) {
             return 404;
         }
@@ -226,6 +239,12 @@ class GameController extends Controller
 
         if (!$alreadyDone) {
 
+                if($student->grades->count() == 0) {
+                    return response()->json([
+                        "status" => "Success. Plz subscribe the plan to learn more lessons."
+                    ], 200);
+                }
+
                 StudentGame::insert([
                     'student_id' => $student->id,
                     'game_id' => $gameId,
@@ -234,7 +253,6 @@ class GameController extends Controller
 
 
                 $lessonGamesList = Game::where('lesson_id', $lesson_id)->get();
-
 
                 if ($this->lessonCheck($student, $lessonGamesList)->count() == 0) {
 
@@ -262,10 +280,9 @@ class GameController extends Controller
                         if (!$studentGrade) return 403;
 
                         StudentGrade::where('student_id',$student->id)
-                        ->where('grade_id', $grade_id)
-                        ->update([
-                            'isDone' => 1,
-                        ]);
+                            ->where('grade_id', $grade_id)
+                            ->update(['isDone' => 1,]);
+
 
                 }
 
@@ -353,6 +370,8 @@ class GameController extends Controller
             ]);
         }
     }
+
+
 
 
 

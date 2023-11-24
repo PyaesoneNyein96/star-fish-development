@@ -23,15 +23,23 @@ class RoundSeeder extends Seeder
     //  G1_L1_U4
 
 
-    $g1_l1_u5 = 3;
+        $g1_l1_u5 = 3;
 
-    for ($i= 1; $i <= $g1_l1_u5 ; $i++) {
+        for ($i= 1; $i <= $g1_l1_u5 ; $i++) {
+            DB::table('rounds')->insert([
+                ['round' => $i, 'game_id' => 5]
+            ]);
+        }
 
-        DB::table('rounds')->insert([
-            ['round' => $i, 'game_id' => 5]
-        ]);
+        $g1_l2_u4 =4;
 
-    }
+        for ($i= 1; $i <= $g1_l2_u4 ; $i++) {
+            DB::table('rounds')->insert([
+                ['round' => $i, 'game_id' => 9]
+            ]);
+        }
+
+
 
 
     }
