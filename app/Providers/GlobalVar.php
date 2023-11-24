@@ -13,7 +13,7 @@ class GlobalVar extends ServiceProvider
     {
         $this->app->bind('domain', function () {
             return "https://star-fish.myanmargateway.net";
-            // return "http://localhost:8000/";
+            // return "http://localhost:8000";
         });
     }
 

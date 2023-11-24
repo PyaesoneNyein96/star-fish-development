@@ -50,35 +50,49 @@ class SubscriptionController extends Controller
             ], 403);
         }
 
-        $purchasing = $this->purchasing($student, $this->grade_id, $this->subscription_id);
 
-        if($purchasing){
+        DB::beginTransaction();
+        try {
 
-            $now = Carbon::now(strval($student->country['timezone']));
+            $purchasing = $this->purchasing($student, $this->grade_id, $this->subscription_id);
 
-            StudentGrade::create([
-                'student_id' => $student->id,
-                'grade_id' => $this->grade_id,
-                'subscription_id' => $this->subscription_id,
-                'created_at' => Carbon::now(strval($student->country['timezone'])),
-                'expire_date' => $now->addYear(),
-            ]);
+            if($purchasing){
 
-            $student->update([
-                'isSubscriber' => 1,
-                'grade_chosen' => null,
-                'created_at' => Carbon::now(strval($student->country['timezone'])),
-                'updated_at' => Carbon::now(strval($student->country['timezone']))
-            ]);
+                $now = Carbon::now(strval($student->country['timezone']));
 
-            $latest_date = StudentGrade::where('grade_id',$this->grade_id)
-            ->pluck('expire_date');
+                StudentGrade::create([
+                    'student_id' => $student->id,
+                    'grade_id' => $this->grade_id,
+                    'subscription_id' => $this->subscription_id,
+                    'created_at' => Carbon::now(strval($student->country['timezone'])),
+                    'expire_date' => $now->addYear(),
+                ]);
 
-            $this->addedSubscriptionDate($latest_date);
+                $student->update([
+                    'isSubscriber' => 1,
+                    'grade_chosen' => null,
+                    'created_at' => Carbon::now(strval($student->country['timezone'])),
+                    'updated_at' => Carbon::now(strval($student->country['timezone']))
+                ]);
 
-            return response()->json([
-                'status' => "successfully purchased.",
-            ], 200);
+                $latest_date = StudentGrade::where('grade_id',$this->grade_id)
+                ->pluck('expire_date');
+
+                $this->addedSubscriptionDate($latest_date);
+
+
+                DB::commit();
+
+                return response()->json([
+                    'status' => "successfully purchased.",
+                ], 200);
+
+            }
+
+
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return $th;
 
         }
 
@@ -138,6 +152,11 @@ class SubscriptionController extends Controller
     }
 
 
+    /////////////////////////////////////////////////////
+    /////////////      Private Functions     ////////////
+    /////////////////////////////////////////////////////
+
+
     private function addedSubscriptionDate($latest_date){
 
         $grades = StudentGrade::where('student_id', $this->student->id)->get();
@@ -147,7 +166,6 @@ class SubscriptionController extends Controller
                $g->update(['expire_date' => Carbon::now()->addYear()]);
             }
         });
-
 
     }
 
