@@ -43,13 +43,22 @@ class GameController extends Controller
 
             $paid = false;
             $lock = false;
-            $expiry = null;
+            $day_count = null;
+            $expire_date = null;
 
             foreach ($studentGrades as $studentGrade) {
                 if($studentGrade->id == $grade->id){
-                    $expiry = StudentGrade::where('grade_id', $studentGrade->id)->first();
-                    $expiry = Carbon::now()->add(1,'day')->diff($expiry->created_at);
-                    $expiry = 366 - $expiry->days;
+                    $stu_grade = StudentGrade::where('grade_id', $studentGrade->id)->first();
+                    $expire_date = $stu_grade->expire_date;
+
+                    $day_count =$stu_grade->created_at
+                    ->diff($stu_grade->expire_date);
+
+                    $type = $day_count->invert ? '-' : '';
+                    $day_count = $type.$day_count->days;
+
+                    // $day_count = Carbon::now()
+                    // ->diff($stu_grade->expire_date)->days;
                 }
             }
 
@@ -74,7 +83,8 @@ class GameController extends Controller
                 'paid' => $paid,
                 'allow' => $lock,
                 'complete' => $isDone->contains('id',$grade->id),
-                'expire_date' => $expiry
+                'expire_date' => $expire_date,
+                'day_count' => $day_count,
             ];
 
 
@@ -95,8 +105,6 @@ class GameController extends Controller
 
         $student = Student::where('token', $token)->first();
 
-
-
         $allLessons = Lesson::where('grade_id', $grade)->get();
 
         $studentGrade = $student->grades;
@@ -110,20 +118,9 @@ class GameController extends Controller
                 'grade_id' => $grade,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
-                // 'allow' => $key == 0 ? true: false,
             ];
 
         });
-
-        // $lessons = $allLessons->each(function ($lesson, $key) use ($studentLessons, $grade) {
-        //         $lesson->id = $lesson->id;
-        //         $lesson->grade_id = $grade;
-        //         $lesson->name = $lesson->name;
-        //         $lesson->complete = $studentLessons->contains('id', $lesson->id);
-        //         // $lesson->complete = $key === 0 ? "true" : "false";
-        //         $lesson->allow = $key === 0 ? "true" : "false";
-
-        //     });
 
         return $lessons;
 
@@ -213,7 +210,6 @@ class GameController extends Controller
     public function end_match(Request $request)
     {
 
-
         $token = $request->header('token');
         $gameId = $request->header('game_id');
         $lesson_id = $request->header('lesson_id');
@@ -227,6 +223,7 @@ class GameController extends Controller
         if (!isset($game->lesson)) return 404;
 
         $exists = $game->lesson['id'] == $lesson_id ? true : false;
+
 
 
         if (!$student || !$game || !$exists) {
@@ -256,7 +253,6 @@ class GameController extends Controller
 
                 if ($this->lessonCheck($student, $lessonGamesList)->count() == 0) {
 
-
                     $alreadyExist =  StudentLesson::where('student_id', $student->id)
                             ->where('lesson_id', $lesson_id)->first();
 
@@ -270,19 +266,18 @@ class GameController extends Controller
                         ]);
                 }
 
-                if($this->gradeCheck($student, $lesson_id)->count() !== 0 ){
+                if($this->gradeCheck($student, $lesson_id)->count() == 0 ){
 
                         $grade_id = Lesson::find($lesson_id)->grade['id'];
 
                         $studentGrade = StudentGrade::where('student_id', $student->id)
                             ->where('grade_id', $grade_id)->first();
 
-                        if (!$studentGrade) return 403;
+                        if (!$studentGrade) return response()->json(["status" => "U need to buy a grade"], 200 );
 
                         StudentGrade::where('student_id',$student->id)
                             ->where('grade_id', $grade_id)
                             ->update(['isDone' => 1,]);
-
 
                 }
 

@@ -10,12 +10,14 @@ class StudentGrade extends Model
     use HasFactory;
 
     // protected $hidden = ['pivot'];
-     protected $hidden = ['pivot','created_at','updated_at'];
 
-       protected $fillable = [
+    protected $hidden = ['pivot','created_at','updated_at'];
+
+    protected $fillable = [
         'student_id',
         'grade_id',
         'subscription_id',
+        'expire_date',
         'status'
     ];
 
