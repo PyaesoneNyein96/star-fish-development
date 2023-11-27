@@ -18,18 +18,18 @@ class ConversationSeeder extends Seeder
 
         $G1_L1_U4_path = "Grade_1/"."Lesson_1/"."listen_practice/";
 
-        $rounds = [   // images
+        $rounds = [
 
             "What's your name?",
-            "My Name's Mary.",
+            "My name's Mary.",
             "How are you?",
-            "I'm Fine.",
+            "I'm fine.",
             "It's a bag.",
-            "My Name's Yuki.",
+            "My name's Yuki.",
             "I'm from Japan.",
             "Apples are red.",
-            "My name's Tom.",
             "I'm Susan.",
+            "My name's Tom.",
 
         ];
 
@@ -54,5 +54,3 @@ class ConversationSeeder extends Seeder
 
 
 }
-
-
