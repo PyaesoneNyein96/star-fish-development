@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('question_contents', function (Blueprint $table) {
             $table->id();
-            $table->integer('round_id');
+            $table->integer('round_id')->nullable()->constrained();
+            $table->foreignId('game_id')->nullable()->constrained();
+            $table->integer('subunit_id')->nullable()->constrained();
             $table->text('image')->nullable();
             $table->text('audio')->nullable();
             $table->text('content')->nullable();

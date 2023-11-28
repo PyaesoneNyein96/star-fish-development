@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class StudentLesson extends Model
+class Subunit extends Model
 {
     use HasFactory;
-
     protected $hidden = ['pivot','created_at','updated_at'];
 
-    protected $fillable  = ['student_id','lesson_id'];
+    protected $fillable  = ['name','game_id'];
 
     //========================
     public function toArray(){
@@ -23,4 +22,10 @@ class StudentLesson extends Model
 
         return $filteredData;
     }
+
+    public function questions(){
+        return $this->hasMany(QuestionContent::class);
+    }
+
+
 }

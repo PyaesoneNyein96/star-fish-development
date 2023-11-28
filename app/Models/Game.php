@@ -45,6 +45,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
         return $this->hasMany(Item::class);
     }
 
+    public function subunits(){
+        return $this->hasMany(Subunit::class);
+    }
+
+
+
+
+    ////////////////////
+
     public function audios(){
         return $this->hasMany(Audio::class);
     }

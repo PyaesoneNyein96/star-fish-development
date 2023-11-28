@@ -181,24 +181,23 @@ class GameController extends Controller
         $gameId = $request->header('game_id');
         $lesson_id = $request->header('lesson_id');
 
-        $game = Game::with('images','category','audios','items','rounds','videos','songs','conversations','characters','background')->where('id', $gameId)
+        $game = Game::with('images','category','audios','items','rounds','videos','songs',
+        'conversations','characters','background','subunits')->where('id', $gameId)
         // ->where('lesson_id',$lesson_id)
         ->first();
 
 
-        if (!$game) return "null";
+        if (!$game) return 404;
 
-        if(count($game->rounds) == 0 && method_exists($this, $game->category['name'])){
+        if(count($game->rounds) == 0 && method_exists($this, $game->category['name'])) {
 
             $name = strval($game->category['name']);
 
             return $this->$name($game, $student);
-
         }
         else if (method_exists($this, $game->category['name'])) {
 
             $name = strval($game->category['name']);
-
             return $this->$name($gameId);
         }
 

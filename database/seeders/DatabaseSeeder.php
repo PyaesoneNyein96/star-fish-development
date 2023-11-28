@@ -109,6 +109,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GameInstructionSeeder::class);
         $this->call(VideoSeeder::class);
         $this->call(SongSeeder::class);
+        $this->call(SubUnitSeeder::class);
 
 
         $this->call(RewardSeeder::class);

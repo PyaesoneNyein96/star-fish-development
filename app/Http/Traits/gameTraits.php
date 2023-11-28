@@ -6,6 +6,7 @@ use App\Models\Game;
 use App\Models\Round;
 use App\Models\Lesson;
 use App\Models\Student;
+use App\Models\Subunit;
 
 
 trait gameTraits{
@@ -174,6 +175,13 @@ trait gameTraits{
         return $game;
 
 
+
+    }
+
+
+    public function tracing_n_correct_letter($game){
+
+       return Subunit::where('game_id',$game->id)->with('questions')->get();
 
     }
 

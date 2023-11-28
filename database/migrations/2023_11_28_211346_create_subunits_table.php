@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rounds', function (Blueprint $table) {
+        Schema::create('subunits', function (Blueprint $table) {
             $table->id();
-            $table->string('round');
-            $table->foreignId('game_id')->nullable()->constrained();
-            $table->integer('subunit_id')->nullable()->constrained();
+            $table->string('name');
+            $table->integer('game_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rounds');
+        Schema::dropIfExists('subunits');
     }
 };

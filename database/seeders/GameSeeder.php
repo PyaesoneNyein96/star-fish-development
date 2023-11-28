@@ -97,14 +97,14 @@ class GameSeeder extends Seeder
             // ['name' => 'Speaking Practice', 'lesson_id' => 9 ],
             // ['name' => 'Writing', 'lesson_id' => 9 ],
 
-            // // // lesson 10's games
+            // // // lesson 13's games
 
-            // ['name' => 'Target', 'lesson_id' => 10 ],
-            // ['name' => 'Reading', 'lesson_id' => 10 ],
-            // ['name' => 'Listen and Practice', 'lesson_id' => 10 ],
-            // ['name' => 'Matching', 'lesson_id' => 10 ],
-            // ['name' => 'Speaking Practice', 'lesson_id' => 10 ],
-            // ['name' => 'Writing', 'lesson_id' => 10 ]
+            ['name' => 'Target language & Grammar Explanation', 'lesson_id' => 12,'category_id' => 28 ],
+            ['name' => 'Read Listen & Repeat', 'lesson_id' => 12 ,'category_id' => 28],
+            ['name' => 'Drag and Drop', 'lesson_id' => 12 ,'category_id' => 28],
+            ['name' => 'Listen and Practice', 'lesson_id' => 12 ,'category_id' => 28],
+            ['name' => 'Speaking Practice', 'lesson_id' => 12,'category_id' => 28],
+            ['name' => 'Writing', 'lesson_id' => 12,'category_id' => 28],
 
 
 

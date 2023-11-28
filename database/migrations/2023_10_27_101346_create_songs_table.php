@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->integer('round_id')->nullable();
             $table->integer('game_id')->nullable();
+            $table->integer('subunit_id')->nullable()->constrained();
             $table->string('path')->nullable();
             $table->integer('isLocal')->nullable();
             $table->timestamps();
