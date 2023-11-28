@@ -16,7 +16,7 @@ class AnswerSeeder extends Seeder
         $AtoZ = range('A','Z');
 
         // //  g-1 l-1 g-4 ==========================
-        $answers1 = ['W','M M','H','I','I','M Y','I J','A','I S ','M T'];
+        $answers1 = ['W','M M','H','I','I','M Y','I J','A','I S','M T'];
 
         for ($i=1; $i <= count($answers1) ; $i++) {
             DB::table('answer_contents')->insert([
