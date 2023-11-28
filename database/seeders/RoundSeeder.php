@@ -39,6 +39,14 @@ class RoundSeeder extends Seeder
             ]);
         }
 
+        $g1_l2_u10 =3;
+
+        for ($i=0; $i < $g1_l2_u10  ; $i++) {
+            DB::table('rounds')->insert([
+                ['round' => $i, 'game_id' => 10]
+            ]);
+        }
+
 
 
 
