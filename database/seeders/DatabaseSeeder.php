@@ -98,6 +98,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GradeSeeder::class);
         $this->call(LessonSeeder::class);
         $this->call(CategorySeeder::class);
+        $this->call(UnitSeeder::class);
         $this->call(GameSeeder::class);
         $this->call(RoundSeeder::class);
         $this->call(StudentGradeSeeder::class);
@@ -109,7 +110,6 @@ class DatabaseSeeder extends Seeder
         $this->call(GameInstructionSeeder::class);
         $this->call(VideoSeeder::class);
         $this->call(SongSeeder::class);
-        $this->call(SubUnitSeeder::class);
 
 
         $this->call(RewardSeeder::class);

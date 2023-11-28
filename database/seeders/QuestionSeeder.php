@@ -76,18 +76,18 @@ class QuestionSeeder extends Seeder
 ////   CLOUD //////////     Grade 1  Lesson 12 Game 6  SubUnit(I)
 ///////////////////////////////////////////////////////
 
-        $G1_l12_subunit_data = [
-            DB::table('question_contents')->insert([
-                ['subunit_id' => 1 ,'content' => "G_image", 'image' => "G_instruction_image" ],
-                ['subunit_id' => 1 ,'content' => "H_image", 'image' => "H_instruction_image" ],
-                ['subunit_id' => 1 ,'content' => "e_image", 'image' => "e_instruction_image" ],
-                ['subunit_id' => 1 ,'content' => "f_image", 'image' => "f_instruction_image" ],
-                ['subunit_id' => 1 ,'content' => "g_image", 'image' => "g_instruction_image" ],
-                ['subunit_id' => 1 ,'content' => "h_image", 'image' => "h_instruction_image" ],
-                ['subunit_id' => 1 ,'content' => "F_image", 'image' => "F_instruction_image" ],
-                ['subunit_id' => 1 ,'content' => "E_image", 'image' => "E_instruction_image" ],
-            ])
-        ];
+        // $G1_l12_subunit_data = [
+        //     DB::table('question_contents')->insert([
+        //         ['subunit_id' => 1 ,'content' => "G_image", 'image' => "G_instruction_image" ],
+        //         ['subunit_id' => 1 ,'content' => "H_image", 'image' => "H_instruction_image" ],
+        //         ['subunit_id' => 1 ,'content' => "e_image", 'image' => "e_instruction_image" ],
+        //         ['subunit_id' => 1 ,'content' => "f_image", 'image' => "f_instruction_image" ],
+        //         ['subunit_id' => 1 ,'content' => "g_image", 'image' => "g_instruction_image" ],
+        //         ['subunit_id' => 1 ,'content' => "h_image", 'image' => "h_instruction_image" ],
+        //         ['subunit_id' => 1 ,'content' => "F_image", 'image' => "F_instruction_image" ],
+        //         ['subunit_id' => 1 ,'content' => "E_image", 'image' => "E_instruction_image" ],
+        //     ])
+        // ];
 
 
 

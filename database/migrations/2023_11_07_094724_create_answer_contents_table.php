@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->integer('round_id');
             $table->foreignId('game_id')->nullable()->constrained();
-            $table->integer('subunit_id')->nullable()->constrained();
             $table->text('answer')->nullable();
             $table->text('correct_answer')->nullable();
             // $table->string('unique_id')->nullable();

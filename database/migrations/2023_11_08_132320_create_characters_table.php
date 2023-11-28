@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('image');
             $table->string('round_id')->nullable();
             $table->string('game_id')->nullable();
-            $table->integer('subunit_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

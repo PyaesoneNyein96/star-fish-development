@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
-            $table->string('unit');
-            $table->integer('category_id');
+            $table->string('name');
+            $table->integer('lesson_id');
+            $table->foreignId('category_id');
             $table->timestamps();
         });
     }
