@@ -199,15 +199,17 @@ trait gameTraits{
             'rounds.characters','rounds.conversations','rounds.backgrounds'])->whereIn('id', $gameId)->get();
 
             // return $games;
+            foreach ($games as $game) {
+                $game['lesson_id'] = $unit->lesson_id;
+            }
 
-
-           $unit = [
+            $unit = [
                 'id' => $unit->id,
-                'name' => $unit->name,
-                'category' => $unit->category['name'],
+                'unit' => $unit->unit,
+                'lesson_id' => $unit->lesson_id,
                 'subUnit' => $games->count() == 1 ? false : true,
                 'games' => $games,
-        ];
+            ];
 
         return $unit;
 
