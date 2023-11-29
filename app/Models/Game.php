@@ -12,18 +12,18 @@ use App\Models\SubUnit;
 {
     use HasFactory;
 
-    protected $hidden = ['pivot','created_at', 'updated_at','category_id'];
+    protected $hidden = ['pivot','created_at', 'updated_at'];
 
 
 
     protected $fillable = [
         'name',
-        'lesson_id'
+        'unit_id'
     ];
 
-    public function category(){
-        return $this->belongsTo(Category::class);
-    }
+    // public function category(){
+    //     return $this->belongsTo(Category::class);
+    // }
 
 
     public function grade(){
@@ -46,11 +46,14 @@ use App\Models\SubUnit;
         return $this->hasMany(Item::class);
     }
 
-    public function subUnits(){
-        return $this->hasMany(SubUnit::class);
+    public function subunits(){
+        return $this->hasMany(Subunit::class);
     }
 
 
+
+
+    ////////////////////
 
     public function audios(){
         return $this->hasMany(Audio::class);

@@ -6,16 +6,17 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class ImageSeeder extends Seeder
+class SubUnitSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
+        DB::table('subunits')->insert([
+            ['name' => "Trace and write", "game_id" => 17],
+            ['name' => "Write the correct letter", "game_id" => 17],
 
-            DB::table('images')->insert([
-                ['title' => "one" ,'path' => "one.jpg"],
-            ]);
+        ]);
     }
 }

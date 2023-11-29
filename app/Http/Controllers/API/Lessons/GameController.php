@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API\Lessons;
 use stdClass;
 use Carbon\Carbon;
 use App\Models\Game;
+use App\Models\Unit;
 use App\Models\Grade;
 use App\Models\Round;
 use App\Models\Lesson;
@@ -146,24 +147,24 @@ class GameController extends Controller
 
                 }
 
-                $allGame = Game::where('lesson_id',$lesson)->get();
-                $studentGames = $student->games;
+                $allGame = Unit::where('lesson_id',$lesson)->get();
 
+                $studentUnits = $student->units;
 
-                $games = $allGame->map(function ($game) use ($studentGames, $lesson, $gradeId) {
+                $units = $allGame->map(function ($unit) use ($studentUnits, $lesson, $gradeId) {
                     return [
-                        'id' => $game->id,
-                        'lesson_id' => $game->lesson_id,
-                        'name' => $game->name,
+                        'id' => $unit->id,
+                        'lesson_id' => $unit->lesson_id,
+                        'name' => $unit->name,
                         'grade_id' => $gradeId,
-                        'complete' => $studentGames->contains('id', $game->id),
-                        'category' => $game->category['name']
+                        'complete' => $studentUnits->contains('id', $unit->id),
+                        'category' => $unit->category['name']
                     ];
                 });
 
                 DB::commit();
 
-                return $games;
+                return $units;
 
 
         } catch (\Throwable $th) {
@@ -178,31 +179,25 @@ class GameController extends Controller
     {
 
         $student = Student::where('token', $request->header('token'))->first();
-        $gameId = $request->header('game_id');
+        $unit_id = $request->header('unit_id');
         $lesson_id = $request->header('lesson_id');
 
-        $game = Game::with('images','category','instructions','audios','items','rounds','videos','songs','conversations','characters','background')->where('id', $gameId)
-        // ->where('lesson_id',$lesson_id)
-        ->first();
+        $unit = Unit::where('id',$unit_id)->with('category')->first();
+        // return $unit->category['name'];
+
+        $game = Game::with('images','audios','items','rounds','videos','songs',
+        'conversations','characters','background')->whereIn('id', $unit->games->pluck('id'))
+        ->get();
 
 
 
+        if( $game  &&  method_exists($this, $unit->category['name'])) {
 
-        if (!$game) return "null";
+            $name = strval($unit->category['name']);
 
-        if(count($game->rounds) == 0 && method_exists($this, $game->category['name'])){
-
-            $name = strval($game->category['name']);
-
-            return $this->$name($game, $student);
-
+            return $this->$name($game,$unit);
         }
-        else if (method_exists($this, $game->category['name'])) {
 
-            $name = strval($game->category['name']);
-
-            return $this->$name($gameId);
-        }
 
         return "Function not found .!!" ;
 

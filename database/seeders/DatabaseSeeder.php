@@ -99,6 +99,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GradeSeeder::class);
         $this->call(LessonSeeder::class);
         $this->call(CategorySeeder::class);
+        $this->call(UnitSeeder::class);
         $this->call(GameSeeder::class);
         $this->call(SubUnitSeeder::class);
         $this->call(RoundSeeder::class);

@@ -6,103 +6,50 @@ use App\Models\Game;
 use App\Models\Round;
 use App\Models\Lesson;
 use App\Models\Student;
-use App\Models\SubUnit;
+use App\Models\Subunit;
 
 
 trait gameTraits{
 
 
     // For Drag and Drop
-    public function drag_n_drop_and_letter($gameId){
+    public function drag_n_drop_and_letter($game,$unit){
 
-        $rounds = Round::with('backgrounds','questions',
-            'characters','conversations','answers')
-            ->where('game_id', $gameId)->get();
+        $gameId = $game->pluck('id');
 
 
-        $instructions = SubUnit::where('game_id',$gameId)->with('instructions')->get();
-
-        return $instructions;
-
-            $game = Game::with('category','instructions')->where('id', $gameId)->first();
+        $games = Game::with(['instructions','rounds.questions','rounds.answers',
+            'rounds.characters','rounds.conversations','rounds.backgrounds'])->whereIn('id', $gameId)->get();
 
 
+        $unit = [
+                'id' => $unit->id,
+                'name' => $unit->name,
+                'category' => $unit->category['name'],
+                'subUnit' => $unit->games->count() == 1 ? true : false,
+                'game' => $games,
+        ];
 
-            foreach ($rounds as $r) {
-                if($r['backgrounds']){
-                    $r['background'] = $r['backgrounds']->image;
-                    unset($r['backgrounds']);
-                }
-
-                foreach ($r['answers'] as $d) {
-                    $d['content'] = $d['answer'];
-                    $d['question'] = $d['correct_answer'];
-                    $d['correct_place'] = $d['correct_answer'];
-                    unset($d['answer']);
-                    unset($d['correct_answer']);
-                }
-            }
-
-
-            // return $rounds;
-            $game['rounds'] = $rounds;
-
-          return  $game = [
-                "id" => $game["id"],
-                "name" => $game["name"],
-                "lesson_id" => $game["lesson_id"],
-                // "category" => $game["category"]['name'],
-                "instructions" => $game['instructions'],
-                "rounds" => $game["rounds"],
-            ];
-
+        return $unit;
 
     }
 
     ///////////////////////////////////////////////////////////////
 
     // For Cloud Games
-    // public function listening_and_choosing_clouds_one($gameId){
+    public function listening_and_choosing_clouds_one($game){
 
-    //         $rounds = Round::with('backgrounds','questions','characters',
-    //         'conversations','answers')->where('game_id', $gameId)->get();
-
-    //         $game = Game::with('category','instructions')->where('id', $gameId)->first();
-
-    //         foreach ($rounds as $r) {
-    //             if($r['backgrounds']){
-    //                 $r['background'] = $r['backgrounds']->image;
-    //                 unset($r['backgrounds']);
-    //             }
-    //         }
-
-
-    //         $game['rounds'] = $rounds;
-
-    //         return  $game = [
-    //             "id" => $game["id"],
-    //             "name" => $game["name"],
-    //             "lesson_id" => $game["lesson_id"],
-    //             // "category" => $game["category"]['name'],
-    //             "instructions" => $game['instructions'],
-    //             "rounds" => $game["rounds"],
-    //         ];
-
-    // }
-
-    // ----------------------------------------------------------
-
-       public function listening_and_choosing_clouds_one($gameId){
-
+        $count = $game->count();
+        if(count($game) == 1) {
+            $game = $game[0];
+        }
+        $gameId = $game->id;
 
 
             $rounds = Round::with('backgrounds','questions','characters',
             'conversations','answers')->where('game_id', $gameId)->get();
 
-            $game = Game::with('category','instructions','subUnits')->where('id', $gameId)->first();
-
-
-            // return $game;
+            $game = Game::with('instructions')->where('id', $gameId)->first();
 
             foreach ($rounds as $r) {
                 if($r['backgrounds']){
@@ -120,6 +67,7 @@ trait gameTraits{
                 "id" => $game["id"],
                 "name" => $game["name"],
                 "lesson_id" => $game["lesson_id"],
+                'subUnit' => $count !== 1 ? true : false,
                 "instructions" => $game['instructions'],
                 'instructionGif' => "image_path ????",
                 'subUnit' => $game->subUnit == 1 ? true : false,
@@ -141,15 +89,15 @@ trait gameTraits{
 
     // For without round Games
     public function reading_carousel($game){
-
-        unset($game->category);
-
-        return $game;
+        if(count($game) == 1) return $game[0];
     }
 
     // Video
     public function video_player_lessons($game,$student){
 
+        if(count($game) == 1) {
+            $game = $game[0];
+        }
         $videos = $game->videos;
 
         $result = $videos->filter(function ($v) use($student){
@@ -177,6 +125,10 @@ trait gameTraits{
 
     // Song
     public function video_player_song($game, $student){
+
+        if(count($game) == 1) {
+            $game = $game[0];
+        }
 
         $songs = $game->songs;
 
@@ -234,6 +186,13 @@ trait gameTraits{
         return $game;
 
 
+
+    }
+
+
+    public function tracing_n_correct_letter($game){
+
+       return $game;
 
     }
 
