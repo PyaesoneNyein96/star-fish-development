@@ -16,7 +16,7 @@ class GameInstruction extends Model
         'audio',
         'game_id',
         'round_id',
-        'sub_units_id'
+        'unit_id',
     ];
 
 

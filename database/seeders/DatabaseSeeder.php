@@ -19,7 +19,6 @@ use Database\Seeders\AnswerSeeder;
 use Database\Seeders\LessonSeeder;
 use Database\Seeders\RewardSeeder;
 use Database\Seeders\CountrySeeder;
-use Database\Seeders\SubUnitSeeder;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\QuestionSeeder;
 use Illuminate\Support\Facades\Hash;
@@ -58,6 +57,7 @@ class DatabaseSeeder extends Seeder
             'deviceId' => 'globalDevice',
             'isAuth' => 1,
             'status' => 1,
+            'isLocal' => 1,
             'token' => "1|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
             'isSubscriber' => 0
         ]);
@@ -74,6 +74,7 @@ class DatabaseSeeder extends Seeder
             'deviceId' => 'localDevice',
             'isAuth' => 1,
             'status' => 1,
+            'isLocal' => 0,
             'token' => "2|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
             'isSubscriber' => 0
         ]);
@@ -101,7 +102,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CategorySeeder::class);
         $this->call(UnitSeeder::class);
         $this->call(GameSeeder::class);
-        $this->call(SubUnitSeeder::class);
         $this->call(RoundSeeder::class);
         $this->call(StudentGradeSeeder::class);
         $this->call(ItemSeeder::class);

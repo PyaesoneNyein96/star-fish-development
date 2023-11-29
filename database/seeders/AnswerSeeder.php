@@ -67,6 +67,23 @@ class AnswerSeeder extends Seeder
         }
 
 
+         // //  g-1 l-12 g-18 ========================== tracing
+
+        $g1_l12_g18_sub_1 =['G','H','e','f','g','h','F','E'];
+
+        for ($i= 0; $i < count($g1_l12_g18_sub_1) ; $i++) {
+            DB::table('answer_contents')->insert([
+                ['round_id' => (int)$i + 26 ,'answer' => $g1_l12_g18_sub_1[$i]." "."Image" , 'correct_answer' => $g1_l12_g18_sub_1[$i]." "."dotted"],
+            ]);
+        }
+
+        // $g1_l12_g18_sub_2 =['EYE','GOAT','HAT','GRASS','FLOWER','GESG','EAR','FAN'];
+
+        // for ($i= 0; $i < count($g1_l12_g18_sub_2) ; $i++) {
+        //     DB::table('answer_contents')->insert([
+        //         ['round_id' => (int)$i + 26 ,'answer' => $g1_l12_g18_sub_1[$i]." "."Image" , 'correct_answer' => $g1_l12_g18_sub_1[$i]." "."dotted"],
+        //     ]);
+        // }
 
 
 

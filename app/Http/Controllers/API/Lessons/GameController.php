@@ -195,7 +195,7 @@ class GameController extends Controller
 
             $name = strval($unit->category['name']);
 
-            return $this->$name($game,$unit);
+            return $this->$name($game,$student,$unit);
         }
 
 

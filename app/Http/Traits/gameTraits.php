@@ -13,7 +13,7 @@ trait gameTraits{
 
 
     // For Drag and Drop
-    public function drag_n_drop_and_letter($game,$unit){
+    public function drag_n_drop_and_letter($game,$student,$unit){
 
         $gameId = $game->pluck('id');
 
@@ -26,8 +26,8 @@ trait gameTraits{
                 'id' => $unit->id,
                 'name' => $unit->name,
                 'category' => $unit->category['name'],
-                'subUnit' => $unit->games->count() == 1 ? true : false,
-                'game' => $games,
+                'subUnit' => $unit->games->count() !== 1 ? true : false,
+                'games' => $games,
         ];
 
         return $unit;
@@ -37,13 +37,15 @@ trait gameTraits{
     ///////////////////////////////////////////////////////////////
 
     // For Cloud Games
-    public function listening_and_choosing_clouds_one($game){
+    public function listening_and_choosing_clouds_one($game,$student,$unit){
 
         $count = $game->count();
         if(count($game) == 1) {
             $game = $game[0];
         }
         $gameId = $game->id;
+
+
 
 
             $rounds = Round::with('backgrounds','questions','characters',
@@ -71,7 +73,7 @@ trait gameTraits{
                 "instructions" => $game['instructions'],
                 'instructionGif' => "image_path ????",
                 'subUnit' => $game->subUnit == 1 ? true : false,
-                // "rounds" => $game["rounds"],
+                "rounds" => $game["rounds"],
             ];
 
             if($game['subUnit'] == 0) {
@@ -88,8 +90,14 @@ trait gameTraits{
     //////////////////////////////////////////////////////////////
 
     // For without round Games
-    public function reading_carousel($game){
-        if(count($game) == 1) return $game[0];
+    public function reading_carousel($game,$student, $unit){
+        if(count($game) == 1) {
+            $game = $game[0];
+             $game['subunit'] = $unit->subUnit == 1 ? true : false;
+             return $game;
+        }
+
+
     }
 
     // Video
@@ -124,17 +132,23 @@ trait gameTraits{
     }
 
     // Song
-    public function video_player_song($game, $student){
+    public function video_player_song($game, $student, $unit){
 
         if(count($game) == 1) {
             $game = $game[0];
         }
 
+
         $songs = $game->songs;
+
+
+        // return $songs;
 
         $result = $songs->filter(function ($s) use($student){
             return $s->isLocal == $student->isLocal;
         });
+
+
 
         $songs = $result->values()->map(function ($s){
             return [
@@ -147,7 +161,8 @@ trait gameTraits{
          $collection = [
             'id' => $game->id,
             'name' => $game->name,
-            'lesson_id' => $game->lesson_id,
+            'lesson_id' => $unit->lesson_id,
+            'subUnit' => $game->subUnit == 1 ? true : false,
             'songs' => $songs
         ];
 
@@ -190,9 +205,22 @@ trait gameTraits{
     }
 
 
-    public function tracing_n_correct_letter($game){
+    public function tracing_n_correct_letter($game,$student, $unit){
 
-       return $game;
+        $gameId = $game->pluck('id');
+
+        $games = Game::with(['instructions','rounds.questions','rounds.answers',
+            'rounds.characters','rounds.conversations','rounds.backgrounds'])->whereIn('id', $gameId)->get();
+
+           $unit = [
+                'id' => $unit->id,
+                'name' => $unit->name,
+                'category' => $unit->category['name'],
+                'subUnit' => $unit->games->count() !== 1 ? true : false,
+                'games' => $games,
+        ];
+
+        return $unit;
 
     }
 
