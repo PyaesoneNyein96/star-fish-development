@@ -124,6 +124,7 @@ trait gameTraits{
             'id' => $game->id,
             'name' => $game->name,
             'lesson_id' => $game->lesson_id,
+            'subUnit' => $game->subUnit == 1 ? true : false,
             'videos' => $videos
         ];
 
