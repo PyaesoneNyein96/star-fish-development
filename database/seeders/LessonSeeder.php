@@ -16,30 +16,24 @@ class LessonSeeder extends Seeder
 
         // $grades = range(1,4);
         $grades = 1;
-        $lessons =  range(1,2);
+        $lessons =  range(1, 3);
 
 
-            foreach ($lessons as $l)  {
+        foreach ($lessons as $l) {
 
-                DB::table('lessons')->insert([
-                    ['name' => $l,'grade_id' => $grades]
-                ]);
-
-            }
+            DB::table('lessons')->insert([
+                ['name' => $l, 'grade_id' => $grades]
+            ]);
+        }
 
 
         $grades = 2;
-        $lessons =  range(1,12);
+        $lessons =  range(1, 12);
 
-            foreach ($lessons as $l){
-                DB::table('lessons')->insert([
-                    ['name' => $l,'grade_id' => $grades]
-                ]);
-            }
-
-
-
-
-
+        foreach ($lessons as $l) {
+            DB::table('lessons')->insert([
+                ['name' => $l, 'grade_id' => $grades]
+            ]);
+        }
     }
 }

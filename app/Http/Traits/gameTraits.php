@@ -8,96 +8,107 @@ use App\Models\Lesson;
 use App\Models\Student;
 
 
-trait gameTraits{
-
+trait gameTraits
+{
 
     // For Drag and Drop
-    public function drag_n_drop_and_letter($gameId){
+    public function drag_n_drop_and_letter($gameId)
+    {
+        // return $gameId['category']['id'];
+        $rounds = Round::with(
+            'backgrounds',
+            'questions',
+            'characters',
+            'conversations',
+            'answers'
+        )
+            ->where('game_id', $gameId['category']['id'])->get();
 
-          $rounds = Round::with('backgrounds','questions',
-            'characters','conversations','answers')
-            ->where('game_id', $gameId)->get();
 
+        $game = Game::with('category', 'instructions')->where('id', $gameId['category']['id'])->first();
 
-            $game = Game::with('category','instructions')->where('id', $gameId)->first();
-
-            foreach ($rounds as $r) {
-                if($r['backgrounds']){
-                    $r['background'] = $r['backgrounds']->image;
-                    unset($r['backgrounds']);
-                }
-
-                foreach ($r['answers'] as $d) {
-                    $d['content'] = $d['answer'];
-                    $d['question'] = $d['correct_answer'];
-                    $d['correct_place'] = $d['correct_answer'];
-                    unset($d['answer']);
-                    unset($d['correct_answer']);
-                }
+        foreach ($rounds as $r) {
+            if ($r['backgrounds']) {
+                $r['background'] = $r['backgrounds']->image;
+                unset($r['backgrounds']);
             }
 
-
-            // return $rounds;
-            $game['rounds'] = $rounds;
-
-          return  $game = [
-                "id" => $game["id"],
-                "name" => $game["name"],
-                "lesson_id" => $game["lesson_id"],
-                // "category" => $game["category"]['name'],
-                "instructions" => $game['instructions'],
-                "rounds" => $game["rounds"],
-            ];
+            foreach ($r['answers'] as $d) {
+                $d['content'] = $d['answer'];
+                $d['question'] = $d['correct_answer'];
+                $d['correct_place'] = $d['correct_answer'];
+                unset($d['answer']);
+                unset($d['correct_answer']);
+            }
+        }
 
 
+        // return $rounds;
+        $game['rounds'] = $rounds;
+
+        return  $game = [
+            "id" => $game["id"],
+            "name" => $game["name"],
+            "lesson_id" => $game["lesson_id"],
+            // "category" => $game["category"]['name'],
+            "instructions" => $game['instructions'],
+            "rounds" => $game["rounds"],
+        ];
     }
 
 
     // For Cloud Games
-    public function listening_and_choosing_clouds_one($gameId){
+    public function listening_and_choosing_clouds_one($gameId)
+    {
 
-            $rounds = Round::with('backgrounds','questions','characters',
-            'conversations','answers')->where('game_id', $gameId)->get();
+        $rounds = Round::with(
+            'backgrounds',
+            'questions',
+            'characters',
+            'conversations',
+            'answers'
+        )->where('game_id', $gameId)->get();
 
-            $game = Game::with('category','instructions')->where('id', $gameId)->first();
+        $game = Game::with('category', 'instructions')->where('id', $gameId)->first();
 
-            foreach ($rounds as $r) {
-                if($r['backgrounds']){
-                    $r['background'] = $r['backgrounds']->image;
-                    unset($r['backgrounds']);
-                }
+        foreach ($rounds as $r) {
+            if ($r['backgrounds']) {
+                $r['background'] = $r['backgrounds']->image;
+                unset($r['backgrounds']);
             }
+        }
 
 
-            $game['rounds'] = $rounds;
+        $game['rounds'] = $rounds;
 
-            return  $game = [
-                "id" => $game["id"],
-                "name" => $game["name"],
-                "lesson_id" => $game["lesson_id"],
-                // "category" => $game["category"]['name'],
-                "instructions" => $game['instructions'],
-                "rounds" => $game["rounds"],
-            ];
-
+        return  $game = [
+            "id" => $game["id"],
+            "name" => $game["name"],
+            "lesson_id" => $game["lesson_id"],
+            // "category" => $game["category"]['name'],
+            "instructions" => $game['instructions'],
+            "rounds" => $game["rounds"],
+        ];
     }
 
 
     // For without rand Games
-    public function reading_carousel($game){
+    public function reading_carousel($game)
+    {
         return $game;
     }
 
     // Video
-    public function video_player_lessons($game,$student){
+    public function video_player_lessons($game, $student)
+    {
 
         $videos = $game->videos;
 
-        $result = $videos->filter(function ($v) use($student){
+        $result = $videos->filter(function ($v) use ($student) {
             return $v->isLocal == $student->isLocal;
         });
 
-        $videos = $result->values()->map(function ($v) use($student){
+        $videos = $result->values()->map(function ($v) use ($student) {
             return [
                 'video_id' => $v->path,
                 'local' => $v->isLocal,
@@ -112,75 +123,70 @@ trait gameTraits{
             'videos' => $videos
         ];
 
-       return $collection;
-
+        return $collection;
     }
 
     // Song
-    public function video_player_song($game, $student){
+    public function video_player_song($game, $student)
+    {
 
         $songs = $game->songs;
 
-        $result = $songs->filter(function ($s) use($student){
+        $result = $songs->filter(function ($s) use ($student) {
             return $s->isLocal == $student->isLocal;
         });
 
-        $songs = $result->values()->map(function ($s){
+        $songs = $result->values()->map(function ($s) {
             return [
                 'song_id' => $s->path,
                 'local' => $s->isLocal,
-                'type' =>"song",
+                'type' => "song",
             ];
         });
 
-         $collection = [
+        $collection = [
             'id' => $game->id,
             'name' => $game->name,
             'lesson_id' => $game->lesson_id,
             'songs' => $songs
         ];
 
-       return $collection;
-
+        return $collection;
     }
 
-  // For Cloud Games Two
-    public function listening_and_choosing_clouds_two($gameId){
+    // For Cloud Games Two
+    public function listening_and_choosing_clouds_two($gameId)
+    {
 
 
-        $rounds = Round::with('backgrounds','questions','characters',
-        'conversations','answers')->where('game_id', $gameId)->get();
+        $rounds = Round::with(
+            'backgrounds',
+            'questions',
+            'characters',
+            'conversations',
+            'answers'
+        )->where('game_id', $gameId)->get();
 
         // return $rounds;
-            $game = Game::with('category','instructions')->where('id', $gameId)->first();
+        $game = Game::with('category', 'instructions')->where('id', $gameId)->first();
 
-            foreach ($rounds as $r) {
-                if($r['backgrounds']){
-                    $r['background'] = $r['backgrounds']->image;
-                    unset($r['backgrounds']);
-                }
+        foreach ($rounds as $r) {
+            if ($r['backgrounds']) {
+                $r['background'] = $r['backgrounds']->image;
+                unset($r['backgrounds']);
             }
+        }
 
-            $game['rounds'] = $rounds;
+        $game['rounds'] = $rounds;
 
-            $game = [
-                "id" => $game["id"],
-                "name" => $game["name"],
-                "lesson_id" => $game["lesson_id"],
-                "rounds" => $game["rounds"],
-            ];
+        $game = [
+            "id" => $game["id"],
+            "name" => $game["name"],
+            "lesson_id" => $game["lesson_id"],
+            "rounds" => $game["rounds"],
+        ];
 
 
         return $game;
-
-
-
     }
-
-
-
-
-
-
-
 }

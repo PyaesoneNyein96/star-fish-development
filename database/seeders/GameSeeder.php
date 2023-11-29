@@ -19,36 +19,36 @@ class GameSeeder extends Seeder
 
             // lesson 1's games
 
-            ['name' => 'Video', 'lesson_id' => 1 ,'category_id' => 2 ],
-            ['name' => 'Read and Practice', 'lesson_id' => 1 ,'category_id' => 3 ],
-            ['name' => 'Song', 'lesson_id' => 1 ,'category_id' => 1],
-            ['name' => 'Listen and Practice', 'lesson_id' => 1 ,'category_id' => 18],
-            ['name' => 'Writing', 'lesson_id' => 1 ,'category_id' => 8],
+            ['name' => 'Video', 'lesson_id' => 1, 'category_id' => 2],
+            ['name' => 'Read and Practice', 'lesson_id' => 1, 'category_id' => 3],
+            ['name' => 'Song', 'lesson_id' => 1, 'category_id' => 1],
+            ['name' => 'Listen and Practice', 'lesson_id' => 1, 'category_id' => 18],
+            ['name' => 'Writing', 'lesson_id' => 1, 'category_id' => 8],
 
-             // lesson 2's games
+            // lesson 2's games
 
-            ['name' => 'Video', 'lesson_id' => 2 ,'category_id' => 2],
-            ['name' => 'Read and Practice', 'lesson_id' => 2 , 'category_id' => 3],
-            ['name' => 'Song', 'lesson_id' => 2 , 'category_id' => 1],
-            ['name' => 'Listen and Practice', 'lesson_id' => 2 , 'category_id' => 19],
-            ['name' => 'Matching', 'lesson_id' => 2, 'category_id' => 11 ],
-            ['name' => 'Writing (Arrange Order)', 'lesson_id' => 2 , 'category_id' => 8],
+            ['name' => 'Video', 'lesson_id' => 2, 'category_id' => 2],
+            ['name' => 'Read and Practice', 'lesson_id' => 2, 'category_id' => 3],
+            ['name' => 'Song', 'lesson_id' => 2, 'category_id' => 1],
+            ['name' => 'Listen and Practice', 'lesson_id' => 2, 'category_id' => 19],
+            ['name' => 'Matching', 'lesson_id' => 2, 'category_id' => 11],
+            ['name' => 'Writing (Arrange Order)', 'lesson_id' => 2, 'category_id' => 8],
 
             // //  // lesson 3's games
 
-            // ['name' => 'Video', 'lesson_id' => 3 ],
-            // ['name' => 'Read and Listen & Repeat', 'lesson_id' => 3 ],
-            // ['name' => 'Listen and Practice', 'lesson_id' => 3 ],
-            // ['name' => 'Writing (Arrange Order)', 'lesson_id' => 3 ],
-            // ['name' => 'Speaking', 'lesson_id' => 3 ],
+            ['name' => 'Video', 'lesson_id' => 3, 'category_id' => 0],
+            ['name' => 'Read Listen and Repeat', 'lesson_id' => 3, 'category_id' => 0],
+            ['name' => 'Listen and Practice', 'lesson_id' => 3, 'category_id' => 0],
+            ['name' => 'Writing (Arrange Order)', 'lesson_id' => 3, 'category_id' => 0],
+            ['name' => 'Speaking', 'lesson_id' => 3, 'category_id' => 0],
 
             // //  // lesson 4's games
 
-            // ['name' => 'Video', 'lesson_id' => 4 ],
-            // ['name' => 'Read and Listen & Repeat', 'lesson_id' => 4 ],
-            // ['name' => 'Read and Listen & Repeat', 'lesson_id' => 4 ],
-            // ['name' => 'Listen and Practice', 'lesson_id' => 4 ],
-            // ['name' => 'Writing (Arrange Order)', 'lesson_id' => 4 ],
+            ['name' => 'Video', 'lesson_id' => 4, 'category_id' => 0],
+            ['name' => 'Read Listen and Repeat', 'lesson_id' => 4, 'category_id' => 0],
+            ['name' => 'Read Listen and Repeat', 'lesson_id' => 4, 'category_id' => 0],
+            ['name' => 'Listen and Practice', 'lesson_id' => 4, 'category_id' => 0],
+            ['name' => 'Writing (Arrange Order)', 'lesson_id' => 4, 'category_id' => 0],
 
             // //  // lesson 5's games
 
