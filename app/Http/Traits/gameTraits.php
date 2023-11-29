@@ -71,7 +71,6 @@ trait gameTraits{
                 "lesson_id" => $game["lesson_id"],
                 'subUnit' => $count !== 1 ? true : false,
                 "instructions" => $game['instructions'],
-                'instructionGif' => "image_path ????",
                 'subUnit' => $game->subUnit == 1 ? true : false,
                 "rounds" => $game["rounds"],
             ];
