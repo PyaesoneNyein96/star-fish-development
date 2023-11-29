@@ -59,8 +59,8 @@ Field (token (Header))
 Method (GET) [ https://star-fish.myanmargateway.net/api/lessons ](https://star-fish.myanmargateway.net/api/lessons)  
 Field (token ,grade_id, (Header))
 
-#### Games
-Method (GET) [ hhttps://star-fish.myanmargateway.net/api/games ](https://star-fish.myanmargateway.net/api/games)  
+#### Units
+Method (GET) [ hhttps://star-fish.myanmargateway.net/api/units ](https://star-fish.myanmargateway.net/api/units)  
 Field (token ,lesson_id, grade_id, (Header))
 
 #### Spec-game
