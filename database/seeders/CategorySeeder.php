@@ -48,6 +48,8 @@ class CategorySeeder extends Seeder
             'letter_tracing',
             'fill_in_blank_word',
 
+            'tracing_n_correct_letter'
+
         ];
 
         foreach ($categories as $category) {

@@ -15,6 +15,8 @@ class SongSeeder extends Seeder
     {
             DB::table('songs')->insert([
                 ['path' => "b_gBZ-tfAJ4" , "isLocal" => 1,'game_id' => 3],
+                ['path' => "b_gBZ-tfAJ4 --global" , "isLocal" => 0,'game_id' => 3],
+                ['path' => "abc_small_letter_songID" , "isLocal" => 1,'game_id' => 8],
             ]);
 
     }

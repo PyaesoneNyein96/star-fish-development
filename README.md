@@ -59,20 +59,19 @@ Field (token (Header))
 Method (GET) [ https://star-fish.myanmargateway.net/api/lessons ](https://star-fish.myanmargateway.net/api/lessons)  
 Field (token ,grade_id, (Header))
 
-#### Games
+#### Units
 
-Method (GET) [ hhttps://star-fish.myanmargateway.net/api/games ](https://star-fish.myanmargateway.net/api/games)  
+Method (GET) [ hhttps://star-fish.myanmargateway.net/api/units ](https://star-fish.myanmargateway.net/api/units)  
 Field (token ,lesson_id, grade_id, (Header))
 
 #### Spec-game
 
 Method (GET) [ https://star-fish.myanmargateway.net/api/game ](https://star-fish.myanmargateway.net/api/game)  
-Field (token ,game_id, (Header))
+Field (token ,unit_id, (Header))
 
-#### End-Match
-
-Method (GET) [https://star-fish.myanmargateway.net/api/end_match](https://star-fish.myanmargateway.net/api/end_match)  
-Field (token, game_id, lesson_id, point (Header))
+<!-- #### End-Match
+Method (GET) [https://star-fish.myanmargateway.net/api/end_match](https://star-fish.myanmargateway.net/api/end_match)
+Field (token, game_id, lesson_id, point (Header)) -->
 
 > # Subscription Plans
 
@@ -88,8 +87,8 @@ Field (token, grade_id, subscription_id (Header))
 
 ### Remove Grade
 
-Method (POST) [https://star-fish.myanmargateway.net/api/subscription/removePlan](https://star-fish.myanmargateway.net/api/subscription/removePlan)  
-(Delete Subscription Grade and games (Header))
+<!-- Method (POST) [https://star-fish.myanmargateway.net/api/subscription/removePlan](https://star-fish.myanmargateway.net/api/subscription/removePlan)
+(Delete Subscription Grade and games (Header)) -->
 
 ### ==============================================================
 

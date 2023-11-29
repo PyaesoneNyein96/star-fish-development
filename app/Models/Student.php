@@ -75,6 +75,12 @@ class Student extends Model
         return $this->belongsToMany(Lesson::class, 'student_lessons', 'student_id', 'lesson_id');
     }
 
+    public function units()
+    {
+        return $this->belongsToMany(Lesson::class, 'student_units', 'student_id', 'unit_id');
+    }
+
+
     public function games()
     {
         return $this->belongsToMany(Game::class, 'student_games', 'student_id', 'game_id');

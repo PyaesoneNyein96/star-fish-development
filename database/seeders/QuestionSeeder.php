@@ -30,16 +30,16 @@ class QuestionSeeder extends Seeder
 
         $G1_l1_U4_rounds = [
 
-            ['D', 'e', 'f', 'G', 'j', 'k', 'w'],
-            ['E', 'H', 'K', 'L', 'M', 'm', 'T'],
-            ['A', 'H', 'M', 'O', 'R', 'W', 'Y'],
-            ['A', 'H', 'M', 'O', 'R', 'W', 'Y'],
-            ['e', 'f', 'g', 'I', 'T', 'W', 'y'],
-            ['A', 'e', 'M', 'N', 'r', 'm', 'y'],
-            ['c', 'F', 'g', 'I', 'J', 'u', 'y'],
-            ['A', 'D', 'E', 'f', 'G', 'k', 'W'],
-            ['B', 'e', 'F', 'I', 'S', 'y', 'Z'],
-            ['e', 'K', 'M', 'M2', 'P', 'S', 'T']
+            ['D', 'k', 'f', 'e', 'W', 'j', 'G'],
+            ['E', 'K', 'H', 'M', 'T', 'M', 'L'],
+            ['R', 'M', 'H', 'W', 'O', 'A', 'Y'],
+            ['S', 'B', 'M', 'F', 'I', 'D', 'Z'],
+            ['W', 'g', 'y', 'e', 'I', 'T', 'f'],
+            ['N', 'M', 'r', 'e', 'm', 'Y', 'A'],
+            ['g', 'u', 'y', 'F', 'c', 'I', 'J'],
+            ['D', 'k', 'f', 'A', 'W', 'E', 'G'],
+            ['y', 'B', 'S', 'F', 'e', 'I', 'Z'],
+            ['e', 'K', 'S', 'M', 'T', 'M', 'p'],
 
         ];
 
@@ -53,14 +53,14 @@ class QuestionSeeder extends Seeder
 
 
         ////////////////////////////////////////////////////////
-        ////   CLOUD //////////     Grade 1  Lesson 2 Game 9  Round_ID (14,15,16,17) total 4
+        ////  CLOUD //////////   Grade 1  Lesson 2 Game 9  Round_ID (14,15,16,17) total 4
         ///////////////////////////////////////////////////////
 
         $G1_l2_U9_rounds = [
             ['D', 'z', 'h', 'e', 'a', 'f', 'e', 'I'],
+            ['h', 'z', 'g', 'v', 'a', 'o', 'x', 'P'],
             ['i', 'z', 'g', 'y', 's', 'o', 'x', 'P'],
-            ['i', 't', 'c', 'n', 'm', 'r', 'L', 'e'],
-            ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+            ['i', 't', 'c', 'n', 'm', 'r', 'I', 'e'],
         ];
 
         for ($i = 1; $i <= count($G1_l2_U9_rounds); $i++) {
@@ -72,53 +72,25 @@ class QuestionSeeder extends Seeder
         }
 
 
+        ////////////////////////////////////////////////////////
+        ////   CLOUD //////////     Grade 1  Lesson 12 Game 6  SubUnit(I)
+        ///////////////////////////////////////////////////////
 
-
-
-
-
-
-
-        // // R_1
-        // foreach (['D','e','f','G','j','k','w'] as $img) {
+        // $G1_l12_subunit_data = [
         //     DB::table('question_contents')->insert([
-        //         ['round_id' => 1,'image' => $ImageDomain."Grade_1/"."lesson_1/"."listen_practice"."/round_1/".$img.".png",],
-        //     ]);
-        // }
-        // // R_2
-        // foreach (['E','H','K','L','M','Small_M','T'] as $img) {
-        //     DB::table('question_contents')->insert([
-        //         ['round_id' => 2,'image' => $ImageDomain."Grade_1/"."lesson_1/"."listen_practice"."/round_2/".$img.".png",],
-        //     ]);
-        // }
+        //         ['subunit_id' => 1 ,'content' => "G_image", 'image' => "G_instruction_image" ],
+        //         ['subunit_id' => 1 ,'content' => "H_image", 'image' => "H_instruction_image" ],
+        //         ['subunit_id' => 1 ,'content' => "e_image", 'image' => "e_instruction_image" ],
+        //         ['subunit_id' => 1 ,'content' => "f_image", 'image' => "f_instruction_image" ],
+        //         ['subunit_id' => 1 ,'content' => "g_image", 'image' => "g_instruction_image" ],
+        //         ['subunit_id' => 1 ,'content' => "h_image", 'image' => "h_instruction_image" ],
+        //         ['subunit_id' => 1 ,'content' => "F_image", 'image' => "F_instruction_image" ],
+        //         ['subunit_id' => 1 ,'content' => "E_image", 'image' => "E_instruction_image" ],
+        //     ])
+        // ];
 
-        // // R_3
-        // foreach (['A','H','M','O','R','W','Y'] as $img) {
-        //     DB::table('question_contents')->insert([
-        //         ['round_id' => 3,'image' => $ImageDomain."Grade_1/"."lesson_1/"."listen_practice"."/round_3/".$img.".png",],
-        //     ]);
-        // }
 
-        // // R_4
-        // foreach (['A','H','M','O','R','W','Y'] as $img) {
-        //     DB::table('question_contents')->insert([
-        //         ['round_id' => 4,'image' => $ImageDomain."Grade_1/"."lesson_1/"."listen_practice"."/round_4/".$img.".png",],
-        //     ]);
-        // }
 
-        // // R_5
-        // foreach (['e','f','g','I','T','W','y'] as $img) {
-        //     DB::table('question_contents')->insert([
-        //         ['round_id' => 5,'image' => $ImageDomain."Grade_1/"."lesson_1/"."listen_practice"."/round_5/".$img.".png",],
-        //     ]);
-        // }
-
-        // // R_6
-        // foreach (['A','e','M','N','r','Small_M','y'] as $img) {
-        //     DB::table('question_contents')->insert([
-        //         ['round_id' => 6,'image' => $ImageDomain."Grade_1/"."lesson_1/"."listen_practice"."/round_5/".$img.".png",],
-        //     ]);
-        // }
 
 
 
