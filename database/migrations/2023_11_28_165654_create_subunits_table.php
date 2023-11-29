@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('games', function (Blueprint $table) {
+        Schema::create('subunits', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('category_id')->nullable();
-            $table->integer('subUnit')->default(0);
-            $table->foreignId('lesson_id')->nullable()->constrained();
+            $table->string('content');
+            $table->integer('game_id');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('games');
+        Schema::dropIfExists('subunits');
     }
 };

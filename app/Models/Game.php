@@ -6,6 +6,7 @@ use App\Models\Image;
 use App\Models\GameInstruction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\SubUnit;
 
     class Game extends Model
 {
@@ -45,6 +46,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
         return $this->hasMany(Item::class);
     }
 
+    public function subUnits(){
+        return $this->hasMany(SubUnit::class);
+    }
+
+
+
     public function audios(){
         return $this->hasMany(Audio::class);
     }
@@ -75,6 +82,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
     public function songs (){
         return $this->hasMany(Song::class);
     }
+
 
 
     // public function audios(){

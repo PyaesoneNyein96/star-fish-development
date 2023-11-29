@@ -19,6 +19,7 @@ use Database\Seeders\AnswerSeeder;
 use Database\Seeders\LessonSeeder;
 use Database\Seeders\RewardSeeder;
 use Database\Seeders\CountrySeeder;
+use Database\Seeders\SubUnitSeeder;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\QuestionSeeder;
 use Illuminate\Support\Facades\Hash;
@@ -99,6 +100,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LessonSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(GameSeeder::class);
+        $this->call(SubUnitSeeder::class);
         $this->call(RoundSeeder::class);
         $this->call(StudentGradeSeeder::class);
         $this->call(ItemSeeder::class);

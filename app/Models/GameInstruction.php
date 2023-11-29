@@ -11,6 +11,14 @@ class GameInstruction extends Model
 
     protected $hidden = ['pivot','created_at','updated_at'];
 
+    protected $fillable = [
+        'content',
+        'audio',
+        'game_id',
+        'round_id',
+        'sub_units_id'
+    ];
+
 
 
     public function toArray(){

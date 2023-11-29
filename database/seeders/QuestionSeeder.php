@@ -53,15 +53,15 @@ class QuestionSeeder extends Seeder
 
 
 ////////////////////////////////////////////////////////
-////   CLOUD //////////     Grade 1  Lesson 2 Game 9  Round_ID (14,15,16,17) total 4
+////  CLOUD //////////   Grade 1  Lesson 2 Game 9  Round_ID (14,15,16,17) total 4
 ///////////////////////////////////////////////////////
 
-          $G1_l2_U9_rounds = [
-            ['D','z','h','e','a','f','e','I'],
-            ['i','z','g','y','s','o','x','P'],
-            ['i','t','c','n','m','r','L','e'],
-            ['A','B','C','D','E','F','G','H'],
-          ];
+        $G1_l2_U9_rounds = [
+          ['D','z','h','e','a','f','e','I'],
+          ['h','z','g','v','a','o','x','P'],
+          ['i','z','g','y','s','o','x','P'],
+          ['i','t','c','n','m','r','I','e'],
+        ];
 
         for ($i = 1; $i <= count($G1_l2_U9_rounds) ; $i++) {
             foreach ($G1_l2_U9_rounds[$i - 1] as  $word) {

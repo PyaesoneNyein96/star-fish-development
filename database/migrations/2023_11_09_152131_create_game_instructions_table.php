@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('content')->nullable();
             $table->integer('game_id')->nullable();
             $table->integer('round_id')->nullable();
+            $table->integer('sub_units_id')->nullable();
             $table->timestamps();
         });
     }

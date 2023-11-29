@@ -25,7 +25,7 @@ class RoundSeeder extends Seeder
 
         $g1_l1_u5 = 3;
 
-        for ($i= 1; $i <= $g1_l1_u5 ; $i++) {
+        for ($i= 1; $i <= $g1_l1_u5; $i++) {
             DB::table('rounds')->insert([
                 ['round' => $i, 'game_id' => 5]
             ]);
@@ -41,9 +41,17 @@ class RoundSeeder extends Seeder
 
         $g1_l2_u10 =3;
 
-        for ($i=0; $i < $g1_l2_u10  ; $i++) {
+        for ($i=0; $i < $g1_l2_u10 ; $i++) {
             DB::table('rounds')->insert([
                 ['round' => $i, 'game_id' => 10]
+            ]);
+        }
+
+        $g1_l2_u11 =5;
+
+        for ($i=0; $i < $g1_l2_u11 ; $i++) {
+            DB::table('rounds')->insert([
+                ['round' => $i, 'game_id' => 11]
             ]);
         }
 

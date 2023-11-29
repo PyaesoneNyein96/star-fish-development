@@ -181,9 +181,11 @@ class GameController extends Controller
         $gameId = $request->header('game_id');
         $lesson_id = $request->header('lesson_id');
 
-        $game = Game::with('images','category','audios','items','rounds','videos','songs','conversations','characters','background')->where('id', $gameId)
+        $game = Game::with('images','category','instructions','audios','items','rounds','videos','songs','conversations','characters','background')->where('id', $gameId)
         // ->where('lesson_id',$lesson_id)
         ->first();
+
+
 
 
         if (!$game) return "null";
