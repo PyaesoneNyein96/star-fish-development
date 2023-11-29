@@ -6,7 +6,7 @@ use App\Models\Image;
 use App\Models\GameInstruction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Models\SubUnit;
+
 
     class Game extends Model
 {
@@ -46,9 +46,7 @@ use App\Models\SubUnit;
         return $this->hasMany(Item::class);
     }
 
-    public function subunits(){
-        return $this->hasMany(Subunit::class);
-    }
+
 
 
 
