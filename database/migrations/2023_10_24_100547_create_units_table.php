@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('unit');
             $table->integer('lesson_id');
             $table->foreignId('category_id');
             $table->timestamps();

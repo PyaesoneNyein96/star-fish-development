@@ -56,10 +56,10 @@ class GameInstructionSeeder extends Seeder
 
         ]);
 
-        DB::table('game_instructions')->insert([
-            ['content' => "subOne GIF ......" ,"game_id" => 17 ,],
-            ['content' => "subTwo GIF ......" ,"game_id" => 18 ,],
-        ]);
+        // DB::table('game_instructions')->insert([
+        //     ['content' => "subOne GIF ......" ,"game_id" => 17 ,],
+        //     ['content' => "subTwo GIF ......" ,"game_id" => 18 ,],
+        // ]);
 
 
 
