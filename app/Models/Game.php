@@ -129,16 +129,16 @@ class Game extends Model
 
 
 
-    //    public function toArray(){
+       public function toArray(){
 
-    //     $data = parent::toArray();
+        $data = parent::toArray();
 
-    //     $filteredData = array_filter($data, function ($value) {
-    //         return  !is_array($value) || !empty($value);
-    //     });
+        $filteredData = array_filter($data, function ($value) {
+            return  !is_array($value) || !empty($value);
+        });
 
-    //     return $filteredData;
-    // }
+        return $filteredData;
+    }
 
 
 }

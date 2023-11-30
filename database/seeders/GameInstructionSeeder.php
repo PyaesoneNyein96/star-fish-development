@@ -21,7 +21,7 @@ class GameInstructionSeeder extends Seeder
         DB::table('game_instructions')->insert([
 
             // G-1 lesson_1 U-2
-            ['content' => "Find the capital letter in the sentence", 'game_id' => 2, 'audio' => $domain.$Grade1Instructions."Reading-the-alphabet-and-repeat".".mp3" ],
+            ['content' => "Reading the alphabet and repeat after each.", 'game_id' => 2, 'audio' => $domain.$Grade1Instructions."Reading-the-alphabet-and-repeat".".mp3" ],
 
             // G-1 lesson_1 U-4
              ['content' => "Listen and pop the bubbles of alphabet", 'game_id' => 4, 'audio' => $domain.$Grade1Instructions."Listen-and-pop-the-bubbles-of-alphabet".".mp3" ],

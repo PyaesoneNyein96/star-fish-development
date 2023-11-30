@@ -184,11 +184,15 @@ class GameController extends Controller
         $lesson_id = $request->header('lesson_id');
 
         $unit = Unit::where('id',$unit_id)->with('category')->first();
-        // return $unit->category['name'];
 
-        $game = Game::with('images','instructions','audios','items','rounds','videos','songs',
-        'conversations','characters','background')->whereIn('id', $unit->games->pluck('id'))
+
+        // $game = Game::with('images','instructions','audios','items','rounds','videos','songs',
+        // 'conversations','characters','background')->whereIn('id', $unit->games->pluck('id'))
+        // ->get();
+        $game = Game::with('instructions','ans_n_ques','background','conversations')->whereIn('id', $unit->games->pluck('id'))
         ->get();
+
+
 
 
 

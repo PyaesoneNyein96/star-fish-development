@@ -76,12 +76,14 @@ trait gameTraits
     public function reading_carousel($game, $student, $unit)
     {
 
-        if (count($game) == 1) {
-            $game = $game[0];
-            $game['lesson_id'] = $unit->lesson_id;
-            $game['subunit'] = $unit->subUnit == 1 ? true : false;
-            return $game;
-        }
+        return $game;
+
+        // if (count($game) == 1) {
+        //     $game = $game[0];
+        //     $game['lesson_id'] = $unit->lesson_id;
+        //     $game['subunit'] = $unit->subUnit == 1 ? true : false;
+        //     return $game;
+        // }
     }
 
     // Video

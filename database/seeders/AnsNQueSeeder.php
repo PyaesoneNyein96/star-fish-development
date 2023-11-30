@@ -39,7 +39,7 @@ class AnsNQueSeeder extends Seeder
         $AZ = range("A", "Z");
         foreach ($AZ as $key) {
             DB::table('ans_n_ques')->insert([
-                ['game_id' => 4, 'a_content' => $key, 'a_image' => $ImageDomainAZ . $key . ".png", 'a_audio' => $AudioDomainAZ . $prefix . $key . ".mp3"],
+                ['game_id' => 2, 'a_content' => $key, 'a_image' => $ImageDomainAZ . $key . ".png", 'a_audio' => $AudioDomainAZ . $prefix . $key . ".mp3"],
             ]);
         }
 

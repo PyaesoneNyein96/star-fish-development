@@ -12,6 +12,21 @@ class AnsNQues extends Model
 
     public function ans_n_ques()
     {
-        return $this->belongsTo(AnsNQues::class);
+        return $this->belongsTo(Game::class);
     }
+
+
+     public function toArray(){
+
+        $data = parent::toArray();
+
+
+        $filteredData = array_filter($data, function ($value) {
+            return !is_null($value) && (!is_array($value) || !empty($value));
+        });
+
+        return $filteredData;
+    }
+
+
 }
