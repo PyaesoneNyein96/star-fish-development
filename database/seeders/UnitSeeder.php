@@ -33,14 +33,6 @@ class UnitSeeder extends Seeder
             ['unit' => '5', 'lesson_id' => 2, 'category_id' => 11],
             ['unit' => '6', 'lesson_id' => 2, 'category_id' => 8],
 
-            // lesson 12's games
-
-            ['unit' => '1', 'lesson_id' => 12, 'category_id' => 28],
-            ['unit' => '2', 'lesson_id' => 12, 'category_id' => 28],
-            ['unit' => '3', 'lesson_id' => 12, 'category_id' => 28],
-            ['unit' => '4', 'lesson_id' => 12, 'category_id' => 28],
-            ['unit' => '5', 'lesson_id' => 12, 'category_id' => 28],
-            ['unit' => '6', 'lesson_id' => 12, 'category_id' => 28],
 
             // lesson 3's games
 
@@ -59,6 +51,19 @@ class UnitSeeder extends Seeder
             ['unit' => '4', 'lesson_id' => 4, 'category_id' => 28],
             ['unit' => '5', 'lesson_id' => 4, 'category_id' => 28],
             ['unit' => '6', 'lesson_id' => 4, 'category_id' => 28],
+
+
+
+            // lesson 12's games
+
+            ['unit' => '1', 'lesson_id' => 12, 'category_id' => 28],
+            ['unit' => '2', 'lesson_id' => 12, 'category_id' => 28],
+            ['unit' => '3', 'lesson_id' => 12, 'category_id' => 28],
+            ['unit' => '4', 'lesson_id' => 12, 'category_id' => 28],
+            ['unit' => '5', 'lesson_id' => 12, 'category_id' => 28],
+            ['unit' => '6', 'lesson_id' => 12, 'category_id' => 28],
+
+
 
         ]);
     }
