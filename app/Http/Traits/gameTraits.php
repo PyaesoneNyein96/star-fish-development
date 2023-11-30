@@ -43,6 +43,22 @@ trait gameTraits
     public function listening_and_choosing_clouds_one($game, $student, $unit)
     {
 
+
+        // $game = $game[0]->ans_n_ques;
+
+        $game = $game[0]->ans_n_ques->groupBy('round_id');
+
+        // foreach ($game as $roundId => $groupedData) {
+
+        //     $customKey = "Round_".$roundId;
+
+        //     $game[$customKey] = $groupedData;
+
+        //     // Remove the original key (optional)
+        //     unset($game[$roundId]);
+        // }
+
+
         return $game;
 
 
