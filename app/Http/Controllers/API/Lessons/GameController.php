@@ -192,7 +192,7 @@ class GameController extends Controller
 
 
 
-        if( $game  &&  method_exists($this, $unit->category['name'])) {
+        if ($game  &&  method_exists($this, $unit->category['name'])) {
 
             $name = strval($unit->category['name']);
 

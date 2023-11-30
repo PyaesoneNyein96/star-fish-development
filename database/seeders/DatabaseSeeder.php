@@ -79,7 +79,7 @@ class DatabaseSeeder extends Seeder
             'isSubscriber' => 0
         ]);
 
-         Student::factory()->create([
+        Student::factory()->create([
             'name' => 'thhs',
             'phone' => null,
             'email' => "devsophiesoe@gmail.com",
@@ -115,5 +115,6 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(RewardSeeder::class);
+        $this->call(AnsNQueSeeder::class);
     }
 }
