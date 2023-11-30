@@ -43,6 +43,9 @@ trait gameTraits
     public function listening_and_choosing_clouds_one($game, $student, $unit)
     {
 
+        return $game;
+
+
         $count = $game->count();
         if ($count == 1) {
             $game = $game[0];
