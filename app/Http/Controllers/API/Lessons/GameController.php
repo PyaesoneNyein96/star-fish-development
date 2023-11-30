@@ -38,10 +38,10 @@ class GameController extends Controller
 
 
         $allGrades = Grade::all();
-        $isDone = StudentGrade::where('student_id', $student->id)->where('isDone', 1)->get();
+        $isDone = StudentGrade::where('student_id', $student->id)->where('isDone',1)->get();
 
 
-        $studentGrade = $allGrades->map(function ($grade) use ($studentGrades, $isDone, $student) {
+        $studentGrade = $allGrades->map(function ($grade) use($studentGrades, $isDone,$student){
 
             $paid = false;
             $lock = false;
@@ -49,28 +49,30 @@ class GameController extends Controller
             $expire_date = null;
 
             foreach ($studentGrades as $studentGrade) {
-                if ($studentGrade->id == $grade->id) {
+                if($studentGrade->id == $grade->id){
                     $stu_grade = StudentGrade::where('grade_id', $studentGrade->id)->first();
                     $expire_date = $stu_grade->expire_date;
 
-                    $day_count = $stu_grade->created_at
-                        ->diff($stu_grade->expire_date);
+                    $day_count =$stu_grade->created_at
+                    ->diff($stu_grade->expire_date);
 
                     $type = $day_count->invert ? '-' : '';
-                    $day_count = $type . $day_count->days;
+                    $day_count = $type.$day_count->days;
 
                     // $day_count = Carbon::now()
                     // ->diff($stu_grade->expire_date)->days;
                 }
             }
 
-            if ($student->isSubscriber == 1 && $studentGrades->contains('id', $grade->id)) {
+            if($student->isSubscriber == 1 && $studentGrades->contains('id', $grade->id) ){
                 $paid = true;
                 $lock = true;
-            } else if ($student->isSubscriber == 0 && $student->grade_chosen == null) {
+
+            } else if ($student->isSubscriber == 0 && $student->grade_chosen == null){
                 $paid = false;
                 $lock = true;
-            } else if ($student->isSubscriber == 0 && $student->grade_chosen !== null) {
+
+            } else if ($student->isSubscriber == 0 && $student->grade_chosen !== null){
                 $paid = false;
                 $lock = $student->grade_chosen == $grade->id;
             }
@@ -82,10 +84,12 @@ class GameController extends Controller
                 'price' => $grade->price,
                 'paid' => $paid,
                 'allow' => $lock,
-                'complete' => $isDone->contains('id', $grade->id),
+                'complete' => $isDone->contains('id',$grade->id),
                 'expire_date' => $expire_date,
                 'day_count' => $day_count,
             ];
+
+
         });
 
 
@@ -111,15 +115,17 @@ class GameController extends Controller
 
         $lessons = $allLessons->map(function ($lesson) use ($studentLessons, $grade) {
 
-            return [
+        return [
                 'id' => $lesson->id,
                 'grade_id' => $grade,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
             ];
+
         });
 
         return $lessons;
+
     }
 
 
@@ -134,35 +140,39 @@ class GameController extends Controller
         DB::beginTransaction();
         try {
 
-            if ($student->isSubscriber == 0 && $student->grade_chosen == Null) {
+                if($student->isSubscriber == 0 && $student->grade_chosen == Null ){
 
-                Student::where('id', $student->id)->update([
-                    'grade_chosen' => $gradeId
-                ]);
-            }
+                    Student::where('id', $student->id)->update([
+                        'grade_chosen' => $gradeId
+                    ]);
 
-            $allGame = Unit::where('lesson_id', $lesson)->get();
+                }
 
-            $studentUnits = $student->units;
+                $allGame = Unit::where('lesson_id',$lesson)->get();
 
-            $units = $allGame->map(function ($unit) use ($studentUnits, $lesson, $gradeId) {
-                return [
-                    'id' => $unit->id,
-                    'lesson_id' => $unit->lesson_id,
-                    'name' => $unit->name,
-                    'grade_id' => $gradeId,
-                    'complete' => $studentUnits->contains('id', $unit->id),
-                    'category' => $unit->category['name']
-                ];
-            });
+                $studentUnits = $student->units;
 
-            DB::commit();
+                $units = $allGame->map(function ($unit) use ($studentUnits, $lesson, $gradeId) {
+                    return [
+                        'id' => $unit->id,
+                        'lesson_id' => $unit->lesson_id,
+                        'name' => $unit->name,
+                        'grade_id' => $gradeId,
+                        'complete' => $studentUnits->contains('id', $unit->id),
+                        'category' => $unit->category['name']
+                    ];
+                });
 
-            return $units;
+                DB::commit();
+
+                return $units;
+
+
         } catch (\Throwable $th) {
             return $th;
             DB::rollback();
         }
+
     }
 
 
@@ -173,22 +183,16 @@ class GameController extends Controller
         $unit_id = $request->header('unit_id');
         $lesson_id = $request->header('lesson_id');
 
-        $unit = Unit::where('id', $unit_id)->with('category')->first();
-        // return $unit->category['name'];
+        $unit = Unit::where('id',$unit_id)->with('category')->first();
 
-        $game = Game::with(
-            'images',
-            'instructions',
-            'audios',
-            'items',
-            'rounds',
-            'videos',
-            'songs',
-            'conversations',
-            'characters',
-            'background'
-        )->whereIn('id', $unit->games->pluck('id'))
-            ->get();
+
+        // $game = Game::with('images','instructions','audios','items','rounds','videos','songs',
+        // 'conversations','characters','background')->whereIn('id', $unit->games->pluck('id'))
+        // ->get();
+        $game = Game::with('instructions','ans_n_ques','background','conversations')->whereIn('id', $unit->games->pluck('id'))
+        ->get();
+
+
 
 
 
@@ -196,11 +200,12 @@ class GameController extends Controller
 
             $name = strval($unit->category['name']);
 
-            return $this->$name($game, $student, $unit);
+            return $this->$name($game,$student,$unit);
         }
 
 
-        return "Function not found .!!";
+        return "Function not found .!!" ;
+
     }
 
 

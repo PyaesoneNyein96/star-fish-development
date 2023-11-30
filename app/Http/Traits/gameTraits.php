@@ -31,6 +31,7 @@ trait gameTraits
         ])->where('id', $game->id)->first();
 
 
+
         $games['lesson_id'] = $unit->lesson_id;
         $games['subUnit'] = $count == 1 ? false : true;
         return $games;
@@ -42,6 +43,25 @@ trait gameTraits
     public function listening_and_choosing_clouds_one($game, $student, $unit)
     {
 
+
+        // $game = $game[0]->ans_n_ques;
+
+        $game = $game[0]->ans_n_ques->groupBy('round_id');
+
+        // foreach ($game as $roundId => $groupedData) {
+
+        //     $customKey = "Round_".$roundId;
+
+        //     $game[$customKey] = $groupedData;
+
+        //     // Remove the original key (optional)
+        //     unset($game[$roundId]);
+        // }
+
+
+        return $game;
+
+
         $count = $game->count();
         if ($count == 1) {
             $game = $game[0];
@@ -49,7 +69,8 @@ trait gameTraits
         $gameId = $game->id;
 
 
-        $game = Game::with('instructions', 'rounds.backgrounds', 'rounds.questions', 'rounds.characters', 'rounds.conversations', 'rounds.answers')->where('id', $gameId)->first();
+        $game = Game::with('instructions', 'ans_n_ques')->where('id', $gameId)->get();
+
 
 
         $gameData = [
@@ -61,6 +82,7 @@ trait gameTraits
             "instructionGIF" => $game['instructionGIF'],
             "instructions" => $game['instructions'],
             "rounds" => $game["rounds"],
+
         ];
 
         return $gameData;
@@ -73,12 +95,14 @@ trait gameTraits
     public function reading_carousel($game, $student, $unit)
     {
 
-        if (count($game) == 1) {
-            $game = $game[0];
-            $game['lesson_id'] = $unit->lesson_id;
-            $game['subunit'] = $unit->subUnit == 1 ? true : false;
-            return $game;
-        }
+        return $game;
+
+        // if (count($game) == 1) {
+        //     $game = $game[0];
+        //     $game['lesson_id'] = $unit->lesson_id;
+        //     $game['subunit'] = $unit->subUnit == 1 ? true : false;
+        //     return $game;
+        // }
     }
 
     // Video
@@ -219,5 +243,34 @@ trait gameTraits
         ];
 
         return $unit;
+    }
+
+
+    // =====================================================
+    // =====================================================
+
+
+    // reading conversation
+    public function reading_conversation()
+    {
+        //
+    }
+
+    // listening and choosing pics
+    public function listening_and_choosing_pics()
+    {
+        //
+    }
+
+    // rearrange_a_sentence_with_audio
+    public function rearrange_a_sentence_with_audio()
+    {
+        //
+    }
+
+    // speaking_and_recording
+    public function speaking_and_recording()
+    {
+        //
     }
 }
