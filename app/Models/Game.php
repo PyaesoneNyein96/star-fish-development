@@ -37,6 +37,11 @@ class Game extends Model
         return $this->belongsTo(Lesson::class);
     }
 
+    public function unit()
+    {
+        return $this->belongsTo(Unit::class);
+    }
+
     public function students()
     {
         return $this->belongsToMany(Student::class, 'student_games', 'game_id', 'student_id');
