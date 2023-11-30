@@ -20,6 +20,10 @@ class Unit extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function lesson(){
+        return $this->belongsTo(Lesson::class);
+    }
+
 
 
 

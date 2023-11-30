@@ -15,9 +15,6 @@ trait gameTraits{
     // For Drag and Drop
     public function drag_n_drop_and_letter($game,$student,$unit){
 
-        // $gameId = $game->pluck('id');
-
-
         $count = $game->count();
         if($count == 1) {
             $game = $game[0];
@@ -187,7 +184,6 @@ trait gameTraits{
         return $game;
 
 
-
     }
 
 
@@ -198,7 +194,6 @@ trait gameTraits{
         $games = Game::with(['instructions','rounds.questions','rounds.answers',
             'rounds.characters','rounds.conversations','rounds.backgrounds'])->whereIn('id', $gameId)->get();
 
-            // return $games;
             foreach ($games as $game) {
                 $game['lesson_id'] = $unit->lesson_id;
             }

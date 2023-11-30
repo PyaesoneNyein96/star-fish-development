@@ -217,14 +217,14 @@ class GameController extends Controller
 
         $game = Game::find($gameId);
 
-        if (!isset($game->lesson)) return 404;
+        $unit = $game->unit;
 
-        $exists = $game->lesson['id'] == $lesson_id ? true : false;
 
+        $exists = $unit->lesson_id == $lesson_id ? true : false;
 
 
         if (!$student || !$game || !$exists) {
-            return 404;
+            return "xxx";
         }
 
 
@@ -242,13 +242,15 @@ class GameController extends Controller
                 StudentGame::insert([
                     'student_id' => $student->id,
                     'game_id' => $gameId,
+                    'unit_id' => $unit->id,
                     'status' => 1,
                 ]);
 
 
-                $lessonGamesList = Game::where('lesson_id', $lesson_id)->get();
 
-                if ($this->lessonCheck($student, $lessonGamesList)->count() == 0) {
+                $unitGames = $unit->games;
+                $lessonUnit = Unit::where('lesson_id',$lesson_id)->get();
+                if ($this->lessonCheck($student, $unitGames, $lessonUnit)->count() == 0) {
 
                     $alreadyExist =  StudentLesson::where('student_id', $student->id)
                             ->where('lesson_id', $lesson_id)->first();
@@ -258,7 +260,6 @@ class GameController extends Controller
                         StudentLesson::create([
                             'student_id' => $student->id,
                             'lesson_id' => $lesson_id,
-                            'student_grades_id' => null,
                             'status' => 1
                         ]);
                 }
@@ -292,15 +293,25 @@ class GameController extends Controller
     }
 
 
+    private function lessonCheck($student, $unitGames, $lessonUnit){
 
 
-    private function lessonCheck($student, $lessonGamesList){
 
-       $gameDone  = StudentGame::where('student_id', $student->id)->get();
+        $gameDone = StudentGame::where('student_id', $student->id)->get();
 
-        return $filter = $lessonGamesList->reject(function ($g) use ($gameDone) {
-            return $gameDone->contains('game_id', $g->id);
+        $unittest = $unitGames->reject(function ($g) use ($gameDone){
+            return $gameDone->contains('game_id',$g->id);
         });
+
+
+        // return $unittest;
+
+        if($unittest->count() == 0){
+            return $filter = $lessonUnit->reject(function ($g) use ($gameDone) {
+                return $gameDone->contains('game_id', $g->id);
+            });
+        }
+
     }
 
 

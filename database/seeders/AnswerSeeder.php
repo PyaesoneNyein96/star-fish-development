@@ -28,7 +28,9 @@ class AnswerSeeder extends Seeder
         $g1_l1_g5_rs = [
              ['B','U','Z','O','E','R'],
              ['P','Y','K','C','H','N'],
-             ['Q','T','L','G','D','W']
+             ['Q','T','L','G','D','W'],
+             ['X','U','I','P','T','G'],
+             ['H','J','M','P','W','Q'],
         ];
 
         for ($i= 0 ; $i < count($g1_l1_g5_rs) ; $i++) {
@@ -58,7 +60,7 @@ class AnswerSeeder extends Seeder
             for ($j= 0 ; $j < count($AtoZ) ; $j ++) {
                 DB::table('answer_contents')->insert([
                     [
-                        'round_id' => (int)$i + 11,
+                        'round_id' => (int)$i + 27,
                         'answer' => $AtoZ[$j],
                         'correct_answer' => in_array($AtoZ[$j], $g1_l2_g11[$i]) ? 1 : 0,
                     ],
@@ -73,7 +75,7 @@ class AnswerSeeder extends Seeder
 
         for ($i= 0; $i < count($g1_l12_g18_sub_1) ; $i++) {
             DB::table('answer_contents')->insert([
-                ['round_id' => (int)$i + 26 ,'answer' => $g1_l12_g18_sub_1[$i]." "."Image" , 'correct_answer' => $g1_l12_g18_sub_1[$i]." "."dotted"],
+                ['round_id' => (int)$i + 33 ,'answer' => $g1_l12_g18_sub_1[$i]." "."Image" , 'correct_answer' => $g1_l12_g18_sub_1[$i]." "."dotted"],
             ]);
         }
 

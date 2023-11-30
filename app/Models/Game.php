@@ -31,8 +31,12 @@ use App\Models\InstructionGif;
         return $this->belongsTo(Grade::class, Lesson::class);
     }
 
-    public function lesson(){
-        return $this->belongsTo(Lesson::class);
+    // public function lesson(){
+    //     return $this->belongsTo(Lesson::class);
+    // }
+
+    public function unit(){
+        return $this->belongsTo(unit::class);
     }
 
     public function students(){
