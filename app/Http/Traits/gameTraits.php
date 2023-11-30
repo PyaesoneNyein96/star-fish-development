@@ -46,7 +46,7 @@ trait gameTraits
 
         // $game = $game[0]->ans_n_ques;
 
-        $game = $game[0]->ans_n_ques->groupBy('round_id');
+        // $game = $game[0]->ans_n_ques->groupBy('round_id');
 
         // foreach ($game as $roundId => $groupedData) {
 
@@ -59,17 +59,26 @@ trait gameTraits
         // }
 
 
-        return $game;
+        // return $game;
 
 
         $count = $game->count();
         if ($count == 1) {
             $game = $game[0];
         }
-        $gameId = $game->id;
+        // $gameId = $game->id;
+
+        // return Game::where('id',$game->id)->with('rounds.')->first();
 
 
-        $game = Game::with('instructions', 'ans_n_ques')->where('id', $gameId)->get();
+        // $game = Game::with('instructions', 'ans_n_ques')->where('id', $gameId)->get();
+
+        $game = Game::with([
+            'instructions', 'rounds.questions', 'rounds.answers',
+             'rounds.conversations', 'rounds.backgrounds'
+        ])->where('id', $game->id)->first();
+
+
 
 
 
