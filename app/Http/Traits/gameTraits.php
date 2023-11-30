@@ -9,88 +9,93 @@ use App\Models\Student;
 use App\Models\Subunit;
 
 
-trait gameTraits{
-
+trait gameTraits
+{
 
     // For Drag and Drop
-    public function drag_n_drop_and_letter($game,$student,$unit){
+    public function drag_n_drop_and_letter($game, $student, $unit)
+    {
+
+        // $gameId = $game->pluck('id');
+
 
         $count = $game->count();
-        if($count == 1) {
+        if ($count == 1) {
             $game = $game[0];
         }
 
 
-        $games = Game::with(['instructions','rounds.questions','rounds.answers',
-            'rounds.characters','rounds.conversations','rounds.backgrounds'])->where('id', $game->id)->first();
+        $games = Game::with([
+            'instructions', 'rounds.questions', 'rounds.answers',
+            'rounds.characters', 'rounds.conversations', 'rounds.backgrounds'
+        ])->where('id', $game->id)->first();
 
 
-            $games['lesson_id'] = $unit->lesson_id;
-            $games['subUnit'] = $count == 1 ? false:true;
+        $games['lesson_id'] = $unit->lesson_id;
+        $games['subUnit'] = $count == 1 ? false : true;
         return $games;
-
     }
 
     ///////////////////////////////////////////////////////////////
 
     // For Cloud Games
-    public function listening_and_choosing_clouds_one($game,$student,$unit){
+    public function listening_and_choosing_clouds_one($game, $student, $unit)
+    {
 
         $count = $game->count();
-        if($count == 1) {
+        if ($count == 1) {
             $game = $game[0];
         }
         $gameId = $game->id;
 
 
-        $game = Game::with('instructions','rounds.backgrounds','rounds.questions','rounds.characters','rounds.conversations','rounds.answers')->where('id', $gameId)->first();
+        $game = Game::with('instructions', 'rounds.backgrounds', 'rounds.questions', 'rounds.characters', 'rounds.conversations', 'rounds.answers')->where('id', $gameId)->first();
 
 
-            $gameData = [
-                "id" => $game["id"],
-                "name" => $game["name"],
-                "lesson_id" => $unit->lesson_id,
-                "unit_id" => $unit->id,
-                'subUnit' => $count !== 1 ? true : false,
-                "instructionGIF" => $game['instructionGIF'],
-                "instructions" => $game['instructions'],
-                "rounds" => $game["rounds"],
-            ];
+        $gameData = [
+            "id" => $game["id"],
+            "name" => $game["name"],
+            "lesson_id" => $unit->lesson_id,
+            "unit_id" => $unit->id,
+            'subUnit' => $count !== 1 ? true : false,
+            "instructionGIF" => $game['instructionGIF'],
+            "instructions" => $game['instructions'],
+            "rounds" => $game["rounds"],
+        ];
 
-            return $gameData;
-
+        return $gameData;
     }
 
 
     //////////////////////////////////////////////////////////////
 
     // For without round Games
-    public function reading_carousel($game,$student, $unit){
+    public function reading_carousel($game, $student, $unit)
+    {
 
-        if(count($game) == 1) {
+        if (count($game) == 1) {
             $game = $game[0];
             $game['lesson_id'] = $unit->lesson_id;
             $game['subunit'] = $unit->subUnit == 1 ? true : false;
-             return $game;
+            return $game;
         }
-
-
     }
 
     // Video
-    public function video_player_lessons($game,$student,$unit){
+    public function video_player_lessons($game, $student, $unit)
+    {
 
         $count = count($game);
-        if($count == 1) {
+        if ($count == 1) {
             $game = $game[0];
         }
         $videos = $game->videos;
 
-        $result = $videos->filter(function ($v) use($student){
+        $result = $videos->filter(function ($v) use ($student) {
             return $v->isLocal == $student->isLocal;
         });
 
-        $videos = $result->values()->map(function ($v) use($student){
+        $videos = $result->values()->map(function ($v) use ($student) {
             return [
                 'video_id' => $v->path,
                 'local' => $v->isLocal,
@@ -109,35 +114,35 @@ trait gameTraits{
             'videos' => $videos
         ];
 
-       return $collection;
-
+        return $collection;
     }
 
     // Song
-    public function video_player_song($game, $student, $unit){
+    public function video_player_song($game, $student, $unit)
+    {
 
         $count = count($game);
-        if($count == 1) {
+        if ($count == 1) {
             $game = $game[0];
         }
 
         $songs = $game->songs;
 
-        $result = $songs->filter(function ($s) use($student){
+        $result = $songs->filter(function ($s) use ($student) {
             return $s->isLocal == $student->isLocal;
         });
 
 
 
-        $songs = $result->values()->map(function ($s){
+        $songs = $result->values()->map(function ($s) {
             return [
                 'song_id' => $s->path,
                 'local' => $s->isLocal,
-                'type' =>"song",
+                'type' => "song",
             ];
         });
 
-         $collection = [
+        $collection = [
             'id' => $game->id,
             'name' => $game->name,
             'lesson_id' => $unit->lesson_id,
@@ -148,72 +153,71 @@ trait gameTraits{
             'songs' => $songs
         ];
 
-       return $collection;
-
+        return $collection;
     }
 
-  // For Cloud Games Two
-    public function listening_and_choosing_clouds_two($gameId){
+    // For Cloud Games Two
+    public function listening_and_choosing_clouds_two($gameId)
+    {
 
         return $gameId;
 
 
-        $rounds = Round::with('backgrounds','questions','characters',
-        'conversations','answers')->where('game_id', $gameId)->get();
+        $rounds = Round::with(
+            'backgrounds',
+            'questions',
+            'characters',
+            'conversations',
+            'answers'
+        )->where('game_id', $gameId)->get();
 
-            $game = Game::with('category','instructions')->where('id', $gameId)->first();
+        $game = Game::with('category', 'instructions')->where('id', $gameId)->first();
 
-            foreach ($rounds as $r) {
-                if($r['backgrounds']){
-                    $r['background'] = $r['backgrounds']->image;
-                    unset($r['backgrounds']);
-                }
+        foreach ($rounds as $r) {
+            if ($r['backgrounds']) {
+                $r['background'] = $r['backgrounds']->image;
+                unset($r['backgrounds']);
             }
+        }
 
-            $game['rounds'] = $rounds;
+        $game['rounds'] = $rounds;
 
-            $game = [
-                "id" => $game["id"],
-                "name" => $game["name"],
-                "lesson_id" => $game["lesson_id"],
-                "instructions" => $game['instructions'],
-                "rounds" => $game["rounds"],
-            ];
+        $game = [
+            "id" => $game["id"],
+            "name" => $game["name"],
+            "lesson_id" => $game["lesson_id"],
+            "instructions" => $game['instructions'],
+            "rounds" => $game["rounds"],
+        ];
 
 
         return $game;
-
-
     }
 
 
-    public function tracing_n_correct_letter($game,$student, $unit){
+    public function tracing_n_correct_letter($game, $student, $unit)
+    {
 
         $gameId = $game->pluck('id');
 
-        $games = Game::with(['instructions','rounds.questions','rounds.answers',
-            'rounds.characters','rounds.conversations','rounds.backgrounds'])->whereIn('id', $gameId)->get();
+        $games = Game::with([
+            'instructions', 'rounds.questions', 'rounds.answers',
+            'rounds.characters', 'rounds.conversations', 'rounds.backgrounds'
+        ])->whereIn('id', $gameId)->get();
 
-            foreach ($games as $game) {
-                $game['lesson_id'] = $unit->lesson_id;
-            }
+        // return $games;
+        foreach ($games as $game) {
+            $game['lesson_id'] = $unit->lesson_id;
+        }
 
-            $unit = [
-                'id' => $unit->id,
-                'unit' => $unit->unit,
-                'lesson_id' => $unit->lesson_id,
-                'subUnit' => $games->count() == 1 ? false : true,
-                'games' => $games,
-            ];
+        $unit = [
+            'id' => $unit->id,
+            'unit' => $unit->unit,
+            'lesson_id' => $unit->lesson_id,
+            'subUnit' => $games->count() == 1 ? false : true,
+            'games' => $games,
+        ];
 
         return $unit;
-
     }
-
-
-
-
-
-
-
 }

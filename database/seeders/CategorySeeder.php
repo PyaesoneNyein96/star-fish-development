@@ -30,6 +30,7 @@ class CategorySeeder extends Seeder
             // 'drag_n_drop_and_sentence',
             'drag_n_drop_and_pics',
             'matching_columns',
+
             'speaking_and_recording',
             'rearrange_a_sentence_with_audio',
             'rearrange_a_word_with_audio',
@@ -53,9 +54,8 @@ class CategorySeeder extends Seeder
 
         foreach ($categories as $category) {
             DB::table('categories')->insert([
-                ['name' => $category, 'type' => null ],
+                ['name' => $category, 'type' => null],
             ]);
-
         }
     }
 }
