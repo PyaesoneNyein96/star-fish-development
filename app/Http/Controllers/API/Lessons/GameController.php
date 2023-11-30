@@ -12,6 +12,7 @@ use App\Models\Lesson;
 use App\Models\Student;
 use App\Models\Category;
 use App\Models\StudentGame;
+use App\Models\StudentUnit;
 use App\Models\StudentGrade;
 use Illuminate\Http\Request;
 use App\Models\StudentLesson;
@@ -212,117 +213,165 @@ class GameController extends Controller
 
         // =================================
 
+        // return $gradeId = Lesson::find($lesson_id)->grade['id'];
+
+
         $student = Student::where('token', $token)->first();
 
         $game = Game::find($gameId);
 
-        $unit = $game->unit;
+        $unit = optional($game)->unit;
 
+        $grade = Lesson::where('id', $lesson_id)->first()->grade;
 
         $exists = $unit->lesson_id == $lesson_id ? true : false;
 
 
         if (!$student || !$game || !$exists) {
-            return "xxx";
+            return 404;
         }
 
 
         $alreadyDone = StudentGame::where('student_id', $student->id)
-            ->where('game_id', $gameId)->first();
+        ->where('game_id', $gameId)->first();
 
-        if (!$alreadyDone) {
+        $alreadyDoneUnit = StudentUnit::where('student_id', $student->id)
+        ->where('unit_id', $unit->id)->first();
 
-            if ($student->grades->count() == 0) {
-                return response()->json([
-                    "status" => "Success. Plz subscribe the plan to learn more lessons."
-                ], 200);
-            }
+        $alreadyDoneLesson = StudentLesson::where('student_id', $student->id)
+        ->where('lesson_id', $lesson_id)->first();
 
-                StudentGame::insert([
-                    'student_id' => $student->id,
-                    'game_id' => $gameId,
-                    'unit_id' => $unit->id,
-                    'status' => 1,
-                ]);
+        $alreadyDoneGrade = StudentGrade::where('student_id', $student->id)
+        ->where('grade_id', $grade->id)->where('isDone',1)->first();
 
-
-
-                $unitGames = $unit->games;
-                $lessonUnit = Unit::where('lesson_id',$lesson_id)->get();
-                if ($this->lessonCheck($student, $unitGames, $lessonUnit)->count() == 0) {
-
-                $alreadyExist =  StudentLesson::where('student_id', $student->id)
-                    ->where('lesson_id', $lesson_id)->first();
-
-                if ($alreadyExist) return 201;
-
-                        StudentLesson::create([
-                            'student_id' => $student->id,
-                            'lesson_id' => $lesson_id,
-                            'status' => 1
-                        ]);
-                }
-
-            if ($this->gradeCheck($student, $lesson_id)->count() == 0) {
-
-                $grade_id = Lesson::find($lesson_id)->grade['id'];
-
-                $studentGrade = StudentGrade::where('student_id', $student->id)
-                    ->where('grade_id', $grade_id)->first();
-
-                if (!$studentGrade) return response()->json(["status" => "U need to buy a grade"], 200);
-
-                StudentGrade::where('student_id', $student->id)
-                    ->where('grade_id', $grade_id)
-                    ->update(['isDone' => 1,]);
-            }
-
-
-            //ထူးထူး
-            if ($student->grade_chosen == null) $this->addPointFunction($student, $request->header('point'));
-
-
-            return response()->json(['status' => 'success and recorded'], 200);
+        if ($alreadyDone|| $alreadyDoneUnit || $alreadyDoneLesson || $alreadyDoneGrade) {
+             return response()->json(['status' => 'already done this game'], 200);
         }
 
-        return response()->json(['status' => 'already done this game'], 200);
+
+        if($student->grades->count() == 0)  return response()->json([ "status" => "Plz subscribe the plan."], 200);
+
+
+            StudentGame::insert([
+                'student_id' => $student->id,
+                'game_id' => $gameId,
+                'unit_id' => $unit->id,
+                'status' => 1,
+            ]);
+
+
+
+                $gameDone = StudentGame::where('student_id', $student->id)->get();
+
+                $unitCheck = $unit->games->reject(function ($g) use ($gameDone){
+                    return $gameDone->contains('game_id',$g->id);
+                });
+
+                if($unitCheck->count() == 0 ){
+
+                   $unitInsert = StudentUnit::insert([
+                        'student_id' => $student->id,
+                        'unit_id' => $unit->id,
+                        'lesson_id' => $lesson_id,
+                    ]);
+
+                    if($unitInsert) {
+                        StudentGame::where('student_id', $student->id)
+                        ->where('unit_id',$unit->id)->delete();
+
+                    }
+
+
+                }
+
+
+
+                $lessonUnit = Unit::where('lesson_id',$lesson_id)->get();
+
+
+                if ($this->lessonCheck($student, $lessonUnit)->count() == 0
+                && $unitCheck->count() == 0)
+                {
+
+                    $alreadyExist =  StudentLesson::where('student_id', $student->id)
+                            ->where('lesson_id', $lesson_id)->first();
+
+                        if ($alreadyExist) return 201;
+
+                       $lessonInsert = StudentLesson::create([
+                            'student_id' => $student->id,
+                            'lesson_id' => $lesson_id,
+                            'grade_id' => $grade->id,
+                            'status' => 1
+                        ]);
+
+                    if($lessonInsert) {
+                        StudentUnit::where('student_id', $student->id)
+                        ->where('lesson_id',$lesson_id)->delete();
+
+                    }
+                }
+
+
+                if($this->gradeCheck($student, $lesson_id)->count() == 0 ){
+
+                    $grade_id = Lesson::find($lesson_id)->grade['id'];
+
+                    $studentGrade = StudentGrade::where('student_id', $student->id)
+                            ->where('grade_id', $grade_id)->first();
+
+                    if (!$studentGrade) return response()->json(
+                    ["status" => "U need to buy a grade"], 200 );
+
+                        StudentGrade::where('student_id',$student->id)
+                            ->where('grade_id', $grade_id)
+                            ->update(['isDone' => 1,]);
+
+                        $gradeDoneCheck = StudentGrade::where('student_id', $student->id)
+                        ->where('isDone',1)->pluck('grade_id');
+
+                        $DeleteLessons = Lesson::whereIn('grade_id',$gradeDoneCheck)->pluck('id');
+
+                        StudentLesson::where('student_id', $student->id)
+                        ->whereIn('lesson_id',$DeleteLessons)->delete();
+                }
+
+
+                //ထူးထူး
+                if($student->grade_chosen == null) $this->addPointFunction($student, $request->header('point'));
+
+
+                return response()->json(['status' => 'success and recorded'], 200);
+
+
+
+
+
     }
 
 
-    private function lessonCheck($student, $unitGames, $lessonUnit){
+    private function lessonCheck($student, $lessonUnit){
 
+        $unitDone = StudentUnit::where('student_id', $student->id)->get();
 
-
-        $gameDone = StudentGame::where('student_id', $student->id)->get();
-        $gameDone  = StudentGame::where('student_id', $student->id)->get();
-
-        $unittest = $unitGames->reject(function ($g) use ($gameDone){
-            return $gameDone->contains('game_id',$g->id);
+        return $filter = $lessonUnit->reject(function ($u) use ($unitDone) {
+            return $unitDone->contains('unit_id', $u->id);
         });
 
 
-        // return $unittest;
-
-        if($unittest->count() == 0){
-            return $filter = $lessonUnit->reject(function ($g) use ($gameDone) {
-                return $gameDone->contains('game_id', $g->id);
-            });
-        }
-
     }
 
 
 
-    private function gradeCheck($student, $lesson_id)
-    {
+    private function gradeCheck($student, $lesson_id) {
 
         $grade = Lesson::find($lesson_id)->grade;
 
         $lessons = Lesson::where('grade_id', $grade->id)->get();
-        $studentLessons = studentLesson::where('student_id', $student->id)->get();
+        $lessonDone = studentLesson::where('student_id', $student->id)->get();
 
-        return $lessons->filter(function ($i) use ($studentLessons) {
-            return !$studentLessons->contains('lesson_id', $i->id);
+        return $result = $lessons->filter(function ($i) use ($lessonDone) {
+            return !$lessonDone->contains('lesson_id', $i->id);
         });
     }
 
