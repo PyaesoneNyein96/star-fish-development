@@ -21,11 +21,28 @@ class AnsNQueSeeder extends Seeder
         $AudioDomain = $domain . "/storage/audios/";
         $AtoZAudio = $domain . "/storage/audios/AtoZ/";
         $G1_L1_U4_path = "Grade_1/" . "Lesson_1/" . "listen_practice/";
+        $ImageDomainAZ = $domain . "/storage/images/AtoZ/";
+        $ImageDomainAZ_small = $domain . "/storage/images/AtoZ_Small/";
+        $AudioDomainAZ = $domain . "/storage/audios/AtoZ/";
+        $prefix = "SubBlock_";
 
 
         // $domainAndAudioPath = $domain."/storage/AtoZ/";
         $prefix = "SubBlock_";
         $AtoZ = range('A', 'Z');
+
+
+
+
+        // //  g-1 l-1 g-2 ========================== ( no round )
+
+        $AZ = range("A", "Z");
+        foreach ($AZ as $key) {
+            DB::table('ans_n_ques')->insert([
+                ['game_id' => 4, 'a_content' => $key, 'a_image' => $ImageDomainAZ . $key . ".png", 'a_audio' => $AudioDomainAZ . $prefix . $key . ".mp3"],
+            ]);
+        }
+
 
 
 
@@ -113,6 +130,16 @@ class AnsNQueSeeder extends Seeder
 
 
 
+        // //  g-1 l-1 g-7 ========================== ( no round )
+
+        $az = range("a", "z");
+        foreach ($az as $key) {
+            DB::table('ans_n_ques')->insert([
+                ['game_id' => 7, 'a_content' => $key, 'a_image' => $ImageDomainAZ_small . $key . ".png", 'a_audio' => $AudioDomainAZ . $prefix . $key . ".mp3"],
+            ]);
+        }
+
+
 
         ////////////////////////////////////////////////////////
         ////  CLOUD //////////   Grade 1  Lesson 2 Game 9  ( listen and practice )
@@ -159,22 +186,5 @@ class AnsNQueSeeder extends Seeder
                 ]);
             }
         }
-
-
-
-
-        // conversation
-
-
-
-
-
-
-
-        // for ($r = 1; $r <= count($rounds); $r++) {
-        //     DB::table('ans_n_ques')->insert([
-        //         ['round_id' => $r, 'game_id' => 9, 'content' => $rounds[$r - 1], 'audio' => $AudioDomain . $G1_L1_U4_path . $audios[$r - 1] . ".mp3", 'round_id' => $r],
-        //     ]);
-        // }
     }
 }
