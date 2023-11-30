@@ -17,6 +17,7 @@ class LessonSeeder extends Seeder
         // $grades = range(1,4);
         $grades = 1;
         $lessons =  range(1, 40);
+        // $lessons =  [1,2,12];
 
         foreach ($lessons as $l) {
 
@@ -27,7 +28,7 @@ class LessonSeeder extends Seeder
 
 
         $grades = 2;
-        $lessons =  range(1, 12);
+        $lessons =  range(1,12);
 
         foreach ($lessons as $l) {
             DB::table('lessons')->insert([
