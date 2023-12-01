@@ -43,14 +43,42 @@ trait gameTraits
     public function listening_and_choosing_clouds_one($game, $student, $unit)
     {
 
+
+        // $game = $game[0]->ans_n_ques;
+
+        // $game = $game[0]->ans_n_ques->groupBy('round_id');
+
+        // foreach ($game as $roundId => $groupedData) {
+
+        //     $customKey = "Round_".$roundId;
+
+        //     $game[$customKey] = $groupedData;
+
+        //     // Remove the original key (optional)
+        //     unset($game[$roundId]);
+        // }
+
+
+        // return $game;
+
+
         $count = $game->count();
         if ($count == 1) {
             $game = $game[0];
         }
-        $gameId = $game->id;
+        // $gameId = $game->id;
+
+        // return Game::where('id',$game->id)->with('rounds.')->first();
 
 
-        $game = Game::with('instructions', 'ans_n_ques')->where('id', $gameId)->get();
+        // $game = Game::with('instructions', 'ans_n_ques')->where('id', $gameId)->get();
+
+        $game = Game::with([
+            'instructions', 'rounds.questions', 'rounds.answers',
+             'rounds.conversations', 'rounds.backgrounds'
+        ])->where('id', $game->id)->first();
+
+
 
 
 
@@ -76,12 +104,14 @@ trait gameTraits
     public function reading_carousel($game, $student, $unit)
     {
 
-        if (count($game) == 1) {
-            $game = $game[0];
-            $game['lesson_id'] = $unit->lesson_id;
-            $game['subunit'] = $unit->subUnit == 1 ? true : false;
-            return $game;
-        }
+        return $game;
+
+        // if (count($game) == 1) {
+        //     $game = $game[0];
+        //     $game['lesson_id'] = $unit->lesson_id;
+        //     $game['subunit'] = $unit->subUnit == 1 ? true : false;
+        //     return $game;
+        // }
     }
 
     // Video
