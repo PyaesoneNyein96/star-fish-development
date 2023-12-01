@@ -61,6 +61,8 @@ class GameSeeder extends Seeder
         DB::table('games')->insert([
             ['name' => 'trace and write', 'unit_id' => 23, 'instructionGIF' => "trace and writ GIF"],
             ['name' => 'Write the correct letter',  'unit_id' => 23, 'instructionGIF' => "Writ the correct Letter GIF"],
+            ['name' => 'trace and write', 'unit_id' => 23, 'instructionGIF' => "trace and writ GIF"],
+            ['name' => 'Write the correct letter',  'unit_id' => 23, 'instructionGIF' => "Writ the correct Letter GIF"],
         ]);
     }
 }

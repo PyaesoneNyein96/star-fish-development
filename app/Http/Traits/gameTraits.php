@@ -31,6 +31,7 @@ trait gameTraits
         ])->where('id', $game->id)->first();
 
 
+
         $games['lesson_id'] = $unit->lesson_id;
         $games['subUnit'] = $count == 1 ? false : true;
         return $games;
@@ -49,7 +50,8 @@ trait gameTraits
         $gameId = $game->id;
 
 
-        $game = Game::with('instructions', 'rounds.backgrounds', 'rounds.questions', 'rounds.characters', 'rounds.conversations', 'rounds.answers')->where('id', $gameId)->first();
+        $game = Game::with('instructions', 'ans_n_ques')->where('id', $gameId)->get();
+
 
 
         $gameData = [
@@ -61,6 +63,7 @@ trait gameTraits
             "instructionGIF" => $game['instructionGIF'],
             "instructions" => $game['instructions'],
             "rounds" => $game["rounds"],
+
         ];
 
         return $gameData;

@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\InstructionGif;
 
 
-    class Game extends Model
+class Game extends Model
 {
     use HasFactory;
 
-    protected $hidden = ['pivot','created_at', 'updated_at'];
+    protected $hidden = ['pivot', 'created_at', 'updated_at'];
 
 
 
@@ -27,23 +27,33 @@ use App\Models\InstructionGif;
     // }
 
 
-    public function grade(){
+    public function grade()
+    {
         return $this->belongsTo(Grade::class, Lesson::class);
     }
 
-    public function lesson(){
+    public function lesson()
+    {
         return $this->belongsTo(Lesson::class);
     }
 
-    public function students(){
-        return $this->belongsToMany(Student::class,'student_games','game_id','student_id');
+    public function unit()
+    {
+        return $this->belongsTo(Unit::class);
     }
 
-    public function rounds(){
+    public function students()
+    {
+        return $this->belongsToMany(Student::class, 'student_games', 'game_id', 'student_id');
+    }
+
+    public function rounds()
+    {
         return $this->hasMany(Round::class);
     }
 
-    public function items(){
+    public function items()
+    {
         return $this->hasMany(Item::class);
     }
 
@@ -54,36 +64,57 @@ use App\Models\InstructionGif;
 
     ////////////////////
 
-    public function audios(){
+    public function audios()
+    {
         return $this->hasMany(Audio::class);
     }
 
-    public function images(){
+    public function images()
+    {
         return $this->hasMany(Image::class);
     }
 
-    public function conversations(){
-         return $this->hasMany(Conversation::class);
-        }
+    public function conversations()
+    {
+        return $this->hasMany(Conversation::class);
+    }
 
-    public function characters(){
+    public function characters()
+    {
         return $this->hasMany(Character::class);
     }
 
-    public function background(){
+    public function background()
+    {
         return $this->hasMany(BackgroundImage::class);
     }
 
-    public function instructions (){
+    public function instructions()
+    {
         return $this->hasMany(GameInstruction::class);
     }
 
-    public function videos (){
+    public function videos()
+    {
         return $this->hasMany(Video::class);
     }
-    public function songs (){
+    public function songs()
+    {
         return $this->hasMany(Song::class);
     }
+
+
+
+
+    ///////////////////////////////////////////////////////
+    ///////     answer and question table create    ///////
+    ///////////////////////////////////////////////////////
+
+    public function ans_n_ques()
+    {
+        return $this->hasMany(AnsNQues::class);
+    }
+
 
 
 
