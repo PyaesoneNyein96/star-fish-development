@@ -12,6 +12,6 @@ class AnsNQues extends Model
 
     public function ans_n_ques()
     {
-        return $this->belongsTo(AnsNQues::class);
+        return $this->belongsTo(Game::class);
     }
 }

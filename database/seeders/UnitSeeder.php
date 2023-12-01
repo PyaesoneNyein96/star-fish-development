@@ -36,7 +36,7 @@ class UnitSeeder extends Seeder
 
             // lesson 3's games
 
-            ['unit' => '1', 'lesson_id' => 3, 'category_id' => 3],
+            ['unit' => '1', 'lesson_id' => 3, 'category_id' => 2],
             ['unit' => '2', 'lesson_id' => 3, 'category_id' => 7],
             ['unit' => '3', 'lesson_id' => 3, 'category_id' => 17],
             ['unit' => '4', 'lesson_id' => 3, 'category_id' => 13],
