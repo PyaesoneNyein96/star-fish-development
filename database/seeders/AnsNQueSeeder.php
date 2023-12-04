@@ -14,7 +14,6 @@ class AnsNQueSeeder extends Seeder
     public function run(): void
     {
 
-
         $domain = app('domain');
 
         $ImageDomain = $domain . "/storage/images/";
@@ -23,7 +22,6 @@ class AnsNQueSeeder extends Seeder
         $G1_L1_U4_path = "Grade_1/" . "Lesson_1/" . "listen_practice/";
         $ImageDomainAZ = $domain . "/storage/images/AtoZ/";
         $ImageDomainAZ_small = $domain . "/storage/images/AtoZ_Small/";
-        $AudioDomainAZ = $domain . "/storage/audios/AtoZ/";
         $prefix = "SubBlock_";
 
 
@@ -34,15 +32,26 @@ class AnsNQueSeeder extends Seeder
 
 
 
+        // //  g-1 l-1 g-1 ========================== ( no round )
+
+        DB::table('ans_n_ques')->insert(['game_id' => 1, 'a_content' => 'mC7cPT2F23E', 'isLocal' => 1 ]);
+        DB::table('ans_n_ques')->insert(['game_id' => 1, 'a_content' => 'mC7cPT2F23E (Global)', 'isLocal' => 0 ]);
+
+
+
         // //  g-1 l-1 g-2 ========================== ( no round )
 
         $AZ = range("A", "Z");
         foreach ($AZ as $key) {
             DB::table('ans_n_ques')->insert([
-                ['game_id' => 2, 'a_content' => $key, 'a_image' => $ImageDomainAZ . $key . ".png", 'a_audio' => $AudioDomainAZ . $prefix . $key . ".mp3"],
+                ['game_id' => 2, 'a_content' => $key, 'a_image' => $ImageDomainAZ . $key . ".png", 'a_audio' => $AtoZAudio . $prefix . $key . ".mp3"],
             ]);
         }
 
+        // //  g-1 l-1 g-3 ========================== ( no round )
+
+        DB::table('ans_n_ques')->insert(['game_id' => 3, 'a_content' => 'b_gBZ-tfAJ4' ]);
+        DB::table('ans_n_ques')->insert(['game_id' => 3, 'a_content' => 'b_gBZ-tfAJ4(Global)', 'isLocal' => 0 ]);
 
 
 
@@ -93,12 +102,12 @@ class AnsNQueSeeder extends Seeder
 
             foreach ($G1_l1_U4_rounds[$i] as  $element) {
                 DB::table('ans_n_ques')->insert([
-                    ['round_id' => $i + 1, 'game_id' => 4, 'q_content' => $element],
+                    ['round' => $i + 1, 'game_id' => 4, 'q_content' => $element],
                 ]);
             }
 
             DB::table('ans_n_ques')->insert([
-                ['round_id' => $i + 1, 'game_id' => 4, 'a_audio' => $AudioDomain . $G1_L1_U4_path . $audios[$index] . ".mp3", 'a_content' => $answers[$index], 'a_conver' => $conver[$index]],
+                ['round' => $i + 1, 'game_id' => 4, 'q_audio' => $AudioDomain . $G1_L1_U4_path . $audios[$index] . ".mp3", 'a_content' => $answers[$index], 'q_conver' => $conver[$index]],
             ]);
             $index++;
         }
@@ -119,7 +128,7 @@ class AnsNQueSeeder extends Seeder
             for ($j = 0; $j < count($AtoZ); $j++) {
                 DB::table('ans_n_ques')->insert([
                     [
-                        'round_id' => $i + 1,
+                        'round' => $i + 1,
                         'game_id' => 5,
                         'q_content' => $AtoZ[$j],
                         'a_content' => in_array($AtoZ[$j], $g1_l1_g5_rs[$i]) ? 1 : 0,
@@ -135,7 +144,7 @@ class AnsNQueSeeder extends Seeder
         $az = range("a", "z");
         foreach ($az as $key) {
             DB::table('ans_n_ques')->insert([
-                ['game_id' => 7, 'a_content' => $key, 'a_image' => $ImageDomainAZ_small . $key . ".png", 'a_audio' => $AudioDomainAZ . $prefix . $key . ".mp3"],
+                ['game_id' => 7, 'a_content' => $key, 'a_image' => $ImageDomainAZ_small . $key . ".png", 'a_audio' => $AtoZAudio . $prefix . $key . ".mp3"],
             ]);
         }
 
@@ -155,7 +164,7 @@ class AnsNQueSeeder extends Seeder
         for ($i = 0; $i < count($G1_l2_U9_rounds); $i++) {
             foreach ($G1_l2_U9_rounds[$i] as $j => $word) {
                 DB::table('ans_n_ques')->insert([
-                    ['round_id' => $i + 1, 'game_id' => 9, 'q_content' => $word, 'q_audio' => $AtoZAudio . $prefix . strtoupper($word) . ".mp3"],
+                    ['round' => $i + 1, 'game_id' => 9, 'q_content' => $word, 'q_audio' => $AtoZAudio . $prefix . strtoupper($word) . ".mp3"],
                 ]);
             }
         }
@@ -178,7 +187,7 @@ class AnsNQueSeeder extends Seeder
                 DB::table('ans_n_ques')->insert([
 
                     [
-                        'round_id' => $i + 1,
+                        'round' => $i + 1,
                         'game_id' => 11,
                         'q_content' => $AtoZ[$j],
                         'a_content' => in_array($AtoZ[$j], $g1_l2_g11[$i]) ? 1 : 0,

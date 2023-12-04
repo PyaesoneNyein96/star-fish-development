@@ -104,14 +104,14 @@ class DatabaseSeeder extends Seeder
         $this->call(GameSeeder::class);
         $this->call(RoundSeeder::class);
         $this->call(StudentGradeSeeder::class);
-        $this->call(ItemSeeder::class);
+        // $this->call(ItemSeeder::class);
         $this->call(QuestionSeeder::class);
         $this->call(AnswerSeeder::class);
         $this->call(BackgroundSeeder::class);
         $this->call(ConversationSeeder::class);
         $this->call(GameInstructionSeeder::class);
-        $this->call(VideoSeeder::class);
-        $this->call(SongSeeder::class);
+        // $this->call(VideoSeeder::class);
+        // $this->call(SongSeeder::class);
 
 
         $this->call(RewardSeeder::class);

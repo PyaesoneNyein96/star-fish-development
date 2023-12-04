@@ -12,106 +12,31 @@ use App\Models\Subunit;
 trait gameTraits
 {
 
-    // For Drag and Drop
-    public function drag_n_drop_and_letter($game, $student, $unit)
-    {
+    // listening_and_choosing_clouds_one, reading_carousel, video_player_lessons,
+    // video_player_song, drag_n_drop_and_letter
 
-        // $gameId = $game->pluck('id');
-
-
-        $count = $game->count();
-        if ($count == 1) {
-            $game = $game[0];
-        }
-
-
-        $games = Game::with([
-            'instructions', 'rounds.questions', 'rounds.answers',
-            'rounds.characters', 'rounds.conversations', 'rounds.backgrounds'
-        ])->where('id', $game->id)->first();
-
-
-
-        $games['lesson_id'] = $unit->lesson_id;
-        $games['subUnit'] = $count == 1 ? false : true;
-        return $games;
-    }
-
-    ///////////////////////////////////////////////////////////////
-
-    // For Cloud Games
-    public function listening_and_choosing_clouds_one($game, $student, $unit)
-    {
-
-
-        // $game = $game[0]->ans_n_ques;
-
-        // $game = $game[0]->ans_n_ques->groupBy('round_id');
-
-        // foreach ($game as $roundId => $groupedData) {
-
-        //     $customKey = "Round_".$roundId;
-
-        //     $game[$customKey] = $groupedData;
-
-        //     // Remove the original key (optional)
-        //     unset($game[$roundId]);
-        // }
-
-
-        // return $game;
-
-
-        $count = $game->count();
-        if ($count == 1) {
-            $game = $game[0];
-        }
-        // $gameId = $game->id;
-
-        // return Game::where('id',$game->id)->with('rounds.')->first();
-
-
-        // $game = Game::with('instructions', 'ans_n_ques')->where('id', $gameId)->get();
-
-        $game = Game::with([
-            'instructions', 'rounds.questions', 'rounds.answers',
-             'rounds.conversations', 'rounds.backgrounds'
-        ])->where('id', $game->id)->first();
-
-
-
-
-
-        $gameData = [
-            "id" => $game["id"],
-            "name" => $game["name"],
-            "lesson_id" => $unit->lesson_id,
-            "unit_id" => $unit->id,
-            'subUnit' => $count !== 1 ? true : false,
-            "instructionGIF" => $game['instructionGIF'],
-            "instructions" => $game['instructions'],
-            "rounds" => $game["rounds"],
-
-        ];
-
-        return $gameData;
-    }
 
 
     //////////////////////////////////////////////////////////////
-
     // For without round Games
-    public function reading_carousel($game, $student, $unit)
+    public function reading_carousel($games, $student, $unit)
     {
+
+        $game = $games[0];
+
+        $game = [
+            'game_id' => $game->id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'lesson_id' => $unit->lesson_id,
+            'sub_unit'  => $games->count() < 1 ? true : false,
+            'instructionGIF'  => $game->instructionGIF,
+            'instructions' => !$game->instructions ? null : $game->instructions,
+            'answer_&_questions' => $game->ans_n_ques
+        ];
 
         return $game;
 
-        // if (count($game) == 1) {
-        //     $game = $game[0];
-        //     $game['lesson_id'] = $unit->lesson_id;
-        //     $game['subunit'] = $unit->subUnit == 1 ? true : false;
-        //     return $game;
-        // }
     }
 
     // Video
@@ -119,32 +44,32 @@ trait gameTraits
     {
 
         $count = count($game);
-        if ($count == 1) {
-            $game = $game[0];
-        }
-        $videos = $game->videos;
+        $game = $game[0];
 
-        $result = $videos->filter(function ($v) use ($student) {
+        $data = $game->ans_n_ques;
+
+        $result = $data->filter(function ($v) use ($student) {
             return $v->isLocal == $student->isLocal;
         });
 
+
         $videos = $result->values()->map(function ($v) use ($student) {
             return [
-                'video_id' => $v->path,
-                'local' => $v->isLocal,
+                'video_id' => $v->a_content,
+                'isLocal' => $v->isLocal,
                 'type' => 'Video',
             ];
         });
 
         $collection = [
-            'id' => $game->id,
-            'name' => $game->name,
+            'game_id' => $game->id,
             'lesson_id' => $unit->lesson_id,
-            'unit_id' => $unit->id,
-            'instructionGIF' => $game->instructionGIF,
-            'instructions' => $game->instructions,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
             'subUnit' => $count == 1 ? false : true,
-            'videos' => $videos
+            'instructionGIF' => $game->instructionGIF,
+            'instructions' => isset($game->instructions) ?  null : $game->instructions,
+            'videos' => $videos->first()
         ];
 
         return $collection;
@@ -153,41 +78,97 @@ trait gameTraits
     // Song
     public function video_player_song($game, $student, $unit)
     {
-
         $count = count($game);
-        if ($count == 1) {
-            $game = $game[0];
-        }
+        $game = $game[0];
 
-        $songs = $game->songs;
-
-        $result = $songs->filter(function ($s) use ($student) {
+        $result = $game->ans_n_ques->filter(function ($s) use ($student) {
             return $s->isLocal == $student->isLocal;
         });
-
 
 
         $songs = $result->values()->map(function ($s) {
             return [
                 'song_id' => $s->path,
-                'local' => $s->isLocal,
+                'isLocal' => $s->isLocal,
                 'type' => "song",
             ];
         });
 
         $collection = [
-            'id' => $game->id,
-            'name' => $game->name,
+            'game_id' => $game->id,
             'lesson_id' => $unit->lesson_id,
-            'unit_id' => $unit->id,
-            'instructions' => $game->instructions,
-            'instructionGIF' => $game->instructionGIF,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
             'subUnit' => $count == 1 ? false : true,
-            'songs' => $songs
+            'instructionGIF' => $game->instructionGIF,
+            'instructions' => isset($game->instructions) ? null : $game->instructions,
+            'subUnit' => $count == 1 ? false : true,
+            'songs' => $songs->first()
         ];
 
         return $collection;
     }
+
+
+       ///////////////////////////////////////////////////////////////
+    // For Cloud Games One
+    public function listening_and_choosing_clouds_one($games, $student, $unit)
+    {
+
+        $game = $games[0];
+
+        $rounds =  $game->ans_n_ques->groupBy('round')->values();
+
+        // foreach ($rounds as $roundId => $groupedData) {
+        //     $customKey = "Round_".$roundId;
+        //     $rounds[$customKey] = $groupedData;
+        //     unset($rounds[$roundId]);
+        // }
+
+        $game = [
+            'game_id' => $game->id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'lesson_id' => $unit->lesson_id,
+            'sub_unit'  => $games->count() < 1 ? true : false,
+            'instructionGIF'  => $game->instructionGIF,
+            'instructions' => !$game->instructions ? null : $game->instructions,
+            'answer_&_questions' => $rounds
+
+        ];
+
+        return $game;
+
+    }
+
+
+
+
+    // For Drag and Drop
+    public function drag_n_drop_and_letter($game, $student, $unit)
+    {
+
+        $count = $game->count();
+
+        $game = $game[0];
+
+        $rounds =  $game->ans_n_ques->groupBy('round')->values();
+
+        $game = [
+            'game_id' => $game->id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'lesson_id' => $unit->lesson_id,
+            'sub_unit'  => $game->count() < 1 ? true : false,
+            'instructionGIF'  => $game->instructionGIF,
+            'instructions' => !$game->instructions ? null : $game->instructions,
+            'answer_&_questions' => $rounds
+
+        ];
+
+        return $game;
+    }
+
 
     // For Cloud Games Two
     public function listening_and_choosing_clouds_two($gameId)
