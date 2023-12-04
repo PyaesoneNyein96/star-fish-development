@@ -18,38 +18,31 @@ class CategorySeeder extends Seeder
     {
 
         $categories = [
-            'video_player_song',
             'video_player_lessons',
             'reading_carousel',
-            'reading_diagram',
-            'reading_passage',
-            'reading_two_columns',
-            'reading_conversation',
-            'drag_n_drop_and_letter',
-            'drag_n_drop_and_columns',
-            // 'drag_n_drop_and_sentence',
-            'drag_n_drop_and_pics',
-            'matching_columns',
-
-            'speaking_and_recording',
-            'rearrange_a_sentence_with_audio',
-            'rearrange_a_word_with_audio',
-            'rearrange_a_sentence_without_audio',
-            'listening_and_record_speaking',
-            'listening_and_choosing_pics',
+            'video_player_song',
             'listening_and_choosing_clouds_one',
+            'drag_n_drop_and_letter',
             'listening_and_choosing_clouds_two',
-            'listening_and_choosing_answer',
+            'matching_columns',
+            'reading_conversation',
+            'reading_two_columns',
+            'rearrange_a_sentence_with_audio',
+            'speaking_and_recording',
+            'reading_and_record_speaking',
+            'listening_conversation_and_choosing_answer',
+            'rearrange_with_audio',
+            'listening_and_choosing_pics_one',
+            'reading_passage',
             'listening_and_search_items',
-            'mcq_grammar',
-            'mcq_tf_Instruction',
-            'Mcq_tf_grammar',
-            'mcq_sentence',
             'letter_tracing',
-            'fill_in_blank_word',
-
-            'tracing_n_correct_letter'
-
+            'drag_n_drop_and_columns',
+            'mcq_tf_Instruction',
+            'mcq_grammar',
+            'reading_diagram',
+            'drag_n_drop_and_pics',
+            'mcq_sentence',
+            'mcq_tf_grammar',
         ];
 
         foreach ($categories as $category) {

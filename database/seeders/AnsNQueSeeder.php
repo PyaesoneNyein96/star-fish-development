@@ -300,17 +300,35 @@ class AnsNQueSeeder extends Seeder
 
 
 
-        // // g-1 l-3 g-13 ========================== rearrange_a_sentence_with_audio ( writing )
+        // // g-1 l-3 g-16 ========================== ( Writing (Arrange Order) )
 
-        $audiosG13 = [
+        $qG16R1 = [
+            ["To", "Meet", "Hello", "I'm", "Nice", "You", "Mary"],
+            ["<eet", "Nice", "Mike", "To", "Hello", "You", "T'm"],
+            ["I'm", "You", "Nice", "Meet", "Tom", "To", "Hello"],
+        ];
+
+        $audiosG16 = [
             "Hello-Im-Mary-Nice-to-meet",
             "...",
             "Hello-Im-Tom-Nice-to-meet-y"
         ];
 
-        // $qG13R1 = ["To", "Meet", "Hello", "I'm", "Nice", "You", "Mary"];
-        // $aG13R1 = "Hello I'm Mary Nice To Meet You";
-        // $toArray = implode(" ", $qG13R1);
+        $aG16R1 = [
+            "Hello I'm Mary Nice To Meet You",
+            "Hello I'm Mike Nice To Meet You",
+            "Hello I'm Tom Nice To Meet You",
+        ];
 
+        $G16Index = 0;
+
+        for ($i = 0; $i < count($qG16R1); $i++) {
+            foreach ($qG16R1[$i] as $j) {
+                DB::table('ans_n_ques')->insert([
+                    ['round_id' => $i, 'game_id' => 16, 'q_content' => $j, 'a_content' => $aG16R1[$G16Index], 'a_audio' => $AudioDomain . $G1_L3_path . $audiosG16[$G16Index] . ".mp3"],
+                ]);
+            }
+            $G16Index++;
+        }
     }
 }
