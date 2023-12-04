@@ -32,8 +32,9 @@ class AnsNQueSeeder extends Seeder
 
 
 
-
-        // //  g-1 l-1 g-2 ========================== ( no round )
+        ////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 1 Game 2 ( no round )
+        ////////////////////////////////////////////////////
 
         $AZ = range("A", "Z");
         foreach ($AZ as $key) {
@@ -45,9 +46,9 @@ class AnsNQueSeeder extends Seeder
 
 
 
-        ////////////////////////////////////////////////////
-        ////   CLOUD //////////     Grade 1  Lesson 1 Game 4 ( listen and practice )
-        ////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 1 Game 4 ( listen and practice )
+        ///////////////////////////////////////////////////////
 
         $G1_L1_U4_path = "Grade_1/" . "Lesson_1/" . "listen_practice/";
         $G1_l1_U4_rounds = [
@@ -106,7 +107,9 @@ class AnsNQueSeeder extends Seeder
 
 
 
-        // //  g-1 l-1 g-5 ========================== drag n drop
+        ///////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 1 Game 5 ( drag and drop )
+        ///////////////////////////////////////////////////////
 
         $g1_l1_g5_rs = [
             ['B', 'U', 'Z', 'O', 'E', 'R'],
@@ -130,7 +133,9 @@ class AnsNQueSeeder extends Seeder
 
 
 
-        // //  g-1 l-1 g-7 ========================== ( no round )
+        ///////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 1 Game 7 ( no round )
+        ///////////////////////////////////////////////////////
 
         $az = range("a", "z");
         foreach ($az as $key) {
@@ -142,8 +147,8 @@ class AnsNQueSeeder extends Seeder
 
 
         ////////////////////////////////////////////////////////
-        ////  CLOUD //////////   Grade 1  Lesson 2 Game 9  ( listen and practice )
-        ///////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 2 Game 9 ( listen and practice )
+        ////////////////////////////////////////////////////////
 
         $G1_l2_U9_rounds = [
             ['D', 'z', 'h', 'e', 'a', 'f', 'e', 'I'],
@@ -163,7 +168,9 @@ class AnsNQueSeeder extends Seeder
 
 
 
-        // //  g-1 l-2 g-11 ========================== drag n drop
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 2 Game 11 ( drag and drop )
+        ////////////////////////////////////////////////////////
 
         $g1_l2_g11 = [
             ['z', 'y', 'l', 'j', 's', 'i'],
@@ -190,7 +197,10 @@ class AnsNQueSeeder extends Seeder
 
 
 
-        // // g-1 l-3 g-13 ========================== read_listen_and_practice ( reading_conversation )
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 3 Game 13 ( read_listen_and_practice )
+        //////////////////////////////////////////////////////////////
 
         $G1_L3_path = "Grade_1/" . "Lesson_2/" . "read_listen_and_practice/";
         $converG13 = [
@@ -237,7 +247,11 @@ class AnsNQueSeeder extends Seeder
 
 
 
-        // // g-1 l-3 g-15 ========================== listen_and_practice ( reading_conversation )
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 3 Game 15 ( listen_and_practice )
+        ////////////////////////////////////////////////////////
+
         // round 1
 
         $converG15 = [
@@ -300,11 +314,13 @@ class AnsNQueSeeder extends Seeder
 
 
 
-        // // g-1 l-3 g-16 ========================== ( Writing (Arrange Order) )
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 3 Game 16 ( Writing (Arrange Order) )
+        ////////////////////////////////////////////////////////
 
         $qG16R1 = [
             ["To", "Meet", "Hello", "I'm", "Nice", "You", "Mary"],
-            ["<eet", "Nice", "Mike", "To", "Hello", "You", "T'm"],
+            ["Meet", "Nice", "Mike", "To", "Hello", "You", "T'm"],
             ["I'm", "You", "Nice", "Meet", "Tom", "To", "Hello"],
         ];
 

@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('units', function (Blueprint $table) {
+        Schema::create('lesson_games', function (Blueprint $table) {
             $table->id();
-            $table->string('unit');
-            $table->integer('lesson_id');
-            $table->foreignId('category_id')->nullable();
+            $table->integer("grade_id");
+            $table->integer("lesson");
+            $table->string("game_name");
+            $table->string("subunit_name")->nullable();
+            $table->integer("category_id");
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('units');
+        Schema::dropIfExists('lesson_games');
     }
 };

@@ -43,6 +43,8 @@ class CategorySeeder extends Seeder
             'drag_n_drop_and_pics',
             'mcq_sentence',
             'mcq_tf_grammar',
+
+
         ];
 
         foreach ($categories as $category) {
