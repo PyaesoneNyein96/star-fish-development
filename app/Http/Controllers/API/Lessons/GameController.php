@@ -21,13 +21,15 @@ use App\Models\BackgroundImage;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\GameResource;
+use App\Http\Traits\gameTraits2;
 use Illuminate\Support\Facades\Cache;
 
 class GameController extends Controller
 {
 
 
-    use gameTraits;
+    use gameTraits, gameTraits2;
+
 
     public function grades(Request $request)
     {
