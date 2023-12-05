@@ -8,19 +8,19 @@ use App\Models\Student;
 use Illuminate\Database\Seeder;
 use Database\Seeders\CitySeeder;
 use Database\Seeders\GameSeeder;
-use Database\Seeders\ItemSeeder;
-use Database\Seeders\SongSeeder;
+
+
 use Database\Seeders\AudioSeeder;
 use Database\Seeders\GradeSeeder;
-use Database\Seeders\ImageSeeder;
-use Database\Seeders\RoundSeeder;
-use Database\Seeders\VideoSeeder;
-use Database\Seeders\AnswerSeeder;
+
+
+
 use Database\Seeders\LessonSeeder;
 use Database\Seeders\RewardSeeder;
+use Database\Seeders\AnsNQueSeeder;
 use Database\Seeders\CountrySeeder;
+
 use Database\Seeders\CategorySeeder;
-use Database\Seeders\QuestionSeeder;
 use Illuminate\Support\Facades\Hash;
 use Database\Seeders\BackgroundSeeder;
 use Database\Seeders\ConversationSeeder;
@@ -102,16 +102,12 @@ class DatabaseSeeder extends Seeder
         $this->call(CategorySeeder::class);
         $this->call(UnitSeeder::class);
         $this->call(GameSeeder::class);
-        $this->call(RoundSeeder::class);
+
         $this->call(StudentGradeSeeder::class);
-        // $this->call(ItemSeeder::class);
-        $this->call(QuestionSeeder::class);
-        $this->call(AnswerSeeder::class);
         $this->call(BackgroundSeeder::class);
         $this->call(ConversationSeeder::class);
         $this->call(GameInstructionSeeder::class);
-        // $this->call(VideoSeeder::class);
-        // $this->call(SongSeeder::class);
+
 
 
         $this->call(RewardSeeder::class);

@@ -11,12 +11,11 @@ use App\Models\Round;
 use App\Models\Lesson;
 use App\Models\Student;
 use App\Models\Category;
-use App\Models\UnitGame;
 use App\Models\StudentGame;
 use App\Models\StudentUnit;
+use App\Models\StudentLesson;
 use App\Models\StudentGrade;
 use Illuminate\Http\Request;
-use App\Models\StudentLesson;
 use App\Http\Traits\gameTraits;
 use App\Models\BackgroundImage;
 use Illuminate\Support\Facades\DB;
@@ -178,13 +177,16 @@ class GameController extends Controller
         $unit_id = $request->header('unit_id');
         $lesson_id = $request->header('lesson_id');
 
-        $unit = Unit::where('id', $unit_id)->with('category')->first();
+        $unit = Unit::where('id', $unit_id)->with('category')
+        ->where('lesson_id',$lesson_id)
+        ->first();
 
 
-        $game = Game::with('images','instructions','audios','ans_n_ques',
+        if(!$unit) return "lesson and unit are not match.";
+
+        $game = Game::with('instructions','audios','ans_n_ques',
         'conversations','characters','background')->whereIn('id', $unit->games->pluck('id'))
         ->where('status',1)->get();
-
 
 
 
