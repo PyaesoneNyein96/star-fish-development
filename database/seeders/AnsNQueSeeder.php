@@ -31,7 +31,9 @@ class AnsNQueSeeder extends Seeder
 
 
 
-        // //  g-1 l-1 g-1 ========================== ( no round )
+        ////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 1 Game 1 ( no round )
+        ////////////////////////////////////////////////////
 
         DB::table('ans_n_ques')->insert(['game_id' => 1, 'a_content' => 'mC7cPT2F23E', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 1, 'a_content' => 'mC7cPT2F23E (Global)', 'isLocal' => 0]);
@@ -48,7 +50,10 @@ class AnsNQueSeeder extends Seeder
             ]);
         }
 
-        // //  g-1 l-1 g-3 ========================== ( no round )
+
+        ////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 1 Game 3 ( no round )
+        ////////////////////////////////////////////////////
 
         DB::table('ans_n_ques')->insert(['game_id' => 3, 'a_content' => 'b_gBZ-tfAJ4', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 3, 'a_content' => 'b_gBZ-tfAJ4(Global)', 'isLocal' => 0]);
@@ -293,7 +298,7 @@ class AnsNQueSeeder extends Seeder
 
         foreach ($converG15 as $conv) {
             DB::table('ans_n_ques')->insert([
-                ['round_id' => 1, 'game_id' => 15, 'a_conver' => $conv, 'a_audio' => $AudioDomain . $G1_L3_path . $audiosG15[$G15index] . ".mp3"],
+                ['round' => 1, 'game_id' => 15, 'a_conver' => $conv, 'a_audio' => $AudioDomain . $G1_L3_path . $audiosG15[$G15index] . ".mp3"],
             ]);
             $G15index++;
         }
@@ -316,7 +321,7 @@ class AnsNQueSeeder extends Seeder
         $G15indexR2 = 0;
         foreach ($converG15R2 as $conv) {
             DB::table('ans_n_ques')->insert([
-                ['round_id' => 2, 'game_id' => 14, 'q_content' => $conv, 'q_audio' => $AudioDomain . $G1_L3_path . $audiosG15R2[$G15indexR2] . ".mp3"],
+                ['round' => 2, 'game_id' => 14, 'q_content' => $conv, 'q_audio' => $AudioDomain . $G1_L3_path . $audiosG15R2[$G15indexR2] . ".mp3"],
             ]);
             $G15indexR2++;
         }
@@ -351,11 +356,11 @@ class AnsNQueSeeder extends Seeder
         for ($i = 0; $i < count($qG16R1); $i++) {
             foreach ($qG16R1[$i] as $j) {
                 DB::table('ans_n_ques')->insert([
-                    ['round_id' => $i + 1, 'game_id' => 15, 'q_content' => $j],
+                    ['round' => $i + 1, 'game_id' => 15, 'q_content' => $j],
                 ]);
             }
             DB::table('ans_n_ques')->insert([
-                ['round_id' => $i + 1, 'game_id' => 15, 'a_content' => $aG16R1[$G16Index], 'a_audio' => $AudioDomain . $G1_L3_path . $audiosG16[$G16Index] . ".mp3"],
+                ['round' => $i + 1, 'game_id' => 15, 'a_content' => $aG16R1[$G16Index], 'a_audio' => $AudioDomain . $G1_L3_path . $audiosG16[$G16Index] . ".mp3"],
             ]);
             $G16Index++;
         }
