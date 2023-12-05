@@ -19,8 +19,8 @@ class CategorySeeder extends Seeder
 
         $categories = [
             'video_player_song',
-            'video_player_lessons',
             'reading_carousel',
+            'video_player_lessons',
             'reading_diagram',
             'reading_passage',
             'reading_two_columns',
