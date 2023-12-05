@@ -35,7 +35,6 @@ trait gameTraits
         ];
 
         return $game;
-
     }
 
     // Video
@@ -108,7 +107,7 @@ trait gameTraits
     }
 
 
-       ///////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
     // For Cloud Games One
     public function listening_and_choosing_clouds_one($games, $student, $unit)
     {
@@ -140,7 +139,6 @@ trait gameTraits
         ];
 
         return $game;
-
     }
 
 
@@ -235,34 +233,5 @@ trait gameTraits
         ];
 
         return $unit;
-    }
-
-
-    // =====================================================
-    // =====================================================
-
-
-    // reading conversation
-    public function reading_conversation()
-    {
-        //
-    }
-
-    // listening and choosing pics
-    public function listening_and_choosing_pics()
-    {
-        //
-    }
-
-    // rearrange_a_sentence_with_audio
-    public function rearrange_a_sentence_with_audio()
-    {
-        //
-    }
-
-    // speaking_and_recording
-    public function speaking_and_recording()
-    {
-        //
     }
 }

@@ -36,22 +36,32 @@ class GameSeeder extends Seeder
             ['name' => 'Writing (Arrange Order)', 'unit_id' => 11],
 
 
+            // lesson 3's games
+
+            ['name' => 'Video', 'unit_id' => 12],
+            ['name' => 'Read Listen and Repect', 'unit_id' => 13],
+            ['name' => 'Listen and Practice', 'unit_id' => 14],
+            ['name' => 'Writing (Arrange Order)', 'unit_id' => 15],
+            ['name' => 'Speaking', 'unit_id' => 16],
+
 
             // // // lesson 12's games
 
-            ['name' => 'Target language & Grammar Explanation', 'unit_id' => 12],
-            ['name' => 'Read Listen & Repeat', 'unit_id' => 13],
-            ['name' => 'Drag and Drop', 'unit_id' => 14],
-            ['name' => 'Listen and Practice', 'unit_id' => 15],
-            ['name' => 'Speaking Practice', 'unit_id' => 16],
-            // ['name' => 'trace and write', 'unit_id' => 17],
-            // ['name' => 'Write the correct letter', 'unit_id' => 17],
+            ['name' => 'Target language & Grammar Explanation', 'unit_id' => 17],
+            ['name' => 'Read Listen & Repeat', 'unit_id' => 18],
+            ['name' => 'Drag and Drop', 'unit_id' => 19],
+            ['name' => 'Listen and Practice', 'unit_id' => 20],
+            ['name' => 'Speaking Practice', 'unit_id' => 21],
+            // ['name' => 'trace and write', 'unit_id' => 23],
+            // ['name' => 'Write the correct letter', 'unit_id' => 23],
 
         ]);
 
         DB::table('games')->insert([
-            ['name' => 'trace and write', 'unit_id' => 17, 'instructionGIF' => "trace and writ GIF",'category' => "letter_tracing"],
-            ['name' => 'Write the correct letter',  'unit_id' => 17, 'instructionGIF' => "Writ the correct Letter GIF",'category' => "rearrange with audio"],
+            ['name' => 'trace and write', 'unit_id' => 71, 'instructionGIF' => "trace and writ GIF"],
+            ['name' => 'Write the correct letter',  'unit_id' => 72, 'instructionGIF' => "Writ the correct Letter GIF"],
+            ['name' => 'trace and write', 'unit_id' => 71, 'instructionGIF' => "trace and writ GIF"],
+            ['name' => 'Write the correct letter',  'unit_id' => 72, 'instructionGIF' => "Writ the correct Letter GIF"],
         ]);
     }
 }
