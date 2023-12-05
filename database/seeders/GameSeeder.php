@@ -36,16 +36,25 @@ class GameSeeder extends Seeder
             ['name' => 'Writing (Arrange Order)', 'unit_id' => 11],
 
 
+            // lesson 3's games
+
+            ['name' => 'Video', 'unit_id' => 12],
+            ['name' => 'Read Listen and Repect', 'unit_id' => 13],
+            ['name' => 'Song', 'unit_id' => 14],
+            ['name' => 'Listen and Practice', 'unit_id' => 15],
+            ['name' => 'Writing (Arrange Order)', 'unit_id' => 16],
+            ['name' => 'Speaking', 'unit_id' => 17],
+
 
             // // // lesson 12's games
 
-            ['name' => 'Target language & Grammar Explanation', 'unit_id' => 12],
-            ['name' => 'Read Listen & Repeat', 'unit_id' => 13],
-            ['name' => 'Drag and Drop', 'unit_id' => 14],
-            ['name' => 'Listen and Practice', 'unit_id' => 15],
-            ['name' => 'Speaking Practice', 'unit_id' => 16],
-            // ['name' => 'trace and write', 'unit_id' => 17],
-            // ['name' => 'Write the correct letter', 'unit_id' => 17],
+            ['name' => 'Target language & Grammar Explanation', 'unit_id' => 18],
+            ['name' => 'Read Listen & Repeat', 'unit_id' => 19],
+            ['name' => 'Drag and Drop', 'unit_id' => 20],
+            ['name' => 'Listen and Practice', 'unit_id' => 21],
+            ['name' => 'Speaking Practice', 'unit_id' => 22],
+            // ['name' => 'trace and write', 'unit_id' => 23],
+            // ['name' => 'Write the correct letter', 'unit_id' => 23],
 
         ]);
 
