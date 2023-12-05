@@ -232,12 +232,12 @@ class AnsNQueSeeder extends Seeder
                 foreach ($g as $sentence) {
 
                     DB::table('ans_n_ques')->insert([
-                        ['round_id' => $G13Row + 1, 'game_id' => 13, 'a_conver' => $sentence],
+                        ['round' => $G13Row + 1, 'game_id' => 13, 'a_conver' => $sentence],
                     ]);
                 }
 
                 DB::table('ans_n_ques')->insert([
-                    ['round_id' => $G13Row + 1, 'game_id' => 13, 'a_audio' => $AudioDomain . $G1_L3_path . $audiosG13[$G13Row][$G13Col] . ".mp3"],
+                    ['round' => $G13Row + 1, 'game_id' => 13, 'a_audio' => $AudioDomain . $G1_L3_path . $audiosG13[$G13Row][$G13Col] . ".mp3"],
                 ]);
 
                 $G13Col++;
@@ -279,7 +279,7 @@ class AnsNQueSeeder extends Seeder
 
         foreach ($converG15 as $conv) {
             DB::table('ans_n_ques')->insert([
-                ['round_id' => 1, 'game_id' => 15, 'a_conver' => $conv, 'a_audio' => $AudioDomain . $G1_L3_path . $audiosG15[$G15index] . ".mp3"],
+                ['round' => 1, 'game_id' => 15, 'a_conver' => $conv, 'a_audio' => $AudioDomain . $G1_L3_path . $audiosG15[$G15index] . ".mp3"],
             ]);
             $G15index++;
         }
@@ -302,7 +302,7 @@ class AnsNQueSeeder extends Seeder
         $G15indexR2 = 0;
         foreach ($converG15R2 as $conv) {
             DB::table('ans_n_ques')->insert([
-                ['round_id' => 2, 'game_id' => 15, 'q_content' => $conv, 'q_audio' => $AudioDomain . $G1_L3_path . $audiosG15R2[$G15indexR2] . ".mp3"],
+                ['round' => 2, 'game_id' => 15, 'q_content' => $conv, 'q_audio' => $AudioDomain . $G1_L3_path . $audiosG15R2[$G15indexR2] . ".mp3"],
             ]);
             $G15indexR2++;
         }
@@ -335,7 +335,7 @@ class AnsNQueSeeder extends Seeder
         for ($i = 0; $i < count($qG16R1); $i++) {
             foreach ($qG16R1[$i] as $j) {
                 DB::table('ans_n_ques')->insert([
-                    ['round_id' => $i, 'game_id' => 16, 'q_content' => $j, 'a_content' => $aG16R1[$G16Index], 'a_audio' => $AudioDomain . $G1_L3_path . $audiosG16[$G16Index] . ".mp3"],
+                    ['round' => $i, 'game_id' => 16, 'q_content' => $j, 'a_content' => $aG16R1[$G16Index], 'a_audio' => $AudioDomain . $G1_L3_path . $audiosG16[$G16Index] . ".mp3"],
                 ]);
             }
             $G16Index++;
