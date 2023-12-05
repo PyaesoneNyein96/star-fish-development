@@ -21,7 +21,6 @@ trait gameTraits
     // For without round Games
     public function reading_carousel($games, $student, $unit)
     {
-
         $game = $games[0];
 
         $game = [
@@ -51,7 +50,6 @@ trait gameTraits
         $result = $data->filter(function ($v) use ($student) {
             return $v->isLocal == $student->isLocal;
         });
-
 
         $videos = $result->values()->map(function ($v) use ($student) {
             return [
@@ -125,6 +123,11 @@ trait gameTraits
         //     unset($rounds[$roundId]);
         // }
 
+
+
+
+
+
         $game = [
             'game_id' => $game->id,
             'game_name' => $game->name,
@@ -133,8 +136,7 @@ trait gameTraits
             'sub_unit'  => $games->count() < 1 ? true : false,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' => !$game->instructions ? null : $game->instructions,
-            'answer_&_questions' => $rounds
-
+            'rounds' => $rounds
         ];
 
         return $game;

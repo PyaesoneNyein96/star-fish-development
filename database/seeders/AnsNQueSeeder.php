@@ -50,7 +50,7 @@ class AnsNQueSeeder extends Seeder
 
         // //  g-1 l-1 g-3 ========================== ( no round )
 
-        DB::table('ans_n_ques')->insert(['game_id' => 3, 'a_content' => 'b_gBZ-tfAJ4' ]);
+        DB::table('ans_n_ques')->insert(['game_id' => 3, 'a_content' => 'b_gBZ-tfAJ4','isLocal' => 1 ]);
         DB::table('ans_n_ques')->insert(['game_id' => 3, 'a_content' => 'b_gBZ-tfAJ4(Global)', 'isLocal' => 0 ]);
 
 
@@ -174,6 +174,7 @@ class AnsNQueSeeder extends Seeder
 
         // //  g-1 l-2 g-11 ========================== drag n drop
         $g1_l2_g11 = [
+
             ['z', 'y', 'l', 'j', 's', 'i'],
             ['v', 's', 't', 'y', 'o', 'f'],
             ['u', 'b', 'g', 'h', 'r', 'c'],

@@ -189,11 +189,10 @@ class GameController extends Controller
         $unit = Unit::where('id',$unit_id)->with('category')->first();
 
 
-        $game = Game::with('images','instructions','audios','videos','songs',
+        $game = Game::with('images','instructions','audios','ans_n_ques',
         'conversations','characters','background')->whereIn('id', $unit->games->pluck('id'))
-        ->get();
-        // $game = Game::with('instructions','ans_n_ques','background','conversations')->whereIn('id', $unit->games->pluck('id'))
-        // ->get();
+        ->where('status',1)->get();
+
 
 
 

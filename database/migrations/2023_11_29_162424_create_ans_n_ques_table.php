@@ -25,8 +25,9 @@ return new class extends Migration
             $table->string('a_content')->nullable();
             $table->string('a_conver')->nullable();
 
+            $table->string('type')->nullable();
 
-            $table->string('isLocal')->default(1);
+            $table->string('isLocal')->nullable();
 
             $table->string('extra_1')->nullable();
             $table->string('extra_2')->nullable();
