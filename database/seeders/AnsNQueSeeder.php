@@ -390,7 +390,7 @@ class AnsNQueSeeder extends Seeder
 
 
         ////////////////////////////////////////////////////////
-        ////    Grade 1  Lesson 12 Game 22 (Sub Units)
+        ////    Grade 1  Lesson 7 Game 38,39 (Sub Units)
         ////////////////////////////////////////////////////////
 
         $g1_l12_u22_trace_n_write = [

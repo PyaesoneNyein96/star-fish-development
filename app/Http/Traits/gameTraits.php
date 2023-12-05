@@ -220,34 +220,59 @@ trait gameTraits
     public function tracing_and_rearrange_subUnit($games, $student, $unit)
     {
 
-        foreach ($games as $game) {
-             $game->data = $game->ans_n_ques->groupBy('round')->values();
+        $gamesData = [];
+        foreach ($games as  $game) {
+
+            if($game && method_exists($this,$game->category)){
+                $name =strval($game->category);
+                $gamesData[] = $this->$name($game, $student, $unit);
+
+
+            }
+
         }
 
 
 
-
-        $unit = [
+        return $unit = [
             'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
             'sub_unit' => $games->count() == 1 ? false : true,
-            'games' => $games,
+            'games' => $gamesData,
+
         ];
 
-        return $unit;
-    }
-
-
-
-    public function letter_tracing($games, $student,$unit){
-
-        $game = $game[0];
 
     }
 
 
 
+    public function letter_tracing($game, $student,$unit){
 
+        $rounds = $game->ans_n_ques->groupBy('round')->values();
+        $game = [
+            'game_id' => $game->id,
+            'game_name' => $game->name,
+            'status' => $game->status,
+            'unit_name' => $unit->name,
+            'lesson_id' => $unit->lesson_id,
+            'instructionGIF'  => $game->instructionGIF,
+            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'rounds' => $rounds
+        ];
+        return $game;
+
+    }
+
+
+
+
+    public function rearrange_with_audio($game,$student,$unit){
+
+        return $game;
+
+
+    }
 
 
 
