@@ -75,7 +75,7 @@ trait gameTraits
 
         $game = Game::with([
             'instructions', 'rounds.questions', 'rounds.answers',
-             'rounds.conversations', 'rounds.backgrounds'
+            'rounds.conversations', 'rounds.backgrounds'
         ])->where('id', $game->id)->first();
 
 
@@ -252,38 +252,5 @@ trait gameTraits
         ];
 
         return $unit;
-    }
-
-
-
-
-
-
-    // =====================================================
-    // =====================================================
-
-
-    // reading conversation
-    public function reading_conversation()
-    {
-        //
-    }
-
-    // listening and choosing pics
-    public function listening_and_choosing_pics()
-    {
-        //
-    }
-
-    // rearrange_a_sentence_with_audio
-    public function rearrange_a_sentence_with_audio()
-    {
-        //
-    }
-
-    // speaking_and_recording
-    public function speaking_and_recording()
-    {
-        //
     }
 }
