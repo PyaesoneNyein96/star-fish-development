@@ -341,9 +341,12 @@ class AnsNQueSeeder extends Seeder
         for ($i = 0; $i < count($qG16R1); $i++) {
             foreach ($qG16R1[$i] as $j) {
                 DB::table('ans_n_ques')->insert([
-                    ['round_id' => $i + 1, 'game_id' => 15, 'q_content' => $j, 'a_content' => $aG16R1[$G16Index], 'a_audio' => $AudioDomain . $G1_L3_path . $audiosG16[$G16Index] . ".mp3"],
+                    ['round_id' => $i + 1, 'game_id' => 15, 'q_content' => $j],
                 ]);
             }
+            DB::table('ans_n_ques')->insert([
+                ['round_id' => $i + 1, 'game_id' => 15, 'a_content' => $aG16R1[$G16Index], 'a_audio' => $AudioDomain . $G1_L3_path . $audiosG16[$G16Index] . ".mp3"],
+            ]);
             $G16Index++;
         }
     }
