@@ -18,11 +18,11 @@ class UnitSeeder extends Seeder
 
             // lesson 1's games
 
-            ['name' => 'Video', 'lesson_id' => 1, 'category_id' => 2],
-            ['name' => 'Read and Practice', 'lesson_id' => 1, 'category_id' => 3],
-            ['name' => 'Song', 'lesson_id' => 1, 'category_id' => 1],
-            ['name' => 'Listen and Practice', 'lesson_id' => 1, 'category_id' => 18],
-            ['name' => 'Writing (Arranging Order)', 'lesson_id' => 1, 'category_id' => 8],
+            ['name' => 'Video', 'lesson_id' => 1, 'category_id' => 1],
+            ['name' => 'Read and Practice', 'lesson_id' => 1, 'category_id' => 2],
+            ['name' => 'Song', 'lesson_id' => 1, 'category_id' => 3],
+            ['name' => 'Listen and Practice', 'lesson_id' => 1, 'category_id' => 4],
+            ['name' => 'Writing (Arranging Order)', 'lesson_id' => 1, 'category_id' => 5],
 
             // lesson 2's games
 
