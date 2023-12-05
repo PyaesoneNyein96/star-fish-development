@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('instructionGIF')->nullable();
             $table->integer('unit_id')->nullable()->constrained();
+            $table->integer('status')->default(1);
+            $table->string('category')->nullable();
             $table->timestamps();
         });
     }

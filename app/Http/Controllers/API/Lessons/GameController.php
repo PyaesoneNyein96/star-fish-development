@@ -11,6 +11,7 @@ use App\Models\Round;
 use App\Models\Lesson;
 use App\Models\Student;
 use App\Models\Category;
+use App\Models\UnitGame;
 use App\Models\StudentGame;
 use App\Models\StudentUnit;
 use App\Models\StudentGrade;
@@ -125,12 +126,14 @@ class GameController extends Controller
     }
 
 
-    public function games(Request $request)
-    {
+    public function games(Request $request) {
 
         $student = Student::where('token', $request->header('token'))->first();
         $lesson = $request->header('lesson_id');
         $gradeId = $request->header('grade_id');
+
+
+        ////////////////////////////////////////////////////////////////////////////
         // $gradeId = Lesson::where('id', $lesson)->pluck('grade_id')->first();
 
         DB::beginTransaction();
@@ -178,21 +181,10 @@ class GameController extends Controller
         $unit = Unit::where('id', $unit_id)->with('category')->first();
 
 
-        // $game = Game::with(
-        //     'images',
-        //     'instructions',
-        //     'audios',
-        //     'items',
-        //     'rounds',
-        //     'videos',
-        //     'songs',
-        //     'conversations',
-        //     'characters',
-        //     'background'
-        // )->whereIn('id', $unit->games->pluck('id'))
-        //     ->get();
-        $game = Game::with('instructions', 'ans_n_ques', 'background', 'conversations')->whereIn('id', $unit->games->pluck('id'))
-            ->get();
+        $game = Game::with('images','instructions','audios','ans_n_ques',
+        'conversations','characters','background')->whereIn('id', $unit->games->pluck('id'))
+        ->where('status',1)->get();
+
 
 
 

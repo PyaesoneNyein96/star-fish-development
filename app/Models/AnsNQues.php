@@ -16,7 +16,7 @@ class AnsNQues extends Model
     }
 
 
-     public function toArray(){
+    public function toArray(){
 
         $data = parent::toArray();
 

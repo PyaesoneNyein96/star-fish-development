@@ -13,15 +13,22 @@ return new class extends Migration
     {
         Schema::create('ans_n_ques', function (Blueprint $table) {
             $table->id();
-            $table->integer('round_id')->nullable();
+            $table->integer('round')->nullable();
             $table->integer('game_id')->nullable();
             $table->string('q_image')->nullable();
             $table->string('q_audio')->nullable();
             $table->string('q_content')->nullable();
+            $table->string('q_conver')->nullable();
+
             $table->string('a_image')->nullable();
             $table->string('a_audio')->nullable();
             $table->string('a_content')->nullable();
             $table->string('a_conver')->nullable();
+
+            $table->string('type')->nullable();
+
+            $table->string('isLocal')->nullable();
+
             $table->string('extra_1')->nullable();
             $table->string('extra_2')->nullable();
             $table->timestamps();
