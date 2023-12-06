@@ -169,7 +169,7 @@ trait gameTraits
     public function listening_and_choosing_clouds_two($games, $student, $unit)
     {
 
-       $game = $games[0];
+        $game = $games[0];
 
         $rounds =  $game->ans_n_ques->groupBy('round')->values();
 
@@ -191,7 +191,8 @@ trait gameTraits
 
     ///////////////////////////////////////////////////////////////
     // Matching Columns
-    public function matching_columns($games, $student,$unit){
+    public function matching_columns($games, $student, $unit)
+    {
 
         $game = $games[0];
 
@@ -210,26 +211,22 @@ trait gameTraits
         ];
 
         return $game;
-
     }
 
 
     ///////////////////////////////////////////////////////////////
     /// SUb Unit Games ************
     ///////////////////////////////////////////////////////////////
-    public function tracing_and_rearrange_subUnit($games, $student, $unit)
+    public function Subunit_category($games, $student, $unit)
     {
 
         $gamesData = [];
         foreach ($games as  $game) {
 
-            if($game && method_exists($this,$game->category)){
-                $name =strval($game->category);
+            if ($game && method_exists($this, $game->category)) {
+                $name = strval($game->category);
                 $gamesData[] = $this->$name($game, $student, $unit);
-
-
             }
-
         }
 
 
@@ -241,13 +238,12 @@ trait gameTraits
             'games' => $gamesData,
 
         ];
-
-
     }
 
 
 
-    public function letter_tracing($game, $student,$unit){
+    public function letter_tracing($game, $student, $unit)
+    {
 
         $rounds = $game->ans_n_ques->groupBy('round')->values();
         $game = [
@@ -261,22 +257,5 @@ trait gameTraits
             'rounds' => $rounds
         ];
         return $game;
-
     }
-
-
-
-
-    public function rearrange_with_audio($game,$student,$unit){
-
-        return $game;
-
-
-    }
-
-
-
-
-
-
 }

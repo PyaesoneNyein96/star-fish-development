@@ -69,17 +69,21 @@ class GameSeeder extends Seeder
             ['name' => 'Matching',  'unit_id' => 31],
             ['name' => 'Speaking Practice',  'unit_id' => 32],
             ['name' => 'Writing',  'unit_id' => 33],
+        ]);
 
+        DB::table('games')->insert([
             // lesson 7's games
 
-            ['name' => 'Target Language & Grammar Explanation',  'unit_id' => 34],
-            ['name' => 'Read, Listen and Repeat',  'unit_id' => 35],
-            ['name' => 'Listen and Practice',  'unit_id' => 36],
-            ['name' => 'Matching',  'unit_id' => 37],
-            ['name' => 'Speaking Practice',  'unit_id' => 38],
-            ['name' => 'Writing Sentences order',  'unit_id' => 39], // <<<<====
-            ['name' => 'Writing Sentences order',  'unit_id' => 39], // <<<<====
+            ['name' => 'Target Language & Grammar Explanation',  'unit_id' => 34, 'category' => null],
+            ['name' => 'Read, Listen and Repeat',  'unit_id' => 35, 'category' => null],
+            ['name' => 'Listen and Practice',  'unit_id' => 36, 'category' => null],
+            ['name' => 'Matching',  'unit_id' => 37, 'category' => null],
+            ['name' => 'Speaking Practice',  'unit_id' => 38, 'category' => null],
+            ['name' => 'Writing 1', 'unit_id' => 39, 'category' => "letter_tracing"],
+            ['name' => 'Writing 2',  'unit_id' => 39,  'category' => "rearrange_with_audio"],
+        ]);
 
+        DB::table('games')->insert([
             // lesson 8's games
 
             ['name' => 'Video',  'unit_id' => 40],
@@ -116,17 +120,21 @@ class GameSeeder extends Seeder
             ['name' => 'Matching',  'unit_id' => 62],
             ['name' => 'Speaking Practice',  'unit_id' => 63],
             ['name' => 'Reading Passage',  'unit_id' => 64],
+        ]);
 
+        DB::table('games')->insert([
             // lesson 12's games
 
-            ['name' => 'Target Language',  'unit_id' => 65],
-            ['name' => 'Reading',  'unit_id' => 66],
-            ['name' => 'Listen and Practice',  'unit_id' => 67],
-            ['name' => 'Matching',  'unit_id' => 68],
-            ['name' => 'Speaking Practice',  'unit_id' => 69],
-            ['name' => 'Writing',  'unit_id' => 70],    // <<<<====
-            ['name' => 'Writing 2',  'unit_id' => 70],  // <<<<====
+            ['name' => 'Target Language',  'unit_id' => 65, 'instructionGIF' => null, 'category' => null],
+            ['name' => 'Reading',  'unit_id' => 66, 'instructionGIF' => null, 'category' => null],
+            ['name' => 'Listen and Practice',  'instructionGIF' => null, 'unit_id' => 67, 'category' => null],
+            ['name' => 'Matching',  'unit_id' => 68, 'instructionGIF' => null, 'category' => null],
+            ['name' => 'Speaking Practice', 'instructionGIF' => null,  'unit_id' => 69, 'category' => null],
+            ['name' => 'writing 1', 'unit_id' => 70, 'instructionGIF' => "trace and writ GIF", 'category' => "letter_tracing"],
+            ['name' => 'writing 2',  'unit_id' => 70, 'instructionGIF' => "Writ the correct Letter GIF", 'category' => "rearrange_with_audio"],
+        ]);
 
+        DB::table('games')->insert([
             // lesson 13's games
 
             ['name' => 'Target Language & Grammar Explanation',  'unit_id' => 71],
@@ -135,22 +143,48 @@ class GameSeeder extends Seeder
             ['name' => 'Listen and Practice',  'unit_id' => 74],
             ['name' => 'Speaking Practice',  'unit_id' => 75],
 
-            // // // lesson 12's games
-
-            // ['name' => 'Target language & Grammar Explanation', 'unit_id' => 17],
-            // ['name' => 'Read Listen & Repeat', 'unit_id' => 18],
-            // ['name' => 'Drag and Drop', 'unit_id' => 19],
-            // ['name' => 'Listen and Practice', 'unit_id' => 20],
-            // ['name' => 'Speaking Practice', 'unit_id' => 21],
-            // ['name' => 'trace and write', 'unit_id' => 23],
-            // ['name' => 'Write the correct letter', 'unit_id' => 23],
+            // lesson 14's games
+            ['name' => 'Target Language & Grammar Explanation', 'unit_id' => 76],
+            ['name' => 'Reading, Listen and Repeat', 'unit_id' => 77],
+            ['name' => 'Listen and Practice', 'unit_id' => 78],
+            ['name' => 'Grammar', 'unit_id' => 79],
+            ['name' => 'Writing', 'unit_id' => 80],
+            ['name' => 'Speaking Practice', 'unit_id' => 81],
 
         ]);
 
         DB::table('games')->insert([
-            ['name' => 'writing 1', 'unit_id' => 39, 'instructionGIF' => "trace and writ GIF", 'category' => "letter_tracing"],
-            ['name' => 'writing 2',  'unit_id' => 39, 'instructionGIF' => "Writ the correct Letter GIF", 'category' => "rearrange_with_audio"],
+            // lesson 15's games
 
+            ['name' => 'Target Language & Grammar Explanation',  'unit_id' => 82, 'category' => null],
+            ['name' => 'Reading 1',  'unit_id' => 83, 'category' => "reading_conversation"],
+            ['name' => 'Reading 2', 'unit_id' => 83, 'category' => "reading_conversation"],
+            ['name' => '1',  'unit_id' => 84, 'category' => "listening_and_search_items"],
+            ['name' => '2',  'unit_id' => 84, 'category' => "mcq_grammar"],
+            ['name' => 'Grammar', 'unit_id' => 85, 'category' => null],
+            ['name' => 'Speaking Practice',  'unit_id' => 86, 'category' => null],
+            ['name' => 'Reading',  'unit_id' => 87, 'category' => null],
+
+            // lesson 16's games
+
+            ['name' => 'Target Language & Grammar Explanation',  'unit_id' => 88, 'category' => null],
+            ['name' => 'Reading, Listen and Repeat',  'unit_id' => 89, 'category' => null],
+            ['name' => 'Listen and Practice',  'unit_id' => 90, 'category' => null],
+            ['name' => 'Matching',  'unit_id' => 91, 'category' => null],
+            ['name' => 'Speaking 1',  'unit_id' => 92, 'category' => "speaking_and_recording"],
+            ['name' => 'Speaking 2',  'unit_id' => 92, 'category' => "speaking_and_recording"],
+            ['name' => 'writing 1', 'unit_id' => 93, 'category' => "letter_tracing"],
+            ['name' => 'writing 2',  'unit_id' => 93, 'category' => "fill_in_the_blanks"],
+
+            // lesson 17's games
+
+            ['name' => 'Target Language',  'unit_id' => 94, 'category' => null],
+            ['name' => 'Reading 1',  'unit_id' => 95, 'category' => "reading_diagram"],
+            ['name' => 'Reading 2', 'unit_id' => 95, 'category' => "reading_carousel"],
+            ['name' => 'Listen and Practice', 'unit_id' => 96, 'category' => null],
+            ['name' => 'Matching',  'unit_id' => 97, 'category' => null],
+            ['name' => 'Listen and Act',  'unit_id' => 98, 'category' => null],
+            ['name' => 'Speaking Practice',  'unit_id' => 99, 'category' => null],
         ]);
     }
 }

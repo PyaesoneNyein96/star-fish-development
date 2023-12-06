@@ -506,7 +506,7 @@ class AnsNQueSeeder extends Seeder
 
             ['round' => 2, 'game_id' => 25, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "Hi-my-name-is-Anna-Im-6-yea.mp3", 'q_content' => "Hi, my name is Anna. I'm 6 years old. Early in the morning, I say \"Good morning, Hello and how are you?\" They say \"I'm fine. And you? \"I say \"I'm great.\" It's going to be a wonderful day.", 'a_audio' => null, 'a_content' => null],
             ['round' => 2, 'game_id' => 25, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "I-say-They-say-Im-fine-What.mp3", 'q_content' => "I say ____.They say I'm fine.", 'a_audio' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 25, "q_audio" => null, 'q_content' => null, 'a_audio' =>  $AudioDomain . $G1_L5_reading_passage_path . "audio ", 'a_content' => "What's your name?"],
+            ['round' => 2, 'game_id' => 25, "q_audio" => null, 'q_content' => null, 'a_audio' =>  $AudioDomain . $G1_L5_reading_passage_path . "whats_your_name ", 'a_content' => "What's your name?"],
             ['round' => 2, 'game_id' => 25, "q_audio" => null, 'q_content' => null, 'a_audio' =>  $AudioDomain . $G1_L5_reading_passage_path . "Who-are-you.mp3", 'a_content' => "Who are you?"],
             ['round' => 2, 'game_id' => 25, "q_audio" => null, 'q_content' => null, 'a_audio' =>  $AudioDomain . $G1_L5_reading_passage_path . "How-are-you.mp3", 'a_content' => "How are you?"],
 
@@ -556,6 +556,38 @@ class AnsNQueSeeder extends Seeder
             ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "elephant image", "a_content" => "small"],
             ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "car image", "a_content" => "small"],
             ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "eraser image", "a_content" => "small"],
+        ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 17 Game 104 (  Listen & Act  )
+        ////////////////////////////////////////////////////////
+
+        $l17G105image = $domain . "/storage/images/lesson_17/Listen_&_Act/";
+        $G1_L17_Listen_n_Act_path = "Grade_1/" . "Lesson_17/" . "Listen_&_act/";
+
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 105, 'q_audio' => $AudioDomain . $G1_L17_Listen_n_Act_path . "Touch-your-cheek.mp3", 'q_content' =>  "Touch your cheek", 'q_image' => null, 'a_content' => null],
+            ['round' => 1, 'game_id' => 105, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l17G105image . "touching", 'a_content' => 1],
+            ['round' => 1, 'game_id' => 105, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l17G105image . "not touching", 'a_content' => 0],
+
+            ['round' => 2, 'game_id' => 105, 'q_audio' => $AudioDomain . $G1_L17_Listen_n_Act_path . "Touch-your-ear.mp3", 'q_content' =>  "Touch your ear", 'q_image' => null, 'a_content' => null],
+            ['round' => 2, 'game_id' => 105, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l17G105image . "touching", 'a_content' => 1],
+            ['round' => 2, 'game_id' => 105, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l17G105image . "not touching", 'a_content' => 0],
+
+            ['round' => 3, 'game_id' => 105, 'q_audio' => $AudioDomain . $G1_L17_Listen_n_Act_path . "Dont-touch-your-mouth.mp3", 'q_content' =>  "Don't touch your mouth", 'q_image' => null, 'a_content' => null],
+            ['round' => 3, 'game_id' => 105, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l17G105image . "not touching", 'a_content' => 1],
+            ['round' => 3, 'game_id' => 105, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l17G105image . "touching", 'a_content' => 0],
+
+            ['round' => 4, 'game_id' => 105, 'q_audio' => $AudioDomain . $G1_L17_Listen_n_Act_path . "Dont-touch-your-eyes.mp3", 'q_content' =>  "Don't touch your eye", 'q_image' => null, 'a_content' => null],
+            ['round' => 4, 'game_id' => 105, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l17G105image . "touching", 'a_content' => 0],
+            ['round' => 4, 'game_id' => 105, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l17G105image . "not touching", 'a_content' => 1],
+
+            ['round' => 5, 'game_id' => 105, 'q_audio' => $AudioDomain . $G1_L17_Listen_n_Act_path . "Touch-your-cheek.mp3", 'q_content' =>  "Touch your cheek", 'q_image' => null, 'a_content' => null],
+            ['round' => 5, 'game_id' => 105, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l17G105image . "not touching", 'a_content' => 0],
+            ['round' => 5, 'game_id' => 105, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l17G105image . "touching", 'a_content' => 1],
         ]);
     }
 }

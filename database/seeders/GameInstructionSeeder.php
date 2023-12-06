@@ -49,6 +49,9 @@ class GameInstructionSeeder extends Seeder
             // G-1 lesson_5 U-73
             ['content' => "Put the objects in the correct places", 'game_id' => 75, 'audio' => $domain . $Instructions . "Put-the-objects-in-the-correct" . ".mp3"],
 
+            // G-1 lesson_17 U-98
+            ['content' => "Listen and Act", 'game_id' => 105, 'audio' => $domain . $Instructions . "Listen-and-Act" . ".mp3"],
+
 
         ]);
 
@@ -69,19 +72,19 @@ class GameInstructionSeeder extends Seeder
 
         ]);
 
-            // DB::table('game_instructions')->insert([
+        // DB::table('game_instructions')->insert([
 
-            // [
-            //     'content' => "Sub Game first Instructions", "game_id" => 22,
-            //     'audio' => $domain . $Instructions . "blah blah 1" . ".mp3"
-            // ],
-            // [
-            //     'content' => "Listen and pop the bubbles of alphabet", "game_id" => 22,
-            //     'audio' => $domain . $Instructions . "blah blah 2" . ".mp3"
-            // ],
+        // [
+        //     'content' => "Sub Game first Instructions", "game_id" => 22,
+        //     'audio' => $domain . $Instructions . "blah blah 1" . ".mp3"
+        // ],
+        // [
+        //     'content' => "Listen and pop the bubbles of alphabet", "game_id" => 22,
+        //     'audio' => $domain . $Instructions . "blah blah 2" . ".mp3"
+        // ],
 
 
-            // ]);
+        // ]);
 
 
 
