@@ -7,6 +7,7 @@ use App\Models\Round;
 use App\Models\Lesson;
 use App\Models\Student;
 use App\Models\Subunit;
+use App\Http\Resources\DataResource;
 
 
 trait gameTraits
@@ -21,6 +22,8 @@ trait gameTraits
     // For without round Games
     public function reading_carousel($games, $student, $unit)
     {
+
+        if(isset($game[0])) $game = $game[0];
         $game = $games[0];
 
         $game = [
@@ -191,7 +194,8 @@ trait gameTraits
 
     ///////////////////////////////////////////////////////////////
     // Matching Columns
-    public function matching_columns($games, $student,$unit){
+    public function matching_columns($games, $student,$unit)
+    {
 
         $game = $games[0];
 
@@ -217,22 +221,32 @@ trait gameTraits
     ///////////////////////////////////////////////////////////////
     /// SUb Unit Games ************
     ///////////////////////////////////////////////////////////////
-    public function tracing_and_rearrange_subUnit($games, $student, $unit)
+    public function Subunit_category($games, $student, $unit)
     {
 
         $gamesData = [];
         foreach ($games as  $game) {
 
             if($game && method_exists($this,$game->category)){
-                $name =strval($game->category);
-                $gamesData[] = $this->$name($game, $student, $unit);
 
+                 $game = [
+                    'game_id' => $game->id,
+                    'game_name' => $game->name,
+                    'category' => $game->category,
+                ];
 
+                $gamesData[] = $game;
+
+            }
+            // else {
+            //     $name =strval($game->category);
+            //     $gamesData[] = $this->$name($game, $student, $unit);
+            // }
+            else{
+                return "game and function are not match.";
             }
 
         }
-
-
 
         return $unit = [
             'unit_name' => $unit->name,
@@ -249,11 +263,14 @@ trait gameTraits
 
     public function letter_tracing($game, $student,$unit){
 
+        if(isset($game[0])) $game = $game[0];
+
         $rounds = $game->ans_n_ques->groupBy('round')->values();
         $game = [
             'game_id' => $game->id,
             'game_name' => $game->name,
             'status' => $game->status,
+            'category' => $game->category,
             'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
             'instructionGIF'  => $game->instructionGIF,
@@ -265,12 +282,48 @@ trait gameTraits
     }
 
 
+    public function fill_in_the_blanks($game,$student,$unit) {
+
+        if(isset($game[0])) $game = $game[0];
 
 
-    public function rearrange_with_audio($game,$student,$unit){
-
+        $rounds = $game->ans_n_ques->groupBy('round')->values();
+        $game = [
+            'game_id' => $game->id,
+            'game_name' => $game->name,
+            'status' => $game->status,
+            'category' => $game->category,
+            'unit_name' => $unit->name,
+            'lesson_id' => $unit->lesson_id,
+            'instructionGIF'  => $game->instructionGIF,
+            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'rounds' => $rounds
+        ];
         return $game;
 
+
+    }
+
+
+    public function reading_diagram($game,$student,$unit) {
+
+        if(isset($game[0])) $game = $game[0];
+
+
+        // $rounds = $game->ans_n_ques->groupBy('round')->values();
+        $game = [
+            'game_id' => $game->id,
+            'game_name' => $game->name,
+            'status' => $game->status,
+            'category' => $game->category,
+            'unit_name' => $unit->name,
+            'lesson_id' => $unit->lesson_id,
+            'instructionGIF'  => $game->instructionGIF,
+            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'background' => $game->background,
+            'data' => $game->ans_n_ques
+        ];
+        return $game;
 
     }
 

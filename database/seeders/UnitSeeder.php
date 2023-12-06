@@ -16,7 +16,7 @@ class UnitSeeder extends Seeder
 
         DB::table('units')->insert([
 
-            // lesson 1's games
+            // lesson 1's units
 
             ['name' => 'Video', 'lesson_id' => 1, 'category_id' => 1],
             ['name' => 'Read and Practice', 'lesson_id' => 1, 'category_id' => 2],
@@ -24,7 +24,7 @@ class UnitSeeder extends Seeder
             ['name' => 'Listen and Practice', 'lesson_id' => 1, 'category_id' => 4],
             ['name' => 'Writing (Arranging Order)', 'lesson_id' => 1, 'category_id' => 5],
 
-            // lesson 2's games
+            // lesson 2's units
 
             ['name' => 'Video', 'lesson_id' => 2, 'category_id' => 1],
             ['name' => 'Read & Practice', 'lesson_id' => 2, 'category_id' => 2],
@@ -34,7 +34,7 @@ class UnitSeeder extends Seeder
             ['name' => 'Writing (Arranging Order)', 'lesson_id' => 2, 'category_id' => 5],
 
 
-            // lesson 3's games
+            // lesson 3's units
 
             ['name' => 'Video', 'lesson_id' => 3, 'category_id' => 1],
             ['name' => 'Read Listen & Repeat', 'lesson_id' => 3, 'category_id' => 8],
@@ -43,7 +43,7 @@ class UnitSeeder extends Seeder
             ['name' => 'Speaking', 'lesson_id' => 3, 'category_id' => 11],
 
 
-            // // lesson 4's games
+            // // lesson 4's units
 
             ['name' => 'Video', 'lesson_id' => 4, 'category_id' => 1],
             ['name' => 'Read, Listen & Repeat', 'lesson_id' => 4, 'category_id' => 8],
@@ -51,7 +51,7 @@ class UnitSeeder extends Seeder
             ['name' => 'Listening & Practice', 'lesson_id' => 4, 'category_id' => 13],
             ['name' => 'Writing (Arranging Order)', 'lesson_id' => 4, 'category_id' => 14],
 
-            // // lesson 5's games
+            // // lesson 5's units
 
             ['name' => 'Target Language & Grammar Explanation', 'lesson_id' => 5, 'category_id' => 1],
             ['name' => 'Listen and Practice', 'lesson_id' => 5, 'category_id' => 15],
@@ -60,7 +60,7 @@ class UnitSeeder extends Seeder
             ['name' => 'Speaking Practice', 'lesson_id' => 5, 'category_id' => 11],
             ['name' => 'Writing', 'lesson_id' => 5, 'category_id' => 14],
 
-            // // lesson 6's games
+            // // lesson 6's units
 
             ['name' => 'Target Language & Grammar Explanation', 'lesson_id' => 6, 'category_id' => 1],
             ['name' => 'Reading', 'lesson_id' => 6, 'category_id' => 2],
@@ -69,7 +69,7 @@ class UnitSeeder extends Seeder
             ['name' => 'Speaking Practice', 'lesson_id' => 6, 'category_id' => 11],
             ['name' => 'Writing', 'lesson_id' => 6, 'category_id' => 14],
 
-            // // lesson 7's games
+            // // lesson 7's units
 
             ['name' => 'Target Language & Grammar Explanation', 'lesson_id' => 7, 'category_id' => 1],
             ['name' => 'Read, Listen and Repeat', 'lesson_id' => 7, 'category_id' => 2],
@@ -78,101 +78,96 @@ class UnitSeeder extends Seeder
             ['name' => 'Speaking Practice', 'lesson_id' => 7, 'category_id' => 11],
             ['name' => 'Writing Sentences order 6', 'lesson_id' => 7, 'category_id' => 26],
 
-            // // lesson 8's games
+            // // lesson 8's units
 
-            // ['name' => 'Video', 'lesson_id' => 8, 'category_id' => 1],
-            // ['name' => 'Read', 'lesson_id' => 8, 'category_id' => 2],
-            // ['name' => 'listening Practice', 'lesson_id' => 8, 'category_id' => 17],
-            // ['name' => 'Matching', 'lesson_id' => 8, 'category_id' => 7],
-            // ['name' => 'Speaking Practice', 'lesson_id' => 8, 'category_id' => 11],
-            // ['name' => 'Reading Passage', 'lesson_id' => 8, 'category_id' => 16],
-            // ['name' => 'Writing', 'lesson_id' => 8, 'category_id' => 14],
+            ['name' => 'Video', 'lesson_id' => 8, 'category_id' => 1],
+            ['name' => 'Read', 'lesson_id' => 8, 'category_id' => 2],
+            ['name' => 'listening Practice', 'lesson_id' => 8, 'category_id' => 17],
+            ['name' => 'Matching', 'lesson_id' => 8, 'category_id' => 7],
+            ['name' => 'Speaking Practice', 'lesson_id' => 8, 'category_id' => 11],
+            ['name' => 'Reading Passage', 'lesson_id' => 8, 'category_id' => 16],
+            ['name' => 'Writing', 'lesson_id' => 8, 'category_id' => 14],
 
-            // // lesson 9's games
+            // // lesson 9's units
 
-            // ['name' => 'Target Language', 'lesson_id' => 9, 'category_id' => 1],
-            // ['name' => 'Reading', 'lesson_id' => 9, 'category_id' => 2],
-            // ['name' => 'Listen and practice', 'lesson_id' => 9, 'category_id' => 17],
-            // ['name' => 'Matching', 'lesson_id' => 9, 'category_id' => 7],
-            // ['name' => 'Speaking Practice', 'lesson_id' => 9, 'category_id' => 11],
-            // ['name' => 'Writing', 'lesson_id' => 9, 'category_id' => 14],
+            ['name' => 'Target Language', 'lesson_id' => 9, 'category_id' => 1],
+            ['name' => 'Reading', 'lesson_id' => 9, 'category_id' => 2],
+            ['name' => 'Listen and practice', 'lesson_id' => 9, 'category_id' => 17],
+            ['name' => 'Matching', 'lesson_id' => 9, 'category_id' => 7],
+            ['name' => 'Speaking Practice', 'lesson_id' => 9, 'category_id' => 11],
+            ['name' => 'Writing', 'lesson_id' => 9, 'category_id' => 14],
 
-            // // lesson 10's games
+            // // lesson 10's units
 
-            // ['name' => 'Target', 'lesson_id' => 10, 'category_id' => 1],
-            // ['name' => 'Reading', 'lesson_id' => 10, 'category_id' => 2],
-            // ['name' => 'Listen and Practice', 'lesson_id' => 10, 'category_id' => 17],
-            // ['name' => 'Matching', 'lesson_id' => 10, 'category_id' => 7],
-            // ['name' => 'Speaking Practice', 'lesson_id' => 10, 'category_id' => 11],
-            // ['name' => 'Writing', 'lesson_id' => 10, 'category_id' => 14],
+            ['name' => 'Target', 'lesson_id' => 10, 'category_id' => 1],
+            ['name' => 'Reading', 'lesson_id' => 10, 'category_id' => 2],
+            ['name' => 'Listen and Practice', 'lesson_id' => 10, 'category_id' => 17],
+            ['name' => 'Matching', 'lesson_id' => 10, 'category_id' => 7],
+            ['name' => 'Speaking Practice', 'lesson_id' => 10, 'category_id' => 11],
+            ['name' => 'Writing', 'lesson_id' => 10, 'category_id' => 14],
 
-            // // lesson 11's games
+            // // lesson 11's units
 
-            // ['name' => 'Target Language & Grammar Explanation', 'lesson_id' => 11, 'category_id' => 1],
-            // ['name' => 'Read, Listen and Repeat', 'lesson_id' => 11, 'category_id' => 2],
-            // ['name' => 'Listen and Practice', 'lesson_id' => 11, 'category_id' => 6],
-            // ['name' => 'Matching', 'lesson_id' => 11, 'category_id' => 7],
-            // ['name' => 'Speaking Practice', 'lesson_id' => 11, 'category_id' => 11],
-            // ['name' => 'Reading Passage', 'lesson_id' => 11, 'category_id' => 16],
+            ['name' => 'Target Language & Grammar Explanation', 'lesson_id' => 11, 'category_id' => 1],
+            ['name' => 'Read, Listen and Repeat', 'lesson_id' => 11, 'category_id' => 2],
+            ['name' => 'Listen and Practice', 'lesson_id' => 11, 'category_id' => 6],
+            ['name' => 'Matching', 'lesson_id' => 11, 'category_id' => 7],
+            ['name' => 'Speaking Practice', 'lesson_id' => 11, 'category_id' => 11],
+            ['name' => 'Reading Passage', 'lesson_id' => 11, 'category_id' => 16],
 
-            // lesson 12's games
+            // lesson 12's units
 
-            // ['name' => 'Target Language', 'lesson_id' => 12, 'category_id' => 1],
-            // ['name' => 'Reading', 'lesson_id' => 12, 'category_id' => 2],
-            // ['name' => 'Listen and Practice', 'lesson_id' => 12, 'category_id' => 17],
-            // ['name' => 'Matching', 'lesson_id' => 12, 'category_id' => 7],
-            // ['name' => 'Speaking Practice', 'lesson_id' => 12, 'category_id' => 11],
-            // ['name' => 'Writing', 'lesson_id' => 12, 'category_id' => 26], //(temporary_id)
+            ['name' => 'Target Language', 'lesson_id' => 12, 'category_id' => 1],
+            ['name' => 'Reading', 'lesson_id' => 12, 'category_id' => 2],
+            ['name' => 'Listen and Practice', 'lesson_id' => 12, 'category_id' => 17],
+            ['name' => 'Matching', 'lesson_id' => 12, 'category_id' => 7],
+            ['name' => 'Speaking Practice', 'lesson_id' => 12, 'category_id' => 11],
+            ['name' => 'Writing', 'lesson_id' => 12, 'category_id' => 26], //(temporary_id)
 
 
-            // // lesson 13's games
+            // // lesson 13's units
 
-            // ['name' => 'Target Language & Grammar Explanation', 'lesson_id' => 13, 'category_id' => 1],
-            // ['name' => 'Reading, Listen and Repeat', 'lesson_id' => 13, 'category_id' => 2],
-            // ['name' => 'Drag and Drop', 'lesson_id' => 13, 'category_id' => 19],
-            // ['name' => 'Listen and Practice', 'lesson_id' => 13, 'category_id' => 20],
-            // ['name' => 'Speaking Practice', 'lesson_id' => 13, 'category_id' => 11],
+            ['name' => 'Target Language & Grammar Explanation', 'lesson_id' => 13, 'category_id' => 1],
+            ['name' => 'Reading, Listen and Repeat', 'lesson_id' => 13, 'category_id' => 2],
+            ['name' => 'Drag and Drop', 'lesson_id' => 13, 'category_id' => 19],
+            ['name' => 'Listen and Practice', 'lesson_id' => 13, 'category_id' => 20],
+            ['name' => 'Speaking Practice', 'lesson_id' => 13, 'category_id' => 11],
 
-            // // lesson 14's games
+            // // lesson 14's units
 
-            // ['name' => 'Target Language & Grammar Explanation', 'lesson_id' => 14, 'category_id' => 1],
-            // ['name' => 'Reading, Listen and Repeat', 'lesson_id' => 14, 'category_id' => 2],
-            // ['name' => 'Listen and Practice', 'lesson_id' => 14, 'category_id' => 20],
-            // ['name' => 'Grammar', 'lesson_id' => 14, 'category_id' => 21],
-            // ['name' => 'Writing', 'lesson_id' => 14, 'category_id' => 14],
-            // ['name' => 'Speaking Practice', 'lesson_id' => 14, 'category_id' => 11],
+            ['name' => 'Target Language & Grammar Explanation', 'lesson_id' => 14, 'category_id' => 1],
+            ['name' => 'Reading, Listen and Repeat', 'lesson_id' => 14, 'category_id' => 2],
+            ['name' => 'Listen and Practice', 'lesson_id' => 14, 'category_id' => 20],
+            ['name' => 'Grammar', 'lesson_id' => 14, 'category_id' => 21],
+            ['name' => 'Writing', 'lesson_id' => 14, 'category_id' => 14],
+            ['name' => 'Speaking Practice', 'lesson_id' => 14, 'category_id' => 11],
 
-            // // lesson 15's games
+            // // lesson 15's units
 
-            // ['name' => 'Target Language & Grammar Explanation', 'lesson_id' => 15, 'category_id' => 1],
-            // ['name' => 'Listen, Reading and Repeat', 'lesson_id' => 15, 'category_id' => 8], // <<<<====
-            // ['name' => 'Listen, Reading and Repeat', 'lesson_id' => 15, 'category_id' => 8], // <<<<====
-            // ['name' => 'Listen and Practice', 'lesson_id' => 15, 'category_id' => null], // <<<<====
-            // ['name' => 'Listen and Practice', 'lesson_id' => 15, 'category_id' => null], // <<<<====
-            // ['name' => 'Grammar', 'lesson_id' => 15, 'category_id' => 21],
-            // ['name' => 'Speaking Practice', 'lesson_id' => 15, 'category_id' => 11],
-            // ['name' => 'Reading', 'lesson_id' => 15, 'category_id' => 16],
+            ['name' => 'Target Language & Grammar Explanation', 'lesson_id' => 15, 'category_id' => 1],
+            ['name' => 'Listen, Reading and Repeat', 'lesson_id' => 15, 'category_id' => 26], // temporary
+            ['name' => 'Listen and Practice', 'lesson_id' => 15, 'category_id' => 26], // temporary
+            ['name' => 'Grammar', 'lesson_id' => 15, 'category_id' => 21],
+            ['name' => 'Speaking Practice', 'lesson_id' => 15, 'category_id' => 11],
+            ['name' => 'Reading', 'lesson_id' => 15, 'category_id' => 16],
 
-            // // lesson 16's games
+            // // lesson 16's units
 
-            // ['name' => 'Target Language & Grammar Explanation', 'lesson_id' => 16, 'category_id' => 1],
-            // ['name' => 'Reading, Listen and Repeat', 'lesson_id' => 16, 'category_id' => 2],
-            // ['name' => 'Listen and Practice, Game', 'lesson_id' => 16, 'category_id' => 17],
-            // ['name' => 'Matching', 'lesson_id' => 16, 'category_id' => 7],
-            // ['name' => 'Speaking 1', 'lesson_id' => 16, 'category_id' => 11], // <<<<====
-            // ['name' => 'Speaking 2', 'lesson_id' => 16, 'category_id' => 11], // <<<<====
-            // ['name' => 'Writing 1', 'lesson_id' => 16, 'category_id' => null], // <<<<====
-            // ['name' => 'Writing 2', 'lesson_id' => 16, 'category_id' => null], // <<<<====
+            ['name' => 'Target Language & Grammar Explanation', 'lesson_id' => 16, 'category_id' => 1],
+            ['name' => 'Reading, Listen and Repeat', 'lesson_id' => 16, 'category_id' => 2],
+            ['name' => 'Listen and Practice, Game', 'lesson_id' => 16, 'category_id' => 17],
+            ['name' => 'Matching', 'lesson_id' => 16, 'category_id' => 7],
+            ['name' => 'Speaking 1', 'lesson_id' => 16, 'category_id' => 26], // temporary
+            ['name' => 'Writing', 'lesson_id' => 16, 'category_id' => 26], // temporary
 
-            // // lesson 17's games
+            // // lesson 17's units
 
-            // ['name' => 'Target Language', 'lesson_id' => 17, 'category_id' => 1],
-            // ['name' => 'Listen and Repeat Reading 1', 'lesson_id' => 17, 'category_id' => null], // <<<<====
-            // ['name' => 'Reading 2', 'lesson_id' => 17, 'category_id' => null],                   // <<<<====
-            // ['name' => 'Listen and Practice', 'lesson_id' => 17, 'category_id' => 23],
-            // ['name' => 'Matching', 'lesson_id' => 17, 'category_id' => 7],
-            // ['name' => 'Listen and Act', 'lesson_id' => 17, 'category_id' => 13],
-            // ['name' => 'Speaking Practice', 'lesson_id' => 17, 'category_id' => 11],
+            ['name' => 'Target Language', 'lesson_id' => 17, 'category_id' => 1],
+            ['name' => 'Listen and Repeat Reading', 'lesson_id' => 17, 'category_id' => 26],//(temporary_id)
+            ['name' => 'Listen and Practice', 'lesson_id' => 17, 'category_id' => 23],
+            ['name' => 'Matching', 'lesson_id' => 17, 'category_id' => 7],
+            ['name' => 'Listen and Act', 'lesson_id' => 17, 'category_id' => 13],
+            ['name' => 'Speaking Practice', 'lesson_id' => 17, 'category_id' => 11],
 
             // // lesson 18's games
 

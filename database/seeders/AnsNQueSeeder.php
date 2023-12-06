@@ -393,30 +393,74 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 7 Game 38,39 (Sub Units)
         ////////////////////////////////////////////////////////
 
-        $g1_l12_u22_trace_n_write = [
+        $g1_l7_u6_trace_n_write = [
             'G','H','e','f','g','h','F','E'
         ];
-            foreach ($g1_l12_u22_trace_n_write as $i => $trace) {
+            foreach ($g1_l7_u6_trace_n_write as $i => $trace) {
                 DB::table('ans_n_ques')->insert([
                     ['round' => $i + 1, 'game_id' => 22, 'q_audio' => $trace.".mp3"
                     ,'q_image' =>$trace.".GIF",'q_content' => $trace],
                 ]);
             }
 
-        $g1_l12_u22_rearrange_the_letter_q1 = [
-            'BALL','CAKE','DOG','DUSTER','APPLE','ANT'
-        ];
+        // $g1_l7_u6_rearrange_the_letter_q1 = [
+        //     ['A','B','L','L'],
+        //     ['A','C','E','K'],
+        //     ['G','D','O'],
+        //     ['D','U','S','T','R','E'],
+        //     ['P','A','E','L','P'],
+        //     ['N','A','T'],
+        // ];
 
-        $g1_l12_u22_rearrange_the_letter_q2 = [
-            '_all','_ake','_og','_uster','_pple','_nt'
-        ];
+        // $g1_l7_u6_rearrange_the_letter_q2 = [
+        //     '_all','_ake','_og','_uster','_pple','_nt'
+        // ];
 
-            foreach ($g1_l12_u22_rearrange_the_letter_q1 as $i => $word) {
-                DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 23, 'q_audio' => $word.".mp3"
-                    ,'q_image' =>$word."image".".jpg" , 'q_content' => $word, 'q_extra' => $g1_l12_u22_rearrange_the_letter_q2[$i]],
-                ]);
-            }
+        //     foreach ($g1_l7_u6_rearrange_the_letter_q1 as $i => $word) {
+
+        //         DB::table('ans_n_ques')->insert([
+        //             ['round' => $i + 1, 'game_id' => 23, 'q_audio' => $word.".mp3"
+        //             ,'q_image' =>$word."image".".jpg" , 'q_content' => $word, 'q_extra' => $g1_l7_u6_rearrange_the_letter_q2[$i]],
+        //         ]);
+
+
+        //         DB::table('ans_n_ques')->insert([
+        //             ['round' => $i + 1, 'game_id' => 23, 'q_audio' => $word.".mp3"
+        //             ,'q_image' =>$word."image".".jpg" , 'q_content' => $word, 'q_extra' => $g1_l7_u6_rearrange_the_letter_q2[$i]],
+        //         ]);
+        //     }
+
+
+
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Lesson 17 Games
+    ////////////////////////////////////////////////////////
+
+
+    //    Grade 1  Lesson 17 Games 2 subunit 1
+    $bodyParts = ['Hair','Eye','Cheek','Lip','Tooth','Mouth','Chin'];
+    foreach ($bodyParts as $part) {
+          DB::table('ans_n_ques')->insert([
+                ['game_id' => 99, 'q_audio' => $part.".mp3"
+                ,'q_image' =>$part."image".".jpg" ],
+            ]);
+    }
+
+      //    Grade 1  Lesson 17 Games 2 subunit 2
+
+
+        $AZ = [ "don't touch your face", "don't touch your mouth",
+                "don't touch your nose", "Touch your cheek","Touch your ears",
+                "Touch your hair","Touch your Lips", "Touch your nose"
+            ];
+
+        foreach ($AZ as $key) {
+            DB::table('ans_n_ques')->insert([
+                ['game_id' => 100, 'a_content' => $key, 'a_image' => $az . $key . ".png", 'a_audio' => $AZ . $key . ".mp3"],
+            ]);
+        }
+
+
 
 
 

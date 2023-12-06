@@ -27,7 +27,7 @@ class CategorySeeder extends Seeder
             'matching_columns',
             'reading_conversation',
             'reading_two_columns',
-            'rearrange_a_sentence_with_audio',
+            'fill_in_the_blanks', // ***
             'speaking_and_recording',
             'reading_and_record_speaking',
             'listening_conversation_and_choosing_answer',
@@ -45,7 +45,7 @@ class CategorySeeder extends Seeder
             'mcq_tf_grammar',
 
             // Category for SubUnit games
-            'tracing_and_rearrange_subUnit'
+            'Subunit_category'
             // Category for SubUnit games End
         ];
 
