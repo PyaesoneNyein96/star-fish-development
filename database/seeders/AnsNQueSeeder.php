@@ -179,7 +179,29 @@ class AnsNQueSeeder extends Seeder
             }
         }
 
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 2 Game 10 ( matching )
+        ////////////////////////////////////////////////////////
 
+        $g1_l2_g10 = [
+
+            ['H','L','B','O','M'],
+            ['G','J','N','Q','T'],
+            ['P','S','C','F','K'],
+
+        ];
+
+        for ($i= 0 ; $i < count($g1_l2_g10) ; $i++) {
+
+            foreach ($g1_l2_g10[$i] as $q) {
+
+            DB::table('ans_n_ques')->insert([
+                ['game_id' => 10, 'round' => $i + 1,'q_content' => $q,
+                 'q_image' => $q,'q_audio' => $AtoZAudio.$prefix.strtoupper($q).".mp3",'a_content' => strtolower($q)]
+            ]);
+
+           }
+        }
 
 
         ////////////////////////////////////////////////////////
@@ -364,5 +386,48 @@ class AnsNQueSeeder extends Seeder
             ]);
             $G16Index++;
         }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 7 Game 38,39 (Sub Units)
+        ////////////////////////////////////////////////////////
+
+        $g1_l12_u22_trace_n_write = [
+            'G','H','e','f','g','h','F','E'
+        ];
+            foreach ($g1_l12_u22_trace_n_write as $i => $trace) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 22, 'q_audio' => $trace.".mp3"
+                    ,'q_image' =>$trace.".GIF",'q_content' => $trace],
+                ]);
+            }
+
+        $g1_l12_u22_rearrange_the_letter_q1 = [
+            'BALL','CAKE','DOG','DUSTER','APPLE','ANT'
+        ];
+
+        $g1_l12_u22_rearrange_the_letter_q2 = [
+            '_all','_ake','_og','_uster','_pple','_nt'
+        ];
+
+            foreach ($g1_l12_u22_rearrange_the_letter_q1 as $i => $word) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 23, 'q_audio' => $word.".mp3"
+                    ,'q_image' =>$word."image".".jpg" , 'q_content' => $word, 'q_extra' => $g1_l12_u22_rearrange_the_letter_q2[$i]],
+                ]);
+            }
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

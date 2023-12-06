@@ -52,16 +52,15 @@ class GameSeeder extends Seeder
             ['name' => 'Drag and Drop', 'unit_id' => 19],
             ['name' => 'Listen and Practice', 'unit_id' => 20],
             ['name' => 'Speaking Practice', 'unit_id' => 21],
-            // ['name' => 'trace and write', 'unit_id' => 23],
-            // ['name' => 'Write the correct letter', 'unit_id' => 23],
+            // ['name' => 'trace and write', 'unit_id' => 22],
+            // ['name' => 'Write the correct letter', 'unit_id' => 22],
 
         ]);
 
         DB::table('games')->insert([
-            ['name' => 'trace and write', 'unit_id' => 71, 'instructionGIF' => "trace and writ GIF"],
-            ['name' => 'Write the correct letter',  'unit_id' => 72, 'instructionGIF' => "Writ the correct Letter GIF"],
-            ['name' => 'trace and write', 'unit_id' => 71, 'instructionGIF' => "trace and writ GIF"],
-            ['name' => 'Write the correct letter',  'unit_id' => 72, 'instructionGIF' => "Writ the correct Letter GIF"],
+            ['name' => 'writing 1', 'unit_id' => 39, 'instructionGIF' => "trace and writ GIF",'category' => "letter_tracing"],
+            ['name' => 'writing 2',  'unit_id' => 39, 'instructionGIF' => "Writ the correct Letter GIF", 'category' => "rearrange_with_audio"],
+
         ]);
     }
 }

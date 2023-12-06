@@ -49,19 +49,23 @@ class GameInstructionSeeder extends Seeder
                 'content' => "Listen and pop the bubbles of alphabet", "game_id" => 9,
                 'audio' => $domain . $Instructions . "Listen-and-pop-the-bubbles-of-alphabet" . ".mp3"
             ],
-            // [
-            //     'content' => "Arranging the letters of alphabet in order", "game_id" => 11,
-            //     'audio' => $domain.$Grade1Instructions."Arranging-the-letters-of-alphabet-in-order".".mp3"
-            // ],
-
 
 
         ]);
 
-        // DB::table('game_instructions')->insert([
-        //     ['content' => "subOne GIF ......" ,"game_id" => 17 ,],
-        //     ['content' => "subTwo GIF ......" ,"game_id" => 18 ,],
-        // ]);
+            // DB::table('game_instructions')->insert([
+
+            // [
+            //     'content' => "Sub Game first Instructions", "game_id" => 22,
+            //     'audio' => $domain . $Instructions . "blah blah 1" . ".mp3"
+            // ],
+            // [
+            //     'content' => "Listen and pop the bubbles of alphabet", "game_id" => 22,
+            //     'audio' => $domain . $Instructions . "blah blah 2" . ".mp3"
+            // ],
+
+
+            // ]);
 
 
 
