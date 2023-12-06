@@ -29,8 +29,8 @@ return new class extends Migration
 
             $table->string('isLocal')->nullable();
 
-            $table->string('extra_1')->nullable();
-            $table->string('extra_2')->nullable();
+            $table->string('q_extra')->nullable();
+            $table->string('a_extra')->nullable();
             $table->timestamps();
         });
     }
