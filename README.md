@@ -67,7 +67,7 @@ Field (token ,lesson_id, grade_id, (Header))
 #### Spec-game
 
 Method (GET) [ https://star-fish.myanmargateway.net/api/game ](https://star-fish.myanmargateway.net/api/game)  
-Field (token ,unit_id, (Header))
+Field (token ,unit_id, lesson_id (Header)) - for subUnit (game_id)
 
 <!-- #### End-Match
 Method (GET) [https://star-fish.myanmargateway.net/api/end_match](https://star-fish.myanmargateway.net/api/end_match)
