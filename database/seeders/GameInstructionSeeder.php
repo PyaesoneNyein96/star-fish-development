@@ -34,6 +34,22 @@ class GameInstructionSeeder extends Seeder
             // G-1 lesson_3 U-15
             ['content' => "Arranging the conversation in order", 'game_id' => 15, 'audio' => $domain . $Instructions . "Arranging-the-conversation-in" . ".mp3"],
 
+            // G-1 lesson_3 U-16
+            ['content' => "Speaking Audio", 'game_id' => 16, 'audio' => $domain . $Instructions . "speaking_audio" . ".mp3"],
+
+            // G-1 lesson_4 U-19
+            ['content' => "Read listen and Repeat", 'game_id' => 19, 'audio' => $domain . $Instructions . "Read_listen_and_Repeat" . ".mp3"],
+
+            // G-1 lesson_4 U-20
+            ['content' => "Watch the animation of student introduction", 'game_id' => 20, 'audio' => $domain . $Instructions . "Watch-the-animation-of-student" . ".mp3"],
+
+            // G-1 lesson_5 U-25
+            ['content' => "Answer the question", 'game_id' => 25, 'audio' => $domain . $Instructions . "Answer-the-question" . ".mp3"],
+
+            // G-1 lesson_5 U-73
+            ['content' => "Put the objects in the correct places", 'game_id' => 75, 'audio' => $domain . $Instructions . "Put-the-objects-in-the-correct" . ".mp3"],
+
+
         ]);
 
         //////////////
