@@ -24,6 +24,7 @@ use Database\Seeders\CategorySeeder;
 use Illuminate\Support\Facades\Hash;
 use Database\Seeders\BackgroundSeeder;
 use Database\Seeders\ConversationSeeder;
+use Database\Seeders\PSNAnswerNQuestion;
 use Database\Seeders\StudentGradeSeeder;
 use Database\Seeders\GameInstructionSeeder;
 use Database\Seeders\SubscriptionPlanSeeder;
@@ -112,5 +113,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(RewardSeeder::class);
         $this->call(AnsNQueSeeder::class);
+        $this->call(PSNAnswerNQuestion::class);
     }
 }
