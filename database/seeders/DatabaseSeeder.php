@@ -31,7 +31,7 @@ use Database\Seeders\StudentGradeSeeder;
 use Database\Seeders\GameInstructionSeeder;
 use Database\Seeders\SubscriptionPlanSeeder;
 
-use Database\Seeders\PSNSeeder\PSNAnsNQuesSeeder as Grade1AnsNQueSeeder;
+use Database\Seeders\PSNSeeder\PSNAnsNQuesSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -120,5 +120,6 @@ class DatabaseSeeder extends Seeder
 
         // seeder 2
         $this->call(Grade1AnsNQueSeeder::class);
+        $this->call(PSNAnsNQuesSeeder::class);
     }
 }
