@@ -55,7 +55,7 @@ class UnitSeeder extends Seeder
 
             ['name' => 'Target Language & Grammar Explanation', 'lesson_id' => 5, 'category_id' => 1],
             ['name' => 'Listen and Practice', 'lesson_id' => 5, 'category_id' => 15],
-            ['name' => 'Read, Listen and Repeat', 'lesson_id' => 5, 'category_id' => null],
+            ['name' => 'Read, Listen and Repeat', 'lesson_id' => 5, 'category_id' => 8],
             ['name' => 'Reading Passage', 'lesson_id' => 5, 'category_id' => 16],
             ['name' => 'Speaking Practice', 'lesson_id' => 5, 'category_id' => 11],
             ['name' => 'Writing', 'lesson_id' => 5, 'category_id' => 14],

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Student;
+use Database\Seeders\AnsNQueSeed2\Grade1\AnsNQueSeeder as Grade1AnsNQueSeeder;
 use Illuminate\Database\Seeder;
 use Database\Seeders\CitySeeder;
 use Database\Seeders\GameSeeder;
@@ -112,5 +113,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(RewardSeeder::class);
         $this->call(AnsNQueSeeder::class);
+
+        // seeder 2
+        $this->call(Grade1AnsNQueSeeder::class);
     }
 }

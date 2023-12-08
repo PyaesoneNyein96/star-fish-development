@@ -125,7 +125,8 @@ class GameController extends Controller
     }
 
 
-    public function games(Request $request) {
+    public function games(Request $request)
+    {
 
         $student = Student::where('token', $request->header('token'))->first();
         $lesson = $request->header('lesson_id');
@@ -178,21 +179,27 @@ class GameController extends Controller
         $lesson_id = $request->header('lesson_id');
 
         $unit = Unit::where('id', $unit_id)->with('category')
-        ->where('lesson_id',$lesson_id)
-        ->first();
+            ->where('lesson_id', $lesson_id)
+            ->first();
 
 
-        if(!$unit) return "lesson and unit are not match.";
+        if (!$unit) return "lesson and unit are not match.";
 
-        $game = Game::with('instructions','audios','ans_n_ques',
-        'conversations','characters','background')->whereIn('id', $unit->games->pluck('id'))
-        ->where('status',1)->get();
+        $game = Game::with(
+            'instructions',
+            'audios',
+            'ans_n_ques',
+            'conversations',
+            'characters',
+            'background'
+        )->whereIn('id', $unit->games->pluck('id'))
+            ->where('status', 1)->get();
 
 
 
 
 
-        if ($game && method_exists($this,$unit->category['name'])) {
+        if ($game && method_exists($this, $unit->category['name'])) {
 
             $name = strval($unit->category['name']);
 
