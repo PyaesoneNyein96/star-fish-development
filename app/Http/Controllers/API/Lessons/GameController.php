@@ -181,15 +181,34 @@ class GameController extends Controller
         ->where('lesson_id',$lesson_id)
         ->first();
 
-
         if(!$unit) return "lesson and unit are not match.";
-
-        $game = Game::with('instructions','audios','ans_n_ques',
-        'conversations','characters','background')->whereIn('id', $unit->games->pluck('id'))
-        ->where('status',1)->get();
+        $gameUnit = Game::where('unit_id',$unit_id)->where('id',$request->header('game_id'))->first();
 
 
 
+        if($request->header('game_id') && $gameUnit){
+
+
+
+            $game = Game::with('instructions','audios','ans_n_ques',
+            'conversations','characters','background')->where('id',$request->header('game_id'))
+            ->where('status',1)->get();
+
+            $name = strval($game[0]->category);
+
+            if(!$name) return "this game is not subUnit game";
+
+            return $this->$name($game, $student, $unit);
+
+        } else if(!$request->header('game_id')){
+
+            $game = Game::with('instructions','audios','ans_n_ques',
+            'conversations','characters','background')->whereIn('id', $unit->games->pluck('id'))
+            ->where('status',1)->get();
+
+        }else{
+            return "game not found.";
+        }
 
 
         if ($game && method_exists($this,$unit->category['name'])) {
