@@ -317,7 +317,7 @@ trait gameTraits
             'lesson_id' => $unit->lesson_id,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
-            'background' => $game->background,
+            // 'background' => $game->background->count() == 0 ? null : $game->background,
             'data' => $game->ans_n_ques
         ];
         return $game;
