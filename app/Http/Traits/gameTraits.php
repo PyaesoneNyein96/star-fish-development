@@ -107,7 +107,6 @@ trait gameTraits
             'sub_unit' => $count == 1 ? false : true,
             'instructionGIF' => $game->instructionGIF,
             'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
-            'subUnit' => $count == 1 ? false : true,
             'data' => $songs->first()
         ];
 
