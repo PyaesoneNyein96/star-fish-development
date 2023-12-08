@@ -185,7 +185,9 @@ class GameController extends Controller
         $gameUnit = Game::where('unit_id',$unit_id)->where('id',$request->header('game_id'))->first();
 
 
+
         if($request->header('game_id') && $gameUnit){
+
 
 
             $game = Game::with('instructions','audios','ans_n_ques',
@@ -193,6 +195,8 @@ class GameController extends Controller
             ->where('status',1)->get();
 
             $name = strval($game[0]->category);
+
+            if(!$name) return "this game is not subUnit game";
 
             return $this->$name($game, $student, $unit);
 

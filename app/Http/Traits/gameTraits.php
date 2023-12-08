@@ -34,7 +34,7 @@ trait gameTraits
             'lesson_id' => $unit->lesson_id,
             'sub_unit'  => $games->count() < 1 ? true : false,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
             'data' => $game->ans_n_ques
         ];
 
@@ -71,7 +71,7 @@ trait gameTraits
             'lesson_id' => $unit->lesson_id,
             'sub_unit' => $count == 1 ? false : true,
             'instructionGIF' => $game->instructionGIF,
-            'instructions' => isset($game->instructions) ?  null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'data' => $videos->first()
         ];
 
@@ -106,7 +106,7 @@ trait gameTraits
             'lesson_id' => $unit->lesson_id,
             'sub_unit' => $count == 1 ? false : true,
             'instructionGIF' => $game->instructionGIF,
-            'instructions' => isset($game->instructions) ? null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'subUnit' => $count == 1 ? false : true,
             'data' => $songs->first()
         ];
@@ -132,7 +132,7 @@ trait gameTraits
             'lesson_id' => $unit->lesson_id,
             'sub_unit'  => $games->count() < 1 ? true : false,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'instructions' =>  !isset($game->instructions) ? null : $game->instructions,
             'rounds' => $rounds
         ];
 
@@ -159,7 +159,7 @@ trait gameTraits
             'lesson_id' => $unit->lesson_id,
             'sub_unit'  => $game->count() < 1 ? true : false,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $rounds
 
         ];
@@ -184,7 +184,7 @@ trait gameTraits
             'lesson_id' => $unit->lesson_id,
             'sub_unit'  => $games->count() < 1 ? true : false,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $rounds
         ];
 
@@ -209,7 +209,7 @@ trait gameTraits
             'lesson_id' => $unit->lesson_id,
             'sub_unit'  => $games->count() < 1 ? true : false,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $rounds
         ];
 
@@ -274,7 +274,7 @@ trait gameTraits
             'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $rounds
         ];
         return $game;
@@ -296,7 +296,7 @@ trait gameTraits
             'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $rounds
         ];
         return $game;
@@ -319,7 +319,7 @@ trait gameTraits
             'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
             'background' => $game->background,
             'data' => $game->ans_n_ques
         ];
