@@ -28,9 +28,7 @@ class GameSeeder extends Seeder
             ['name' => 'Writing', 'instructionGIF' => null, 'unit_id' => 5],
 
 
-        // lesson 2's games
-        DB::table('games')->insert([
-
+            // lesson 2's games
             ['name' => 'Video', 'instructionGIF' => null, 'unit_id' => 6],
             ['name' => 'Read and Practice', 'instructionGIF' => null, 'unit_id' => 7],
             ['name' => 'Song', 'instructionGIF' => null, 'unit_id' => 8],
@@ -39,9 +37,7 @@ class GameSeeder extends Seeder
             ['name' => 'Writing (Arrange Order)', 'instructionGIF' => null, 'unit_id' => 11],
 
 
-        // lesson 3's games
-        DB::table('games')->insert([
-
+            // lesson 3's games
             ['name' => 'Video', 'instructionGIF' => null, 'unit_id' => 12],
             ['name' => 'Read Listen and Repect', 'instructionGIF' => null, 'unit_id' => 13],
             ['name' => 'Listen and Practice', 'instructionGIF' => null, 'unit_id' => 14],
@@ -72,7 +68,7 @@ class GameSeeder extends Seeder
             ['name' => 'Writing', 'instructionGIF' => $instructionGif_path . "Re-arrange-in-order" . ".gif", 'unit_id' => 27],
 
         ]);
-            // // lesson 6's games
+        // // lesson 6's games
         DB::table('games')->insert([
 
             ['name' => 'Target Language & Grammar Explanation', 'instructionGIF' => null, 'unit_id' => 28],
@@ -83,7 +79,7 @@ class GameSeeder extends Seeder
             ['name' => 'Writing', 'instructionGIF' => null, 'unit_id' => 33],
         ]);
 
-            // // lesson 7's games
+        // // lesson 7's games
         DB::table('games')->insert([
 
             ['name' => 'Target Language & Grammar Explanation', 'instructionGIF' => null, 'unit_id' => 34, 'category' => null],
@@ -160,8 +156,10 @@ class GameSeeder extends Seeder
         ]);
 
         DB::table('games')->insert([
-              ['name' => 'writing 1', 'unit_id' => 69, 'instructionGIF' => "trace and writ GIF",
-            'category' => "letter_tracing"],
+            [
+                'name' => 'writing 1', 'unit_id' => 69, 'instructionGIF' => "trace and writ GIF",
+                'category' => "letter_tracing"
+            ],
 
             ['name' => 'writing 2',  'unit_id' => 69, 'instructionGIF' => "Writ the correct Letter GIF", 'category' => "fill_in_the_blanks"],
 
@@ -236,9 +234,5 @@ class GameSeeder extends Seeder
             ['name' => 'Listen and Act',  'instructionGIF' => null, 'unit_id' => 98, 'category' => null],
             ['name' => 'Speaking Practice',  'instructionGIF' => null, 'unit_id' => 99, 'category' => null],
         ]);
-
-
-
-
     }
 }
