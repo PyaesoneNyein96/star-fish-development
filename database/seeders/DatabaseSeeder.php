@@ -24,10 +24,14 @@ use Database\Seeders\CountrySeeder;
 use Database\Seeders\CategorySeeder;
 use Illuminate\Support\Facades\Hash;
 use Database\Seeders\BackgroundSeeder;
+
+
 use Database\Seeders\ConversationSeeder;
 use Database\Seeders\StudentGradeSeeder;
 use Database\Seeders\GameInstructionSeeder;
 use Database\Seeders\SubscriptionPlanSeeder;
+
+use Database\Seeders\PSNSeeder\PSNAnsNQuesSeeder as Grade1AnsNQueSeeder;
 
 class DatabaseSeeder extends Seeder
 {

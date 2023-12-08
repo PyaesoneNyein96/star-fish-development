@@ -18,9 +18,8 @@ class GameSeeder extends Seeder
 
         $instructionGif_path = $domain . "/storage/InstructionGif/";
 
+        // lesson 1's games
         DB::table('games')->insert([
-
-            // lesson 1's games
 
             ['name' => 'Video', 'instructionGIF' => null, 'unit_id' => 1],
             ['name' => 'Read and Practice', 'instructionGIF' => null, 'unit_id' => 2],
@@ -29,7 +28,8 @@ class GameSeeder extends Seeder
             ['name' => 'Writing', 'instructionGIF' => null, 'unit_id' => 5],
 
 
-            // lesson 2's games
+        // lesson 2's games
+        DB::table('games')->insert([
 
             ['name' => 'Video', 'instructionGIF' => null, 'unit_id' => 6],
             ['name' => 'Read and Practice', 'instructionGIF' => null, 'unit_id' => 7],
@@ -39,7 +39,8 @@ class GameSeeder extends Seeder
             ['name' => 'Writing (Arrange Order)', 'instructionGIF' => null, 'unit_id' => 11],
 
 
-            // lesson 3's games
+        // lesson 3's games
+        DB::table('games')->insert([
 
             ['name' => 'Video', 'instructionGIF' => null, 'unit_id' => 12],
             ['name' => 'Read Listen and Repect', 'instructionGIF' => null, 'unit_id' => 13],
@@ -47,7 +48,10 @@ class GameSeeder extends Seeder
             ['name' => 'Writing (Arrange Order)', 'instructionGIF' => $instructionGif_path . "Re-arrange-in-order" . ".gif", 'unit_id' => 15],
             ['name' => 'Speaking', 'instructionGIF' => $instructionGif_path . "Speaking" . ".gif", 'unit_id' => 16],
 
-            // lesson 4's games
+        ]);
+
+        // lesson 4's games
+        DB::table('games')->insert([
 
             ['name' => 'Video', 'instructionGIF' => null, 'unit_id' => 17],
             ['name' => 'Read Listen and Repect', 'instructionGIF' => null, 'unit_id' => 18],
@@ -55,7 +59,10 @@ class GameSeeder extends Seeder
             ['name' => 'Listen and Practice', 'instructionGIF' => null, 'unit_id' => 20],
             ['name' => 'Writing (Arrange Order)', 'instructionGIF' => $instructionGif_path . "Re-arrange-in-order" . ".gif", 'unit_id' => 21],
 
-            // lesson 5's games
+        ]);
+
+        // // lesson 5's games
+        DB::table('games')->insert([
 
             ['name' => 'Target Language & Grammar Explanation', 'instructionGIF' => null, 'unit_id' => 22],
             ['name' => 'Listen and Practice', 'instructionGIF' => null, 'unit_id' => 23],
@@ -64,7 +71,9 @@ class GameSeeder extends Seeder
             ['name' => 'Speaking Practice', 'instructionGIF' => $instructionGif_path . "Speaking" . ".gif", 'unit_id' => 26],
             ['name' => 'Writing', 'instructionGIF' => $instructionGif_path . "Re-arrange-in-order" . ".gif", 'unit_id' => 27],
 
-            // lesson 6's games
+        ]);
+            // // lesson 6's games
+        DB::table('games')->insert([
 
             ['name' => 'Target Language & Grammar Explanation', 'instructionGIF' => null, 'unit_id' => 28],
             ['name' => 'Reading', 'instructionGIF' => null, 'unit_id' => 29],
@@ -74,8 +83,8 @@ class GameSeeder extends Seeder
             ['name' => 'Writing', 'instructionGIF' => null, 'unit_id' => 33],
         ]);
 
+            // // lesson 7's games
         DB::table('games')->insert([
-            // lesson 7's games
 
             ['name' => 'Target Language & Grammar Explanation', 'instructionGIF' => null, 'unit_id' => 34, 'category' => null],
             ['name' => 'Read, Listen and Repeat', 'instructionGIF' => null, 'unit_id' => 35, 'category' => null],
@@ -86,8 +95,8 @@ class GameSeeder extends Seeder
             ['name' => 'Writing 2', 'instructionGIF' => null, 'unit_id' => 39,  'category' => "rearrange_with_audio"],
         ]);
 
+        // // lesson 8's games
         DB::table('games')->insert([
-            // lesson 8's games
 
             ['name' => 'Video', 'instructionGIF' => null, 'unit_id' => 40],
             ['name' => 'Read', 'instructionGIF' => null, 'unit_id' => 41],
@@ -97,7 +106,10 @@ class GameSeeder extends Seeder
             ['name' => 'Reading Passage', 'instructionGIF' => null, 'unit_id' => 45],
             ['name' => 'Writing', 'instructionGIF' => null, 'unit_id' => 46],
 
-            // lesson 9's games
+        ]);
+
+        // // lesson 9's games
+        DB::table('games')->insert([
 
             ['name' => 'Target Language', 'instructionGIF' => null, 'unit_id' => 47],
             ['name' => 'Reading', 'instructionGIF' => null, 'unit_id' => 48],
@@ -126,7 +138,17 @@ class GameSeeder extends Seeder
         ]);
 
         DB::table('games')->insert([
-            // lesson 12's games
+
+            ['name' => 'Target Language & Grammar Explanation', 'unit_id' => 59],
+            ['name' => 'Read, Listen and Repeat', 'unit_id' => 60],
+            ['name' => 'Listen and Practice', 'unit_id' => 61],
+            ['name' => 'Matching', 'unit_id' => 62],
+            ['name' => 'Speaking Practice', 'unit_id' => 63],
+            ['name' => 'Reading Passage', 'unit_id' => 64],
+        ]);
+
+        // lesson 12's games
+        DB::table('games')->insert([
 
             ['name' => 'Target Language',  'unit_id' => 65, 'instructionGIF' => null, 'category' => null],
             ['name' => 'Reading',  'unit_id' => 66, 'instructionGIF' => null, 'category' => null],
@@ -138,7 +160,17 @@ class GameSeeder extends Seeder
         ]);
 
         DB::table('games')->insert([
-            // lesson 13's games
+              ['name' => 'writing 1', 'unit_id' => 69, 'instructionGIF' => "trace and writ GIF",
+            'category' => "letter_tracing"],
+
+            ['name' => 'writing 2',  'unit_id' => 69, 'instructionGIF' => "Writ the correct Letter GIF", 'category' => "fill_in_the_blanks"],
+
+        ]);
+
+
+
+        // // lesson 13's games
+        DB::table('games')->insert([
 
             ['name' => 'Target Language & Grammar Explanation',  'instructionGIF' => null, 'unit_id' => 71],
             ['name' => 'Reading, Listen and Repeat',  'instructionGIF' => null, 'unit_id' => 72],
@@ -156,8 +188,20 @@ class GameSeeder extends Seeder
 
         ]);
 
+        // // lesson 15's games
         DB::table('games')->insert([
-            // lesson 15's games
+
+            ['name' => 'Target Language & Grammar Explanation', 'unit_id' => 15, 'category' => null],
+            ['name' => 'Listen, Reading and Repeat', 'unit_id' => 15, 'category' => 'listening_and_search_items'], // temporary
+            ['name' => 'Listen and Practice', 'unit_id' => 15, 'category' => "mcq_grammar"], // temporary
+            ['name' => 'Grammar', 'unit_id' => 15, 'category' => null],
+            ['name' => 'Speaking Practice', 'unit_id' => 15, 'category' => null],
+            ['name' => 'Reading', 'unit_id' => 15, 'category' => null],
+
+        ]);
+
+        // // lesson 16's games
+        DB::table('games')->insert([
 
             ['name' => 'Target Language & Grammar Explanation',  'instructionGIF' => null, 'unit_id' => 82, 'category' => null],
             ['name' => 'Reading 1',  'instructionGIF' => null, 'unit_id' => 83, 'category' => "reading_conversation"],
@@ -179,7 +223,10 @@ class GameSeeder extends Seeder
             ['name' => 'writing 1', 'instructionGIF' => null, 'unit_id' => 93, 'category' => "letter_tracing"],
             ['name' => 'writing 2',  'instructionGIF' => null, 'unit_id' => 93, 'category' => "fill_in_the_blanks"],
 
-            // lesson 17's games
+        ]);
+
+        // // lesson 17's games
+        DB::table('games')->insert([
 
             ['name' => 'Target Language',  'instructionGIF' => null, 'unit_id' => 94, 'category' => null],
             ['name' => 'Reading 1',  'instructionGIF' => null, 'unit_id' => 95, 'category' => "reading_diagram"],
@@ -189,5 +236,9 @@ class GameSeeder extends Seeder
             ['name' => 'Listen and Act',  'instructionGIF' => null, 'unit_id' => 98, 'category' => null],
             ['name' => 'Speaking Practice',  'instructionGIF' => null, 'unit_id' => 99, 'category' => null],
         ]);
+
+
+
+
     }
 }
