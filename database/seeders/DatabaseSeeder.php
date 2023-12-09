@@ -26,12 +26,11 @@ use Database\Seeders\BackgroundSeeder;
 
 
 use Database\Seeders\ConversationSeeder;
-use Database\Seeders\PSNAnswerNQuestion;
 use Database\Seeders\StudentGradeSeeder;
 use Database\Seeders\GameInstructionSeeder;
 use Database\Seeders\SubscriptionPlanSeeder;
 
-use Database\Seeders\PSNSeeder\PSNAnsNQuesSeeder as Grade1AnsNQueSeeder;
+use Database\Seeders\PSNSeeder\PSNAnsNQuesSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -116,9 +115,9 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(RewardSeeder::class);
-        $this->call(AnsNQueSeeder::class);
 
-        $this->call(Grade1AnsNQueSeeder::class);
+        //PSN
+        $this->call(PSNAnsNQuesSeeder::class);
 
     }
 }

@@ -9,12 +9,18 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $hidden = ['pivot','created_at', 'updated_at','category_id','type'];
+    protected $hidden = ['pivot','created_at', 'updated_at','type'];
 
     protected $fillable = [
         'name',
         'type',
     ];
+
+    public function games()
+    {
+        return $this->hasMany(Game::class);
+    }
+
 
 
     public function toArray(){
