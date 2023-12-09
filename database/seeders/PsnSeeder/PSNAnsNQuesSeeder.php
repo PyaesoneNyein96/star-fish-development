@@ -262,16 +262,23 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         ////////////////////////////////////////////////////////
-        ////    Grade 1  Lesson 7 Game 38,39 (Sub Units) <letter_tracing>
-
+        ////    Grade 1  Lesson 7 Games  (Sub Units) <letter_tracing>
+        $imgDomain = $ImageDomain."Grade_1/Lesson_7/Writing_Sentences_order/";
 
         $g1_l7_u6_trace_n_write = [
-            'G','H','e','f','g','h','F','E'
+            // 'G','H','e','f','g','h','F','E'
+            'C','D','a','b','c','d','B','A'
         ];
             foreach ($g1_l7_u6_trace_n_write as $i => $trace) {
                 DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 39, 'q_audio' => $AtoZAudio.$trace.".mp3"
-                    ,'q_image' =>$trace.".GIF",'q_content' => $trace],
+                    [
+                        'round' => $i + 1, 'game_id' => 39,
+                        'q_audio' => $AtoZAudio.$prefix.strtoupper($trace).".mp3",
+                        'a_content' => $trace,
+                        'q_content' => ctype_lower($trace) ?  $imgDomain."dotted_small_".$trace.".png" : $imgDomain."dotted_".$trace.".png",
+                        // 'q_image' => $imgDomain.$trace.".png",
+                        'q_image' => ctype_lower($trace) ?  $imgDomain."small_".$trace.".png" : $imgDomain.$trace.".png",
+                    ],
                 ]);
             }
         // -------------------
@@ -345,13 +352,26 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
     //    Grade 1  Lesson 17 Games 2 subunit 1
-    $bodyParts = ['Hair','Eye','Cheek','Lip','Tooth','Mouth','Chin'];
+    $bodyParts = ['Hair','Eye_Null','Cheek','Lip','Teeth','Mouth','Chin'];
+
+    $audioDomainPath = $AudioDomain."Grade_1/Lesson_17/Listen_and_Repeat/";
+    $G1L17ImgDomain = $ImageDomain."Grade_1/Lesson_17/Listen_and_Repeat/";
+
+
     foreach ($bodyParts as $part) {
-          DB::table('ans_n_ques')->insert([
-                ['game_id' => 99, 'q_audio' => $part.".mp3"
-                ,'q_image' =>$part."image".".jpg" ],
-            ]);
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 99,
+                'q_audio' => $audioDomainPath.$part.".mp3",
+                'q_image' =>$G1L17ImgDomain.$part.".png",
+                'q_content' => $part
+
+            ],
+        ]);
     }
+        DB::table('ans_n_ques')->insert([
+            ['game_id' => 99, 'background' => $backgroundDomain."G1_L17_U2_head_bg".".png" ]
+        ]);
 
       //    Grade 1  Lesson 17 Games 2 subunit 2
 
