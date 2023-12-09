@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('type')->nullable();
 
             $table->string('isLocal')->nullable();
+            $table->string('background')->nullable();
 
             $table->string('q_extra')->nullable();
             $table->string('a_extra')->nullable();

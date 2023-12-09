@@ -39,7 +39,7 @@ class UnitSeeder extends Seeder
             ['name' => 'Video', 'lesson_id' => 3, 'category_id' => 1],
             ['name' => 'Read Listen & Repeat', 'lesson_id' => 3, 'category_id' => 8],
             ['name' => 'Listen and practice', 'lesson_id' => 3, 'category_id' => 9],
-            ['name' => 'Writing (Arranging Order)', 'lesson_id' => 3, 'category_id' => 10],
+            ['name' => 'Writing (Arranging Order)', 'lesson_id' => 3, 'category_id' => 14],
             ['name' => 'Speaking', 'lesson_id' => 3, 'category_id' => 11],
 
 
@@ -76,7 +76,7 @@ class UnitSeeder extends Seeder
             ['name' => 'Listen and Practice', 'lesson_id' => 7, 'category_id' => 17],
             ['name' => 'Matching', 'lesson_id' => 7, 'category_id' => 7],
             ['name' => 'Speaking Practice', 'lesson_id' => 7, 'category_id' => 11],
-            ['name' => 'Writing Sentences order 6', 'lesson_id' => 7, 'category_id' => 26],
+            ['name' => 'Writing Sentences order', 'lesson_id' => 7, 'category_id' => 26], // <<<<====
 
             // // lesson 8's units
 

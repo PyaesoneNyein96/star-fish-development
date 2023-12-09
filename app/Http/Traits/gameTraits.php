@@ -34,7 +34,7 @@ trait gameTraits
             'lesson_id' => $unit->lesson_id,
             'sub_unit'  => $games->count() < 1 ? true : false,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
             'data' => $game->ans_n_ques
         ];
 
@@ -71,7 +71,7 @@ trait gameTraits
             'lesson_id' => $unit->lesson_id,
             'sub_unit' => $count == 1 ? false : true,
             'instructionGIF' => $game->instructionGIF,
-            'instructions' => isset($game->instructions) ?  null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'data' => $videos->first()
         ];
 
@@ -106,8 +106,7 @@ trait gameTraits
             'lesson_id' => $unit->lesson_id,
             'sub_unit' => $count == 1 ? false : true,
             'instructionGIF' => $game->instructionGIF,
-            'instructions' => isset($game->instructions) ? null : $game->instructions,
-            'subUnit' => $count == 1 ? false : true,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'data' => $songs->first()
         ];
 
@@ -132,7 +131,7 @@ trait gameTraits
             'lesson_id' => $unit->lesson_id,
             'sub_unit'  => $games->count() < 1 ? true : false,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'instructions' =>  !isset($game->instructions) ? null : $game->instructions,
             'rounds' => $rounds
         ];
 
@@ -159,7 +158,7 @@ trait gameTraits
             'lesson_id' => $unit->lesson_id,
             'sub_unit'  => $game->count() < 1 ? true : false,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $rounds
 
         ];
@@ -172,7 +171,7 @@ trait gameTraits
     public function listening_and_choosing_clouds_two($games, $student, $unit)
     {
 
-       $game = $games[0];
+        $game = $games[0];
 
         $rounds =  $game->ans_n_ques->groupBy('round')->values();
 
@@ -184,7 +183,7 @@ trait gameTraits
             'lesson_id' => $unit->lesson_id,
             'sub_unit'  => $games->count() < 1 ? true : false,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $rounds
         ];
 
@@ -209,12 +208,11 @@ trait gameTraits
             'lesson_id' => $unit->lesson_id,
             'sub_unit'  => $games->count() < 1 ? true : false,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $rounds
         ];
 
         return $game;
-
     }
 
 
@@ -255,13 +253,12 @@ trait gameTraits
             'games' => $gamesData,
 
         ];
-
-
     }
 
 
 
-    public function letter_tracing($game, $student,$unit){
+    public function letter_tracing($game, $student, $unit)
+    {
 
         if(isset($game[0])) $game = $game[0];
 
@@ -274,7 +271,7 @@ trait gameTraits
             'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $rounds
         ];
         return $game;
@@ -296,7 +293,7 @@ trait gameTraits
             'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
+            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $rounds
         ];
         return $game;
@@ -319,8 +316,8 @@ trait gameTraits
             'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  isset($game->instructions) ? null : $game->instructions,
-            'background' => $game->background,
+            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
+            // 'background' => $game->background->count() == 0 ? null : $game->background,
             'data' => $game->ans_n_ques
         ];
         return $game;
