@@ -152,6 +152,7 @@ class PSNAnsNQuesSeeder extends Seeder
         }
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
           ///////////////////////////////////////////////////////
         ////    Grade 1  Lesson 2 Game 7 ( no round )
@@ -160,7 +161,7 @@ class PSNAnsNQuesSeeder extends Seeder
         $az = range("A", "Z");
         foreach ($az as $key) {
             DB::table('ans_n_ques')->insert([
-                ['game_id' => 7, 'a_content' => $key, 'a_image' => $ImageDomainAZ_small . $key . ".png", 'a_audio' => $AtoZAudio . $prefix . $key . ".mp3"],
+                ['game_id' => 7, 'a_content' =>strtolower($key)  , 'a_image' => $ImageDomainAZ_small . $key . ".png", 'a_audio' => $AtoZAudio . $prefix . $key . ".mp3"],
             ]);
         }
 
@@ -361,7 +362,7 @@ class PSNAnsNQuesSeeder extends Seeder
     foreach ($bodyParts as $part) {
         DB::table('ans_n_ques')->insert([
             [
-                'game_id' => 99,
+                'game_id' => 115,
                 'q_audio' => $audioDomainPath.$part.".mp3",
                 'q_image' =>$G1L17ImgDomain.$part.".png",
                 'q_content' => $part
@@ -370,7 +371,7 @@ class PSNAnsNQuesSeeder extends Seeder
         ]);
     }
         DB::table('ans_n_ques')->insert([
-            ['game_id' => 99, 'background' => $backgroundDomain."G1_L17_U2_head_bg".".png" ]
+            ['game_id' => 115, 'background' => $backgroundDomain."G1_L17_U2_head_bg".".png" ]
         ]);
 
       //    Grade 1  Lesson 17 Games 2 subunit 2
@@ -383,7 +384,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
         foreach ($instructions as $key) {
             DB::table('ans_n_ques')->insert([
-                ['game_id' => 100, 'a_content' => $key, 'a_image' => $key . ".png", 'a_audio' =>  $key . ".mp3"],
+                ['game_id' => 116, 'a_content' => $key, 'a_image' => $key . ".png", 'a_audio' =>  $key . ".mp3"],
             ]);
         }
 

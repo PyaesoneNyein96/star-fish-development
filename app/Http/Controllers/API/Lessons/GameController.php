@@ -125,7 +125,7 @@ class GameController extends Controller
     }
 
 
-    public function games(Request $request)
+    public function games(Request $request) //Units
     {
 
         $student = Student::where('token', $request->header('token'))->first();
@@ -134,6 +134,7 @@ class GameController extends Controller
 
 
         ////////////////////////////////////////////////////////////////////////////
+
         // $gradeId = Lesson::where('id', $lesson)->pluck('grade_id')->first();
 
         DB::beginTransaction();
@@ -146,9 +147,12 @@ class GameController extends Controller
                 ]);
             }
 
-            $allGame = Unit::where('lesson_id', $lesson)->get();
+            $lesson_id = Lesson::where('grade_id', $gradeId)->where('id',$lesson)->pluck('id')->first();
+
+            $allGame = Unit::where('lesson_id', $lesson_id)->get();
 
             $studentUnits = $student->units;
+
 
             $units = $allGame->map(function ($unit) use ($studentUnits, $lesson, $gradeId) {
                 return [
@@ -157,7 +161,8 @@ class GameController extends Controller
                     'name' => $unit->name,
                     'grade_id' => $gradeId,
                     'complete' => $studentUnits->contains('id', $unit->id),
-                    'category' => $unit->category['name']
+                    'category' => $unit->category['name'],
+                    'sub_unit' => $unit->games->count() > 1 ? true : false
                 ];
             });
 
