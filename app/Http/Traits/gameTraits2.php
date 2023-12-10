@@ -27,11 +27,12 @@ trait gameTraits2
 
         return [
             'game_id' => $game->id,
-            'game_name' => $game->name,
-            'game_status' => $game->status,
-            'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'game_status' => $game->status,
             'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' => !$game->instructions ? null : $game->instructions,
             'rounds' => $rounds
@@ -47,11 +48,12 @@ trait gameTraits2
 
         return [
             'game_id' => $game->id,
-            'game_name' => $game->name,
-            'game_status' => $game->status,
-            'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'game_status' => $game->status,
             'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' => !$game->instructions ? null : $game->instructions,
             'rounds' => $rounds
@@ -67,11 +69,12 @@ trait gameTraits2
 
         return [
             'game_id' => $game->id,
-            'game_name' => $game->name,
-            'game_status' => $game->status,
-            'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'game_status' => $game->status,
             'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' => !$game->instructions ? null : $game->instructions,
             'rounds' => $rounds
@@ -87,15 +90,21 @@ trait gameTraits2
 
         return [
             'game_id' => $game->id,
-            'game_name' => $game->name,
-            'game_status' => $game->status,
-            'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'game_status' => $game->status,
             'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' => !$game->instructions ? null : $game->instructions,
             'rounds' => $rounds
         ];
+
+
+
+
+
     }
 
     // reading_passage
@@ -107,11 +116,12 @@ trait gameTraits2
 
         return [
             'game_id' => $game->id,
-            'game_name' => $game->name,
-            'game_status' => $game->status,
-            'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'game_status' => $game->status,
             'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' => !$game->instructions ? null : $game->instructions,
             'rounds' => $rounds
@@ -127,14 +137,17 @@ trait gameTraits2
 
         return [
             'game_id' => $game->id,
-            'game_name' => $game->name,
-            'game_status' => $game->status,
-            'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'game_status' => $game->status,
             'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' => !$game->instructions ? null : $game->instructions,
             'rounds' => $rounds
         ];
     }
+
+
 }
