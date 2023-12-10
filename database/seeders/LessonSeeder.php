@@ -47,7 +47,6 @@ class LessonSeeder extends Seeder
         }
 
 
-
         $grades = 4;
         $lessons =  range(1,40);
 
@@ -56,8 +55,6 @@ class LessonSeeder extends Seeder
                 ['name' => $l, 'grade_id' => $grades]
             ]);
         }
-
-
 
 
 
