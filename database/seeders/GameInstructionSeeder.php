@@ -49,51 +49,42 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Arranging the letters of alphabet in order", 'game_id' => 11, 'audio' =>  $Instructions . "Arranging-the-letters-of-alphabet-in-order" . ".mp3"],
 
 
-
-
-
-
-
             // G-1 lesson_3 U-15
-            ['content' => "Arranging the conversation in order", 'game_id' => 15, 'audio' => $domain . $Instructions . "Arranging-the-conversation-in" . ".mp3"],
+            ['content' => "Arranging the conversation in order", 'game_id' => 15, 'audio' =>  $Instructions . "Arranging-the-conversation-in" . ".mp3"],
 
             // G-1 lesson_3 U-16
-            ['content' => "Speaking Audio", 'game_id' => 16, 'audio' => $domain . $Instructions . "speaking_audio" . ".mp3"],
+            ['content' => "Speaking Audio", 'game_id' => 16, 'audio' =>  $Instructions . "speaking_audio" . ".mp3"],
 
             // G-1 lesson_4 U-19
-            ['content' => "Read listen and Repeat", 'game_id' => 19, 'audio' => $domain . $Instructions . "Read_listen_and_Repeat" . ".mp3"],
+            ['content' => "Read listen and Repeat", 'game_id' => 19, 'audio' => $Instructions . "Read_listen_and_Repeat" . ".mp3"],
 
             // G-1 lesson_4 U-20
-            ['content' => "Watch the animation of student introduction", 'game_id' => 20, 'audio' => $domain . $Instructions . "Watch-the-animation-of-student" . ".mp3"],
+            ['content' => "Watch the animation of student introduction", 'game_id' => 20, 'audio' =>  $Instructions . "Watch-the-animation-of-student" . ".mp3"],
 
             // G-1 lesson_5 U-25
-            ['content' => "Answer the question", 'game_id' => 25, 'audio' => $domain . $Instructions . "Answer-the-question" . ".mp3"],
+            ['content' => "Answer the question", 'game_id' => 25, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
 
             // G-1 lesson_5 U-73
-            ['content' => "Put the objects in the correct places", 'game_id' => 75, 'audio' => $domain . $Instructions . "Put-the-objects-in-the-correct" . ".mp3"],
+            ['content' => "Put the objects in the correct places", 'game_id' => 75, 'audio' =>  $Instructions . "Put-the-objects-in-the-correct" . ".mp3"],
+
+            // G-1 lesson_7 U-39
+            // Game 39,40
+            [ 'content' => "Trace-and-write", "game_id" => 39,'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+            ['content' => "Write-the-correct-letter", "game_id" => 40,'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
+
 
             // G-1 lesson_17 U-98
-            ['content' => "Listen and Act", 'game_id' => 105, 'audio' => $domain . $Instructions . "Listen-and-Act" . ".mp3"],
+            ['content' => "Listen and Act", 'game_id' => 105, 'audio' => $Instructions . "Listen-and-Act" . ".mp3"],
+
+            // G-1 lesson_17 U-102
+            ['content' => "Listen and put the body parts in the correct place.", 'game_id' => 102,
+             'audio' =>  $Instructions . "Listen-and-put-the-body-parts-in-the-correct-place" . ".mp3"],
 
 
         ]);
 
-        //////////////
 
 
-        // DB::table('game_instructions')->insert([
-
-        //     [
-        //         'content' => "Reading-the-alphabet-and-repeat-after-each", "game_id" => 7,
-        //         'audio' =>  $Instructions . "Reading-the-alphabet-and-repeat-after-each" . ".mp3"
-        //     ],
-        //     [
-        //         'content' => "Listen and pop the bubbles of alphabet", "game_id" => 9,
-        //         'audio' =>  $Instructions . "Listen-and-pop-the-bubbles-of-alphabet" . ".mp3"
-        //     ],
-
-
-        // ]);
 
 
 
