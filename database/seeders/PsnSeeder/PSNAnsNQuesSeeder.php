@@ -408,7 +408,7 @@ class PSNAnsNQuesSeeder extends Seeder
        $quesCharImg = ["Touch your cheek", "Touch your ear", "Don't touch your mouth","Don't touch your eye"];
        $quesCharAudio = ["Touch-your-cheek", "Touch-your-ear", "Dont-touch-your-mouth","Dont-touch-your-eyes"];
        $charContent = [
-            ["pink_girl","blue_girl"], //1
+            ["pink_girl","blue_girl"], //2
             ["pink_girl_ear","blue_girl_mouth"], //1
             ["blue_girl_cheek","blue_girl_mouth"],  //1
             ["blue_girl_eye","orange_boy"], //2
@@ -420,24 +420,24 @@ class PSNAnsNQuesSeeder extends Seeder
 
        DB::table('ans_n_ques')->insert([
             ["game_id" => 105 , "round"=> 1, "q_image" => "starFishImage", "q_content" => "Touch your cheek", "q_audio" => $qAudio.$quesCharAudio[0].".mp3",
-            "a_image" => $qImg.$charContent[0][0].".png", "a_content" => 1],
+            "a_image" => $qImg.$charContent[0][0].".png", "a_content" => 0],
             ["game_id" => 105, "round"=> 1, "q_image" => null, "q_content" => null, "q_audio" => null,
-            "a_image"  => $charContent[0][1].".png","a_content" => 0],
+            "a_image"  => $qImg.$charContent[0][1].".png","a_content" => 1],
 
             ["game_id" => 105, "round"=> 2, "q_image" => "starFishImage", "q_content" => "Touch your ear", "q_audio" => $qAudio.$quesCharAudio[1].".mp3",
             "a_image" => $qImg.$charContent[1][0].".png", "a_content" => 1],
             ["game_id" => 105, "round"=> 2, "q_image" => null, "q_content" => null, "q_audio" => null,
-            "a_image"  => $charContent[1][1].".png","a_content" => 0],
+            "a_image"  => $qImg.$charContent[1][1].".png","a_content" => 0],
 
             ["game_id" => 105, "round"=> 3, "q_image" => "starFishImage", "q_content" => "Don't touch your mouth", "q_audio" => $qAudio.$quesCharAudio[2].".mp3",
             "a_image" => $qImg.$charContent[2][0].".png", "a_content" => 1],
             ["game_id" => 105, "round"=> 3, "q_image" => null, "q_content" => null, "q_audio" => null,
-            "a_image"  => $charContent[2][1].".png","a_content" => 0],
+            "a_image"  => $qImg.$charContent[2][1].".png","a_content" => 0],
 
             ["game_id" => 105, "round"=> 4, "q_image" => "starFishImage", "q_content" => "Don't touch your eye", "q_audio" => $qAudio.$quesCharAudio[3].".mp3",
             "a_image" => $qImg.$charContent[3][0].".png", "a_content" => 0],
             ["game_id" => 105, "round"=> 4, "q_image" => null, "q_content" => null, "q_audio" => null,
-            "a_image"  => $charContent[3][1].".png","a_content" => 1],
+            "a_image"  => $qImg.$charContent[3][1].".png","a_content" => 1],
 
        ]);
 

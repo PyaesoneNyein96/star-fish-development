@@ -52,10 +52,10 @@ class GameInstructionSeeder extends Seeder
 
             // ================
             // G-1 lesson_3 U-13
-            ['content' => "Read each sentence", 'game_id' => 13, 'audio' => $domain . $Instructions . "Read-each-sentence" . ".mp3"],
+            ['content' => "Read each sentence", 'game_id' => 13, 'audio' =>  $Instructions . "Read-each-sentence" . ".mp3"],
 
             // G-1 lesson_3 U-14
-            ['content' => "Watch the animation of student introduction", 'game_id' => 14, 'audio' => $domain . $Instructions . "Watch-the-animation-of-student" . ".mp3"],
+            ['content' => "Watch the animation of student introduction", 'game_id' => 14, 'audio' =>  $Instructions . "Watch-the-animation-of-student" . ".mp3"],
 
             // G-1 lesson_3 U-15
             ['content' => "Arranging the conversation in order", 'game_id' => 15, 'audio' =>  $Instructions . "Arranging-the-conversation-in" . ".mp3"],
@@ -66,7 +66,7 @@ class GameInstructionSeeder extends Seeder
 
             // ================
             // G-1 lesson_4 U-18
-            ['content' => "Read listen and Repeat", 'game_id' => 18, 'audio' => $domain . $Instructions . "audio" . ".mp3"],
+            ['content' => "Read listen and Repeat", 'game_id' => 18, 'audio' =>  $Instructions . "audio" . ".mp3"],
 
             // G-1 lesson_4 U-19
             ['content' => "Read listen and Repeat", 'game_id' => 19, 'audio' => $Instructions . "audio" . ".mp3"],
@@ -75,24 +75,24 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Watch the animation of student introduction", 'game_id' => 20, 'audio' =>  $Instructions . "Watch-the-animation-of-student" . ".mp3"],
 
             // G-1 lesson_4 U-21
-            ['content' => "Arranging the words in order for each sentence", 'game_id' => 21, 'audio' => $domain . $Instructions . "Arranging-the-words-in-order-f" . ".mp3"],
+            ['content' => "Arranging the words in order for each sentence", 'game_id' => 21, 'audio' =>  $Instructions . "Arranging-the-words-in-order-f" . ".mp3"],
 
 
             // ================
             // G-1 lesson_5 U-23
-            ['content' => "Listen and choose the correct picture of morning, afternoon and evening", 'game_id' => 23, 'audio' => $domain . $Instructions . "_Listen-and-choose-the-correct" . ".mp3"],
+            ['content' => "Listen and choose the correct picture of morning, afternoon and evening", 'game_id' => 23, 'audio' =>  $Instructions . "_Listen-and-choose-the-correct" . ".mp3"],
 
             // G-1 lesson_5 U-24
-            ['content' => "Read Listen and repeat after it.", 'game_id' => 24, 'audio' => $domain . $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
+            ['content' => "Read Listen and repeat after it.", 'game_id' => 24, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
 
             // G-1 lesson_5 U-25
             ['content' => "Answer the question", 'game_id' => 25, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
 
             // G-1 lesson_5 U-26
-            ['content' => "Speaking Audio", 'game_id' => 26, 'audio' => $domain . $Instructions . "audio" . ".mp3"],
+            ['content' => "Speaking Audio", 'game_id' => 26, 'audio' =>  $Instructions . "audio" . ".mp3"],
 
             // G-1 lesson_5 U-27
-            ['content' => "Arranging the conversation in order", 'game_id' => 27, 'audio' => $domain . $Instructions . "Arranging-the-conversation-in" . ".mp3"],
+            ['content' => "Arranging the conversation in order", 'game_id' => 27, 'audio' =>  $Instructions . "Arranging-the-conversation-in" . ".mp3"],
 
 
             // ================

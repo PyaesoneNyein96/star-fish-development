@@ -402,34 +402,34 @@ class UnitSeeder extends Seeder
 
 
 
-          // Grade 2 Units
-          DB::table('units')->insert([
-            ['name' => 'Video', 'lesson_id' => 1, 'category_id' => 1],
-            ['name' => 'Read and Practice', 'lesson_id' => 1, 'category_id' => 2],
-            ['name' => 'Song', 'lesson_id' => 1, 'category_id' => 3],
-            ['name' => 'Listen and Practice', 'lesson_id' => 1, 'category_id' => 4],
-            ['name' => 'Writing (Arranging Order)', 'lesson_id' => 1, 'category_id' => 5],
-        ]);
+        //   // Grade 2 Units
+        //   DB::table('units')->insert([
+        //     ['name' => 'Video', 'lesson_id' => 1,],
+        //     ['name' => 'Read and Practice', 'lesson_id' => 1],
+        //     ['name' => 'Song', 'lesson_id' => 1],
+        //     ['name' => 'Listen and Practice', 'lesson_id' => 1],
+        //     ['name' => 'Writing (Arranging Order)', 'lesson_id' => 1],
+        // ]);
 
 
-        // Grade 3 Units
-        DB::table('units')->insert([
-            ['name' => 'Video', 'lesson_id' => 1, 'category_id' => 1],
-            ['name' => 'Read and Practice', 'lesson_id' => 1, 'category_id' => 2],
-            ['name' => 'Song', 'lesson_id' => 1, 'category_id' => 3],
-            ['name' => 'Listen and Practice', 'lesson_id' => 1, 'category_id' => 4],
-            ['name' => 'Writing (Arranging Order)', 'lesson_id' => 1, 'category_id' => 5],
-        ]);
+        // // Grade 3 Units
+        // DB::table('units')->insert([
+        //     ['name' => 'Video', 'lesson_id' => 1],
+        //     ['name' => 'Read and Practice', 'lesson_id' => 1],
+        //     ['name' => 'Song', 'lesson_id' => 1],
+        //     ['name' => 'Listen and Practice', 'lesson_id' => 1],
+        //     ['name' => 'Writing (Arranging Order)', 'lesson_id' => 1],
+        // ]);
 
 
-        // Grade 4 Units
-        DB::table('units')->insert([
-            ['name' => 'Video', 'lesson_id' => 1, 'category_id' => 1],
-            ['name' => 'Read and Practice', 'lesson_id' => 1, 'category_id' => 2],
-            ['name' => 'Song', 'lesson_id' => 1, 'category_id' => 3],
-            ['name' => 'Listen and Practice', 'lesson_id' => 1, 'category_id' => 4],
-            ['name' => 'Writing (Arranging Order)', 'lesson_id' => 1, 'category_id' => 5],
-        ]);
+        // // Grade 4 Units
+        // DB::table('units')->insert([
+        //     ['name' => 'Video', 'lesson_id' => 1],
+        //     ['name' => 'Read and Practice', 'lesson_id' => 1],
+        //     ['name' => 'Song', 'lesson_id' => 1],
+        //     ['name' => 'Listen and Practice', 'lesson_id' => 1],
+        //     ['name' => 'Writing (Arranging Order)', 'lesson_id' => 1],
+        // ]);
 
 
 
