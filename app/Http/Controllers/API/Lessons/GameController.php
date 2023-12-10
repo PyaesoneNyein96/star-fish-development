@@ -115,7 +115,7 @@ class GameController extends Controller
 
             return [
                 'id' => $lesson->id,
-                'grade_id' => $unit->grade_id,
+                'grade_id' => $lesson->grade_id,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
             ];
