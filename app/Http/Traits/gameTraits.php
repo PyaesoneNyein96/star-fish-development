@@ -30,6 +30,7 @@ trait gameTraits
                  $game = [
                     'game_id' => $game->id,
                     'game_name' => $game->name,
+                    'game_status' => $game->status,
                     'category' => $game->category->name,
                 ];
 

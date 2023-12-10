@@ -115,7 +115,7 @@ class GameController extends Controller
 
             return [
                 'id' => $lesson->id,
-                'grade_id' => $grade,
+                'grade_id' => $unit->grade_id,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
             ];
@@ -159,9 +159,10 @@ class GameController extends Controller
                     'id' => $unit->id,
                     'lesson_id' => $unit->lesson_id,
                     'name' => $unit->name,
-                    'grade_id' => $gradeId,
+                    'grade_id' => (int)$gradeId,
                     'complete' => $studentUnits->contains('id', $unit->id),
                     'sub_unit' => $unit->games->count() > 1 ? true : false,
+                    'unit_status' => $unit->games->count() > 1 ? Null : $unit->games[0]->status,
                     'category' => $unit->games->count() > 1 ? Null : $unit->games[0]->category->name
                 ];
             });
@@ -265,8 +266,8 @@ class GameController extends Controller
             return response()->json(['status' => 'already done this game'], 200);
         }
 
-
-        if ($student->grades->count() == 0)  return response()->json(["status" => "Plz subscribe the plan."], 200);
+        // TEMPORARY BLOCK THIS FEATURE (POINT FILTER)
+        // if ($student->grades->count() == 0)  return response()->json(["status" => "Plz subscribe the plan."], 200);
 
 
         StudentGame::insert([
