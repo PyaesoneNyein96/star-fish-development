@@ -26,8 +26,13 @@ class PSNAnsNQuesSeeder extends Seeder
 
         $backgroundDomain = $domain."/storage/images/Backgrounds/";
 
+        $AtoZUpdate = $domain."/storage/audios/A_to_Z_update/";
 
-
+        $AtiZUpdate = [
+            'A-for-apple','B-for-ball','C-for-Cat','D-for-Dog','E-for-Elephant','F-for-Fish', 'G-for-Grapes','H-for-Hat','I-for-Ice-cream', 'J-for-Jug',
+            'K-for-Kite','L-for-Lion','M-for-mouse','N-for-Noodles','O-for-Orange',
+            'P-for-Panda','Q-for-Quail','R-for-ring','S-for-Snake','T-for-Tree','U-for-Umbrella','V-for-Violin','W-for-Whale','X-for-xylophone','Y-for-Yacht','Z-for-Zebra'
+        ];
         // $domainAndAudioPath = $domain."/storage/AtoZ/";
         $prefix = "SubBlock_";
         $AtoZ = range('A', 'Z');
@@ -47,9 +52,10 @@ class PSNAnsNQuesSeeder extends Seeder
         ////    Grade 1  Lesson 1 Game 2 ( no round )
 
         $AZ = range("A", "Z");
-        foreach ($AZ as $key) {
+        foreach ($AZ as $k => $key) {
             DB::table('ans_n_ques')->insert([
-                ['game_id' => 2, 'a_content' => $key, 'a_image' => $ImageDomainAZ . $key . ".png", 'a_audio' => $AtoZAudio . $prefix . $key . ".mp3"],
+                ['game_id' => 2, 'a_content' => $key, 'a_image' => $ImageDomainAZ . $key . ".png",
+                 'a_audio' => $AudioDomain."A_to_Z_update/".$AtiZUpdate[$k].".mp3"],
             ]);
         }
 
