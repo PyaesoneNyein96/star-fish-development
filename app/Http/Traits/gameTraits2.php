@@ -16,6 +16,8 @@ trait gameTraits2
      *  7. reading_conversation
      *  8. reading_two_columns
      *  9. listening_and_choosing_pics_one
+     *  10. listening_and_search_items
+     *
      *
      */
 
@@ -187,5 +189,13 @@ trait gameTraits2
             'instructions' => !$game->instructions ? null : $game->instructions,
             'rounds' => $game->ans_n_ques->groupBy('round')->values()
         ];
+    }
+
+    // listening_and_search_items
+    public function listening_and_search_items($game, $student, $unit)
+    {
+        if (isset($game[0])) $game = $game[0];
+
+        return $game;
     }
 }
