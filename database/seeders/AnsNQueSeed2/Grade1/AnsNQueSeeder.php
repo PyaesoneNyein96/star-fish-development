@@ -629,6 +629,20 @@ class AnsNQueSeeder extends Seeder
 
 
 
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 6 Game 28 (  Target Language ...  )
+        ////////////////////////////////////////////////////////
+
+        DB::table('ans_n_ques')->insert(['game_id' => 28, 'a_content' => 'lesson_6_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 28, 'a_content' => 'lesson_6_video_global', 'isLocal' => 0]);
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 6 Game 29 (  Reading  )
+        ////////////////////////////////////////////////////////
 
 
 
@@ -637,30 +651,29 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 13 Game 75 (  Drap and Drop  )
         ////////////////////////////////////////////////////////
 
-        $l13G75image = $domain . "/storage/images/Grade_1/lesson_13/drap_and_drop/";
+        $l13G75image = $domain . "/storage/images/Grade_1/lesson_13/Drap_n_Drop/";
 
-        $G1_L5_reading_passage_path = "Grade_1/" . "Lesson_13/" . "drap_and_drop/";
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "long ruler image", "a_content" => "long"],
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "blue red pencil image", "a_content" => "long"],
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "yello pen image", "a_content" => "long"],
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "blue red yello pencil image", "a_content" => "long"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "ruler.png", "a_content" => "long"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "pencil.png", "a_content" => "long"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "yellow_pencil.png", "a_content" => "long"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "three_color_pencil.png", "a_content" => "long"],
 
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "short ruler image", "a_content" => "short"],
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "book image", "a_content" => "short"],
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "short pants image", "a_content" => "short"],
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "hat image", "a_content" => "short"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "horizontal_ruler.png", "a_content" => "short"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "book.png", "a_content" => "short"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "short_pants.png", "a_content" => "short"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "hat.png", "a_content" => "short"],
 
 
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "house image", "a_content" => "big"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "dog image", "a_content" => "big"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "tiger image", "a_content" => "big"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "mouse image", "a_content" => "big"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "house.png", "a_content" => "big"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "dog.png", "a_content" => "big"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "cat.png", "a_content" => "big"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "mouse.png", "a_content" => "big"],
 
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "pencil image", "a_content" => "small"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "elephant image", "a_content" => "small"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "car image", "a_content" => "small"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "eraser image", "a_content" => "small"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "pencil_small.png", "a_content" => "small"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "elephant.png", "a_content" => "small"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "car.png", "a_content" => "small"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "eraser.png", "a_content" => "small"],
         ]);
     }
 }

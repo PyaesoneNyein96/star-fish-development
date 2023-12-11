@@ -24,9 +24,7 @@ trait gameTraits2
     // rearrange_with_audio
     public function rearrange_with_audio($game, $student, $unit)
     {
-        $game = $game[0];
-
-        $rounds =  $game->ans_n_ques->groupBy('round')->values();
+        if (isset($game[0])) $game = $game[0];
 
         return [
             'game_id' => $game->id,
@@ -38,16 +36,14 @@ trait gameTraits2
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' => !$game->instructions ? null : $game->instructions,
-            'rounds' => $rounds
+            'rounds' => $game->ans_n_ques->groupBy('round')->values()
         ];
     }
 
     // speaking_and_recording
     public function speaking_and_recording($game, $student, $unit)
     {
-        $game = $game[0];
-
-        $rounds =  $game->ans_n_ques;
+        if (isset($game[0])) $game = $game[0];
 
         return [
             'game_id' => $game->id,
@@ -59,16 +55,14 @@ trait gameTraits2
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' => !$game->instructions ? null : $game->instructions,
-            'rounds' => $rounds
+            'rounds' => $game->ans_n_ques
         ];
     }
 
     // reading_and_record_speaking
     public function reading_and_record_speaking($game, $student, $unit)
     {
-        $game = $game[0];
-
-        $rounds =  $game->ans_n_ques;
+        if (isset($game[0])) $game = $game[0];
 
         return [
             'game_id' => $game->id,
@@ -80,16 +74,14 @@ trait gameTraits2
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' => !$game->instructions ? null : $game->instructions,
-            'rounds' => $rounds
+            'rounds' => $game->ans_n_ques
         ];
     }
 
     // listening_conversation_and_choosing_answer
     public function listening_conversation_and_choosing_answer($game, $student, $unit)
     {
-        $game = $game[0];
-
-        $rounds =  $game->ans_n_ques->groupBy('round')->values();
+        if (isset($game[0])) $game = $game[0];
 
         return [
             'game_id' => $game->id,
@@ -101,21 +93,14 @@ trait gameTraits2
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' => !$game->instructions ? null : $game->instructions,
-            'rounds' => $rounds
+            'rounds' => $game->ans_n_ques->groupBy('round')->values()
         ];
-
-
-
-
-
     }
 
     // reading_passage
     public function reading_passage($game, $student, $unit)
     {
-        $game = $game[0];
-
-        $rounds =  $game->ans_n_ques->groupBy('round')->values();
+        if (isset($game[0])) $game = $game[0];
 
         return [
             'game_id' => $game->id,
@@ -127,16 +112,14 @@ trait gameTraits2
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' => !$game->instructions ? null : $game->instructions,
-            'rounds' => $rounds
+            'rounds' => $game->ans_n_ques->groupBy('round')->values()
         ];
     }
 
     // drag_n_drop_and_columns
     public function drag_n_drop_and_columns($game, $student, $unit)
     {
-        $game = $game[0];
-
-        $rounds =  $game->ans_n_ques->groupBy('round')->values();
+        if (isset($game[0])) $game = $game[0];
 
         return [
             'game_id' => $game->id,
@@ -148,16 +131,14 @@ trait gameTraits2
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' => !$game->instructions ? null : $game->instructions,
-            'rounds' => $rounds
+            'rounds' => $game->ans_n_ques->groupBy('round')->values()
         ];
     }
 
     // reading_conversation
     public function reading_conversation($game, $student, $unit)
     {
-        $game = $game[0];
-
-        $rounds =  $game->ans_n_ques->groupBy('round')->values();
+        if (isset($game[0])) $game = $game[0];
 
         return [
             'game_id' => $game->id,
@@ -168,16 +149,14 @@ trait gameTraits2
             'sub_unit'  => $game->count() < 1 ? true : false,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' => !$game->instructions ? null : $game->instructions,
-            'rounds' => $rounds
+            'rounds' => $game->ans_n_ques->groupBy('round')->values()
         ];
     }
 
     // reading_two_columns
     public function reading_two_columns($game, $student, $unit)
     {
-        $game = $game[0];
-
-        $rounds =  $game->ans_n_ques;
+        if (isset($game[0])) $game = $game[0];
 
         return [
             'game_id' => $game->id,
@@ -188,16 +167,14 @@ trait gameTraits2
             'sub_unit'  => $game->count() < 1 ? true : false,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' => !$game->instructions ? null : $game->instructions,
-            'rounds' => $rounds
+            'rounds' => $game->ans_n_ques
         ];
     }
 
     // listening_and_choosing_pics_one
     public function listening_and_choosing_pics_one($game, $student, $unit)
     {
-        $game = $game[0];
-
-        $rounds =  $game->ans_n_ques->groupBy('round')->values();
+        if (isset($game[0])) $game = $game[0];
 
         return [
             'game_id' => $game->id,
@@ -208,7 +185,7 @@ trait gameTraits2
             'sub_unit'  => $game->count() < 1 ? true : false,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' => !$game->instructions ? null : $game->instructions,
-            'rounds' => $rounds
+            'rounds' => $game->ans_n_ques->groupBy('round')->values()
         ];
     }
 }
