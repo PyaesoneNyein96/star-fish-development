@@ -121,14 +121,16 @@ trait gameTraits
             return $s->isLocal == $student->isLocal;
         });
 
+        // return $result->values();
 
         $songs = $result->values()->map(function ($s) {
             return [
-                'song_id' => $s->path,
+                'song_id' => $s->a_content,
                 'isLocal' => $s->isLocal,
                 'type' => "song",
             ];
         });
+
 
         return [
             'game_id' => $game->id,
