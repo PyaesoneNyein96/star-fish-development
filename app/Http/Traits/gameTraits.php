@@ -119,7 +119,7 @@ trait gameTraits
 
         $songs = $result->values()->map(function ($s) {
             return [
-                'song_id' => $s->path,
+                'song_id' => $s->a_content,
                 'isLocal' => $s->isLocal,
                 'type' => "song",
             ];

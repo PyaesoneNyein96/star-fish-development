@@ -629,6 +629,20 @@ class AnsNQueSeeder extends Seeder
 
 
 
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 6 Game 28 (  Target Language ...  )
+        ////////////////////////////////////////////////////////
+
+        DB::table('ans_n_ques')->insert(['game_id' => 28, 'a_content' => 'lesson_6_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 28, 'a_content' => 'lesson_6_video_global', 'isLocal' => 0]);
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 6 Game 29 (  Reading  )
+        ////////////////////////////////////////////////////////
 
 
 
