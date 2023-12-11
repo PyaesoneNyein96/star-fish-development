@@ -15,18 +15,8 @@ class AnsNQueSeeder extends Seeder
     {
 
         $domain = app('domain');
-
-        $ImageDomain = $domain . "/storage/images/";
         $AudioDomain = $domain . "/storage/audios/";
-        $AtoZAudio = $domain . "/storage/audios/AtoZ/";
-        $ImageDomainAZ = $domain . "/storage/images/AtoZ/";
-        $ImageDomainAZ_small = $domain . "/storage/images/AtoZ_Small/";
-        $prefix = "SubBlock_";
 
-
-        // $domainAndAudioPath = $domain."/storage/AtoZ/";
-        $prefix = "SubBlock_";
-        $AtoZ = range('A', 'Z');
 
 
         //////////////////////////////////////////////////////////////
@@ -422,7 +412,7 @@ class AnsNQueSeeder extends Seeder
             "your", "What's", "name", "?", "Chris", "name's", "My"
         ];
 
-        foreach ($qG21R2 as $j) {
+        foreach ($qG21R3 as $j) {
             DB::table('ans_n_ques')->insert([
                 ['round' => 3, 'game_id' => 21, 'q_content' => $j],
             ]);
@@ -640,10 +630,45 @@ class AnsNQueSeeder extends Seeder
 
 
 
+
         ////////////////////////////////////////////////////////
         ////    Grade 1  Lesson 6 Game 29 (  Reading  )
         ////////////////////////////////////////////////////////
 
+        $l6G29image = $domain . "/storage/images/Grade_1/lesson_6/reading/";
+        $G1_L6_reading = "Grade_1/" . "Lesson_6/" . "reading/";
+
+
+        $ansContent = [
+            "Bag", "Book", "Chair", "Color Pencils", "Crayons", "Desk", "Eraser", "Pen", "Pencil Case", "Pencil", "Ruler", "Sharpener"
+        ];
+
+        $ansImage = [
+            "Bag", "Book", "Chair", "Color_Pencils", "Crayons", "Desk", "Eraser", "Pen", "Pencil_Case", "Pencil", "Ruler", "Sharpener"
+        ];
+
+        $ansAudio = [
+            "bag", "book", "chair", "color_pencils", "crayon", "desk", "eraser", "pen", "pencil-case", "pencil", "ruler", "sharpener"
+        ];
+
+        $G1_L6_Game29_index = 0;
+
+        foreach ($ansContent as $key) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 29, 'a_content' => $key, 'a_image' => $l6G29image . $ansImage[$G1_L6_Game29_index] . ".png",
+                    'a_audio' => $AudioDomain . $G1_L6_reading . $ansAudio[$G1_L6_Game29_index] . ".mp3"
+                ],
+            ]);
+            $G1_L6_Game29_index++;
+        }
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 6 Game 30 (  Listen and practice  )
+        ////////////////////////////////////////////////////////
 
 
 
