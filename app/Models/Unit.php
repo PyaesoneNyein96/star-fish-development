@@ -16,9 +16,9 @@ class Unit extends Model
         return $this->hasMany(Game::class);
     }
 
-    public function category(){
-        return $this->belongsTo(Category::class);
-    }
+    // public function category(){
+    //     return $this->belongsTo(Category::class);
+    // }
 
     public function lesson(){
         return $this->belongsTo(Lesson::class);

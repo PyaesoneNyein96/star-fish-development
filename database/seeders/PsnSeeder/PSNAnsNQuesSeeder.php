@@ -152,6 +152,7 @@ class PSNAnsNQuesSeeder extends Seeder
         }
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
           ///////////////////////////////////////////////////////
         ////    Grade 1  Lesson 2 Game 7 ( no round )
@@ -160,7 +161,7 @@ class PSNAnsNQuesSeeder extends Seeder
         $az = range("A", "Z");
         foreach ($az as $key) {
             DB::table('ans_n_ques')->insert([
-                ['game_id' => 7, 'a_content' => $key, 'a_image' => $ImageDomainAZ_small . $key . ".png", 'a_audio' => $AtoZAudio . $prefix . $key . ".mp3"],
+                ['game_id' => 7, 'a_content' => strtolower($key) , 'a_image' => $ImageDomainAZ_small . $key . ".png", 'a_audio' => $AtoZAudio . $prefix . $key . ".mp3"],
             ]);
         }
 
@@ -262,16 +263,23 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         ////////////////////////////////////////////////////////
-        ////    Grade 1  Lesson 7 Game 38,39 (Sub Units) <letter_tracing>
-
+        ////    Grade 1  Lesson 7 Games  (Sub Units) <letter_tracing>
+        $imgDomain = $ImageDomain."Grade_1/Lesson_7/Writing_Sentences_order/";
 
         $g1_l7_u6_trace_n_write = [
-            'G','H','e','f','g','h','F','E'
+            // 'G','H','e','f','g','h','F','E'
+            'C','D','a','b','c','d','B','A'
         ];
             foreach ($g1_l7_u6_trace_n_write as $i => $trace) {
                 DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 39, 'q_audio' => $AtoZAudio.$trace.".mp3"
-                    ,'q_image' =>$trace.".GIF",'q_content' => $trace],
+                    [
+                        'round' => $i + 1, 'game_id' => 39,
+                        'q_audio' => $AtoZAudio.$prefix.strtoupper($trace).".mp3",
+                        'a_content' => $trace,
+                        'q_content' => ctype_lower($trace) ?  $imgDomain."dotted_small_".$trace.".png" : $imgDomain."dotted_".$trace.".png",
+                        // 'q_image' => $imgDomain.$trace.".png",
+                        'q_image' => ctype_lower($trace) ?  $imgDomain."small_".$trace.".png" : $imgDomain.$trace.".png",
+                    ],
                 ]);
             }
         // -------------------
@@ -345,30 +353,93 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
     //    Grade 1  Lesson 17 Games 2 subunit 1
-    $bodyParts = ['Hair','Eye','Cheek','Lip','Tooth','Mouth','Chin'];
+    $bodyParts = ['Hair','Eye_Null','Cheek','Lip','Teeth','Mouth','Chin'];
+
+    $audioDomainPath = $AudioDomain."Grade_1/Lesson_17/Listen_and_Repeat/";
+    $G1L17ImgDomain = $ImageDomain."Grade_1/Lesson_17/Listen_and_Repeat/";
+
+
     foreach ($bodyParts as $part) {
-          DB::table('ans_n_ques')->insert([
-                ['game_id' => 99, 'q_audio' => $part.".mp3"
-                ,'q_image' =>$part."image".".jpg" ],
-            ]);
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 101,
+                'q_audio' => $audioDomainPath.$part.".mp3",
+                'q_image' =>$G1L17ImgDomain.$part.".png",
+                'q_content' => $part
+
+            ],
+        ]);
     }
+        DB::table('ans_n_ques')->insert([
+            ['game_id' => 101, 'background' => $backgroundDomain."G1_L17_U2_head_bg".".png" ]
+        ]);
 
       //    Grade 1  Lesson 17 Games 2 subunit 2
 
 
-        $instructions = [ "don't touch your face", "don't touch your mouth",
+        $instructionsContent = [ "don't touch your face", "don't touch your mouth",
                 "don't touch your nose", "Touch your cheek","Touch your ears",
                 "Touch your hair","Touch your Lips", "Touch your nose"
             ];
+        $instructions = [
+            'Dont-touch-your-face', 'Dont-touch-your-mouth', 'Dont-touch-your-nose',
+            'Touch-your-Cheek','Touch-your-ears','Touch-your-hair','Touch-your-lips','Touch-your-nose'
+        ];
 
-        foreach ($instructions as $key) {
+
+        $Img = $ImageDomain."Grade_1/Lesson_17/Listen_and_Repeat_2/";
+        $audio = $AudioDomain."Grade_1/Lesson_17/Listen_and_Repeat/";
+
+        foreach ($instructionsContent  as $i => $key) {
             DB::table('ans_n_ques')->insert([
-                ['game_id' => 100, 'a_content' => $key, 'a_image' => $key . ".png", 'a_audio' =>  $key . ".mp3"],
+                [
+                    'game_id' => 102, 'a_content' => $key,
+                    'a_image' =>$Img.$instructions[$i].".png",
+                    'a_audio' => $audio.$instructions[$i].".mp3"
+                ],
             ]);
         }
 
+    /////////////////////////////////////////////////
 
 
+       //    Grade 1  Lesson 17 unit 5 Games 105
+
+       $quesCharImg = ["Touch your cheek", "Touch your ear", "Don't touch your mouth","Don't touch your eye"];
+       $quesCharAudio = ["Touch-your-cheek", "Touch-your-ear", "Dont-touch-your-mouth","Dont-touch-your-eyes"];
+       $charContent = [
+            ["pink_girl","blue_girl"], //2
+            ["pink_girl_ear","blue_girl_mouth"], //1
+            ["blue_girl_cheek","blue_girl_mouth"],  //1
+            ["blue_girl_eye","orange_boy"], //2
+       ];
+       $ansChars = ["blue_girl_cheek","blue_girl_eye"];
+
+       $qImg = $ImageDomain."Grade_1/Lesson_17/Listen_and_Act/";
+       $qAudio = $AudioDomain."Grade_1/Lesson_17/Listen_&_act/";
+
+       DB::table('ans_n_ques')->insert([
+            ["game_id" => 105 , "round"=> 1, "q_image" => "starFishImage", "q_content" => "Touch your cheek", "q_audio" => $qAudio.$quesCharAudio[0].".mp3",
+            "a_image" => $qImg.$charContent[0][0].".png", "a_content" => 0],
+            ["game_id" => 105, "round"=> 1, "q_image" => null, "q_content" => null, "q_audio" => null,
+            "a_image"  => $qImg.$charContent[0][1].".png","a_content" => 1],
+
+            ["game_id" => 105, "round"=> 2, "q_image" => "starFishImage", "q_content" => "Touch your ear", "q_audio" => $qAudio.$quesCharAudio[1].".mp3",
+            "a_image" => $qImg.$charContent[1][0].".png", "a_content" => 1],
+            ["game_id" => 105, "round"=> 2, "q_image" => null, "q_content" => null, "q_audio" => null,
+            "a_image"  => $qImg.$charContent[1][1].".png","a_content" => 0],
+
+            ["game_id" => 105, "round"=> 3, "q_image" => "starFishImage", "q_content" => "Don't touch your mouth", "q_audio" => $qAudio.$quesCharAudio[2].".mp3",
+            "a_image" => $qImg.$charContent[2][0].".png", "a_content" => 1],
+            ["game_id" => 105, "round"=> 3, "q_image" => null, "q_content" => null, "q_audio" => null,
+            "a_image"  => $qImg.$charContent[2][1].".png","a_content" => 0],
+
+            ["game_id" => 105, "round"=> 4, "q_image" => "starFishImage", "q_content" => "Don't touch your eye", "q_audio" => $qAudio.$quesCharAudio[3].".mp3",
+            "a_image" => $qImg.$charContent[3][0].".png", "a_content" => 0],
+            ["game_id" => 105, "round"=> 4, "q_image" => null, "q_content" => null, "q_audio" => null,
+            "a_image"  => $qImg.$charContent[3][1].".png","a_content" => 1],
+
+       ]);
 
 
 

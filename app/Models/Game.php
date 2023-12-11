@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use App\Models\Image;
+use App\Models\Category;
+use App\Models\InstructionGif;
 use App\Models\GameInstruction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Models\InstructionGif;
 
 
 class Game extends Model
@@ -15,16 +16,18 @@ class Game extends Model
 
     protected $hidden = ['pivot', 'created_at', 'updated_at'];
 
-
+    // protected $casts = [
+    //     'category' => 'array',
+    // ];
 
     protected $fillable = [
         'name',
         'unit_id'
     ];
 
-    // public function category(){
-    //     return $this->belongsTo(Category::class);
-    // }
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 
 
     public function grade()
@@ -134,7 +137,7 @@ class Game extends Model
         $data = parent::toArray();
 
         $filteredData = array_filter($data, function ($value) {
-            return  !is_array($value) || !empty($value);
+            return !is_null($value) && (!is_array($value) || !empty($value));
         });
 
         return $filteredData;

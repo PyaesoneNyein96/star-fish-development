@@ -116,10 +116,11 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(RewardSeeder::class);
-        $this->call(AnsNQueSeeder::class);
+        // $this->call(AnsNQueSeeder::class);
 
         // seeder 2
-        $this->call(Grade1AnsNQueSeeder::class);
         $this->call(PSNAnsNQuesSeeder::class);
+        $this->call(Grade1AnsNQueSeeder::class);
+
     }
 }

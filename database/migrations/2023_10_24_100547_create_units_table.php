@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('units', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('lesson_id');
-            $table->foreignId('category_id')->nullable();
+            $table->integer('lesson_id')->constrained();
             $table->timestamps();
         });
     }

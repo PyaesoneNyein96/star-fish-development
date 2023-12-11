@@ -115,7 +115,7 @@ class GameController extends Controller
 
             return [
                 'id' => $lesson->id,
-                'grade_id' => $grade,
+                'grade_id' => $lesson->grade_id,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
             ];
@@ -125,7 +125,7 @@ class GameController extends Controller
     }
 
 
-    public function games(Request $request)
+    public function games(Request $request) // Units
     {
 
         $student = Student::where('token', $request->header('token'))->first();
@@ -134,6 +134,7 @@ class GameController extends Controller
 
 
         ////////////////////////////////////////////////////////////////////////////
+
         // $gradeId = Lesson::where('id', $lesson)->pluck('grade_id')->first();
 
         DB::beginTransaction();
@@ -146,24 +147,29 @@ class GameController extends Controller
                 ]);
             }
 
-            $allGame = Unit::where('lesson_id', $lesson)->get();
+            $lesson_id = Lesson::where('grade_id', $gradeId)->where('id',$lesson)->pluck('id')->first();
+
+            $allGame = Unit::where('lesson_id', $lesson_id)->get();
 
             $studentUnits = $student->units;
+
 
             $units = $allGame->map(function ($unit) use ($studentUnits, $lesson, $gradeId) {
                 return [
                     'id' => $unit->id,
                     'lesson_id' => $unit->lesson_id,
                     'name' => $unit->name,
-                    'grade_id' => $gradeId,
+                    'grade_id' => (int)$gradeId,
                     'complete' => $studentUnits->contains('id', $unit->id),
-                    'category' => $unit->category['name']
+                    'sub_unit' => $unit->games->count() > 1 ? true : false,
+                    'unit_status' => $unit->games->count() > 1 ? Null : $unit->games[0]->status,
+                    'category' => $unit->games->count() > 1 ? Null : $unit->games[0]->category->name
                 ];
             });
 
             DB::commit();
-
             return $units;
+
         } catch (\Throwable $th) {
             return $th;
             DB::rollback();
@@ -177,62 +183,42 @@ class GameController extends Controller
         $student = Student::where('token', $request->header('token'))->first();
         $unit_id = $request->header('unit_id');
         $lesson_id = $request->header('lesson_id');
+        $gameId = $request->header('game_id');
 
-        $unit = Unit::where('id', $unit_id)->with('category')
-            ->where('lesson_id', $lesson_id)
-            ->first();
+        $unit = Unit::where('id', $unit_id)->where('lesson_id',$lesson_id)->first();
 
+        if(!$unit) return "lesson and unit are not match.";
 
+        $gameUnit = Game::where('unit_id',$unit_id)->where('id',$gameId)->first();
 
-        if (!$unit) return "lesson and unit are not match.";
-        $gameUnit = Game::where('unit_id', $unit_id)->where('id', $request->header('game_id'))->first();
+        // return $gameUnit;
 
+        if(!$gameUnit && $unit && $gameId) return "SubUnit game not found!";
 
+        if($gameUnit) {
 
-        if ($request->header('game_id') && $gameUnit) {
+            $game = Game::where('id', $gameId)->where('status',1)->first();
 
-
-
-            $game = Game::with(
-                'instructions',
-                'audios',
-                'ans_n_ques',
-                'conversations',
-                'characters',
-                'background'
-            )->where('id', $request->header('game_id'))
-                ->where('status', 1)->get();
-
-            $name = strval($game[0]->category);
+            $name = strval($game->category->name);
 
             if (!$name) return "this game is not subUnit game";
 
             return $this->$name($game, $student, $unit);
-        } else if (!$request->header('game_id')) {
 
-            $game = Game::with(
-                'instructions',
-                'audios',
-                'ans_n_ques',
-                'conversations',
-                'characters',
-                'background'
-            )->whereIn('id', $unit->games->pluck('id'))
-                ->where('status', 1)->get();
-        } else {
-            return "game not found.";
         }
 
-
-        if ($game && method_exists($this, $unit->category['name'])) {
-
-            $name = strval($unit->category['name']);
-
-            return $this->$name($game, $student, $unit);
-        }
+        $games = Game::where('status',1)->where('unit_id',$unit_id)->get();
 
 
-        return "Function not found .!!";
+        if($games->count() == 1) {
+            $name = strval($games[0]->category->name);
+            return $this->$name($games, $student, $unit);
+        };
+
+
+        return $this->Subunit_category($games, $unit);
+
+
     }
 
 
@@ -280,8 +266,8 @@ class GameController extends Controller
             return response()->json(['status' => 'already done this game'], 200);
         }
 
-
-        if ($student->grades->count() == 0)  return response()->json(["status" => "Plz subscribe the plan."], 200);
+        // TEMPORARY BLOCK THIS FEATURE (POINT FILTER)
+        // if ($student->grades->count() == 0)  return response()->json(["status" => "Plz subscribe the plan."], 200);
 
 
         StudentGame::insert([
