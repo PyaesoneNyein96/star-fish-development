@@ -25,9 +25,13 @@ class Grade extends Model
         return $this->belongsToMany(Student::class,'student_grades','grade_id','student_id');
     }
 
-    public function games(){
-        return $this->hasManyThrough(Game::class,Lesson::class);
+
+    public function units(){
+        return $this->hasManyThrough(Unit::class,Lesson::class);
     }
 
+    public function games(){
+        return $this->hasManyThrough(Game::class,Unit::class);
+    }
 
 }
