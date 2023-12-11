@@ -26,8 +26,13 @@ class PSNAnsNQuesSeeder extends Seeder
 
         $backgroundDomain = $domain."/storage/images/Backgrounds/";
 
+        $AtoZUpdate = $domain."/storage/audios/A_to_Z_update/";
 
-
+        $AtiZUpdate = [
+            'A-for-apple','B-for-ball','C-for-Cat','D-for-Dog','E-for-Elephant','F-for-Fish', 'G-for-Grapes','H-for-Hat','I-for-Ice-cream', 'J-for-Jug',
+            'K-for-Kite','L-for-Lion','M-for-mouse','N-for-Noodles','O-for-Orange',
+            'P-for-Panda','Q-for-Quail','R-for-ring','S-for-Snake','T-for-Tree','U-for-Umbrella','V-for-Violin','W-for-Whale','X-for-xylophone','Y-for-Yacht','Z-for-Zebra'
+        ];
         // $domainAndAudioPath = $domain."/storage/AtoZ/";
         $prefix = "SubBlock_";
         $AtoZ = range('A', 'Z');
@@ -47,9 +52,10 @@ class PSNAnsNQuesSeeder extends Seeder
         ////    Grade 1  Lesson 1 Game 2 ( no round )
 
         $AZ = range("A", "Z");
-        foreach ($AZ as $key) {
+        foreach ($AZ as $k => $key) {
             DB::table('ans_n_ques')->insert([
-                ['game_id' => 2, 'a_content' => $key, 'a_image' => $ImageDomainAZ . $key . ".png", 'a_audio' => $AtoZAudio . $prefix . $key . ".mp3"],
+                ['game_id' => 2, 'a_content' => $key, 'a_image' => $ImageDomainAZ . $key . ".png",
+                 'a_audio' => $AudioDomain."A_to_Z_update/".$AtiZUpdate[$k].".mp3"],
             ]);
         }
 
@@ -405,6 +411,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
        //    Grade 1  Lesson 17 unit 5 Games 105
 
+       $charImg = "green_vector";
        $quesCharImg = ["Touch your cheek", "Touch your ear", "Don't touch your mouth","Don't touch your eye"];
        $quesCharAudio = ["Touch-your-cheek", "Touch-your-ear", "Dont-touch-your-mouth","Dont-touch-your-eyes"];
        $charContent = [
@@ -419,22 +426,22 @@ class PSNAnsNQuesSeeder extends Seeder
        $qAudio = $AudioDomain."Grade_1/Lesson_17/Listen_&_act/";
 
        DB::table('ans_n_ques')->insert([
-            ["game_id" => 105 , "round"=> 1, "q_image" => "starFishImage", "q_content" => "Touch your cheek", "q_audio" => $qAudio.$quesCharAudio[0].".mp3",
+            ["game_id" => 105 , "round"=> 1, "q_image" => $qImg.$charImg.".png", "q_content" => "Touch your cheek", "q_audio" => $qAudio.$quesCharAudio[0].".mp3",
             "a_image" => $qImg.$charContent[0][0].".png", "a_content" => 0],
             ["game_id" => 105, "round"=> 1, "q_image" => null, "q_content" => null, "q_audio" => null,
             "a_image"  => $qImg.$charContent[0][1].".png","a_content" => 1],
 
-            ["game_id" => 105, "round"=> 2, "q_image" => "starFishImage", "q_content" => "Touch your ear", "q_audio" => $qAudio.$quesCharAudio[1].".mp3",
+            ["game_id" => 105, "round"=> 2, "q_image" => $qImg.$charImg.".png", "q_content" => "Touch your ear", "q_audio" => $qAudio.$quesCharAudio[1].".mp3",
             "a_image" => $qImg.$charContent[1][0].".png", "a_content" => 1],
             ["game_id" => 105, "round"=> 2, "q_image" => null, "q_content" => null, "q_audio" => null,
             "a_image"  => $qImg.$charContent[1][1].".png","a_content" => 0],
 
-            ["game_id" => 105, "round"=> 3, "q_image" => "starFishImage", "q_content" => "Don't touch your mouth", "q_audio" => $qAudio.$quesCharAudio[2].".mp3",
+            ["game_id" => 105, "round"=> 3, "q_image" => $qImg.$charImg.".png", "q_content" => "Don't touch your mouth", "q_audio" => $qAudio.$quesCharAudio[2].".mp3",
             "a_image" => $qImg.$charContent[2][0].".png", "a_content" => 1],
             ["game_id" => 105, "round"=> 3, "q_image" => null, "q_content" => null, "q_audio" => null,
             "a_image"  => $qImg.$charContent[2][1].".png","a_content" => 0],
 
-            ["game_id" => 105, "round"=> 4, "q_image" => "starFishImage", "q_content" => "Don't touch your eye", "q_audio" => $qAudio.$quesCharAudio[3].".mp3",
+            ["game_id" => 105, "round"=> 4, "q_image" => $qImg.$charImg.".png", "q_content" => "Don't touch your eye", "q_audio" => $qAudio.$quesCharAudio[3].".mp3",
             "a_image" => $qImg.$charContent[3][0].".png", "a_content" => 0],
             ["game_id" => 105, "round"=> 4, "q_image" => null, "q_content" => null, "q_audio" => null,
             "a_image"  => $qImg.$charContent[3][1].".png","a_content" => 1],

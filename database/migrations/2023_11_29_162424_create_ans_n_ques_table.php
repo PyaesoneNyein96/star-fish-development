@@ -17,12 +17,12 @@ return new class extends Migration
             $table->integer('game_id')->nullable();
             $table->string('q_image')->nullable();
             $table->string('q_audio')->nullable();
-            $table->string('q_content')->nullable();
+            $table->longText('q_content')->nullable();
             $table->string('q_conver')->nullable();
 
             $table->string('a_image')->nullable();
             $table->string('a_audio')->nullable();
-            $table->string('a_content')->nullable();
+            $table->longText('a_content')->nullable();
             $table->string('a_conver')->nullable();
 
             $table->string('type')->nullable();

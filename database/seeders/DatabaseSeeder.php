@@ -5,33 +5,35 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Student;
-use Database\Seeders\AnsNQueSeed2\Grade1\AnsNQueSeeder as Grade1AnsNQueSeeder;
 use Illuminate\Database\Seeder;
 use Database\Seeders\CitySeeder;
 use Database\Seeders\GameSeeder;
-
-
 use Database\Seeders\AudioSeeder;
+
+
 use Database\Seeders\GradeSeeder;
-
-
-
 use Database\Seeders\LessonSeeder;
+
+
+
 use Database\Seeders\RewardSeeder;
 use Database\Seeders\AnsNQueSeeder;
 use Database\Seeders\CountrySeeder;
-
 use Database\Seeders\CategorySeeder;
+
 use Illuminate\Support\Facades\Hash;
 use Database\Seeders\BackgroundSeeder;
-
-
 use Database\Seeders\ConversationSeeder;
+
+
 use Database\Seeders\StudentGradeSeeder;
 use Database\Seeders\GameInstructionSeeder;
 use Database\Seeders\SubscriptionPlanSeeder;
-
 use Database\Seeders\PSNSeeder\PSNAnsNQuesSeeder;
+
+use Database\Seeders\PSNSeeder\PSNAnsNQuesG2Seeder;
+use Database\Seeders\PSNSeeder\PSNAnsNQuesG3Seeder;
+use Database\Seeders\AnsNQueSeed2\Grade1\AnsNQueSeeder as Grade1AnsNQueSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -101,6 +103,40 @@ class DatabaseSeeder extends Seeder
             'isSubscriber' => 0
         ]);
 
+             Student::factory()->create([
+            'name' => 'A soe lay',
+            'phone' => "+959966300826",
+            'email' => null,
+            'password' => Hash::make('admin123'),
+            'age' => 6,
+            'country_id' => 1,
+            'city_id' => 1,
+            'agreeToPolicy' => 1,
+            'deviceId' => '5bf93e31-95df-458d-8f38-d315d84598f1',
+            'isAuth' => 1,
+            'isLocal' => 0,
+            'status' => 1,
+            'token' => "2|AcNBOdyxwj07aB7asSP8D2b5Dg5rZJ8ow6Qkk8S72c1b8e2f",
+            'isSubscriber' => 0
+        ]);
+             Student::factory()->create([
+            'name' => 'soe soe lay',
+            'phone' => "+959976866539",
+            'email' => null,
+            'password' => Hash::make('admin123'),
+            'age' => 7,
+            'country_id' => 1,
+            'city_id' => 1,
+            'agreeToPolicy' => 1,
+            'deviceId' => 'b203c14f-0a3a-4e9c-9a2e-2656c0a44603',
+            'isAuth' => 1,
+            'isLocal' => 0,
+            'status' => 1,
+            'grade_chosen' => 1,
+            'token' => "7|UYgu45F3jMenNKzrRtoyXMoXrtop7iThqseR6nSta6277a3a",
+            'isSubscriber' => 0
+        ]);
+
 
         $this->call(GradeSeeder::class);
         $this->call(LessonSeeder::class);
@@ -120,6 +156,10 @@ class DatabaseSeeder extends Seeder
 
         // seeder 2
         $this->call(PSNAnsNQuesSeeder::class);
+        $this->call(PSNAnsNQuesG2Seeder::class);
+        $this->call(PSNAnsNQuesG3Seeder::class);
+
+
         $this->call(Grade1AnsNQueSeeder::class);
 
     }
