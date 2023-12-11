@@ -400,10 +400,14 @@ class UnitSeeder extends Seeder
 
         ]);
 
+    // -------------------- Grade 1 End ----------------------------//
 
 
-        //   // Grade 2 Units
-        //   DB::table('units')->insert([
+
+    // -------------------- Grade 2 start --------------------------//
+
+    //   // Grade 2 Units
+    //   DB::table('units')->insert([
         //     ['name' => 'Video', 'lesson_id' => 1,],
         //     ['name' => 'Read and Practice', 'lesson_id' => 1],
         //     ['name' => 'Song', 'lesson_id' => 1],
@@ -411,25 +415,58 @@ class UnitSeeder extends Seeder
         //     ['name' => 'Writing (Arranging Order)', 'lesson_id' => 1],
         // ]);
 
-
-        // // Grade 3 Units
-        // DB::table('units')->insert([
-        //     ['name' => 'Video', 'lesson_id' => 1],
-        //     ['name' => 'Read and Practice', 'lesson_id' => 1],
-        //     ['name' => 'Song', 'lesson_id' => 1],
-        //     ['name' => 'Listen and Practice', 'lesson_id' => 1],
-        //     ['name' => 'Writing (Arranging Order)', 'lesson_id' => 1],
-        // ]);
+    // -------------------- Grade 2 End --------------------------//
 
 
-        // // Grade 4 Units
-        // DB::table('units')->insert([
-        //     ['name' => 'Video', 'lesson_id' => 1],
-        //     ['name' => 'Read and Practice', 'lesson_id' => 1],
-        //     ['name' => 'Song', 'lesson_id' => 1],
-        //     ['name' => 'Listen and Practice', 'lesson_id' => 1],
-        //     ['name' => 'Writing (Arranging Order)', 'lesson_id' => 1],
-        // ]);
+    // -------------------- Grade 3 Start ------------------------//
+
+    // Grade 3 Units
+    DB::table('units')->insert([
+
+            // G3 lesson 1
+
+            // ['name' => 'Video', 'lesson_id' => 81],
+            // ['name' => 'Read and Practice', 'lesson_id' => 81],
+            // ['name' => 'Song', 'lesson_id' => 81],
+            // ['name' => 'Listen and Practice', 'lesson_id' => 81],
+            // ['name' => 'Writing (Arranging Order)', 'lesson_id' => 81],
+
+            //G3 lesson 26
+            ['name' => 'Target Language', 'lesson_id' => 106],
+            ['name' => 'Vocabulary', 'lesson_id' => 106],
+            ['name' => 'Practice', 'lesson_id' => 106],
+            ['name' => 'Listening', 'lesson_id' => 106],
+            ['name' => 'Speaking', 'lesson_id' => 106],
+            ['name' => 'Reading', 'lesson_id' => 106],
+            ['name' => 'Writing', 'lesson_id' => 106],
+            ['name' => 'Free practice', 'lesson_id' => 106],
+
+            //G3 lesson 33
+            ['name' => 'Video', 'lesson_id' => 113],
+            ['name' => 'Vocabulary', 'lesson_id' => 113],
+            ['name' => 'Write the opposite', 'lesson_id' => 113],
+            ['name' => 'Writing (Arrange the Order)', 'lesson_id' => 113],
+            ['name' => 'Listen', 'lesson_id' => 113],
+            ['name' => 'Speaking', 'lesson_id' => 113],
+            ['name' => 'Free Speaking Practice', 'lesson_id' => 113],
+        ]);
+
+
+        // -------------------- Grade 3 End ------------------------//
+
+
+
+        // -------------------- Grade 4 Start ------------------------//
+
+
+        // Grade 4 Units
+        DB::table('units')->insert([
+            ['name' => 'Reading Lesson', 'lesson_id' => 124],
+            ['name' => 'Listen and Repeat', 'lesson_id' => 124],
+            ['name' => 'Speaking Practice', 'lesson_id' => 124],
+            ['name' => 'Listen and Practice', 'lesson_id' => 124],
+            ['name' => 'Speaking Topic', 'lesson_id' => 124],
+        ]);
 
 
 

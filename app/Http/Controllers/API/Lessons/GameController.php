@@ -147,7 +147,10 @@ class GameController extends Controller
                 ]);
             }
 
-            $lesson_id = Lesson::where('grade_id', $gradeId)->where('id',$lesson)->pluck('id')->first();
+            $lesson_id = Lesson::where('grade_id', $gradeId)->where('id',$lesson)
+            ->pluck('id')->first();
+
+
 
             $allGame = Unit::where('lesson_id', $lesson_id)->get();
 
@@ -162,12 +165,13 @@ class GameController extends Controller
                     'grade_id' => (int)$gradeId,
                     'complete' => $studentUnits->contains('id', $unit->id),
                     'sub_unit' => $unit->games->count() > 1 ? true : false,
-                    'unit_status' => $unit->games->count() > 1 ? Null : $unit->games[0]->status,
-                    'category' => $unit->games->count() > 1 ? Null : $unit->games[0]->category->name
+                    'unit_status' => $unit->games->count() !== 1 ? Null : $unit->games[0]->status,
+                    'category' => $unit->games->count() !== 1 ? Null : $unit->games[0]->category->name
                 ];
             });
 
             DB::commit();
+            // if(!$units) return "Game Not found!";
             return $units;
 
         } catch (\Throwable $th) {
@@ -208,6 +212,8 @@ class GameController extends Controller
         }
 
         $games = Game::where('status',1)->where('unit_id',$unit_id)->get();
+
+        // return $games;
 
 
         if($games->count() == 1) {

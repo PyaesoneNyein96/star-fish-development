@@ -44,9 +44,12 @@ class CategorySeeder extends Seeder
             'mcq_sentence',
             'mcq_tf_grammar',
 
-            // Category for SubUnit games
-            'Subunit_category'
-            // Category for SubUnit games End
+
+            // G3
+
+            'writing_topic',
+            'writing_opposite',
+            'listening_and_choosing_pics_two'
         ];
 
         foreach ($categories as $category) {
