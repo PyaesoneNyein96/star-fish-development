@@ -16,7 +16,7 @@ trait gameTraits
     // listening_and_choosing_clouds_one, reading_carousel, video_player_lessons,
     // video_player_song, drag_n_drop_and_letter
 
-     ///////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
     /// SUb Unit Games ************
     ///////////////////////////////////////////////////////////////
     public function Subunit_category($games,  $unit)
@@ -25,17 +25,16 @@ trait gameTraits
         $gamesData = [];
         foreach ($games as  $game) {
 
-            if(!$game && !method_exists($this,$game->category->name)) return "game and function are not match.";
+            if (!$game && !method_exists($this, $game->category->name)) return "game and function are not match.";
 
-                 $game = [
-                    'game_id' => $game->id,
-                    'game_name' => $game->name,
-                    'game_status' => $game->status,
-                    'category' => $game->category->name,
-                ];
+            $game = [
+                'game_id' => $game->id,
+                'game_name' => $game->name,
+                'game_status' => $game->status,
+                'category' => $game->category->name,
+            ];
 
-                $gamesData[] = $game;
-
+            $gamesData[] = $game;
         }
 
         return $unit = [
@@ -54,7 +53,7 @@ trait gameTraits
     public function reading_carousel($game, $student, $unit)
     {
 
-        if(isset($game[0])) $game = $game[0];
+        if (isset($game[0])) $game = $game[0];
         // $game = $games[0];
 
 
@@ -70,8 +69,6 @@ trait gameTraits
             'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
             'data' => $game->ans_n_ques
         ];
-
-
     }
 
     ///////////////////////////////////////////////////////////////
@@ -79,7 +76,7 @@ trait gameTraits
     public function video_player_lessons($game, $student, $unit)
     {
 
-        if(isset($game[0])) $game = $game[0];
+        if (isset($game[0])) $game = $game[0];
 
         $data = $game->ans_n_ques;
 
@@ -107,15 +104,13 @@ trait gameTraits
             'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'data' => $videos->first()
         ];
-
-
     }
 
     ///////////////////////////////////////////////////////////////
     // Song
     public function video_player_song($game, $student, $unit)
     {
-        if(isset($game[0])) $game = $game[0];
+        if (isset($game[0])) $game = $game[0];
 
         $result = $game->ans_n_ques->filter(function ($s) use ($student) {
             return $s->isLocal == $student->isLocal;
@@ -142,8 +137,6 @@ trait gameTraits
             'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'data' => $songs->first()
         ];
-
-
     }
 
     ///////////////////////////////////////////////////////////////
@@ -151,7 +144,7 @@ trait gameTraits
     public function listening_and_choosing_clouds_one($game, $student, $unit)
     {
 
-        if(isset($game[0])) $game = $game[0];
+        if (isset($game[0])) $game = $game[0];
 
         $rounds =  $game->ans_n_ques->groupBy('round')->values();
 
@@ -167,8 +160,6 @@ trait gameTraits
             'instructions' =>  !isset($game->instructions) ? null : $game->instructions,
             'rounds' => $rounds
         ];
-
-
     }
 
     ///////////////////////////////////////////////////////////////
@@ -176,7 +167,7 @@ trait gameTraits
     public function drag_n_drop_and_letter($game, $student, $unit)
     {
 
-        if(isset($game[0])) $game = $game[0];
+        if (isset($game[0])) $game = $game[0];
 
         $rounds =  $game->ans_n_ques->groupBy('round')->values();
 
@@ -193,7 +184,6 @@ trait gameTraits
             'rounds' => $rounds
 
         ];
-
     }
 
     ///////////////////////////////////////////////////////////////
@@ -201,7 +191,7 @@ trait gameTraits
     public function listening_and_choosing_clouds_two($game, $student, $unit)
     {
 
-        if(isset($game[0])) $game = $game[0];
+        if (isset($game[0])) $game = $game[0];
 
         $rounds =  $game->ans_n_ques->groupBy('round')->values();
 
@@ -217,16 +207,15 @@ trait gameTraits
             'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $rounds
         ];
-
     }
 
 
     ///////////////////////////////////////////////////////////////
     // Matching Columns
-    public function matching_columns($game, $student,$unit)
+    public function matching_columns($game, $student, $unit)
     {
 
-        if(isset($game[0])) $game = $game[0];
+        if (isset($game[0])) $game = $game[0];
 
         $rounds =  $game->ans_n_ques->groupBy('round')->values();
 
@@ -242,14 +231,13 @@ trait gameTraits
             'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $rounds
         ];
-
     }
 
 
     public function letter_tracing($game, $student, $unit)
     {
 
-        if(isset($game[0])) $game = $game[0];
+        if (isset($game[0])) $game = $game[0];
 
         $rounds = $game->ans_n_ques->groupBy('round')->values();
 
@@ -265,15 +253,13 @@ trait gameTraits
             'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $rounds
         ];
-
-
     }
 
 
-    public function fill_in_the_blanks($game,$student,$unit)
+    public function fill_in_the_blanks($game, $student, $unit)
     {
 
-        if(isset($game[0])) $game = $game[0];
+        if (isset($game[0])) $game = $game[0];
 
         $rounds = $game->ans_n_ques->groupBy('round')->values();
 
@@ -289,14 +275,13 @@ trait gameTraits
             'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $rounds
         ];
-
     }
 
 
-    public function reading_diagram($game,$student,$unit)
+    public function reading_diagram($game, $student, $unit)
     {
 
-        if(isset($game[0])) $game = $game[0];
+        if (isset($game[0])) $game = $game[0];
 
         return [
             'game_id' => $game->id,
@@ -310,12 +295,5 @@ trait gameTraits
             'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
             'data' => $game->ans_n_ques
         ];
-
     }
-
-
-
-
-
-
 }
