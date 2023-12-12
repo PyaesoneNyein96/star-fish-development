@@ -13,22 +13,23 @@ use App\Models\Student;
 use App\Models\Category;
 use App\Models\StudentGame;
 use App\Models\StudentUnit;
-use App\Models\StudentLesson;
 use App\Models\StudentGrade;
 use Illuminate\Http\Request;
+use App\Models\StudentLesson;
 use App\Http\Traits\gameTraits;
 use App\Models\BackgroundImage;
+use App\Http\Traits\gameTraits2;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\GameResource;
-use App\Http\Traits\gameTraits2;
+use App\Http\Traits\gameControlTrait;
 use Illuminate\Support\Facades\Cache;
 
 class GameController extends Controller
 {
 
 
-    use gameTraits, gameTraits2;
+    use gameTraits, gameTraits2, gameControlTrait;
 
 
     public function grades(Request $request)

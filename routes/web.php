@@ -86,10 +86,6 @@ Route::get('/dbwipe', function () {
     return back();
 });
 
-Route::get('/fresh', function () {
-    Artisan::call('migrate:fresh --seed');
-    return back();
-});
 
 Route::get('/migrate', function () {
     Artisan::call('migrate');
