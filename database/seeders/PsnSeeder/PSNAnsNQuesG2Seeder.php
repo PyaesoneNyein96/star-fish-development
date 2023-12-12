@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\PSNSeeder;
+namespace Database\Seeders\PsnSeeder;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
