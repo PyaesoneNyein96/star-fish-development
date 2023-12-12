@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\PSNSeeder;
+namespace Database\Seeders\PsnSeeder;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -61,8 +61,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
         $qImg = $ImageDomain."Grade_3/lesson_33/Write_the_opposite/";
 
         $q_content_G3_L33_U3 = [
-            'noisy','expensive','ugly(man)','fat','married','old','easy','poor'
+            'noisy','expensive','ugly','fat','married','old','easy','poor'
         ];
+        $q_content_G3_L33_U3_img = ['noisy','expensive','ugly','fat','married','old','easy','poor'];
+
         $a_content_G3_L33_U3 = [
             'quiet','cheap','handsome','thin','single','young','difficult','rich'
         ];
@@ -71,7 +73,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         foreach ($q_content_G3_L33_U3 as $key => $value) {
              DB::table('ans_n_ques')->insert([
                 [
-                 'game_id' => 117, 'round' => $key + 1, 'q_image' => $qImg."oppositeImage".".png",
+                 'game_id' => 117, 'round' => $key + 1, 'q_image' => $qImg.$q_content_G3_L33_U3_img[$key].".png",
                  'q_content' => $value, 'a_content' => $a_content_G3_L33_U3[$key]
                 ],
             ]);

@@ -16,7 +16,7 @@ class GameInstructionSeeder extends Seeder
         // $Path1 = "/storage/audios/Grade_1/Lesson_1/listen_practice/instructions/";
         // $Path2 = "/storage/audios/Grade_1/Lesson_1/Writing_Arranging_Order/instructions/";
 
-        $Instructions = $domain."/storage/audios/Instructions/";
+        $Instructions = $domain . "/storage/audios/Instructions/";
 
         DB::table('game_instructions')->insert([
 
@@ -37,15 +37,16 @@ class GameInstructionSeeder extends Seeder
 
             // G-1 lesson_2 U-7
             [
-            'content' => "Reading-the-alphabet-and-repeat-after-each", "game_id" => 7,
-            'audio' =>  $Instructions . "Reading-the-alphabet-and-repeat-after-each" . ".mp3"
+                'content' => "Reading-the-alphabet-and-repeat-after-each", "game_id" => 7,
+                'audio' =>  $Instructions . "Reading-the-alphabet-and-repeat-after-each" . ".mp3"
             ],
 
             // G-1 lesson_2 U-9
-            ['content' => "Listen and pop the bubbles of alphabet", 'game_id' => 9, 'audio' =>  $Instructions . "Listen-and-pop-the-bubbles-of-alphabet" . ".mp3"
+            [
+                'content' => "Listen and pop the bubbles of alphabet", 'game_id' => 9, 'audio' =>  $Instructions . "Listen-and-pop-the-bubbles-of-alphabet" . ".mp3"
             ],
 
-           // G-1 lesson_2 U-11
+            // G-1 lesson_2 U-11
             ['content' => "Arranging the letters of alphabet in order", 'game_id' => 11, 'audio' =>  $Instructions . "Arranging-the-letters-of-alphabet-in-order" . ".mp3"],
 
 
@@ -96,13 +97,50 @@ class GameInstructionSeeder extends Seeder
 
 
             // ================
+            // G-1 lesson_6 U-29
+            ['content' => "reading carousel", 'game_id' => 29, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
+            // G-1 lesson_6 U-30
+            ['content' => "Finding things", 'game_id' => 30, 'audio' =>  $Instructions . "Finding-things" . ".mp3"],
+
+            // G-1 lesson_6 U-31
+            ['content' => "Matching things in class", 'game_id' => 31, 'audio' =>  $Instructions . "Matching-things-in-class" . ".mp3"],
+
+            // G-1 lesson_6 U-32
+            ['content' => "Tap the things you see and answer the question", 'game_id' => 32, 'audio' =>  $Instructions . "Tap-the-things-you-see-and-ans" . ".mp3"],
+
+            // G-1 lesson_6 U-33
+            ['content' => "Jumbled letters", 'game_id' => 33, 'audio' =>  $Instructions . "Jumbled-letters" . ".mp3"],
+
+
+            // ================
+            // G-1 lesson_8 U-41
+            ['content' => "Reading carousel", 'game_id' => 42, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
+            // G-1 lesson_8 U-42
+            ['content' => "Finding things", 'game_id' => 43, 'audio' =>  $Instructions . "Finding-things" . ".mp3"],
+
+            // G-1 lesson_8 U-43
+            ['content' => "Matching things in class", 'game_id' => 44, 'audio' =>  $Instructions . "Matching-things-in-class" . ".mp3"],
+
+            // G-1 lesson_8 U-44
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 45, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+            // G-1 lesson_8 U-45
+            ['content' => "Answer the question", 'game_id' => 46, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
+
+            // G-1 lesson_8 U-46
+            ['content' => "Jumbled letters", 'game_id' => 47, 'audio' =>  $Instructions . "Jumbled-letters" . ".mp3"],
+
+
+            // ================
             // G-1 lesson_13 U-73
             ['content' => "Put the objects in the correct places", 'game_id' => 75, 'audio' =>  $Instructions . "Put-the-objects-in-the-correct" . ".mp3"],
 
             // G-1 lesson_7 U-39
             // Game 39,40
-            [ 'content' => "Trace-and-write", "game_id" => 39,'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
-            ['content' => "Write-the-correct-letter", "game_id" => 40,'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
+            ['content' => "Trace-and-write", "game_id" => 39, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+            ['content' => "Write-the-correct-letter", "game_id" => 40, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
 
 
             // ================
@@ -110,19 +148,12 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Listen and Act", 'game_id' => 105, 'audio' => $Instructions . "Listen-and-Act" . ".mp3"],
 
             // G-1 lesson_17 U-102
-            ['content' => "Listen and put the body parts in the correct place.", 'game_id' => 102,
-             'audio' =>  $Instructions . "Listen-and-put-the-body-parts-in-the-correct-place" . ".mp3"],
+            [
+                'content' => "Listen and put the body parts in the correct place.", 'game_id' => 102,
+                'audio' =>  $Instructions . "Listen-and-put-the-body-parts-in-the-correct-place" . ".mp3"
+            ],
 
 
         ]);
-
-
-
-
-
-
-
-
-
     }
 }

@@ -29,10 +29,12 @@ use Database\Seeders\ConversationSeeder;
 use Database\Seeders\StudentGradeSeeder;
 use Database\Seeders\GameInstructionSeeder;
 use Database\Seeders\SubscriptionPlanSeeder;
-use Database\Seeders\PSNSeeder\PSNAnsNQuesSeeder;
 
-use Database\Seeders\PSNSeeder\PSNAnsNQuesG2Seeder;
-use Database\Seeders\PSNSeeder\PSNAnsNQuesG3Seeder;
+use Database\Seeders\PsnSeeder\PSNAnsNQuesSeeder;
+use Database\Seeders\PsnSeeder\PSNAnsNQuesG2Seeder;
+use Database\Seeders\PsnSeeder\PSNAnsNQuesG3Seeder;
+use Database\Seeders\PsnSeeder\PSNAnsNQuesG4Seeder;
+
 use Database\Seeders\AnsNQueSeed2\Grade1\AnsNQueSeeder as Grade1AnsNQueSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -158,6 +160,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PSNAnsNQuesSeeder::class);
         $this->call(PSNAnsNQuesG2Seeder::class);
         $this->call(PSNAnsNQuesG3Seeder::class);
+        $this->call(PSNAnsNQuesG4Seeder::class);
 
 
         $this->call(Grade1AnsNQueSeeder::class);

@@ -224,7 +224,7 @@ class GameSeeder extends Seeder
 
         ]);
 
-        //  Grade 1 Games .......
+        //  Grade 1 Games end.......
 
         //--------------  Grade 3 Games -------------------
 
@@ -251,6 +251,17 @@ class GameSeeder extends Seeder
             ['name' => 'Free Speaking Practice', 'unit_id' => 247, 'category_id' => 3],
         ]);
 
+
+
+        //----------------- Grade 3 games -------------------------
+
+        DB::table('games')->insert([
+            ['name' => 'Reading Lesson', 'unit_id' => 248, 'category_id' => 1],
+            ['name' => 'Listen and Repeat', 'unit_id' => 249, 'category_id' => 1],
+            ['name' => 'Speaking Practice', 'unit_id' => 250, 'category_id' => 1],
+            ['name' => 'Listen and Practice', 'unit_id' => 251, 'category_id' => 28],
+            ['name' => 'Speaking Topic', 'unit_id' => 252, 'category_id' => 1],
+        ]);
 
     }
 }
