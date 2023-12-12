@@ -40,7 +40,7 @@ trait gameTraits
         return $unit = [
             'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
-            'sub_unit' => count($gamesData) == 1 ? false : true,
+            'sub_unit' => count($gamesData) > 1 ?  true  : false,
             'games' => $gamesData,
 
         ];
@@ -56,19 +56,32 @@ trait gameTraits
         if(isset($game[0])) $game = $game[0];
         // $game = $games[0];
 
+        //  $rounds =  $game->ans_n_ques->groupBy('round')->values();
 
-        return [
+         $roundExist = $game->ans_n_ques->some(function ($g){
+            return array_key_exists('round', $g->toArray());
+         });
+
+
+        $data = [
             'game_id' => $game->id,
             'lesson_id' => $unit->lesson_id,
             'game_name' => $game->name,
             'unit_name' => $unit->name,
             'game_status' => $game->status,
-            'sub_unit'  => $game->count() < 1 ? true : false,
+            'sub_unit'  =>  $game->count() < 1,
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
-            'data' => $game->ans_n_ques
+            'instructions' =>   $game->instructions->isEmpty() ? null : $game->instructions,
+            // 'data' => $game->ans_n_ques
         ];
+
+        if($roundExist){
+            $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
+        }
+        $data['data'] = $game->ans_n_ques;
+        return $data;
+
     }
 
     ///////////////////////////////////////////////////////////////
@@ -149,9 +162,12 @@ trait gameTraits
 
         if (isset($game[0])) $game = $game[0];
 
-        // if(!$game->ans_n_ques[0]->round)
-
         $rounds =  $game->ans_n_ques->groupBy('round')->values();
+
+         $roundExist = $game->ans_n_ques->some(function ($g){
+            return array_key_exists('round', $g->toArray());
+         });
+
 
         $data = [
             'game_id' => $game->id,
@@ -166,12 +182,10 @@ trait gameTraits
             // 'rounds' => $rounds
         ];
 
-        if($game->ans_n_ques[0]->round){
-            $data['round'] = $rounds;
-        }else{
-            $data['data'] = $game->ans_n_ques;
+        if($roundExist){
+            $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
         }
-
+        $data['data'] = $game->ans_n_ques;
         return $data;
 
     }
@@ -347,6 +361,7 @@ trait gameTraits
 
         $rounds =  $game->ans_n_ques->groupBy('round')->values();
 
+
         return [
             'game_id' => $game->id,
             'lesson_id' => $unit->lesson_id,
@@ -359,6 +374,38 @@ trait gameTraits
             'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $rounds
         ];
+
+    }
+
+
+    public function listening_and_choosing_pics_two($game, $student, $unit){
+
+        if (isset($game[0])) $game = $game[0];
+
+        $roundExist = $game->ans_n_ques->some(function ($g){
+            return array_key_exists('round', $g->toArray());
+        });
+
+        $data = [
+            'game_id' => $game->id,
+            'lesson_id' => $unit->lesson_id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'game_status' => $game->status,
+            'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
+            'instructionGIF'  => $game->instructionGIF,
+            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
+        ];
+
+        if($roundExist) {
+            $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
+        }
+        $data['data'] = $game->ans_n_ques;
+
+        return $data;
+
+
 
     }
 
