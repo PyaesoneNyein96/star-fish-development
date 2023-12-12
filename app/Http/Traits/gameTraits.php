@@ -14,7 +14,7 @@ trait gameTraits
 {
 
     // listening_and_choosing_clouds_one, reading_carousel, video_player_lessons,
-    // video_player_song, drag_n_drop_and_letter
+    // video_player_song, drag_n_drop_and_letter , writing_topic
 
      ///////////////////////////////////////////////////////////////
     /// SUb Unit Games ************
@@ -149,9 +149,11 @@ trait gameTraits
 
         if (isset($game[0])) $game = $game[0];
 
+        // if(!$game->ans_n_ques[0]->round)
+
         $rounds =  $game->ans_n_ques->groupBy('round')->values();
 
-        return [
+        $data = [
             'game_id' => $game->id,
             'lesson_id' => $unit->lesson_id,
             'game_name' => $game->name,
@@ -161,8 +163,17 @@ trait gameTraits
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' =>  !isset($game->instructions) ? null : $game->instructions,
-            'rounds' => $rounds
+            // 'rounds' => $rounds
         ];
+
+        if($game->ans_n_ques[0]->round){
+            $data['round'] = $rounds;
+        }else{
+            $data['data'] = $game->ans_n_ques;
+        }
+
+        return $data;
+
     }
 
     ///////////////////////////////////////////////////////////////
@@ -286,6 +297,8 @@ trait gameTraits
 
         if (isset($game[0])) $game = $game[0];
 
+        // if($game->ans_n_ques)
+
         return [
             'game_id' => $game->id,
             'lesson_id' => $unit->lesson_id,
@@ -300,6 +313,66 @@ trait gameTraits
         ];
 
     }
+
+
+    // Writing_topic
+
+    public function writing_topic($game, $student, $unit){
+
+        if (isset($game[0])) $game = $game[0];
+
+        // $rounds =  $game->ans_n_ques->groupBy('round')->values();
+
+        return [
+            'game_id' => $game->id,
+            'lesson_id' => $unit->lesson_id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'game_status' => $game->status,
+            'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
+            'instructionGIF'  => $game->instructionGIF,
+            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
+            'data' => $game->ans_n_ques
+        ];
+
+    }
+
+
+    //writing_opposite
+
+    public function writing_opposite($game, $student, $unit){
+
+        if (isset($game[0])) $game = $game[0];
+
+        $rounds =  $game->ans_n_ques->groupBy('round')->values();
+
+        return [
+            'game_id' => $game->id,
+            'lesson_id' => $unit->lesson_id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'game_status' => $game->status,
+            'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
+            'instructionGIF'  => $game->instructionGIF,
+            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
+            'rounds' => $rounds
+        ];
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

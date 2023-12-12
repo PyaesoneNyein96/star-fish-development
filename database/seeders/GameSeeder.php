@@ -223,5 +223,34 @@ class GameSeeder extends Seeder
             ['name' => 'Speaking Practice', 'unit_id' => 99, 'category_id' => 11, 'instructionGIF' => $instructionGif_path . "Speaking.gif"],
 
         ]);
+
+        //  Grade 1 Games .......
+
+        //--------------  Grade 3 Games -------------------
+
+        DB::table('games')->insert([
+            ['name' => 'Target Language', 'unit_id' => 233, 'category_id' => 1],
+            ['name' => 'Vocabulary', 'unit_id' => 234, 'category_id' => 1],
+            ['name' => 'Practice', 'unit_id' => 235, 'category_id' => 1],
+            ['name' => 'Listening', 'unit_id' => 236, 'category_id' => 1],
+            ['name' => 'Speaking', 'unit_id' => 237, 'category_id' => 1],
+            ['name' => 'Reading', 'unit_id' => 238, 'category_id' => 3],
+            ['name' => 'Writing', 'unit_id' => 239, 'category_id' => 26],   // ***
+            ['name' => 'Free practice', 'unit_id' => 240, 'category_id' => 3],
+        ]);
+
+        ////////////////////
+
+        DB::table('games')->insert([
+            ['name' => 'Video', 'unit_id' => 241, 'category_id' => 1],
+            ['name' => 'Vocabulary', 'unit_id' => 242, 'category_id' => 1],
+            ['name' => 'Write the opposite', 'unit_id' => 243, 'category_id' => 27],  // ***
+            ['name' => 'Writing', 'unit_id' => 244, 'category_id' => 1],
+            ['name' => 'Listen', 'unit_id' => 245, 'category_id' => 1],
+            ['name' => 'Speaking', 'unit_id' => 246, 'category_id' => 3],
+            ['name' => 'Free Speaking Practice', 'unit_id' => 247, 'category_id' => 3],
+        ]);
+
+
     }
 }
