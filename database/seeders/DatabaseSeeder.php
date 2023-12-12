@@ -31,8 +31,8 @@ use Database\Seeders\GameInstructionSeeder;
 use Database\Seeders\SubscriptionPlanSeeder;
 use Database\Seeders\PSNSeeder\PSNAnsNQuesSeeder;
 
-use Database\Seeders\PSNSeeder\PSNAnsNQuesG2Seeder;
-use Database\Seeders\PSNSeeder\PSNAnsNQuesG3Seeder;
+use Database\Seeders\PsnSeeder\PSNAnsNQuesG2Seeder;
+use Database\Seeders\PsnSeeder\PSNAnsNQuesG3Seeder;
 use Database\Seeders\AnsNQueSeed2\Grade1\AnsNQueSeeder as Grade1AnsNQueSeeder;
 
 class DatabaseSeeder extends Seeder
