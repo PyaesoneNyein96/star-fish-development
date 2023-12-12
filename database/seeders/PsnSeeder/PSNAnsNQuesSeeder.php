@@ -359,7 +359,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
     //    Grade 1  Lesson 17 Games 2 subunit 1
-    $bodyParts = ['Hair','Eye_Null','Cheek','Lip','Teeth','Mouth','Chin','Nose'];
+    $bodyParts = ['Hair','Eye','Cheek','Lip','Teeth','Mouth','Chin','Nose'];
 
     $audioDomainPath = $AudioDomain."Grade_1/Lesson_17/Listen_and_Repeat/";
     $G1L17ImgDomain = $ImageDomain."Grade_1/Lesson_17/Listen_and_Repeat/";
