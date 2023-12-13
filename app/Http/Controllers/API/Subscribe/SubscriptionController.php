@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\Subscribe;
 
 use Carbon\Carbon;
+use App\Models\Game;
 use App\Models\Grade;
 use App\Models\Country;
 use App\Models\Student;
@@ -106,8 +107,11 @@ class SubscriptionController extends Controller
             $student = Student::where('token', $this->token)->where('status',1)->first();
 
             $gradeLessons = Grade::find($this->grade_id)->lessons;
-            $gradeGames = Grade::find($this->grade_id)->games;
 
+            $gradeUnit = Grade::find($this->grade_id)->units->pluck('id');
+
+            $gradeGames = Game::whereIn('unit_id', $gradeUnit)->get();
+            // return $gradeGames;
 
             DB::beginTransaction();
 
@@ -119,13 +123,23 @@ class SubscriptionController extends Controller
 
                 $res1= StudentLesson::where('student_id', $student->id)->whereIn('id', $del_lessons)->delete();
 
+            //////////////////////////////
+
+                $del_units = $gradeUnit->filter(function($l) use($student){
+                    return $student->units->contains('id', $l->id);
+                })->pluck('id');
+
+                $res2 = StudentUnit::where('student_id', $student->id)->whereIn('id', $del_units)->delete();
+
+            //////////////////////////////
+
                 $del_games = $gradeGames->filter(function($g) use($student) {
                     return $student->games->contains('id', $g->id);
                 })->pluck('id');
 
-                $res2 = StudentGame::where('student_id',$student->id)->whereIn('id',$del_games)->delete();
+                $res3 = StudentGame::where('student_id',$student->id)->whereIn('id',$del_games)->delete();
 
-                if($res1 && $res2){
+                if($res1 && $res3){
                     StudentGrade::where('grade_id',$this->grade_id)->delete();
                 }
 
