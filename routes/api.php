@@ -79,7 +79,8 @@ Route::get('game', [GameController::class, 'specificGame']);
 Route::get('end_match', [GameController::class, 'end_match']);
 
 Route::prefix('control')->group(function () {
-    Route::post('lock',[GameController::class,'lockAll']);
+    Route::post('/',[GameController::class,'lockAndUnlock']);
+    Route::post('/check',[GameController::class,'showLockAndUnlock']);
 });
 
 

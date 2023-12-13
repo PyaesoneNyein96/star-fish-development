@@ -69,9 +69,18 @@ Field (token ,lesson_id, grade_id, (Header))
 Method (GET) [ https://star-fish.myanmargateway.net/api/game ](https://star-fish.myanmargateway.net/api/game)  
 Field (token ,unit_id, lesson_id (Header)) - for subUnit (game_id)
 
-<!-- #### End-Match
+#### End-Match
 Method (GET) [https://star-fish.myanmargateway.net/api/end_match](https://star-fish.myanmargateway.net/api/end_match)
-Field (token, game_id, lesson_id, point (Header)) -->
+Field (token, game_id, lesson_id, point (Header))
+
+### Lock & Unlock
+Method (POST) [https://star-fish.myanmargateway.net/api/control](https://star-fish.myanmargateway.net/api/control)  
+Field (Body) (games eg - "1,2,3" or "all" , status eg - "lock" or "unlock")
+
+### Check games (lock/unlock)
+Method(POST) [https://star-fish.myanmargateway.net/api/control/check](https://star-fish.myanmargateway.net/api/control/check)  
+Field (Body) (status eg - "lock" & "unlock" )
+
 
 > # Subscription Plans
 

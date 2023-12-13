@@ -8,20 +8,34 @@ trait gameControlTrait
 {
 
 
-    public function lockAll(Request $request){
+    public function lockAndUnlock(Request $request){
 
-        $games = explode(",", $request->lock_games);
+    if(!$request->games) return "Games list is empty!";
 
-        if($request->lock_games !== null ){
-            Game::whereIn('id', $games)->update(['status' => 0]);
+    $games = explode(",", $request->games);
+    $status = $request->status == "lock" ? 0 : 1 ;
 
-            return Game::whereIn('id', $games)->get();
+    if($request->games == "all") {
+        Game::query()->update(['status' => $status]);
+        return Game::where('status', $status)->get();
+    }
+
+    Game::whereIn('id', $games)->update(['status' => $status]);
+    return Game::whereIn('id', $games)->get();
+
+    }
 
 
-        }
 
 
-        return $request;
+    public function showLockAndUnlock(Request $request){
+
+        $status = $request->status == "lock" ? 0 : 1;
+
+        $games = Game::where('status',$status)->get();
+
+        return $games;
+
 
     }
 
