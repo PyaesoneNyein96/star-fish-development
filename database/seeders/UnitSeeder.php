@@ -595,6 +595,14 @@ class UnitSeeder extends Seeder
         ['name' => 'Speak', 'lesson_id' => 50],
 
 
+        // lesson 22's units count(5) start (273,277)
+
+        ['name' => 'Grammar Explanation', 'lesson_id' => 50],             // 278
+        ['name' => 'Listen and Repeat', 'lesson_id' => 50],                         // 277
+        ['name' => 'Matching words and pictures', 'lesson_id' => 50],
+        ['name' => 'Choose your answer', 'lesson_id' => 50],
+        ['name' => 'Speak', 'lesson_id' => 50],
+
 
     ]);
 
