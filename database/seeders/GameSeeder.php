@@ -241,27 +241,27 @@ class GameSeeder extends Seeder
 
         ////////////////////
 
-        DB::table('games')->insert([
-            ['name' => 'Video', 'unit_id' => 344, 'category_id' => 1],
-            ['name' => 'Vocabulary', 'unit_id' => 345, 'category_id' => 1],
-            ['name' => 'Write the opposite', 'unit_id' => 346, 'category_id' => 27],  // ***
-            ['name' => 'Writing', 'unit_id' => 347, 'category_id' => 1],
-            ['name' => 'Listen', 'unit_id' => 358, 'category_id' => 1],
-            ['name' => 'Speaking', 'unit_id' => 349, 'category_id' => 3],
-            ['name' => 'Free Speaking Practice', 'unit_id' => 350, 'category_id' => 3],
-        ]);
+        // DB::table('games')->insert([
+        //     ['name' => 'Video', 'unit_id' => 344, 'category_id' => 1],
+        //     ['name' => 'Vocabulary', 'unit_id' => 345, 'category_id' => 1],
+        //     ['name' => 'Write the opposite', 'unit_id' => 346, 'category_id' => 27],  // ***
+        //     ['name' => 'Writing', 'unit_id' => 347, 'category_id' => 1],
+        //     ['name' => 'Listen', 'unit_id' => 358, 'category_id' => 1],
+        //     ['name' => 'Speaking', 'unit_id' => 349, 'category_id' => 3],
+        //     ['name' => 'Free Speaking Practice', 'unit_id' => 350, 'category_id' => 3],
+        // ]);
 
 
 
-        //----------------- Grade 3 games -------------------------
+        // //----------------- Grade 3 games -------------------------
 
-        DB::table('games')->insert([
-            ['name' => 'Reading Lesson', 'unit_id' => 248, 'category_id' => 1],
-            ['name' => 'Listen and Repeat', 'unit_id' => 249, 'category_id' => 1],
-            ['name' => 'Speaking Practice', 'unit_id' => 250, 'category_id' => 1],
-            ['name' => 'Listen and Practice', 'unit_id' => 251, 'category_id' => 28],
-            ['name' => 'Speaking Topic', 'unit_id' => 252, 'category_id' => 1],
-        ]);
+        // DB::table('games')->insert([
+        //     ['name' => 'Reading Lesson', 'unit_id' => 248, 'category_id' => 1],
+        //     ['name' => 'Listen and Repeat', 'unit_id' => 249, 'category_id' => 1],
+        //     ['name' => 'Speaking Practice', 'unit_id' => 250, 'category_id' => 1],
+        //     ['name' => 'Listen and Practice', 'unit_id' => 251, 'category_id' => 28],
+        //     ['name' => 'Speaking Topic', 'unit_id' => 252, 'category_id' => 1],
+        // ]);
 
     }
 }
