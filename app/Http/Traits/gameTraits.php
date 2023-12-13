@@ -2,14 +2,6 @@
 
 namespace App\Http\Traits;
 
-use App\Models\Game;
-use App\Models\Round;
-use App\Models\Lesson;
-use App\Models\Student;
-use App\Models\Subunit;
-use App\Http\Resources\DataResource;
-
-
 trait gameTraits
 {
 
