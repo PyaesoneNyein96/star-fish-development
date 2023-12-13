@@ -134,6 +134,40 @@ class GameInstructionSeeder extends Seeder
 
 
             // ================
+            // G-1 lesson_9 U-48
+            ['content' => "reading carousel", 'game_id' => 49, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
+            // G-1 lesson_9 U-49
+            ['content' => "Finding animals", 'game_id' => 50, 'audio' =>  $Instructions . "Finding-animals" . ".mp3"],
+
+            // G-1 lesson_9 U-50
+            ['content' => "Matching things in class", 'game_id' => 51, 'audio' =>  $Instructions . "Matching-things-in-class" . ".mp3"],
+
+            // G-1 lesson_9 U-51
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 52, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+            // G-1 lesson_9 U-52
+            ['content' => "Jumbled letters", 'game_id' => 53, 'audio' =>  $Instructions . "Jumbled-letters" . ".mp3"],
+
+
+            // ================
+            // G-1 lesson_10 U-54
+            ['content' => "reading carousel", 'game_id' => 55, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
+            // G-1 lesson_10 U-55
+            ['content' => "Finding animals", 'game_id' => 56, 'audio' =>  $Instructions . "Finding-animals" . ".mp3"],
+
+            // G-1 lesson_10 U-56
+            ['content' => "Matching things in class", 'game_id' => 57, 'audio' =>  $Instructions . "Matching-things-in-class" . ".mp3"],
+
+            // G-1 lesson_10 U-57
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 58, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+            // G-1 lesson_10 U-58
+            ['content' => "Jumbled letters", 'game_id' => 59, 'audio' =>  $Instructions . "Jumbled-letters" . ".mp3"],
+
+
+            // ================
             // G-1 lesson_13 U-73
             ['content' => "Put the objects in the correct places", 'game_id' => 75, 'audio' =>  $Instructions . "Put-the-objects-in-the-correct" . ".mp3"],
 

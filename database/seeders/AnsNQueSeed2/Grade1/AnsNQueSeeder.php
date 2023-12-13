@@ -829,12 +829,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G33R1 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 1, 'game_id' => 33, "q_image" => $l6G33image . "desk_image", 'q_content' => $i],
+                ['round' => 1, 'game_id' => 33,  'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 33, 'a_content' => "DESK", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "desk.mp3"],
+            ['round' => 1, 'game_id' => 33, "q_image" => $l6G33image . "desk_image", 'a_content' => "DESK", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "desk.mp3"],
         ]);
 
         // round 2
@@ -843,12 +843,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G33R2 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 2, 'game_id' => 33, "q_image" => $l6G33image . "chair_image", 'q_content' => $i],
+                ['round' => 2, 'game_id' => 33,  'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 2, 'game_id' => 33, 'a_content' => "CHAIR", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
+            ['round' => 2, 'game_id' => 33, "q_image" => $l6G33image . "chair_image", 'a_content' => "CHAIR", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
         ]);
 
         // round 3
@@ -857,12 +857,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G33R3 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 3, 'game_id' => 33, "q_image" => $l6G33image . "pencil_image", 'q_content' => $i],
+                ['round' => 3, 'game_id' => 33,  'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 3, 'game_id' => 33, 'a_content' => "PENCIL", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
+            ['round' => 3, 'game_id' => 33, "q_image" => $l6G33image . "pencil_image", 'a_content' => "PENCIL", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
         ]);
 
         // round 4
@@ -871,12 +871,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G33R4 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 4, 'game_id' => 33, "q_image" => $l6G33image . "bag_image", 'q_content' => $i],
+                ['round' => 4, 'game_id' => 33, 'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 4, 'game_id' => 33, 'a_content' => "BAG", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
+            ['round' => 4, 'game_id' => 33,  "q_image" => $l6G33image . "bag_image", 'a_content' => "BAG", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
         ]);
 
         // round 5
@@ -885,12 +885,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G33R5 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 5, 'game_id' => 33, "q_image" => $l6G33image . "ruler_image", 'q_content' => $i],
+                ['round' => 5, 'game_id' => 33, 'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 5, 'game_id' => 33, 'a_content' => "RULER", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
+            ['round' => 5, 'game_id' => 33, "q_image" => $l6G33image . "ruler_image", 'a_content' => "RULER", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
         ]);
 
         // round 6
@@ -899,12 +899,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G33R6 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 6, 'game_id' => 33, "q_image" => $l6G33image . "eraser_image", 'q_content' => $i],
+                ['round' => 6, 'game_id' => 33,  'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 6, 'game_id' => 33, 'a_content' => "ERASER", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
+            ['round' => 6, 'game_id' => 33, "q_image" => $l6G33image . "eraser_image", 'a_content' => "ERASER", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
         ]);
 
         // round 7
@@ -913,12 +913,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G33R7 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 7, 'game_id' => 33, "q_image" => $l6G33image . "pen_image", 'q_content' => $i],
+                ['round' => 7, 'game_id' => 33, 'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 7, 'game_id' => 33, 'a_content' => "PEN", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
+            ['round' => 7, 'game_id' => 33, "q_image" => $l6G33image . "pen_image",  'a_content' => "PEN", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
         ]);
 
         // round 8
@@ -927,12 +927,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G33R8 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 8, 'game_id' => 33, "q_image" => $l6G33image . "crayon_image", 'q_content' => $i],
+                ['round' => 8, 'game_id' => 33,  'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 8, 'game_id' => 33, 'a_content' => "CRAYON", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
+            ['round' => 8, 'game_id' => 33, "q_image" => $l6G33image . "crayon_image", 'a_content' => "CRAYON", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
         ]);
 
         // round 9
@@ -941,12 +941,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G33R8 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 9, 'game_id' => 33, "q_image" => $l6G33image . "book_image", 'q_content' => $i],
+                ['round' => 9, 'game_id' => 33,  'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 9, 'game_id' => 33, 'a_content' => "BOOK", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
+            ['round' => 9, 'game_id' => 33, "q_image" => $l6G33image . "book_image", 'a_content' => "BOOK", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
         ]);
 
         // round 10
@@ -955,12 +955,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G33R8 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 10, 'game_id' => 33, "q_image" => $l6G33image . "bag_image", 'q_content' => $i],
+                ['round' => 10, 'game_id' => 33, 'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 10, 'game_id' => 33, 'a_content' => "BAG", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
+            ['round' => 10, 'game_id' => 33, "q_image" => $l6G33image . "bag_image", 'a_content' => "BAG", 'a_audio' => $AudioDomain . $G1_L6_writing_path . "audio"],
         ]);
 
 
@@ -1192,12 +1192,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G47R1 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 1, 'game_id' => 47, "q_image" => $l8G47image . "table_image", 'q_content' => $i],
+                ['round' => 1, 'game_id' => 47,  'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 47, 'a_content' => "TABLE", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "table.mp3"],
+            ['round' => 1, 'game_id' => 47, "q_image" => $l8G47image . "table_image", 'a_content' => "TABLE", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "table.mp3"],
         ]);
 
         // round 2
@@ -1206,12 +1206,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G47R2 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 2, 'game_id' => 47, "q_image" => $l8G47image . "bottle_image", 'q_content' => $i],
+                ['round' => 2, 'game_id' => 47, 'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 2, 'game_id' => 47, 'a_content' => "BOTTLE", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "bottle.mp3"],
+            ['round' => 2, 'game_id' => 47,  "q_image" => $l8G47image . "bottle_image", 'a_content' => "BOTTLE", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "bottle.mp3"],
         ]);
 
         // round 3
@@ -1220,12 +1220,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G47R3 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 3, 'game_id' => 47, "q_image" => $l8G47image . "spoon_image", 'q_content' => $i],
+                ['round' => 3, 'game_id' => 47, 'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 3, 'game_id' => 47, 'a_content' => "SPOON", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "spoon.mp3"],
+            ['round' => 3, 'game_id' => 47, "q_image" => $l8G47image . "spoon_image", 'a_content' => "SPOON", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "spoon.mp3"],
         ]);
 
         // round 4
@@ -1234,12 +1234,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G47R4 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 4, 'game_id' => 47, "q_image" => $l8G47image . "bed_image", 'q_content' => $i],
+                ['round' => 4, 'game_id' => 47, 'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 4, 'game_id' => 47, 'a_content' => "BED", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "bed.mp3"],
+            ['round' => 4, 'game_id' => 47, "q_image" => $l8G47image . "bed_image",  'a_content' => "BED", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "bed.mp3"],
         ]);
 
         // round 5
@@ -1248,12 +1248,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G47R5 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 5, 'game_id' => 47, "q_image" => $l8G47image . "fan_image", 'q_content' => $i],
+                ['round' => 5, 'game_id' => 47, 'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 5, 'game_id' => 47, 'a_content' => "FAN", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "fan.mp3"],
+            ['round' => 5, 'game_id' => 47,  "q_image" => $l8G47image . "fan_image", 'a_content' => "FAN", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "fan.mp3"],
         ]);
 
         // round 6
@@ -1262,12 +1262,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G47R6 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 6, 'game_id' => 47, "q_image" => $l8G47image . "plate_image", 'q_content' => $i],
+                ['round' => 6, 'game_id' => 47, 'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 6, 'game_id' => 47, 'a_content' => "PLATE", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "plate.mp3"],
+            ['round' => 6, 'game_id' => 47, "q_image" => $l8G47image . "plate_image", 'a_content' => "PLATE", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "plate.mp3"],
         ]);
 
         // round 7
@@ -1276,12 +1276,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G47R7 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 7, 'game_id' => 47, "q_image" => $l8G47image . "cup_image", 'q_content' => $i],
+                ['round' => 7, 'game_id' => 47,  'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 7, 'game_id' => 47, 'a_content' => "CUP", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "cups.mp3"],
+            ['round' => 7, 'game_id' => 47, "q_image" => $l8G47image . "cup_image", 'a_content' => "CUP", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "cups.mp3"],
         ]);
 
         // round 8
@@ -1290,12 +1290,12 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G47R8 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 8, 'game_id' => 47, "q_image" => $l8G47image . "clock_image", 'q_content' => $i],
+                ['round' => 8, 'game_id' => 47, 'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 8, 'game_id' => 47, 'a_content' => "CLOCK", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "clock.mp3"],
+            ['round' => 8, 'game_id' => 47, "q_image" => $l8G47image . "clock_image", 'a_content' => "CLOCK", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "clock.mp3"],
         ]);
 
         // round 9
@@ -1304,16 +1304,610 @@ class AnsNQueSeeder extends Seeder
         ];
         foreach ($G47R9 as $i) {
             DB::table('ans_n_ques')->insert([
-                ['round' => 9, 'game_id' => 47, "q_image" => $l8G47image . "mat_image", 'q_content' => $i],
+                ['round' => 9, 'game_id' => 47,  'q_content' => $i],
             ]);
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 9, 'game_id' => 47, 'a_content' => "MAT", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "mat.mp3"],
+            ['round' => 9, 'game_id' => 47, "q_image" => $l8G47image . "mat_image", 'a_content' => "MAT", 'a_audio' => $AudioDomain . $G1_L8_writing_path . "mat.mp3"],
         ]);
 
 
 
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 9 Game 48 (  Target language  )
+        ////////////////////////////////////////////////////////
+
+        DB::table('ans_n_ques')->insert(['game_id' => 48, 'a_content' => 'lesson_9_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 48, 'a_content' => 'lesson_9_video_global', 'isLocal' => 0]);
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 9 Game 49 (  Reading  )
+        ////////////////////////////////////////////////////////
+
+        $l9G49image = $domain . "/storage/images/Grade_1/lesson_9/reading/";
+        $G1_L9_reading = "Grade_1/" . "Lesson_9/" . "reading/";
+
+
+        $ansl9Content = [
+            "Bird", "Cat", "Dog", "Fish", "Kitten", "Parrot", "Puppy"
+        ];
+
+        $ansl9Image = [
+            "Bird", "Cat", "Dog", "Fish", "Kitten", "Parrot", "Puppy"
+        ];
+
+        $ansl9Audio = [
+            "bird", "cat", "dog", "fish", "kitten", "parrot", "puppy"
+        ];
+
+
+
+        $G1_L9_Game49_index = 0;
+
+        foreach ($ansl9Content as $key) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 49, 'a_content' => $key, 'a_image' => $l9G49image . $ansl9Image[$G1_L9_Game49_index] . ".png",
+                    'a_audio' => $AudioDomain . $G1_L9_reading . $ansl9Audio[$G1_L9_Game49_index] . ".mp3"
+                ],
+            ]);
+            $G1_L9_Game49_index++;
+        }
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 9 Game 50 (  Listen and practice  )
+        ////////////////////////////////////////////////////////
+
+        $l9G50image = $domain . "/storage/images/Grade_1/lesson_9/listen_n_practice/";
+        $G1_L9_listen_n_practice = "Grade_1/" . "Lesson_9/" . "listen_n_practice/";
+
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'round' => 1, 'game_id' => 50, 'a_content' => "thing...", 'q_image' => $l9G50image . "thing_image" . ".png",
+                'a_audio' => $AudioDomain . $G1_L9_listen_n_practice . "thing_audio" . ".mp3", "background" => $l9G50image . "background.png"
+            ],
+
+
+            [
+                'round' => 2, 'game_id' => 50, 'a_content' => "thing...", 'q_image' => $l9G50image . "thing_image" . ".png",
+                'a_audio' => $AudioDomain . $G1_L9_listen_n_practice . "thing_audio" . ".mp3", "background" => $l9G50image . "background.png"
+            ],
+        ]);
+
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 9 Game 51 (  Listen and practice  )
+        ////////////////////////////////////////////////////////
+
+        $l9G51image = $domain . "/storage/images/Grade_1/lesson_9/Matching/";
+        $G1_L9_Matching = "Grade_1/" . "Lesson_9/" . "Matching/";
+
+
+        $G1_L9_Game51_Matching = [
+
+            ['goldfish', 'kitten', 'puppy', 'chameleon'],
+            ['Fish', 'Dog', 'Cat', 'Turtle'],
+
+        ];
+
+        $G1_L9_Game51_Matching_image = [
+
+            ['Cat', 'goldfish', 'chameleon', 'puppy'],
+            ['Cat', 'Turtle', 'Fish', 'Dog'],
+
+        ];
+
+        $G1_L9_Game51_Matching_audio = [
+            'goldfish', 'kitten', 'puppy', 'chameleon',
+            'cat', 'goldfish', 'chameleon', 'puppy',
+
+            'fish', 'dog', 'cat', 'turtle',
+            'cat', 'turtle', 'fish', 'dog',
+
+        ];
+
+        $G1_L9_Game51_index = 0;
+
+        for ($i = 0; $i < count($G1_L9_Game51_Matching); $i++) {
+
+            foreach ($G1_L9_Game51_Matching[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 51, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $q, 'q_audio' => $AudioDomain . $G1_L9_Matching .  $G1_L9_Game51_Matching_audio[$G1_L9_Game51_index] . ".mp3",
+                    ]
+                ]);
+                $G1_L9_Game51_index++;
+            }
+
+            foreach ($G1_L9_Game51_Matching_image[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 51, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $l9G51image . $q . ".png", 'q_audio' => $AudioDomain . $G1_L9_Matching .  $G1_L9_Game51_Matching_audio[$G1_L9_Game51_index] . ".mp3",
+                    ]
+                ]);
+                $G1_L9_Game51_index++;
+            }
+        }
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 9 Game 52 (  Speaking Practice  )
+        ////////////////////////////////////////////////////////
+
+        $l9G52image = $domain . "/storage/images/Grade_1/lesson_9/Speaking/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 52, 'q_image' => $l9G52image . "chameleon_image", "q_content" => "Describe the pictures. It is ____."],
+            ['round' => 2, 'game_id' => 52, 'q_image' => $l9G52image . "parrot_image", "q_content" => "Describe the pictures. It is ____."],
+            ['round' => 3, 'game_id' => 52, 'q_image' => $l9G52image . "dog_image", "q_content" => "Describe the pictures. It is ____."],
+            ['round' => 4, 'game_id' => 52, 'q_image' => $l9G52image . "cat_image", "q_content" => "Describe the pictures. It is ____."],
+            ['round' => 5, 'game_id' => 52, 'q_image' => $l9G52image . "fish_image", "q_content" => "Describe the pictures. It is ____."],
+        ]);
+
+
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 9 Game 53 (  Writing  )
+        ////////////////////////////////////////////////////////
+
+        $l9G53image = $domain . "/storage/images/Grade_1/lesson_9/writing/";
+        $G1_L9_writing_path = "Grade_1/" . "Lesson_9/" . "writing/";
+
+
+        // round 1
+        $G53R1 = [
+            "P", "R", "A", "R", "O", "T"
+        ];
+        foreach ($G53R1 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 1, 'game_id' => 53, 'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 53,  "q_image" => $l9G53image . "parrot_image", 'a_content' => "PARROT", 'a_audio' => $AudioDomain . $G1_L9_writing_path . "parrot.mp3"],
+        ]);
+
+        // round 2
+        $G53R2 = [
+            "D", "G", "O"
+        ];
+        foreach ($G53R2 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 2, 'game_id' => 53,  'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 2, 'game_id' => 53, "q_image" => $l9G53image . "dog_image", 'a_content' => "DOG", 'a_audio' => $AudioDomain . $G1_L9_writing_path . "dog.mp3"],
+        ]);
+
+        // round 3
+        $G53R3 = [
+            "R", "A", "B", "B", "I", "T"
+        ];
+        foreach ($G53R3 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 3, 'game_id' => 53, 'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 3, 'game_id' => 53, "q_image" => $l9G53image . "RABBIT_image", 'a_content' => "RABBIT", 'a_audio' => $AudioDomain . $G1_L9_writing_path . "rabbit.mp3"],
+        ]);
+
+        // round 4
+        $G53R4 = [
+            "H", "T", "E", "S", "A", "M", "R"
+        ];
+        foreach ($G53R4 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 4, 'game_id' => 53,  'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 4, 'game_id' => 53, "q_image" => $l9G53image . "HAMSTER_image", 'a_content' => "HAMSTER", 'a_audio' => $AudioDomain . $G1_L9_writing_path . "hamster.mp3"],
+        ]);
+
+        // round 5
+        $G53R5 = [
+            "P", "R", "A", "R", 'O', "T"
+        ];
+        foreach ($G53R5 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 5, 'game_id' => 53, 'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 5, 'game_id' => 53, "q_image" => $l9G53image . "PARROT_image",  'a_content' => "PARROT", 'a_audio' => $AudioDomain . $G1_L9_writing_path . "parrot.mp3"],
+        ]);
+
+        // round 6
+        $G53R6 = [
+            "M", "H", "A", "O", "N", "C", "E", "L", "E"
+        ];
+        foreach ($G53R6 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 6, 'game_id' => 53, 'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 6, 'game_id' => 53, "q_image" => $l9G53image . "CHAMELEON_image", 'a_content' => "CHAMELEON", 'a_audio' => $AudioDomain . $G1_L9_writing_path . "chameleon.mp3"],
+        ]);
+
+        // round 7
+        $G53R7 = [
+            "I", "B", "D", "R"
+        ];
+        foreach ($G53R7 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 7, 'game_id' => 53, 'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 7, 'game_id' => 53, "q_image" => $l9G53image . "BIRD_image",  'a_content' => "BIRD", 'a_audio' => $AudioDomain . $G1_L9_writing_path . "bird.mp3"],
+        ]);
+
+        // round 8
+        $G53R8 = [
+            "T", "A", "C"
+        ];
+        foreach ($G53R8 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 8, 'game_id' => 53,  'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 8, 'game_id' => 53, "q_image" => $l9G53image . "CAT_image", 'a_content' => "CAT", 'a_audio' => $AudioDomain . $G1_L9_writing_path . "cat.mp3"],
+        ]);
+
+
+
+
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 10 Game 54 (  Target language  )
+        ////////////////////////////////////////////////////////
+
+        DB::table('ans_n_ques')->insert(['game_id' => 54, 'a_content' => 'lesson_10_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 54, 'a_content' => 'lesson_10_video_global', 'isLocal' => 0]);
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 10 Game 55 (  Reading  )
+        ////////////////////////////////////////////////////////
+
+        $l10G55image = $domain . "/storage/images/Grade_1/lesson_10/reading/";
+        $G1_L10_reading = "Grade_1/" . "Lesson_10/" . "reading/";
+
+
+        $ansl10Content = [
+            "Dog", "Goldfish", "Parrot", "Rabbit", "Turtle"
+        ];
+
+        $ansl10Image = [
+            "Dog", "Goldfish", "Parrot", "Rabbit", "Turtle"
+        ];
+
+        $ansl10Audio = [
+            "dog", "goldfish", "parrot", "rabbit", "turtle"
+        ];
+
+
+
+        $G1_L10_Game55_index = 0;
+
+        foreach ($ansl10Content as $key) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 55, 'a_content' => $key, 'a_image' => $l10G55image . $ansl10Image[$G1_L10_Game55_index] . ".png",
+                    'a_audio' => $AudioDomain . $G1_L10_reading . $ansl10Audio[$G1_L10_Game55_index] . ".mp3"
+                ],
+            ]);
+            $G1_L10_Game55_index++;
+        }
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 10 Game 56 (  Listen and practice  )
+        ////////////////////////////////////////////////////////
+
+        $l10G56image = $domain . "/storage/images/Grade_1/lesson_10/listen_n_practice/";
+        $G1_L10_listen_n_practice = "Grade_1/" . "Lesson_10/" . "listen_n_practice/";
+
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'round' => 1, 'game_id' => 56, 'a_content' => "thing...", 'q_image' => $l10G56image . "thing_image" . ".png",
+                'a_audio' => $AudioDomain . $G1_L10_listen_n_practice . "thing_audio" . ".mp3", "background" => $l10G56image . "background.png"
+            ],
+
+
+            [
+                'round' => 2, 'game_id' => 56, 'a_content' => "thing...", 'q_image' => $l10G56image . "thing_image" . ".png",
+                'a_audio' => $AudioDomain . $G1_L10_listen_n_practice . "thing_audio" . ".mp3", "background" => $l10G56image . "background.png"
+            ],
+        ]);
+
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 10 Game 57 (  Listen and practice  )
+        ////////////////////////////////////////////////////////
+
+        $l10G57image = $domain . "/storage/images/Grade_1/lesson_10/Matching/";
+        $G1_L10_Matching = "Grade_1/" . "Lesson_10/" . "Matching/";
+
+        $G1_L10_Game57_Matching_image = [
+
+            ['duck', 'cock', 'cow', 'pig'],
+            ['cow', 'pig', 'dog', 'sheep'],
+
+        ];
+
+        $G1_L10_Game57_Matching = [
+
+            ['cow', 'duck', 'pig', 'cock'],
+            ['sheep', 'dog', 'cow', 'pig'],
+
+        ];
+
+        $G1_L10_Game57_Matching_audio = [
+            'duck', 'cok', 'cow', 'pig',
+            'cow', 'duck', 'pig', 'cok',
+
+            'cow', 'pig', 'dog', 'sheep',
+            'sheep', 'dog', 'cow', 'pig',
+
+        ];
+
+        $G1_L10_Game57_index = 0;
+
+        for ($i = 0; $i < count($G1_L10_Game57_Matching); $i++) {
+
+            foreach ($G1_L10_Game57_Matching_image[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 57, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $l10G57image . $q . ".png", 'q_audio' => $AudioDomain . $G1_L10_Matching .  $G1_L10_Game57_Matching_audio[$G1_L10_Game57_index] . ".mp3",
+                    ]
+                ]);
+                $G1_L10_Game57_index++;
+            }
+
+            foreach ($G1_L10_Game57_Matching[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 57, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $q, 'q_audio' => $AudioDomain . $G1_L10_Matching .  $G1_L10_Game57_Matching_audio[$G1_L10_Game57_index] . ".mp3",
+                    ]
+                ]);
+                $G1_L10_Game57_index++;
+            }
+        }
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 10 Game 58 (  Speaking Practice  )
+        ////////////////////////////////////////////////////////
+
+        $l10G58image = $domain . "/storage/images/Grade_1/lesson_10/Speaking/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 58, 'q_image' => $l10G58image . "rabbit_image", "q_content" => "What animals do you see on the farm?"],
+            ['round' => 2, 'game_id' => 58, 'q_image' => $l10G58image . "pig_image", "q_content" => "What animals do you see on the farm?"],
+            ['round' => 3, 'game_id' => 58, 'q_image' => $l10G58image . "goat_image", "q_content" => "What animals do you see on the farm?"],
+            ['round' => 4, 'game_id' => 58, 'q_image' => $l10G58image . "horse_image", "q_content" => "What animals do you see on the farm?"],
+            ['round' => 5, 'game_id' => 58, 'q_image' => $l10G58image . "duck_image", "q_content" => "What animals do you see on the farm?"],
+            ['round' => 6, 'game_id' => 58, 'q_image' => $l10G58image . "sheep_image", "q_content" => "What animals do you see on the farm?"],
+            ['round' => 7, 'game_id' => 58, 'q_image' => $l10G58image . "cock_image", "q_content" => "What animals do you see on the farm?"],
+            ['round' => 8, 'game_id' => 58, 'q_image' => $l10G58image . "cow_image", "q_content" => "What animals do you see on the farm?"],
+            ['round' => 8, 'game_id' => 58, 'q_image' => $l10G58image . "rabbit_image", "q_content" => "What animals do you see on the farm?"],
+        ]);
+
+
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 10 Game 59 (  Writing  )
+        ////////////////////////////////////////////////////////
+
+        $l10G59image = $domain . "/storage/images/Grade_1/lesson_10/writing/";
+        $G1_L10_writing_path = "Grade_1/" . "Lesson_10/" . "writing/";
+
+
+        // round 1
+        $G59R1 = [
+            "k", "c", "c", "o"
+        ];
+        foreach ($G59R1 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 1, 'game_id' => 59, 'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 59,  "q_image" => $l10G59image . "cock_image", 'a_content' => "cock", 'a_audio' => $AudioDomain . $G1_L10_writing_path . "cok.mp3"],
+        ]);
+
+        // round 2
+        $G59R2 = [
+            "I", "P", "G"
+        ];
+        foreach ($G59R2 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 2, 'game_id' => 59,  'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 2, 'game_id' => 59, "q_image" => $l10G59image . "PIG_image", 'a_content' => "PIG", 'a_audio' => $AudioDomain . $G1_L10_writing_path . "pig.mp3"],
+        ]);
+
+        // round 3
+        $G59R3 = [
+            "W", "O", "C"
+        ];
+        foreach ($G59R3 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 3, 'game_id' => 59, 'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 3, 'game_id' => 59, "q_image" => $l10G59image . "COW_image", 'a_content' => "COW", 'a_audio' => $AudioDomain . $G1_L10_writing_path . "cow.mp3"],
+        ]);
+
+        // round 4
+        $G59R4 = [
+            "C", "U", "K", "D"
+        ];
+        foreach ($G59R4 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 4, 'game_id' => 59,  'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 4, 'game_id' => 59, "q_image" => $l10G59image . "DUCK_image", 'a_content' => "DUCK", 'a_audio' => $AudioDomain . $G1_L10_writing_path . "duck.mp3"],
+        ]);
+
+        // round 5
+        $G59R5 = [
+            "A", "R", "B", "B", 'T', "I"
+        ];
+        foreach ($G59R5 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 5, 'game_id' => 59, 'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 5, 'game_id' => 59, "q_image" => $l10G59image . "RABBIT_image",  'a_content' => "RABBIT", 'a_audio' => $AudioDomain . $G1_L10_writing_path . "rabbit.mp3"],
+        ]);
+
+        // round 6
+        $G59R6 = [
+            "P", "E", "E", "S", "H"
+        ];
+        foreach ($G59R6 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 6, 'game_id' => 59, 'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 6, 'game_id' => 59, "q_image" => $l10G59image . "SHEEP_image", 'a_content' => "SHEEP", 'a_audio' => $AudioDomain . $G1_L10_writing_path . "sheep.mp3"],
+        ]);
+
+        // round 7
+        $G59R7 = [
+            "t", "a", "c"
+        ];
+        foreach ($G59R7 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 7, 'game_id' => 59, 'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 7, 'game_id' => 59, "q_image" => $l10G59image . "cat_image",  'a_content' => "cat", 'a_audio' => $AudioDomain . $G1_L10_writing_path . "cat.mp3"],
+        ]);
+
+        // round 8
+        $G59R8 = [
+            "S", "O", "R", "H", "E"
+        ];
+        foreach ($G59R8 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 8, 'game_id' => 59,  'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 8, 'game_id' => 59, "q_image" => $l10G59image . "HORSE_image", 'a_content' => "HORSE", 'a_audio' => $AudioDomain . $G1_L10_writing_path . "horse.mp3"],
+        ]);
+
+        // round 9
+        $G59R9 = [
+            "W", "C", "O"
+        ];
+        foreach ($G59R9 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 8, 'game_id' => 59,  'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 8, 'game_id' => 59, "q_image" => $l10G59image . "COW_image", 'a_content' => "COW", 'a_audio' => $AudioDomain . $G1_L10_writing_path . "cow.mp3"],
+        ]);
+
+        // round 10
+        $G59R10 = [
+            "S", "O", "R", "H", "E"
+        ];
+        foreach ($G59R10 as $i) {
+            DB::table('ans_n_ques')->insert([
+                ['round' => 8, 'game_id' => 59,  'q_content' => $i],
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 8, 'game_id' => 59, "q_image" => $l10G59image . "HORSE_image", 'a_content' => "HORSE", 'a_audio' => $AudioDomain . $G1_L10_writing_path . "horse.mp3"],
+        ]);
 
 
 
