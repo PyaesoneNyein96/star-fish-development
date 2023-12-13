@@ -242,13 +242,13 @@ class GameSeeder extends Seeder
         ////////////////////
 
         DB::table('games')->insert([
-            ['name' => 'Video', 'unit_id' => 241, 'category_id' => 1],
-            ['name' => 'Vocabulary', 'unit_id' => 242, 'category_id' => 1],
-            ['name' => 'Write the opposite', 'unit_id' => 243, 'category_id' => 27],  // ***
-            ['name' => 'Writing', 'unit_id' => 244, 'category_id' => 1],
-            ['name' => 'Listen', 'unit_id' => 245, 'category_id' => 1],
-            ['name' => 'Speaking', 'unit_id' => 246, 'category_id' => 3],
-            ['name' => 'Free Speaking Practice', 'unit_id' => 247, 'category_id' => 3],
+            ['name' => 'Video', 'unit_id' => 349, 'category_id' => 1],
+            ['name' => 'Vocabulary', 'unit_id' => 350, 'category_id' => 1],
+            ['name' => 'Write the opposite', 'unit_id' => 351, 'category_id' => 27],  // ***
+            ['name' => 'Writing', 'unit_id' => 352, 'category_id' => 1],
+            ['name' => 'Listen', 'unit_id' => 353, 'category_id' => 1],
+            ['name' => 'Speaking', 'unit_id' => 354, 'category_id' => 3],
+            ['name' => 'Free Speaking Practice', 'unit_id' => 355, 'category_id' => 3],
         ]);
 
 
