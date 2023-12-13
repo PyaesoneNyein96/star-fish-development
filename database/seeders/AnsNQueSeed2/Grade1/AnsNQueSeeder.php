@@ -269,10 +269,10 @@ class AnsNQueSeeder extends Seeder
 
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 19, 'q_image' => $l4image . "bowie.png", "q_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "bowie audio.mp3", "q_content" => "My name's Bowie."],
-            ['round' => 2, 'game_id' => 19, 'q_image' => $l4image . "kelly.png", "q_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "kelly audio.mp3",  "q_content" => "My name's Kelly."],
-            ['round' => 3, 'game_id' => 19, 'q_image' => $l4image . "goldie.png", "q_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "goldie audio.mp3",  "q_content" => "My name's Goldie."],
-            ['round' => 4, 'game_id' => 19, 'q_image' => $l4image . "blu.png", "q_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "blu audio.mp3",  "q_content" => "My name's Blu."],
+            ['round' => 1, 'game_id' => 19, 'q_image' => $l4image . "bowie.png", "q_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "bowie_audio.mp3", "q_conver" => "My name's Bowie.", "q_content" => "What's your name?"],
+            ['round' => 2, 'game_id' => 19, 'q_image' => $l4image . "kelly.png", "q_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "kelly_audio.mp3",  "q_conver" => "My name's Kelly.", "q_content" => "What's your name?"],
+            ['round' => 3, 'game_id' => 19, 'q_image' => $l4image . "goldie.png", "q_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "goldie_audio.mp3",  "q_conver" => "My name's Goldie.", "q_content" => "What's your name?"],
+            ['round' => 4, 'game_id' => 19, 'q_image' => $l4image . "blu.png", "q_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "blu_audio.mp3",  "q_conver" => "My name's Blu.", "q_content" => "What's your name?"],
         ]);
 
 
@@ -357,17 +357,14 @@ class AnsNQueSeeder extends Seeder
         $l4G20image = $domain . "/storage/images/Grade_1/lesson_4/listen_and_practice/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 3, 'game_id' => 20, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l4G20image . "pink_girl_white_border.png", 'a_content' => 1],
+            ['round' => 3, 'game_id' => 20, 'q_audio' => $AudioDomain . $G1_L4_listen_and_practice_path . "Who-is-Mary.mp3", 'q_content' => "Who is Mary?", 'q_image' =>  $l4G20image . "pink_girl_white_border.png", 'a_content' => 1],
             ['round' => 3, 'game_id' => 20, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l4G20image . "blue_girl_white_border.png", 'a_content' => 0],
-            ['round' => 3, 'game_id' => 20, 'q_audio' => $AudioDomain . $G1_L4_listen_and_practice_path . "Who-is-Mary.mp3", 'q_content' =>  "Who is Mary?", 'q_image' => $l4G20image . "green_vector.png", 'a_content' => null],
 
-            ['round' => 4, 'game_id' => 20, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l4G20image . "pink_girl_white_border.png", 'a_content' => 0],
+            ['round' => 4, 'game_id' => 20, 'q_audio' => $AudioDomain . $G1_L4_listen_and_practice_path . "Who-is-Susan.mp3", 'q_content' => "Who is Susan?", 'q_image' =>  $l4G20image . "pink_girl_white_border.png", 'a_content' => 0],
             ['round' => 4, 'game_id' => 20, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l4G20image . "blue_girl_white_border.png", 'a_content' => 1],
-            ['round' => 4, 'game_id' => 20, 'q_audio' => $AudioDomain . $G1_L4_listen_and_practice_path . "Who-is-Susan.mp3", 'q_content' =>  "Who is Susan?", 'q_image' => $l4G20image . "green_vector.png", 'a_content' => null],
 
-            ['round' => 5, 'game_id' => 20, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l4G20image . "blue_boy_white_border.png", 'a_content' => 1],
+            ['round' => 5, 'game_id' => 20, 'q_audio' => $AudioDomain . $G1_L4_listen_and_practice_path . "Whos_Mike.mp3", 'q_content' => "Who is Mike?", 'q_image' =>  $l4G20image . "blue_boy_white_border.png", 'a_content' => 1],
             ['round' => 5, 'game_id' => 20, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l4G20image . "blue_girl_white_border.png", 'a_content' => 0],
-            ['round' => 5, 'game_id' => 20, 'q_audio' => $AudioDomain . $G1_L4_listen_and_practice_path . "Whos_Mike.mp3", 'q_content' =>  "Who is Mike?", 'q_image' => $l4G20image . "green_vector.png", 'a_content' => null],
         ]);
 
 
