@@ -37,8 +37,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ////    Grade 3  Lesson 26 unit 7 ( no round )
 
         $questions_G3_L26_U7 = "
-            What time do you get up in the morning? \n\n What time do you take the bath? \n\n What time do you eat breakfast? \n\n What time do you go to school? \n\n What time do you eat lunch? \n\n What time do you come back home? \n\n What time do you do homework? \n\n What time do you eat dinner? \n\n
-            What time do you go to bed? \n\n
+            What time do you get up in the morning? \n What time do you take the bath? \n What time do you eat breakfast? \n What time do you go to school? \n What time do you eat lunch? \n What time do you come back home? \n What time do you do homework? \n What time do you eat dinner? \n
+            What time do you go to bed? \n
         ";
 
         $sampleANs_G3_L26_U7 =
