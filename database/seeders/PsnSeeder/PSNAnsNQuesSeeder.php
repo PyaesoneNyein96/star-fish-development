@@ -359,7 +359,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
     //    Grade 1  Lesson 17 Games 2 subunit 1
-    $bodyParts = ['Hair','Eye_Null','Cheek','Lip','Teeth','Mouth','Chin'];
+    $bodyParts = ['Hair','Eye','Cheek','Lip','Teeth','Mouth','Chin','Nose'];
 
     $audioDomainPath = $AudioDomain."Grade_1/Lesson_17/Listen_and_Repeat/";
     $G1L17ImgDomain = $ImageDomain."Grade_1/Lesson_17/Listen_and_Repeat/";
@@ -426,24 +426,24 @@ class PSNAnsNQuesSeeder extends Seeder
        $qAudio = $AudioDomain."Grade_1/Lesson_17/Listen_&_act/";
 
        DB::table('ans_n_ques')->insert([
-            ["game_id" => 105 , "round"=> 1, "q_image" => $qImg.$charImg.".png", "q_content" => "Touch your cheek", "q_audio" => $qAudio.$quesCharAudio[0].".mp3",
+            ["game_id" => 105 , "round"=> 1,  "q_content" => "Touch your cheek", "q_audio" => $qAudio.$quesCharAudio[0].".mp3",
             "a_image" => $qImg.$charContent[0][0].".png", "a_content" => 0],
-            ["game_id" => 105, "round"=> 1, "q_image" => null, "q_content" => null, "q_audio" => null,
+            ["game_id" => 105, "round"=> 1,  "q_content" => null, "q_audio" => null,
             "a_image"  => $qImg.$charContent[0][1].".png","a_content" => 1],
 
-            ["game_id" => 105, "round"=> 2, "q_image" => $qImg.$charImg.".png", "q_content" => "Touch your ear", "q_audio" => $qAudio.$quesCharAudio[1].".mp3",
+            ["game_id" => 105, "round"=> 2,  "q_content" => "Touch your ear", "q_audio" => $qAudio.$quesCharAudio[1].".mp3",
             "a_image" => $qImg.$charContent[1][0].".png", "a_content" => 1],
-            ["game_id" => 105, "round"=> 2, "q_image" => null, "q_content" => null, "q_audio" => null,
+            ["game_id" => 105, "round"=> 2,  "q_content" => null, "q_audio" => null,
             "a_image"  => $qImg.$charContent[1][1].".png","a_content" => 0],
 
-            ["game_id" => 105, "round"=> 3, "q_image" => $qImg.$charImg.".png", "q_content" => "Don't touch your mouth", "q_audio" => $qAudio.$quesCharAudio[2].".mp3",
+            ["game_id" => 105, "round"=> 3,  "q_content" => "Don't touch your mouth", "q_audio" => $qAudio.$quesCharAudio[2].".mp3",
             "a_image" => $qImg.$charContent[2][0].".png", "a_content" => 1],
-            ["game_id" => 105, "round"=> 3, "q_image" => null, "q_content" => null, "q_audio" => null,
+            ["game_id" => 105, "round"=> 3,  "q_content" => null, "q_audio" => null,
             "a_image"  => $qImg.$charContent[2][1].".png","a_content" => 0],
 
-            ["game_id" => 105, "round"=> 4, "q_image" => $qImg.$charImg.".png", "q_content" => "Don't touch your eye", "q_audio" => $qAudio.$quesCharAudio[3].".mp3",
+            ["game_id" => 105, "round"=> 4,  "q_content" => "Don't touch your eye", "q_audio" => $qAudio.$quesCharAudio[3].".mp3",
             "a_image" => $qImg.$charContent[3][0].".png", "a_content" => 0],
-            ["game_id" => 105, "round"=> 4, "q_image" => null, "q_content" => null, "q_audio" => null,
+            ["game_id" => 105, "round"=> 4,  "q_content" => null, "q_audio" => null,
             "a_image"  => $qImg.$charContent[3][1].".png","a_content" => 1],
 
        ]);
