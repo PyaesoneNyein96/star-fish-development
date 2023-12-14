@@ -17,6 +17,7 @@ trait gameTraits2
      *  8. reading_two_columns
      *  9. listening_and_choosing_pics_one
      *  10. listening_and_search_items
+     *  11. mcq_tf_instruction
      *
      *
      */
@@ -193,6 +194,24 @@ trait gameTraits2
 
     // listening_and_search_items
     public function listening_and_search_items($game, $student, $unit)
+    {
+        if (isset($game[0])) $game = $game[0];
+
+        return [
+            'game_id' => $game->id,
+            'game_name' => $game->name,
+            'game_status' => $game->status,
+            'unit_name' => $unit->name,
+            'lesson_id' => $unit->lesson_id,
+            'sub_unit'  => $game->count() < 1 ? true : false,
+            'instructionGIF'  => $game->instructionGIF,
+            'instructions' => !$game->instructions ? null : $game->instructions,
+            'rounds' => $game->ans_n_ques->groupBy('round')->values()
+        ];
+    }
+
+    // mcq_tf_instruction
+    public function mcq_tf_instruction($game, $student, $unit)
     {
         if (isset($game[0])) $game = $game[0];
 

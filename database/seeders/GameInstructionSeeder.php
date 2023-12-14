@@ -168,8 +168,38 @@ class GameInstructionSeeder extends Seeder
 
 
             // ================
+            // G-1 lesson_11 U-60
+            ['content' => "reading carousel", 'game_id' => 61, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
+            // G-1 lesson_11 U-61
+            ['content' => "Pop the balloons", 'game_id' => 62, 'audio' =>  $Instructions . "Pop-the-balloons" . ".mp3"],
+
+            // G-1 lesson_11 U-62
+            ['content' => "Matching the colors you hear with the picture", 'game_id' => 63, 'audio' =>  $Instructions . "Matching-the-colors-you-hear-w" . ".mp3"],
+
+            // G-1 lesson_11 U-63
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 64, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+            // G-1 lesson_11 U-64
+            ['content' => "Answer the question", 'game_id' => 65, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
+
+
+            // ================
+            // G-1 lesson_13 U-72
+            ['content' => "reading carousel", 'game_id' => 74, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
             // G-1 lesson_13 U-73
             ['content' => "Put the objects in the correct places", 'game_id' => 75, 'audio' =>  $Instructions . "Put-the-objects-in-the-correct" . ".mp3"],
+
+            // G-1 lesson_13 U-74
+            ['content' => "Listen and look at the picture. Choose true or false", 'game_id' => 76, 'audio' =>  $Instructions . "Listen-and-look-at-the-picture" . ".mp3"],
+
+            // G-1 lesson_13 U-75
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 77, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+
+
+
 
             // G-1 lesson_7 U-39
             // Game 39,40
