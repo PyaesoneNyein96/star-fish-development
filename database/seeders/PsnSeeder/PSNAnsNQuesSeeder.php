@@ -395,7 +395,7 @@ class PSNAnsNQuesSeeder extends Seeder
                 [
                     'round' => $i + 1, 'game_id' => 40,
                     'q_audio' => $g1_l7_u6_rearrange_the_letter_a[$i].".mp3",
-                    'q_image' =>$g1_l7_u6_rearrange_the_letter_a[$i]."_image".".jpg" ,
+                    'q_image' =>$ImageDomain."Grade_1/Lesson_7/Writing_Sentences_order/".$g1_l7_u6_rearrange_the_letter_a[$i].".jpg" ,
                     'q_content' => $g1_l7_u6_rearrange_the_letter_q2[$i],
                     'a_content' => $g1_l7_u6_rearrange_the_letter_a[$i]
                 ],

@@ -363,7 +363,8 @@ class GameController extends Controller
 
 
         //ထူးထူး
-        if ($student->grade_chosen == null) $this->addPointFunction($student, $request->header('point'));
+        // if ($student->grade_chosen == null) $this->addPointFunction($student, $request->header('point'));
+         $this->addPointFunction($student, $request->header('point'));
 
 
         return response()->json(['status' => 'success and recorded'], 200);
