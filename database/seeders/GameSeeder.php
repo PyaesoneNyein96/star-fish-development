@@ -239,7 +239,7 @@ class GameSeeder extends Seeder
             ['name' => 'Free practice', 'unit_id' => 240, 'category_id' => 3],
         ]);
 
-        ////////////////////
+        // ////////////////////
 
         DB::table('games')->insert([
             ['name' => 'Video', 'unit_id' => 241, 'category_id' => 1],
@@ -253,7 +253,7 @@ class GameSeeder extends Seeder
 
 
 
-        //----------------- Grade 3 games -------------------------
+        // //----------------- Grade 3 games -------------------------
 
         DB::table('games')->insert([
             ['name' => 'Reading Lesson', 'unit_id' => 248, 'category_id' => 1],

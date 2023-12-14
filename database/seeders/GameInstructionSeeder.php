@@ -219,5 +219,37 @@ class GameInstructionSeeder extends Seeder
 
 
         ]);
+
+
+
+        // Grade 3   (Temporary)
+        DB::table('game_instructions')->insert([
+        // G-3 lesson_26 U-7
+            [
+                'content' => "Write about your daily routines.", 'game_id' => 113,
+                'audio' =>  $Instructions . "Write-about-your-daily-routine" . ".mp3"
+            ],
+
+            // G-3 lesson_33 U-3
+            [
+                'content' => "Write the opposite.", 'game_id' => 117,
+                'audio' =>  $Instructions . "Write_the_opposite(N/A)" . ".mp3"
+            ],
+        ]);
+
+        // Grade 4   (Temporary)
+        DB::table('game_instructions')->insert([
+
+            // G-3 lesson_33 U-3
+            [
+                'content' => "Listen to the audio and choose the right picture.",
+                 'game_id' => 125,
+                'audio' =>  $Instructions . "Listen-to-the-audio-and-choose-the-right-picture" . ".mp3"
+            ],
+        ]);
+
+
+
+
     }
 }

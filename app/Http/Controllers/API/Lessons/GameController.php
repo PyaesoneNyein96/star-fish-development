@@ -13,22 +13,23 @@ use App\Models\Student;
 use App\Models\Category;
 use App\Models\StudentGame;
 use App\Models\StudentUnit;
-use App\Models\StudentLesson;
 use App\Models\StudentGrade;
 use Illuminate\Http\Request;
+use App\Models\StudentLesson;
 use App\Http\Traits\gameTraits;
 use App\Models\BackgroundImage;
+use App\Http\Traits\gameTraits2;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\GameResource;
-use App\Http\Traits\gameTraits2;
+use App\Http\Traits\gameControlTrait;
 use Illuminate\Support\Facades\Cache;
 
 class GameController extends Controller
 {
 
 
-    use gameTraits, gameTraits2;
+    use gameTraits, gameTraits2, gameControlTrait;
 
 
     public function grades(Request $request)
@@ -147,9 +148,10 @@ class GameController extends Controller
                 ]);
             }
 
-            $lesson_id = Lesson::where('grade_id', $gradeId)->where('id',$lesson)
+            $lesson_id = Lesson::where('grade_id', $gradeId)
+            ->where('id',$lesson)
+            // ->where('name',$lesson)
             ->pluck('id')->first();
-
 
 
             $allGame = Unit::where('lesson_id', $lesson_id)->get();
@@ -158,6 +160,7 @@ class GameController extends Controller
 
 
             $units = $allGame->map(function ($unit) use ($studentUnits, $lesson, $gradeId) {
+
                 return [
                     'id' => $unit->id,
                     'lesson_id' => $unit->lesson_id,
@@ -193,7 +196,8 @@ class GameController extends Controller
 
         if(!$unit) return "lesson and unit are not match.";
 
-        $gameUnit = Game::where('unit_id',$unit_id)->where('id',$gameId)->first();
+        $gameUnit = Game::where('unit_id',$unit_id)
+        ->where('id',$gameId)->first();
         // $gameUnit = Game::where('unit_id',$unit_id)->first();
 
 
@@ -201,7 +205,7 @@ class GameController extends Controller
 
         if($gameUnit) {
 
-            $game = Game::where('id', $gameId)->where('status',1)->first();
+            $game = Game::where('id', $gameId)->first();
 
             $name = strval($game->category->name);
 
@@ -211,14 +215,14 @@ class GameController extends Controller
 
         }
 
-        $games = Game::where('status',1)->where('unit_id',$unit_id)->get();
+        $games = Game::where('unit_id',$unit_id)->get();
 
         if($games->count() == 1) {
             $name = strval($games[0]->category->name);
             return $this->$name($games, $student, $unit);
         };
 
-
+        // return "subUnits";
         return $this->Subunit_category($games, $unit);
 
 
