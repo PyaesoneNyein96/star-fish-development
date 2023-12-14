@@ -269,7 +269,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         ////////////////////////////////////////////////////////
-        ////    Grade 1  Lesson 7 Games  (Sub Units) <letter_tracing>
+        ////    Grade 1  Lesson 7 Games 2 (Carousel)
 
 
         $L7_U2_content = ['Apple','Ball','Boy','Ant','Airplane','Cake','Cup','Dog','Duster','Doll'];
@@ -284,8 +284,30 @@ class PSNAnsNQuesSeeder extends Seeder
             ]);
         }
 
+         ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 7 Games
+
+        $L7_U3_items_1 = ['airplane','doll','dog','apple','cup','banana'];
+        $L7_U3_items_2 = ['ball','boy','cake','ant','car','duster'];
+
+        $L7_U3_Img = $ImageDomain."Grade_1/Lesson_7/Listen_and_practice/";
+        $L7_U3_audio = $AudioDomain."Grade_1/Lesson_7/Listen_and_practice/";
+
+        foreach ($L7_U3_items_1 as $key => $value) {
+            DB::table('ans_n_ques')->insert([
+                ['game_id' => 36, 'round' => 1 ,'a_content' => $value ,'q_image' => $L7_U3_Img.$value.".png",
+                'q_audio' =>$L7_U3_audio.$value.".mp3",'background' => "round_2_background.png" ],
+
+                ['game_id' => 36, 'round' => 2 ,'a_content' => $L7_U3_items_2[$key] ,'q_image' => $L7_U3_Img.$L7_U3_items_2[$key].".png",
+                'q_audio' => $L7_U3_audio.$L7_U3_items_2[$key].".mp3" ,'background' => "round_1_background.png" ]
+
+            ]);
+        }
 
 
+
+         ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 7 Games 6  (Sub Units) <letter_tracing>
 
 
         $imgDomain = $ImageDomain."Grade_1/Lesson_7/Writing_Sentences_order/";

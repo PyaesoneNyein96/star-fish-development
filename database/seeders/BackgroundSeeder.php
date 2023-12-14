@@ -49,8 +49,8 @@ class BackgroundSeeder extends Seeder
         //G-1,L-17,U-2
 
         // DB::table('background_images')->insert([
-        //      ['title' => "someTitle", 'game_id' => 99,
-        //     'image' => "FaceDiagram_background".".png",],
+        //      ['title' => "someTitle", 'game_id' => 36,
+        //     'image' => "G1_L7_U3_background".".png",],
         // ]);
 
 

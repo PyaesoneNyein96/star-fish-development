@@ -38,7 +38,7 @@ trait gameTraits2
             'sub_unit'  => $game->count() < 1 ? true : false,
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' => !$game->instructions ? null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $game->ans_n_ques->groupBy('round')->values()
         ];
     }
@@ -57,7 +57,7 @@ trait gameTraits2
             'sub_unit'  => $game->count() < 1 ? true : false,
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' => !$game->instructions ? null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $game->ans_n_ques
         ];
     }
@@ -76,7 +76,7 @@ trait gameTraits2
             'sub_unit'  => $game->count() < 1 ? true : false,
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' => !$game->instructions ? null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $game->ans_n_ques
         ];
     }
@@ -95,7 +95,7 @@ trait gameTraits2
             'sub_unit'  => $game->count() < 1 ? true : false,
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' => !$game->instructions ? null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $game->ans_n_ques->groupBy('round')->values()
         ];
     }
@@ -114,7 +114,7 @@ trait gameTraits2
             'sub_unit'  => $game->count() < 1 ? true : false,
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' => !$game->instructions ? null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $game->ans_n_ques->groupBy('round')->values()
         ];
     }
@@ -133,7 +133,7 @@ trait gameTraits2
             'sub_unit'  => $game->count() < 1 ? true : false,
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' => !$game->instructions ? null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $game->ans_n_ques->groupBy('round')->values()
         ];
     }
@@ -150,8 +150,9 @@ trait gameTraits2
             'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
             'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' => !$game->instructions ? null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $game->ans_n_ques->groupBy('round')->values()
         ];
     }
@@ -168,8 +169,9 @@ trait gameTraits2
             'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
             'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' => !$game->instructions ? null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $game->ans_n_ques
         ];
     }
@@ -186,8 +188,9 @@ trait gameTraits2
             'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
             'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' => !$game->instructions ? null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $game->ans_n_ques->groupBy('round')->values()
         ];
     }
@@ -204,8 +207,9 @@ trait gameTraits2
             'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
             'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' => !$game->instructions ? null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $game->ans_n_ques->groupBy('round')->values()
         ];
     }
@@ -222,8 +226,9 @@ trait gameTraits2
             'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
             'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' => !$game->instructions ? null : $game->instructions,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
             'rounds' => $game->ans_n_ques->groupBy('round')->values()
         ];
     }
