@@ -209,6 +209,12 @@ class PSNAnsNQuesSeeder extends Seeder
 
         ];
 
+        $randomValues = [
+            ['L','B','M','H','O'],
+            ['G','N','T','J','Q'],
+            ['F','C','S','P','K'],
+        ];
+
         for ($i= 0 ; $i < count($g1_l2_g10) ; $i++) {
 
             foreach ($g1_l2_g10[$i] as $q) {
@@ -217,9 +223,10 @@ class PSNAnsNQuesSeeder extends Seeder
                     ['game_id' => 10, 'round' => $i + 1,'q_content' => $q,
                     'q_image' => $q,'q_audio' => $AtoZAudio.$prefix.strtoupper($q).".mp3",]
                 ]);
-
            }
-            foreach ($g1_l2_g10[$i] as $q) {
+
+
+            foreach ($randomValues[$i] as $q) {
                 DB::table('ans_n_ques')->insert([
                     ['game_id' => 10, 'round' => $i + 1,'q_content' => strtolower($q),
                     'q_image' => strtolower($q),'q_audio' => $AtoZAudio.$prefix.strtoupper($q).".mp3",]
@@ -227,6 +234,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
            }
         }
+
 
 
         ////////////////////////////////////////////////////////

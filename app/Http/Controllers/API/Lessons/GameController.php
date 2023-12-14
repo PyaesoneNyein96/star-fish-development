@@ -231,6 +231,7 @@ class GameController extends Controller
 
     public function end_match(Request $request)
     {
+        logger("i an newbi");
 
         $token = $request->header('token');
         $gameId = $request->header('game_id');
