@@ -270,6 +270,24 @@ class PSNAnsNQuesSeeder extends Seeder
 
         ////////////////////////////////////////////////////////
         ////    Grade 1  Lesson 7 Games  (Sub Units) <letter_tracing>
+
+
+        $L7_U2_content = ['Apple','Ball','Boy','Ant','Airplane','Cake','Cup','Dog','Duster','Doll'];
+
+        $L7_U2_Img = $ImageDomain."Grade_1/Lesson_7/Read_Listen_and_Repeat/";
+        $L7_U2_audio = $AudioDomain."Grade_1/Lesson_7/Read_Listen_and_Repeat/";
+
+        foreach ($L7_U2_content as $key) {
+            DB::table('ans_n_ques')->insert([
+                ['game_id' => 35, 'a_content' => $key, 'a_image' => $L7_U2_Img . $key . ".png",
+                 'a_audio' => $L7_U2_audio.strtolower($key).".mp3"],
+            ]);
+        }
+
+
+
+
+
         $imgDomain = $ImageDomain."Grade_1/Lesson_7/Writing_Sentences_order/";
 
         $g1_l7_u6_trace_n_write = [
