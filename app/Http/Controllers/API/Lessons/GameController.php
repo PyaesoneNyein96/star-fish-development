@@ -271,7 +271,8 @@ class GameController extends Controller
             ->where('grade_id', $grade->id)->where('isDone', 1)->first();
 
         if ($alreadyDone || $alreadyDoneUnit || $alreadyDoneLesson || $alreadyDoneGrade) {
-            return response()->json(['status' => 'already done this game'], 200);
+            // return response()->json(['status' => 'already done this game'], 200);
+            return 405;
         }
 
         // TEMPORARY BLOCK THIS FEATURE (POINT FILTER)

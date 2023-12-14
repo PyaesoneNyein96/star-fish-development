@@ -121,23 +121,23 @@ class DatabaseSeeder extends Seeder
         //     'token' => "2|AcNBOdyxwj07aB7asSP8D2b5Dg5rZJ8ow6Qkk8S72c1b8e2f",
         //     'isSubscriber' => 0
         // ]);
-        //      Student::factory()->create([
-        //     'name' => 'soe soe lay',
-        //     'phone' => "+959976866539",
-        //     'email' => null,
-        //     'password' => Hash::make('admin123'),
-        //     'age' => 7,
-        //     'country_id' => 1,
-        //     'city_id' => 1,
-        //     'agreeToPolicy' => 1,
-        //     'deviceId' => 'b203c14f-0a3a-4e9c-9a2e-2656c0a44603',
-        //     'isAuth' => 1,
-        //     'isLocal' => 0,
-        //     'status' => 1,
-        //     'grade_chosen' => 1,
-        //     'token' => "7|UYgu45F3jMenNKzrRtoyXMoXrtop7iThqseR6nSta6277a3a",
-        //     'isSubscriber' => 0
-        // ]);
+             Student::factory()->create([
+            'name' => 'soe soe lay',
+            'phone' => null,
+            'email' => "devsophiesoe@gmail.com",
+            'password' => Hash::make('admin123'),
+            'age' => 7,
+            'country_id' => 1,
+            'city_id' => 1,
+            'agreeToPolicy' => 1,
+            'deviceId' => '41223357-20de-45bd-8005-6675c14c3d5b',
+            'isAuth' => 1,
+            'isLocal' => 0,
+            'status' => 1,
+            'grade_chosen' => 1,
+            'token' => "2|iJEYWEC6FcDsppSIfpu0jaH9EIbD83Hd3hV8XooYa2d7f183",
+            'isSubscriber' => 0
+        ]);
 
 
         $this->call(GradeSeeder::class);
