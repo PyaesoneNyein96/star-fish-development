@@ -66,12 +66,18 @@ class PSNAnsNQuesG3Seeder extends Seeder
             'quiet','cheap','handsome','thin','single','young','difficult','rich'
         ];
 
+        $a_content_G3_L33_U3_audio = [
+            'noisy--quiet','expensive-cheap','handsome--ugly','fat-thin',
+            'married--single','young-old','easy-difficult','rich-poor'
+        ];
+
 
         foreach ($q_content_G3_L33_U3 as $key => $value) {
              DB::table('ans_n_ques')->insert([
                 [
                  'game_id' => 117, 'round' => $key + 1, 'q_image' => $qImg.$q_content_G3_L33_U3_img[$key].".png",
-                 'q_content' => $value, 'a_content' => $a_content_G3_L33_U3[$key]
+                 'q_content' => $value, 'a_content' => $a_content_G3_L33_U3[$key],
+                 'q_audio' => $AudioDomain."Grade_3/Lesson_33/Write_the_Opposite/".$a_content_G3_L33_U3_audio[$key].".mp3"
                 ],
             ]);
         }

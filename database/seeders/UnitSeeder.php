@@ -677,6 +677,14 @@ class UnitSeeder extends Seeder
     //     ['name' => 'Speak', 'lesson_id' => 50],
 
 
+    //     // lesson 30's units count(7) start (273,277)
+
+    //     ['name' => 'Listen and Repeat', 'lesson_id' => 50],                         // 277
+    //     ['name' => 'Listen and repeat', 'lesson_id' => 50],
+    //     ['name' => 'Look and write', 'lesson_id' => 50],
+    //     ['name' => 'Speak', 'lesson_id' => 50],
+
+
     // ]);
 
     // -------------------- Grade 2 End --------------------------//
