@@ -363,8 +363,11 @@ class PSNAnsNQuesSeeder extends Seeder
 
         ];
 
+        // $g1_l7_u6_rearrange_the_letter_a = [
+        //     'BALL','CAKE','DOG','DUSTER','APPLE','ANT'
+        // ];
         $g1_l7_u6_rearrange_the_letter_a = [
-            'BALL','CAKE','DOG','DUSTER','APPLE','ANT'
+            'Ball','Cake','Dog','Duster','Apple','Ant'
         ];
 
 
