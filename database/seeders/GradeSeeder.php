@@ -13,7 +13,7 @@ class GradeSeeder extends Seeder
      */
     public function run(): void
     {
-        $grades = range(1,15);
+        $grades = range(1,12);
 
         foreach ($grades as $g) {
             DB::table('grades')->insert([
