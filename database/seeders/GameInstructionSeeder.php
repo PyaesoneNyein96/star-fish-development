@@ -116,12 +116,16 @@ class GameInstructionSeeder extends Seeder
 
 
             // G-1 lesson_7 U-2
-            ['content' => "Listen and Repeat" , 'game_id' => 35,
-             'audio' =>$Instructions."Listen-and-Repeat.mp3" ],
+            [
+                'content' => "Listen and Repeat", 'game_id' => 35,
+                'audio' => $Instructions . "Listen-and-Repeat.mp3"
+            ],
 
             // G-1 lesson_7 U-3
-            ['content' => "Listen and tick the pictures and letter" , 'game_id' => 36,
-             'audio' =>$Instructions."Listen-and-tick-the-pictures-and-letter.mp3" ],
+            [
+                'content' => "Listen and tick the pictures and letter", 'game_id' => 36,
+                'audio' => $Instructions . "Listen-and-tick-the-pictures-and-letter.mp3"
+            ],
 
 
 
@@ -229,10 +233,29 @@ class GameInstructionSeeder extends Seeder
             // G-1 lesson_14 U-80
             ['content' => "Jumbled letters", 'game_id' => 82, 'audio' =>  $Instructions . "Jumbled-letters" . ".mp3"],
 
-            // G-1 lesson_13 U-81
+            // G-1 lesson_14 U-81
             ['content' => "Tap the things in the room and answer the question", 'game_id' => 83, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
 
 
+            // ================
+            // G-1 lesson_15 U-83
+            // game 85 , 86
+            ['content' => "Read Listen and repeat after it.", 'game_id' => 85, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
+            ['content' => "Read Listen and repeat after it.", 'game_id' => 86, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
+
+            // G-1 lesson_15 U-84
+            // game 87 , 88
+            ['content' => "Listen and tap the animals you hear.", 'game_id' => 87, 'audio' =>  $Instructions . "Listen-and-tap-the-animals-you" . ".mp3"],
+            ['content' => "Listen and look at the picture. Choose true or false", 'game_id' => 88, 'audio' =>  $Instructions . "Listen-and-look-at-the-picture" . ".mp3"],
+
+            // G-1 lesson_15 U-85
+            ['content' => "Choose the correct word", 'game_id' => 89, 'audio' =>  $Instructions . "Choose-the-correct-word" . ".mp3"],
+
+            // G-1 lesson_15 U-86
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 90, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+            // G-1 lesson_15 U-87
+            ['content' => "Answer the question", 'game_id' => 91, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
 
 
 
