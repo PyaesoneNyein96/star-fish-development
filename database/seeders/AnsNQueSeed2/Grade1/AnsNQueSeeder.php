@@ -683,7 +683,7 @@ class AnsNQueSeeder extends Seeder
             ],
             [
                 'round' => 1, 'game_id' => 30, 'a_content' => "color pen", 'q_image' => $l6G30image . "color_pen" . ".png",
-                'a_audio' => $AudioDomain . $G1_L6_listen_n_practice . "color_pencil" . ".mp3", "background" => $l6G30image . "background.png"
+                'a_audio' => $AudioDomain . $G1_L6_listen_n_practice . "color-pencil" . ".mp3", "background" => $l6G30image . "background.png"
             ],
             [
                 'round' => 1, 'game_id' => 30, 'a_content' => "ruler", 'q_image' => $l6G30image . "ruler" . ".png",
@@ -705,7 +705,7 @@ class AnsNQueSeeder extends Seeder
             ],
             [
                 'round' => 2, 'game_id' => 30, 'a_content' => "pencil_case", 'q_image' => $l6G30image . "pencil_bag" . ".png",
-                'a_audio' => $AudioDomain . $G1_L6_listen_n_practice . "pencil_case" . ".mp3", "background" => $l6G30image . "background.png"
+                'a_audio' => $AudioDomain . $G1_L6_listen_n_practice . "pencil-case" . ".mp3", "background" => $l6G30image . "background.png"
             ],
             [
                 'round' => 2, 'game_id' => 30, 'a_content' => "pen", 'q_image' => $l6G30image . "pen" . ".png",
@@ -713,7 +713,7 @@ class AnsNQueSeeder extends Seeder
             ],
             [
                 'round' => 2, 'game_id' => 30, 'a_content' => "earser", 'q_image' => $l6G30image . "earser" . ".png",
-                'a_audio' => $AudioDomain . $G1_L6_listen_n_practice . "earser" . ".mp3", "background" => $l6G30image . "background.png"
+                'a_audio' => $AudioDomain . $G1_L6_listen_n_practice . "eraser" . ".mp3", "background" => $l6G30image . "background.png"
             ],
             [
                 'round' => 2, 'game_id' => 30, 'a_content' => "bag", 'q_image' => $l6G30image . "bag" . ".png",
