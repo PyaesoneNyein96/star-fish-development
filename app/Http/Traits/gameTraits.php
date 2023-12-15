@@ -5,8 +5,14 @@ namespace App\Http\Traits;
 trait gameTraits
 {
 
-    // listening_and_choosing_clouds_one, reading_carousel, video_player_lessons,
-    // video_player_song, drag_n_drop_and_letter , writing_topic
+    // listening_and_choosing_clouds_one,
+    // reading_carousel,
+    // video_player_lessons,
+    // video_player_song,
+    // drag_n_drop_and_letter ,
+    // writing_topic
+    // writing_opposite
+    // listening_and_choosing_pics_two
 
     ///////////////////////////////////////////////////////////////
     /// SUb Unit Games ************

@@ -112,6 +112,24 @@ class GameInstructionSeeder extends Seeder
             // G-1 lesson_6 U-33
             ['content' => "Jumbled letters", 'game_id' => 33, 'audio' =>  $Instructions . "Jumbled-letters" . ".mp3"],
 
+            // ===============
+
+
+            // G-1 lesson_7 U-2
+            ['content' => "Listen and Repeat" , 'game_id' => 35,
+             'audio' =>$Instructions."Listen-and-Repeat.mp3" ],
+
+            // G-1 lesson_7 U-3
+            ['content' => "Listen and tick the pictures and letter" , 'game_id' => 36,
+             'audio' =>$Instructions."Listen-and-tick-the-pictures-and-letter.mp3" ],
+
+
+
+            // G-1 lesson_7 U-39
+            // Game 39,40
+            ['content' => "Trace-and-write", "game_id" => 39, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+            ['content' => "Write-the-correct-letter", "game_id" => 40, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
+
 
             // ================
             // G-1 lesson_8 U-41
@@ -216,12 +234,6 @@ class GameInstructionSeeder extends Seeder
 
 
 
-
-
-            // G-1 lesson_7 U-39
-            // Game 39,40
-            ['content' => "Trace-and-write", "game_id" => 39, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
-            ['content' => "Write-the-correct-letter", "game_id" => 40, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
 
 
             // ================

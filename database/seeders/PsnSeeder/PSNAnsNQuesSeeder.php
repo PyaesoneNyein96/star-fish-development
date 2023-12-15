@@ -209,6 +209,12 @@ class PSNAnsNQuesSeeder extends Seeder
 
         ];
 
+        $randomValues = [
+            ['L','B','M','H','O'],
+            ['G','N','T','J','Q'],
+            ['F','C','S','P','K'],
+        ];
+
         for ($i= 0 ; $i < count($g1_l2_g10) ; $i++) {
 
             foreach ($g1_l2_g10[$i] as $q) {
@@ -217,9 +223,10 @@ class PSNAnsNQuesSeeder extends Seeder
                     ['game_id' => 10, 'round' => $i + 1,'q_content' => $q,
                     'q_image' => $q,'q_audio' => $AtoZAudio.$prefix.strtoupper($q).".mp3",]
                 ]);
-
            }
-            foreach ($g1_l2_g10[$i] as $q) {
+
+
+            foreach ($randomValues[$i] as $q) {
                 DB::table('ans_n_ques')->insert([
                     ['game_id' => 10, 'round' => $i + 1,'q_content' => strtolower($q),
                     'q_image' => strtolower($q),'q_audio' => $AtoZAudio.$prefix.strtoupper($q).".mp3",]
@@ -227,6 +234,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
            }
         }
+
 
 
         ////////////////////////////////////////////////////////
@@ -269,7 +277,47 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         ////////////////////////////////////////////////////////
-        ////    Grade 1  Lesson 7 Games  (Sub Units) <letter_tracing>
+        ////    Grade 1  Lesson 7 Games 2 (Carousel)
+
+
+        $L7_U2_content = ['Apple','Ball','Boy','Ant','Airplane','Cake','Cup','Dog','Duster','Doll'];
+
+        $L7_U2_Img = $ImageDomain."Grade_1/Lesson_7/Read_Listen_and_Repeat/";
+        $L7_U2_audio = $AudioDomain."Grade_1/Lesson_7/Read_Listen_and_Repeat/";
+
+        foreach ($L7_U2_content as $key) {
+            DB::table('ans_n_ques')->insert([
+                ['game_id' => 35, 'a_content' => $key, 'a_image' => $L7_U2_Img . $key . ".png",
+                 'a_audio' => $L7_U2_audio.strtolower($key).".mp3"],
+            ]);
+        }
+
+         ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 7 Games
+
+        $L7_U3_items_1 = ['airplane','doll','dog','apple','cup','banana'];
+        $L7_U3_items_2 = ['ball','boy','cake','ant','car','duster'];
+
+        $L7_U3_Img = $ImageDomain."Grade_1/Lesson_7/Listen_and_practice/";
+        $L7_U3_audio = $AudioDomain."Grade_1/Lesson_7/Listen_and_practice/";
+
+        foreach ($L7_U3_items_1 as $key => $value) {
+            DB::table('ans_n_ques')->insert([
+                ['game_id' => 36, 'round' => 1 ,'a_content' => $value ,'q_image' => $L7_U3_Img.$value.".png",
+                'q_audio' =>$L7_U3_audio.$value.".mp3",'background' => "round_2_background.png" ],
+
+                ['game_id' => 36, 'round' => 2 ,'a_content' => $L7_U3_items_2[$key] ,'q_image' => $L7_U3_Img.$L7_U3_items_2[$key].".png",
+                'q_audio' => $L7_U3_audio.$L7_U3_items_2[$key].".mp3" ,'background' => "round_1_background.png" ]
+
+            ]);
+        }
+
+
+
+         ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 7 Games 6  (Sub Units) <letter_tracing>
+
+
         $imgDomain = $ImageDomain."Grade_1/Lesson_7/Writing_Sentences_order/";
 
         $g1_l7_u6_trace_n_write = [
@@ -315,8 +363,11 @@ class PSNAnsNQuesSeeder extends Seeder
 
         ];
 
+        // $g1_l7_u6_rearrange_the_letter_a = [
+        //     'BALL','CAKE','DOG','DUSTER','APPLE','ANT'
+        // ];
         $g1_l7_u6_rearrange_the_letter_a = [
-            'BALL','CAKE','DOG','DUSTER','APPLE','ANT'
+            'Ball','Cake','Dog','Duster','Apple','Ant'
         ];
 
 
@@ -344,7 +395,7 @@ class PSNAnsNQuesSeeder extends Seeder
                 [
                     'round' => $i + 1, 'game_id' => 40,
                     'q_audio' => $g1_l7_u6_rearrange_the_letter_a[$i].".mp3",
-                    'q_image' =>$g1_l7_u6_rearrange_the_letter_a[$i]."_image".".jpg" ,
+                    'q_image' =>$ImageDomain."Grade_1/Lesson_7/Writing_Sentences_order/".$g1_l7_u6_rearrange_the_letter_a[$i].".png" ,
                     'q_content' => $g1_l7_u6_rearrange_the_letter_q2[$i],
                     'a_content' => $g1_l7_u6_rearrange_the_letter_a[$i]
                 ],
