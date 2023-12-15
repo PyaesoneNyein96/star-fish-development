@@ -216,6 +216,23 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Tap the things in the room and answer the question", 'game_id' => 77, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
 
 
+            // ================
+            // G-1 lesson_14 U-77
+            ['content' => "reading carousel", 'game_id' => 79, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
+            // G-1 lesson_14 U-78
+            ['content' => "Listen and look at the picture. Choose true or false", 'game_id' => 80, 'audio' =>  $Instructions . "Listen-and-look-at-the-picture" . ".mp3"],
+
+            // G-1 lesson_14 U-79
+            ['content' => "Choose the correct word", 'game_id' => 81, 'audio' =>  $Instructions . "Choose-the-correct-word" . ".mp3"],
+
+            // G-1 lesson_14 U-80
+            ['content' => "Jumbled letters", 'game_id' => 82, 'audio' =>  $Instructions . "Jumbled-letters" . ".mp3"],
+
+            // G-1 lesson_13 U-81
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 83, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+
 
 
 
@@ -236,7 +253,7 @@ class GameInstructionSeeder extends Seeder
 
         // Grade 3   (Temporary)
         DB::table('game_instructions')->insert([
-        // G-3 lesson_26 U-7
+            // G-3 lesson_26 U-7
             [
                 'content' => "Write about your daily routines.", 'game_id' => 113,
                 'audio' =>  $Instructions . "Write-about-your-daily-routine" . ".mp3"
@@ -255,13 +272,9 @@ class GameInstructionSeeder extends Seeder
             // G-3 lesson_33 U-3
             [
                 'content' => "Listen to the audio and choose the right picture.",
-                 'game_id' => 125,
+                'game_id' => 125,
                 'audio' =>  $Instructions . "Listen-to-the-audio-and-choose-the-right-picture" . ".mp3"
             ],
         ]);
-
-
-
-
     }
 }

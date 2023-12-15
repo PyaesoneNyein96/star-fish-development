@@ -18,6 +18,7 @@ trait gameTraits2
      *  9. listening_and_choosing_pics_one
      *  10. listening_and_search_items
      *  11. mcq_tf_instruction
+     *  12. mcq_grammar
      *
      *
      */
@@ -229,6 +230,24 @@ trait gameTraits2
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
+            'rounds' => $game->ans_n_ques->groupBy('round')->values()
+        ];
+    }
+
+    // mcq_grammar
+    public function mcq_grammar($game, $student, $unit)
+    {
+        if (isset($game[0])) $game = $game[0];
+
+        return [
+            'game_id' => $game->id,
+            'game_name' => $game->name,
+            'game_status' => $game->status,
+            'unit_name' => $unit->name,
+            'lesson_id' => $unit->lesson_id,
+            'sub_unit'  => $game->count() < 1 ? true : false,
+            'instructionGIF'  => $game->instructionGIF,
+            'instructions' => !$game->instructions ? null : $game->instructions,
             'rounds' => $game->ans_n_ques->groupBy('round')->values()
         ];
     }
