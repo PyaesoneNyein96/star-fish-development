@@ -293,7 +293,7 @@ class PSNAnsNQuesSeeder extends Seeder
         }
 
          ////////////////////////////////////////////////////////
-        ////    Grade 1  Lesson 7 Games
+        ////    Grade 1  Lesson 7 Games 3
 
         $L7_U3_items_1 = ['airplane','doll','dog','apple','cup','banana'];
         $L7_U3_items_2 = ['ball','boy','cake','ant','car','duster'];
@@ -311,6 +311,53 @@ class PSNAnsNQuesSeeder extends Seeder
 
             ]);
         }
+
+
+
+         ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 7 Games 4 (Matching)
+
+
+
+        $g1_l7_g4 = [
+
+            ['cake','cup','car','dog','duster'],
+            ['ant','apple','airplane','ball','boy'],
+
+        ];
+
+        $randomValues = [
+            ['duster','cake','dog','car','cup'],
+            ['apple','ant','boy','ball','airplane'],
+        ];
+
+        for ($i= 0 ; $i < count($g1_l7_g4) ; $i++) {
+
+            foreach ($g1_l7_g4[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    ['game_id' => 37, 'round' => $i + 1,'q_content' => $q,
+                    'q_image' => $q,'q_audio' => $AtoZAudio.$prefix.strtoupper($q).".mp3",]
+                ]);
+           }
+
+
+            foreach ($randomValues[$i] as $q) {
+                DB::table('ans_n_ques')->insert([
+                    ['game_id' => 37, 'round' => $i + 1,'q_content' => strtolower($q),
+                    'q_image' => strtolower($q).".png",'q_audio' => $AtoZAudio.$prefix.strtoupper($q).".mp3",]
+                ]);
+
+           }
+        }
+
+
+
+
+
+
+
+
 
 
 
