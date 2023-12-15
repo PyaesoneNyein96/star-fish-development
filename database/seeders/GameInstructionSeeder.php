@@ -258,6 +258,28 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Answer the question", 'game_id' => 91, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
 
 
+            // ================
+            // G-1 lesson_16 U-89
+            ['content' => "reading carousel", 'game_id' => 93, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
+            // G-1 lesson_16 U-90
+            ['content' => "Finding things", 'game_id' => 94, 'audio' =>  $Instructions . "Finding-things" . ".mp3"],
+
+            // G-1 lesson_16 U-91
+            ['content' => "Matching things in class", 'game_id' => 95, 'audio' =>  $Instructions . "Matching-things-in-class" . ".mp3"],
+
+            // G-1 lesson_16 U-92
+            // game 96 , 97
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 96, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 97, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+            // G-1 lesson_16 U-93
+            // game 98 , 99
+            ['content' => "Trace-and-write", "game_id" => 98, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+            ['content' => "Write-the-correct-letter", "game_id" => 99, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
+
+
+
 
             // ================
             // G-1 lesson_17 U-98

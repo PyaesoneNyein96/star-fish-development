@@ -1391,7 +1391,7 @@ class AnsNQueSeeder extends Seeder
 
 
         ////////////////////////////////////////////////////////
-        ////    Grade 1  Lesson 9 Game 51 (  Listen and practice  )
+        ////    Grade 1  Lesson 9 Game 51 (  Matching  )
         ////////////////////////////////////////////////////////
 
         $l9G51image = $domain . "/storage/images/Grade_1/lesson_9/Matching/";
@@ -1675,7 +1675,7 @@ class AnsNQueSeeder extends Seeder
 
 
         ////////////////////////////////////////////////////////
-        ////    Grade 1  Lesson 10 Game 57 (  Listen and practice  )
+        ////    Grade 1  Lesson 10 Game 57 (  Matching  )
         ////////////////////////////////////////////////////////
 
         $l10G57image = $domain . "/storage/images/Grade_1/lesson_10/Matching/";
@@ -2852,5 +2852,193 @@ class AnsNQueSeeder extends Seeder
             ],
 
         ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 16 Game 95 (  Matching  )
+        ////////////////////////////////////////////////////////
+
+        $l16G95image = $domain . "/storage/images/Grade_1/lesson_16/Matching/";
+        $G1_L16_Matching = "Grade_1/" . "Lesson_16/" . "Matching/";
+
+
+        $G1_L16_Game95_Matching = [
+
+            ['Lock', 'Lamp', 'Key', 'Iron', "Kite"],
+            ['Ketchup', 'Ice cream', 'Jam', 'Lollipop', "Juice"],
+
+        ];
+
+        $G1_L16_Game95_Matching_image = [
+
+            ['key_image', 'iron_image', 'kite_image', 'lock_image', "lamp_image"],
+            ['jam_image', 'juice_image', 'ketchup_image', 'lollipop_image', 'icecream_image'],
+
+        ];
+
+        $G1_L16_Game95_Matching_audio = [
+            'lock', 'lamp', 'key', 'iron', 'kite',
+            'key', 'iron', 'kite', 'lock', 'lamp',
+
+            'ketchup', 'ice-cream', 'jam', 'lollipop', 'juice',
+            'jam', 'juice', 'ketchup', 'lollipop', 'ice-cream'
+
+        ];
+
+        $G1_L16_Game95_index = 0;
+
+        for ($i = 0; $i < count($G1_L16_Game95_Matching); $i++) {
+
+            foreach ($G1_L16_Game95_Matching[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 95, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $q, 'q_audio' => $AudioDomain . $G1_L16_Matching .  $G1_L16_Game95_Matching_audio[$G1_L16_Game95_index] . ".mp3",
+                    ]
+                ]);
+                $G1_L16_Game95_index++;
+            }
+
+            foreach ($G1_L16_Game95_Matching_image[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 95, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $l16G95image . $q . ".png", 'q_audio' => $AudioDomain . $G1_L16_Matching .  $G1_L16_Game95_Matching_audio[$G1_L16_Game95_index] . ".mp3",
+                    ]
+                ]);
+                $G1_L16_Game95_index++;
+            }
+        }
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 16 Game 96 , 97 (  Speaking Practice  )
+        ////////////////////////////////////////////////////////
+
+        $l16_G96_G97_image = $domain . "/storage/images/Grade_1/lesson_16/Speaking/";
+
+        DB::table('ans_n_ques')->insert([
+
+            // game 96
+            ['round' => 1, 'game_id' => 96, 'q_image' => $l16_G96_G97_image . "cold_image", "q_content" => "It's cold. I need \"a fan or a jacket\"."],
+            ['round' => 2, 'game_id' => 96, 'q_image' => $l16_G96_G97_image . "eating_image", "q_content" => "I'm eating hamburger. I need \"jam or ketchup\"."],
+            ['round' => 3, 'game_id' => 96, 'q_image' => $l16_G96_G97_image . "drinking_image", "q_content" => "I'm drinking juice. I need \"ice or ice cream\"."],
+            ['round' => 4, 'game_id' => 96, 'q_image' => $l16_G96_G97_image . "lamp_image", "q_content" => "Turn on the \"lamp or iron\"."],
+            ['round' => 5, 'game_id' => 96, 'q_image' => $l16_G96_G97_image . "door_image", "q_content" => "I need to open the door. I need \"key or lock\"."],
+
+
+            // game 97
+            ['round' => 1, 'game_id' =>  97, 'q_image' => $l16_G96_G97_image . "lemon_image", "q_content" => "Look at the half of the picture and say a word."],
+            ['round' => 2, 'game_id' =>  97, 'q_image' => $l16_G96_G97_image . "ink_image", "q_content" => "Look at the half of the picture and say a word."],
+            ['round' => 3, 'game_id' =>  97, 'q_image' => $l16_G96_G97_image . "kite_image", "q_content" => "Look at the half of the picture and say a word."],
+            ['round' => 4, 'game_id' =>  97, 'q_image' => $l16_G96_G97_image . "lollipop_image", "q_content" => "Look at the half of the picture and say a word."],
+            ['round' => 5, 'game_id' =>  97, 'q_image' => $l16_G96_G97_image . "icecream_image", "q_content" => "Look at the half of the picture and say a word."],
+
+
+        ]);
+
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 16 Game 98 , 99 (  Writing  )
+        ////////////////////////////////////////////////////////
+
+        $G1_L16_writing = "Grade_1/" . "Lesson_16/" . "writing/";
+        $l16_G98_G99_image = $domain . "/storage/images/Grade_1/lesson_16/writing/";
+
+
+        // game 98
+        $G98tracing = [
+            'i', 'j', 'K', 'k', 'L', 'l', 'J', 'I'
+        ];
+        foreach ($G98tracing as $i => $trace) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'game_id' => 98,
+                    'q_audio' =>  $AudioDomain . $G1_L16_writing . strtoupper($trace) . ".mp3",
+                    'q_content' => ctype_lower($trace) ?   $AudioDomain . $G1_L16_writing . "dotted_small_" . $trace . ".png" :  $AudioDomain . $G1_L16_writing . "dotted_" . $trace . ".png",
+                    'q_image' => ctype_lower($trace) ?   $AudioDomain . $G1_L16_writing . "small_" . $trace . ".png" :  $AudioDomain . $G1_L16_writing . $trace . ".png",
+                    'a_content' => $trace,
+                ],
+            ]);
+        }
+
+        // game 99
+        $g1_l16_Game99_rearrange_the_letter_q1 = [
+            ['A', 'H', 'J', 'G', 'K'],
+            ['A', 'H', 'C', 'J', 'E'],
+            ['A', 'L', 'C', 'J', 'E'],
+            ['L', 'H', 'C', 'J', 'E'],
+            ['L', 'H', 'K', 'J', 'I'],
+            ['L', 'K', 'A', 'J', 'I'],
+            ['L', 'K', 'A', 'J', 'I'],
+            ['L', 'O', 'A', 'O', 'I'],
+            ['A', 'T', 'J', 'G', 'B'],
+            ['I', 'T', 'C', 'G', 'B'],
+        ];
+
+        $g1_l16_Game99_rearrange_the_letter_q2 = [
+            '_ETC_UP', '_UIC_', '__MON', '_O_K', '__TE', '_AC_ET', '_N_', 'L_L_IP_P', '__M', '__E'
+        ];
+
+        $correctAns =   [
+
+            ['K', 'H'],
+            ['J', 'E'],
+            ['L', 'E'],
+            ['L', 'C'],
+            ['K', "I"],
+            ['J', 'K'],
+            ['I', 'K'],
+            ['O', 'L', 'O'],
+            ['J', 'A'],
+            ['I', 'C'],
+
+        ];
+
+        $g1_l16_Game99_rearrange_the_letter_a = [
+            'KETCHUP', 'JUICE', 'LEMON', 'LOCK', 'KITE', 'JACKET', 'INK', 'LOLLIPOP', 'JAM', 'ICE'
+        ];
+
+
+
+
+        for ($i = 0; $i < count($g1_l16_Game99_rearrange_the_letter_q1); $i++) {
+
+            $roundAnswers = [];
+            foreach ($g1_l16_Game99_rearrange_the_letter_q1[$i] as $k => $word) {
+
+                $isCorrect = in_array($word, $correctAns[$i]);
+                $roundAnswers[] = $isCorrect;
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1, 'game_id' => 99,
+                        'q_audio' => $word . ".mp3", 'q_content' => $word,
+                        'a_content' => $isCorrect ? 1 : 0,
+                    ]
+                ]);
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 99,
+                    'q_audio' => $AudioDomain . $G1_L16_writing . strtolower($g1_l16_Game99_rearrange_the_letter_a[$i]) . ".mp3",
+                    'q_image' => $l16_G98_G99_image .  strtolower($g1_l16_Game99_rearrange_the_letter_a[$i]) . ".png",
+                    'q_content' => $g1_l16_Game99_rearrange_the_letter_q2[$i],
+                    'a_content' => $g1_l16_Game99_rearrange_the_letter_a[$i]
+                ],
+            ]);
+        }
     }
 }

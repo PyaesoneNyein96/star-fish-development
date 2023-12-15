@@ -273,7 +273,7 @@ trait gameTraits
 
         if (isset($game[0])) $game = $game[0];
 
-        $rounds = $game->ans_n_ques->groupBy('round')->values();
+        $rounds = $game->ans_n_ques;
 
         return [
             'game_id' => $game->id,
