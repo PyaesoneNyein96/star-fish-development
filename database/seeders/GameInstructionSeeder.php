@@ -128,14 +128,14 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Matching things from this session", 'game_id' => 37,
             'audio' => $Instructions."Matching-things-from-this-session.mp3"],
 
-            // G-1 lesson_7 U-38
-            ['content' => "Tap the things on the table and answer the question.",'game_id' => 38,
-            'audio' => $Instructions."Tap-the-things-on-the-table-and-answer-the-question.mp3"],
+            // G-1 lesson_7 U-5
+            // ['content' => "Tap the things on the table and answer the question.",'game_id' => 38,
+            // 'audio' => $Instructions."Tap-the-things-on-the-table-and-answer-the-question.mp3"],
 
 
             // G-1 lesson_7 U-39
             // Game 39,40
-            ['content' => "Trace-and-write", "game_id" => 39, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+            ['content' => "Trace and write", "game_id" => 39, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
             ['content' => "Write-the-correct-letter", "game_id" => 40, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
 
 
@@ -210,6 +210,20 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Answer the question", 'game_id' => 65, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
 
 
+
+            // ======================
+            // G-1 Lesson_12 U -3
+
+            ['content' => "Listen and tap the words you hear", 'game_id' => 68, 'audio' =>  $Instructions . "Listen-and-tap-the-words-you-hear" . ".mp3"],
+
+            ['content' => "Trace and write", "game_id" => 71, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+            ['content' => "Write-the-correct-letter", "game_id" => 72, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
+
+
+
+
+
+
             // ================
             // G-1 lesson_13 U-72
             ['content' => "reading carousel", 'game_id' => 74, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
@@ -245,14 +259,24 @@ class GameInstructionSeeder extends Seeder
 
 
             // ================
-            // G-1 lesson_17 U-98
-            ['content' => "Listen and Act", 'game_id' => 105, 'audio' => $Instructions . "Listen-and-Act" . ".mp3"],
+
 
             // G-1 lesson_17 U-102
             [
-                'content' => "Listen and put the body parts in the correct place.", 'game_id' => 102,
-                'audio' =>  $Instructions . "Listen-and-put-the-body-parts-in-the-correct-place" . ".mp3"
+            'content' => "Listen and put the body parts in the correct place.", 'game_id' => 102,
+            'audio' =>  $Instructions . "Listen-and-put-the-body-parts-in-the-correct-place.mp3"
             ],
+
+            [
+            'content' => "Listen and put the body parts in the correct place", 'game_id' => 103, 'audio' => $Instructions."Listen-and-put-the-body-parts-in-the-correct-place.mp3"
+            ],
+
+            [
+            'content' => "Matching Parts of the Body", 'game_id' => 104, 'audio' => $Instructions."Matching-Parts-of-the-Body.mp3"
+            ],
+
+            // G-1 lesson_17 U-98
+            ['content' => "Listen and Act", 'game_id' => 105, 'audio' => $Instructions . "Listen-and-Act" . ".mp3"],
 
 
         ]);

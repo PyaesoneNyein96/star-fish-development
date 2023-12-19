@@ -6,13 +6,19 @@ trait gameTraits
 {
 
     // listening_and_choosing_clouds_one,
+    // listening_and_choosing_clouds_two
     // reading_carousel,
     // video_player_lessons,
     // video_player_song,
     // drag_n_drop_and_letter ,
-    // writing_topic
-    // writing_opposite
-    // listening_and_choosing_pics_two
+    // writing_topic,
+    // reading_diagram,
+    // writing_opposite,
+    // letter_tracing,
+    // fill_in_the_blanks,
+    // matching_columns,
+    // listening_and_choosing_pics_two,
+    // drag_n_drop_and_pics
 
     ///////////////////////////////////////////////////////////////
     /// SUb Unit Games ************
@@ -411,4 +417,83 @@ trait gameTraits
 
         return $data;
     }
+
+    public function drag_n_drop_and_pics($game, $student, $unit){
+
+        if (isset($game[0])) $game = $game[0];
+
+        $roundExist = $game->ans_n_ques->some(function ($g) {
+            return array_key_exists('round', $g->toArray());
+        });
+
+        $data = [
+            'game_id' => $game->id,
+            'lesson_id' => $unit->lesson_id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'game_status' => $game->status,
+            'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
+            'instructionGIF'  => $game->instructionGIF,
+            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
+        ];
+
+        if ($roundExist) {
+            $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
+        }
+        $data['data'] = $game->ans_n_ques;
+
+        return $data;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
