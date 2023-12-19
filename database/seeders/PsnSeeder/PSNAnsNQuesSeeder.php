@@ -277,7 +277,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
         foreach ($L7_U2_content as $key) {
             DB::table('ans_n_ques')->insert([
-                ['game_id' => 35, 'a_content' => $key, 'a_image' => $L7_U2_Img . $key . ".png",
+                ['game_id' => 35, 'a_content' => $key, 'a_image' => $L7_U2_Img . strtolower($key) . ".png",
                  'a_audio' => $L7_U2_audio.strtolower($key).".mp3"],
             ]);
         }
@@ -288,8 +288,8 @@ class PSNAnsNQuesSeeder extends Seeder
         $L7_U3_items_1 = ['airplane','doll','dog','apple','cup','banana'];
         $L7_U3_items_2 = ['ball','boy','cake','ant','car','duster'];
 
-        $L7_U3_Img = $ImageDomain."Grade_1/Lesson_7/Listen_and_practice/";
-        $L7_U3_audio = $AudioDomain."Grade_1/Lesson_7/Listen_and_practice/";
+        $L7_U3_Img = $ImageDomain."Grade_1/Lesson_7/Listening_and_practice/";
+        $L7_U3_audio = $AudioDomain."Grade_1/Lesson_7/Listening_and_practice/";
 
         foreach ($L7_U3_items_1 as $key => $value) {
             DB::table('ans_n_ques')->insert([
@@ -443,7 +443,7 @@ class PSNAnsNQuesSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1, 'game_id' => 40,
-                    'q_audio' => $g1_l7_u6_rearrange_the_letter_a[$i].".mp3",
+                    'q_audio' =>$AudioDomain."Grade_1/Lesson_7/Writing_Sentences_order/". $g1_l7_u6_rearrange_the_letter_a[$i].".mp3",
                     'q_image' =>$ImageDomain."Grade_1/Lesson_7/Writing_Sentences_order/".$g1_l7_u6_rearrange_the_letter_a[$i].".png" ,
                     'q_content' => $g1_l7_u6_rearrange_the_letter_q2[$i],
                     'a_content' => $g1_l7_u6_rearrange_the_letter_a[$i]
@@ -465,13 +465,16 @@ class PSNAnsNQuesSeeder extends Seeder
             'Ear','Egg','Eyes','Fan','Farm','Fish','Flower','Gate','Girl'
             ,'Goat','Grass','Hand','Hat','House'
         ];
-
+        $L12_U2_audio = [
+            'Ear','Egg','Eye','Fan','Farm','Fish','Flower','Gate','Girl'
+            ,'Goat','Grass','Hand','Hat','House'
+        ];
 
         foreach ($L12_U2_content as $k => $v) {
             DB::table('ans_n_ques')->insert([
                 [   'game_id' => 67, 'a_content' => $v,
                     'a_image' => $ImageDomain."Grade_1/Lesson_12/Reading/". $v . ".png",
-                    'a_audio' => $AudioDomain."Grade_1/Lesson_12/Reading/".$v.".mp3"
+                    'a_audio' => $AudioDomain."Grade_1/Lesson_12/Reading/".strtolower($L12_U2_audio[$k]).".mp3"
                 ],
             ]);
         }
@@ -593,26 +596,24 @@ class PSNAnsNQuesSeeder extends Seeder
         ];
 
         $g1_l7_u6_rearrange_the_letter_q2 = [
-            '_all','_ake','_og','_uster','_pple','_nt'
+            '_y_','_o_t','__t','_r_ss','_low_r','__r','__n'
         ];
 
         $correctAns =   [
 
-         ['E','E'],
-         ['C','O','A','T'],
-         ['H','A','T'],
-         ['G','R','A','S','S'],
-         ['F','L','O','W','E','R'],
-         ['E','A','R'],
-         ['F','A','N'],
+            ['E','E'],
+            ['G','O','A','T'],
+            ['H','A','T'],
+            ['G','R','A','S','S'],
+            ['F','L','O','W','E','R'],
+            ['E','A','R'],
+            ['F','A','N'],
 
         ];
 
-        // $g1_l7_u6_rearrange_the_letter_a = [
-        //     'BALL','CAKE','DOG','DUSTER','APPLE','ANT'
-        // ];
+
         $g1_l7_u6_rearrange_the_letter_a = [
-            'Ball','Cake','Dog','Duster','Apple','Ant'
+            'EYE','GOAT','HAT','GRASS','FLOWER','EAR','FAN'
         ];
 
 
@@ -627,20 +628,21 @@ class PSNAnsNQuesSeeder extends Seeder
                 $roundAnswers[] = $isCorrect;
 
                 DB::table('ans_n_ques')->insert([
-                    [   'round' => $i + 1, 'game_id' => 40,
-                        'q_audio' => $word.".mp3",'q_content' => $word,
+                    [   'round' => $i + 1, 'game_id' => 72,
+                        'q_audio' => $word.".mp3",
+                        'q_content' => $word,
                         'a_content' => $isCorrect ? 1 : 0,
                     ]
                 ]);
             }
 
-            $roundAnswer = implode('', $roundAnswers);
+            // $roundAnswer = implode('', $roundAnswers);
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'round' => $i + 1, 'game_id' => 40,
-                    'q_audio' => $g1_l7_u6_rearrange_the_letter_a[$i].".mp3",
-                    'q_image' =>$ImageDomain."Grade_1/Lesson_7/Writing_Sentences_order/".$g1_l7_u6_rearrange_the_letter_a[$i].".png" ,
+                    'round' => $i + 1, 'game_id' => 72,
+                    'q_audio' => $AudioDomain."Grade_1/Lesson_12/Write_the_correct_letter/".$g1_l7_u6_rearrange_the_letter_a[$i].".mp3",
+                    'q_image' =>$ImageDomain."Grade_1/Lesson_12/Write_the_correct_letter/".$g1_l7_u6_rearrange_the_letter_a[$i].".png" ,
                     'q_content' => $g1_l7_u6_rearrange_the_letter_q2[$i],
                     'a_content' => $g1_l7_u6_rearrange_the_letter_a[$i]
                 ],
