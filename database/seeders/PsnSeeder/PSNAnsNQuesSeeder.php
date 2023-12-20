@@ -489,8 +489,9 @@ class PSNAnsNQuesSeeder extends Seeder
         ////    Grade 1  Lesson 12 Games 3 (listen and practice) (listening_and_search_items)
 
         $L12_U3_content = [
-            'girl','hand','ear','egg','hat','eye'
+            'girl','hand','ear','egg','hat','dinosaur','poster','dog','ball'
         ];
+
 
         foreach ($L12_U3_content as $v) {
             DB::table('ans_n_ques')->insert([
@@ -502,7 +503,7 @@ class PSNAnsNQuesSeeder extends Seeder
             ]);
 
         }
-        $L12_U3_bg = $ImageDomain."/Grade_1/Lesson_12/Listen_and_Practice/Background.png";
+        $L12_U3_bg = $ImageDomain."/Grade_1/Lesson_12/Listen_and_Practice/bg.png";
 
             DB::table('ans_n_ques')->insert([
                 ['game_id' => 68, 'round' => 1, 'background' => $L12_U3_bg ]
@@ -518,9 +519,11 @@ class PSNAnsNQuesSeeder extends Seeder
     ];
 
     $L12_U4_rand = [
-        ['Nose','Chin','Lips','Hair','Face'],
-        ['eyes','ears','fan','fish','egg'],
+        ['Goat','Girl','House','Hat','Hand'],
+        ['eye','ear','fan','fish','egg'],
     ];
+
+    $L12_U4_img_path = "Grade_1/Lesson_12/Matching/";
 
             for ($i= 0 ; $i < count($L12_U4) ; $i++) {
 
@@ -529,7 +532,7 @@ class PSNAnsNQuesSeeder extends Seeder
                 DB::table('ans_n_ques')->insert([
                     [
                      'game_id' => 69, 'round' => $i + 1,'q_content' => $q,
-                     'q_image' => $ImageDomain. $q.".png",
+                     'q_image' => $q.".png",
                      'q_audio' => $AudioDomain."Grade_1/Lesson_12/Matching/".$q.".mp3",]
                 ]);
            }
@@ -537,8 +540,11 @@ class PSNAnsNQuesSeeder extends Seeder
 
             foreach ($L12_U4_rand[$i] as $q) {
                 DB::table('ans_n_ques')->insert([
-                    ['game_id' => 69, 'round' => $i + 1,'q_content' => strtolower($q),
-                    'q_image' => $ImageDomain.strtolower($q).".png",'q_audio' => $AudioDomain."Grade_1/Lesson_12/Matching/".$q.".mp3",]
+                    [
+                     'game_id' => 69, 'round' => $i + 1,'q_content' => strtolower($q),
+                    //  'q_image' => $ImageDomain.strtolower($q).".png",
+                     'q_image' => $ImageDomain.$L12_U4_img_path.strtolower($q).".png",
+                     'q_audio' => $AudioDomain."Grade_1/Lesson_12/Matching/".$q.".mp3",]
                 ]);
            }
         }
@@ -549,7 +555,7 @@ class PSNAnsNQuesSeeder extends Seeder
         ////    Grade 1  Lesson 12 Games 5 (speaking_and_recording)
 
         $L12_U5 = [
-            "Fan",'Girl','ears','Egg','Hat','Flower','Mouse','ant','dog','boy',
+            "fan",'girl','ear','egg','hat','flower','sunflower','house','goat','hamster',
         ];
 
         foreach ($L12_U5 as $key => $value) {
@@ -557,7 +563,7 @@ class PSNAnsNQuesSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
 
                ['game_id' => 70, 'round' => $key + 1, 'q_content' => "Say the word?",
-                'q_audio' => "Say the word?".".mp3",'q_image' => $ImageDomain."Grade_1/Lesson_7/Speaking_practice/".$value.".png", 'a_content' => $value ]
+                'q_audio' => "Say the word?".".mp3",'q_image' => $ImageDomain."Grade_1/Lesson_12/Speaking_practice/".$value.".png", 'a_content' => $value ]
 
             ]);
         }
@@ -566,10 +572,9 @@ class PSNAnsNQuesSeeder extends Seeder
         ////////////////////////////////////////////////////////
         ////    Grade 1  Lesson 12 Games 6 subunit-1 (Trace and Write)
 
-        $imgDomain = $ImageDomain."Grade_1/Lesson_7/Writing_Sentences_order/";
+        $imgDomain = $ImageDomain."Grade_1/Lesson_12/trace_and_write/";
 
         $g1_L12_u6_trace_n_write = [
-            // 'G','H','e','f','g','h','F','E'
             'G','H','e','f','g','h','E','F'
         ];
             foreach ($g1_L12_u6_trace_n_write as $i => $trace) {
@@ -601,18 +606,18 @@ class PSNAnsNQuesSeeder extends Seeder
         ];
 
         $g1_l7_u6_rearrange_the_letter_q2 = [
-            '_y_','_o_t','__t','_r_ss','_low_r','__r','__n'
+            '_Y_','_O_T','__T','_R_SS','_LOW_R','__R','__N'
         ];
 
         $correctAns =   [
 
             ['E','E'],
-            ['G','O','A','T'],
-            ['H','A','T'],
-            ['G','R','A','S','S'],
-            ['F','L','O','W','E','R'],
-            ['E','A','R'],
-            ['F','A','N'],
+            ['G','A'],
+            ['H','A'],
+            ['G','A'],
+            ['F','E'],
+            ['E','A'],
+            ['F','A'],
 
         ];
 
