@@ -37,7 +37,7 @@ class CategorySeeder extends Seeder
             'listening_and_search_items',
             'letter_tracing',
             'drag_n_drop_and_columns',
-            'mcq_tf_Instruction',
+            'mcq_tf_instruction',
             'mcq_grammar',
             'reading_diagram',
             'drag_n_drop_and_pics',
