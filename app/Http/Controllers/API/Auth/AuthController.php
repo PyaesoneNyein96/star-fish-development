@@ -144,7 +144,7 @@ class AuthController extends Controller
     public function userData(Request $request){
         $token = $request->header('token');
 
-        $fields = $request->header('fields');
+        // $fields = $request->header('fields');
         // return $fields = array($fields);
 
         return $userData = Student::where('token', $token)->first();
