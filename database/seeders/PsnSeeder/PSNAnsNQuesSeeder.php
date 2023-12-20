@@ -355,8 +355,11 @@ class PSNAnsNQuesSeeder extends Seeder
 
             DB::table('ans_n_ques')->insert([
 
-                ['game_id' => 38, 'round' => $key + 1, 'q_content' => "what's this ?",
-                'q_audio' => "whats_this?".".mp3",'q_image' => $ImageDomain."Grade_1/Lesson_7/Speaking_practice/".$g1L7U5[$key].".png", 'a_content' => $value ]
+                [
+                    'game_id' => 38, 'round' => $key + 1, 'q_content' => "what's this ?",
+                    // 'q_audio' => "whats_this?".".mp3",
+                    'q_image' => $ImageDomain."Grade_1/Lesson_7/Speaking_Practice/".$g1L7U5[$key].".png",
+                    'a_content' => $value ]
 
             ]);
         }
@@ -881,11 +884,13 @@ class PSNAnsNQuesSeeder extends Seeder
                 [   'game_id' => 193, 'a_content' => $v,
                     'q_image' => $ImageDomain."Grade_1/Lesson_31/Listen_and_Practice/".$v.".png",
                     'a_audio' => $AudioDomain."Grade_1/Lesson_31/Listen_and_Practice/".$v.".mp3",
-                    'a_content' => $v, 'round' => 1,
+                    'a_content' => $v,
+                    'round' => 1,
                 ],
             ]);
 
         }
+
         $L12_U3_bg = $ImageDomain."/Grade_1/Lesson_31/Listen_and_Practice/Background.png";
 
             DB::table('ans_n_ques')->insert([
@@ -893,6 +898,10 @@ class PSNAnsNQuesSeeder extends Seeder
             ]);
 
 
+
+
+    /////////////////////////////////////////////////
+    //    Grade 1  Lesson 31 unit 3 SubUnit Game - 2  (listening_and_search_items)
 
 
 
