@@ -72,7 +72,7 @@ Route::get('/config', function () {
     return back();
 });
 
-Route::get('/configcache', function () {
+Route::get('/configCache', function () {
     Artisan::call('config:cache');
     return back();
 });
@@ -81,7 +81,7 @@ Route::get('/route', function () {
     return back();
 });
 
-Route::get('/dbwipe', function () {
+Route::get('/dbWipe', function () {
     Artisan::call('db:wipe');
     return back();
 });
@@ -99,6 +99,11 @@ Route::get('/fresh', function () {
 
 Route::get('/seed', function () {
     Artisan::call('db:seed');
+    return back();
+});
+
+Route::get('/link', function () {
+    Artisan::call('storage:link');
     return back();
 });
 

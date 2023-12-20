@@ -12,7 +12,8 @@ class GlobalVar extends ServiceProvider
     public function register(): void
     {
         $this->app->bind('domain', function () {
-            return "https://star-fish.myanmargateway.net";
+            // return "https://star-fish.myanmargateway.net";
+            return "https://star-fish-development.myanmargateway.net/";
             // return "http://localhost:8000";
             return "";
         });

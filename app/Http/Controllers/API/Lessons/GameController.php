@@ -154,7 +154,7 @@ class GameController extends Controller
             ->pluck('id')->first();
 
 
-            $allGame = Unit::where('lesson_id', $lesson_id)->get();
+            $allGame = Unit::where('lesson_id', $lesson_id)->with('lesson')->get();
 
             $studentUnits = $student->units;
 
@@ -164,7 +164,8 @@ class GameController extends Controller
                 return [
                     'id' => $unit->id,
                     'lesson_id' => $unit->lesson_id,
-                    'name' => $unit->name,
+                    'lesson_name' => $unit->lesson->name,
+                    'unit_name' => $unit->name,
                     'grade_id' => (int)$gradeId,
                     'complete' => $studentUnits->contains('id', $unit->id),
                     'sub_unit' => $unit->games->count() > 1 ? true : false,

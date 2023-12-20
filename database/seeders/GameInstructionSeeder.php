@@ -128,6 +128,14 @@ class GameInstructionSeeder extends Seeder
             ],
 
 
+            // G-1 lesson_7 U-37
+            ['content' => "Matching things from this session", 'game_id' => 37,
+            'audio' => $Instructions."Matching-things-from-this-session.mp3"],
+
+            // G-1 lesson_7 U-38
+            ['content' => "Tap the things on the table and answer the question.",'game_id' => 38,
+            'audio' => $Instructions."Tap-the-things-on-the-table-and-answer-the-question.mp3"],
+
 
             // G-1 lesson_7 U-39
             // Game 39,40
