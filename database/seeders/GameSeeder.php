@@ -204,6 +204,7 @@ class GameSeeder extends Seeder
 
             ['name' => 'Speaking 1', 'unit_id' => 92, 'category_id' => 11, 'instructionGIF' => $instructionGif_path . "Speaking.gif"],
             ['name' => 'Speaking 2', 'unit_id' => 92, 'category_id' => 11, 'instructionGIF' => $instructionGif_path . "Speaking.gif"],
+
             ['name' => 'Writing 1', 'unit_id' => 93, 'category_id' => 18, 'instructionGIF' => $instructionGif_path . "Tracing.gif"],
             ['name' => 'Writing 2', 'unit_id' => 93, 'category_id' => 10, 'instructionGIF' => $instructionGif_path . "Re-arrange-in-order.gif"],
 
@@ -221,6 +222,58 @@ class GameSeeder extends Seeder
             ['name' => 'Matching', 'unit_id' => 97, 'category_id' => 7, 'instructionGIF' => $instructionGif_path . "Matching.gif"],
             ['name' => 'Listen and Act', 'unit_id' => 98, 'category_id' => 13, 'instructionGIF' => null],
             ['name' => 'Speaking Practice', 'unit_id' => 99, 'category_id' => 11, 'instructionGIF' => $instructionGif_path . "Speaking.gif"],
+
+        ]);
+
+        // // unit 18's games
+        DB::table('games')->insert([
+
+            ['name' => 'Grammar Explanation', 'unit_id' => 100, 'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Listen Read and Repeat', 'unit_id' => 101, 'category_id' => 22, 'instructionGIF' => null],
+            ['name' => 'Listen and Practice', 'unit_id' => 102, 'category_id' => 21, 'instructionGIF' => null],
+            ['name' => 'Listen and Act', 'unit_id' => 103, 'category_id' => 13, 'instructionGIF' => null],
+            ['name' => 'Writing', 'unit_id' => 104, 'category_id' => 14, 'instructionGIF' => $instructionGif_path . "Re-arrange-in-order.gif"],
+            ['name' => 'Speaking Practice', 'unit_id' => 105, 'category_id' => 11, 'instructionGIF' => $instructionGif_path . "Speaking.gif"],
+
+        ]);
+
+        // // unit 19's games
+        DB::table('games')->insert([
+
+            ['name' => 'Target Language', 'unit_id' => 106, 'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Listen and Repeat', 'unit_id' => 107, 'category_id' => 22, 'instructionGIF' => null],
+            ['name' => 'Listen and Practice', 'unit_id' => 108, 'category_id' => 21, 'instructionGIF' => null],
+            ['name' => 'Listen and Act', 'unit_id' => 109, 'category_id' => 13, 'instructionGIF' => null],
+            ['name' => 'Reading', 'unit_id' => 110, 'category_id' => 16, 'instructionGIF' => null],
+            ['name' => 'Speaking Practice', 'unit_id' => 111, 'category_id' => 11, 'instructionGIF' => $instructionGif_path . "Speaking.gif"],
+
+        ]);
+
+        // // unit 20's games
+        DB::table('games')->insert([
+
+            ['name' => 'Target Language & Grammar Explanation', 'unit_id' => 112, 'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Read ,Listen and Repeat', 'unit_id' => 113, 'category_id' => 2, 'instructionGIF' => null],
+            ['name' => 'Listen and Practice Game', 'unit_id' => 114, 'category_id' => 17, 'instructionGIF' => null],
+            ['name' => 'Matching', 'unit_id' => 115, 'category_id' => 7, 'instructionGIF' =>  $instructionGif_path . "Matching.gif"],
+
+            ['name' => 'Speaking 1', 'unit_id' => 116, 'category_id' => 11, 'instructionGIF' => $instructionGif_path . "Speaking.gif"],
+            ['name' => 'Speaking 2', 'unit_id' => 116, 'category_id' => 11, 'instructionGIF' => $instructionGif_path . "Speaking.gif"],
+
+            ['name' => 'Writing 1', 'unit_id' => 117, 'category_id' => 18, 'instructionGIF' => $instructionGif_path . "Tracing.gif"],
+            ['name' => 'Writing 2', 'unit_id' => 117, 'category_id' => 10, 'instructionGIF' => $instructionGif_path . "Re-arrange-in-order.gif"],
+
+        ]);
+
+        // // unit 21's games
+        DB::table('games')->insert([
+
+            ['name' => 'Target Language', 'unit_id' => 118, 'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Listen and Repeat ( Reading 1 )', 'unit_id' => 119, 'category_id' => 2, 'instructionGIF' => null],
+            ['name' => 'Listen and Repeat ( Reading 2 )', 'unit_id' => 119, 'category_id' => 2, 'instructionGIF' => null],
+            ['name' => 'Listen and Practice', 'unit_id' => 120, 'category_id' => 17, 'instructionGIF' => null],
+            ['name' => 'Matching', 'unit_id' => 121, 'category_id' => 7, 'instructionGIF' =>  $instructionGif_path . "Matching.gif"],
+            ['name' => 'Speaking', 'unit_id' => 122, 'category_id' => 11, 'instructionGIF' => $instructionGif_path . "Speaking.gif"],
 
         ]);
 
@@ -262,6 +315,5 @@ class GameSeeder extends Seeder
             ['name' => 'Listen and Practice', 'unit_id' => 251, 'category_id' => 28],
             ['name' => 'Speaking Topic', 'unit_id' => 252, 'category_id' => 1],
         ]);
-
     }
 }

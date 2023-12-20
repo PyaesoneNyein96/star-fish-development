@@ -121,7 +121,7 @@ class DatabaseSeeder extends Seeder
         //     'token' => "2|AcNBOdyxwj07aB7asSP8D2b5Dg5rZJ8ow6Qkk8S72c1b8e2f",
         //     'isSubscriber' => 0
         // ]);
-             Student::factory()->create([
+        Student::factory()->create([
             'name' => 'soe soe lay',
             'phone' => null,
             'email' => "devsophiesoe@gmail.com",
@@ -158,12 +158,11 @@ class DatabaseSeeder extends Seeder
 
         // seeder 2
         $this->call(PSNAnsNQuesSeeder::class);
-        $this->call(PSNAnsNQuesG2Seeder::class);
-        $this->call(PSNAnsNQuesG3Seeder::class);
-        $this->call(PSNAnsNQuesG4Seeder::class);
+        // $this->call(PSNAnsNQuesG2Seeder::class);
+        // $this->call(PSNAnsNQuesG3Seeder::class);
+        // $this->call(PSNAnsNQuesG4Seeder::class);
 
 
         $this->call(Grade1AnsNQueSeeder::class);
-
     }
 }

@@ -271,7 +271,7 @@ class GameInstructionSeeder extends Seeder
             // G-1 lesson_16 U-92
             // game 96 , 97
             ['content' => "Tap the things in the room and answer the question", 'game_id' => 96, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
-            ['content' => "Tap the things in the room and answer the question", 'game_id' => 97, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+            ['content' => "Look at the half of the picture and say a word", 'game_id' => 97, 'audio' =>  $Instructions . "Look-at-the-half-of-the-pictur" . ".mp3"],
 
             // G-1 lesson_16 U-93
             // game 98 , 99
@@ -292,34 +292,107 @@ class GameInstructionSeeder extends Seeder
             ],
 
 
+            // ================
+            // G-1 lesson_18 U-101
+            ['content' => "Listen Read and Repeat", 'game_id' => 108, 'audio' =>  $Instructions . "Listen_Read_and_Repeat_audio" . ".mp3"],
+
+            // G-1 lesson_18 U-102
+            ['content' => "Listen and choose the word you hear", 'game_id' => 109, 'audio' =>  $Instructions . "Listen-and-choose-the-word-you" . ".mp3"],
+
+            // G-1 lesson_18 U-103
+            ['content' => "Listen and Act", 'game_id' => 110, 'audio' => $Instructions . "Listen-and-Act" . ".mp3"],
+
+            // G-1 lesson_18 U-104
+            ['content' => "Choose the correct word", 'game_id' => 111, 'audio' =>  $Instructions . "Choose-the-correct-word" . ".mp3"],
+
+            // G-1 lesson_18 U-105
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 112, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+
+            // ================
+            // G-1 lesson_19 U-107
+            ['content' => "Listen Repeat", 'game_id' => 114, 'audio' =>  $Instructions . "Listen_and_Repeat_audio" . ".mp3"],
+
+            // G-1 lesson_19 U-108
+            ['content' => "Listen and choose the word you hear", 'game_id' => 115, 'audio' =>  $Instructions . "Listen-and-choose-the-word-you" . ".mp3"],
+
+            // G-1 lesson_19 U-109
+            ['content' => "Listen and Act", 'game_id' => 116, 'audio' => $Instructions . "Listen-and-Act" . ".mp3"],
+
+            // G-1 lesson_19 U-110
+            ['content' => "Listen and look at the picture. Choose true or false", 'game_id' => 117, 'audio' =>  $Instructions . "Listen-and-look-at-the-picture" . ".mp3"],
+
+            // G-1 lesson_19 U-111
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 118, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+
+
+            // ================
+            // G-1 lesson_20 U-113
+            ['content' => "Listen Repeat", 'game_id' => 120, 'audio' =>  $Instructions . "Listen_and_Repeat_audio" . ".mp3"],
+
+            // G-1 lesson_20 U-114
+            ['content' => "Listen and tap what you hear", 'game_id' => 121, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
+
+            // G-1 lesson_20 U-115
+            ['content' => "Matching things", 'game_id' => 122, 'audio' =>  $Instructions . "Matching-things" . ".mp3"],
+
+            // G-1 lesson_20 U-116
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 123, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+            ['content' => "Look at the half of the picture and say a word", 'game_id' => 124, 'audio' =>  $Instructions . "Look-at-the-half-of-the-pictur" . ".mp3"],
+
+            // G-1 lesson_20 U-117
+            ['content' => "Trace-and-write", "game_id" => 125, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+            ['content' => "Write-the-correct-letter", "game_id" => 126, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
+
+
+            // ================
+            // G-1 lesson_21 U-118
+            ['content' => "Listen Repeat", 'game_id' => 128, 'audio' =>  $Instructions . "Listen_and_Repeat_audio" . ".mp3"],
+
+            // G-1 lesson_21 U-119
+            // game 127 , 128
+            ['content' => "reading carousel", 'game_id' => 129, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+            ['content' => "reading carousel", 'game_id' => 130, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
+            // G-1 lesson_21 U-120
+            ['content' => "Listen and tap what you hear", 'game_id' => 131, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
+
+            // G-1 lesson_21 U-121
+            ['content' => "Matching things", 'game_id' => 132, 'audio' =>  $Instructions . "Matching-things" . ".mp3"],
+
+            // G-1 lesson_21 U-122
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 133, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+
         ]);
 
 
 
-        // Grade 3   (Temporary)
-        DB::table('game_instructions')->insert([
-            // G-3 lesson_26 U-7
-            [
-                'content' => "Write about your daily routines.", 'game_id' => 113,
-                'audio' =>  $Instructions . "Write-about-your-daily-routine" . ".mp3"
-            ],
+        // // Grade 3   (Temporary)
+        // DB::table('game_instructions')->insert([
+        //     // G-3 lesson_26 U-7
+        //     [
+        //         'content' => "Write about your daily routines.", 'game_id' => 113,
+        //         'audio' =>  $Instructions . "Write-about-your-daily-routine" . ".mp3"
+        //     ],
 
-            // G-3 lesson_33 U-3
-            [
-                'content' => "Write the opposite.", 'game_id' => 117,
-                'audio' =>  $Instructions . "Write_the_opposite(N/A)" . ".mp3"
-            ],
-        ]);
+        //     // G-3 lesson_33 U-3
+        //     [
+        //         'content' => "Write the opposite.", 'game_id' => 117,
+        //         'audio' =>  $Instructions . "Write_the_opposite(N/A)" . ".mp3"
+        //     ],
+        // ]);
 
-        // Grade 4   (Temporary)
-        DB::table('game_instructions')->insert([
+        // // Grade 4   (Temporary)
+        // DB::table('game_instructions')->insert([
 
-            // G-3 lesson_33 U-3
-            [
-                'content' => "Listen to the audio and choose the right picture.",
-                'game_id' => 125,
-                'audio' =>  $Instructions . "Listen-to-the-audio-and-choose-the-right-picture" . ".mp3"
-            ],
-        ]);
+        //     // G-3 lesson_33 U-3
+        //     [
+        //         'content' => "Listen to the audio and choose the right picture.",
+        //         'game_id' => 125,
+        //         'audio' =>  $Instructions . "Listen-to-the-audio-and-choose-the-right-picture" . ".mp3"
+        //     ],
+        // ]);
     }
 }
