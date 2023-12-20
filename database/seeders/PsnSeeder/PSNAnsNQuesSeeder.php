@@ -73,7 +73,7 @@ class PSNAnsNQuesSeeder extends Seeder
         ////    Grade 1  Lesson 1 Game 4 ( listen and practice )
 
 
-        $G1_L1_U4_path = "Grade_1/" . "Lesson_1/" . "listen_practice/";
+        $G1_L1_U4_path = "Grade_1/Lesson_1/Listen_and_Practice/";
         $G1_l1_U4_rounds = [
 
             ['D', 'k', 'f', 'e', 'W', 'j', 'G'],
@@ -122,7 +122,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'round' => $i + 1, 'game_id' => 4, 'q_audio' => $AudioDomain . $G1_L1_U4_path . $audios[$index] . ".mp3", 'a_content' => $answers[$index], 'q_conver' => $conver[$index], 'background' => $i + 1 > 4 && $i + 1 < 8 ? $backgroundDomain."G1_L1_U4_bg2".".png" : $backgroundDomain."G1_L1_U4_bg1".".png"
+                    'round' => $i + 1, 'game_id' => 4, 'q_audio' => $AudioDomain . $G1_L1_U4_path . $audios[$index] . ".mp3", 'a_content' => $answers[$index], 'q_conver' => $conver[$index], 'background' => $i + 1 > 4 && $i + 1 < 8 ? $ImageDomain.$G1_L1_U4_path."G1_L1_U4_bg2".".png" : $ImageDomain.$G1_L1_U4_path."G1_L1_U4_bg1".".png"
                 ],
             ]);
 
@@ -326,7 +326,8 @@ class PSNAnsNQuesSeeder extends Seeder
 
                 DB::table('ans_n_ques')->insert([
                     ['game_id' => 37, 'round' => $i + 1,'q_content' => $q,
-                    'q_image' => $q.".png",'q_audio' => $AudioDomain."Grade_1/Lesson_7/Matching/".strtolower($q).".mp3",]
+                    'q_image' => $q.".png",
+                    'q_audio' => $AudioDomain."Grade_1/Lesson_7/Matching/".strtolower($q).".mp3",]
                 ]);
            }
 
@@ -334,7 +335,8 @@ class PSNAnsNQuesSeeder extends Seeder
             foreach ($randomValues[$i] as $q) {
                 DB::table('ans_n_ques')->insert([
                     ['game_id' => 37, 'round' => $i + 1,'q_content' => strtolower($q),
-                    'q_image' => strtolower($q).".png",'q_audio' => $AudioDomain."Grade_1/Lesson_7/Matching/".strtolower($q).".mp3",]
+                    'q_image' => $ImageDomain."Grade_1/Lesson_7/Matching/". strtolower($q).".png",
+                    'q_audio' => $AudioDomain."Grade_1/Lesson_7/Matching/".strtolower($q).".mp3",]
                 ]);
            }
         }
@@ -688,7 +690,7 @@ class PSNAnsNQuesSeeder extends Seeder
         ]);
     }
         DB::table('ans_n_ques')->insert([
-            ['game_id' => 101, 'background' => $backgroundDomain."G1_L17_U2_head_bg".".png" ]
+            ['game_id' => 101, 'background' => $G1L17ImgDomain."head_bg".".png" ]
         ]);
 
         ///////////////////////////////////////////////
@@ -844,6 +846,60 @@ class PSNAnsNQuesSeeder extends Seeder
 
             ]);
         }
+
+
+
+    /////////////////////////////////////////////////
+    //    Grade 1  Lesson 31 unit 2 Games  (reading_carousel)
+
+
+        $L31_U2 = [
+            'Sand','Sea','Shark','Snail','Snake','Squirrel','Star','Table','Teeth','Ten','Tiger','Tree','turtle'
+        ];
+
+        foreach ($L31_U2 as $value) {
+            DB::table('ans_n_ques')->insert([
+                ['game_id' => 192,
+                 'a_image' => $ImageDomain."Grade_1/Lesson_31/Listen_and_Repeat/".$value.".png",
+                 'a_audio' => $AudioDomain."Grade_1/Lesson_31/Listen_and_Repeat/".$value.".mp3",
+                 'a_content' => $value
+                 ]
+            ]);
+        }
+
+
+
+    /////////////////////////////////////////////////
+    //    Grade 1  Lesson 31 unit 3 SubUnit Game - 1  (listening_and_search_items)
+
+      $L31_U3 = [
+            'Snail','Tiger','Squirrel','Turtle','Snake','eye'
+        ];
+
+        foreach ($L31_U3 as $v) {
+            DB::table('ans_n_ques')->insert([
+                [   'game_id' => 193, 'a_content' => $v,
+                    'q_image' => $ImageDomain."Grade_1/Lesson_31/Listen_and_Practice/".$v.".png",
+                    'a_audio' => $AudioDomain."Grade_1/Lesson_31/Listen_and_Practice/".$v.".mp3",
+                    'a_content' => $v, 'round' => 1,
+                ],
+            ]);
+
+        }
+        $L12_U3_bg = $ImageDomain."/Grade_1/Lesson_31/Listen_and_Practice/Background.png";
+
+            DB::table('ans_n_ques')->insert([
+                ['game_id' => 193, 'round' => 1, 'background' => $L12_U3_bg ]
+            ]);
+
+
+
+
+
+
+
+
+
 
 
 

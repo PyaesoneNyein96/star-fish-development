@@ -165,7 +165,7 @@ class GameController extends Controller
                     'id' => $unit->id,
                     'lesson_id' => $unit->lesson_id,
                     'lesson_name' => $unit->lesson->name,
-                    'unit_name' => $unit->name,
+                    'name' => $unit->name,
                     'grade_id' => (int)$gradeId,
                     'complete' => $studentUnits->contains('id', $unit->id),
                     'sub_unit' => $unit->games->count() > 1 ? true : false,
