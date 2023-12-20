@@ -312,10 +312,10 @@ class UnitSeeder extends Seeder
 
             ['name' => 'Target Language', 'lesson_id' => 31],       // 177 ->
             ['name' => 'Listen and Repeat', 'lesson_id' => 31],
-            ['name' => 'Listen and Practice Game 1', 'lesson_id' => 31],
+            ['name' => 'Listen and Practice', 'lesson_id' => 31],
             ['name' => 'Matching', 'lesson_id' => 31],
             ['name' => 'Speaking', 'lesson_id' => 31],
-            ['name' => 'Writing 1', 'lesson_id' => 31],             // 182
+            ['name' => 'Writing', 'lesson_id' => 31],             // 182
 
 
             // // lesson 32's units count(6) start (183 ,188)

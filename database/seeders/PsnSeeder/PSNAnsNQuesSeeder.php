@@ -223,7 +223,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     ['game_id' => 10, 'round' => $i + 1,'q_content' => $q,
                     'q_image' => $q,'q_audio' => $AtoZAudio.$prefix.strtoupper($q).".mp3",]
                 ]);
-           }
+            }
 
 
             foreach ($randomValues[$i] as $q) {
@@ -232,7 +232,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_image' => strtolower($q),'q_audio' => $AtoZAudio.$prefix.strtoupper($q).".mp3",]
                 ]);
 
-           }
+            }
         }
 
 
@@ -294,10 +294,10 @@ class PSNAnsNQuesSeeder extends Seeder
         foreach ($L7_U3_items_1 as $key => $value) {
             DB::table('ans_n_ques')->insert([
                 ['game_id' => 36, 'round' => 1 ,'a_content' => $value ,'q_image' => $L7_U3_Img.$value.".png",
-                'q_audio' =>$L7_U3_audio.$value.".mp3",'background' => "round_2_background.png" ],
+                'q_audio' =>$L7_U3_audio.$value.".mp3",'background' => $L7_U3_Img."bg.png"],
 
                 ['game_id' => 36, 'round' => 2 ,'a_content' => $L7_U3_items_2[$key] ,'q_image' => $L7_U3_Img.$L7_U3_items_2[$key].".png",
-                'q_audio' => $L7_U3_audio.$L7_U3_items_2[$key].".mp3" ,'background' => "round_1_background.png" ]
+                'q_audio' => $L7_U3_audio.$L7_U3_items_2[$key].".mp3" ,'background' => $L7_U3_Img."bg.png" ]
 
             ]);
         }
@@ -857,7 +857,8 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         $L31_U2 = [
-            'Sand','Sea','Shark','Snail','Snake','Squirrel','Star','Table','Teeth','Ten','Tiger','Tree','turtle'
+            'Sand','Sea','Shark','Snail','Snake','Squirrel','Star',
+            'Table','Teeth','Ten','Tiger','Tree','turtle'
         ];
 
         foreach ($L31_U2 as $value) {
@@ -904,11 +905,74 @@ class PSNAnsNQuesSeeder extends Seeder
     //    Grade 1  Lesson 31 unit 3 SubUnit Game - 2  (listening_and_search_items)
 
 
+    $L31_U3_2 = [
+            'star','sun','sand','sea','tree'
+        ];
+
+        foreach ($L31_U3_2 as $v) {
+            DB::table('ans_n_ques')->insert([
+                [   'game_id' => 194, 'a_content' => $v,
+                    'q_image' => $ImageDomain."Grade_1/Lesson_31/Listen_and_Practice/".$v.".png",
+                    'a_audio' => $AudioDomain."Grade_1/Lesson_31/Listen_and_Practice/".$v.".mp3",
+                    'a_content' => $v,
+                    'round' => 1,
+                ],
+            ]);
+
+        }
+
+        $L12_U3_2_bg = $ImageDomain."/Grade_1/Lesson_31/Listen_and_Practice/Background.png";
+
+            DB::table('ans_n_ques')->insert([
+                ['game_id' => 193, 'round' => 1, 'background' => $L12_U3_2_bg ]
+            ]);
 
 
 
 
 
+    /////////////////////////////////////////////////
+    //    Grade 1  Lesson 31 unit 4 (matching_columns)
+
+
+    // $L32_U4_r1 = ['Tree','Train','Turtle','Table','Ten'];
+    // $L32_U4_r2 = ['Sand','Shark','Star','Sun','Squirrel'];
+
+    $L32_U4_r1 = [
+        ['Tree','Train','Turtle','Table','Ten'],
+        ['Sand','Shark','Star','Sun','Squirrel']
+    ];
+
+    $randomValues = [
+        ['Turtle','Tree','Table','Ten','Train'],
+        ['Sand','Sand','Squirrel','Star','Shark']
+    ];
+
+    $L32_U4_Audio = $AudioDomain."Grade_1/Lesson_31/Matching/";
+    $L32_U4_Image = $ImageDomain."Grade_1/Lesson_31/Matching/";
+
+        for ($i= 0 ; $i < count($L32_U4_r1) ; $i++) {
+
+            foreach ($L32_U4_r1[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                    'game_id' => 195, 'round' => $i + 1,'q_content' => $q,
+                    'q_image' => $q,
+                    'q_audio' => $L32_U4_Audio.$q.".mp3",]
+                ]);
+            }
+
+
+            foreach ($randomValues[$i] as $q) {
+                DB::table('ans_n_ques')->insert([
+                    ['game_id' => 195, 'round' => $i + 1,'q_content' => strtolower($q),
+                    'q_image' => $L32_U4_Image.$q.".png",
+                    'q_audio' => $L32_U4_Audio.$q.".mp3",]
+                ]);
+
+            }
+        }
 
 
 
