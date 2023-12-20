@@ -277,6 +277,32 @@ class GameSeeder extends Seeder
 
         ]);
 
+        // // unit 22's games
+        DB::table('games')->insert([
+
+            ['name' => 'Target Language', 'unit_id' => 123, 'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Listen and Repeat ( Reading 1 )', 'unit_id' => 124, 'category_id' => 2, 'instructionGIF' => null],
+            ['name' => 'Listen and Repeat ( Reading 2 )', 'unit_id' => 124, 'category_id' => 2, 'instructionGIF' => null],
+            ['name' => 'Listen and Practice', 'unit_id' => 125, 'category_id' => 17, 'instructionGIF' => null],
+            ['name' => 'Matching', 'unit_id' => 126, 'category_id' => 7, 'instructionGIF' =>  $instructionGif_path . "Matching.gif"],
+            ['name' => 'Writing', 'unit_id' => 127, 'category_id' => 14, 'instructionGIF' =>  $instructionGif_path . "Re-arrange-in-order.gif"],
+            ['name' => 'Speaking', 'unit_id' => 128, 'category_id' => 11, 'instructionGIF' => $instructionGif_path . "Speaking.gif"],
+
+        ]);
+
+        // // unit 23's games
+        DB::table('games')->insert([
+
+            ['name' => 'Target Language', 'unit_id' => 129, 'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Listen and Repeat ( Reading 1 )', 'unit_id' => 130, 'category_id' => 2, 'instructionGIF' => null],
+            ['name' => 'Listen and Repeat ( Reading 2 )', 'unit_id' => 130, 'category_id' => 2, 'instructionGIF' => null],
+            ['name' => 'Listen and Practice', 'unit_id' => 131, 'category_id' => 24, 'instructionGIF' => null],
+            ['name' => 'True or False', 'unit_id' => 132, 'category_id' => 20, 'instructionGIF' =>  null],
+            ['name' => 'Reading', 'unit_id' => 133, 'category_id' => 16, 'instructionGIF' => null],
+            ['name' => 'Speaking Practice', 'unit_id' => 134, 'category_id' => 11, 'instructionGIF' => $instructionGif_path . "Speaking.gif"],
+
+        ]);
+
         //  Grade 1 Games end.......
 
         //--------------  Grade 3 Games -------------------

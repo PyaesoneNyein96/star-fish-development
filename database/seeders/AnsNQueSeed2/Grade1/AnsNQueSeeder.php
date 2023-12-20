@@ -2160,26 +2160,26 @@ class AnsNQueSeeder extends Seeder
         $l13G75image = $domain . "/storage/images/Grade_1/lesson_13/Drap_n_Drop/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "ruler.png", "a_content" => "long"],
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "pencil.png", "a_content" => "long"],
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "yellow_pencil.png", "a_content" => "long"],
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "three_color_pencil.png", "a_content" => "long"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "ruler.png", "q_content" => "long short", "a_content" => "long"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "pencil.png", "q_content" => "long short", "a_content" => "long"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "yellow_pencil.png", "q_content" => "long short", "a_content" => "long"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "three_color_pencil.png", "q_content" => "long short", "a_content" => "long"],
 
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "horizontal_ruler.png", "a_content" => "short"],
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "book.png", "a_content" => "short"],
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "short_pants.png", "a_content" => "short"],
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "hat.png", "a_content" => "short"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "horizontal_ruler.png", "q_content" => "long short", "a_content" => "short"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "book.png", "q_content" => "long short", "a_content" => "short"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "short_pants.png", "q_content" => "long short", "a_content" => "short"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "hat.png", "q_content" => "long short", "a_content" => "short"],
 
 
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "house.png", "a_content" => "big"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "dog.png", "a_content" => "big"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "cat.png", "a_content" => "big"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "mouse.png", "a_content" => "big"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "house.png", "q_content" => "big small", "a_content" => "big"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "dog.png", "q_content" => "big small", "a_content" => "big"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "cat.png", "q_content" => "big small", "a_content" => "big"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "mouse.png", "q_content" => "big small", "a_content" => "big"],
 
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "pencil_small.png", "a_content" => "small"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "elephant.png", "a_content" => "small"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "car.png", "a_content" => "small"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "eraser.png", "a_content" => "small"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "pencil_small.png", "q_content" => "big small", "a_content" => "small"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "elephant.png", "q_content" => "big small", "a_content" => "small"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "car.png", "q_content" => "big small", "a_content" => "small"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "eraser.png", "q_content" => "big small", "a_content" => "small"],
         ]);
 
 
