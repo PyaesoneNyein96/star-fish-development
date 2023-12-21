@@ -732,7 +732,7 @@ class PSNAnsNQuesSeeder extends Seeder
     //    Grade 1  Lesson 17 Games 3 (drag_n_drop_and_pics)
 
 
-    $G1L17U3facePart = ["nose",'left-eye','right-eye','lip','left-era','right-ear'];
+    $G1L17U3facePart = ["nose",'left-eye','right-eye','lip','left-ear','right-ear'];
 
     foreach ($G1L17U3facePart as $v) {
         DB::table('ans_n_ques')->insert([
@@ -850,7 +850,8 @@ class PSNAnsNQuesSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
 
             [ 'game_id' => 106, 'round' => $key + 1, 'q_content' => "Look at the picture say the sentence.".$g1L17U6QC[$key],
-              'q_audio' => $value.".mp3",'q_image' => $ImageDomain."Grade_1/Lesson_17/Speaking_practice/".$value.".png", 'a_content' => $g1L17U6AC[$key] ]
+            //   'q_audio' => $value.".mp3",
+              'q_image' => $ImageDomain."Grade_1/Lesson_17/Speaking_practice/".$value.".png", 'a_content' => $g1L17U6AC[$key] ]
 
             ]);
         }
@@ -862,15 +863,15 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         $L31_U2 = [
-            'Sand','Sea','Shark','Snail','Snake','Squirrel','Star',
-            'Table','Teeth','Ten','Tiger','Tree','turtle'
+            'Sand','Shark','Snail','Snake','Squirrel','Star',
+            'Table','Teeth','Ten','Tiger','Tree','Turtle'
         ];
 
         foreach ($L31_U2 as $value) {
             DB::table('ans_n_ques')->insert([
                 ['game_id' => 192,
                  'a_image' => $ImageDomain."Grade_1/Lesson_31/Listen_and_Repeat/".$value.".png",
-                 'a_audio' => $AudioDomain."Grade_1/Lesson_31/Listen_and_Repeat/".$value.".mp3",
+                 'a_audio' => $AudioDomain."Grade_1/Lesson_31/Listen_and_Repeat/".strtolower($value).".mp3",
                  'a_content' => $value
                  ]
             ]);
@@ -882,14 +883,14 @@ class PSNAnsNQuesSeeder extends Seeder
     //    Grade 1  Lesson 31 unit 3 SubUnit Game - 1  (listening_and_search_items)
 
       $L31_U3 = [
-            'Snail','Tiger','Squirrel','Turtle','Snake','eye'
+            'Snail','Tiger','Squirrel','Turtle','Snake',
         ];
 
         foreach ($L31_U3 as $v) {
             DB::table('ans_n_ques')->insert([
                 [   'game_id' => 193, 'a_content' => $v,
-                    'q_image' => $ImageDomain."Grade_1/Lesson_31/Listen_and_Practice/".$v.".png",
-                    'a_audio' => $AudioDomain."Grade_1/Lesson_31/Listen_and_Practice/".$v.".mp3",
+                    'q_image' => $ImageDomain."Grade_1/Lesson_31/Listen_and_Practice/Game_1/".strtolower($v).".png",
+                    'a_audio' => $AudioDomain."Grade_1/Lesson_31/Listen_and_Practice/".strtolower($v).".mp3",
                     'a_content' => $v,
                     'round' => 1,
                 ],
@@ -897,11 +898,11 @@ class PSNAnsNQuesSeeder extends Seeder
 
         }
 
-        $L12_U3_bg = $ImageDomain."/Grade_1/Lesson_31/Listen_and_Practice/Background.png";
+        $L12_U3_bg = $ImageDomain."/Grade_1/Lesson_31/Listen_and_Practice/Game_1/bg.png";
 
-            DB::table('ans_n_ques')->insert([
+        DB::table('ans_n_ques')->insert([
                 ['game_id' => 193, 'round' => 1, 'background' => $L12_U3_bg ]
-            ]);
+        ]);
 
 
 
@@ -911,13 +912,14 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
     $L31_U3_2 = [
-            'star','sun','sand','sea','tree'
+            // 'star','sun','sand','sea','tree'
+            'glass_camera','lifebelt','tree','snail','sand','sun' // to FIX
         ];
 
         foreach ($L31_U3_2 as $v) {
             DB::table('ans_n_ques')->insert([
                 [   'game_id' => 194, 'a_content' => $v,
-                    'q_image' => $ImageDomain."Grade_1/Lesson_31/Listen_and_Practice/".$v.".png",
+                    'q_image' => $ImageDomain."Grade_1/Lesson_31/Listen_and_Practice/Game_2/".$v.".png",
                     'a_audio' => $AudioDomain."Grade_1/Lesson_31/Listen_and_Practice/".$v.".mp3",
                     'a_content' => $v,
                     'round' => 1,
@@ -926,10 +928,10 @@ class PSNAnsNQuesSeeder extends Seeder
 
         }
 
-        $L12_U3_2_bg = $ImageDomain."/Grade_1/Lesson_31/Listen_and_Practice/Background.png";
+        $L12_U3_2_bg = $ImageDomain."/Grade_1/Lesson_31/Listen_and_Practice/Game_2/bg.png";
 
             DB::table('ans_n_ques')->insert([
-                ['game_id' => 193, 'round' => 1, 'background' => $L12_U3_2_bg ]
+                ['game_id' => 194, 'round' => 1, 'background' => $L12_U3_2_bg ]
             ]);
 
 
@@ -940,8 +942,6 @@ class PSNAnsNQuesSeeder extends Seeder
     //    Grade 1  Lesson 31 unit 4 (matching_columns)
 
 
-    // $L32_U4_r1 = ['Tree','Train','Turtle','Table','Ten'];
-    // $L32_U4_r2 = ['Sand','Shark','Star','Sun','Squirrel'];
 
     $L32_U4_r1 = [
         ['Tree','Train','Turtle','Table','Ten'],
@@ -950,7 +950,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
     $randomValues = [
         ['Turtle','Tree','Table','Ten','Train'],
-        ['Sand','Sand','Squirrel','Star','Shark']
+        ['Sand','Squirrel','Sun','Star','Shark']
     ];
 
     $L32_U4_Audio = $AudioDomain."Grade_1/Lesson_31/Matching/";
@@ -964,7 +964,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     [
                     'game_id' => 195, 'round' => $i + 1,'q_content' => $q,
                     'q_image' => $q,
-                    'q_audio' => $L32_U4_Audio.$q.".mp3",]
+                    'q_audio' => $L32_U4_Audio.strtolower($q).".mp3",]
                 ]);
             }
 
@@ -972,12 +972,180 @@ class PSNAnsNQuesSeeder extends Seeder
             foreach ($randomValues[$i] as $q) {
                 DB::table('ans_n_ques')->insert([
                     ['game_id' => 195, 'round' => $i + 1,'q_content' => strtolower($q),
-                    'q_image' => $L32_U4_Image.$q.".png",
-                    'q_audio' => $L32_U4_Audio.$q.".mp3",]
+                    'q_image' => $L32_U4_Image.strtolower($q).".png",
+                    'q_audio' => $L32_U4_Audio.strtolower($q).".mp3",]
                 ]);
 
             }
         }
+
+
+
+
+    ///////////////////////////////////////////////////
+    // Lesson 31 Unit 5 Speaking (speaking_and_recording)
+
+
+      $L31_U5 = [
+            "Snail",'Tiger','Shark','Snake','Squirrel','Teeth','Sea','Turtle',
+            'Tiger_Snail_Squirrel','Tree_Sun_Sand_Turtle_Sea',
+        ];
+
+        foreach ($L31_U5 as $key => $value) {
+
+            DB::table('ans_n_ques')->insert([
+
+               ['game_id' => 196, 'round' => $key + 1, 'q_content' => "What do you see in the picture?",
+                'q_image' => $ImageDomain."Grade_1/Lesson_31/Speaking/".$value.".png", 'a_content' => $value ]
+
+            ]);
+        }
+
+
+    ////////////////////////////////////////////////////
+    //// Lesson 31 Unit 6 subunit -1 writing 1 (letter_tracing)
+
+     $imgDomain = $ImageDomain."Grade_1/Lesson_31/Writing_1/";
+
+        $g1_l7_u6_trace_n_write = [
+            // 'G','H','e','f','g','h','F','E'
+            't','s','T','S'
+        ];
+            foreach ($g1_l7_u6_trace_n_write as $i => $trace) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1, 'game_id' => 197,
+                        'q_audio' => $AtoZAudio.$prefix.strtoupper($trace).".mp3",
+                        'a_content' => $trace,
+                        'q_content' => ctype_lower($trace) ?  $imgDomain."dotted_small_".$trace.".png" : $imgDomain."dotted_".$trace.".png",
+                        // 'q_image' => $imgDomain.$trace.".png",
+                        'q_image' => ctype_lower($trace) ?  $imgDomain."small_".$trace.".png" : $imgDomain.$trace.".png",
+                    ],
+                ]);
+            }
+
+
+            /////////////////////------------------ sub-2 (rearrange)
+
+            $L31_6_qs =[
+                ['D','A','N','S'],
+                ['K','A','N','S','E'],
+                ['G','E','R','T','I'],
+                ['L','E','A','T','B'],
+                ['A','I','L','N','S'],
+                ['R','T','E','E'],
+                ['N','T','E'],
+                ['R','R','E','L','I','Q','U','S'],
+                ['L','E','T','T','U','R'],
+                ['A','H','R','S','K'],
+
+            ];
+
+            $L31_6_as = [
+                'SAND','SNAKE','TIGER','TABLE','SNAIL','TREE','TEN','SQUIRREL','TURTLE','SHARK'
+            ];
+
+            for ($i = 0; $i < count($L31_6_qs) ; $i++) {
+
+                foreach ($L31_6_qs[$i]  as  $innerVal) {
+                    DB::table('ans_n_ques')->insert([
+                        ['game_id' => 198, 'round' => $i + 1 , 'q_content' => $innerVal]
+                    ]);
+                }
+
+                DB::table('ans_n_ques')->insert([
+                        [
+                         'game_id' => 198,
+                         'round' => $i + 1,
+                         'a_content' => $L31_6_as[$i] ,
+                         'q_image' => $ImageDomain."Grade_1/Lesson_31/Writing_2/".strtolower($L31_6_as[$i]).".png",
+                         'a_image' => $AudioDomain."Grade_1/Lesson_31/Writing_2/".strtolower($L31_6_as[$i]).".mp3",
+                         ]
+                ]);
+
+            }
+
+
+    //////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////
+    //// Lesson 32 Unit Listen and Repeat (Reading) (Reading_Carousel slider)
+
+    $L32_contents = [
+        'Umbrella','Uncle','Unicorn','Uniform','Unit','Van','Vase',
+        'Vegetables','Violin','Wall','Watch','Whistle','Window'
+    ];
+
+    $L32_img = $ImageDomain."Grade_1/Lesson_32/Listen_and_Repeat/";
+    $L32_audio = $AudioDomain."Grade_1/Lesson_32/Listen_and_Repeat/";
+
+    foreach ($L32_contents as $value) {
+           DB::table('ans_n_ques')->insert([
+                ['game_id' => 200, 'a_content' => $value,
+                 'a_image' => $L32_img . strtolower($value) . ".png",
+                 'a_audio' => $L32_audio. strtolower($value).".mp3"],
+            ]);
+    }
+
+
+     ////////////////////////////////////////////////////
+    //// Lesson 32 Unit Listen and Practice  (listening_and_search_items)
+
+    $L32_U3_contents = [
+        ['umbrella','ball','vase','uncle','wall'],
+        ['unicorn','violin','vegetables','window','whistle','uncle','watch','wall']
+    ];
+
+
+    for ($i=0; $i < count($L32_U3_contents) ; $i++) {
+
+        foreach ($L32_U3_contents[$i] as $v) {
+            DB::table('ans_n_ques')->insert([
+                [
+                'round' => $i + 1 ,
+                'game_id' => 201, 'a_content' => $v,
+                'q_image' => $ImageDomain."Grade_1/Lesson_32/Listen_and_Practice/".$v.".png",
+                'a_audio' => $AudioDomain."Grade_1/Lesson_32/Listen_and_Practice/".$v.".mp3",
+                'a_content' => $v,
+                ],
+            ]);
+        }
+
+        $L32_U3_bg = $ImageDomain."/Grade_1/Lesson_32/Listen_and_Practice/bg.png";
+
+
+        DB::table('ans_n_ques')->insert([
+            ['game_id' => 201, 'round' => $i + 1, 'background' => $L32_U3_bg ]
+        ]);
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
