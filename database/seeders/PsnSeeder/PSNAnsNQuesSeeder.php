@@ -943,7 +943,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
 
-    $L32_U4_r1 = [
+    $L31_U4_r1 = [
         ['Tree','Train','Turtle','Table','Ten'],
         ['Sand','Shark','Star','Sun','Squirrel']
     ];
@@ -953,18 +953,18 @@ class PSNAnsNQuesSeeder extends Seeder
         ['Sand','Squirrel','Sun','Star','Shark']
     ];
 
-    $L32_U4_Audio = $AudioDomain."Grade_1/Lesson_31/Matching/";
-    $L32_U4_Image = $ImageDomain."Grade_1/Lesson_31/Matching/";
+    $L31_U4_Audio = $AudioDomain."Grade_1/Lesson_31/Matching/";
+    $L31_U4_Image = $ImageDomain."Grade_1/Lesson_31/Matching/";
 
-        for ($i= 0 ; $i < count($L32_U4_r1) ; $i++) {
+        for ($i= 0 ; $i < count($L31_U4_r1) ; $i++) {
 
-            foreach ($L32_U4_r1[$i] as $q) {
+            foreach ($L31_U4_r1[$i] as $q) {
 
                 DB::table('ans_n_ques')->insert([
                     [
                     'game_id' => 195, 'round' => $i + 1,'q_content' => $q,
                     'q_image' => $q,
-                    'q_audio' => $L32_U4_Audio.strtolower($q).".mp3",]
+                    'q_audio' => $L31_U4_Audio.strtolower($q).".mp3",]
                 ]);
             }
 
@@ -972,8 +972,8 @@ class PSNAnsNQuesSeeder extends Seeder
             foreach ($randomValues[$i] as $q) {
                 DB::table('ans_n_ques')->insert([
                     ['game_id' => 195, 'round' => $i + 1,'q_content' => strtolower($q),
-                    'q_image' => $L32_U4_Image.strtolower($q).".png",
-                    'q_audio' => $L32_U4_Audio.strtolower($q).".mp3",]
+                    'q_image' => $L31_U4_Image.strtolower($q).".png",
+                    'q_audio' => $L31_U4_Audio.strtolower($q).".mp3",]
                 ]);
 
             }
@@ -1065,7 +1065,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
             }
 
-
+    //////////////////////////////////  -------- LESSON -32
     //////////////////////////////////////////////////////////////////
 
     ////////////////////////////////////////////////////
@@ -1082,49 +1082,104 @@ class PSNAnsNQuesSeeder extends Seeder
     foreach ($L32_contents as $value) {
            DB::table('ans_n_ques')->insert([
                 ['game_id' => 200, 'a_content' => $value,
-                 'a_image' => $L32_img . strtolower($value) . ".png",
+                 'a_image' => $L32_img .$value. ".png",
                  'a_audio' => $L32_audio. strtolower($value).".mp3"],
             ]);
     }
 
 
-     ////////////////////////////////////////////////////
-    //// Lesson 32 Unit Listen and Practice  (listening_and_search_items)
+    ////////////////////////////////////////////////////
+    //// Lesson 32 Unit Listen and Practice sub-1 (listening_and_search_items)
 
     $L32_U3_contents = [
-        ['umbrella','ball','vase','uncle','wall'],
-        ['unicorn','violin','vegetables','window','whistle','uncle','watch','wall']
+        'umbrella','ball','vase','uncle',
     ];
 
 
-    for ($i=0; $i < count($L32_U3_contents) ; $i++) {
-
-        foreach ($L32_U3_contents[$i] as $v) {
+        foreach ($L32_U3_contents as $v) {
             DB::table('ans_n_ques')->insert([
                 [
-                'round' => $i + 1 ,
+                'round' =>  1 ,
                 'game_id' => 201, 'a_content' => $v,
                 'q_image' => $ImageDomain."Grade_1/Lesson_32/Listen_and_Practice/".$v.".png",
                 'a_audio' => $AudioDomain."Grade_1/Lesson_32/Listen_and_Practice/".$v.".mp3",
                 'a_content' => $v,
                 ],
             ]);
-        }
-
-        $L32_U3_bg = $ImageDomain."/Grade_1/Lesson_32/Listen_and_Practice/bg.png";
-
+    }
+     $L32_U3_bg = $ImageDomain."/Grade_1/Lesson_32/Listen_and_Practice/";
 
         DB::table('ans_n_ques')->insert([
-            ['game_id' => 201, 'round' => $i + 1, 'background' => $L32_U3_bg ]
+            ['game_id' => 201, 'round' => 1, 'background' => $L32_U3_bg."bg.png" ]
+        ]);
+
+
+     //--------------- sub -2
+
+     $L32_U3_contents = [
+        'whistle','window','unicorn','violin','vegetables','watch'
+    ];
+
+
+        foreach ($L32_U3_contents as $v) {
+            DB::table('ans_n_ques')->insert([
+                [
+                'round' => 2 ,
+                'game_id' => 202, 'a_content' => $v,
+                'q_image' => $ImageDomain."Grade_1/Lesson_32/Listen_and_Practice/".$v.".png",
+                'a_audio' => $AudioDomain."Grade_1/Lesson_32/Listen_and_Practice/".$v.".mp3",
+                'a_content' => $v,
+                ],
+            ]);
+    }
+    $L32_U3_bg = $ImageDomain."/Grade_1/Lesson_32/Listen_and_Practice/";
+
+        DB::table('ans_n_ques')->insert([
+            ['game_id' => 202, 'round' => 2, 'background' => $L32_U3_bg."bg2.png" ]
         ]);
 
 
 
 
+    ////////////////////////////////////////////////////
+    //// Lesson 32 Unit 4  (Matching)
 
-    }
+    $L32_Matching_q =[
+        ['Uncle','Vegetables','Van','Vase','Violin'],
+        ['Umbrella','Unit','Uniform','Ball','Unicorn']
+    ];
+
+    $L32_Matching_rand = [
+        ['Van','Vase','Violin','Vegetables','Uncle'],
+        ['Ball','Umbrella','Unicorn','Unit','Uniform']
+    ];
 
 
+    $L32_U4_Audio = $AudioDomain."Grade_1/Lesson_32/Matching/";
+    $L32_U4_Image = $ImageDomain."Grade_1/Lesson_32/Matching/";
+
+        for ($i= 0 ; $i < count($L32_Matching_q) ; $i++) {
+
+            foreach ($L32_Matching_q[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                    'game_id' => 203, 'round' => $i + 1,'q_content' => $q,
+                    'q_image' => $q,
+                    'q_audio' => $L32_U4_Audio.strtolower($q).".mp3",]
+                ]);
+            }
+
+
+            foreach ($L32_Matching_rand[$i] as $q) {
+                DB::table('ans_n_ques')->insert([
+                    ['game_id' => 203, 'round' => $i + 1,'q_content' => strtolower($q),
+                    'q_image' => $L32_U4_Image.strtolower($q).".png",
+                    'q_audio' => $L32_U4_Audio.strtolower($q).".mp3",]
+                ]);
+
+            }
+        }
 
 
 
