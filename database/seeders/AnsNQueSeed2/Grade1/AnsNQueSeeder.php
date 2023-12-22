@@ -193,9 +193,9 @@ class AnsNQueSeeder extends Seeder
         ];
 
         $aG16R1 = [
-            "Hello I'm Mary Nice To Meet You",
-            "Hello I'm Mike Nice To Meet You",
-            "Hello I'm Tom Nice To Meet You",
+            "Hello I'm Mary Nice to meet you",
+            "Hello I'm Mike Nice to meet you",
+            "Hello I'm Tom Nice to meet you",
         ];
 
         $G16Index = 0;
@@ -2160,26 +2160,26 @@ class AnsNQueSeeder extends Seeder
         $l13G75image = $domain . "/storage/images/Grade_1/lesson_13/Drap_n_Drop/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "ruler.png", "q_content" => "long short", "a_content" => "long"],
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "pencil.png", "q_content" => "long short", "a_content" => "long"],
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "yellow_pencil.png", "q_content" => "long short", "a_content" => "long"],
-            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "three_color_pencil.png", "q_content" => "long short", "a_content" => "long"],
 
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "ruler.png", "q_content" => "long short", "a_content" => "long"],
             ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "horizontal_ruler.png", "q_content" => "long short", "a_content" => "short"],
             ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "book.png", "q_content" => "long short", "a_content" => "short"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "pencil.png", "q_content" => "long short", "a_content" => "long"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "yellow_pencil.png", "q_content" => "long short", "a_content" => "long"],
             ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "short_pants.png", "q_content" => "long short", "a_content" => "short"],
             ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "hat.png", "q_content" => "long short", "a_content" => "short"],
+            ['round' => 1, 'game_id' => 75, "q_image" => $l13G75image . "three_color_pencil.png", "q_content" => "long short", "a_content" => "long"],
 
-
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "house.png", "q_content" => "big small", "a_content" => "big"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "dog.png", "q_content" => "big small", "a_content" => "big"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "cat.png", "q_content" => "big small", "a_content" => "big"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "mouse.png", "q_content" => "big small", "a_content" => "big"],
 
             ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "pencil_small.png", "q_content" => "big small", "a_content" => "small"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "elephant.png", "q_content" => "big small", "a_content" => "small"],
-            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "car.png", "q_content" => "big small", "a_content" => "small"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "house.png", "q_content" => "big small", "a_content" => "big"],
             ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "eraser.png", "q_content" => "big small", "a_content" => "small"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "elephant.png", "q_content" => "big small", "a_content" => "big"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "dog.png", "q_content" => "big small", "a_content" => "small"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "mouse.png", "q_content" => "big small", "a_content" => "small"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "car.png", "q_content" => "big small", "a_content" => "big"],
+            ['round' => 2, 'game_id' => 75, "q_image" => $l13G75image . "cat.png", "q_content" => "big small", "a_content" => "big"],
+
         ]);
 
 
@@ -5047,7 +5047,7 @@ class AnsNQueSeeder extends Seeder
                 ]);
             }
             DB::table('ans_n_ques')->insert([
-                ['round' => $i + 1, 'game_id' => 171, 'q_image' => $l27G171image . str_replace(' ', '', strtolower($a_G171[$G171_Index])) . ".png", 'a_content' => $a_G171[$G171_Index], 'a_audio' => $AudioDomain . $G1_L27_writing . $a_G171[$G171_Index] . ".mp3"],
+                ['round' => $i + 1, 'game_id' => 171, 'q_image' => $l27G171image . str_replace(' ', '', strtolower($a_G171[$G171_Index])) . ".png", 'a_content' => $a_G171[$G171_Index], 'a_audio' => $AudioDomain . $G1_L27_writing . strtolower($a_G171[$G171_Index]) . ".mp3"],
             ]);
             $G171_Index++;
         }
@@ -5074,16 +5074,468 @@ class AnsNQueSeeder extends Seeder
 
 
         $ansl28_G173_Content = [
-            "pear", "papaya", "peach", "pineapple", "pomelo", "lime", "lemon", "lychee", "Mango", "Mangosteen"
+            "1-avocado", "2-guavas", "3-pineapples", "4-coconuts", "5-oranges", "5-watermelons", "6-mangoes", "7-kiwis", "8-bananas", "9-oranges", "10-apples"
         ];
 
         foreach ($ansl28_G173_Content as $key) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 167, 'a_content' => $key, 'a_image' => $l28_G173_image . str_replace(' ', '', strtolower($key)) . ".png",
+                    'game_id' => 173, 'a_content' => $key, 'a_image' => $l28_G173_image . str_replace(' ', '', strtolower($key)) . ".png",
                     'a_audio' => $AudioDomain . $G1_L28_reading . str_replace(' ', '', strtolower($key)) . ".mp3"
                 ],
             ]);
+        }
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 28 Game 174 (  Listen and practice  )
+        ////////////////////////////////////////////////////////
+
+        $l28_G174_image = $domain . "/storage/images/Grade_1/lesson_28/listen_n_practice/";
+        $G1_L28_listen_n_practice = "Grade_1/" . "Lesson_28/" . "listen_n_practice/";
+
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'round' => 1, 'game_id' => 174, 'a_content' => "item...", 'q_image' => $l28_G174_image . "item_image" . ".png",
+                'a_audio' => $AudioDomain . $G1_L28_listen_n_practice . "item_audio" . ".mp3", "background" => $l28_G174_image . "background.png"
+            ],
+
+
+            [
+                'round' => 2, 'game_id' => 174, 'a_content' => "item...", 'q_image' => $l28_G174_image . "item_image" . ".png",
+                'a_audio' => $AudioDomain . $G1_L28_listen_n_practice . "item_audio" . ".mp3", "background" => $l28_G174_image . "background.png"
+            ],
+        ]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 28 Game 175 (  Matching  )
+        ////////////////////////////////////////////////////////
+
+        $l28G175image = $domain . "/storage/images/Grade_1/lesson_28/Matching/";
+        $G1_L28_Matching = "Grade_1/" . "Lesson_28/" . "Matching/";
+
+        $G1_L28_Game175_Matching_image = [
+
+            ['six', 'two', 'five', 'three', 'four'],
+            ['three', 'five', 'four', 'six', 'two'],
+
+
+            ['six', 'two', 'five', 'three', 'four'],
+            ['three', 'five', 'four', 'six', 'two'],
+
+        ];
+
+
+        for ($i = 0; $i < count($G1_L28_Game175_Matching_image); $i++) {
+
+            foreach ($G1_L28_Game175_Matching_image[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 175, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $l28G175image . str_replace(' ', '', strtolower($q)) . ".png", 'q_audio' => $AudioDomain . $G1_L28_Matching . str_replace(' ', '', strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+        }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 28 Game 176 ( reading )
+        ////////////////////////////////////////////////////////
+
+        $G1_L28_reading_passage_path = "Grade_1/" . "Lesson_28/" . "reading_passage/";
+        $l28_G176_image = $domain . "/storage/images/Grade_1/lesson_28/reading_passage/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 176, "q_image" => null, "q_audio" => $AudioDomain . $G1_L28_reading_passage_path . "audio.mp3", 'q_content' => "True", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 1, 'game_id' => 176, "q_image" => null, "q_audio" => $AudioDomain . $G1_L28_reading_passage_path . "audio.mp3", 'q_content' => "False", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 1, 'game_id' => 176, "q_image" => null, "q_audio" => $AudioDomain . $G1_L28_reading_passage_path . "There-are-7-bananas-true-or-f.mp3", "q_conver" => "There are 7 bananas", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 1, 'game_id' => 176, "q_image" => $l28_G176_image . "character.png", "q_audio" => $AudioDomain . $G1_L28_reading_passage_path . "I-Iike-fruits-I-have-a-pineap.mp3", "q_content" => "I like fruits.", 'q_conver' => "I like fruits. I have a pineapple, one melon and an apple. There are three bananas and two oranges. I also eat grapes. I like green grapes. I don't like purple grapes.", 'a_content' => null, "background" => $l28_G176_image . "background.png"],
+
+
+            ['round' => 2, 'game_id' => 176, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L28_reading_passage_path . "audio.mp3", 'q_content' => "True", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 2, 'game_id' => 176, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L28_reading_passage_path . "audio.mp3", 'q_content' => "False", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 2, 'game_id' => 176, "q_image" => null, "q_audio" => $AudioDomain . $G1_L28_reading_passage_path . "I-eat-grapes-true-or-false.mp3", "q_conver" =>  "I eat grapes", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 2, 'game_id' => 176, "q_image" =>  $l28_G176_image . "character.png", "q_audio" => $AudioDomain . $G1_L28_reading_passage_path . "I-Iike-fruits-I-have-a-pineap.mp3", "q_content" => "I like fruits.", 'q_conver' => "I like fruits. I have a pineapple, one melon and an apple. There are three bananas and two oranges. I also eat grapes. I like green grapes. I don't like purple grapes.", 'a_content' => null, "background" => $l28_G176_image . "background.png"],
+
+
+            ['round' => 3, 'game_id' => 176, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L28_reading_passage_path . "audio.mp3", 'q_content' => "True",  "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 3, 'game_id' => 176, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L28_reading_passage_path . "audio.mp3", 'q_content' => "False", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 3, 'game_id' => 176, "q_image" => null, "q_audio" => $AudioDomain . $G1_L28_reading_passage_path . "I-like-purple-grapes-true-or-f.mp3", "q_conver" => "I like purple grapes", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 3, 'game_id' => 176, "q_image" =>  $l28_G176_image . "character.png", "q_audio" => $AudioDomain . $G1_L28_reading_passage_path . "I-Iike-fruits-I-have-a-pineap.mp3", "q_content" => "I like fruits.", 'q_conver' => "I like fruits. I have a pineapple, one melon and an apple. There are three bananas and two oranges. I also eat grapes. I like green grapes. I don't like purple grapes.", 'a_content' => null, "background" => $l28_G176_image . "background.png"],
+
+
+            ['round' => 4, 'game_id' => 176, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L28_reading_passage_path . "audio.mp3", 'q_content' => "True", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 4, 'game_id' => 176, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L28_reading_passage_path . "audio.mp3", 'q_content' => "False", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 4, 'game_id' => 176, "q_image" => null, "q_audio" => $AudioDomain . $G1_L28_reading_passage_path . "There-are-2-oranges-true-or-f.mp3", "q_conver" => "There are 2 oranges", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 4, 'game_id' => 176, "q_image" =>  $l28_G176_image . "character.png", "q_audio" => $AudioDomain . $G1_L28_reading_passage_path . "I-Iike-fruits-I-have-a-pineap.mp3", "q_content" => "I like fruits.", 'q_conver' => "I like fruits. I have a pineapple, one melon and an apple. There are three bananas and two oranges. I also eat grapes. I like green grapes. I don't like purple grapes.", 'a_content' => null, "background" => $l28_G176_image . "background.png"],
+
+
+            ['round' => 5, 'game_id' => 176, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L28_reading_passage_path . "audio.mp3", 'q_content' => "True", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 5, 'game_id' => 176, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L28_reading_passage_path . "audio.mp3", 'q_content' => "False", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 5, 'game_id' => 176, "q_image" => null, "q_audio" => $AudioDomain . $G1_L28_reading_passage_path . "I-have-2-pineapples-true-or-f.mp3", "q_conver" => "I have 2 pineapples", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 5, 'game_id' => 176, "q_image" =>  $l28_G176_image . "character.png", "q_audio" => $AudioDomain . $G1_L28_reading_passage_path . "I-Iike-fruits-I-have-a-pineap.mp3", "q_content" => "I like fruits.", 'q_conver' => "I like fruits. I have a pineapple, one melon and an apple. There are three bananas and two oranges. I also eat grapes. I like green grapes. I don't like purple grapes.", 'a_content' => null, "background" => $l28_G176_image . "background.png"],
+
+        ]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 28 Game 177 ( speaking )
+        ////////////////////////////////////////////////////////
+
+        $l28_G177_image = $domain . "/storage/images/Grade_1/lesson_28/Speaking/";
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 177, 'q_image' => $l28_G177_image . "guavas_image.png", "q_content" => "How many guavas are there? There are ......."],
+            ['round' => 2, 'game_id' => 177, 'q_image' => $l28_G177_image . "oranges_image.png", "q_content" => "How many oranges are there? There are ......."],
+            ['round' => 3, 'game_id' => 177, 'q_image' => $l28_G177_image . "apples_image.png", "q_content" => "How many apples are there? There are ......."],
+            ['round' => 4, 'game_id' => 177, 'q_image' => $l28_G177_image . "mangoes_image.png", "q_content" => "How many mangoes are there? There are ......."],
+            ['round' => 5, 'game_id' => 177, 'q_image' => $l28_G177_image . "bananas_image.png", "q_content" => "How many bananas are there? There are ......."],
+
+        ]);
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 29 Game 178 (  Target Language  )
+        ////////////////////////////////////////////////////////
+
+        DB::table('ans_n_ques')->insert(['game_id' => 178, 'a_content' => 'lesson_29_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 178, 'a_content' => 'lesson_29_video_global', 'isLocal' => 0]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 29 Game 179 (  Read, Listen and Repeat  )
+        ////////////////////////////////////////////////////////
+
+
+        $G1_L29_Read_Listen_n_Repeat_path = "Grade_1/" . "Lesson_29/" . "Read_listen_n_Repeat/";
+        $l29_G179_image = $domain . "/storage/images/Grade_1/lesson_29/Read_Listen_n_Repeat/";
+
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy_image", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Give-me-some-bananas.mp3", "a_conver" => "Give me some bananas."],
+            ['round' => 1, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl_image", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "How-many-bananas.mp3", "a_conver" => "How many bananas?"],
+
+            ['round' => 2, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy_image", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "3-bananas.mp3", "a_conver" => "3 bananas"],
+            ['round' => 2, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl_image", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Here-you-are.mp3", "a_conver" => "Here you are."],
+
+            ['round' => 3, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy_image", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Thank-you.mp3", "a_conver" => "Thank you"],
+            ['round' => 3, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl_image", "a_audio" => null, "a_conver" => null],
+
+
+            ['round' => 4, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy_image", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Give-me-some-mangoes.mp3", "a_conver" => "Give me some mangoes."],
+            ['round' => 4, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl_image", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "How-many-mangoes.mp3", "a_conver" => "How many mangoes?"],
+
+            ['round' => 5, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy_image", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "5-mangoes.mp3", "a_conver" => "5 mangoes"],
+            ['round' => 5, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl_image", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Here-you-are.mp3", "a_conver" => "Here you are."],
+
+            ['round' => 6, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy_image", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Thank-you.mp3", "a_conver" => "Thank you"],
+            ['round' => 6, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl_image", "a_audio" => null, "a_conver" => null],
+
+
+            ['round' => 7, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy_image", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Please-give-me-some-oranges.mp3", "a_conver" => "Please give me some oranges."],
+            ['round' => 7, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl_image", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "How-many-oranges.mp3", "a_conver" => "How many oranges?"],
+
+            ['round' => 8, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy_image", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "7-oranges.mp3", "a_conver" => "7 oranges"],
+            ['round' => 8, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl_image", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Here-you-are.mp3", "a_conver" => "Here you are."],
+
+            ['round' => 9, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy_image", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Thank-you.mp3", "a_conver" => "Thank you"],
+            ['round' => 9, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl_image", "a_audio" => null, "a_conver" => null],
+        ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 29 Game 180 (  Listen and practice  )
+        ////////////////////////////////////////////////////////
+
+        $l29_G180_image = $domain . "/storage/images/Grade_1/lesson_29/listen_n_practice/";
+        $G1_L29_listen_n_practice = "Grade_1/" . "Lesson_29/" . "listen_n_practice/";
+
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'round' => 1, 'game_id' => 180, 'a_content' => "item...", 'q_image' => $l29_G180_image . "item_image" . ".png",
+                'a_audio' => $AudioDomain . $G1_L29_listen_n_practice . "item_audio" . ".mp3", "background" => $l29_G180_image . "background.png"
+            ],
+
+
+            [
+                'round' => 2, 'game_id' => 180, 'a_content' => "item...", 'q_image' => $l29_G180_image . "item_image" . ".png",
+                'a_audio' => $AudioDomain . $G1_L29_listen_n_practice . "item_audio" . ".mp3", "background" => $l29_G180_image . "background.png"
+            ],
+        ]);
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 29 Game 181 (  song  )
+        ////////////////////////////////////////////////////////
+
+        DB::table('ans_n_ques')->insert(['game_id' => 181, 'a_content' => 'lesson_29_song', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 181, 'a_content' => 'lesson_29_song_global', 'isLocal' => 0]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 29 Game 182 (  writing  )
+        ////////////////////////////////////////////////////////
+
+        $G1_L29_writing = "Grade_1/" . "Lesson_29/" . "writing/";
+        $l29_G182_image = $domain . "/storage/images/Grade_1/lesson_29/writing/";
+
+
+        $q_G182 = [
+            ["bananas", "me", "some", "Give"],
+            ["are", "you", "Here."],
+            ["many", "How", "bananas", "?"],
+            ["many", "How", "oranges", "there", "are", "?"],
+            ["3", "apples", "are", "there"],
+
+            ["coconuts", "me", "some", "Give"],
+            ["are", "you", "Here."],
+            ["many", "How", "coconuts", "?"],
+            ["many", "How", "mangoes", "there", "are", "?"],
+            ["5", "mangoes", "are", "there"],
+
+        ];
+
+        $a_G182 = [
+            "Give me some bananas", "Here you are", "How many bananas ?", "How many oranges are there ?", "There are 3 apples",
+            "Give me some coconuts", "Here you are", "How many coconuts ?", "How many mangoes are there ?", "There are 5 mangoes",
+        ];
+
+        $G182_Index = 0;
+
+        for ($i = 0; $i < count($q_G182); $i++) {
+            foreach ($q_G182[$i] as $j) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 182, 'q_content' => $j],
+                ]);
+            }
+            DB::table('ans_n_ques')->insert([
+                ['round' => $i + 1, 'game_id' => 182, 'q_image' => $l29_G182_image . str_replace(' ', '-', strtolower($a_G182[$G182_Index])) . ".png", 'a_content' => $a_G171[$G182_Index], 'a_audio' => $AudioDomain . $G1_L27_writing . str_replace(' ', '-', strtolower($a_G182[$G182_Index])) . ".mp3"],
+            ]);
+            $G182_Index++;
+        }
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 29 Game 183 ( speaking )
+        ////////////////////////////////////////////////////////
+
+        $l29_G183_image = $domain . "/storage/images/Grade_1/lesson_29/Speaking/";
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 183, 'q_image' => $l29_G183_image . "grapes_image.png", "q_content" => "Give me some grapes"],
+            ['round' => 2, 'game_id' => 183, 'q_image' => $l29_G183_image . "pear_image.png", "q_content" => "Give me some pears"],
+            ['round' => 3, 'game_id' => 183, 'q_image' => $l29_G183_image . "peach_image.png", "q_content" => "Please give me a Peach"],
+            ['round' => 4, 'game_id' => 183, 'q_image' => $l29_G183_image . "watermelon_image.png", "q_content" => "Please give me a watermelon"],
+            ['round' => 5, 'game_id' => 183, 'q_image' => $l29_G183_image . "coconut_image.png", "q_content" => "Please give me a coconut"],
+            ['round' => 6, 'game_id' => 183, 'q_image' => $l29_G183_image . "avocadoes_image.png", "q_content" => "Give me some avocadoes"],
+            ['round' => 7, 'game_id' => 183, 'q_image' => $l29_G183_image . "pineapple_image.png", "q_content" => "Give me some pineapple"],
+            ['round' => 8, 'game_id' => 183, 'q_image' => $l29_G183_image . "strawberries_image.png", "q_content" => "Give me some strawberries"],
+            ['round' => 9, 'game_id' => 183, 'q_image' => $l29_G183_image . "bananas_image.png", "q_content" => "Give me some bananas"],
+
+        ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 30 Game 184 (  Target Language  )
+        ////////////////////////////////////////////////////////
+
+        DB::table('ans_n_ques')->insert(['game_id' => 184, 'a_content' => 'lesson_30_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 184, 'a_content' => 'lesson_30_video_global', 'isLocal' => 0]);
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 30 Game 185 (  listen and repeat  )
+        ////////////////////////////////////////////////////////
+
+        $l30_G185_image = $domain . "/storage/images/Grade_1/lesson_30/listen_n_repeat/";
+        $G1_L30_reading = "Grade_1/" . "Lesson_30/" . "listen_n_repeat/";
+
+
+        $ansl27G167Content = [
+            "queen", "room", "rain", "raincoat", "rainbow", "quail", "rabbit", "rat", "rhino", "rambutan"
+        ];
+
+        foreach ($ansl27G167Content as $key) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 185, 'a_content' => $key, 'a_image' => $l30_G185_image . str_replace(' ', '', strtolower($key)) . ".png",
+                    'a_audio' => $AudioDomain . $G1_L30_reading . str_replace(' ', '', strtolower($key)) . ".mp3"
+                ],
+            ]);
+        }
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 30 Game 186 (  Listen and practice  )
+        ////////////////////////////////////////////////////////
+
+        $l30_G186_image = $domain . "/storage/images/Grade_1/lesson_30/listen_n_practice/";
+        $G1_L30_listen_n_practice = "Grade_1/" . "Lesson_30/" . "listen_n_practice/";
+
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'round' => 1, 'game_id' => 186, 'a_content' => "item...", 'q_image' => $l30_G186_image . "item_image" . ".png",
+                'a_audio' => $AudioDomain . $G1_L30_listen_n_practice . "item_audio" . ".mp3", "background" => $l30_G186_image . "background.png"
+            ],
+
+
+            [
+                'round' => 2, 'game_id' => 186, 'a_content' => "item...", 'q_image' => $l30_G186_image . "item_image" . ".png",
+                'a_audio' => $AudioDomain . $G1_L30_listen_n_practice . "item_audio" . ".mp3", "background" => $l30_G186_image . "background.png"
+            ],
+        ]);
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 30 Game 187 (  Matching  )
+        ////////////////////////////////////////////////////////
+
+
+        $l30_G187_image = $domain . "/storage/images/Grade_1/lesson_30/Matching/";
+        $G1_L30_Matching = "Grade_1/" . "Lesson_30/" . "Matching/";
+
+        $G1_L30_Game187_Matching_image = [
+
+            ['rabbit', 'rhino', 'rain', 'raincoat', 'rainbow'],
+            ['queen', 'Quiet', 'Road', 'rambutan', "Quince"],
+
+        ];
+
+        $G1_L30_Game187_Matching = [
+
+            ['raincoat', 'rain', 'rhino', 'rainbow', "rabbit"],
+            ['Road', 'Qunice', 'Queen', 'Rambutan', "Quiet"],
+
+        ];
+
+
+
+        for ($i = 0; $i < count($G1_L30_Game187_Matching); $i++) {
+
+            foreach ($G1_L30_Game187_Matching_image[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 187, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $l30_G187_image . str_replace(' ', '', strtolower($q)) . ".png", 'q_audio' => $AudioDomain . $G1_L30_Matching . str_replace(' ', '', strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+
+            foreach ($G1_L30_Game187_Matching[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 187, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => str_replace(' ', '', strtolower($q)), 'q_audio' => $AudioDomain . $G1_L30_Matching . str_replace(' ', '', strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+        }
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 30 Game 188 ( speaking )
+        ////////////////////////////////////////////////////////
+
+        $l30_G188_image = $domain . "/storage/images/Grade_1/lesson_30/Speaking/";
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 188, 'q_image' => $l30_G188_image . "bird_image.png", "q_content" => "Look at the picture and say a word."],
+            ['round' => 2, 'game_id' => 188, 'q_image' => $l30_G188_image . "raincoat_image.png", "q_content" => "Look at the picture and say a word."],
+            ['round' => 3, 'game_id' => 188, 'q_image' => $l30_G188_image . "rainbow_image.png", "q_content" => "Look at the picture and say a word."],
+            ['round' => 4, 'game_id' => 188, 'q_image' => $l30_G188_image . "road_image.png", "q_content" => "Look at the picture and say a word."],
+            ['round' => 5, 'game_id' => 188, 'q_image' => $l30_G188_image . "rhino_image.png", "q_content" => "Look at the picture and say a word."],
+            ['round' => 6, 'game_id' => 188, 'q_image' => $l30_G188_image . "rambutan_image.png", "q_content" => "Look at the picture and say a word."],
+            ['round' => 7, 'game_id' => 188, 'q_image' => $l30_G188_image . "queen_image.png", "q_content" => "Look at the picture and say a word."],
+            ['round' => 8, 'game_id' => 188, 'q_image' => $l30_G188_image . "pear_image.png", "q_content" => "Look at the picture and say a word."],
+
+        ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 30 Game 189 , 190 (  Writing  )
+        ////////////////////////////////////////////////////////
+
+        $G1_L30_writing = "Grade_1/" . "Lesson_30/" . "writing/";
+        $l30_G189_G190_image = $domain . "/storage/images/Grade_1/lesson_30/writing/";
+
+
+        // game 189
+        $G189tracing = [
+            'q', 'r', 'Q', 'R'
+        ];
+        foreach ($G189tracing as $i => $trace) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'game_id' => 189,
+                    'q_audio' =>  $AudioDomain . $G1_L30_writing . strtoupper($trace) . ".mp3",
+                    'q_content' => ctype_lower($trace) ?   $l30_G189_G190_image . "dotted_small_" . $trace . ".png" :  $l30_G189_G190_image . "dotted_" . $trace . ".png",
+                    'q_image' => ctype_lower($trace) ?   $l30_G189_G190_image . "small_" . $trace . ".png" :  $l30_G189_G190_image . $trace . ".png",
+                    'a_content' => $trace,
+                ],
+            ]);
+        }
+
+        // game 190
+        $q_G190 = [
+            ["I", "A", "B", "B", "R", "T"],
+            ["Y", "E", "R", "R", "B", "P", "R", "S", "A"],
+            ["T", "Q", "U", "E", "I"],
+            ["I", "R", "A", "N"],
+            ["U", "Q", "A", "I", "L"],
+            ["U", "Q", "E", "N", "E"],
+
+        ];
+
+        $a_G190 = [
+            "RABBIT", "RASPBERRY", "QUIET", "RAIN", "QUAIL", "QUEEN"
+        ];
+
+        $G190_Index = 0;
+
+        for ($i = 0; $i < count($q_G190); $i++) {
+            foreach ($q_G190[$i] as $j) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 190, 'q_content' => $j, 'q_audio' => $AudioDomain . $G1_L30_writing . strtoupper($j) . ".mp3"],
+                ]);
+            }
+            DB::table('ans_n_ques')->insert([
+                ['round' => $i + 1, 'game_id' => 190, 'q_image' => $l30_G189_G190_image . str_replace(' ', '', strtolower($a_G190[$G190_Index])) . ".png", 'a_content' => $a_G190[$G190_Index], 'a_audio' => $AudioDomain . $G1_L30_writing . strtolower($a_G190[$G190_Index]) . ".mp3"],
+            ]);
+            $G190_Index++;
         }
     }
 }
