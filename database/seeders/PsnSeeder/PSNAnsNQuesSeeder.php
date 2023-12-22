@@ -912,8 +912,8 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
     $L31_U3_2 = [
-            // 'star','sun','sand','sea','tree'
-            'glass_camera','lifebelt','tree','snail','sand','sun' // to FIX
+            'star','sun','sand','sea','tree'
+            // 'glass_camera','lifebelt','tree','snail','sand','sun' // to FIX
         ];
 
         foreach ($L31_U3_2 as $v) {
@@ -995,7 +995,9 @@ class PSNAnsNQuesSeeder extends Seeder
 
             DB::table('ans_n_ques')->insert([
 
-               ['game_id' => 196, 'round' => $key + 1, 'q_content' => "What do you see in the picture?",
+               ['game_id' => 196,
+                'round' => $key + 1,
+                'q_content' => "What do you see in the picture?",
                 'q_image' => $ImageDomain."Grade_1/Lesson_31/Speaking/".$value.".png", 'a_content' => $value ]
 
             ]);
@@ -1181,6 +1183,108 @@ class PSNAnsNQuesSeeder extends Seeder
             }
         }
 
+
+    ////////////////////////////////////////////////////
+    //// Lesson 32 Unit 5 (Reading) < reading_passage >
+
+    $images = $ImageDomain."Grade_1/Lesson_32/Reading/" ;
+    $audios = $AudioDomain."Grade_1/Lesson_32/Reading/";
+    // $L32U5_content = ['umbrella','violin','vase'];
+
+    $L32U5_para = "This is my room. My room is pink.There are stars and a rainbow on the wall.Chairs and table are pink too. I like unicorn.So,I have a unicorn doll.I have unicorn watch and a pink unicorn raincoat. I also have a unicorn umbrella. My uniform is white and blue. I don't like my uniform ";
+
+    $L32U5_given_q = [
+        ["I don't like ----.", "uniform"],
+        ["I have a unicorn ----.", "watch"],
+        ["I have a pink unicorn _____.",'umbrella'],
+        ["I like ____.",'unicorn'],
+        ["There are ____ on the wall.",'stars'],
+    ];
+    $L32U5_given_q_audio = [
+        "I-dont-like-unicorn-uniform.mp3",
+        "I-have-a-unicorn-watch-whistle.mp3",
+        "I-have-a-pink-unicorn-vase-umbrella.mp3",
+        "I-like-unicorn-uniform-unit.mp3",
+        "There-are-sun-stars-snow-on-the-wall.mp3"
+    ];
+    $paraName = "This-is-my-room-My-room-is-pink.mp3";
+
+    $L32U5_given_a = [
+        ['unicorn','uniform','unit'],
+        ['watch','whistle','window'],
+        ['vase','violin','umbrella',],
+        ['unicorn','uniform','unit',],
+        ['sun','stars','snow']
+    ];
+
+
+        for ($i=0; $i < count($L32U5_given_a) ; $i++) {
+
+
+            foreach ($L32U5_given_a[$i] as $k => $value) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1,
+                        'game_id' => 204,
+                        'q_audio' => $audios.$value.".mp3",
+                        'q_content' => $value,
+                        'a_content' => $value == $L32U5_given_q[$i][1] ? 1 : 0
+                    ]
+                ]);
+
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 204,
+                    'q_audio' => $audios.$L32U5_given_q_audio[$i],
+                    'q_conver' => $L32U5_given_q[$i][0],    //giver Q
+                ]
+            ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 204,
+                    'q_audio' => $audios.$paraName,
+                    'q_content' => null,
+                    'q_conver' => $L32U5_para,
+                    'q_image' => $images."character.png", //char
+                    'background' => $images."bg.png"
+                ]
+            ]);
+
+
+        }
+
+
+    ////////////////////////////////////////////////////
+    //// Lesson 32 Unit 6 (Speaking Practice) < speaking_and_recording >
+
+
+        $L32_U6_q = "Look at the picture and say a word.";
+
+
+        $L32_U6_img = [
+            'uniform','vase','van',
+            'watch','whistle',
+            'window','unicorn','umbrella'
+        ];
+
+
+
+        foreach ($L32_U6_img as $key => $value) {
+
+            DB::table('ans_n_ques')->insert([
+
+            [
+                'game_id' => 205, 'round' => $key + 1,
+                'q_image' => $ImageDomain."Grade_1/Lesson_32/Speaking/".$value.".png",
+                'q_content' => $L32_U6_q,
+                'a_content' => $value
+            ]
+
+            ]);
+        }
 
 
 
