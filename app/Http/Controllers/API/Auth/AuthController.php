@@ -143,11 +143,10 @@ class AuthController extends Controller
 
     public function userData(Request $request){
         $token = $request->header('token');
+        $userData = Student::where('token', $token)->first();
 
-        // $fields = $request->header('fields');
-        // return $fields = array($fields);
-
-        return $userData = Student::where('token', $token)->first();
+        if(!$userData) return response()->json(["status" => "User Not found !!!"], 404);
+        return $userData;
     }
 
 
