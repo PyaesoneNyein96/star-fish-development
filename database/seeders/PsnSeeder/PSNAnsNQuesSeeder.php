@@ -679,7 +679,7 @@ class PSNAnsNQuesSeeder extends Seeder
     ////////////////////////////////////////////////////////
 
 
-    //    Grade 1  Lesson 17 Games 2 subunit 1
+    //    Grade 1  Lesson 17 Games 2 subunit - 1
     $bodyParts = ['Hair','Eye','Cheek','Lip','Teeth','Mouth','Chin','Nose'];
 
     $audioDomainPath = $AudioDomain."Grade_1/Lesson_17/Listen_and_Repeat/";
@@ -702,7 +702,7 @@ class PSNAnsNQuesSeeder extends Seeder
         ]);
 
         ///////////////////////////////////////////////
-        //    Grade 1  Lesson 17 Games 2 subunit 2
+        //    Grade 1  Lesson 17 Games 2 subunit - 2
 
         $instructionsContent = [ "don't touch your face", "don't touch your mouth",
                 "don't touch your nose", "Touch your cheek","Touch your ears",
@@ -1289,18 +1289,136 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
 
+    ////////////////////////////////////////////////////
+    //// Lesson 33 Unit 2 (Read, Listen and Repeat) < reading_carousel >
+
+
+
+    $L33_contents = [
+        'Bring-a-pencil','Close-your-book','Draw-a-ball','Look-and-say',
+        'Look-at-the-picture','Open-your-book','Open-the-door','Please-be-quiet','Write-abc'
+    ];
+
+    $L33_img = $ImageDomain."Grade_1/Lesson_33/Read_Listen_and_Repeat/";
+    $L33_audio = $AudioDomain."Grade_1/Lesson_33/Read_Listen_and_Repeat/";
+
+    foreach ($L33_contents as $value) {
+           DB::table('ans_n_ques')->insert([
+                ['game_id' => 207, 'a_content' => $value,
+                 'a_image' => $L33_img .$value. ".png",
+                 'a_audio' => $L33_audio. $value.".mp3"],
+            ]);
+    }
 
 
 
 
+    ////////////////////////////////////////////////////
+    //// Lesson 33 Unit 3 (Listen and Practice) <listening_and_search_items>
 
 
 
+        $L33_U3_contents = [
+           'Open-your-book','Look-at-the-picture','Bring-a-pencil','close-your-book',
+        ];
+         $L33_U3_contents_2 = [
+        'Write-abc','Please-be-quiet','close-your-book','Open-your-book'
+        ];
+
+
+        foreach ($L33_U3_contents as $v) {
+            DB::table('ans_n_ques')->insert([
+                [
+                'round' =>  1 ,
+                'game_id' => 208, 'a_content' => $v,
+                'q_image' => $ImageDomain."Grade_1/Lesson_33/Listen_and_Practice/".$v.".png",
+                'a_audio' => $AudioDomain."Grade_1/Lesson_33/Listen_and_Practice/".$v.".mp3",
+                'a_content' => $v,
+                ],
+            ]);
+        }
+        foreach ($L33_U3_contents_2 as $v) {
+            DB::table('ans_n_ques')->insert([
+                [
+                'round' =>  2 ,
+                'game_id' => 208, 'a_content' => $v,
+                'q_image' => $ImageDomain."Grade_1/Lesson_33/Listen_and_Practice/".$v.".png",
+                'a_audio' => $AudioDomain."Grade_1/Lesson_33/Listen_and_Practice/".$v.".mp3",
+                'a_content' => $v,
+                ],
+            ]);
+        }
+     $L33_U3_bg = $ImageDomain."/Grade_1/Lesson_33/Listen_and_Practice/";
+
+        DB::table('ans_n_ques')->insert([
+            ['game_id' => 208, 'round' => 1, 'background' => $L33_U3_bg."bg.png" ],
+            ['game_id' => 208, 'round' => 2, 'background' => $L33_U3_bg."bg.png" ],
+        ]);
 
 
 
+    ////////////////////////////////////////////////////
+    //// Lesson 33 Unit 4 (Matching) <Matching_columns>
 
 
+
+    $L33_U4_r1 = [
+        ['Look','Open','Draw','Close','Bring'],
+    ];
+
+    $randomValues = [
+        ['Open','Close','Look','Bring','Draw'],
+    ];
+
+    $L33_U4_Audio = $AudioDomain."Grade_1/Lesson_33/Matching/";
+    $L33_U4_Image = $ImageDomain."Grade_1/Lesson_33/Matching/";
+
+        for ($i= 0 ; $i < count($L33_U4_r1) ; $i++) {
+
+            foreach ($L33_U4_r1[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                    'game_id' => 209, 'round' => $i + 1,'q_content' => $q,
+                    'q_image' => $q,
+                    'q_audio' => $L33_U4_Audio.strtolower($q).".mp3",]
+                ]);
+            }
+
+
+            foreach ($randomValues[$i] as $q) {
+                DB::table('ans_n_ques')->insert([
+                    ['game_id' => 209, 'round' => $i + 1,'q_content' => strtolower($q),
+                    'q_image' => $L33_U4_Image.strtolower($q).".png",
+                    'q_audio' => $L33_U4_Audio.strtolower($q).".mp3",]
+                ]);
+
+            }
+        }
+
+
+    ////////////////////////////////////////////////////
+    //// Lesson 33 Unit 5 (Speaking) <speaking_and_recording>
+
+          $L33_U6 = [
+            "Draw-the-ball","Close-the-book","Please-be-quiet","Open-your-book","Write-abc","Bring-a-pencil","Look-at-the-picture","Open-the-door",
+        ];
+
+
+        foreach ($L33_U6 as $key => $value) {
+
+            DB::table('ans_n_ques')->insert([
+
+                [
+                    'game_id' => 210, 'round' => $key + 1,
+                    'q_content' => "Look at this picture and say.",
+                    // 'q_audio' => "whats_this?".".mp3",
+                    'q_image' => $ImageDomain."Grade_1/Lesson_33/Speaking/".$value.".png",
+                    'a_content' => str_replace('-', ' ', $value)
+                ]
+
+            ]);
+        }
 
 
 
