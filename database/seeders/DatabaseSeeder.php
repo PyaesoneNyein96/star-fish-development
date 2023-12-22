@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-
+        $domain = app('domain');
 
         // Student::factory(20)->create();
 
@@ -133,6 +133,7 @@ class DatabaseSeeder extends Seeder
             'deviceId' => '41223357-20de-45bd-8005-6675c14c3d5b',
             'isAuth' => 1,
             'isLocal' => 0,
+            'profile_picture' => $domain . "/storage/images/profile_pic/avatar-green.png",
             'status' => 1,
             'grade_chosen' => 1,
             'token' => "2|iJEYWEC6FcDsppSIfpu0jaH9EIbD83Hd3hV8XooYa2d7f183",

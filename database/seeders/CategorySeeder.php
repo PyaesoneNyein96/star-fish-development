@@ -43,13 +43,11 @@ class CategorySeeder extends Seeder
             'drag_n_drop_and_pics',
             'mcq_sentence',
             'mcq_tf_grammar',
-
-
-            // G3
-
             'writing_topic',
             'writing_opposite',
-            'listening_and_choosing_pics_two'
+            'listening_and_choosing_pics_two',
+            'listening_and_choosing_bubbles'
+
         ];
 
         foreach ($categories as $category) {

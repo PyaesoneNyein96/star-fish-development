@@ -135,11 +135,12 @@ Field = student_id , reward_id , reward_point
 
 # Chat
 
-### Chating
-
-(Method: POST) [https://star-fish.myanmargateway.net/api/chat](https://star-fish.myanmargateway.net/api/chat)
-
 ### Display all Chating Messages
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/chat](https://star-fish.myanmargateway.net/api/chat)
+Field ( header ) = token
+
+### Chatting
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/chat](https://star-fish.myanmargateway.net/api/chat)
 Field ( body ) = student_id , message
