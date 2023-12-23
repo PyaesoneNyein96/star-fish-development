@@ -149,9 +149,9 @@ class GameController extends Controller
             }
 
             $lesson_id = Lesson::where('grade_id', $gradeId)
-            ->where('id',$lesson)
-            // ->where('name',$lesson)
-            ->pluck('id')->first();
+                ->where('id', $lesson)
+                // ->where('name',$lesson)
+                ->pluck('id')->first();
 
 
             $allGame = Unit::where('lesson_id', $lesson_id)->with('lesson')->get();
@@ -177,7 +177,6 @@ class GameController extends Controller
             DB::commit();
             // if(!$units) return "Game Not found!";
             return $units;
-
         } catch (\Throwable $th) {
             return $th;
             DB::rollback();
@@ -193,18 +192,18 @@ class GameController extends Controller
         $lesson_id = $request->header('lesson_id');
         $gameId = $request->header('game_id');
 
-        $unit = Unit::where('id', $unit_id)->where('lesson_id',$lesson_id)->first();
+        $unit = Unit::where('id', $unit_id)->where('lesson_id', $lesson_id)->first();
 
-        if(!$unit) return "lesson and unit are not match.";
+        if (!$unit) return "lesson and unit are not match.";
 
-        $gameUnit = Game::where('unit_id',$unit_id)
-        ->where('id',$gameId)->first();
+        $gameUnit = Game::where('unit_id', $unit_id)
+            ->where('id', $gameId)->first();
         // $gameUnit = Game::where('unit_id',$unit_id)->first();
 
 
         // if(!$gameUnit && $unit && $gameId) return "SubUnit game not found!";
 
-        if($gameUnit) {
+        if ($gameUnit) {
 
             $game = Game::where('id', $gameId)->first();
 
@@ -213,20 +212,17 @@ class GameController extends Controller
             if (!$name) return "this game is not subUnit game";
 
             return $this->$name($game, $student, $unit);
-
         }
 
-        $games = Game::where('unit_id',$unit_id)->get();
+        $games = Game::where('unit_id', $unit_id)->get();
 
-        if($games->count() == 1) {
+        if ($games->count() == 1) {
             $name = strval($games[0]->category->name);
             return $this->$name($games, $student, $unit);
         };
 
         // return "subUnits";
         return $this->Subunit_category($games, $unit);
-
-
     }
 
 
@@ -366,7 +362,7 @@ class GameController extends Controller
 
         //ထူးထူး
         // if ($student->grade_chosen == null) $this->addPointFunction($student, $request->header('point'));
-         $this->addPointFunction($student, $request->header('point'));
+        $this->addPointFunction($student, $request->header('point'));
 
 
         return response()->json(['status' => 'success and recorded'], 200);

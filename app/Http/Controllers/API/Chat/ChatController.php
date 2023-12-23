@@ -25,35 +25,50 @@ class ChatController extends Controller
     // ========
     // message
     // ========
-    public function getChat()
+    public function getChat(Request $request)
     {
-        $silver = Chat::select('chats.*', 'students.name', 'students.nickName', 'students.profile_picture')
+        $token = $request->header('token');
+        $stu = Student::where('token', $token)->first();
+
+        $silver = Chat::select('chats.*', 'students.name', 'students.nickName', 'students.profile_picture', 'students.board')
             ->leftJoin('students', 'chats.student_id', 'students.id')
             ->where('students.board', 'silver')
             ->where('chats.created_at', '>=', now()->subHours(4))
             ->get();
-        $platinum = Chat::select('chats.*', 'students.name', 'students.nickName', 'students.profile_picture')
+        $platinum = Chat::select('chats.*', 'students.name', 'students.nickName', 'students.profile_picture', 'students.board')
             ->leftJoin('students', 'chats.student_id', 'students.id')
             ->where('students.board', 'platinum')
             ->where('chats.created_at', '>=', now()->subHours(4))
             ->get();
-        $gold = Chat::select('chats.*', 'students.name', 'students.nickName', 'students.profile_picture')
+        $gold = Chat::select('chats.*', 'students.name', 'students.nickName', 'students.profile_picture', 'students.board')
             ->leftJoin('students', 'chats.student_id', 'students.id')
             ->where('students.board', 'gold')
             ->where('chats.created_at', '>=', now()->subHours(4))
             ->get();
-        $diamond = Chat::select('chats.*', 'students.name', 'students.nickName', 'students.profile_picture')
+        $diamond = Chat::select('chats.*', 'students.name', 'students.nickName', 'students.profile_picture', 'students.board')
             ->leftJoin('students', 'chats.student_id', 'students.id')
             ->where('students.board', 'diamond')
             ->where('chats.created_at', '>=', now()->subHours(4))
             ->get();
 
-        return response()->json([
-            'silver' => $silver,
-            'platinum' => $platinum,
-            'gold' => $gold,
-            'diamond' => $diamond
-        ]);
+
+        if ($stu->board == "silver") {
+            return response()->json([
+                'silver' => $silver,
+            ]);
+        } elseif ($stu->board == "platinum") {
+            return response()->json([
+                'platinum' => $platinum,
+            ]);
+        } elseif ($stu->board == "gold") {
+            return response()->json([
+                'gold' => $gold,
+            ]);
+        } elseif ($stu->board == "diamond") {
+            return response()->json([
+                'diamond' => $diamond
+            ]);
+        }
     }
 
     public function sendChat(Request $request)
