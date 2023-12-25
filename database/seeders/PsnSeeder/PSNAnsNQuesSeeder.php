@@ -733,10 +733,16 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
     $G1L17U3facePart = ["nose",'left-eye','right-eye','lip','left-ear','right-ear'];
-
+    $L17U3Img = $ImageDomain."Grade_1/Lesson_17/Listen_and_Practice/";
+    $L17U3Audio = $AudioDomain."Grade_1/Lesson_17/Listen_and_Practice/";
     foreach ($G1L17U3facePart as $v) {
         DB::table('ans_n_ques')->insert([
-            ['game_id' => 103, 'q_image' => $ImageDomain.$v.".png",'a_content' => $v ]
+            [
+                'game_id' => 103,
+                'a_content' => $v,
+                'q_image' => $L17U3Img.$v.".png",
+                'q_audio' => $L17U3Audio.$v.".mp3",
+            ]
         ]);
     }
 
@@ -758,14 +764,16 @@ class PSNAnsNQuesSeeder extends Seeder
         ['Nose','Chin','Lips','Hair','Face'],
         ['Eyes','Ears','Nose','Mouth','Teeth'],
     ];
-
+    $L17U4Img = $ImageDomain."Grade_1/Lesson_17/Matching/";
+    $L17U4Audio = $AudioDomain."Grade_1/Lesson_17/Matching/";
             for ($i= 0 ; $i < count($G1L17U4) ; $i++) {
 
             foreach ($G1L17U4[$i] as $q) {
 
                 DB::table('ans_n_ques')->insert([
                     ['game_id' => 104, 'round' => $i + 1,'q_content' => $q,
-                    'q_image' => $ImageDomain. $q.".png",'q_audio' => $AudioDomain."Grade_1/Lesson_17/Matching/".$q.".mp3",]
+                    'q_image' => $ImageDomain. $q.".png",
+                    'q_audio' => $L17U4Audio.$q.".mp3",]
                 ]);
            }
 
@@ -773,7 +781,8 @@ class PSNAnsNQuesSeeder extends Seeder
             foreach ($G1L17U4_rand[$i] as $q) {
                 DB::table('ans_n_ques')->insert([
                     ['game_id' => 104, 'round' => $i + 1,'q_content' => strtolower($q),
-                    'q_image' => $ImageDomain.strtolower($q).".png",'q_audio' => $AudioDomain."Grade_1/Lesson_17/Matching/".$q.".mp3",]
+                    'q_image' => $L17U4Img.strtolower($q).".png",
+                    'q_audio' => $L17U4Audio.$q.".mp3",]
                 ]);
            }
         }
@@ -1419,6 +1428,365 @@ class PSNAnsNQuesSeeder extends Seeder
 
             ]);
         }
+
+
+    //                    34
+    ////////////////////////////////////////////////////
+    //// Lesson 34 Unit 2 (Reading_Carousel) <Read , Listen and Repeat>
+
+    $L34_content = [
+                    'Listen and act', 'Listen and draw','Listen and read',
+                    'Listen and say', 'Listen and sing', 'Make a circle',
+                    'Make a group','Make a line', 'Make pairs','Touch your friend',
+                ];
+
+        $img = $ImageDomain."Grade_1/Lesson_34/Read_Listen_and_Repeat/";
+        $audio = $AudioDomain."Grade_1/Lesson_34/Read_Listen_and_Repeat/";
+
+        foreach ($L34_content as $value) {
+
+            DB::table('ans_n_ques')->insert([
+                     [
+                        'game_id' => 212, 'a_content' => $value,
+                        'a_image' => $img .str_replace(' ','-',$value). ".png",
+                        'a_audio' => $audio.str_replace(' ','-',$value).".mp3"
+                    ],
+            ]);
+        }
+
+        ////////////////////////////////////////////////////
+        //// Lesson 34 Unit 3 (True or False) <mcq_tf_grammar>
+
+
+        $L34_U3_q_img = [
+            'Make a circle', 'Make a line','Make pairs','Listen and say','Listen and draw',
+            'Listen and sing','Listen and read','Listen and say','Touch your friend','Make a line'
+        ];
+
+        $L34_U3_content = [
+
+            'Make pairs', 'Make a group', 'Make pairs',  'Listen and sing',
+            'Listen and act', 'Listen and sing','Listen and read', 'Listen and say',
+            'Touch your friend', 'Make a circle',
+        ];
+
+        foreach ($L34_U3_q_img as $k => $value) {
+
+            DB::table('ans_n_ques')->insert([
+                     [
+                        'game_id' => 213, 'a_content' => $value,
+                        'round' => $k + 1,
+                        'q_image' => $img .str_replace(' ','-',$value). ".png",
+                        'q_content' => $L34_U3_content[$k],
+                        'a_content' => $value == $L34_U3_content[$k] ? true : false
+                    ],
+            ]);
+        }
+
+
+        ////////////////////////////////////////////////////
+        //// Lesson 34 Unit 4 (Writing) <rearrange_with_audio>
+
+        $L34_U_4_content = [
+            ['door','close','the'],
+            ['Open','book','your'],
+            ['a','pencil','Bring'],
+            ['at','look','pictures','the'],
+            ['a','draw','ball'],
+            ['a','circle','Make'],
+            ['friend','your','Touch'],
+            ['ABCD','Write'],
+            ['and','Listen','sing'],
+            ['group','a','Make']
+        ];
+        // $L34_U_4_a = [
+        //     ['close','the','door'],
+        //     ['Open','your','book'],
+        //     ['Bring','a','pencil'],
+        //     ['Look','at','the','picture'],
+        //     ['draw','a','ball'],
+        //     ['Make','a','circle'],
+        //     ['Touch','your','friend'],
+        //     ['Write','ABCD'],
+        //     ['Listen','and','sing'],
+        //     ['Make','a','group']
+        // ];
+        $L34_U_4_a = [
+            'Close the door',
+            'Open the book',
+            'Bring a pencil',
+            'Look at the picture',
+            'draw a ball',
+            'Make a circle',
+            'Touch your friend',
+            'write ABCD',
+            'Listen and sing',
+            'Make a group'
+        ];
+
+        foreach ($L34_U_4_content as $k => $question) {
+
+            foreach ($question as $q) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 214 , 'round' => $k + 1,
+                        'q_content' => $q, 'q_audio' => $AudioDomain.$q.".mp3"
+
+                    ]
+                ]);
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 214, 'round' => $k + 1,
+                    'q_image' =>str_replace(' ','-',$ImageDomain.$L34_U_4_a[$k]) .".png",
+                    'q_audio' => str_replace(' ','-',$ImageDomain.$L34_U_4_a[$k]).".mp3",
+                    'a_content' => $L34_U_4_a[$k]
+                ]
+            ]);
+
+        }
+
+
+        ////////////////////////////////////////////////////////
+        ///// lesson 34 Unit 5 (Speaking) <speaking_and_recording>
+
+
+        $L34_U3_q_img = [
+            'Listen and sing','Listen and say', 'Make pairs','Touch your friend',
+            'Make a circle','Make a line','Listen and draw','Listen and read',
+        ];
+
+
+        foreach ($L34_U3_q_img as $key => $value) {
+
+            DB::table('ans_n_ques')->insert([
+
+                [
+                    'game_id' => 215, 'round' => $key + 1, 'q_content' => "Look at the picture and say.",
+                    'q_image' => $ImageDomain."Grade_1/Lesson_34/Speaking/".str_replace(' ','-',$L34_U3_q_img[$key]).".png",
+                    'a_content' => $value ]
+
+            ]);
+        }
+
+
+    //              35
+    ////////////////////////////////////////////////////
+    //// Lesson 34 Unit 2 (Reading_Carousel) <Read , Listen and Repeat>
+
+    $content = [
+                    'Ask and answer', 'Clap your hand','Come home',
+                    'practice with your friend', 'Raise your hand', 'Say the words',
+                    'Sing and act','Sing and dance', 'Sing the ABC song','Work to the door',
+                ];
+
+        $img = $ImageDomain."Grade_1/Lesson_35/Read_Listen_and_Repeat/";
+        $audio = $AudioDomain."Grade_1/Lesson_35/Read_Listen_and_Repeat/";
+
+        foreach ($content as $value) {
+
+            DB::table('ans_n_ques')->insert([
+                     [
+                        'game_id' => 217, 'a_content' => $value,
+                        'a_image' => $img .str_replace(' ','-',$value). ".png",
+                        'a_audio' => $audio.str_replace(' ','-',$value).".mp3"
+                    ],
+            ]);
+        }
+
+
+
+
+
+        ////////////////////////////////////////////////////
+        //// Lesson 35 Unit 3 (True or False) <mcq_tf_grammar>
+
+
+        $L34_U3_q_img = [
+            'Raise your hand', 'Ask and answer','Ask and answer','Say the words','Sing and act',
+            'sing the ABC song','Raise your hand','practice with your friend',
+            'Clap your hands','Work to the door'
+        ];
+
+        $L34_U3_content = [
+            'Raise your hand', 'Sing and dance','Ask and answer','Say the words','Come here',
+            'sing the ABC song','practice with your friend','practice with your friend',
+            'Clap your hands','Come here'
+        ];
+
+        foreach ($L34_U3_q_img as $k => $value) {
+
+            DB::table('ans_n_ques')->insert([
+                     [
+                        'game_id' => 218, 'a_content' => $value,
+                        'round' => $k + 1,
+                        'q_image' => $img .str_replace(' ','-',$value). ".png",
+                        'q_content' => $L34_U3_content[$k],
+                        'a_content' => $value == $L34_U3_content[$k] ? true : false
+                    ],
+            ]);
+        }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 35  Lesson 5 Game ( matching )
+        ////////////////////////////////////////////////////////
+
+        $question = [
+            ['Sing','Clap','Come','Sing and Dance','Raise'],
+
+        ];
+
+        $randomValues = [
+            ['Come','Sing and Dance','Raise','Sing','Clap'],
+        ];
+
+        for ($i= 0 ; $i < count($question) ; $i++) {
+
+            foreach ($question[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 220, 'round' => $i + 1,'q_content' => $q,
+                        'q_image' => $q,
+                        'q_audio' => str_replace(' ','-',$audio.strtolower($q)).".mp3",
+                    ]
+                ]);
+            }
+
+
+            $img = $ImageDomain."Grade_1/Lesson_35/Matching/";
+            $audio = $AudioDomain."Grade_1/Lesson_35/Matching/";
+
+            foreach ($randomValues[$i] as $q) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 220, 'round' => $i + 1,'q_content' => strtolower($q),
+                        'q_image' =>str_replace(' ','-',$img.strtolower($q)).".png" ,
+                        'q_audio' => str_replace(' ','-',$audio.strtolower($q)).".mp3",
+                    ]
+                ]);
+
+            }
+        }
+
+
+
+
+     ////////////////////////////////////////////////////
+    //// Lesson 35 Unit 6 (Reading) < reading_passage >
+
+    $images = $ImageDomain."Grade_1/Lesson_35/Reading/" ;
+    $audios = $AudioDomain."Grade_1/Lesson_35/Reading/";
+    // $L32U5_content = ['umbrella','violin','vase'];
+
+    $L35_U6_para = "Our teacher asks us to come here. Our teacher asks us to sing \"Action\" song. We raise hands and answer. We sing and dance. We sing and act. Our friends stand up and clap hands.";
+
+    $L35_U6_given_q = [
+        ["We ___ and answer.", "raise hands"],
+        ["We ___ .", "sing and dance"],
+        ["Our friends ___.",'clap hands'],
+        ["Our teacher asks us to ___.",'come here'],
+        ["Our teacher asks us to ___ .",'sing'],
+    ];
+    $L35_U6_given_q_audio = [
+        "We-raise-hands-clap-hands-touch-hands-and-answer.mp3",
+        "We-sit-down-and-stand-up-sing-and-dance-open-and-close-the-door.mp3",
+        "Our-friends-raise-hands-clap-hands-clap-hands.mp3",
+        "Our-teacher-asks-us-to-walk-to-the-door-come-here-bring-a-pencil.mp3",
+        "Our-teacher-asks-us-to-sit-down-draw-sing.mp3"
+    ];
+    $paraName = "Audio_need.mp3";
+
+    $L35_U6_given_a = [
+        ['raise hands','clap hands','touch hands'],
+        ['sit down and stand up','sing and dance','open and close the door'],
+        ['raise hands','clap hands','touch hands',],
+        ['Walk to the door','come here','bring a pencil',],
+        ['sit down','draw','sing']
+    ];
+
+
+        for ($i=0; $i < count($L35_U6_given_a) ; $i++) {
+
+
+            foreach ($L35_U6_given_a[$i] as $k => $value) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1,
+                        'game_id' => 221,
+                        'q_audio' => $audios.$value.".mp3",
+                        'q_content' => $value,
+                        'a_content' => $value == $L35_U6_given_q[$i][1] ? 1 : 0
+                    ]
+                ]);
+
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'game_id' => 221,
+                    'q_audio' => $audios.$L35_U6_given_q_audio[$i],
+                    'q_conver' => $L35_U6_given_q[$i][0],    //giver Q
+                ]
+            ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 221,
+                    'q_audio' => $audios.$paraName,
+                    'q_content' => null,
+                    'q_conver' => $L35_U6_para,
+                    'q_image' => $images."character.png", //char
+                    'background' => $images."bg.png"
+                ]
+            ]);
+
+
+        }
+
+
+
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Lesson 35 Games 35 (speaking_and_recording)
+
+
+        $content = [
+            "Sing ABC song",'Work to the door','Sing and act','practice with your friend',
+            'Say the words','Raise your hand','Sing and dance','come here','clap your hands','Ask and answer',
+        ];
+
+
+        foreach ($content as $key => $value) {
+
+            DB::table('ans_n_ques')->insert([
+
+                [
+                    'game_id' => 222, 'round' => $key + 1, 'q_content' => "Look at the picture and say.",
+                    'q_image' => $ImageDomain."Grade_1/Lesson_35/Speaking/".str_replace(' ','-',$content[$key]).".png",
+                    'a_content' => $value
+                ]
+
+            ]);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
