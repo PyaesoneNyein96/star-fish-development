@@ -2586,9 +2586,141 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
 
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Lesson 40 Games 3 (Listen_and_Practice) <listening_and_search_items>
+
+
+    $content = [
+            [
+                "I’m 6 years old.I have 3 brothers and an older sister",
+                'He is one',
+                'She is 10',
+                'He is eight years old',
+                'He is 5',
+            ],
+            [
+                "I’m 7 years old. I have an older sister, two younger sisters and a younger brother",
+                'She is 10',
+                'She is one',
+                'She is 4 years old',
+                'He is also 4 years old',
+            ]
+        ];
+
+
+        $img = $ImageDomain."Grade_1/Lesson_40/Listen_and_Practice/";
+        $audio = $AudioDomain."Grade_1/Lesson_40/Listen_and_Practice/";
 
 
 
+    ////////////////////////////
+
+
+        foreach ($content[0] as $v) {
+            DB::table('ans_n_ques')->insert([
+                [
+                'round' =>  1 ,
+                'game_id' => 251, 'a_content' => $v,
+                'q_image' =>  $img.str_replace(' ','-',$v).".png",
+                'a_audio' => $audio.str_replace(' ','-',$v).".mp3",
+                'a_content' => $v,
+                ],
+            ]);
+        }
+        foreach ($content[1] as $v) {
+            DB::table('ans_n_ques')->insert([
+                [
+                'round' =>  2 ,
+                'game_id' => 251, 'a_content' => $v,
+               'q_image' =>  $img.str_replace(' ','-',$v).".png",
+                'a_audio' => $audio.str_replace(' ','-',$v).".mp3",
+                'a_content' => $v,
+                ],
+            ]);
+        }
+     $bg = $ImageDomain."/Grade_1/Lesson_40/Listen_and_Practice/";
+
+        DB::table('ans_n_ques')->insert([
+            ['game_id' => 251, 'round' => 1, 'background' => $bg."bg.png" ],
+            ['game_id' => 251, 'round' => 2, 'background' => $bg."bg.png" ],
+        ]);
+
+
+
+
+
+    ////////////////////////////////////////////////////
+    //// Lesson 40 Unit 5 (Reading) < reading_passage >
+
+    $images = $ImageDomain."Grade_1/Lesson_40/Reading/" ;
+    $audios = $AudioDomain."Grade_1/Lesson_40/Reading/";
+
+    $para = "I have a brother.His name is Jerry. He is 8 years old. He is short brown hair. My brother say 'I like violin'. I don't like xylophone.";
+
+    $given_q = [
+        ["He is 8 years old.", 'true' ],
+        ["He is long brown hair.", 'false' ],
+        ["He like xylophone.", 'false' ],
+        ["Her name is Jerry.", 'false' ],
+        ["I have a brother.",'true' ],
+    ];
+
+    $given_q_audio = [
+        "He-is-8-years-old-True-or-False.mp3",
+        "He-has-long-brown-hair-True-or-False.mp3",
+        "He-likes-xylophone-True-or-False.mp3",
+        "Her-name-is-Jerry-True-or-False.mp3",
+        "I-have-a-brother-True-or-False.mp3"
+    ];
+
+    $paraName = "I-have-a-brother-His-name-is-jerry.mp3";
+
+    $given_a = [
+      ['true','false'],
+      ['true','false'],
+      ['true','false'],
+      ['true','false'],
+      ['true','false'],
+    ];
+
+
+        for ($i=0; $i < count($given_a) ; $i++) {
+
+
+            foreach ($given_a[$i] as $k => $value) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1,
+                        'game_id' => 252,
+                        // 'q_audio' => $audios.$value.".mp3",
+                        'q_content' => $value,
+                        'a_content' => $value == $given_q[$i][1] ? 1 : 0
+                    ]
+                ]);
+
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 252,
+                    'q_audio' => $audios.$given_q_audio[$i],
+                    'q_conver' => $given_q[$i][0],    //giver Q
+                ]
+            ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 252,
+                    'q_audio' => $audios.$paraName,
+                    'q_content' => null,
+                    'q_conver' => $para,
+                    'q_image' => $images."character.png", //char
+                    'background' => $images."bg.png"
+                ]
+            ]);
+
+
+        }
 
 
 
