@@ -747,7 +747,7 @@ class PSNAnsNQuesSeeder extends Seeder
     }
 
     DB::table('ans_n_ques')->insert([
-        ['game_id' => 103, 'background' => "emptyFaceBackground.png"]
+        ['game_id' => 103, 'background' => $ImageDomain."Grade_1/Lesson_17/Listen_and_Practice/"."emptyFaceBackground.png"]
     ]);
 
 
@@ -840,8 +840,8 @@ class PSNAnsNQuesSeeder extends Seeder
     ];
 
     $g1L17U6AnI = [
-        "blueGirl_touch_mouth", "redBoy_touch_hair", "burGirl_dont_touch_nose",
-        "burGirl_dont_touch_mouth", "burGirl_touch_nose"
+        "blueGirl_touch_mouth", "redBoy_touch_hair", "blueGirl_dont_touch_nose",
+        "blueGirl_dont_touch_mouth", "redGirl_touch_nose"
     ];
 
     $g1L17U6QC = [
@@ -860,7 +860,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
             [ 'game_id' => 106, 'round' => $key + 1, 'q_content' => "Look at the picture say the sentence.".$g1L17U6QC[$key],
             //   'q_audio' => $value.".mp3",
-              'q_image' => $ImageDomain."Grade_1/Lesson_17/Speaking_practice/".$value.".png", 'a_content' => $g1L17U6AC[$key] ]
+              'q_image' => $ImageDomain."Grade_1/Lesson_17/Speaking_Practice/".$value.".png", 'a_content' => $g1L17U6AC[$key] ]
 
             ]);
         }
@@ -1070,7 +1070,7 @@ class PSNAnsNQuesSeeder extends Seeder
                          'round' => $i + 1,
                          'a_content' => $L31_6_as[$i] ,
                          'q_image' => $ImageDomain."Grade_1/Lesson_31/Writing_2/".strtolower($L31_6_as[$i]).".png",
-                         'a_image' => $AudioDomain."Grade_1/Lesson_31/Writing_2/".strtolower($L31_6_as[$i]).".mp3",
+                         'q_audio' => $AudioDomain."Grade_1/Lesson_31/Writing_2/".strtolower($L31_6_as[$i]).".mp3",
                          ]
                 ]);
 
@@ -1962,10 +1962,6 @@ class PSNAnsNQuesSeeder extends Seeder
         ];
 
 
-// g1_l7_u6_rearrange_the_letter_q1
-// g1_l7_u6_rearrange_the_letter_a
-// g1_l7_u6_rearrange_the_letter_q2
-
         for ($i=0; $i < count($question_1) ; $i++) {
 
             $roundAnswers = [];
@@ -1996,6 +1992,678 @@ class PSNAnsNQuesSeeder extends Seeder
             ]);
 
         }
+
+
+    //                          37
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Lesson 37 Games 2 (Read_Listen_and_Repeat) <Reading_Carousel>
+
+
+    $content = [
+        'Aunt','Brother','Father','Grand father', 'Grand mother', 'Mother', 'Sister', 'Uncle'
+    ];
+
+        $img = $ImageDomain."Grade_1/Lesson_37/Read_Listen_and_Repeat/";
+        $audio = $AudioDomain."Grade_1/Lesson_37/Read_Listen_and_Repeat/";
+
+        foreach ($content as $value) {
+
+            DB::table('ans_n_ques')->insert([
+                     [
+                        'game_id' => 231, 'a_content' => $value,
+                        'a_image' => $img .str_replace(' ','-',$value). ".png",
+                        'a_audio' => $audio.str_replace(' ','-',$value).".mp3"
+                    ],
+            ]);
+        }
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Lesson 37 Games 3 (listen and practice) (listening_and_search_items)
+
+        $content = [
+            'This is my aunt','This is my brother','This is my father','This is my grandfather',
+            'This is my grandmother','This is my mother','This is my sister','This is my uncle'
+        ];
+
+        $img = $ImageDomain."Grade_1/Lesson_37/Listen_and_Practice/";
+        $audio = $AudioDomain."Grade_1/Lesson_37/Listen_and_Practice/";
+
+        foreach ($content as $v) {
+            DB::table('ans_n_ques')->insert([
+                [   'game_id' => 232, 'a_content' => $v,
+                    'q_image' => $img.str_replace(' ','-',$v).".png",
+                    'a_audio' => $audio.str_replace(' ','-',$v).".mp3",
+                    'a_content' => $v, 'round' => 1,
+                ],
+            ]);
+
+        }
+        $L37_U3_bg = $ImageDomain."/Grade_1/Lesson_37/Listen_and_Practice/bg.png";
+
+            DB::table('ans_n_ques')->insert([
+                ['game_id' => 232, 'round' => 1, 'background' => $L37_U3_bg ]
+            ]);
+
+
+
+
+
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Lesson 37 Game 4 ( Matching )
+    ////////////////////////////////////////////////////////
+
+        $question = [
+            ['Grandfather','Aunt','Brother','Uncle','Grandmother'],
+            ['Grandfather','Father','Mother','Sister','Brother'],
+        ];
+
+        $randomValues = [
+            ['Brother','Grandmother','Grandfather','Aunt','Uncle'],
+            ['Sister','Brother','Father','Grandfather','Mother']
+        ];
+
+        for ($i= 0 ; $i < count($question) ; $i++) {
+
+            foreach ($question[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 233, 'round' => $i + 1,'q_content' => $q,
+                        'q_image' => $q,
+                        'q_audio' => str_replace(' ','-',$audio.strtolower($q)).".mp3",
+                    ]
+                ]);
+            }
+
+
+            $img = $ImageDomain."Grade_1/Lesson_37/Matching/";
+            $audio = $AudioDomain."Grade_1/Lesson_37/Matching/";
+
+            foreach ($randomValues[$i] as $q) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 233, 'round' => $i + 1,'q_content' => strtolower($q),
+                        'q_image' =>str_replace(' ','-',$img.strtolower($q)).".png" ,
+                        'q_audio' => str_replace(' ','-',$audio.strtolower($q)).".mp3",
+                    ]
+                ]);
+
+            }
+        }
+
+
+          ////////////////////////////////////////////////////////
+    ////    Grade 1  Lesson 36 Games 5 (speaking_and_recording)
+
+
+    $content = [
+        "Brother",'Grandfather','aunt','mother','grandmother','sister','uncle','father'
+    ];
+
+    $likes = [
+        'He likes bananas','He likes apples','She likes grapes','She likes pineapple',
+         'She like mangoes', 'She likes watermelon','He likes papayas','He likes oranges'
+    ];
+
+    foreach ($content as $key => $value) {
+
+        DB::table('ans_n_ques')->insert([
+
+            [
+                'game_id' => 234, 'round' => $key + 1, 'q_content' => "This is my $value.".$likes[$key],
+                'q_image' => $ImageDomain."Grade_1/Lesson_37/Speaking/".str_replace(' ','-',$content[$key]).".png",
+                'a_content' => $value
+            ]
+
+        ]);
+    }
+
+
+
+
+    //                          38
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Lesson 38 Games 2 (Read_Listen_and_Repeat) <Reading_Carousel>
+
+    // ucfirst
+
+    $content = [
+        'This is my mother.Her name is Emma', 'This is my aunt.Her name is Mary', 'This is my grandmother.Her name is Alice',
+        'This is my father.His name is David','This is my uncle.His name is John','This is my grandfather.His name is James',
+    ];
+
+     $img = $ImageDomain."Grade_1/Lesson_38/Read_Listen_and_Repeat/";
+        $audio = $AudioDomain."Grade_1/Lesson_38/Read_Listen_and_Repeat/";
+
+        foreach ($content as $value) {
+
+            DB::table('ans_n_ques')->insert([
+                     [
+                        'game_id' => 236, 'a_content' => $value,
+                        'a_image' => $img .str_replace(' ','-',$value). ".png",
+                        'a_audio' => $audio.str_replace(' ','-',$value).".mp3"
+                    ],
+            ]);
+        }
+
+
+
+
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Lesson 38 Games 3 (listen and practice) (listening_and_search_items)
+
+        $contents = [
+            [
+                'This is my father.His name is David','This is my uncle.His name is John',
+                'This is my grandmother.Her name is Alice','This is my younger sister.Her name is Jenny.',
+                'This is my older brother.His name is Mike.'
+            ],
+            [
+                'This is my uncle.His name is John','This is my aunt.Her name is Mary',
+                'This is my grandfather.His name is James','This is my grandmother.Her name is Alice',
+                'This is my younger sister.Her name is Jenny'
+            ],
+
+
+        ];
+
+        $img = $ImageDomain."Grade_1/Lesson_38/Listen_and_Practice_Game/";
+        $audio = $AudioDomain."Grade_1/Lesson_38/Listen_and_Practice_Game/";
+
+        foreach ($contents as $k => $content) {
+
+            foreach ($content as $j => $v) {
+                DB::table('ans_n_ques')->insert([
+                    [   'game_id' => 237, 'a_content' => $v,
+                        'q_image' => $img.str_replace(' ','-',$v).".png",
+                        'a_audio' => $audio.str_replace(' ','-',$v).".mp3",
+                        'a_content' => $v, 'round' => $k + 1,
+                    ],
+                ]);
+            }
+
+            $L37_U3_bg = $ImageDomain."/Grade_1/Lesson_38/Listen_and_Practice_Game/bg.png";
+
+            DB::table('ans_n_ques')->insert([
+                ['game_id' => 237, 'round' => $k + 1, 'background' => $L37_U3_bg ]
+            ]);
+
+        }
+
+
+
+
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Lesson 38 Games 4 (Writing) (rearrange_with_audio)
+    /////////////////////------------------ sub-2 (rearrange)
+
+            $Questions =[
+                ['C','L','U','N','E'],
+                ['R','O','T','B','E','R','H'],
+                ['T','H','M','O','E','R'],
+                ['T','E','R','I','S','S'],
+                ['A','G','R','N','D','T','H','F','A','E','R'],
+                ['T','H','F','A','E','R'],
+            ];
+
+            $answers = [
+                'UNCLE','BROTHER','MOTHER','SISTER','GRANDFATHER','FATHER'
+            ];
+
+            for ($i = 0; $i < count($Questions) ; $i++) {
+
+                foreach ($Questions[$i]  as  $innerVal) {
+                    DB::table('ans_n_ques')->insert([
+                        ['game_id' => 238, 'round' => $i + 1 , 'q_content' => $innerVal]
+                    ]);
+                }
+
+
+            $img = $ImageDomain."Grade_1/Lesson_38/Writing/";
+            $audio = $AudioDomain."Grade_1/Lesson_38/Writing/";
+
+                DB::table('ans_n_ques')->insert([
+                        [
+                         'game_id' => 238,
+                         'round' => $i + 1,
+                         'q_image' => $img.strtolower($answers[$i]).".png",
+                         'q_audio' => $audio.strtolower($answers[$i]).".mp3",
+                         'a_content' => $answers[$i] ,
+                         ]
+                ]);
+
+            }
+
+
+
+
+    ////////////////////////////////////////////////////
+    //// Lesson 38 Unit 5 (Speaking) < speaking_and_recording>
+
+
+
+    $content = [
+        'older brother','grandfather','grandmother',
+        "Uncle",'Aunt','younger sister','father','mother'
+    ];
+
+    $names = [
+        'His name is Mike','His name is James','Her name is Alice','His name is John',
+        'Her name is Mary','Her name is Jenny','His name is David','Her name is Emma',
+    ];
+
+    foreach ($content as $key => $value) {
+
+        DB::table('ans_n_ques')->insert([
+
+            [
+                'game_id' => 239, 'round' => $key + 1, 'q_content' => "This is my $value.".$names[$key],
+                'q_image' => $ImageDomain."Grade_1/Lesson_38/Speaking/".str_replace(' ','-',$content[$key]).".png",
+                'a_content' => $value
+            ]
+
+        ]);
+    }
+
+
+
+
+
+    //                          39
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Lesson 39 Games 2 (Listen_and_Repeat) <Reading_Carousel>
+
+
+    // SubUnit -1 (Reading-1)
+
+    $content = [
+        'Aunt','Cousin','Older Brother','Older Sister','Uncle','Younger Brother', 'Younger Sister'
+    ];
+
+    $img = $ImageDomain."Grade_1/Lesson_38/Reading-1/";
+    $audio = $AudioDomain."Grade_1/Lesson_38/Reading-1/";
+
+        foreach ($content as $value) {
+
+            DB::table('ans_n_ques')->insert([
+                     [
+                        'game_id' => 241, 'a_content' => $value,
+                        'a_image' => $img .str_replace(' ','-',$value). ".png",
+                        'a_audio' => $audio.str_replace(' ','-',$value).".mp3"
+                    ],
+            ]);
+        }
+
+
+
+
+    // SubUnit -2 (Reading-2)
+
+    $content = [
+        'I have a older sister', 'I have a Grandfather', 'I have two cousins'
+    ];
+
+    $img = $ImageDomain."Grade_1/Lesson_38/Reading-2/";
+    $audio = $AudioDomain."Grade_1/Lesson_38/Reading-2/";
+
+        foreach ($content as $value) {
+
+            DB::table('ans_n_ques')->insert([
+                     [
+                        'game_id' => 242, 'a_content' => $value,
+                        'a_image' => $img .str_replace(' ','-',$value). ".png",
+                        'a_audio' => $audio.str_replace(' ','-',$value).".mp3"
+                    ],
+            ]);
+        }
+
+
+
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Lesson 39 Games 3 (Listen_and_Practice) <listening_and_search_items>
+
+
+    //SubUnit -1 (Round-1)
+
+    $content = [
+        'I have an aunt',
+        'I have two grandmothers',
+        'I have cousins',
+        'I have an uncle',
+        'I have a younger sister',
+        'I have two grandfathers'
+    ];
+
+
+        $img = $ImageDomain."Grade_1/Lesson_39/Listen_and_Practice/";
+        $audio = $AudioDomain."Grade_1/Lesson_39/Listen_and_Practice/";
+
+        foreach ($content as $v) {
+            DB::table('ans_n_ques')->insert([
+                [   'game_id' => 243 , 'a_content' => $v,
+                    'q_image' => $img.str_replace(' ','-',$v).".png",
+                    'a_audio' => $audio.str_replace(' ','-',$v).".mp3",
+                    'a_content' => $v,
+                     'round' => 1,
+                ],
+            ]);
+
+        }
+        $L37_U3_bg = $ImageDomain."/Grade_1/Lesson_39/Listen_and_Practice/bg.png";
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 243,
+                    'background' => $L37_U3_bg,
+                    'round' => 1,
+                ],
+            ]);
+
+
+ //SubUnit -2 (Round-2)
+
+    $content = [
+        'I have a grandfather',
+        'I have an older sister',
+        'I have two cousins',
+        'I have an uncle',
+        'I have a grandmother',
+        'I have an aunt',
+    ];
+
+
+        $img = $ImageDomain."Grade_1/Lesson_39/Listen_and_Practice/";
+        $audio = $AudioDomain."Grade_1/Lesson_39/Listen_and_Practice/";
+
+        foreach ($content as $v) {
+            DB::table('ans_n_ques')->insert([
+                [   'game_id' => 244 , 'a_content' => $v,
+                    'q_image' => $img.str_replace(' ','-',$v).".png",
+                    'a_audio' => $audio.str_replace(' ','-',$v).".mp3",
+                    'a_content' => $v,
+                    'round' => 2,
+                ],
+            ]);
+
+        }
+        $L37_U3_bg = $ImageDomain."/Grade_1/Lesson_39/Listen_and_Practice/bg2.png";
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 244,
+                    'round' => 2,
+                    'background' => $L37_U3_bg
+                    ]
+            ]);
+
+
+
+
+
+    ////////////////////////////////////////////////////
+    //// Lesson 39 Unit 4 (Grammar) <mcq_grammar>
+
+
+        $question = [
+           'I have ----- older brother.',
+           'I have ----- uncle.',
+           'I have ----- sister.',
+           'I have ----- younger brother.',
+           'I have ----- aunt.',
+        ];
+
+        $ansList = [
+            'an','an','a','a','an'
+        ];
+
+        $ansSentence = [
+            'I have a older brother.',
+            'I have an uncle.',
+            'I have a sister.',
+            'I have a younger brother.',
+            'I have an aunt.',
+        ];
+
+        $answer = ['a','an'];
+
+        foreach ($question as $k => $value) {
+
+            DB::table('ans_n_ques')->insert([
+                     [
+                        'game_id' => 245,
+                        'round' => $k + 1,
+                        'q_image' => $img .str_replace(' ','-',$ansSentence[$k]). ".png",
+                        'q_content' => $answer[0],
+                        'q_conver' => $value,
+                        'a_content' => $ansList[$k] == $answer[0] ? true : false
+                    ],
+            ]);
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 245,
+                    'round' => $k + 1,
+                    'q_content' =>  $answer[1],
+                    'a_content' => $ansList[$k] == $answer[1] ? true : false
+                ]
+            ]);
+
+        }
+
+
+
+    //////////////////////////////////////////////////////////////////
+    //   Lesson 39  game 5 (Writing (Arranging order)) <rearrange_with_audio>
+
+         $Questions = [
+                ['name','is','Her','Alice'],
+                ['my','is','This','father'],
+                ['two','i','grandfathers','have'],
+                ['my','is','This','mother'],
+                ['is','my','grandfathers','This'],
+                ['name','is','His','James'],
+            ];
+
+            $answers = [
+                'Her name is ALice',
+                'This is my father',
+                'I have two grandfathers',
+                'This is my mother',
+                'This is my grandfathers',
+                'His name is James'
+            ];
+
+            for ($i = 0; $i < count($Questions) ; $i++) {
+
+                foreach ($Questions[$i]  as  $innerVal) {
+                    DB::table('ans_n_ques')->insert([
+                        ['game_id' => 246, 'round' => $i + 1 , 'q_content' => $innerVal]
+                    ]);
+                }
+
+            $img = $ImageDomain."Grade_1/Lesson_39/Writing/";
+            $audio = $AudioDomain."Grade_1/Lesson_39/Writing/";
+
+                DB::table('ans_n_ques')->insert([
+                        [
+                         'game_id' => 246,
+                         'round' => $i + 1,
+                         'q_image' => $img.str_replace(' ','-',$answers[$i]).".png",
+                         'q_audio' => $audio. str_replace(' ','-',$answers[$i]).".mp3",
+                         'a_content' => $answers[$i],
+                         ]
+                ]);
+
+            }
+
+
+
+    ////////////////////////////////////////////////////
+    //// Lesson 39 Unit 6 (Speaking 1) < speaking_and_recording>
+
+
+
+    $content = 'Teacher and student';
+
+
+    $questionContent = [
+        'Do you have brother or sister?','Do you have Grandfather or Grandmother?',
+        "I'm great.What's your father name?",'Good morning how are you?',
+    ];
+
+    $img = $ImageDomain."Grade_1/Lesson_39/Speaking/";
+    $audio = $AudioDomain."Grade_1/Lesson_39/Speaking/";
+
+    foreach ($questionContent as $key => $value) {
+
+        DB::table('ans_n_ques')->insert([
+
+            [
+                'game_id' => 247,
+                'round' => $key + 1,
+                'q_content' => $value,
+                'q_image' => $img.str_replace(' ','-',$content).".png",
+                'a_content' => null
+            ]
+
+        ]);
+    }
+
+
+
+
+    //                          40
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Lesson 40 Games 2 (Listen_and_Repeat) <Reading_Carousel>
+
+
+    // SubUnit -1 (Reading-1)
+
+    $content = [
+        'One','Two','Three','Four','Fix','Six','Seven','Eight','Nine','Ten'
+    ];
+
+    $img = $ImageDomain."Grade_1/Lesson_40/Reading-1/";
+    $audio = $AudioDomain."Grade_1/Lesson_40/Reading-1/";
+
+        foreach ($content as $value) {
+
+            DB::table('ans_n_ques')->insert([
+                     [
+                        'game_id' => 249, 'a_content' => $value,
+                        'a_image' => $img .str_replace(' ','-',$value). ".png",
+                        'a_audio' => $audio.str_replace(' ','-',$value).".mp3"
+                    ],
+            ]);
+        }
+
+
+
+
+    // SubUnit -2 (Reading-2)
+
+    $content = [
+       "She's four years old", "She's seven years old", "He's nine years old",
+       "He's three years old", "He's six years old", "He's two years old"
+    ];
+
+    $img = $ImageDomain."Grade_1/Lesson_40/Reading-2/";
+    $audio = $AudioDomain."Grade_1/Lesson_40/Reading-2/";
+
+        foreach ($content as $value) {
+
+            DB::table('ans_n_ques')->insert([
+                     [
+                        'game_id' => 250, 'a_content' => $value,
+                        'a_image' => $img .str_replace(' ','-',$value). ".png",
+                        'a_audio' => $audio.str_replace(' ','-',$value).".mp3"
+                    ],
+            ]);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

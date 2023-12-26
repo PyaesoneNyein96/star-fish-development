@@ -4851,13 +4851,13 @@ class AnsNQueSeeder extends Seeder
             ['round' => 1, 'game_id' => 164, 'q_audio' => $AudioDomain . $G1_L26_Grammar_path . "Its-a-an-coconut.mp3", 'q_conver' => "It's [ a/an ] coconut.", 'q_image' =>  $l26G164image . "coconut_image.png", 'q_content' => "a", 'a_content' => 1],
             ['round' => 1, 'game_id' => 164, 'q_audio' => null, 'q_conver' => null, 'q_image' => null, 'q_content' => "an", 'a_content' => 0],
 
-            ['round' => 2, 'game_id' => 164, 'q_audio' => $AudioDomain . $G1_L26_Grammar_path . "Its-a-an-avocado.mp3", 'q_conver' => "It's [ a/an ] avocado.", 'q_image' =>  $l26G164image . "avocado_image.png", 'q_content' => "waist", 'a_content' => 1],
+            ['round' => 2, 'game_id' => 164, 'q_audio' => $AudioDomain . $G1_L26_Grammar_path . "Its-a-an-avocado.mp3", 'q_conver' => "It's [ a/an ] avocado.", 'q_image' =>  $l26G164image . "avocado_image.png", 'q_content' => "a", 'a_content' => 1],
             ['round' => 2, 'game_id' => 164, 'q_audio' => null, 'q_conver' => null, 'q_image' => null, 'q_content' => "an", 'a_content' => 1],
 
-            ['round' => 3, 'game_id' => 164, 'q_audio' => $AudioDomain . $G1_L26_Grammar_path . "Its-a-an-orange.mp3", 'q_conver' => "It's [ a/an ] orange.", 'q_image' =>  $l26G164image . "orange_image.png", 'q_content' => "knee", 'a_content' => 0],
+            ['round' => 3, 'game_id' => 164, 'q_audio' => $AudioDomain . $G1_L26_Grammar_path . "Its-a-an-orange.mp3", 'q_conver' => "It's [ a/an ] orange.", 'q_image' =>  $l26G164image . "orange_image.png", 'q_content' => "a", 'a_content' => 0],
             ['round' => 3, 'game_id' => 164, 'q_audio' => null, 'q_conver' => null, 'q_image' => null, 'q_content' => "an", 'a_content' => 1],
 
-            ['round' => 4, 'game_id' => 164, 'q_audio' => $AudioDomain . $G1_L26_Grammar_path . "Its-a-an-apple.mp3", 'q_conver' => "It's [ a/an ] apple.", 'q_image' =>  $l26G164image . "apple_image.png", 'q_content' => "feet", 'a_content' => 0],
+            ['round' => 4, 'game_id' => 164, 'q_audio' => $AudioDomain . $G1_L26_Grammar_path . "Its-a-an-apple.mp3", 'q_conver' => "It's [ a/an ] apple.", 'q_image' =>  $l26G164image . "apple_image.png", 'q_content' => "a", 'a_content' => 0],
             ['round' => 4, 'game_id' => 164, 'q_audio' => null, 'q_conver' => null, 'q_image' => null, 'q_content' => "an", 'a_content' => 1],
 
         ]);
