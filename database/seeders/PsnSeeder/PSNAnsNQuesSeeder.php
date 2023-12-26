@@ -2726,6 +2726,44 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
 
+    ////////////////////////////////////////////////////
+    //// Lesson 40 Unit 6 (Speaking 1) < speaking_and_recording>
+
+
+
+    $contentImg = [ 'Mike', 'Chris', 'one','Kevin','emma', 'David' ];
+
+    $contents = [
+        'His','eight','one','one','Her','His'
+    ];
+
+
+    $questionContent = [
+       "I have an elder brother. ___ name is Mike.",
+       "Chris is ___ year old.",
+       "I have ___ younger brother.",
+       "Kevin is ___.",
+       "This is my mother. ___ name is Emma.",
+       "This is my father. ___ name is David."
+    ];
+
+    $img = $ImageDomain."Grade_1/Lesson_40/Speaking/";
+    $audio = $AudioDomain."Grade_1/Lesson_40/Speaking/";
+
+    foreach ($questionContent as $key => $value) {
+
+        DB::table('ans_n_ques')->insert([
+
+            [
+                'game_id' => 253,
+                'round' => $key + 1,
+                'q_content' => $value,
+                'q_image' => $img.str_replace(' ','-',$contentImg[$key]).".png",
+                'a_content' => $contents[$key]
+            ]
+
+        ]);
+    }
 
 
 
