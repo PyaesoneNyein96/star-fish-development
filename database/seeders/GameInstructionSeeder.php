@@ -62,15 +62,16 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Arranging the conversation in order", 'game_id' => 15, 'audio' =>  $Instructions . "Arranging-the-conversation-in" . ".mp3"],
 
             // G-1 lesson_3 U-16
-            ['content' => "Speaking Audio", 'game_id' => 16, 'audio' =>  $Instructions . "audio" . ".mp3"],
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 16, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
 
 
             // ================
             // G-1 lesson_4 U-18
-            ['content' => "Read listen and Repeat", 'game_id' => 18, 'audio' =>  $Instructions . "audio" . ".mp3"],
+            ['content' => "Read Listen and repeat after it.", 'game_id' => 18, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
 
             // G-1 lesson_4 U-19
-            ['content' => "Read listen and Repeat", 'game_id' => 19, 'audio' => $Instructions . "audio" . ".mp3"],
+            ['content' => "Read listen and Repeat", 'game_id' => 19, 'audio' =>  $Instructions . "audio" . ".mp3"],
 
             // G-1 lesson_4 U-20
             ['content' => "Watch the animation of student introduction", 'game_id' => 20, 'audio' =>  $Instructions . "Watch-the-animation-of-student" . ".mp3"],
@@ -90,7 +91,7 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Answer the question", 'game_id' => 25, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
 
             // G-1 lesson_5 U-26
-            ['content' => "Speaking Audio", 'game_id' => 26, 'audio' =>  $Instructions . "audio" . ".mp3"],
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 26, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
 
             // G-1 lesson_5 U-27
             ['content' => "Arranging the conversation in order", 'game_id' => 27, 'audio' =>  $Instructions . "Arranging-the-conversation-in" . ".mp3"],
@@ -129,8 +130,10 @@ class GameInstructionSeeder extends Seeder
 
 
             // G-1 lesson_7 U-37
-            ['content' => "Matching things from this session", 'game_id' => 37,
-            'audio' => $Instructions."Matching-things-from-this-session.mp3"],
+            [
+                'content' => "Matching things from this session", 'game_id' => 37,
+                'audio' => $Instructions . "Matching-things-from-this-session.mp3"
+            ],
 
             // G-1 lesson_7 U-5
             // ['content' => "Tap the things on the table and answer the question.",'game_id' => 38,
@@ -308,16 +311,16 @@ class GameInstructionSeeder extends Seeder
 
             // G-1 lesson_17 U-102
             [
-            'content' => "Listen and put the body parts in the correct place.", 'game_id' => 102,
-            'audio' =>  $Instructions . "Listen-and-put-the-body-parts-in-the-correct-place.mp3"
+                'content' => "Listen and put the body parts in the correct place.", 'game_id' => 102,
+                'audio' =>  $Instructions . "Listen-and-put-the-body-parts-in-the-correct-place.mp3"
             ],
 
             [
-            'content' => "Listen and put the body parts in the correct place", 'game_id' => 103, 'audio' => $Instructions."Listen-and-put-the-body-parts-in-the-correct-place.mp3"
+                'content' => "Listen and put the body parts in the correct place", 'game_id' => 103, 'audio' => $Instructions . "Listen-and-put-the-body-parts-in-the-correct-place.mp3"
             ],
 
             [
-            'content' => "Matching Parts of the Body", 'game_id' => 104, 'audio' => $Instructions."Matching-Parts-of-the-Body.mp3"
+                'content' => "Matching Parts of the Body", 'game_id' => 104, 'audio' => $Instructions . "Matching-Parts-of-the-Body.mp3"
             ],
 
             // G-1 lesson_17 U-98
@@ -379,25 +382,180 @@ class GameInstructionSeeder extends Seeder
 
 
             // ================
-            // G-1 lesson_21 U-118
-            ['content' => "Listen Repeat", 'game_id' => 128, 'audio' =>  $Instructions . "Listen_and_Repeat_audio" . ".mp3"],
-
             // G-1 lesson_21 U-119
-            // game 127 , 128
+            // game 128 , 129
+            ['content' => "reading carousel", 'game_id' => 128, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
             ['content' => "reading carousel", 'game_id' => 129, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
-            ['content' => "reading carousel", 'game_id' => 130, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
 
             // G-1 lesson_21 U-120
-            ['content' => "Listen and tap what you hear", 'game_id' => 131, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
+            ['content' => "Listen and tap what you hear", 'game_id' => 130, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
 
             // G-1 lesson_21 U-121
-            ['content' => "Matching things", 'game_id' => 132, 'audio' =>  $Instructions . "Matching-things" . ".mp3"],
+            ['content' => "Matching things", 'game_id' => 131, 'audio' =>  $Instructions . "Matching-things" . ".mp3"],
 
             // G-1 lesson_21 U-122
-            ['content' => "Tap the things in the room and answer the question", 'game_id' => 133, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 132, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+
+            // ================
+            // G-1 lesson_22 U-124
+            // game 134 , 135
+            ['content' => "reading carousel", 'game_id' => 134, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+            ['content' => "reading carousel", 'game_id' => 135, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
+            // G-1 lesson_22 U-125
+            ['content' => "Listen and tap what you hear", 'game_id' => 136, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
+
+            // G-1 lesson_22 U-126
+            ['content' => "Matching things", 'game_id' => 137, 'audio' =>  $Instructions . "Matching-things" . ".mp3"],
+
+            // G-1 lesson_22 U-127
+            ['content' => "Jumbled letters", 'game_id' => 138, 'audio' =>  $Instructions . "Jumbled-letters" . ".mp3"],
+
+            // G-1 lesson_22 U-128
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 139, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+
+            // ================
+            // G-1 lesson_23 U-130
+            // game 141 , 142
+            ['content' => "reading carousel", 'game_id' => 141, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+            ['content' => "reading carousel", 'game_id' => 142, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
+            // G-1 lesson_23 U-131
+            ['content' => "Click the food box to find the same pictures", 'game_id' => 143, 'audio' =>  $Instructions . "click-the-food-box-to-find-the" . ".mp3"],
+
+            // G-1 lesson_23 U-132
+            ['content' => "Listen and look at the picture. Choose true or false", 'game_id' => 144, 'audio' =>  $Instructions . "Listen-and-look-at-the-picture" . ".mp3"],
+
+
+            // G-1 lesson_23 U-133
+            ['content' => "Answer the question", 'game_id' => 145, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
+
+            // G-1 lesson_23 U-134
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 146, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+
+            // ================
+            // G-1 lesson_24 U-136
+            ['content' => "reading carousel", 'game_id' => 148, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
+            // G-1 lesson_24 U-137
+            ['content' => "Listen and tap what you hear", 'game_id' => 149, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
+
+            // G-1 lesson_24 U-139
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 151, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+            // G-1 lesson_24 U-140
+            ['content' => "Arranging the words in order for each sentence", 'game_id' => 152, 'audio' =>  $Instructions . "Arranging-the-words-in-order-f" . ".mp3"],
+
+
+            // ================
+            // G-1 lesson_25 U-142
+            ['content' => "reading carousel", 'game_id' => 154, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
+            // G-1 lesson_25 U-143
+            ['content' => "Listen and tap what you hear", 'game_id' => 155, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
+
+            // G-1 lesson_25 U-144
+            ['content' => "Matching things", 'game_id' => 156, 'audio' =>  $Instructions . "Matching-things" . ".mp3"],
+
+            // G-1 lesson_25 U-145
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 157, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+            // G-1 lesson_25 U-146
+            // Game 158,159
+            ['content' => "Trace and write", "game_id" => 158, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+            ['content' => "Write-the-correct-letter", "game_id" => 159, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
+
+
+            // ================
+            // G-1 lesson_26 U-148
+            ['content' => "reading carousel", 'game_id' => 161, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
+            // G-1 lesson_26 U-149
+            ['content' => "Listen and tap what you hear", 'game_id' => 162, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
+
+            // G-1 lesson_26 U-150
+            ['content' => "Matching things", 'game_id' => 163, 'audio' =>  $Instructions . "Matching-things" . ".mp3"],
+
+            // G-1 lesson_26 U-151
+            ['content' => "Choose the correct word", 'game_id' => 164, 'audio' =>  $Instructions . "Choose-the-correct-word" . ".mp3"],
+
+            // G-1 lesson_26 U-152
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 165, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+
+            // ================
+            // G-1 lesson_27 U-154
+            ['content' => "reading carousel", 'game_id' => 167, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
+            // G-1 lesson_27 U-155
+            ['content' => "Listen and tap what you hear", 'game_id' => 168, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
+
+            // G-1 lesson_27 U-156
+            ['content' => "Matching things", 'game_id' => 169, 'audio' =>  $Instructions . "Matching-things" . ".mp3"],
+
+            // G-1 lesson_27 U-157
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 170, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+            // G-1 lesson_27 U-158
+            ['content' => "Jumbled letters", 'game_id' => 171, 'audio' =>  $Instructions . "Jumbled-letters" . ".mp3"],
+
+
+            // ================
+            // G-1 lesson_28 U-160
+            ['content' => "reading carousel", 'game_id' => 173, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
+            // G-1 lesson_28 U-161
+            ['content' => "Listen and tap what you hear", 'game_id' => 174, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
+
+            // G-1 lesson_28 U-162
+            ['content' => "Matching things", 'game_id' => 175, 'audio' =>  $Instructions . "Matching-things" . ".mp3"],
+
+            // G-1 lesson_23 U-163
+            ['content' => "Answer the question", 'game_id' => 176, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
+
+            // G-1 lesson_28 U-164
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 177, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+
+            // ================
+            // G-1 lesson_29 U-166
+            ['content' => "Read Listen and repeat after it.", 'game_id' => 179, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
+
+            // G-1 lesson_29 U-167
+            ['content' => "Listen and tap what you hear", 'game_id' => 180, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
+
+            // G-1 lesson_29 U-169
+            ['content' => "Jumbled letters", 'game_id' => 182, 'audio' =>  $Instructions . "Jumbled-letters" . ".mp3"],
+
+            // G-1 lesson_29 U-170
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 183, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
+
+            // ================
+            // G-1 lesson_30 U-172
+            ['content' => "reading carousel", 'game_id' => 185, 'audio' =>  $Instructions . "reading_carousel_audio" . ".mp3"],
+
+            // G-1 lesson_30 U-173
+            ['content' => "Listen and tap what you hear", 'game_id' => 186, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
+
+            // G-1 lesson_30 U-174
+            ['content' => "Matching things", 'game_id' => 187, 'audio' =>  $Instructions . "Matching-things" . ".mp3"],
+
+            // G-1 lesson_30 U-175
+            ['content' => "Look at the half of the picture and say a word", 'game_id' => 188, 'audio' =>  $Instructions . "Look-at-the-half-of-the-pictur" . ".mp3"],
+
+            // G-1 lesson_30 U-176
+            // Game 189 , 190
+            ['content' => "Trace and write", "game_id" => 189, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+            ['content' => "Write-the-correct-letter", "game_id" => 190, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
+
 
 
         ]);
+
 
 
 
