@@ -33,6 +33,7 @@ return new class extends Migration
             $table->integer('status')->default(0);
             $table->string('isLocal')->default(1);
 
+            $table->integer('question_answer')->nullable()->default(0);
 
             $table->string('password');
             $table->string('isSubscriber')->default(0);
