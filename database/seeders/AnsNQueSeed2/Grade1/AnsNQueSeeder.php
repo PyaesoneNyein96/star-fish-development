@@ -3136,17 +3136,13 @@ class AnsNQueSeeder extends Seeder
 
         for ($i = 0; $i < count($g1_l16_Game99_rearrange_the_letter_q1); $i++) {
 
-            $roundAnswers = [];
             foreach ($g1_l16_Game99_rearrange_the_letter_q1[$i] as $k => $word) {
-
-                $isCorrect = in_array($word, $correctAns[$i]);
-                $roundAnswers[] = $isCorrect;
 
                 DB::table('ans_n_ques')->insert([
                     [
                         'round' => $i + 1, 'game_id' => 99,
                         'q_audio' => $AudioDomain . $G1_L16_writing . strtoupper($word) . ".mp3", 'q_content' => $word,
-                        'a_content' => $isCorrect ? 1 : 0,
+                        'a_content' => implode(' ', $correctAns[$i]),
                     ]
                 ]);
             }
@@ -3775,7 +3771,7 @@ class AnsNQueSeeder extends Seeder
             '_I_K', '_O_T_', '_US_RO_M', 'N_S_', '_I_E', 'N__S', '_A_L', 'M_A_', '_A_GO'
         ];
 
-        $correctAns =   [
+        $correct20Ans =   [
 
             ['M', 'L'],
             ['M', 'U', 'H'],
@@ -3798,17 +3794,13 @@ class AnsNQueSeeder extends Seeder
 
         for ($i = 0; $i < count($g1_l20_Game126_rearrange_the_letter_q1); $i++) {
 
-            $roundAnswers = [];
             foreach ($g1_l20_Game126_rearrange_the_letter_q1[$i] as $k => $word) {
-
-                $isCorrect = in_array($word, $correctAns[$i]);
-                $roundAnswers[] = $isCorrect;
 
                 DB::table('ans_n_ques')->insert([
                     [
                         'round' => $i + 1, 'game_id' => 126,
                         'q_audio' => $AudioDomain . $G1_L20_writing .  strtoupper($word) . ".mp3", 'q_content' => $word,
-                        'a_content' => $isCorrect ? 1 : 0,
+                        'a_content' =>  implode(' ', $correct20Ans[$i]),
                     ]
                 ]);
             }
@@ -5013,17 +5005,13 @@ class AnsNQueSeeder extends Seeder
 
         for ($i = 0; $i < count($g1_l25_Game159_rearrange_the_letter_q1); $i++) {
 
-            $roundAnswers = [];
             foreach ($g1_l25_Game159_rearrange_the_letter_q1[$i] as $k => $word) {
-
-                $isCorrect = in_array($word, $correctAns_G159[$i]);
-                $roundAnswers[] = $isCorrect;
 
                 DB::table('ans_n_ques')->insert([
                     [
                         'round' => $i + 1, 'game_id' => 159,
                         'q_audio' => $AudioDomain . $G1_L25_writing . strtoupper($word) . ".mp3", 'q_content' => $word,
-                        'a_content' => $isCorrect ? 1 : 0,
+                        'a_content' =>  implode(' ', $correctAns_G159[$i]),
                     ]
                 ]);
             }
