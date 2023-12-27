@@ -37,7 +37,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         ////////////////////////////////////////////////////
-        ////    Grade 4  Lesson 4 unit 5 or 6 ( no rounds )
+        ////    Grade 4  Lesson 4 unit 5* or 6 ( no rounds )
 
         $G4L4U5 = range(1,8);
         // $G4L4U5 = [1,2,3,4,5,6,7,8];
@@ -57,7 +57,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
             foreach ($G4L4U5 as $v) {
                 DB::table('ans_n_ques')->insert([
-                    [ 'game_id' => 125, 'q_image' => $G4L4U5Img.$G4L4U5[$v - 1].".png",
+                    [ 'game_id' => 272, 'q_image' => $G4L4U5Img.$G4L4U5[$v - 1].".png",
                      'q_audio' => $G4L4U5Audio.$G4L4U5[$v - 1].".mp3", 'a_content' => $G4L4U5content[$v - 1] ],
                 ]);
             }

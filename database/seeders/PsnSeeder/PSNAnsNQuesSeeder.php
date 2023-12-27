@@ -1692,16 +1692,21 @@ class PSNAnsNQuesSeeder extends Seeder
         // ];
         $L34_U_4_a = [
             'Close the door',
-            'Open the book',
+            'Open your book',
             'Bring a pencil',
             'Look at the picture',
-            'draw a ball',
+            'Draw a ball',
             'Make a circle',
             'Touch your friend',
-            'write ABCD',
+            'Write ABCD',
             'Listen and sing',
             'Make a group'
         ];
+
+
+        $img = $ImageDomain."Grade_1/Lesson_34/Writing/";
+        $audio = $AudioDomain."Grade_1/Lesson_34/Writing/";
+
 
         foreach ($L34_U_4_content as $k => $question) {
 
@@ -1718,8 +1723,8 @@ class PSNAnsNQuesSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 214, 'round' => $k + 1,
-                    'q_image' => str_replace(' ', '-', $ImageDomain . $L34_U_4_a[$k]) . ".png",
-                    'q_audio' => str_replace(' ', '-', $ImageDomain . $L34_U_4_a[$k]) . ".mp3",
+                    'q_image' => str_replace(' ', '-', $img . $L34_U_4_a[$k]) . ".png",
+                    'q_audio' => str_replace(' ', '-', $audio . $L34_U_4_a[$k]) . ".mp3",
                     'a_content' => $L34_U_4_a[$k]
                 ]
             ]);

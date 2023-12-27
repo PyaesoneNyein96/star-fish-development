@@ -160,10 +160,13 @@ class DatabaseSeeder extends Seeder
         // seeder 2
         $this->call(PSNAnsNQuesSeeder::class);
         // $this->call(PSNAnsNQuesG2Seeder::class);
-        // $this->call(PSNAnsNQuesG3Seeder::class);
-        // $this->call(PSNAnsNQuesG4Seeder::class);
+
 
 
         $this->call(Grade1AnsNQueSeeder::class);
+
+
+         $this->call(PSNAnsNQuesG3Seeder::class);
+        $this->call(PSNAnsNQuesG4Seeder::class);
     }
 }
