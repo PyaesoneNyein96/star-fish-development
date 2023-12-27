@@ -77,13 +77,14 @@ trait gameTraits
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' =>   $game->instructions->isEmpty() ? null : $game->instructions,
-            // 'data' => $game->ans_n_ques
         ];
+
 
         if ($roundExist) {
             $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
+        }else{
+            $data['data'] = $game->ans_n_ques;
         }
-        $data['data'] = $game->ans_n_ques;
         return $data;
     }
 
@@ -118,7 +119,8 @@ trait gameTraits
             'category' => $game->category->name,
             'instructionGIF' => $game->instructionGIF,
             'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
-            'data' => $videos->first()
+            'data' => $videos->first(),
+
         ];
     }
 
@@ -187,6 +189,9 @@ trait gameTraits
 
         if ($roundExist) {
             $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
+            $data['round_count'] = count($game->ans_n_ques->groupBy('round')->values());
+
+            return $data;
         }
         $data['data'] = $game->ans_n_ques;
         return $data;
@@ -440,6 +445,38 @@ trait gameTraits
 
         if ($roundExist) {
             $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
+        }
+        $data['data'] = $game->ans_n_ques;
+
+        return $data;
+
+    }
+
+
+
+    public function mcq_tf_grammar($game, $student, $unit){
+
+        if (isset($game[0])) $game = $game[0];
+
+        $roundExist = $game->ans_n_ques->some(function ($g) {
+            return array_key_exists('round', $g->toArray());
+        });
+
+        $data = [
+            'game_id' => $game->id,
+            'lesson_id' => $unit->lesson_id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'game_status' => $game->status,
+            'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
+            'instructionGIF'  => $game->instructionGIF,
+            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
+        ];
+
+        if ($roundExist) {
+            $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
+            return $data;
         }
         $data['data'] = $game->ans_n_ques;
 
