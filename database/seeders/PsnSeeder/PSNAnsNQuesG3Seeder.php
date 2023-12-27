@@ -43,7 +43,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
             DB::table('ans_n_ques')->insert([
-                [ 'game_id' => 113, 'q_content' => $questions_G3_L26_U7,
+                [ 'game_id' => 260, 'q_content' => $questions_G3_L26_U7,
                   'a_content' => $sampleANs_G3_L26_U7],
             ]);
 
@@ -75,7 +75,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         foreach ($q_content_G3_L33_U3 as $key => $value) {
              DB::table('ans_n_ques')->insert([
                 [
-                 'game_id' => 117, 'round' => $key + 1, 'q_image' => $qImg.$q_content_G3_L33_U3_img[$key].".png",
+                 'game_id' => 264, 'round' => $key + 1, 'q_image' => $qImg.$q_content_G3_L33_U3_img[$key].".png",
                  'q_content' => $value, 'a_content' => $a_content_G3_L33_U3[$key],
                  'q_audio' => $AudioDomain."Grade_3/Lesson_33/Write_the_Opposite/".$a_content_G3_L33_U3_audio[$key].".mp3"
                 ],

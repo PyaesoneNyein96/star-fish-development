@@ -361,8 +361,10 @@ class GameController extends Controller
 
 
         //ထူးထူး
-        // if ($student->grade_chosen == null) $this->addPointFunction($student, $request->header('point'));
-        $this->addPointFunction($student, $request->header('point'));
+        // if ($student->grade_chosen == null) {
+            //  $this->addPointFunction($student, $request->header('point'),$request->header('question_answer'));
+        // }
+        $this->addPointFunction($student, $request->header('point'), $request->header('question_answer'));
 
 
         return response()->json(['status' => 'success and recorded'], 200);
@@ -399,7 +401,7 @@ class GameController extends Controller
     // add point
     // =========***
 
-    private function addPointFunction($student, $point)
+    private function addPointFunction($student, $point, $question_answer)
     {
 
         // return 'cc';
@@ -438,5 +440,15 @@ class GameController extends Controller
                 'board' => $board
             ]);
         }
+
+        // Total - ans_ques
+
+        Student::where('id', $student_id)->update([
+            'question_answer' => (int)$question_answer + Student::find($student_id)->question_answer
+        ]);
+
+
+
     }
+
 }

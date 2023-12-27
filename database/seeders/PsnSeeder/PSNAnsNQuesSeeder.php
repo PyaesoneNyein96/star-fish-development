@@ -490,12 +490,12 @@ class PSNAnsNQuesSeeder extends Seeder
         ];
 
         $correctAns =   [
-            ['B'],
-            ['C'],
-            ['D'],
-            ['D'],
-            ['A'],
-            ['A'],
+         ['B'],
+         ['C'],
+         ['D'],
+         ['D'],
+         ['A'],
+         ['A'],
 
         ];
 
@@ -504,8 +504,8 @@ class PSNAnsNQuesSeeder extends Seeder
             'Ball', 'Cake', 'Dog', 'Duster', 'Apple', 'Ant'
         ];
 
-        $img = $ImageDomain . "Grade_1/Lesson_7/Writing_Sentences_order";
-        $audio = $AudioDomain . "Grade_1/Lesson_7/Writing_Sentences_order";
+        $img = $ImageDomain."Grade_1/Lesson_7/Writing_Sentences_order/";
+        $audio = $AudioDomain."Grade_1/Lesson_7/Writing_Sentences_order/";
 
 
         for ($i = 0; $i < count($question_1); $i++) {
@@ -1474,10 +1474,10 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         $L33_U3_contents = [
-            'Open-your-book', 'Look-at-the-picture', 'Bring-a-pencil', 'close-your-book',
+           'Open-your-book','Look-at-the-picture','Bring-a-pencil','Close-your-book',
         ];
-        $L33_U3_contents_2 = [
-            'Write-abc', 'Please-be-quiet', 'close-your-book', 'Open-your-book'
+         $L33_U3_contents_2 = [
+        'Write-abc','Please-be-quiet','Close-your-book','Open-your-book'
         ];
 
 
@@ -1618,17 +1618,48 @@ class PSNAnsNQuesSeeder extends Seeder
             'Touch your friend', 'Make a circle',
         ];
 
-        foreach ($L34_U3_q_img as $k => $value) {
+        $img = $ImageDomain."Grade_1/Lesson_34/Read_Listen_and_Practice/";
+        $audio = $AudioDomain."Grade_1/Lesson_34/Read_Listen_and_Practice/";
+
+        $TF = ["True","False"];
+        $tf = [ true , false ];
+
+        // foreach ($L34_U3_q_img as $k => $value) {
+
+        //     DB::table('ans_n_ques')->insert([
+        //              [
+        //                 'game_id' => 213, 'a_content' => $value,
+        //                 'round' => $k + 1,
+        //                 'q_image' => $img .str_replace(' ','-',$value). ".png",
+        //                 'q_content' => $L34_U3_content[$k],
+        //                 'a_content' => $value == $L34_U3_content[$k] ? $tf[0] : $tf[1]
+        //             ],
+        //     ]);
+        // }
+
+
+          foreach ($L34_U3_q_img as $k => $value) {
+
+            DB::table('ans_n_ques')->insert([
+                     [
+                        'game_id' => 213,
+                        'round' => $k + 1,
+                        'q_image' => $img .str_replace(' ','-',$value). ".png",
+                        'q_content' => $TF[0],
+                        'q_conver' => $L34_U3_content[$k],
+                         'a_content' => ($L34_U3_q_img[$k] == $L34_U3_content[$k]) == $tf[0]  ? true : false
+                    ],
+            ]);
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 213, 'a_content' => $value,
+                    'game_id' => 213,
                     'round' => $k + 1,
-                    'q_image' => $img . str_replace(' ', '-', $value) . ".png",
-                    'q_content' => $L34_U3_content[$k],
-                    'a_content' => $value == $L34_U3_content[$k] ? true : false
-                ],
+                    'q_content' =>  $TF[1],
+                    'a_content' => ($L34_U3_q_img[$k] == $L34_U3_content[$k]) == $tf[1]  ? true : false
+                ]
             ]);
+
         }
 
 
@@ -1661,16 +1692,21 @@ class PSNAnsNQuesSeeder extends Seeder
         // ];
         $L34_U_4_a = [
             'Close the door',
-            'Open the book',
+            'Open your book',
             'Bring a pencil',
             'Look at the picture',
-            'draw a ball',
+            'Draw a ball',
             'Make a circle',
             'Touch your friend',
-            'write ABCD',
+            'Write ABCD',
             'Listen and sing',
             'Make a group'
         ];
+
+
+        $img = $ImageDomain."Grade_1/Lesson_34/Writing/";
+        $audio = $AudioDomain."Grade_1/Lesson_34/Writing/";
+
 
         foreach ($L34_U_4_content as $k => $question) {
 
@@ -1687,8 +1723,8 @@ class PSNAnsNQuesSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 214, 'round' => $k + 1,
-                    'q_image' => str_replace(' ', '-', $ImageDomain . $L34_U_4_a[$k]) . ".png",
-                    'q_audio' => str_replace(' ', '-', $ImageDomain . $L34_U_4_a[$k]) . ".mp3",
+                    'q_image' => str_replace(' ', '-', $img . $L34_U_4_a[$k]) . ".png",
+                    'q_audio' => str_replace(' ', '-', $audio . $L34_U_4_a[$k]) . ".mp3",
                     'a_content' => $L34_U_4_a[$k]
                 ]
             ]);
@@ -1751,30 +1787,58 @@ class PSNAnsNQuesSeeder extends Seeder
         //// Lesson 35 Unit 3 (True or False) <mcq_tf_grammar>
 
 
-        $L34_U3_q_img = [
-            'Raise your hand', 'Ask and answer', 'Ask and answer', 'Say the words', 'Sing and act',
-            'sing the ABC song', 'Raise your hand', 'practice with your friend',
-            'Clap your hands', 'Work to the door'
+        $L35_U3_q_img = [
+            'Raise your hand', 'Ask and answer','Ask and answer','Say the words','Sing and act',
+            'sing the ABC song','Raise your hand','practice with your friend',
+            'Clap your hands','Work to the door'
         ];
 
-        $L34_U3_content = [
-            'Raise your hand', 'Sing and dance', 'Ask and answer', 'Say the words', 'Come here',
-            'sing the ABC song', 'practice with your friend', 'practice with your friend',
-            'Clap your hands', 'Come here'
+        $L35_U3_content = [
+            'Raise your hand', 'Sing and dance','Ask and answer','Say the words','Come here',
+            'sing the ABC song','practice with your friend','practice with your friend',
+            'Clap your hands','Come here'
         ];
 
-        foreach ($L34_U3_q_img as $k => $value) {
+        // foreach ($L34_U3_q_img as $k => $value) {
+
+        //     DB::table('ans_n_ques')->insert([
+        //              [
+        //                 'game_id' => 218, 'a_content' => $value,
+        //                 'round' => $k + 1,
+        //                 'q_image' => $img .str_replace(' ','-',$value). ".png",
+        //                 'q_content' => $L34_U3_content[$k],
+        //                 'a_content' => $value == $L34_U3_content[$k] ? true : false
+        //             ],
+        //     ]);
+        // }
+
+        $TF = ["True","False"];
+        $tf = [true, false];
+
+        foreach ($L35_U3_q_img as $k => $value) {
+
+            DB::table('ans_n_ques')->insert([
+                     [
+                        'game_id' => 218,
+                        'round' => $k + 1,
+                        'q_image' => $img .str_replace(' ','-',$value). ".png",
+                        'q_content' => $TF[0],
+                        'q_conver' => $L35_U3_content[$k],
+                         'a_content' => ($L35_U3_q_img[$k] == $L35_U3_content[$k]) == $tf[0]  ? true : false
+                    ],
+            ]);
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 218, 'a_content' => $value,
+                    'game_id' => 218,
                     'round' => $k + 1,
-                    'q_image' => $img . str_replace(' ', '-', $value) . ".png",
-                    'q_content' => $L34_U3_content[$k],
-                    'a_content' => $value == $L34_U3_content[$k] ? true : false
-                ],
+                    'q_content' =>  $TF[1],
+                    'a_content' => ($L35_U3_q_img[$k] == $L35_U3_content[$k]) == $tf[1]  ? true : false
+                ]
             ]);
+
         }
+
 
 
 

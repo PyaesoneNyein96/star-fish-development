@@ -350,8 +350,8 @@ trait gameTraits
     public function writing_topic($game, $student, $unit)
     {
 
-        if (isset($game[0])) $game = $game[0];
 
+        if (isset($game[0])) $game = $game[0];
         // $rounds =  $game->ans_n_ques->groupBy('round')->values();
 
         return [
