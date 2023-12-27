@@ -390,10 +390,78 @@ class PSNAnsNQuesSeeder extends Seeder
                     ],
                 ]);
             }
-        // -------------------
+        // // -------------------
+        // // < fill_in_the_blanks >
+
+        // $g1_l7_u6_rearrange_the_letter_q1 = [
+        //     ['A','B','L','L'],
+        //     ['A','C','E','K'],
+        //     ['G','D','O'],
+        //     ['D','U','S','T','R','E'],
+        //     ['P','A','E','L','P'],
+        //     ['N','A','T'],
+        // ];
+
+        // $g1_l7_u6_rearrange_the_letter_q2 = [
+        //     '_all','_ake','_og','_uster','_pple','_nt'
+        // ];
+
+        // $correctAns =   [
+
+        //  ['B'],
+        //  ['C'],
+        //  ['D'],
+        //  ['D'],
+        //  ['A'],
+        //  ['A'],
+
+        // ];
+
+        // // $g1_l7_u6_rearrange_the_letter_a = [
+        // //     'BALL','CAKE','DOG','DUSTER','APPLE','ANT'
+        // // ];
+        // $g1_l7_u6_rearrange_the_letter_a = [
+        //     'Ball','Cake','Dog','Duster','Apple','Ant'
+        // ];
+
+
+
+
+        // for ($i=0; $i < count($g1_l7_u6_rearrange_the_letter_q1) ; $i++) {
+
+        //     $roundAnswers = [];
+        //     foreach ($g1_l7_u6_rearrange_the_letter_q1[$i] as $k => $word) {
+
+        //         $isCorrect = in_array($word, $correctAns[$i]);
+        //         $roundAnswers[] = $isCorrect;
+
+        //         DB::table('ans_n_ques')->insert([
+        //             [   'round' => $i + 1, 'game_id' => 40,
+        //                 'q_audio' => $word.".mp3",'q_content' => $word,
+        //                 'a_content' => $isCorrect ? 1 : 0,
+        //             ]
+        //         ]);
+        //     }
+
+        //     // $roundAnswer = implode('', $roundAnswers);
+
+        //     DB::table('ans_n_ques')->insert([
+        //         [
+        //             'round' => $i + 1, 'game_id' => 40,
+        //             'q_audio' =>$AudioDomain."Grade_1/Lesson_7/Writing_Sentences_order/". $g1_l7_u6_rearrange_the_letter_a[$i].".mp3",
+        //             'q_image' =>$ImageDomain."Grade_1/Lesson_7/Writing_Sentences_order/".$g1_l7_u6_rearrange_the_letter_a[$i].".png" ,
+        //             'q_content' => $g1_l7_u6_rearrange_the_letter_q2[$i],
+        //             'a_content' => $g1_l7_u6_rearrange_the_letter_a[$i],
+        //         ],
+        //     ]);
+
+        // }
+
+
+            // -------------------
         // < fill_in_the_blanks >
 
-        $g1_l7_u6_rearrange_the_letter_q1 = [
+        $question_1 = [
             ['A','B','L','L'],
             ['A','C','E','K'],
             ['G','D','O'],
@@ -402,13 +470,12 @@ class PSNAnsNQuesSeeder extends Seeder
             ['N','A','T'],
         ];
 
-        $g1_l7_u6_rearrange_the_letter_q2 = [
+        $question_2 = [
             '_all','_ake','_og','_uster','_pple','_nt'
         ];
 
         $correctAns =   [
-
-         ['B'],
+         ['B','Z'],
          ['C'],
          ['D'],
          ['D'],
@@ -417,45 +484,46 @@ class PSNAnsNQuesSeeder extends Seeder
 
         ];
 
-        // $g1_l7_u6_rearrange_the_letter_a = [
-        //     'BALL','CAKE','DOG','DUSTER','APPLE','ANT'
-        // ];
-        $g1_l7_u6_rearrange_the_letter_a = [
+
+        $answer = [
             'Ball','Cake','Dog','Duster','Apple','Ant'
         ];
 
+        $img = $ImageDomain."Grade_1/Lesson_7/Writing_Sentences_order";
+        $audio = $AudioDomain."Grade_1/Lesson_7/Writing_Sentences_order";
 
 
+        for ($i=0; $i < count($question_1) ; $i++) {
 
-        for ($i=0; $i < count($g1_l7_u6_rearrange_the_letter_q1) ; $i++) {
-
-            $roundAnswers = [];
-            foreach ($g1_l7_u6_rearrange_the_letter_q1[$i] as $k => $word) {
-
-                $isCorrect = in_array($word, $correctAns[$i]);
-                $roundAnswers[] = $isCorrect;
+            foreach ($question_1[$i] as $k => $word) {
 
                 DB::table('ans_n_ques')->insert([
                     [   'round' => $i + 1, 'game_id' => 40,
                         'q_audio' => $word.".mp3",'q_content' => $word,
-                        'a_content' => $isCorrect ? 1 : 0,
+                        'a_content' => implode(' ', $correctAns[$i]),
                     ]
                 ]);
             }
 
-            $roundAnswer = implode('', $roundAnswers);
 
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1, 'game_id' => 40,
-                    'q_audio' =>$AudioDomain."Grade_1/Lesson_7/Writing_Sentences_order/". $g1_l7_u6_rearrange_the_letter_a[$i].".mp3",
-                    'q_image' =>$ImageDomain."Grade_1/Lesson_7/Writing_Sentences_order/".$g1_l7_u6_rearrange_the_letter_a[$i].".png" ,
-                    'q_content' => $g1_l7_u6_rearrange_the_letter_q2[$i],
-                    'a_content' => $g1_l7_u6_rearrange_the_letter_a[$i]
+                    'q_audio' =>$audio.$answer[$i].".mp3",
+                    'q_image' =>$img.$answer[$i].".png" ,
+                    'q_content' => $question_2[$i],
+                    'a_content' => $answer[$i],
                 ],
             ]);
 
         }
+
+
+
+
+
+
+
 
         // lesson -7 END here
 
@@ -595,7 +663,7 @@ class PSNAnsNQuesSeeder extends Seeder
     // Grade 1 Lesson 12 U - 6 subunit-2 (fill_in_the_blanks)
 
 
-     $g1_l7_u6_rearrange_the_letter_q1 = [
+     $question_1 = [
             ['E','Y','E'],
             ['G','O','A','T'],
             ['T','A','H'],
@@ -605,7 +673,7 @@ class PSNAnsNQuesSeeder extends Seeder
             ['N','A','F'],
         ];
 
-        $g1_l7_u6_rearrange_the_letter_q2 = [
+        $question_2 = [
             '_Y_','_O_T','__T','_R_SS','_LOW_R','__R','__N'
         ];
 
@@ -622,43 +690,73 @@ class PSNAnsNQuesSeeder extends Seeder
         ];
 
 
-        $g1_l7_u6_rearrange_the_letter_a = [
+        $answer = [
             'EYE','GOAT','HAT','GRASS','FLOWER','EAR','FAN'
         ];
 
 
+        $img = $ImageDomain."Grade_1/Lesson_12/Write_the_correct_letter";
+        $audio = $AudioDomain."Grade_1/Lesson_12/Write_the_correct_letter";
 
 
-        for ($i=0; $i < count($g1_l7_u6_rearrange_the_letter_q1) ; $i++) {
+        for ($i=0; $i < count($question_1) ; $i++) {
 
-            $roundAnswers = [];
-            foreach ($g1_l7_u6_rearrange_the_letter_q1[$i] as $k => $word) {
-
-                $isCorrect = in_array($word, $correctAns[$i]);
-                $roundAnswers[] = $isCorrect;
+            foreach ($question_1[$i] as $k => $word) {
 
                 DB::table('ans_n_ques')->insert([
                     [   'round' => $i + 1, 'game_id' => 72,
-                        'q_audio' => $word.".mp3",
-                        'q_content' => $word,
-                        'a_content' => $isCorrect ? 1 : 0,
+                        'q_audio' => $word.".mp3",'q_content' => $word,
+                        'a_content' => implode(' ', $correctAns[$i]),
                     ]
                 ]);
             }
 
-            // $roundAnswer = implode('', $roundAnswers);
 
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1, 'game_id' => 72,
-                    'q_audio' => $AudioDomain."Grade_1/Lesson_12/Write_the_correct_letter/".$g1_l7_u6_rearrange_the_letter_a[$i].".mp3",
-                    'q_image' =>$ImageDomain."Grade_1/Lesson_12/Write_the_correct_letter/".$g1_l7_u6_rearrange_the_letter_a[$i].".png" ,
-                    'q_content' => $g1_l7_u6_rearrange_the_letter_q2[$i],
-                    'a_content' => $g1_l7_u6_rearrange_the_letter_a[$i]
+                    'q_audio' =>$audio.$answer[$i].".mp3",
+                    'q_image' =>$img.$answer[$i].".png" ,
+                    'q_content' => $question_2[$i],
+                    'a_content' => $answer[$i],
                 ],
             ]);
 
         }
+
+
+
+
+        // for ($i=0; $i < count($g1_l7_u6_rearrange_the_letter_q1) ; $i++) {
+
+        //     $roundAnswers = [];
+        //     foreach ($g1_l7_u6_rearrange_the_letter_q1[$i] as $k => $word) {
+
+        //         $isCorrect = in_array($word, $correctAns[$i]);
+        //         $roundAnswers[] = $isCorrect;
+
+        //         DB::table('ans_n_ques')->insert([
+        //             [   'round' => $i + 1, 'game_id' => 72,
+        //                 'q_audio' => $word.".mp3",
+        //                 'q_content' => $word,
+        //                 'a_content' => $isCorrect ? 1 : 0,
+        //             ]
+        //         ]);
+        //     }
+
+        //     // $roundAnswer = implode('', $roundAnswers);
+
+        //     DB::table('ans_n_ques')->insert([
+        //         [
+        //             'round' => $i + 1, 'game_id' => 72,
+        //             'q_audio' => $AudioDomain."Grade_1/Lesson_12/Write_the_correct_letter/".$g1_l7_u6_rearrange_the_letter_a[$i].".mp3",
+        //             'q_image' =>$ImageDomain."Grade_1/Lesson_12/Write_the_correct_letter/".$g1_l7_u6_rearrange_the_letter_a[$i].".png" ,
+        //             'q_content' => $g1_l7_u6_rearrange_the_letter_q2[$i],
+        //             'a_content' => $g1_l7_u6_rearrange_the_letter_a[$i]
+        //         ],
+        //     ]);
+
+        // }
 
 
 
