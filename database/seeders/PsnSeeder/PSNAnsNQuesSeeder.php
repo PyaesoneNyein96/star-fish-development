@@ -1737,7 +1737,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
         $L34_U3_q_img = [
             'Listen and sing', 'Listen and say', 'Make pairs', 'Touch your friend',
-            'Make a circle', 'Make a line', 'Listen and draw', 'Listen and read',
+            'Make a circle', 'Make a group', 'Listen and draw', 'Listen and read',
         ];
 
 
@@ -2964,5 +2964,11 @@ class PSNAnsNQuesSeeder extends Seeder
 
             ]);
         }
+
+
+
+
+
+
     }
 }
