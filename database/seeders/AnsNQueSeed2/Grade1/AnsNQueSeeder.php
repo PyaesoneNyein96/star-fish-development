@@ -181,9 +181,9 @@ class AnsNQueSeeder extends Seeder
 
 
         $qG16R1 = [
-            ["to", "meet", "Hello,", "I'm", "Nice", "you", "Mary."],
-            ["meet", "Nice", "Mike.", "to", "Hello,", "you", "I'm"],
-            ["I'm", "you", "Nice", "meet", "Tom.", "to", "Hello,"],
+            ["to", "meet", "Hello,", "I'm", "Nice", "you.", "Mary."],
+            ["meet", "Nice", "Mike.", "to", "Hello,", "you.", "I'm"],
+            ["I'm", "you.", "Nice", "meet", "Tom.", "to", "Hello,"],
         ];
 
         $audiosG16 = [
@@ -193,9 +193,9 @@ class AnsNQueSeeder extends Seeder
         ];
 
         $aG16R1 = [
-            "Hello, I'm Mary. Nice to meet you",
-            "Hello, I'm Mike. Nice to meet you",
-            "Hello, I'm Tom. Nice to meet you",
+            "Hello, I'm Mary. Nice to meet you.",
+            "Hello, I'm Mike. Nice to meet you.",
+            "Hello, I'm Tom. Nice to meet you.",
         ];
 
         $G16Index = 0;
