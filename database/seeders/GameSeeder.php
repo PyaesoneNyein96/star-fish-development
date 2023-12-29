@@ -501,7 +501,6 @@ class GameSeeder extends Seeder
             ['name' => 'Reading 1', 'unit_id' => 223, 'category_id' => 2, 'instructionGIF' => null],
             ['name' => 'Reading 2', 'unit_id' => 223, 'category_id' => 2, 'instructionGIF' => null],
             ['name' => 'Round 1', 'unit_id' => 224, 'category_id' => 17, 'instructionGIF' => null],
-            ['name' => 'Round 2', 'unit_id' => 224, 'category_id' => 17, 'instructionGIF' => null],
             ['name' => 'Grammar', 'unit_id' => 225, 'category_id' => 21, 'instructionGIF' => null],
             ['name' => 'Writing(Arranging Order)', 'unit_id' => 226, 'category_id' => 14, 'instructionGIF' => null],
             ['name' => 'Speaking', 'unit_id' => 227, 'category_id' => 11, 'instructionGIF' => $Gif_path . "Speaking.gif"],
