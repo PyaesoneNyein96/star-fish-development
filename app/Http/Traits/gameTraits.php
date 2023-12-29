@@ -189,8 +189,7 @@ trait gameTraits
 
         if ($roundExist) {
             $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
-            $data['round_count'] = count($game->ans_n_ques->groupBy('round')->values());
-
+            // $data['round_count'] = count($game->ans_n_ques->groupBy('round')->values());
             return $data;
         }
         $data['data'] = $game->ans_n_ques;
@@ -248,8 +247,9 @@ trait gameTraits
 
         if ($roundExist) {
             $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
+        }else{
+            $data['data'] = $game->ans_n_ques;
         }
-        $data['data'] = $game->ans_n_ques;
 
         return $data;
     }
@@ -396,7 +396,6 @@ trait gameTraits
 
     public function listening_and_choosing_pics_two($game, $student, $unit)
     {
-
         if (isset($game[0])) $game = $game[0];
 
         $roundExist = $game->ans_n_ques->some(function ($g) {
@@ -417,9 +416,9 @@ trait gameTraits
 
         if ($roundExist) {
             $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
+        }else{
+            $data['data'] = $game->ans_n_ques;
         }
-        $data['data'] = $game->ans_n_ques;
-
         return $data;
     }
 
@@ -445,8 +444,9 @@ trait gameTraits
 
         if ($roundExist) {
             $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
+        }else{
+            $data['data'] = $game->ans_n_ques;
         }
-        $data['data'] = $game->ans_n_ques;
 
         return $data;
 

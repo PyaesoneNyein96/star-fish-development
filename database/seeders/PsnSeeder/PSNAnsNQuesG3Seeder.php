@@ -38,9 +38,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $questions_G3_L26_U7 = "What time do you get up in the morning? \n What time do you take the bath? \n What time do you eat breakfast? \n What time do you go to school? \n What time do you eat lunch? \n What time do you come back home? \n What time do you do homework? \n What time do you eat dinner? \n What time do you go to bed? \n";
 
-        $sampleANs_G3_L26_U7 =
-            "A \n\n B \n\n C \n\n D \n\n E \n\n F \n\n G \n\n H \n\n I \n\n ";
+        // $sampleANs_G3_L26_U7 =
+        //     "A \n\n B \n\n C \n\n D \n\n E \n\n F \n\n G \n\n H \n\n I \n\n ";
 
+        $sampleANs_G3_L26_U7 = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi magnam animi a rem recusandae, nobis voluptate, quas laboriosam alias natus esse delectus necessitatibus ipsum sed debitis dolorem. Repellendus, quibusdam beatae.";
 
             DB::table('ans_n_ques')->insert([
                 [ 'game_id' => 260, 'q_content' => $questions_G3_L26_U7,
