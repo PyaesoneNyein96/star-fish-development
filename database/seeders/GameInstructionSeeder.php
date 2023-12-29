@@ -639,6 +639,25 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Who are they?", 'game_id' => 234, 'audio' =>  $Instructions . "Who-are-they".".mp3"],
 
 
+            // Lesson - 38
+            // Game 3  (2 rounds)
+            ['content' => "Listen to the boy and tick what he says.", "game_id" => 237,
+             'audio' =>  $Instructions . "Listen-to-the-boy-and-tick-what-he-said" . ".mp3"],
+            ['content' => "Listen to the boy and tick what she says.", "game_id" => 237,
+             'audio' =>  $Instructions . "Listen-to-the-boy-and-tick-what-she-said" . ".mp3"],
+
+            // Game 6
+            ['content' => "Listen who they are Tap each speaker and record", "game_id" => 239,
+             'audio' =>  $Instructions . "Listen-who-they-are-Tap-each-speaker-and-record" . ".mp3"],
+
+
+
+            // Lesson - 39
+            // Game 3  (2 rounds)
+            // ['content' => "Listen to the boy and tick what he says.", "game_id" => 237,
+            //  'audio' =>  $Instructions . "Listen-to-the-boy-and-tick-what-he-said" . ".mp3"],
+
+
         ]);
 
 
