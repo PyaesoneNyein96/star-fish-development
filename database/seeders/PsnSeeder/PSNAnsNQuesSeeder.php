@@ -2506,11 +2506,11 @@ class PSNAnsNQuesSeeder extends Seeder
         // SubUnit -1 (Reading-1)
 
         $content = [
-            'Aunt', 'Cousin', 'Older Brother', 'Older Sister', 'Uncle', 'Younger Brother', 'Younger Sister'
+            'aunt', 'cousins', 'older brother', 'older sister', 'uncle', 'younger brother', 'younger sister'
         ];
 
-        $img = $ImageDomain . "Grade_1/Lesson_38/Reading-1/";
-        $audio = $AudioDomain . "Grade_1/Lesson_38/Reading-1/";
+        $img = $ImageDomain . "Grade_1/Lesson_39/Reading-1/";
+        $audio = $AudioDomain . "Grade_1/Lesson_39/Reading-1/";
 
         foreach ($content as $value) {
 
@@ -2555,22 +2555,27 @@ class PSNAnsNQuesSeeder extends Seeder
         //SubUnit -1 (Round-1)
 
         $content = [
-            'I have an aunt',
-            'I have an uncle',
-            'I have a younger sister',
-            'I have an older brother',
-            'I have a younger brother',
-            'I have a sister',
-            'I have two cousins',
+            'I have an uncle',   //
+            'I have a younger sister', //
+            'I have an older brother',  //
+            'I have a younger brother',//
+            'This is my father',
+            'This is my mother',
+            'This is my grandfather',
+            'This is my grandmother',
+            'This is my older sister'
+
         ];
             $audioContent = [
-            'I have an aunt',
-            'I have an uncle',
-            'I have a younger sister',
-            'I have an older brother',
-            'I have a younger brother',
-            'I have a sister',
-            'I have two cousins',
+            'I have an uncle',   //
+            'I have a younger sister', //
+            'I have an older brother',  //
+            'I have a younger brother',//
+            'This is my father',
+            'This is my mother',
+            'This is my grandfather',
+            'This is my grandmother',
+            null
         ];
 
 
