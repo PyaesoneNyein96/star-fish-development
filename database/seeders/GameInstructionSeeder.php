@@ -140,7 +140,7 @@ class GameInstructionSeeder extends Seeder
             // G-1 lesson_7 U-39
             // Game 39,40
             ['content' => "Trace and write", "game_id" => 39, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
-            ['content' => "Write-the-correct-letter", "game_id" => 40, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
+            ['content' => "Write the correct letter", "game_id" => 40, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
 
 
             // ================
@@ -221,7 +221,7 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Listen and tap the words you hear", 'game_id' => 68, 'audio' =>  $Instructions . "Listen-and-tap-the-words-you-hear" . ".mp3"],
 
             ['content' => "Trace and write", "game_id" => 71, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
-            ['content' => "Write-the-correct-letter", "game_id" => 72, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
+            ['content' => "Write the correct letter", "game_id" => 72, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
 
 
 
@@ -298,7 +298,7 @@ class GameInstructionSeeder extends Seeder
             // G-1 lesson_16 U-93
             // game 98 , 99
             ['content' => "Trace-and-write", "game_id" => 98, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
-            ['content' => "Write-the-correct-letter", "game_id" => 99, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
+            ['content' => "Write the correct letter", "game_id" => 99, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
 
 
 
@@ -326,7 +326,7 @@ class GameInstructionSeeder extends Seeder
 
             // ================
             // G-1 lesson_18 U-101
-            ['content' => "Listen Read and Repeat", 'game_id' => 108, 'audio' =>  $Instructions . "Listen_Read_and_Repeat_audio" . ".mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 108, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             // G-1 lesson_18 U-102
             ['content' => "Listen and choose the word you hear", 'game_id' => 109, 'audio' =>  $Instructions . "Listen-and-choose-the-word-you" . ".mp3"],
@@ -343,7 +343,7 @@ class GameInstructionSeeder extends Seeder
 
             // ================
             // G-1 lesson_19 U-107
-            ['content' => "Listen Repeat", 'game_id' => 114, 'audio' =>  $Instructions . "Listen_and_Repeat_audio" . ".mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 114, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             // G-1 lesson_19 U-108
             ['content' => "Listen and choose the word you hear", 'game_id' => 115, 'audio' =>  $Instructions . "Listen-and-choose-the-word-you" . ".mp3"],
@@ -361,7 +361,7 @@ class GameInstructionSeeder extends Seeder
 
             // ================
             // G-1 lesson_20 U-113
-            ['content' => "Listen Repeat", 'game_id' => 120, 'audio' =>  $Instructions . "Listen_and_Repeat_audio" . ".mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 120, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             // G-1 lesson_20 U-114
             ['content' => "Listen and tap what you hear", 'game_id' => 121, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
@@ -371,18 +371,18 @@ class GameInstructionSeeder extends Seeder
 
             // G-1 lesson_20 U-116
             ['content' => "Tap the things in the room and answer the question", 'game_id' => 123, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
-            ['content' => "Look at the half of the picture and say a word", 'game_id' => 124, 'audio' =>  $Instructions . "Look-at-the-half-of-the-pictur" . ".mp3"],
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 124, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
 
             // G-1 lesson_20 U-117
             ['content' => "Trace-and-write", "game_id" => 125, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
-            ['content' => "Write-the-correct-letter", "game_id" => 126, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
+            ['content' => "Write the correct letter", "game_id" => 126, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
 
 
             // ================
             // G-1 lesson_21 U-119
             // game 128 , 129
-            ['content' => "Read listen and Repeat after it.", 'game_id' => 128, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
-            ['content' => "Read listen and Repeat after it.", 'game_id' => 129, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 128, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 129, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             // G-1 lesson_21 U-120
             ['content' => "Listen and tap what you hear", 'game_id' => 130, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
@@ -464,7 +464,7 @@ class GameInstructionSeeder extends Seeder
             // G-1 lesson_25 U-146
             // Game 158,159
             ['content' => "Trace and write", "game_id" => 158, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
-            ['content' => "Write-the-correct-letter", "game_id" => 159, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
+            ['content' => "Write the correct letter", "game_id" => 159, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
 
 
             // ================
@@ -548,7 +548,7 @@ class GameInstructionSeeder extends Seeder
             // G-1 lesson_30 U-176
             // Game 189 , 190
             ['content' => "Trace and write", "game_id" => 189, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
-            ['content' => "Write-the-correct-letter", "game_id" => 190, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
+            ['content' => "Write the correct letter", "game_id" => 190, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
 
 
 
