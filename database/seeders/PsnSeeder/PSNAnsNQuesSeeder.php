@@ -2640,6 +2640,8 @@ class PSNAnsNQuesSeeder extends Seeder
 
         $answer = ['a', 'an'];
 
+        $img = $ImageDomain . "Grade_1/Lesson_39/Grammar/";
+
         foreach ($question as $k => $value) {
 
             DB::table('ans_n_ques')->insert([
@@ -2701,8 +2703,8 @@ class PSNAnsNQuesSeeder extends Seeder
                 [
                     'game_id' => 245,
                     'round' => $i + 1,
-                    'q_image' => $img . str_replace(' ', '-', $answers[$i]) . ".png",
-                    'q_audio' => $audio . str_replace(' ', '-', $answers[$i]) . ".mp3",
+                    // 'q_image' => $img . str_replace(' ', '-', $answers[$i]) . ".png",
+                    // 'q_audio' => $audio . str_replace(' ', '-', $answers[$i]) . ".mp3",
                     'a_content' => $answers[$i],
                 ]
             ]);
@@ -2752,11 +2754,11 @@ class PSNAnsNQuesSeeder extends Seeder
         // SubUnit -1 (Reading-1)
 
         $content = [
-            'One', 'Two', 'Three', 'Four', 'Fix', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'
+            'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'
         ];
 
-        $img = $ImageDomain . "Grade_1/Lesson_40/Reading-1/";
-        $audio = $AudioDomain . "Grade_1/Lesson_40/Reading-1/";
+        $img = $ImageDomain . "Grade_1/Lesson_40/Reading_1/";
+        $audio = $AudioDomain . "Grade_1/Lesson_40/Reading_1/";
 
         foreach ($content as $value) {
 
@@ -2775,12 +2777,13 @@ class PSNAnsNQuesSeeder extends Seeder
         // SubUnit -2 (Reading-2)
 
         $content = [
-            "She's four years old", "She's seven years old", "He's nine years old",
-            "He's three years old", "He's six years old", "He's two years old"
+            "She is four years old", "She is seven years old", "She is nine years old",
+            "He is three years old", "He is six years old", "He is two years old",
+            "I am three years old", "I am six years old", "I am two years old",
         ];
 
-        $img = $ImageDomain . "Grade_1/Lesson_40/Reading-2/";
-        $audio = $AudioDomain . "Grade_1/Lesson_40/Reading-2/";
+        $img = $ImageDomain . "Grade_1/Lesson_40/Reading_2/";
+        $audio = $AudioDomain . "Grade_1/Lesson_40/Reading_2/";
 
         foreach ($content as $value) {
 
@@ -2801,14 +2804,14 @@ class PSNAnsNQuesSeeder extends Seeder
 
         $content = [
             [
-                "I’m 6 years old.I have 3 brothers and an older sister",
+                "I am 6 years old I have 3 brothers and an older sister",
                 'He is one',
                 'She is 10',
                 'He is eight years old',
                 'He is 5',
             ],
             [
-                "I’m 7 years old. I have an older sister, two younger sisters and a younger brother",
+                "I am 7 years old I have an older sister two younger sisters and a younger brother",
                 'She is 10',
                 'She is one',
                 'She is 4 years old',
@@ -2922,7 +2925,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_audio' => $audios . $paraName,
                     'q_content' => null,
                     'q_conver' => $para,
-                    'q_image' => $images . "character.png", //char
+                    // 'q_image' => $images . "character.png", //char
                     'background' => $images . "bg.png"
                 ]
             ]);
@@ -2937,7 +2940,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
 
-        $contentImg = ['Mike', 'Chris', 'one', 'Kevin', 'emma', 'David'];
+        $contentImg = ['Mike', 'Chris', 'twin', 'Kevin', 'emma', 'David'];
 
         $contents = [
             'His', 'eight', 'one', 'one', 'Her', 'His'
