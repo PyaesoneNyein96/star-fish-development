@@ -174,6 +174,7 @@ class GameController extends Controller
                 ];
             });
 
+
             DB::commit();
             // if(!$units) return "Game Not found!";
             return $units;
@@ -367,7 +368,10 @@ class GameController extends Controller
         $this->addPointFunction($student, $request->header('point'), $request->header('question_answer'));
 
 
-        return response()->json(['status' => 'success and recorded'], 200);
+        return response()->json([
+            'status' => 'success and recorded',
+            'fixed_point' => Student::where('id', $student->id)->pluck('fixed_point')->first(),
+        ], 200);
     }
 
 
@@ -442,6 +446,7 @@ class GameController extends Controller
         }
 
         // Total - ans_ques
+
 
         Student::where('id', $student_id)->update([
             'question_answer' => (int)$question_answer + Student::find($student_id)->question_answer

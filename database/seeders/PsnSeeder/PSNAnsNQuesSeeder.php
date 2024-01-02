@@ -124,7 +124,10 @@ class PSNAnsNQuesSeeder extends Seeder
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'round' => $i + 1, 'game_id' => 4, 'q_audio' => $AudioDomain . $G1_L1_U4_path . $audios[$index] . ".mp3", 'a_content' => $answers[$index], 'q_conver' => $conver[$index], 'background' => $i + 1 > 4 && $i + 1 < 8 ? $ImageDomain . $G1_L1_U4_path . "G1_L1_U4_bg2" . ".png" : $ImageDomain . $G1_L1_U4_path . "G1_L1_U4_bg1" . ".png"
+                    'round' => $i + 1, 'game_id' => 4,
+                    'q_audio' => $AudioDomain . $G1_L1_U4_path . $audios[$index] . ".mp3", 'a_content' => $answers[$index],
+                    'q_conver' => $conver[$index],
+                    'background' => $i + 1 > 4 && $i + 1 < 8 ? $ImageDomain . $G1_L1_U4_path . "G1_L1_U4_bg2" . ".png" : $ImageDomain . $G1_L1_U4_path . "G1_L1_U4_bg1" . ".png"
                 ],
             ]);
 
@@ -194,7 +197,7 @@ class PSNAnsNQuesSeeder extends Seeder
             }
 
             DB::table('ans_n_ques')->insert([
-                ['round' => $i + 1, 'game_id' => 9, 'background' => $backgroundDomain . "G1_L1_U4_bg1" . ".png"],
+                ['round' => $i + 1, 'game_id' => 9, 'background' => $ImageDomain."Grade_1/Lesson_2/Listen_n_Practice/" . "G1_L2_U4_bg" . ".png"],
             ]);
         }
 
@@ -571,7 +574,7 @@ class PSNAnsNQuesSeeder extends Seeder
         ////    Grade 1  Lesson 12 Games 3 (listen and practice) (listening_and_search_items)
 
         $L12_U3_content = [
-            'girl', 'hand', 'ear', 'egg', 'hat', 'dinosaur', 'poster', 'dog', 'ball'
+            'girl', 'hand', 'ear', 'egg', 'hat', 'dog',
         ];
 
 
@@ -615,7 +618,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     [
                         'game_id' => 69, 'round' => $i + 1, 'q_content' => $q,
                         'q_image' => $q . ".png",
-                        'q_audio' => $AudioDomain . "Grade_1/Lesson_12/Matching/" . $q . ".mp3",
+                        'q_audio' => $AudioDomain . "Grade_1/Lesson_12/Matching/" . strtolower($q) . ".mp3",
                     ]
                 ]);
             }
@@ -627,7 +630,7 @@ class PSNAnsNQuesSeeder extends Seeder
                         'game_id' => 69, 'round' => $i + 1, 'q_content' => strtolower($q),
                         //  'q_image' => $ImageDomain.strtolower($q).".png",
                         'q_image' => $ImageDomain . $L12_U4_img_path . strtolower($q) . ".png",
-                        'q_audio' => $AudioDomain . "Grade_1/Lesson_12/Matching/" . $q . ".mp3",
+                        'q_audio' => $AudioDomain . "Grade_1/Lesson_12/Matching/".strtolower($q) . ".mp3",
                     ]
                 ]);
             }
@@ -2631,6 +2634,10 @@ class PSNAnsNQuesSeeder extends Seeder
             'I have an aunt.',
         ];
 
+        $chars = [
+            'brother','uncle','sister','younger-brother','aunt'
+        ];
+
         $answer = ['a', 'an'];
 
         foreach ($question as $k => $value) {
@@ -2639,7 +2646,7 @@ class PSNAnsNQuesSeeder extends Seeder
                 [
                     'game_id' => 244,
                     'round' => $k + 1,
-                    'q_image' => $img . str_replace(' ', '-', $ansSentence[$k]) . ".png",
+                    'q_image' => $img . str_replace(' ', '-', $chars[$k]) . ".png",
                     'q_content' => $answer[0],
                     'q_conver' => $value,
                     'a_content' => $ansList[$k] == $answer[0] ? true : false
