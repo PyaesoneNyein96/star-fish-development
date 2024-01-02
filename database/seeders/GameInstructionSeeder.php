@@ -397,8 +397,8 @@ class GameInstructionSeeder extends Seeder
             // ================
             // G-1 lesson_22 U-124
             // game 134 , 135
-            ['content' => "Read listen and Repeat after it.", 'game_id' => 134, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
-            ['content' => "Read listen and Repeat after it.", 'game_id' => 135, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 134, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 135, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             // G-1 lesson_22 U-125
             ['content' => "Listen and tap what you hear", 'game_id' => 136, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
@@ -416,8 +416,8 @@ class GameInstructionSeeder extends Seeder
             // ================
             // G-1 lesson_23 U-130
             // game 141 , 142
-            ['content' => "Read listen and Repeat after it.", 'game_id' => 141, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
-            ['content' => "Read listen and Repeat after it.", 'game_id' => 142, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 141, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 142, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             // G-1 lesson_23 U-131
             ['content' => "Click the food box to find the same pictures", 'game_id' => 143, 'audio' =>  $Instructions . "click-the-food-box-to-find-the" . ".mp3"],
@@ -435,8 +435,7 @@ class GameInstructionSeeder extends Seeder
 
             // ================
             // G-1 lesson_24 U-136
-            ['content' => "Read listen and Repeat after it.", 'game_id' => 148, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
-
+            ['content' => "Listen and Repeat", 'game_id' => 148, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             // G-1 lesson_24 U-137
             ['content' => "Listen and tap what you hear", 'game_id' => 149, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
@@ -450,7 +449,7 @@ class GameInstructionSeeder extends Seeder
 
             // ================
             // G-1 lesson_25 U-142
-            ['content' => "Read listen and Repeat after it.", 'game_id' => 154, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 154, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             // G-1 lesson_25 U-143
             ['content' => "Listen and tap what you hear", 'game_id' => 155, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
@@ -469,7 +468,7 @@ class GameInstructionSeeder extends Seeder
 
             // ================
             // G-1 lesson_26 U-148
-            ['content' => "Read listen and Repeat after it.", 'game_id' => 161, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 161, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             // G-1 lesson_26 U-149
             ['content' => "Listen and tap what you hear", 'game_id' => 162, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
@@ -486,7 +485,7 @@ class GameInstructionSeeder extends Seeder
 
             // ================
             // G-1 lesson_27 U-154
-            ['content' => "Read listen and Repeat after it.", 'game_id' => 167, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 167, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             // G-1 lesson_27 U-155
             ['content' => "Listen and tap what you hear", 'game_id' => 168, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
@@ -503,7 +502,7 @@ class GameInstructionSeeder extends Seeder
 
             // ================
             // G-1 lesson_28 U-160
-            ['content' => "Read listen and Repeat after it.", 'game_id' => 173, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 173, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             // G-1 lesson_28 U-161
             ['content' => "Listen and tap what you hear", 'game_id' => 174, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
@@ -534,7 +533,7 @@ class GameInstructionSeeder extends Seeder
 
             // ================
             // G-1 lesson_30 U-172
-            ['content' => "Read listen and Repeat after it.", 'game_id' => 185, 'audio' =>  $Instructions . "Read-Listen-and-repeat-after" . ".mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 185, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             // G-1 lesson_30 U-173
             ['content' => "Listen and tap what you hear", 'game_id' => 186, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
