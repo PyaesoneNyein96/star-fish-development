@@ -2394,7 +2394,7 @@ class PSNAnsNQuesSeeder extends Seeder
             [
                 'Hello, my name is Susan', 'This is my aunt.Her name is Mary',
                 'This is my grandfather.His name is James', 'This is my grandmother.Her name is Alice',
-                'This is my younger sister.Her name is Jenny'
+                'This is my Uncle.His name is John.'
             ],
 
 
