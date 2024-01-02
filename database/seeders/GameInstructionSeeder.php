@@ -372,7 +372,6 @@ class GameInstructionSeeder extends Seeder
             // G-1 lesson_20 U-116
             ['content' => "Tap the things in the room and answer the question", 'game_id' => 123, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
             ['content' => "Tap the things in the room and answer the question", 'game_id' => 124, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
-            ['content' => "Look at the half of the picture and say a word", 'game_id' => 124, 'audio' =>  $Instructions . "Look-at-the-half-of-the-picture" . ".mp3"],
 
             // G-1 lesson_20 U-117
             ['content' => "Trace-and-write", "game_id" => 125, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
