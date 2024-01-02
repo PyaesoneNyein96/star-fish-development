@@ -293,7 +293,7 @@ class GameInstructionSeeder extends Seeder
             // G-1 lesson_16 U-92
             // game 96 , 97
             ['content' => "Tap the things in the room and answer the question", 'game_id' => 96, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
-            ['content' => "Look at the half of the picture and say a word", 'game_id' => 97, 'audio' =>  $Instructions . "Look-at-the-half-of-the-picture" . ".mp3"],
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 97, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_ande" . ".mp3"],
 
             // G-1 lesson_16 U-93
             // game 98 , 99
@@ -543,7 +543,7 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Matching things", 'game_id' => 187, 'audio' =>  $Instructions . "Matching-things" . ".mp3"],
 
             // G-1 lesson_30 U-175
-            ['content' => "Look at the half of the picture and say a word", 'game_id' => 188, 'audio' =>  $Instructions . "Look-at-the-half-of-the-picture" . ".mp3"],
+            ['content' => "Tap the things in the room and answer the question", 'game_id' => 188, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
 
             // G-1 lesson_30 U-176
             // Game 189 , 190
