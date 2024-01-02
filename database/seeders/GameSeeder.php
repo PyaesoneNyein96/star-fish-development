@@ -18,6 +18,9 @@ class GameSeeder extends Seeder
 
         $Gif_path = $domain . "/storage/InstructionGif/";
 
+
+        // //----------------- Grade 1 games -------------------------
+
         // unit 1's games
         DB::table('games')->insert([
 
@@ -520,27 +523,24 @@ class GameSeeder extends Seeder
 
         ]);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //  Grade 1 Games end.......
+
+        // //----------------- Grade 2 games -------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //--------------  Grade 3 Games -------------------
 
