@@ -438,7 +438,7 @@ class UnitSeeder extends Seeder
             // lesson 4's units count(5) start (248,252)
 
             ['name' => 'Read', 'lesson_id' => 44],                // 248
-            ['name' => 'Trace Word', 'lesson_id' => 44],
+            ['name' => 'Trace Words', 'lesson_id' => 44],
             ['name' => 'Matching', 'lesson_id' => 44],
             ['name' => 'Writing', 'lesson_id' => 44],
             ['name' => 'Speak', 'lesson_id' => 44],               //252
@@ -515,7 +515,7 @@ class UnitSeeder extends Seeder
 
             // lesson 13's units count(5) start (273,277)
 
-            ['name' => 'Listen and ', 'lesson_id' => 53],
+            ['name' => 'Listen and Repeat', 'lesson_id' => 53],
             ['name' => 'Trace Words', 'lesson_id' => 53],             // 278
             ['name' => 'Matching', 'lesson_id' => 53],
             ['name' => 'Listen and Write', 'lesson_id' => 53],
