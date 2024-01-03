@@ -125,8 +125,8 @@ class AnsNQueSeeder extends Seeder
                 DB::table('ans_n_ques')->insert([
                     ['round' => $G15Id, 'game_id' => 14, 'a_conver' => $converG15[$i][$j], 'a_image' => $l3G14image . $imageG15[$i][$j] . ".png", 'a_audio' => $AudioDomain . $G1_L3_listen_and_practice_path . $audiosG15[$i][$j] . ".mp3", "background" => $l3G14image . "background.png"],
                 ]);
-                $G15Id++;
             }
+            $G15Id++;
         }
 
 
