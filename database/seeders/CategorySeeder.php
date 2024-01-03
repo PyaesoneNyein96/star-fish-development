@@ -70,7 +70,7 @@ class CategorySeeder extends Seeder
             'rearrange_with_audio_two',
             'look_and_choose_two',
             'speaking_and_recording_conversation',
-            'listening_choosing_answer_two',
+            'listen_and_choose_three',
             'skimming_reading_passage',
             'listening_and_chossing_pics_three',
             'memory_cards',
