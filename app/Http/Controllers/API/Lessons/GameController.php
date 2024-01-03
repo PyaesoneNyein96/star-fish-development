@@ -363,7 +363,7 @@ class GameController extends Controller
 
         //ထူးထူး
         // if ($student->grade_chosen == null) {
-            //  $this->addPointFunction($student, $request->header('point'),$request->header('question_answer'));
+        //  $this->addPointFunction($student, $request->header('point'),$request->header('question_answer'));
         // }
         $this->addPointFunction($student, $request->header('point'), $request->header('question_answer'));
 
@@ -451,9 +451,5 @@ class GameController extends Controller
         Student::where('id', $student_id)->update([
             'question_answer' => (int)$question_answer + Student::find($student_id)->question_answer
         ]);
-
-
-
     }
-
 }
