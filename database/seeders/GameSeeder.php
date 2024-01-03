@@ -714,10 +714,10 @@ class GameSeeder extends Seeder
         DB::table('games')->insert([
 
             ['name' => 'Target Language Explanation', 'unit_id' => 307, 'category_id' => 1, 'instructionGIF' => null],
-            ['name' => 'Listen and Repeat', 'unit_id' => 308, 'category_id' => 9, 'instructionGIF' => null],
-            ['name' => 'Listen and Learn', 'unit_id' => 309, 'category_id' => 11, 'instructionGIF' => null],
-            ['name' => 'Sing and Dance', 'unit_id' => 310, 'category_id' => 11, 'instructionGIF' => null],
-            ['name' => 'Speak', 'unit_id' => 235, 'category_id' => 311, 'instructionGIF' => null],
+            ['name' => 'Listen and Repeat', 'unit_id' => 308, 'category_id' => 2, 'instructionGIF' => null],
+            ['name' => 'Listen and Learn', 'unit_id' => 309, 'category_id' => 17, 'instructionGIF' => null],
+            ['name' => 'Sing and Dance', 'unit_id' => 310, 'category_id' => 3, 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 311, 'category_id' => 11, 'instructionGIF' => null],
 
         ]);
 
