@@ -224,11 +224,11 @@ class AnsNQueSeeder extends Seeder
 
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 18, 'a_image' => $l4image . "1.png", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "Whats-your-name.mp3", "a_conver" => "What's your name?", "background" =>  $l4image . "bg1.png"],
-            ['round' => 1, 'game_id' => 18, 'a_image' => $l4image . "1.png", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "SubBlock_My-names-mike.mp3", "a_conver" => "My name's Mike.", "background" =>  $l4image . "bg1.png"],
+            ['round' => 1, 'game_id' => 18, 'a_image' => $l4image . "1.png", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "Whats-your-name.mp3", "a_conver" => "What's your name?", "background" =>  $l4image . "bg2.png"],
+            ['round' => 1, 'game_id' => 18, 'a_image' => $l4image . "1.png", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "SubBlock_My-names-mike.mp3", "a_conver" => "My name's Mike.", "background" =>  $l4image . "bg2.png"],
 
-            ['round' => 2, 'game_id' => 18, 'a_image' => $l4image . "2.png", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "SubBlock_Whats-your-name_mike.mp3", "a_conver" => "What's your name?", "background" =>  $l4image . "bg2.png"],
-            ['round' => 2, 'game_id' => 18, 'a_image' => $l4image . "2.png", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "My-name's-Susan.mp3", "a_conver" => "My name's Susan.", "background" =>  $l4image . "bg2.png"],
+            ['round' => 2, 'game_id' => 18, 'a_image' => $l4image . "2.png", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "SubBlock_Whats-your-name_mike.mp3", "a_conver" => "What's your name?", "background" =>  $l4image . "bg1.png"],
+            ['round' => 2, 'game_id' => 18, 'a_image' => $l4image . "2.png", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "My-name's-Susan.mp3", "a_conver" => "My name's Susan.", "background" =>  $l4image . "bg1.png"],
 
             ['round' => 3, 'game_id' => 18, 'a_image' => $l4image . "dory.png", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "Whats-your-name.mp3", "a_conver" => "What's your name?", "background" =>  $l4image . "bg3.png"],
             ['round' => 3, 'game_id' => 18, 'a_image' => $l4image . "nemo.png", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "My-names-Nemo.mp3", "a_conver" => "My name's Nemo.", "background" =>  $l4image . "bg3.png"],
