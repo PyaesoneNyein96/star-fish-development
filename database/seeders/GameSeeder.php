@@ -545,7 +545,7 @@ class GameSeeder extends Seeder
         // // unit 2's games
         DB::table('games')->insert([
 
-            ['name' => 'Reading', 'unit_id' => 233, 'category_id' => 2, 'instructionGIF' => null],
+            ['name' => 'Reading', 'unit_id' => 239, 'category_id' => 2, 'instructionGIF' => null],
             ['name' => 'Trace Word', 'unit_id' => 234, 'category_id' => 31, 'instructionGIF' => null],
             ['name' => 'Matching', 'unit_id' => 235, 'category_id' => 7, 'instructionGIF' => null],
             ['name' => 'Listen and Write', 'unit_id' => 236, 'category_id' => 14, 'instructionGIF' => null],
@@ -558,9 +558,9 @@ class GameSeeder extends Seeder
         // // unit 3's games
         DB::table('games')->insert([
 
-            ['name' => 'Listen and Repeat', 'unit_id' => 233, 'category_id' => 2, 'instructionGIF' => null],
-            ['name' => 'Speak', 'unit_id' => 234, 'category_id' => 11, 'instructionGIF' => null],
-            ['name' => 'Reading Passage', 'unit_id' => 235, 'category_id' => 16, 'instructionGIF' => null],
+            ['name' => 'Listen and Repeat', 'unit_id' => 239, 'category_id' => 2, 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 240, 'category_id' => 11, 'instructionGIF' => null],
+            ['name' => 'Reading Passage', 'unit_id' => 242, 'category_id' => 16, 'instructionGIF' => null],
 
         ]);
 
@@ -568,11 +568,11 @@ class GameSeeder extends Seeder
         // // unit 4's games
         DB::table('games')->insert([
 
-            ['name' => 'Read', 'unit_id' => 233, 'category_id' => 2, 'instructionGIF' => null],
-            ['name' => 'Trace Words', 'unit_id' => 234, 'category_id' => 31, 'instructionGIF' => null],
-            ['name' => 'Matching', 'unit_id' => 235, 'category_id' => 7, 'instructionGIF' => null],
-            ['name' => 'Writing', 'unit_id' => 236, 'category_id' => 14, 'instructionGIF' => null],
-            ['name' => 'Speak', 'unit_id' => 237, 'category_id' => 32, 'instructionGIF' =>  $Gif_path . "Read-the-passage.gif"],
+            ['name' => 'Read', 'unit_id' => 243, 'category_id' => 2, 'instructionGIF' => null],
+            ['name' => 'Trace Words', 'unit_id' => 244, 'category_id' => 31, 'instructionGIF' => null],
+            ['name' => 'Matching', 'unit_id' => 245, 'category_id' => 7, 'instructionGIF' => null],
+            ['name' => 'Writing', 'unit_id' => 246, 'category_id' => 14, 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 247, 'category_id' => 32, 'instructionGIF' =>  $Gif_path . "Read-the-passage.gif"],
 
         ]);
 
