@@ -853,15 +853,16 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         $G1L17U3facePart = ["nose", 'left-eye', 'right-eye', 'lip', 'left-ear', 'right-ear'];
+        $facePartAudio = ["nose", 'eye', 'eye', 'lip', 'ear', 'ear'];
         $L17U3Img = $ImageDomain . "Grade_1/Lesson_17/Listen_and_Practice/";
         $L17U3Audio = $AudioDomain . "Grade_1/Lesson_17/Listen_and_Practice/";
-        foreach ($G1L17U3facePart as $v) {
+        foreach ($G1L17U3facePart as $k => $v) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 103,
                     'a_content' => $v,
                     'q_image' => $L17U3Img . $v . ".png",
-                    'q_audio' => $L17U3Audio . $v . ".mp3",
+                    'q_audio' => $L17U3Audio.$facePartAudio[$k] . ".mp3",
                 ]
             ]);
         }
