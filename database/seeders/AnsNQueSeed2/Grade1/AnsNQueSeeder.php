@@ -36,47 +36,24 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
         $G1_L3_read_listen_and_practice_path = "Grade_1/" . "Lesson_3/" . "read_listen_and_practice/";
-        $converG13 = [
+        $l3G13image = $domain . "/storage/images/Grade_1/lesson_3/read_listen_and_practice/";
 
-            [
-                ["I'm Susan.", "Nice to meet you."],
-                ["Hello, I'm Mary.", "Nice to meet you."],
-            ],
-            [
-                ["Hello, I'm Tom.", "Nice to meet you."],
-                ["Hello, I'm Jerry.", "Nice to meet you."],
-            ]
 
-        ];
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 13, 'a_image' => $l3G13image . "susan.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "I'm Susan.", "background" =>  $l3G13image . "bg1.png"],
+            ['round' => 1, 'game_id' => 13, 'a_image' => $l3G13image . "mary-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Nice to meet you.", "background" =>  $l3G13image . "bg1.png"],
 
-        $audiosG13 = [
+            ['round' => 2, 'game_id' => 13, 'a_image' => $l3G13image . "mary.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Hello, I'm Mary.", "background" =>  $l3G13image . "bg2.png"],
+            ['round' => 2, 'game_id' => 13, 'a_image' => $l3G13image . "susan-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Nice to meet you.", "background" =>  $l3G13image . "bg2.png"],
 
-            ["Hello-Im-Susan-Nice-to-meet", "Hello-Im-Mary-Nice-to-meet"],
-            ["Hello-Im-Tom-Nice-to-meet-y", "Hello-Im-Jerry-Nice-to-meet"]
+            ['round' => 3, 'game_id' => 13, 'a_image' => $l3G13image . "tom.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Hello, I'm Tom.", "background" =>  $l3G13image . "bg3.png"],
+            ['round' => 3, 'game_id' => 13, 'a_image' => $l3G13image . "jerry-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Nice to meet you.", "background" =>  $l3G13image . "bg3.png"],
 
-        ];
+            ['round' => 4, 'game_id' => 13, 'a_image' => $l3G13image . "jerry.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Hello, I'm Jerry.", "background" =>  $l3G13image . "bg3.png"],
+            ['round' => 4, 'game_id' => 13, 'a_image' => $l3G13image . "tom-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Nice to meet you.", "background" =>  $l3G13image . "bg3.png"],
 
-        $G13Row = 0;
-        foreach ($converG13 as $group) {
-            $G13Col = 0;
+        ]);
 
-            foreach ($group as $g) {
-
-                foreach ($g as $sentence) {
-
-                    DB::table('ans_n_ques')->insert([
-                        ['round' => $G13Row + 1, 'game_id' => 13, 'a_conver' => $sentence],
-                    ]);
-                }
-
-                DB::table('ans_n_ques')->insert([
-                    ['round' => $G13Row + 1, 'game_id' => 13, 'a_audio' => $AudioDomain . $G1_L3_read_listen_and_practice_path . $audiosG13[$G13Row][$G13Col] . ".mp3"],
-                ]);
-
-                $G13Col++;
-            }
-            $G13Row++;
-        }
 
 
 
@@ -459,20 +436,20 @@ class AnsNQueSeeder extends Seeder
         $G1_L5_G23_listen_n_practice_path = "Grade_1/" . "Lesson_5/" . "listern_n_practice/";
 
         DB::table('ans_n_ques')->insert([
-            ["round" => 1, "game_id" => 23, "q_image" => $l5G23image . "afternoon.png", "q_audio" => null, "a_content" => 1],
             ["round" => 1, "game_id" => 23, "q_image" => $l5G23image . "morning.png", "q_audio" => null, "a_content" => 0],
             ["round" => 1, "game_id" => 23, "q_image" => $l5G23image . "evening.png", "q_audio" => null, "a_content" => 0],
+            ["round" => 1, "game_id" => 23, "q_image" => $l5G23image . "afternoon.png", "q_audio" => null, "a_content" => 1],
             ["round" => 1, "game_id" => 23, "q_image" =>  null, "q_audio" => $AudioDomain . $G1_L5_G23_listen_n_practice_path . "afternoon" . ".mp3", "a_content" => null],
 
-            ["round" => 2, "game_id" => 23, "q_image" => $l5G23image . "afternoon.png", "q_audio" => null, "a_content" => 0],
-            ["round" => 2, "game_id" => 23, "q_image" => $l5G23image . "morning.png", "q_audio" => null, "a_content" => 1],
             ["round" => 2, "game_id" => 23, "q_image" => $l5G23image . "evening.png", "q_audio" => null, "a_content" => 0],
-            ["round" => 2, "game_id" => 23, "q_image" =>  null, "q_audio" => $AudioDomain . $G1_L5_G23_listen_n_practice_path . "Evening" . ".mp3", "a_content" => null],
+            ["round" => 2, "game_id" => 23, "q_image" => $l5G23image . "morning.png", "q_audio" => null, "a_content" => 1],
+            ["round" => 2, "game_id" => 23, "q_image" => $l5G23image . "afternoon.png", "q_audio" => null, "a_content" => 0],
+            ["round" => 2, "game_id" => 23, "q_image" =>  null, "q_audio" => $AudioDomain . $G1_L5_G23_listen_n_practice_path . "Morning" . ".mp3", "a_content" => null],
 
             ["round" => 3, "game_id" => 23, "q_image" => $l5G23image . "afternoon.png", "q_audio" => null, "a_content" => 0],
-            ["round" => 3, "game_id" => 23, "q_image" => $l5G23image . "morning.png", "q_audio" => null, "a_content" => 0],
             ["round" => 3, "game_id" => 23, "q_image" => $l5G23image . "evening.png", "q_audio" => null, "a_content" => 1],
-            ["round" => 3, "game_id" => 23, "q_image" =>  null, "q_audio" => $AudioDomain . $G1_L5_G23_listen_n_practice_path . "Morning" . ".mp3", "a_content" => null],
+            ["round" => 3, "game_id" => 23, "q_image" => $l5G23image . "morning.png", "q_audio" => null, "a_content" => 0],
+            ["round" => 3, "game_id" => 23, "q_image" =>  null, "q_audio" => $AudioDomain . $G1_L5_G23_listen_n_practice_path . "Evening" . ".mp3", "a_content" => null],
 
         ]);
 
