@@ -19,8 +19,10 @@ return new class extends Migration
             $table->foreignId('unit_id')->nullable()->constrained();
             $table->integer('status')->default(1);
 
-            $table->index('id', 'games_id_index');
-            $table->index('category_id', 'games_category_id_index');
+            // $table->index('id', 'games_id_index');
+            // $table->index('category_id', 'games_category_id_index');
+
+            $table->index(['id', 'unit_id'], 'games_id_unit_id_index');
 
 
             $table->timestamps();

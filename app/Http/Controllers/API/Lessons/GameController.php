@@ -191,48 +191,34 @@ class GameController extends Controller
         $student = Student::where('token', $request->header('token'))->first();
         $unit_id = $request->header('unit_id');
         $lesson_id = $request->header('lesson_id');
-        $gameId = $request->header('game_id');
+        $game_id = $request->header('game_id');
 
 
-        // $unit = Unit::where('id', $unit_id)->where('lesson_id', $lesson_id)->first();
-        $unit = Cache::remember($unit_id, 3600,function () use ($unit_id,$lesson_id){
-            return Unit::where('id', $unit_id)->where('lesson_id', $lesson_id)->first();
-        });
+        $unit = Unit::find($unit_id);
 
         if (!$unit) return "lesson and unit are not match.";
 
-        $gameUnit = Game::where('unit_id', $unit_id)
-            ->where('id', $gameId)->first();
-        // $gameUnit = Game::where('unit_id',$unit_id)->first();
+        $gameInUnit = Game::where('unit_id', $unit_id)->where('id', $game_id)->exists();
 
-        // if(!$gameUnit && $unit && $gameId) return "SubUnit game not found!";
 
-        if ($gameUnit) {
+        if ($gameInUnit) {  // for subUnit games
 
-            $game = Cache::rememberForever($gameUnit, function () use ($gameId){
-                return Game::where('id', $gameId)->first();
-            });
-
-            // $game = Game::where('id', $gameId)->first();
-
-            $name = strval($game->category->name);
-
+            $name = strval(Game::find($game_id)->category->name);
             if (!$name) return "this game is not subUnit game";
 
-            return $this->$name($game, $student, $unit);
+            return $this->$name(Game::find($game_id), $student, $unit);
         }
-
 
         $games = Game::where('unit_id', $unit_id)->get();
 
         if ($games->count() == 1) {
-            $name = strval($games[0]->category->name);
+            $name = strval($games->first()->category->name);
             return $this->$name($games, $student, $unit);
         };
 
-
         return $this->Subunit_category($games, $unit);
     }
+
 
 
     public function end_match(Request $request)
