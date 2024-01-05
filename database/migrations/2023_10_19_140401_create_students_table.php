@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('role')->nullable();
             $table->string('grade_chosen')->nullable();
             $table->string('token')->nullable();
+            $table->index('token','students_token_index');
+
             $table->string('deviceId')->nullable();
             $table->string('isAuth')->default(0);
             $table->integer('agreeToPolicy')->default(0);

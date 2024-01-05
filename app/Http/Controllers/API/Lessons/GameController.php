@@ -191,29 +191,20 @@ class GameController extends Controller
         $student = Student::where('token', $request->header('token'))->first();
         $unit_id = $request->header('unit_id');
         $lesson_id = $request->header('lesson_id');
-        $gameId = $request->header('game_id');
+        $game_id = $request->header('game_id');
 
 
         // $unit = Unit::where('id', $unit_id)->where('lesson_id', $lesson_id)->first();
-        $unit = Cache::remember($unit_id, 3600,function () use ($unit_id,$lesson_id){
-            return Unit::where('id', $unit_id)->where('lesson_id', $lesson_id)->first();
-        });
+        $unit = Unit::find($unit_id);
 
         if (!$unit) return "lesson and unit are not match.";
 
-        $gameUnit = Game::where('unit_id', $unit_id)
-            ->where('id', $gameId)->first();
-        // $gameUnit = Game::where('unit_id',$unit_id)->first();
-
+        $gameInUnit = Game::where('unit_id', $unit_id)->where('id', $game_id)->exists();
         // if(!$gameUnit && $unit && $gameId) return "SubUnit game not found!";
 
-        if ($gameUnit) {
+        if ($gameInUnit) {
 
-            $game = Cache::rememberForever($gameUnit, function () use ($gameId){
-                return Game::where('id', $gameId)->first();
-            });
-
-            // $game = Game::where('id', $gameId)->first();
+            $game = Game::find($game_id);
 
             $name = strval($game->category->name);
 
@@ -226,7 +217,7 @@ class GameController extends Controller
         $games = Game::where('unit_id', $unit_id)->get();
 
         if ($games->count() == 1) {
-            $name = strval($games[0]->category->name);
+            $name = strval($games-first()->category->name);
             return $this->$name($games, $student, $unit);
         };
 
@@ -237,7 +228,7 @@ class GameController extends Controller
 
     public function end_match(Request $request)
     {
-        logger("i an newbi");
+
 
         $token = $request->header('token');
         $gameId = $request->header('game_id');
