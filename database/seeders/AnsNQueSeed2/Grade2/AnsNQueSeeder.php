@@ -62,5 +62,14 @@ class AnsNQueSeeder extends Seeder
         DB::table('ans_n_ques')->insert([
             ['round' => 1, 'game_id' => 255,  "q_audio" =>  $AudioDomain . $G2_L1_practice_speaking . "Whats-your-name-girl" . ".mp3", 'q_image' => $l1_G255image . "teacher.png", "q_content" => "What is your name?"],
         ]);
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 2  Lesson 1 Game 256 ( listen and practice )
+        //////////////////////////////////////////////////////////////
+
+        $G2_L1_listen_n_practice = "Grade_2/" . "Lesson_1/" . "listen_n_practice/";
+        $l1_G256image = $domain . "/storage/images/Grade_2/lesson_1/listen_n_practice/";
     }
 }
