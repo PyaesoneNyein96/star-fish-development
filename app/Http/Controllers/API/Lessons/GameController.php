@@ -217,7 +217,7 @@ class GameController extends Controller
         $games = Game::where('unit_id', $unit_id)->get();
 
         if ($games->count() == 1) {
-            $name = strval($games-first()->category->name);
+            $name = strval($games->first()->category->name);
             return $this->$name($games, $student, $unit);
         };
 
