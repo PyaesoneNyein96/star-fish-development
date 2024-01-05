@@ -852,8 +852,8 @@ class PSNAnsNQuesSeeder extends Seeder
         //    Grade 1  Lesson 17 Games 3 (drag_n_drop_and_pics)
 
 
-        $G1L17U3facePart = ["nose", 'left-eye', 'right-eye', 'lip', 'left-ear', 'right-ear'];
-        $facePartAudio = ["nose", 'eye', 'eye', 'lip', 'ear', 'ear'];
+        $G1L17U3facePart = ["nose", 'left-eye', 'right-eye', 'lip', 'left-ear', 'right-ear','face'];
+        $facePartAudio = ["nose", 'eye', 'eye', 'lip', 'ear', 'ear','face'];
         $L17U3Img = $ImageDomain . "Grade_1/Lesson_17/Listen_and_Practice/";
         $L17U3Audio = $AudioDomain . "Grade_1/Lesson_17/Listen_and_Practice/";
         foreach ($G1L17U3facePart as $k => $v) {
@@ -868,7 +868,7 @@ class PSNAnsNQuesSeeder extends Seeder
         }
 
         DB::table('ans_n_ques')->insert([
-            ['game_id' => 103, 'background' => $ImageDomain . "Grade_1/Lesson_17/Listen_and_Practice/" . "emptyFaceBackground.png"]
+            ['game_id' => 103, 'background' => $ImageDomain . "Grade_1/Lesson_17/Listen_and_Practice/" . "bg.png"]
         ]);
 
 
@@ -1716,8 +1716,10 @@ class PSNAnsNQuesSeeder extends Seeder
             foreach ($question as $q) {
                 DB::table('ans_n_ques')->insert([
                     [
-                        'game_id' => 214, 'round' => $k + 1,
-                        'q_content' => $q, 'q_audio' => $AudioDomain . $q . ".mp3"
+                        'game_id' => 214,
+                        'round' => $k + 1,
+                        'q_content' => $q,
+                        // 'q_audio' => $AudioDomain . $q . ".mp3"
 
                     ]
                 ]);
