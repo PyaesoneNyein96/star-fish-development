@@ -194,8 +194,8 @@ class GameController extends Controller
         $game_id = $request->header('game_id');
 
 
-        // $unit = Unit::where('id', $unit_id)->where('lesson_id', $lesson_id)->first();
-        $unit = Unit::find($unit_id);
+        $unit = Unit::where('id', $unit_id)->where('lesson_id', $lesson_id)->first();
+        // $unit = Unit::find($unit_id);
 
         if (!$unit) return "lesson and unit are not match.";
 
