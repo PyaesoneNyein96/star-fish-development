@@ -71,5 +71,294 @@ class AnsNQueSeeder extends Seeder
 
         $G2_L1_listen_n_practice = "Grade_2/" . "Lesson_1/" . "listen_n_practice/";
         $l1_G256image = $domain . "/storage/images/Grade_2/lesson_1/listen_n_practice/";
+
+
+
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 2  Lesson 1 Game 257 ( Fill in the blank )
+        //////////////////////////////////////////////////////////////
+
+        $G2_L1_fill_in_the_blank = "Grade_2/" . "Lesson_1/" . "fill_in_the_blank/";
+        $l1_G257image = $domain . "/storage/images/Grade_2/lesson_1/fill_in_the_blank/";
+
+        $g2_l1_Game257_fill_q1 = [
+            ["name's", 'name', "I'm", "She's", "He's"],
+            ["name's", 'name', "I'm", "She's", "He's"],
+            ["name's", 'name', "I'm", "She's", "He's"],
+            ["name's", 'name', "I'm", "She's", "He's"],
+            ["name's", 'name', "I'm", "She's", "He's"],
+            ["name's", 'name', "I'm", "She's", "He's"],
+            ["name's", 'name', "I'm", "She's", "He's"],
+            ["name's", 'name', "I'm", "She's", "He's"],
+            ["name's", 'name', "I'm", "She's", "He's"],
+
+        ];
+
+        $g2_l1_Game257_fill_q2 = [
+            "Hello, my ____ Rosy. \nWhat's your ____ ?", "Hi, ____ Chris. \nHello Chris. ____ Rosy.", "Hello, my ____ Chris. \nWhat's your ____ ?", "Hi, ____ Jane. What's your \n____ ? ____ Jack.", "Hello, my ____ Jane. \nWhat's your ____ ?", "Hi, ____ Rosy. \nWhat's your ____ ?", "Hi, ____ Rosy. \nHello Rosy. ____ Chris.", "Hello, My ____ Jane. \n What's your ____ ?", "Hi, ____ Jane. \nWhat's your ____ ? \n____ Jack."
+        ];
+
+        $correct_G2_l1_Ans =   [
+
+            ["name's", 'name'],
+            ["I'm", "She's"],
+            ["name's", 'name'],
+            ["I'm", 'name', "He's"],
+            ["name's", "name"],
+            ["I'm", 'name'],
+            ["I'm", "He's"],
+            ["name's", "name"],
+            ["I'm", 'name', "He's"],
+
+
+        ];
+
+        $g1_l16_Game257_fill_a = [
+            "Hello, my name's Rosy. What's your name ?", "Hi, I'm Chris. Hello Chris. She's Rosy.", "Hello, my name's Chris. What's your name ?", "Hi, I'm Jane. What's your name ? He's Jack.", "Hello, my name's Jane. What's your name ?", "Hi, I'm Rosy. What's your name ?", "Hi, I'm Rosy. Hello Rosy. He's Chris.", "Hi, I'm Jane. What's your name ?", "Hi, I'm Jane. What's your name ? He's Jack."
+        ];
+        $g1_l16_Game257_fill_audio = [
+            "Hello-my-names-Rosy-Whats", "audio", "audio", "audio", "Hello-my-names-Jane", "audio", "audio", "Hello-my-names-Jane", "audio"
+        ];
+
+
+
+
+        for ($i = 0; $i < count($g2_l1_Game257_fill_q1); $i++) {
+
+            foreach ($g2_l1_Game257_fill_q1[$i] as $k => $word) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1, 'game_id' => 257,
+                        'q_content' => $word,
+                        'a_content' => implode(' ', $correct_G2_l1_Ans[$i]),
+                    ]
+                ]);
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 257,
+                    'q_audio' => $AudioDomain . $G2_L1_fill_in_the_blank . $g1_l16_Game257_fill_audio[$i] . ".mp3",
+                    'q_content' => $g2_l1_Game257_fill_q2[$i],
+                    'a_content' => $g1_l16_Game257_fill_a[$i]
+                ],
+            ]);
+        }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Lesson 1 Game 258 (  Speaking  )
+        ////////////////////////////////////////////////////////
+
+        $l1_G258_image = $domain . "/storage/images/Grade_2/lesson_1/Speaking/";
+        $G2_L1_Speaking = "Grade_2/" . "Lesson_1/" . "Speaking/";
+
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 258, 'q_audio' => $AudioDomain . $G2_L1_Speaking . "Whats-your-name-girl" . ".mp3", 'q_image' => $l1_G258_image . "girl.png", "q_content" => "She is _____.", "q_conver" => "What's your name?"],
+            ['round' => 2, 'game_id' => 258, 'q_audio' => $AudioDomain . $G2_L1_Speaking . "Whats-your-name-girl" . ".mp3", 'q_image' => $l1_G258_image . "girl.png", "q_content" => "He is _____.", "q_conver" => "What's your name?"],
+            ['round' => 3, 'game_id' => 258, 'q_audio' => $AudioDomain . $G2_L1_Speaking . "audio" . ".mp3", 'q_image' => $l1_G258_image . "girl.png", "q_content" => "Hi, my name is _____.", "q_conver" => "Hello, I am Rosy. What's your name? Introduce me your friends, please."],
+
+        ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Lesson 2 Game 259 (  Reading  )
+        ////////////////////////////////////////////////////////
+
+        $l2_G259_image = $domain . "/storage/images/Grade_2/lesson_2/reading/";
+        $G2_L2_reading = "Grade_2/" . "Lesson_2/" . "reading/";
+
+
+        $ans_G259 = [
+            "Airplane", "Alligator", "Angel", "Animal",  "Ant", "Apple", "Arm", "Arrows", "Ball", "Banana", "Bicycle", "Boat", "Boy", "Bread"
+        ];
+
+        $G2_L2_Game259_index = 0;
+
+        foreach ($ans_G259 as $key) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 259, 'a_content' => $key, 'a_image' => $l2_G259_image . $ans_G259[$G2_L2_Game259_index] . ".png",
+                    'a_audio' => $AudioDomain . $G2_L2_reading . strtolower($ans_G259[$G2_L2_Game259_index]) . ".mp3"
+                ],
+            ]);
+            $G2_L2_Game259_index++;
+        }
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Lesson 2 Game 260 (  Trace Word  )
+        ////////////////////////////////////////////////////////
+
+        $l2_G260_image = $domain . "/storage/images/Grade_2/lesson_2/trace_word/";
+        $G2_L2_trace_word = "Grade_2/" . "Lesson_2/" . "trace_word/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 260, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "angel" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G260_image . "angel" . ".png", 'a_content' => "angel"],
+            ['round' => 1, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "a" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 1, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "n" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 1, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "g" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 1, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "e" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 1, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "l" . ".png", 'q_image' => null, 'a_content' => null],
+
+
+            ['round' => 2, 'game_id' => 260, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "arm" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G260_image . "arm" . ".png", 'a_content' => "arm"],
+            ['round' => 2, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "a" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 2, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "r" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 2, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "m" . ".png", 'q_image' => null, 'a_content' => null],
+
+
+            ['round' => 3, 'game_id' => 260, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "ball" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G260_image . "ball" . ".png", 'a_content' => "ball"],
+            ['round' => 3, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "b" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 3, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "small_a" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 3, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "l" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 3, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "l" . ".png", 'q_image' => null, 'a_content' => null],
+
+
+            ['round' => 4, 'game_id' => 260, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "boat" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G260_image . "boat" . ".png", 'a_content' => "boat"],
+            ['round' => 4, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "b" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 4, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "o" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 4, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "small_a" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 4, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "t" . ".png", 'q_image' => null, 'a_content' => null],
+
+
+            ['round' => 5, 'game_id' => 260, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "boy" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G260_image . "boy" . ".png", 'a_content' => "boy"],
+            ['round' => 5, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "b" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 5, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "o" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 5, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "y" . ".png", 'q_image' => null, 'a_content' => null],
+
+
+            ['round' => 6, 'game_id' => 260, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "bear" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G260_image . "bear" . ".png", 'a_content' => "bear"],
+            ['round' => 6, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "b" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 6, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "e" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 6, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "small_a" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 6, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "r" . ".png", 'q_image' => null, 'a_content' => null],
+
+
+            ['round' => 7, 'game_id' => 260, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "apple" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G260_image . "apple" . ".png", 'a_content' => "apple"],
+            ['round' => 7, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "a" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 7, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "p" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 7, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "p" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 7, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "l" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 7, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "e" . ".png", 'q_image' => null, 'a_content' => null],
+
+            ['round' => 8, 'game_id' => 260, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "ant" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G260_image . "ant" . ".png", 'a_content' => "ant"],
+            ['round' => 8, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "a" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 8, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "n" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 8, 'game_id' => 260, 'q_audio' => null, 'q_content' =>  $l2_G260_image . "t" . ".png", 'q_image' => null, 'a_content' => null],
+
+        ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Lesson 2 Game 261 (  Matching  )
+        ////////////////////////////////////////////////////////
+
+        $l2_G261_image = $domain . "/storage/images/Grade_2/lesson_2/Matching/";
+        $G2_L2_Matching = "Grade_2/" . "Lesson_2/" . "Matching/";
+
+
+        $G2_L2_Game261_Matching = [
+
+            ['Arrow', 'Alligator', 'Bread', 'Ant', "Arm"],
+            ['Boat', 'Bicycle', 'Airplane', 'Boy', "Ball"],
+
+        ];
+
+        $G2_L2_Game261_Matching_image = [
+
+            ['bread', 'arrow', 'arm', 'alligator', "ant"],
+            ['airplane', 'boy', 'ball', 'bicycle', 'boat'],
+
+        ];
+
+
+        for ($i = 0; $i < count($G2_L2_Game261_Matching); $i++) {
+
+            foreach ($G2_L2_Game261_Matching[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 261, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $q, 'q_audio' => $AudioDomain . $G2_L2_Matching .  strtolower($q) . ".mp3",
+                    ]
+                ]);
+            }
+
+            foreach ($G2_L2_Game261_Matching_image[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 261, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $l2_G261_image . strtolower($q) . ".png", 'q_audio' => $AudioDomain . $G2_L2_Matching .  strtolower($q) . ".mp3",
+                    ]
+                ]);
+            }
+        }
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Lesson 2 Game 262 ( Listen and Write )
+        ////////////////////////////////////////////////////////
+
+        $G2_L2_writing = "Grade_2/" . "Lesson_2/" . "writing/";
+        $l2_G262_image = $domain . "/storage/images/Grade_2/lesson_2/writing/";
+
+
+        $q_G262 = [
+            ["A", "L", "R", "P", "I", "N", "E", "A"],
+            ["A", "G", "N", "E", "L"],
+            ["I", "M", "A", "A", "N", "S", "L"],
+            ["T", "B", "A", "O"],
+            ["I", "B", "L", "Y", "C", "C", "E"],
+            ["A", "B", "A", "N", "A", "N"],
+            ["O", "B", "A", "O", "N", "L", "L"],
+            ["A", "B", "R", "E"],
+            ["L", "A", "L", "I", "R", "A", "O", "T", "G"],
+            ["O", "A", "R", "R", "W"],
+
+
+        ];
+
+        $a_G262 = [
+            "AIRPLANE", "ANGEL", "ANIMALS", "BOAT", "BICYCLE", "BANANA", "BALLOON", "BEAR", "ALLIGATOR", "ARROW"
+        ];
+
+        $G262_Index = 0;
+
+        for ($i = 0; $i < count($q_G262); $i++) {
+            foreach ($q_G262[$i] as $j) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 262, 'q_content' => $j, 'q_audio' => $AudioDomain . $G2_L2_writing . strtoupper($j) . ".mp3"],
+                ]);
+            }
+            DB::table('ans_n_ques')->insert([
+                ['round' => $i + 1, 'game_id' => 262, 'q_image' => $l2_G262_image . str_replace(' ', '', strtolower($a_G262[$G262_Index])) . ".png", 'a_content' => $a_G262[$G262_Index], 'a_audio' => $AudioDomain . $G2_L2_writing . strtolower($a_G262[$G262_Index]) . ".mp3"],
+            ]);
+            $G262_Index++;
+        }
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 2  Lesson 2 Game 263 ( video )
+        //////////////////////////////////////////////////////////////
+
+
+        DB::table('ans_n_ques')->insert(['game_id' => 263, 'a_content' => 'lesson_2_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 263, 'a_content' => 'lesson_2_video_global', 'isLocal' => 0]);
     }
 }
