@@ -170,9 +170,12 @@ class PSNAnsNQuesSeeder extends Seeder
         ///////////////////////////////////////////////////////
 
         $az = range("A", "Z");
-        foreach ($az as $key) {
+        foreach ($az as $k => $key) {
             DB::table('ans_n_ques')->insert([
-                ['game_id' => 7, 'a_content' => strtolower($key), 'a_image' => $ImageDomainAZ_small . $key . ".png", 'a_audio' => $AtoZAudio . $prefix . $key . ".mp3"],
+                ['game_id' => 7,
+                'a_content' => strtolower($key), 'a_image' => $ImageDomainAZ_small . $key . ".png",
+                'a_audio' => $AudioDomain . "A_to_Z_update/" . $AtiZUpdate[$k] . ".mp3"
+            ],
             ]);
         }
 
