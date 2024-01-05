@@ -27,295 +27,108 @@ trait gameTraits2
 
 
 
-    // rearrange_with_audio
     public function rearrange_with_audio($game, $student, $unit)
     {
-        if (isset($game[0])) $game = $game[0];
-
-        return [
-            'game_id' => $game->id,
-            'lesson_id' => $unit->lesson_id,
-            'game_name' => $game->name,
-            'unit_name' => $unit->name,
-            'game_status' => $game->status,
-            'sub_unit'  => $game->count() < 1 ? true : false,
-            'category' => $game->category->name,
-            'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
-            'rounds' => $game->ans_n_ques->groupBy('round')->values()
-        ];
+        return $this->common_fun($game, $unit);
     }
 
-    // speaking_and_recording
     public function speaking_and_recording($game, $student, $unit)
     {
-        if (isset($game[0])) $game = $game[0];
-
-        return [
-            'game_id' => $game->id,
-            'lesson_id' => $unit->lesson_id,
-            'game_name' => $game->name,
-            'unit_name' => $unit->name,
-            'game_status' => $game->status,
-            'sub_unit'  => $game->count() < 1 ? true : false,
-            'category' => $game->category->name,
-            'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
-            'rounds' => $game->ans_n_ques
-        ];
+        return $this->common_fun($game, $unit);
     }
 
-    // reading_and_record_speaking
     public function reading_and_record_speaking($game, $student, $unit)
     {
-        if (isset($game[0])) $game = $game[0];
-
-        return [
-            'game_id' => $game->id,
-            'lesson_id' => $unit->lesson_id,
-            'game_name' => $game->name,
-            'unit_name' => $unit->name,
-            'game_status' => $game->status,
-            'sub_unit'  => $game->count() < 1 ? true : false,
-            'category' => $game->category->name,
-            'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
-            'rounds' => $game->ans_n_ques
-        ];
+        return $this->common_fun($game, $unit);
     }
 
-    // listening_conversation_and_choosing_answer
     public function listening_conversation_and_choosing_answer($game, $student, $unit)
     {
-        if (isset($game[0])) $game = $game[0];
-
-        return [
-            'game_id' => $game->id,
-            'lesson_id' => $unit->lesson_id,
-            'game_name' => $game->name,
-            'unit_name' => $unit->name,
-            'game_status' => $game->status,
-            'sub_unit'  => $game->count() < 1 ? true : false,
-            'category' => $game->category->name,
-            'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
-            'rounds' => $game->ans_n_ques->groupBy('round')->values()
-        ];
+        return $this->common_fun($game, $unit);
     }
 
-    // reading_passage
     public function reading_passage($game, $student, $unit)
     {
-        if (isset($game[0])) $game = $game[0];
-
-        return [
-            'game_id' => $game->id,
-            'lesson_id' => $unit->lesson_id,
-            'game_name' => $game->name,
-            'unit_name' => $unit->name,
-            'game_status' => $game->status,
-            'sub_unit'  => $game->count() < 1 ? true : false,
-            'category' => $game->category->name,
-            'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
-            'rounds' => $game->ans_n_ques->groupBy('round')->values()
-        ];
+        return $this->common_fun($game, $unit);
     }
 
-    // drag_n_drop_and_columns
     public function drag_n_drop_and_columns($game, $student, $unit)
     {
         if (isset($game[0])) $game = $game[0];
-
-        return [
-            'game_id' => $game->id,
-            'lesson_id' => $unit->lesson_id,
-            'game_name' => $game->name,
-            'unit_name' => $unit->name,
-            'game_status' => $game->status,
-            'sub_unit'  => $game->count() < 1 ? true : false,
-            'category' => $game->category->name,
-            'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
-            'rounds' => $game->ans_n_ques->groupBy('round')->values()
-        ];
+        return $this->common_fun($game, $unit);
     }
 
-    // reading_conversation
     public function reading_conversation($game, $student, $unit)
     {
-        if (isset($game[0])) $game = $game[0];
-
-        return [
-            'game_id' => $game->id,
-            'game_name' => $game->name,
-            'game_status' => $game->status,
-            'unit_name' => $unit->name,
-            'lesson_id' => $unit->lesson_id,
-            'sub_unit'  => $game->count() < 1 ? true : false,
-            'category' => $game->category->name,
-            'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
-            'rounds' => $game->ans_n_ques->groupBy('round')->values()
-        ];
+        return $this->common_fun($game, $unit);
     }
 
-    // reading_two_columns
     public function reading_two_columns($game, $student, $unit)
     {
-        if (isset($game[0])) $game = $game[0];
-
-        return [
-            'game_id' => $game->id,
-            'game_name' => $game->name,
-            'game_status' => $game->status,
-            'unit_name' => $unit->name,
-            'lesson_id' => $unit->lesson_id,
-            'sub_unit'  => $game->count() < 1 ? true : false,
-            'category' => $game->category->name,
-            'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
-            'rounds' => $game->ans_n_ques
-        ];
+        return $this->common_fun($game, $unit);
     }
 
-    // listening_and_choosing_pics_one
     public function listening_and_choosing_pics_one($game, $student, $unit)
     {
-        if (isset($game[0])) $game = $game[0];
-
-        return [
-            'game_id' => $game->id,
-            'game_name' => $game->name,
-            'game_status' => $game->status,
-            'unit_name' => $unit->name,
-            'lesson_id' => $unit->lesson_id,
-            'sub_unit'  => $game->count() < 1 ? true : false,
-            'category' => $game->category->name,
-            'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
-            'rounds' => $game->ans_n_ques->groupBy('round')->values()
-        ];
+        return $this->common_fun($game, $unit);
     }
 
-    // listening_and_search_items
     public function listening_and_search_items($game, $student, $unit)
     {
-        if (isset($game[0])) $game = $game[0];
-
-        return [
-            'game_id' => $game->id,
-            'game_name' => $game->name,
-            'game_status' => $game->status,
-            'unit_name' => $unit->name,
-            'lesson_id' => $unit->lesson_id,
-            'sub_unit'  => $game->count() < 1 ? true : false,
-            'category' => $game->category->name,
-            'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
-            'rounds' => $game->ans_n_ques->groupBy('round')->values()
-        ];
+        return $this->common_fun($game, $unit);
     }
 
-    // mcq_tf_instruction
     public function mcq_tf_instruction($game, $student, $unit)
     {
-        if (isset($game[0])) $game = $game[0];
-
-        return [
-            'game_id' => $game->id,
-            'game_name' => $game->name,
-            'game_status' => $game->status,
-            'unit_name' => $unit->name,
-            'lesson_id' => $unit->lesson_id,
-            'sub_unit'  => $game->count() < 1 ? true : false,
-            'category' => $game->category->name,
-            'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
-            'rounds' => $game->ans_n_ques->groupBy('round')->values()
-        ];
+        return $this->common_fun($game, $unit);
     }
 
-    // mcq_grammar
     public function mcq_grammar($game, $student, $unit)
     {
+        return $this->common_fun($game, $unit);
+    }
+
+    public function mcq_sentence($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
+    public function listening_and_choosing_bubbles($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
+
+
+
+    // common function
+    private function common_fun($game, $unit)
+    {
         if (isset($game[0])) $game = $game[0];
 
-        return [
+        $roundExist = $game->ans_n_ques->some(function ($g) {
+            return array_key_exists('round', $g->toArray());
+        });
+
+        $data = [
             'game_id' => $game->id,
-            'game_name' => $game->name,
-            'game_status' => $game->status,
-            'unit_name' => $unit->name,
             'lesson_id' => $unit->lesson_id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'game_status' => $game->status,
             'sub_unit'  => $game->count() < 1 ? true : false,
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
-            'rounds' => $game->ans_n_ques->groupBy('round')->values()
-        ];
-    }
-
-    // mcq_sentence
-    public function mcq_sentence($game, $student, $unit)
-    {
-
-        if (isset($game[0])) $game = $game[0];
-
-
-        $roundExist = $game->ans_n_ques->some(function ($g) {
-            return array_key_exists('round', $g->toArray());
-        });
-
-        $data = [
-            'game_id' => $game->id,
-            'lesson_id' => $unit->lesson_id,
-            'game_name' => $game->name,
-            'unit_name' => $unit->name,
-            'game_status' => $game->status,
-            'sub_unit'  => $game->count() < 1 ? true : false,
-            'category' => $game->category->name,
-            'instructionGIF'  => $game->instructionGIF,
-            'instructions' => $game->instructions->count() == 0 ? null : $game->instructions,
 
         ];
 
         if ($roundExist) {
             $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
+            if (count($data['rounds'][0]) == 1) $data["rounds"] = $game->ans_n_ques;
+        } else {
+            $data['data'] = $game->ans_n_ques;
         }
-        $data['data'] = $game->ans_n_ques;
-
-        return $data;
-    }
-
-    // listening_and_choosing_bubbles
-    public function listening_and_choosing_bubbles($game, $student, $unit)
-    {
-
-        if (isset($game[0])) $game = $game[0];
-
-
-        $roundExist = $game->ans_n_ques->some(function ($g) {
-            return array_key_exists('round', $g->toArray());
-        });
-
-        $data = [
-            'game_id' => $game->id,
-            'lesson_id' => $unit->lesson_id,
-            'game_name' => $game->name,
-            'unit_name' => $unit->name,
-            'game_status' => $game->status,
-            'sub_unit'  => $game->count() < 1 ? true : false,
-            'category' => $game->category->name,
-            'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>   $game->instructions->count() == 0 ? null : $game->instructions,
-
-        ];
-
-        if ($roundExist) {
-            $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
-        }
-        $data['data'] = $game->ans_n_ques;
-
         return $data;
     }
 }

@@ -133,17 +133,14 @@ class AnsNQueSeeder extends Seeder
         // round 3 + 4 + 5
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 3, 'game_id' => 14, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l3G14image . "mary.png", 'a_content' => 1],
+            ['round' => 3, 'game_id' => 14, 'q_audio' => $AudioDomain . $G1_L3_listen_and_practice_path . "Who-is-Mary.mp3", 'q_content' =>  "Who is Mary?", 'q_image' =>  $l3G14image . "mary.png", 'a_content' => 1],
             ['round' => 3, 'game_id' => 14, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l3G14image . "susan.png", 'a_content' => 0],
-            ['round' => 3, 'game_id' => 14, 'q_audio' => $AudioDomain . $G1_L3_listen_and_practice_path . "Who-is-Mary.mp3", 'q_content' =>  "Who is Mary?", 'q_image' => null, 'a_content' => null],
 
-            ['round' => 4, 'game_id' => 14, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l3G14image . "mary.png", 'a_content' => 0],
+            ['round' => 4, 'game_id' => 14, 'q_audio' => $AudioDomain . $G1_L3_listen_and_practice_path . "Who-is-Susan.mp3", 'q_content' =>  "Who is Susan?", 'q_image' => $l3G14image . "mary.png", 'a_content' => 0],
             ['round' => 4, 'game_id' => 14, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l3G14image . "susan.png", 'a_content' => 1],
-            ['round' => 4, 'game_id' => 14, 'q_audio' => $AudioDomain . $G1_L3_listen_and_practice_path . "Who-is-Susan.mp3", 'q_content' =>  "Who is Susan?", 'q_image' => null, 'a_content' => null],
 
-            ['round' => 5, 'game_id' => 14, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l3G14image . "mike.png", 'a_content' => 1],
+            ['round' => 5, 'game_id' => 14, 'q_audio' => $AudioDomain . $G1_L3_listen_and_practice_path . "Whos_Mike.mp3", 'q_content' =>  "Who is Mike?", 'q_image' => $l3G14image . "mike.png", 'a_content' => 1],
             ['round' => 5, 'game_id' => 14, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l3G14image . "susan.png", 'a_content' => 0],
-            ['round' => 5, 'game_id' => 14, 'q_audio' => $AudioDomain . $G1_L3_listen_and_practice_path . "Whos_Mike.mp3", 'q_content' =>  "Who is Mike?", 'q_image' => null, 'a_content' => null],
         ]);
 
 
@@ -196,10 +193,11 @@ class AnsNQueSeeder extends Seeder
         ////////////////////////////////////////////////////////
 
         $l3G16image = $domain . "/storage/images/Grade_1/lesson_3/Speaking/";
+        $G1_L3_Speaking = "Grade_1/" . "Lesson_3/" . "Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 16, 'q_image' => $l3G16image . "Orange_Vector.png", "q_content" => "Hello, I'm ___ . Nice to meet you."],
-            ['round' => 2, 'game_id' => 16, 'q_image' => $l3G16image . "Green_Vector.png", "q_content" => "Hi, I'm ___ . Nice to meet you."],
+            ['round' => 1, 'game_id' => 16, "q_audio" =>  $AudioDomain . $G1_L3_Speaking . "audio" . ".mp3", 'q_image' => $l3G16image . "Orange_Vector.png", "q_content" => "Hello, I'm ___ . Nice to meet you."],
+            ['round' => 2, 'game_id' => 16, "q_audio" =>  $AudioDomain . $G1_L3_Speaking . "audio" . ".mp3", 'q_image' => $l3G16image . "Green_Vector.png", "q_content" => "Hi, I'm ___ . Nice to meet you."],
         ]);
 
 
@@ -512,28 +510,28 @@ class AnsNQueSeeder extends Seeder
             ['round' => 1, 'game_id' => 25, "q_image" => null, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "good_afternoon.mp3", 'q_content' => "Good afternoon", "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 1, 'game_id' => 25, "q_image" => null, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "good_evening.mp3", 'q_content' => "Good evening", "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 1, 'game_id' => 25, "q_image" => null, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "Early-in-the-morning-I-say-Go.mp3", "q_conver" => "Early in the morning, I say_____.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 1, 'game_id' => 25, "q_image" => $l5G25image . "character.png", "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "Hi-my-name-is-Anna-Im-6-yea.mp3", "q_content" => "Anna", 'q_conver' => "Hi, my name is Anna. I'm 6 years old. Early in the morning, I say \"Good morning, Hello and how are you?\" They say \"I'm fine. And you? \"I say \"I'm great.\" It's going to be a wonderful day.", 'a_content' => null, "background" => $l5G25image . "background.png"],
+            ['round' => 1, 'game_id' => 25, "q_image" => null, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "Hi-my-name-is-Anna-Im-6-yea.mp3", "q_content" => "Anna", 'q_conver' => "Hi, my name is Anna. I'm 6 years old. Early in the morning, I say \"Good morning, Hello and how are you?\" They say \"I'm fine. And you? \"I say \"I'm great.\" It's going to be a wonderful day.", 'a_content' => null, "background" => $l5G25image . "newbg.png"],
 
 
             ['round' => 2, 'game_id' => 25, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L5_reading_passage_path . "whats_your_name.mp3", 'q_content' => "What's your name?", "q_conver" => null,  'a_content' => 0, "background" => null],
             ['round' => 2, 'game_id' => 25, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L5_reading_passage_path . "who_are_you.mp3", 'q_content' => "Who are you?", "q_conver" => null,  'a_content' => 0, "background" => null],
             ['round' => 2, 'game_id' => 25, "q_image" => null, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "how_are_you.mp3", 'q_content' => "How are you?", "q_conver" => null, 'a_content' => 1, "background" => null],
             ['round' => 2, 'game_id' => 25, "q_image" => null, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "I-say-They-say-Im-fine-What.mp3", "q_conver" => "I say ____.They say I'm fine.", 'q_content' => null,  'a_content' => null, "background" => null],
-            ['round' => 2, 'game_id' => 25, "q_image" =>  $l5G25image . "character.png", "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "Hi-my-name-is-Anna-Im-6-yea.mp3", "q_content" => "Anna", 'q_conver' => "Hi, my name is Anna. I'm 6 years old. Early in the morning, I say \"Good morning, Hello and how are you?\" They say \"I'm fine. And you? \"I say \"I'm great.\" It's going to be a wonderful day.",  'a_content' => null, "background" => $l5G25image . "background.png"],
+            ['round' => 2, 'game_id' => 25, "q_image" => null, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "Hi-my-name-is-Anna-Im-6-yea.mp3", "q_content" => "Anna", 'q_conver' => "Hi, my name is Anna. I'm 6 years old. Early in the morning, I say \"Good morning, Hello and how are you?\" They say \"I'm fine. And you? \"I say \"I'm great.\" It's going to be a wonderful day.",  'a_content' => null, "background" => $l5G25image . "newbg.png"],
 
 
             ['round' => 3, 'game_id' => 25, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L5_reading_passage_path . "im_anna.mp3", 'q_content' => "I'm Anna.", "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 3, 'game_id' => 25, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L5_reading_passage_path . "im_great.mp3", 'q_content' => "I'm great.", "q_conver" => null, 'a_content' => 1, "background" => null],
             ['round' => 3, 'game_id' => 25, "q_image" => null, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "im_6_years_old.mp3", 'q_content' => "I'm 6 years old.", "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 3, 'game_id' => 25, "q_image" => null, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "They-say-And-you-I-say-Im-A.mp3", "q_conver" => "They say \"And you?\" I say \"____\".", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 3, 'game_id' => 25, "q_image" =>  $l5G25image . "character.png", "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "Hi-my-name-is-Anna-Im-6-yea.mp3", "q_content" => "Anna", 'q_conver' => "Hi, my name is Anna. I'm 6 years old. Early in the morning, I say \"Good morning, Hello and how are you?\" They say \"I'm fine. And you? \"I say \"I'm great.\" It's going to be a wonderful day.", 'a_content' => null, "background" => $l5G25image . "background.png"],
+            ['round' => 3, 'game_id' => 25, "q_image" => null, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "Hi-my-name-is-Anna-Im-6-yea.mp3", "q_content" => "Anna", 'q_conver' => "Hi, my name is Anna. I'm 6 years old. Early in the morning, I say \"Good morning, Hello and how are you?\" They say \"I'm fine. And you? \"I say \"I'm great.\" It's going to be a wonderful day.", 'a_content' => null, "background" => $l5G25image . "newbg.png"],
 
 
             ['round' => 4, 'game_id' => 25, "q_image" => null, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "ant.mp3", 'q_content' => "Ant", "q_conver" => null,  'a_content' => 0, "background" => null],
             ['round' => 4, 'game_id' => 25, "q_image" => null, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "anna.mp3", 'q_content' => "Anna", "q_conver" => null,  'a_content' => 1, "background" => null],
             ['round' => 4, 'game_id' => 25, "q_image" => null, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "apple.mp3", 'q_content' => "Apple", "q_conver" => null,  'a_content' => 0, "background" => null],
             ['round' => 4, 'game_id' => 25, "q_image" => null, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "What-is-my-name-Ant-Anna-Appl.mp3", "q_conver" => "What is my name?", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 4, 'game_id' => 25, "q_image" =>  $l5G25image . "character.png", "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "Hi-my-name-is-Anna-Im-6-yea.mp3", "q_content" => "Anna", 'q_conver' => "Hi, my name is Anna. I'm 6 years old. Early in the morning, I say \"Good morning, Hello and how are you?\" They say \"I'm fine. And you? \"I say \"I'm great.\" It's going to be a wonderful day.", 'a_content' => null, "background" => $l5G25image . "background.png"],
+            ['round' => 4, 'game_id' => 25, "q_image" => null, "q_audio" => $AudioDomain . $G1_L5_reading_passage_path . "Hi-my-name-is-Anna-Im-6-yea.mp3", "q_content" => "Anna", 'q_conver' => "Hi, my name is Anna. I'm 6 years old. Early in the morning, I say \"Good morning, Hello and how are you?\" They say \"I'm fine. And you? \"I say \"I'm great.\" It's going to be a wonderful day.", 'a_content' => null, "background" => $l5G25image . "newbg.png"],
         ]);
 
 
@@ -545,14 +543,15 @@ class AnsNQueSeeder extends Seeder
         ////////////////////////////////////////////////////////
 
         $l5G26image = $domain . "/storage/images/Grade_1/lesson_5/Speaking/";
+        $G1_L5_Speaking = "Grade_1/" . "Lesson_5/" . "Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 26, 'q_image' => $l5G26image . "orangestar.png", "q_content" => '"Good evening"'],
-            ['round' => 2, 'game_id' => 26, 'q_image' => $l5G26image . "orangestar.png", "q_content" => '"Good afternoon"'],
-            ['round' => 3, 'game_id' => 26, 'q_image' => $l5G26image . "orangestar.png", "q_content" => '"Good morning"'],
-            ['round' => 4, 'game_id' => 26, 'q_image' => $l5G26image . "greenstar.png", "q_content" => "How are you"],
-            ['round' => 5, 'game_id' => 26, 'q_image' => $l5G26image . "boy.png", "q_content" => "Nice to meet you, too. How are you?"],
-            ['round' => 6, 'game_id' => 26, 'q_image' => $l5G26image . "boy.png", "q_content" => "I'm Chris. What is your name?"],
+            ['round' => 1, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "audio" . ".mp3", 'q_image' => $l5G26image . "orangestar.png", "q_content" => '"Good evening"'],
+            ['round' => 2, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "audio" . ".mp3", 'q_image' => $l5G26image . "orangestar.png", "q_content" => '"Good afternoon"'],
+            ['round' => 3, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "audio" . ".mp3", 'q_image' => $l5G26image . "orangestar.png", "q_content" => '"Good morning"'],
+            ['round' => 4, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "audio" . ".mp3", 'q_image' => $l5G26image . "greenstar.png", "q_content" => "How are you"],
+            ['round' => 5, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "audio" . ".mp3", 'q_image' => $l5G26image . "boy.png", "q_content" => "Nice to meet you, too. How are you?"],
+            ['round' => 6, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "audio" . ".mp3", 'q_image' => $l5G26image . "boy.png", "q_content" => "I'm Chris. What is your name?"],
         ]);
 
 

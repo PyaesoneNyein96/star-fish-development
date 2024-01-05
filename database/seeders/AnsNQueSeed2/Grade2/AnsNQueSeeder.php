@@ -37,10 +37,10 @@ class AnsNQueSeeder extends Seeder
 
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 254, 'a_image' => $l1G254image . "jane-what.png", "a_audio" => $AudioDomain . $G2_L1_pronoun . "Whats-your-name.mp3", "a_conver" => "What's your name?", "background" =>  $l1G254image . "bg.png"],
+            ['round' => 1, 'game_id' => 254, 'a_image' => $l1G254image . "jane-what.png", "a_audio" => $AudioDomain . $G2_L1_pronoun . "Whats-your-name-girl.mp3", "a_conver" => "What's your name?", "background" =>  $l1G254image . "bg.png"],
             ['round' => 1, 'game_id' => 254, 'a_image' => $l1G254image . "jack.png", "a_audio" => $AudioDomain . $G2_L1_pronoun . "My-names-Jack.mp3", "a_conver" => "My name's Jack.", "background" =>  $l1G254image . "bg.png"],
 
-            ['round' => 1, 'game_id' => 254, 'a_image' => $l1G254image . "rosy-what.png", "a_audio" => $AudioDomain . $G2_L1_pronoun . "Whats-your-name.mp3", "a_conver" => "What's your name?", "background" =>  $l1G254image . "bg.png"],
+            ['round' => 1, 'game_id' => 254, 'a_image' => $l1G254image . "rosy-what.png", "a_audio" => $AudioDomain . $G2_L1_pronoun . "Whats-your-name-girl.mp3", "a_conver" => "What's your name?", "background" =>  $l1G254image . "bg.png"],
             ['round' => 1, 'game_id' => 254, 'a_image' => $l1G254image . "chris.png", "a_audio" => $AudioDomain . $G2_L1_pronoun . "My-names-Chris.mp3", "a_conver" => "My name's Chris.", "background" =>  $l1G254image . "bg.png"],
 
             ['round' => 2, 'game_id' => 254, 'a_image' => $l1G254image . "jack-what.png", "a_audio" => $AudioDomain . $G2_L1_pronoun . "Whats-your-name.mp3", "a_conver" => "What's your name?", "background" =>  $l1G254image . "bg.png"],
@@ -49,6 +49,18 @@ class AnsNQueSeeder extends Seeder
             ['round' => 2, 'game_id' => 254, 'a_image' => $l1G254image . "chris-what.png", "a_audio" => $AudioDomain . $G2_L1_pronoun . "Whats-your-name.mp3", "a_conver" => "What's your name?", "background" =>  $l1G254image . "bg.png"],
             ['round' => 2, 'game_id' => 254, 'a_image' => $l1G254image . "rosy.png", "a_audio" => $AudioDomain . $G2_L1_pronoun . "My-names-Rosy.mp3", "a_conver" => "My name's Rosy.", "background" =>  $l1G254image . "bg.png"],
 
+        ]);
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 2  Lesson 1 Game 255 ( Practice for Speaking )
+        //////////////////////////////////////////////////////////////
+
+        $G2_L1_practice_speaking = "Grade_2/" . "Lesson_1/" . "practice_speaking/";
+        $l1_G255image = $domain . "/storage/images/Grade_2/lesson_1/practice_speaking/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 255,  "q_audio" =>  $AudioDomain . $G2_L1_practice_speaking . "Whats-your-name-girl" . ".mp3", 'q_image' => $l1_G255image . "teacher.png", "q_content" => "What is your name?"],
         ]);
     }
 }
