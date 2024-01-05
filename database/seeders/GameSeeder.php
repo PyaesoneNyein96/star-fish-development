@@ -539,11 +539,9 @@ class GameSeeder extends Seeder
             ['name' => 'Fill in the blank', 'unit_id' => 237, 'category_id' => 30, 'instructionGIF' =>  $Gif_path . "Read-the-passage.gif"],
             ['name' => 'Free Practice', 'unit_id' => 238, 'category_id' => 11, 'instructionGIF' => $Gif_path . "Speaking.gif"],
 
-        ]);
-
 
         // // unit 2's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Reading', 'unit_id' => 239, 'category_id' => 2, 'instructionGIF' => null],
             ['name' => 'Trace Word', 'unit_id' => 240, 'category_id' => 31, 'instructionGIF' => null],
@@ -552,21 +550,19 @@ class GameSeeder extends Seeder
             ['name' => 'Video', 'unit_id' => 243, 'category_id' => 1, 'instructionGIF' =>  $Gif_path . "Read-the-passage.gif"],
             ['name' => 'Listen & Speak', 'unit_id' => 244, 'category_id' => 32, 'instructionGIF' => $Gif_path . "Speaking.gif"],
 
-        ]);
 
 
         // // unit 3's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Listen and Repeat', 'unit_id' => 245, 'category_id' => 2, 'instructionGIF' => null],
             ['name' => 'Speak', 'unit_id' => 246, 'category_id' => 11, 'instructionGIF' => null],
             ['name' => 'Reading Passage', 'unit_id' => 247, 'category_id' => 16, 'instructionGIF' => null],
 
-        ]);
 
 
         // // unit 4's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Read', 'unit_id' => 248, 'category_id' => 2, 'instructionGIF' => null],
             ['name' => 'Trace Words', 'unit_id' => 249, 'category_id' => 31, 'instructionGIF' => null],
@@ -574,22 +570,22 @@ class GameSeeder extends Seeder
             ['name' => 'Writing', 'unit_id' => 251, 'category_id' => 14, 'instructionGIF' => null],
             ['name' => 'Speak', 'unit_id' => 252, 'category_id' => 32, 'instructionGIF' =>  $Gif_path . "Read-the-passage.gif"],
 
-        ]);
+
 
 
         // // unit 5's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Video', 'unit_id' => 253, 'category_id' => 1, 'instructionGIF' => null],
             ['name' => 'Vocab ( Reading )', 'unit_id' => 254, 'category_id' => 2, 'instructionGIF' => null],
             ['name' => 'Listern and Learn', 'unit_id' => 255, 'category_id' => 3, 'instructionGIF' => null],
             ['name' => 'Sing And Dance', 'unit_id' => 256, 'category_id' => 3, 'instructionGIF' => null],
 
-        ]);
+
 
 
         // // unit 6's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Target language Learn Words', 'unit_id' => 257, 'category_id' => 1, 'instructionGIF' => null],
             ['name' => 'Describing People ( Reading 1 )', 'unit_id' => 258, 'category_id' => 2, 'instructionGIF' => null],
@@ -597,11 +593,10 @@ class GameSeeder extends Seeder
             ['name' => 'Matching', 'unit_id' => 259, 'category_id' => 7, 'instructionGIF' => null],
             ['name' => 'Speaking', 'unit_id' => 260, 'category_id' => 11, 'instructionGIF' =>  $Gif_path . "Read-the-passage.gif"],
 
-        ]);
 
 
         // // unit 7's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Video', 'unit_id' => 261, 'category_id' => 1, 'instructionGIF' => null],
             ['name' => 'Listen and Repeat', 'unit_id' => 262, 'category_id' => 2, 'instructionGIF' => null],
@@ -610,11 +605,11 @@ class GameSeeder extends Seeder
             ['name' => 'Listen and Write', 'unit_id' => 265, 'category_id' => 14, 'instructionGIF' =>  $Gif_path . "Read-the-passage.gif"],
             ['name' => 'Practice', 'unit_id' => 266, 'category_id' => 32, 'instructionGIF' => $Gif_path . "Speaking.gif"],
 
-        ]);
+
 
 
         // // unit 8's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Video', 'unit_id' => 267, 'category_id' => 1, 'instructionGIF' => null],
             ['name' => 'Listen and Write', 'unit_id' => 268, 'category_id' => 2, 'instructionGIF' => null],
@@ -623,11 +618,11 @@ class GameSeeder extends Seeder
             ['name' => 'Reading', 'unit_id' => 271, 'category_id' => 16, 'instructionGIF' =>  $Gif_path . "Read-the-passage.gif"],
             ['name' => 'Speak', 'unit_id' => 272, 'category_id' => 11, 'instructionGIF' => $Gif_path . "Speaking.gif"],
 
-        ]);
+
 
 
         // // unit 9's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Listen and Repeat', 'unit_id' => 273, 'category_id' => 2, 'instructionGIF' => null],
             ['name' => 'Trace and Write', 'unit_id' => 274, 'category_id' => 31, 'instructionGIF' => null],
@@ -635,32 +630,30 @@ class GameSeeder extends Seeder
             ['name' => 'Arrange the letter', 'unit_id' => 276, 'category_id' => 14, 'instructionGIF' => null],
             ['name' => 'Speak', 'unit_id' => 277, 'category_id' => 11, 'instructionGIF' =>  $Gif_path . "Read-the-passage.gif"],
 
-        ]);
+
 
 
         // // unit 10's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Grammar Explain', 'unit_id' => 278, 'category_id' => 1, 'instructionGIF' => null],
             ['name' => 'Listen and Repeat', 'unit_id' => 279, 'category_id' => 33, 'instructionGIF' => null],
             ['name' => 'Look and Write', 'unit_id' => 280, 'category_id' => 34, 'instructionGIF' => null],
             ['name' => 'Speak', 'unit_id' => 281, 'category_id' => 11, 'instructionGIF' =>  $Gif_path . "Read-the-passage.gif"],
 
-        ]);
 
 
         // // unit 11's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Listen and Write', 'unit_id' => 282, 'category_id' => 36, 'instructionGIF' => null],
             ['name' => 'Coloring', 'unit_id' => 283, 'category_id' => 35, 'instructionGIF' => null],
             ['name' => 'Speak', 'unit_id' => 284, 'category_id' => 11, 'instructionGIF' => null],
 
-        ]);
 
 
         // // unit 12's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Grammar Explanation', 'unit_id' => 285, 'category_id' => 1, 'instructionGIF' => null],
             ['name' => 'Listen and Repeat', 'unit_id' => 286, 'category_id' => 2, 'instructionGIF' => null],
@@ -668,11 +661,10 @@ class GameSeeder extends Seeder
             ['name' => 'Speak', 'unit_id' => 288, 'category_id' => 11, 'instructionGIF' => null],
             ['name' => 'Reading', 'unit_id' => 289, 'category_id' => 16, 'instructionGIF' => null],
 
-        ]);
 
 
         // // unit 13's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Listen and Repeat', 'unit_id' => 290, 'category_id' => 2, 'instructionGIF' => null],
             ['name' => 'Trace Words', 'unit_id' => 291, 'category_id' => 31, 'instructionGIF' => null],
@@ -681,11 +673,10 @@ class GameSeeder extends Seeder
             ['name' => 'Speak', 'unit_id' => 294, 'category_id' => 11, 'instructionGIF' => null],
             ['name' => 'Target Grammar', 'unit_id' => 295, 'category_id' => 1, 'instructionGIF' => null],
 
-        ]);
 
 
         // // unit 14's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Video', 'unit_id' => 296, 'category_id' => 1, 'instructionGIF' => null],
             ['name' => 'Listen and Repeat', 'unit_id' => 297, 'category_id' => 2, 'instructionGIF' => null],
@@ -694,11 +685,10 @@ class GameSeeder extends Seeder
             ['name' => 'Speak ( 2 )', 'unit_id' => 299, 'category_id' => 11, 'instructionGIF' => null],
             ['name' => 'Speak more', 'unit_id' => 300, 'category_id' => 11, 'instructionGIF' => null],
 
-        ]);
 
 
         // // unit 15's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Vocabulary', 'unit_id' => 301, 'category_id' => 2, 'instructionGIF' => null],
             ['name' => 'Trace Words', 'unit_id' => 302, 'category_id' => 31, 'instructionGIF' => null],
@@ -707,11 +697,10 @@ class GameSeeder extends Seeder
             ['name' => 'Speak', 'unit_id' => 305, 'category_id' => 11, 'instructionGIF' => null],
             ['name' => 'Reading', 'unit_id' => 306, 'category_id' => 16, 'instructionGIF' => null],
 
-        ]);
 
 
         // // unit 16's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Target Language Explanation', 'unit_id' => 307, 'category_id' => 1, 'instructionGIF' => null],
             ['name' => 'Listen and Repeat', 'unit_id' => 308, 'category_id' => 2, 'instructionGIF' => null],
@@ -719,33 +708,30 @@ class GameSeeder extends Seeder
             ['name' => 'Sing and Dance', 'unit_id' => 310, 'category_id' => 3, 'instructionGIF' => null],
             ['name' => 'Speak', 'unit_id' => 311, 'category_id' => 11, 'instructionGIF' => null],
 
-        ]);
 
 
         // // unit 17's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Video', 'unit_id' => 312, 'category_id' => 1, 'instructionGIF' => null],
             ['name' => 'Listen and Repeat', 'unit_id' => 313, 'category_id' => 2, 'instructionGIF' => null],
             ['name' => 'True or False', 'unit_id' => 314, 'category_id' => 20, 'instructionGIF' => null],
             ['name' => 'Speak', 'unit_id' => 315, 'category_id' => 11, 'instructionGIF' => null],
 
-        ]);
 
 
         // // unit 18's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Grammar Explain', 'unit_id' => 316, 'category_id' => 1, 'instructionGIF' => null],
             ['name' => 'Listen and Repeat', 'unit_id' => 317, 'category_id' => 9, 'instructionGIF' => null],
             ['name' => 'Speak', 'unit_id' => 318, 'category_id' => 11, 'instructionGIF' => null],
             ['name' => 'Listen and Choose', 'unit_id' => 319, 'category_id' => 37, 'instructionGIF' => null],
 
-        ]);
 
 
         // // unit 19's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Video', 'unit_id' => 320, 'category_id' => 1, 'instructionGIF' => null],
             ['name' => 'Listen and Repeat', 'unit_id' => 321, 'category_id' => 2, 'instructionGIF' => null],
@@ -755,11 +741,10 @@ class GameSeeder extends Seeder
             ['name' => 'Speak ( 1 )', 'unit_id' => 325, 'category_id' => 8, 'instructionGIF' => null],
             ['name' => 'Speak ( 2 )', 'unit_id' => 325, 'category_id' => 11, 'instructionGIF' => null],
 
-        ]);
 
 
         // // unit 20's games
-        DB::table('games')->insert([
+
 
             ['name' => 'Listen and Repeat', 'unit_id' => 326, 'category_id' => 1, 'instructionGIF' => null],
             ['name' => 'Trace Words', 'unit_id' => 327, 'category_id' => 31, 'instructionGIF' => null],
@@ -767,7 +752,210 @@ class GameSeeder extends Seeder
             ['name' => 'Listen and write', 'unit_id' => 329, 'category_id' => 14, 'instructionGIF' => null],
             ['name' => 'Reading', 'unit_id' => 330, 'category_id' => 16, 'instructionGIF' => null],
 
+
+
+
+
+
+
+        // // unit 21's games
+
+
+            ['name' => 'Grammar Explanation', 'unit_id' => 331,'category_id' => 1, 'instructionGIF' => null ],
+            ['name' => 'Listen and Repeat', 'unit_id' => 332,'category_id' => 2, 'instructionGIF' => null ],
+            ['name' => 'Matching words and pictures', 'unit_id' => 332,'category_id' => 7, 'instructionGIF' => null ],
+            ['name' => 'Choose your answer', 'unit_id' => 334,'category_id' => 20, 'instructionGIF' => null ],
+            ['name' => 'Speak', 'unit_id' => 335,'category_id' => 11 , 'instructionGIF' => null ],
+
+
+
+        // // unit 22's games
+
+            ['name' => 'Target Language Explanation', 'unit_id' => 336,'category_id' => 1, 'instructionGIF' => null ],
+            ['name' => 'Listen and Learn the song', 'unit_id' => 337,'category_id' => 2, 'instructionGIF' => null ],
+            ['name' => 'Sing and dance', 'unit_id' => 338,'category_id' => 7, 'instructionGIF' => null ],
+            ['name' => 'Speak', 'unit_id' => 339,'category_id' => 11 , 'instructionGIF' => null ],
+
+
+        // // unit 23's games
+
+            ['name' => 'Video', 'unit_id' => 340, 'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Listen and Repeat', 'unit_id' => 341, 'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Trace Words', 'unit_id' => 342, 'category_id' => 1, 'instructionGIF' => null ],
+            ['name' => 'Listen and Choose', 'unit_id' =>343 , 'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 344, 'category_id' => 1, 'instructionGIF' => null,],
+
+
+        // // unit 24's games
+
+            ['name' => 'Video', 'unit_id' => 345 , 'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Listen and Practice', 'unit_id' => 346 , 'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Trace Words', 'unit_id' => 347 , 'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Matching', 'unit_id' => 348 ,'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Writing', 'unit_id' => 349 ,  'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Speaking', 'unit_id' => 350 , 'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Reading short', 'unit_id' => 351 ,'category_id' => 1, 'instructionGIF' => null],
+
+
+        // // unit 25's games
+
+            ['name' => 'Grammar Explanation', 'unit_id' => 352 ,'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Listen and Repeat', 'unit_id' => 353 ,'category_id' => 1, 'instructionGIF' => null],
+            ['name' => 'Choose', 'unit_id' => 354 , 'instructionGIF' => null],
+            ['name' => 'Listen and write', 'unit_id' => 355 , 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 356 , 'instructionGIF' => null],
+
+
+        // // unit 26's games
+
+            ['name' => 'Listen and Repeat', 'unit_id' => 357, 'instructionGIF' => null ],
+            ['name' => 'Trace words', 'unit_id' => 358 , 'instructionGIF' => null],
+            ['name' => 'Matching words and pictures', 'unit_id' => 359 , 'instructionGIF' => null],
+            ['name' => 'Listen and write', 'unit_id' => 360 , 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 361 , 'instructionGIF' => null],
+
+
+        // // unit 27's games
+
+            ['name' => 'Video', 'unit_id' => 362 , 'instructionGIF' => null],
+            ['name' => 'Reading 1', 'unit_id' => 363 , 'instructionGIF' => null],
+            ['name' => 'Reading 2', 'unit_id' => 363 , 'instructionGIF' => null],
+            ['name' => 'Listen and write', 'unit_id' => 364 , 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 365 , 'instructionGIF' => null],
+
+
+
+        // // unit 28's games
+
+            ['name' => 'Video', 'unit_id' => 366 , 'instructionGIF' => null],
+            ['name' => 'Reading', 'unit_id' => 367 , 'instructionGIF' => null],
+            ['name' => 'Listen and write', 'unit_id' => 368 , 'instructionGIF' => null],
+            ['name' => 'Matching', 'unit_id' => 369 , 'instructionGIF' => null],
+            ['name' => 'Reading', 'unit_id' => 370 , 'instructionGIF' => null],
+
+
+        // // unit 29's games
+
+            ['name' => 'Grammar Explanation', 'unit_id' => 371, 'instructionGIF' => null],
+            ['name' => 'Reading 1', 'unit_id' => 372, 'instructionGIF' => null],
+            ['name' => 'Reading 2', 'unit_id' => 372 , 'instructionGIF' => null],
+            ['name' => 'Look and Write', 'unit_id' => 373 , 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 374 , 'instructionGIF' => null],
+
+
+
+        // // unit 30's games
+
+            ['name' => 'Listen and Repeat', 'unit_id' => 375 , 'instructionGIF' => null],
+            ['name' => 'Trace words', 'unit_id' => 376 , 'instructionGIF' => null],
+            ['name' => 'Matching words and pictures', 'unit_id' => 377 , 'instructionGIF' => null],
+            ['name' => 'Listen and write', 'unit_id' => 378 , 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 379 , 'instructionGIF' => null],
+
+
+        // // unit 31's games
+
+            ['name' => 'Video', 'unit_id' => 380 , 'instructionGIF' => null],
+            ['name' => 'Reading 1', 'unit_id' => 381 , 'instructionGIF' => null],
+            ['name' => 'Reading 2', 'unit_id' => 381 , 'instructionGIF' => null],
+            ['name' => 'Look and Write', 'unit_id' => 382 , 'instructionGIF' => null],
+            ['name' => 'Matching', 'unit_id' => 383 , 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 384 , 'instructionGIF' => null],
+
+
+
+        // // unit 32's games
+
+            ['name' => 'Video', 'unit_id' => 385 , 'instructionGIF' => null],
+            ['name' => 'Listen and Repeat', 'unit_id' => 386 , 'instructionGIF' => null],
+            ['name' => 'Trace', 'unit_id' => 387 , 'instructionGIF' => null],
+            ['name' => 'Matching', 'unit_id' => 388 , 'instructionGIF' => null],
+            ['name' => 'Listen and Write', 'unit_id' => 389 , 'instructionGIF' => null],
+            ['name' => 'Reading', 'unit_id' => 390 , 'instructionGIF' => null],
+
+
+
+        // // unit 33's games
+
+
+            ['name' => 'Grammar Explanation', 'unit_id' => 391 , 'instructionGIF' => null],
+            ['name' => 'Listen and Repeat', 'unit_id' => 392 , 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 393 , 'instructionGIF' => null],
+
+
+        // // unit 34's games
+
+            ['name' => 'Listen and Repeat', 'unit_id' => 394 , 'instructionGIF' => null],
+            ['name' => 'Trace Word', 'unit_id' => 395 , 'instructionGIF' => null],
+            ['name' => 'Matching', 'unit_id' => 396 , 'instructionGIF' => null],
+            ['name' => 'Listen and Write', 'unit_id' => 397 , 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 398 , 'instructionGIF' => null],
+
+
+        // // unit 35's games
+
+            ['name' => 'Video', 'unit_id' => 399 , 'instructionGIF' => null],
+            ['name' => 'Reading 1', 'unit_id' => 400 , 'instructionGIF' => null],
+            ['name' => 'Reading 2', 'unit_id' => 400 , 'instructionGIF' => null],
+            ['name' => 'Listen and Write', 'unit_id' => 401, 'instructionGIF' => null],
+            ['name' => 'Matching', 'unit_id' => 402, 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 403, 'instructionGIF' => null],
+
+
+        // // unit 36's games
+
+            ['name' => 'Video', 'unit_id' => 404 , 'instructionGIF' => null],
+            ['name' => 'Reading 1', 'unit_id' => 405 , 'instructionGIF' => null],
+            ['name' => 'Reading 2', 'unit_id' => 405 , 'instructionGIF' => null],
+            ['name' => 'Listen and Write', 'unit_id' => 406 , 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 407 , 'instructionGIF' => null],
+            ['name' => 'Reading', 'unit_id' => 408 , 'instructionGIF' => null],
+
+
+        // // unit 37's games
+
+            ['name' => 'Target Language Explanation', 'unit_id' => 409 , 'instructionGIF' => null],
+            ['name' => 'Listen and Learn', 'unit_id' => 410 , 'instructionGIF' => null],
+            ['name' => 'Sing and Dance', 'unit_id' => 411 , 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 412 , 'instructionGIF' => null],
+
+
+        // // unit 38's games
+
+            ['name' => 'Video', 'unit_id' => 413 , 'instructionGIF' => null],
+            ['name' => 'Reading 1', 'unit_id' => 414 , 'instructionGIF' => null],
+            ['name' => 'Reading 2', 'unit_id' => 414 , 'instructionGIF' => null],
+            ['name' => 'Tracing', 'unit_id' => 415 , 'instructionGIF' => null],
+            ['name' => 'Arranging Letters', 'unit_id' => 416 , 'instructionGIF' => null],
+            ['name' => 'Matching', 'unit_id' => 417 , 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 418 , 'instructionGIF' => null],
+
+
+        // // unit 39's games
+
+            ['name' => 'Grammar Explanation', 'unit_id' => 419 , 'instructionGIF' => null],
+            ['name' => 'Reading 1', 'unit_id' => 420 , 'instructionGIF' => null],
+            ['name' => 'Reading 2', 'unit_id' => 420 , 'instructionGIF' => null],
+            ['name' => 'Look and write', 'unit_id' => 421 , 'instructionGIF' => null],
+            ['name' => 'Speak', 'unit_id' => 422 , 'instructionGIF' => null],
+
+
+        // // unit 40's games
+
+            ['name' => 'Grammar Explanation', 'unit_id' => 423 , 'instructionGIF' => null],
+            ['name' => 'Listen and Repeat', 'unit_id' => 424 , 'instructionGIF' => null],
+            ['name' => 'Listen and Practice', 'unit_id' => 425 , 'instructionGIF' => null],
+            ['name' => 'Matching', 'unit_id' => 426 , 'instructionGIF' => null],
+            ['name' => 'Reading Passage', 'unit_id' => 427, 'instructionGIF' => null],
+
+
+
+
         ]);
+
+
+
+
 
 
 

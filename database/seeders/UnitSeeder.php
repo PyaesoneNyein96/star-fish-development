@@ -489,200 +489,279 @@ class UnitSeeder extends Seeder
             ['name' => 'Speak', 'lesson_id' => 49],                         // 277
 
 
-            // lesson 10's units count(4) start (273,277)
+            // lesson 10's units count(4) start (278,281)
 
             ['name' => 'Grammar Explain', 'lesson_id' => 50],             // 278
             ['name' => 'Listen and Repeat', 'lesson_id' => 50],
             ['name' => 'Look and Write', 'lesson_id' => 50],
-            ['name' => 'Speak', 'lesson_id' => 50],                         // 277
+            ['name' => 'Speak', 'lesson_id' => 50],                         // 281
 
 
-            // lesson 11's units count(3) start (273,277)
+            // lesson 11's units count(3) start (282,274)
 
-            ['name' => 'Listen and Write', 'lesson_id' => 51],             // 278
+            ['name' => 'Listen and Write', 'lesson_id' => 51],             // 282
             ['name' => 'Coloring', 'lesson_id' => 51],
-            ['name' => 'Speak', 'lesson_id' => 51],                         // 277
+            ['name' => 'Speak', 'lesson_id' => 51],                         // 284
 
 
-            // lesson 12's units count(5) start (273,277)
+            // lesson 12's units count(5) start (285,289)
 
-            ['name' => 'Grammar Explanation', 'lesson_id' => 52],             // 278
+            ['name' => 'Grammar Explanation', 'lesson_id' => 52],             // 285
             ['name' => 'Listen and Repeat', 'lesson_id' => 52],
             ['name' => 'Listen and Choose', 'lesson_id' => 52],
-            ['name' => 'Speak', 'lesson_id' => 52],                         // 277
-            ['name' => 'Reading', 'lesson_id' => 52],                         // 277
+            ['name' => 'Speak', 'lesson_id' => 52],
+            ['name' => 'Reading', 'lesson_id' => 52],                         // 289
 
 
-            // lesson 13's units count(5) start (273,277)
+            // lesson 13's units count(6) start (290,295)
 
-            ['name' => 'Listen and Repeat', 'lesson_id' => 53],
-            ['name' => 'Trace Words', 'lesson_id' => 53],             // 278
+            ['name' => 'Listen and Repeat', 'lesson_id' => 53],         // 290
+            ['name' => 'Trace Words', 'lesson_id' => 53],
             ['name' => 'Matching', 'lesson_id' => 53],
             ['name' => 'Listen and Write', 'lesson_id' => 53],
-            ['name' => 'Speak', 'lesson_id' => 53],                         // 277
-            ['name' => 'Target Grammar', 'lesson_id' => 53],                         // 277
+            ['name' => 'Speak', 'lesson_id' => 53],
+            ['name' => 'Target Grammar', 'lesson_id' => 53],                         // 295
 
 
-            // lesson 14's units count(5) start (273,277)
+            // lesson 14's units count(5) start (296,300)
 
-            ['name' => 'Video', 'lesson_id' => 54],
-            ['name' => 'Listen and Repeat', 'lesson_id' => 54],             // 278
+            ['name' => 'Video', 'lesson_id' => 54],                     // 296
+            ['name' => 'Listen and Repeat', 'lesson_id' => 54],
             ['name' => 'Listen and Choose', 'lesson_id' => 54],
             ['name' => 'Speak', 'lesson_id' => 54],
-            ['name' => 'Speak more', 'lesson_id' => 54],                         // 277
+            ['name' => 'Speak more', 'lesson_id' => 54],                         // 300
 
 
-            // lesson 15's units count(6) start (273,277)
+            // lesson 15's units count(6) start (301,306)
 
-            ['name' => 'Vocabulary', 'lesson_id' => 55],
-            ['name' => 'Trace Words', 'lesson_id' => 55],             // 278
+            ['name' => 'Vocabulary', 'lesson_id' => 55],                    // 301
+            ['name' => 'Trace Words', 'lesson_id' => 55],
             ['name' => 'Matching Words and Picture', 'lesson_id' => 55],
             ['name' => 'Listen and Write', 'lesson_id' => 55],
-            ['name' => 'Speak', 'lesson_id' => 55],                         // 277
-            ['name' => 'Reading', 'lesson_id' => 55],                         // 277
+            ['name' => 'Speak', 'lesson_id' => 55],
+            ['name' => 'Reading', 'lesson_id' => 55],                         // 306
 
 
-            // lesson 16's units count(5) start (273,277)
+            // lesson 16's units count(5) start (307,311)
 
-            ['name' => 'Target Language Explanation', 'lesson_id' => 56],
-            ['name' => 'Listen and Repeat', 'lesson_id' => 56],             // 278
+            ['name' => 'Target Language Explanation', 'lesson_id' => 56],   // 307
+            ['name' => 'Listen and Repeat', 'lesson_id' => 56],
             ['name' => 'Listen and Learn', 'lesson_id' => 56],
             ['name' => 'Sing and Dance', 'lesson_id' => 56],
-            ['name' => 'Speak', 'lesson_id' => 56],                         // 277
+            ['name' => 'Speak', 'lesson_id' => 56],                         // 311
 
 
-            // lesson 17's units count(4) start (273,277)
+            // lesson 17's units count(4) start (312,315)
 
-            ['name' => 'Video', 'lesson_id' => 57],
-            ['name' => 'Listen and Repeat', 'lesson_id' => 57],             // 278
+            ['name' => 'Video', 'lesson_id' => 57],                         // 312
+            ['name' => 'Listen and Repeat', 'lesson_id' => 57],
             ['name' => 'True or False', 'lesson_id' => 57],
-            ['name' => 'Speak', 'lesson_id' => 57],                         // 277
+            ['name' => 'Speak', 'lesson_id' => 57],                         // 315
 
 
-            // lesson 18's units count(4) start (273,277)
+            // lesson 18's units count(4) start (316,319)
 
-            ['name' => 'Grammar Explain', 'lesson_id' => 58],
-            ['name' => 'Listen and Repeat', 'lesson_id' => 58],             // 278
-            ['name' => 'Speak', 'lesson_id' => 58],                         // 277
-            ['name' => 'Listen and Choose', 'lesson_id' => 58],
+            ['name' => 'Grammar Explain', 'lesson_id' => 58],                // 316
+            ['name' => 'Listen and Repeat', 'lesson_id' => 58],
+            ['name' => 'Speak', 'lesson_id' => 58],
+            ['name' => 'Listen and Choose', 'lesson_id' => 58],              // 319
 
 
-            // lesson 19's units count(4) start (273,277)
+            // lesson 19's units count(6) start (320,325)
 
-            ['name' => 'Video', 'lesson_id' => 59],
-            ['name' => 'Listen and Repeat', 'lesson_id' => 59],             // 278
-            ['name' => 'Trace Words', 'lesson_id' => 59],                         // 277
+            ['name' => 'Video', 'lesson_id' => 59],                         // 320
+            ['name' => 'Listen and Repeat', 'lesson_id' => 59],
+            ['name' => 'Trace Words', 'lesson_id' => 59],
             ['name' => 'Matching words and picture', 'lesson_id' => 59],
             ['name' => 'Listen and write', 'lesson_id' => 59],
-            ['name' => 'Speak', 'lesson_id' => 59],
+            ['name' => 'Speak', 'lesson_id' => 59],                         // 325
 
 
-            // lesson 20's units count(4) start (273,277)
+            // lesson 20's units count(5) start (326,330)
 
-            ['name' => 'Listen and Repeat', 'lesson_id' => 60],             // 278
-            ['name' => 'Trace Words', 'lesson_id' => 60],                         // 277
+            ['name' => 'Listen and Repeat', 'lesson_id' => 60],             // 326
+            ['name' => 'Trace Words', 'lesson_id' => 60],
             ['name' => 'Matching words', 'lesson_id' => 60],
             ['name' => 'Listen and write', 'lesson_id' => 60],
-            ['name' => 'Reading', 'lesson_id' => 60],
+            ['name' => 'Reading', 'lesson_id' => 60],                       // 330
 
 
-            // // lesson 21's units count(5) start (273,277)
+            // // lesson 21's units count(5) start (331,335)
 
-            // ['name' => 'Grammar Explanation', 'lesson_id' => 61],             // 278
-            // ['name' => 'Listen and Repeat', 'lesson_id' => 61],                         // 277
-            // ['name' => 'Matching words and pictures', 'lesson_id' => 61],
-            // ['name' => 'Choose your answer', 'lesson_id' => 61],
-            // ['name' => 'Speak', 'lesson_id' => 61],
-
-
-            // // lesson 22's units count(5) start (273,277)
-
-            // ['name' => 'Grammar Explanation', 'lesson_id' => 62],             // 278
-            // ['name' => 'Listen and learn the song', 'lesson_id' => 62],                         // 277
-            // ['name' => 'Sing and dance', 'lesson_id' => 62],
-            // ['name' => 'Speak', 'lesson_id' => 62],
+            ['name' => 'Grammar Explanation', 'lesson_id' => 61],             // 331
+            ['name' => 'Listen and Repeat', 'lesson_id' => 61],
+            ['name' => 'Matching words and pictures', 'lesson_id' => 61],
+            ['name' => 'Choose your answer', 'lesson_id' => 61],
+            ['name' => 'Speak', 'lesson_id' => 61],                           // 335
 
 
-            // // lesson 23's units count(5) start (273,277)
+            // // lesson 22's units count(4) start (336,339)
 
-            // ['name' => 'Video', 'lesson_id' => 63],             // 278
-            // ['name' => 'Listen and Repeat', 'lesson_id' => 63],                         // 277
-            // ['name' => 'Trace Words', 'lesson_id' => 63],
-            // ['name' => 'Listen and Choose', 'lesson_id' => 63],
-            // ['name' => 'Speak', 'lesson_id' => 63],
-
-
-            // // lesson 24's units count(7) start (273,277)
-
-            // ['name' => 'Video', 'lesson_id' => 64],             // 278
-            // ['name' => 'Listen and Practice', 'lesson_id' => 64],                         // 277
-            // ['name' => 'Trace Words', 'lesson_id' => 64],
-            // ['name' => 'Matching', 'lesson_id' => 64],
-            // ['name' => 'Writing', 'lesson_id' => 64],
-            // ['name' => 'Speaking', 'lesson_id' => 64],
-            // ['name' => 'Reading short', 'lesson_id' => 64],
+            ['name' => 'Target Language Explanation', 'lesson_id' => 62],      // 336
+            ['name' => 'Listen and learn the song', 'lesson_id' => 62],
+            ['name' => 'Sing and dance', 'lesson_id' => 62],
+            ['name' => 'Speak', 'lesson_id' => 62],                            // 339
 
 
-            // // lesson 25's units count(7) start (273,277)
+            // // lesson 23's units count(5) start (340,344)
 
-            // ['name' => 'Video', 'lesson_id' => 65],             // 278
-            // ['name' => 'Listen and Practice', 'lesson_id' => 65],                         // 277
-            // ['name' => 'Trace Words', 'lesson_id' => 65],
-            // ['name' => 'Matching', 'lesson_id' => 65],
-            // ['name' => 'Writing', 'lesson_id' => 65],
-            // ['name' => 'Speaking', 'lesson_id' => 65],
-            // ['name' => 'Reading short', 'lesson_id' => 65],
+            ['name' => 'Video', 'lesson_id' => 63],                             // 340
+            ['name' => 'Listen and Repeat', 'lesson_id' => 63],
+            ['name' => 'Trace Words', 'lesson_id' => 63],
+            ['name' => 'Listen and Choose', 'lesson_id' => 63],
+            ['name' => 'Speak', 'lesson_id' => 63],                             // 344
 
 
-            // // lesson 26's units count(7) start (273,277)
+            // // lesson 24's units count(7) start (345,351)
 
-            // ['name' => 'Grammar Explanation', 'lesson_id' => 66],             // 278
-            // ['name' => 'Listen and repeat', 'lesson_id' => 66],                         // 277
-            // ['name' => 'Choose', 'lesson_id' => 66],
-            // ['name' => 'Listen and write', 'lesson_id' => 66],
-            // ['name' => 'Speak', 'lesson_id' => 66],
-
-
-            // // lesson 27's units count(7) start (273,277)
-
-            // ['name' => 'Listen and repeat', 'lesson_id' => 67],                         // 277
-            // ['name' => 'Trace words', 'lesson_id' => 67],
-            // ['name' => 'Matching words and pictures', 'lesson_id' => 67],
-            // ['name' => 'Listen and write', 'lesson_id' => 67],
-            // ['name' => 'Speak', 'lesson_id' => 67],
+            ['name' => 'Video', 'lesson_id' => 64],                              // 345
+            ['name' => 'Listen and Practice', 'lesson_id' => 64],
+            ['name' => 'Trace Words', 'lesson_id' => 64],
+            ['name' => 'Matching', 'lesson_id' => 64],
+            ['name' => 'Writing', 'lesson_id' => 64],
+            ['name' => 'Speaking', 'lesson_id' => 64],
+            ['name' => 'Reading short', 'lesson_id' => 64],                       // 351
 
 
-            // // lesson 28's units count(7) start (273,277)
+            // // lesson 25's units count(5) start (352,356)
 
-            // ['name' => 'Video', 'lesson_id' => 68],                         // 277
-            // ['name' => 'Reading', 'lesson_id' => 68],
-            // ['name' => 'Listen and write', 'lesson_id' => 68],
-            // ['name' => 'Speak', 'lesson_id' => 68],
-
-
-            // // lesson 29's units count(7) start (273,277)
-
-            // ['name' => 'Video', 'lesson_id' => 69],                         // 277
-            // ['name' => 'Reading', 'lesson_id' => 69],
-            // ['name' => 'Listen and write', 'lesson_id' => 69],
-            // ['name' => 'Matching', 'lesson_id' => 69],
-            // ['name' => 'Reading', 'lesson_id' => 69],
+            ['name' => 'Grammar Explanation', 'lesson_id' => 65],             // 352
+            ['name' => 'Listen and Repeat', 'lesson_id' => 65],
+            ['name' => 'Choose', 'lesson_id' => 65],
+            ['name' => 'Listen and write', 'lesson_id' => 65],
+            ['name' => 'Speak', 'lesson_id' => 65],                             // 356
 
 
-            // // lesson 30's units count(7) start (273,277)
+            // // lesson 26's units count(5) start (357,361)
 
-            // ['name' => 'Grammar Explanation', 'lesson_id' => 70],                         // 277
-            // ['name' => 'Listen and repeat', 'lesson_id' => 70],
-            // ['name' => 'Look and write', 'lesson_id' => 70],
-            // ['name' => 'Speak', 'lesson_id' => 70],
+            ['name' => 'Listen and Repeat', 'lesson_id' => 66],                 // 357
+            ['name' => 'Trace words', 'lesson_id' => 66],
+            ['name' => 'Matching words and pictures', 'lesson_id' => 66],
+            ['name' => 'Listen and write', 'lesson_id' => 66],
+            ['name' => 'Speak', 'lesson_id' => 66],                             // 361
 
 
-            // // lesson 31's units count(7) start (273,277)
+            // // lesson 27's units count(4) start (362, 365)
 
-            // ['name' => 'Listen and Repeat', 'lesson_id' => 71],                         // 277
-            // ['name' => 'Listen and repeat', 'lesson_id' => 71],
-            // ['name' => 'Look and write', 'lesson_id' => 71],
-            // ['name' => 'Speak', 'lesson_id' => 71],
+            ['name' => 'Video', 'lesson_id' => 67],                         // 362
+            ['name' => 'Reading', 'lesson_id' => 67],
+            ['name' => 'Listen and write', 'lesson_id' => 67],
+            ['name' => 'Speak', 'lesson_id' => 67],                         // 365
+
+
+            // // lesson 28's units count(5) start (366,370)
+
+            ['name' => 'Video', 'lesson_id' => 68],                         // 366
+            ['name' => 'Reading', 'lesson_id' => 68],
+            ['name' => 'Listen and write', 'lesson_id' => 68],
+            ['name' => 'Matching', 'lesson_id' => 68],
+            ['name' => 'Reading', 'lesson_id' => 68],                       // 370
+
+
+            // // lesson 29's units count(4) start (371,374)
+
+            ['name' => 'Grammar Explanation', 'lesson_id' => 69],            // 371
+            ['name' => 'Listen and Repeat', 'lesson_id' => 69],
+            ['name' => 'Look and Write', 'lesson_id' => 69],
+            ['name' => 'Speak', 'lesson_id' => 69],                          // 374
+
+
+            // // lesson 30's units count(5) start (375,379)
+
+            ['name' => 'Listen and Repeat', 'lesson_id' => 70],              // 375
+            ['name' => 'Trace words', 'lesson_id' => 70],
+            ['name' => 'Matching words and pictures', 'lesson_id' => 70],
+            ['name' => 'Listen and write', 'lesson_id' => 70],
+            ['name' => 'Speak', 'lesson_id' => 70],                           // 379
+
+
+            // // lesson 31's units count(5) start (380,384)
+
+            ['name' => 'Video', 'lesson_id' => 71],              // 380
+            ['name' => 'Listen and Repeat', 'lesson_id' => 71],
+            ['name' => 'Look and Write', 'lesson_id' => 71],
+            ['name' => 'Matching', 'lesson_id' => 71],
+            ['name' => 'Speak', 'lesson_id' => 71],              // 384
+
+
+            // // lesson 32's units count(6) start (385,390)
+
+            ['name' => 'Video', 'lesson_id' => 72],              // 385
+            ['name' => 'Listen and Repeat', 'lesson_id' => 72],
+            ['name' => 'Trace', 'lesson_id' => 72],
+            ['name' => 'Matching', 'lesson_id' => 72],
+            ['name' => 'Listen and Write', 'lesson_id' => 72],
+            ['name' => 'Reading', 'lesson_id' => 72],              // 390
+
+            // // lesson 33's units count(3) start (391,393)
+
+            ['name' => 'Grammar Explanation', 'lesson_id' => 73],              // 391
+            ['name' => 'Listen and Repeat', 'lesson_id' => 73],
+            ['name' => 'Speak', 'lesson_id' => 73],              // 393
+
+
+            // // lesson 34's units count(5) start (394,398)
+
+            ['name' => 'Listen and Repeat', 'lesson_id' => 74],     // 394
+            ['name' => 'Trace Word', 'lesson_id' => 74],
+            ['name' => 'Matching', 'lesson_id' => 74],
+            ['name' => 'Listen and Write', 'lesson_id' => 74],
+            ['name' => 'Speak', 'lesson_id' => 74],                 // 398
+
+
+            // // lesson 35's units count(5) start (399,403)
+
+            ['name' => 'Video', 'lesson_id' => 75],              // 399
+            ['name' => 'Listen and Repeat', 'lesson_id' => 75],
+            ['name' => 'Listen and Write', 'lesson_id' => 75],
+            ['name' => 'Matching', 'lesson_id' => 75],
+            ['name' => 'Speak', 'lesson_id' => 75],               // 403
+
+
+            // // lesson 36's units count(5) start (404,408)
+
+            ['name' => 'Video', 'lesson_id' => 76],              // 404
+            ['name' => 'Listen and Repeat', 'lesson_id' => 76],
+            ['name' => 'Listen and Write', 'lesson_id' => 76],
+            ['name' => 'Speak', 'lesson_id' => 76],
+            ['name' => 'Reading', 'lesson_id' => 76],               // 408
+
+
+            // // lesson 37's units count(4) start (409,412)
+
+            ['name' => 'Target Language Explanation', 'lesson_id' => 77],   // 409
+            ['name' => 'Listen and Learn', 'lesson_id' => 77],
+            ['name' => 'Sing and Dance', 'lesson_id' => 77],
+            ['name' => 'Speak', 'lesson_id' => 77],                         // 412
+
+
+            // // lesson 38's units count(6) start (413,418)
+
+            ['name' => 'Video', 'lesson_id' => 78],                 // 413
+            ['name' => 'Listen and Repeat', 'lesson_id' => 78],
+            ['name' => 'Tracing', 'lesson_id' => 78],
+            ['name' => 'Arranging Letters', 'lesson_id' => 78],
+            ['name' => 'Matching', 'lesson_id' => 78],
+            ['name' => 'Speak', 'lesson_id' => 78],                 // 418
+
+
+            // // lesson 39's units count(6) start (419,422)
+
+            ['name' => 'Grammar Explanation', 'lesson_id' => 79],       // 419
+            ['name' => 'Listen and Repeat', 'lesson_id' => 79],
+            ['name' => 'Look and write', 'lesson_id' => 79],
+            ['name' => 'Speak', 'lesson_id' => 79],                     // 422
+
+
+            // // lesson 40's units count(6) start (423,427)
+
+            ['name' => 'Grammar Explanation', 'lesson_id' => 80],       // 423
+            ['name' => 'Listen and Repeat', 'lesson_id' => 80],
+            ['name' => 'Listen and Practice', 'lesson_id' => 80],
+            ['name' => 'Matching', 'lesson_id' => 80],
+            ['name' => 'Reading Passage', 'lesson_id' => 80],           // 427
+
+
 
 
         ]);
