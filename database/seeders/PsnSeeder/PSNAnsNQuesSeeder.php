@@ -260,16 +260,16 @@ class PSNAnsNQuesSeeder extends Seeder
             ['k', 'w', 'c', 'x', 'p', 'v']
         ];
 
+        $AtoZsm = range('a','z');
         for ($i = 0; $i < count($g1_l2_g11); $i++) {
 
-            for ($j = 0; $j < count($AtoZ); $j++) {
+            for ($j = 0; $j < count($AtoZsm); $j++) {
                 DB::table('ans_n_ques')->insert([
-
                     [
                         'round' => $i + 1,
                         'game_id' => 11,
-                        'q_content' => $AtoZ[$j],
-                        'a_content' => in_array($AtoZ[$j], $g1_l2_g11[$i]) ? 1 : 0,
+                        'q_content' => $AtoZsm[$j],
+                        'a_content' => in_array($AtoZsm[$j], $g1_l2_g11[$i]) ? 1 : 0,
                     ],
                 ]);
             }
