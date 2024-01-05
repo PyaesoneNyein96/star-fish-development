@@ -220,7 +220,10 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Listen and tap the words you hear", 'game_id' => 68, 'audio' =>  $Instructions . "Listen-and-tap-the-words-you-hear" . ".mp3"],
 
+            ['content' => "Matching things", 'game_id' => 69, 'audio' =>  $Instructions . "Matching-things" . ".mp3"],
+
             ['content' => "Trace and write", "game_id" => 71, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+
             ['content' => "Write the correct letter", "game_id" => 72, 'audio' =>  $Instructions . "Write-the-correct-letter" . ".mp3"],
 
 
@@ -574,8 +577,8 @@ class GameInstructionSeeder extends Seeder
                 'content' =>  "Select the things she has in her room.", "game_id" => 204,
                 'audio' =>  $Instructions . "Select-the-things-she-has-in-her-room" . ".mp3"
             ],
-            // Game 6 (204)
-            ['content' => "Look at the half of the picture and say a word", 'game_id' => 205, 'audio' =>  $Instructions . "Look-at-the-half-of-the-picture" . ".mp3"],
+            // Game 6 (205)
+            // ['content' => "Look at the half of the picture and say a word", 'game_id' => 205, 'audio' =>  $Instructions . "Look-at-the-half-of-the-picture" . ".mp3"],
 
 
             // Lesson 33
