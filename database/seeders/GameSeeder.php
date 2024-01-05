@@ -784,39 +784,39 @@ class GameSeeder extends Seeder
 
         //--------------  Grade 3 Games -------------------
 
-        DB::table('games')->insert([
-            ['name' => 'Target Language', 'unit_id' => 233, 'category_id' => 1],
-            ['name' => 'Vocabulary', 'unit_id' => 234, 'category_id' => 1],
-            ['name' => 'Practice', 'unit_id' => 235, 'category_id' => 1],
-            ['name' => 'Listening', 'unit_id' => 236, 'category_id' => 1],
-            ['name' => 'Speaking', 'unit_id' => 237, 'category_id' => 1],
-            ['name' => 'Reading', 'unit_id' => 238, 'category_id' => 3],
-            ['name' => 'Writing', 'unit_id' => 239, 'category_id' => 26],   // ***
-            ['name' => 'Free practice', 'unit_id' => 240, 'category_id' => 3],
-        ]);
+        // DB::table('games')->insert([
+        //     ['name' => 'Target Language', 'unit_id' => 233, 'category_id' => 1],
+        //     ['name' => 'Vocabulary', 'unit_id' => 234, 'category_id' => 1],
+        //     ['name' => 'Practice', 'unit_id' => 235, 'category_id' => 1],
+        //     ['name' => 'Listening', 'unit_id' => 236, 'category_id' => 1],
+        //     ['name' => 'Speaking', 'unit_id' => 237, 'category_id' => 1],
+        //     ['name' => 'Reading', 'unit_id' => 238, 'category_id' => 3],
+        //     ['name' => 'Writing', 'unit_id' => 239, 'category_id' => 26],   // ***
+        //     ['name' => 'Free practice', 'unit_id' => 240, 'category_id' => 3],
+        // ]);
 
         // ////////////////////
 
-        DB::table('games')->insert([
-            ['name' => 'Video', 'unit_id' => 241, 'category_id' => 1],
-            ['name' => 'Vocabulary', 'unit_id' => 242, 'category_id' => 1],
-            ['name' => 'Write the opposite', 'unit_id' => 243, 'category_id' => 27],  // ***
-            ['name' => 'Writing', 'unit_id' => 244, 'category_id' => 1],
-            ['name' => 'Listen', 'unit_id' => 245, 'category_id' => 1],
-            ['name' => 'Speaking', 'unit_id' => 246, 'category_id' => 3],
-            ['name' => 'Free Speaking Practice', 'unit_id' => 247, 'category_id' => 3],
-        ]);
+        // DB::table('games')->insert([
+        //     ['name' => 'Video', 'unit_id' => 241, 'category_id' => 1],
+        //     ['name' => 'Vocabulary', 'unit_id' => 242, 'category_id' => 1],
+        //     ['name' => 'Write the opposite', 'unit_id' => 243, 'category_id' => 27],  // ***
+        //     ['name' => 'Writing', 'unit_id' => 244, 'category_id' => 1],
+        //     ['name' => 'Listen', 'unit_id' => 245, 'category_id' => 1],
+        //     ['name' => 'Speaking', 'unit_id' => 246, 'category_id' => 3],
+        //     ['name' => 'Free Speaking Practice', 'unit_id' => 247, 'category_id' => 3],
+        // ]);
 
 
 
-        // //----------------- Grade 3 games -------------------------
+        // // //----------------- Grade 3 games -------------------------
 
-        DB::table('games')->insert([
-            ['name' => 'Reading Lesson', 'unit_id' => 248, 'category_id' => 1],
-            ['name' => 'Listen and Repeat', 'unit_id' => 249, 'category_id' => 1],
-            ['name' => 'Speaking Practice', 'unit_id' => 250, 'category_id' => 1],
-            ['name' => 'Listen and Practice', 'unit_id' => 251, 'category_id' => 28],
-            ['name' => 'Speaking Topic', 'unit_id' => 252, 'category_id' => 1],
-        ]);
+        // DB::table('games')->insert([
+        //     ['name' => 'Reading Lesson', 'unit_id' => 248, 'category_id' => 1],
+        //     ['name' => 'Listen and Repeat', 'unit_id' => 249, 'category_id' => 1],
+        //     ['name' => 'Speaking Practice', 'unit_id' => 250, 'category_id' => 1],
+        //     ['name' => 'Listen and Practice', 'unit_id' => 251, 'category_id' => 28],
+        //     ['name' => 'Speaking Topic', 'unit_id' => 252, 'category_id' => 1],
+        // ]);
     }
 }
