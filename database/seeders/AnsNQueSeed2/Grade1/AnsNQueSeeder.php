@@ -40,17 +40,17 @@ class AnsNQueSeeder extends Seeder
 
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 13, 'a_image' => $l3G13image . "susan.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "I'm Susan.", "background" =>  $l3G13image . "bg1.png"],
-            ['round' => 1, 'game_id' => 13, 'a_image' => $l3G13image . "mary-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Nice to meet you.", "background" =>  $l3G13image . "bg1.png"],
+            ['round' => 1, 'game_id' => 13, 'a_image' => $l3G13image . "susan.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "I'm Susan.", "background" =>  $l3G13image . "bg.png"],
+            ['round' => 1, 'game_id' => 13, 'a_image' => $l3G13image . "mary-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Nice to meet you.", "background" =>  $l3G13image . "bg.png"],
 
-            ['round' => 2, 'game_id' => 13, 'a_image' => $l3G13image . "mary.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Hello, I'm Mary.", "background" =>  $l3G13image . "bg2.png"],
-            ['round' => 2, 'game_id' => 13, 'a_image' => $l3G13image . "susan-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Nice to meet you.", "background" =>  $l3G13image . "bg2.png"],
+            ['round' => 2, 'game_id' => 13, 'a_image' => $l3G13image . "mary.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Hello, I'm Mary.", "background" =>  $l3G13image . "bg.png"],
+            ['round' => 2, 'game_id' => 13, 'a_image' => $l3G13image . "susan-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Nice to meet you.", "background" =>  $l3G13image . "bg.png"],
 
-            ['round' => 3, 'game_id' => 13, 'a_image' => $l3G13image . "tom.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Hello, I'm Tom.", "background" =>  $l3G13image . "bg3.png"],
-            ['round' => 3, 'game_id' => 13, 'a_image' => $l3G13image . "jerry-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Nice to meet you.", "background" =>  $l3G13image . "bg3.png"],
+            ['round' => 3, 'game_id' => 13, 'a_image' => $l3G13image . "tom.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Hello, I'm Tom.", "background" =>  $l3G13image . "bg1.png"],
+            ['round' => 3, 'game_id' => 13, 'a_image' => $l3G13image . "jerry-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Nice to meet you.", "background" =>  $l3G13image . "bg1.png"],
 
-            ['round' => 4, 'game_id' => 13, 'a_image' => $l3G13image . "jerry.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Hello, I'm Jerry.", "background" =>  $l3G13image . "bg3.png"],
-            ['round' => 4, 'game_id' => 13, 'a_image' => $l3G13image . "tom-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Nice to meet you.", "background" =>  $l3G13image . "bg3.png"],
+            ['round' => 4, 'game_id' => 13, 'a_image' => $l3G13image . "jerry.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Hello, I'm Jerry.", "background" =>  $l3G13image . "bg1.png"],
+            ['round' => 4, 'game_id' => 13, 'a_image' => $l3G13image . "tom-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "audio.mp3", "a_conver" => "Nice to meet you.", "background" =>  $l3G13image . "bg1.png"],
 
         ]);
 
@@ -475,8 +475,8 @@ class AnsNQueSeeder extends Seeder
             ["round" => 3, "game_id" => 24, "a_image" => $l5G24image . "girl.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "Good-evening.mp3", "a_conver" => "Good Evening", "background" => $l5G24image . "bg.png"],
 
 
-            ["round" => 4, "game_id" => 24, "a_image" => $l5G24image . "boy.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "i'm_fine.mp3", "a_conver" => "I'm fine.", "background" => $l5G24image . "bg.png"],
             ["round" => 4, "game_id" => 24, "a_image" => $l5G24image . "girl.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "how_are_you_chris.mp3", "a_conver" => "How are you, Chris?", "background" => $l5G24image . "bg.png"],
+            ["round" => 4, "game_id" => 24, "a_image" => $l5G24image . "boy.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "i'm_fine.mp3", "a_conver" => "I'm fine.", "background" => $l5G24image . "bg.png"],
 
             ["round" => 5, "game_id" => 24, "a_image" => $l5G24image . "boy.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "how_are_you_susan.mp3", "a_conver" => "How are you, Susan?", "background" => $l5G24image . "bg.png"],
             ["round" => 5, "game_id" => 24, "a_image" => $l5G24image . "girl.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "i'm_ok.mp3", "a_conver" => "I'm OK.", "background" => $l5G24image . "bg.png"],
@@ -1019,10 +1019,6 @@ class AnsNQueSeeder extends Seeder
                 'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "mat" . ".mp3", "background" => $l8G43image . "bg1.png"
             ],
             [
-                'round' => 1, 'game_id' => 43, 'a_content' => "clock", 'q_image' => $l8G43image . "clock" . ".png",
-                'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "clock" . ".mp3", "background" => $l8G43image . "bg1.png"
-            ],
-            [
                 'round' => 1, 'game_id' => 43, 'a_content' => "dresser", 'q_image' => $l8G43image . "dresser" . ".png",
                 'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "audio" . ".mp3", "background" => $l8G43image . "bg1.png"
             ],
@@ -1035,6 +1031,10 @@ class AnsNQueSeeder extends Seeder
             [
                 'round' => 2, 'game_id' => 43, 'a_content' => "bottle", 'q_image' => $l8G43image . "bottle" . ".png",
                 'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "bottle" . ".mp3", "background" => $l8G43image . "bg2.png"
+            ],
+            [
+                'round' => 2, 'game_id' => 43, 'a_content' => "clock", 'q_image' => $l8G43image . "clock" . ".png",
+                'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "clock" . ".mp3", "background" => $l8G43image . "bg2.png"
             ],
             [
                 'round' => 2, 'game_id' => 43, 'a_content' => "cup", 'q_image' => $l8G43image . "cup" . ".png",
@@ -2615,22 +2615,22 @@ class AnsNQueSeeder extends Seeder
         DB::table('ans_n_ques')->insert([
 
             // game 85
-            ['round' => 1, 'game_id' => 85, 'a_image' => $l15G85image . "girl.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "yellow_cat.mp3", "a_conver" => "Yellow Cat, Yellow Cat.\nWhat's this?", 'q_image' => null],
-            ['round' => 1, 'game_id' => 85, 'a_image' => $l15G85image . "cat.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "dog_dog.mp3", "a_conver" => "Dog. Dog It's a Dog.\nIt's big. It's black.", 'q_image' => $l15G85image . "dog.png"],
+            ['round' => 1, 'game_id' => 85, 'a_image' => $l15G85image . "girl.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "yellow_cat.mp3", "a_conver" => "Yellow Cat, Yellow Cat.\nWhat's this?", 'q_image' => null, "background" => $l15G85image . "bg.png"],
+            ['round' => 1, 'game_id' => 85, 'a_image' => $l15G85image . "cat.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "dog_dog.mp3", "a_conver" => "Dog. Dog It's a Dog.\nIt's big. It's black.", 'q_image' => $l15G85image . "dog.png", "background" => $l15G85image . "bg.png"],
 
-            ['round' => 2, 'game_id' => 85, 'a_image' => $l15G85image . "cat1.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "black_dog.mp3", "a_conver" => "Black dog. Black dog,\nwhat's this?", 'q_image' => null],
-            ['round' => 2, 'game_id' => 85, 'a_image' => $l15G85image . "dog.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "cock_cock.mp3", "a_conver" => "Cock. Cock. it's a cock.\nIt's small. It's white.", 'q_image' => $l15G85image . "cock.png"],
+            ['round' => 2, 'game_id' => 85, 'a_image' => $l15G85image . "cat1.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "black_dog.mp3", "a_conver" => "Black dog. Black dog,\nwhat's this?", 'q_image' => null, "background" => $l15G85image . "bg.png"],
+            ['round' => 2, 'game_id' => 85, 'a_image' => $l15G85image . "dog.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "cock_cock.mp3", "a_conver" => "Cock. Cock. it's a cock.\nIt's small. It's white.", 'q_image' => $l15G85image . "cock.png", "background" => $l15G85image . "bg.png"],
 
 
             // game 86
-            ['round' => 1, 'game_id' => 86, 'a_image' => $l15G85image . "mouse.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "yellow_cat_how.mp3", "a_conver" => "Yellow Cat, Yellow Cat. How are you?", 'q_image' => null],
-            ['round' => 1, 'game_id' => 86, 'a_image' => $l15G85image . "cat2right.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "im_fine.mp3", "a_conver" => "I'm fine. I'm ok.", 'q_image' => null],
+            ['round' => 1, 'game_id' => 86, 'a_image' => $l15G85image . "mouse.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "yellow_cat_how.mp3", "a_conver" => "Yellow Cat, Yellow Cat. \nHow are you?", 'q_image' => null, "background" => $l15G85image . "bg.png"],
+            ['round' => 1, 'game_id' => 86, 'a_image' => $l15G85image . "cat2right.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "im_fine.mp3", "a_conver" => "I'm fine. \nI'm ok.", 'q_image' => null, "background" => $l15G85image . "bg.png"],
 
-            ['round' => 2, 'game_id' => 86, 'a_image' => $l15G85image . "dogcat.jpeg", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "red_ant.mp3", "a_conver" => "Red ant, Red ant. How are you?", 'q_image' => null],
-            ['round' => 2, 'game_id' => 86, 'a_image' => $l15G85image . "ant.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "im_great.mp3", "a_conver" => "I'm great. I'm great.", 'q_image' => null],
+            ['round' => 2, 'game_id' => 86, 'a_image' => $l15G85image . "dogcat.jpeg", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "red_ant.mp3", "a_conver" => "Red ant, Red ant. \nHow are you?", 'q_image' => null, "background" => $l15G85image . "bg.png"],
+            ['round' => 2, 'game_id' => 86, 'a_image' => $l15G85image . "ant.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "im_great.mp3", "a_conver" => "I'm great. \nI'm great.", 'q_image' => null, "background" => $l15G85image . "bg.png"],
 
-            ['round' => 3, 'game_id' => 86, 'a_image' => $l15G85image . "dogleft.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "tom_tom.mp3", "a_conver" => "Tom, Tom, What's this?", 'q_image' => null],
-            ['round' => 3, 'game_id' => 86, 'a_image' => $l15G85image . "catright.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "mouse_mouse.mp3",  "a_conver" => "Mouse, Mouse. It's mouse. It's small. It's brown.", 'q_image' => $l15G85image . "mousemiddle.png",],
+            ['round' => 3, 'game_id' => 86, 'a_image' => $l15G85image . "dogleft.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "tom_tom.mp3", "a_conver" => "Tom, Tom, What's this?", 'q_image' => null, "background" => $l15G85image . "bg.png"],
+            ['round' => 3, 'game_id' => 86, 'a_image' => $l15G85image . "catright.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "mouse_mouse.mp3",  "a_conver" => "Mouse, Mouse. It's a mouse. \nIt's small. It's brown.", 'q_image' => $l15G85image . "mousemiddle.png", "background" => $l15G85image . "bg.png"],
 
         ]);
 

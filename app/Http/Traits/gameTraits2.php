@@ -21,6 +21,8 @@ trait gameTraits2
      *  12. mcq_grammar
      *  13. mcq_sentence
      *  14. listening_and_choosing_bubbles
+     *  15. fill_in_the_blanks_two
+     *  16. sentence_tracing
      *
      *
      */
@@ -98,6 +100,15 @@ trait gameTraits2
         return $this->common_fun($game, $unit);
     }
 
+    public function fill_in_the_blanks_two($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
+    public function sentence_tracing($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
 
 
 
