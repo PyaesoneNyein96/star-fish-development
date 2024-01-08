@@ -15,11 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('lesson_id')->constrained();
-
+            $table->index(['id','lesson_id'],'units_id_lesson_id_index');
             // $table->index('id', 'units_id_index');
             // $table->index('lesson_id', 'units_lesson_id_index');
-
-            $table->index(['id', 'lesson_id'], 'units_id_lesson_id_index');
 
             $table->timestamps();
         });

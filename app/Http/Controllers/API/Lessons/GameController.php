@@ -194,14 +194,19 @@ class GameController extends Controller
         $game_id = $request->header('game_id');
 
 
-        $unit = Unit::find($unit_id);
+        $unit = Unit::where('id', $unit_id)->where('lesson_id', $lesson_id)->first();
+        // $unit = Unit::find($unit_id);
 
-        if (!$unit) return "lesson and unit are not match.";
+        if (!$unit || !$student) return "lesson and unit are not match.";
 
         $gameInUnit = Game::where('unit_id', $unit_id)->where('id', $game_id)->exists();
+        // if(!$gameUnit && $unit && $gameId) return "SubUnit game not found!";
 
+        if ($gameInUnit) {
 
-        if ($gameInUnit) {  // for subUnit games
+            $game = Game::find($game_id);
+
+            $name = strval($game->category->name);
 
             $name = strval(Game::find($game_id)->category->name);
             if (!$name) return "this game is not subUnit game";
@@ -223,7 +228,7 @@ class GameController extends Controller
 
     public function end_match(Request $request)
     {
-        logger("i an newbi");
+
 
         $token = $request->header('token');
         $gameId = $request->header('game_id');
