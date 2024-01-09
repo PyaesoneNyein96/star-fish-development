@@ -196,8 +196,8 @@ class AnsNQueSeeder extends Seeder
         $G1_L3_Speaking = "Grade_1/" . "Lesson_3/" . "Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 16, "q_audio" =>  $AudioDomain . $G1_L3_Speaking . "audio" . ".mp3", 'q_image' => $l3G16image . "Orange_Vector.png", "q_content" => "Hello, I'm ___ . Nice to meet you."],
-            ['round' => 2, 'game_id' => 16, "q_audio" =>  $AudioDomain . $G1_L3_Speaking . "audio" . ".mp3", 'q_image' => $l3G16image . "Green_Vector.png", "q_content" => "Hi, I'm ___ . Nice to meet you."],
+            ['round' => 1, 'game_id' => 16, "q_audio" =>  $AudioDomain . $G1_L3_Speaking . "SubBlock_Hello-Im-Bowie-Nice-to-meet" . ".mp3", 'q_image' => $l3G16image . "Orange_Vector.png", "q_content" => "Hello, I'm ___ . Nice to meet you."],
+            ['round' => 2, 'game_id' => 16, "q_audio" =>  $AudioDomain . $G1_L3_Speaking . "SubBlock_Hi-Im-Kelly-Nice-to-meet-you" . ".mp3", 'q_image' => $l3G16image . "Green_Vector.png", "q_content" => "Hi, I'm ___ . Nice to meet you."],
         ]);
 
 
@@ -1715,7 +1715,7 @@ class AnsNQueSeeder extends Seeder
                 'a_audio' => $AudioDomain . $G1_L10_listen_n_practice . "rabbit" . ".mp3", "background" => $l10G56image . "bg1.png"
             ],
             [
-                'round' => 1, 'game_id' => 56, 'a_content' => "cow", 'q_image' => $l10G56image . "cow1" . ".png",
+                'round' => 1, 'game_id' => 56, 'a_content' => "cow", 'q_image' => $l10G56image . "cow" . ".png",
                 'a_audio' => $AudioDomain . $G1_L10_listen_n_practice . "cow" . ".mp3", "background" => $l10G56image . "bg1.png"
             ],
             [
