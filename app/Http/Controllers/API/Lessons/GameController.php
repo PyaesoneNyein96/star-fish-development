@@ -598,4 +598,31 @@ class GameController extends Controller
             'question_answer' => (int)$question_answer + Student::find($student_id)->question_answer
         ]);
     }
+
+
+
+
+
+    // ==========================================
+    // ================= dbtest =================
+    // ==========================================
+
+    public function test(Request $request)
+    {
+        $studentID = $request->header('student_id');
+        $gradeID = $request->header('grade_id');
+        $unitID = $request->header('unit_id');
+        $gameId = $request->header('game_id');
+        $lessonId = $request->header('lesson_id');
+
+        $result = DB::connection('secondary_mysql')->table('end_matches')->insert([
+            'student_id' => $studentID,
+            'unit_id' => $unitID,
+            'game_id' => $gameId,
+            'lesson_id' => $lessonId,
+            'grade_id' => $gradeID
+        ]);
+
+        return response()->json($result);
+    }
 }

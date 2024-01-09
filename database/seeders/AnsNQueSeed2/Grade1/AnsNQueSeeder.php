@@ -1019,10 +1019,6 @@ class AnsNQueSeeder extends Seeder
                 'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "mat" . ".mp3", "background" => $l8G43image . "bg1.png"
             ],
             [
-                'round' => 1, 'game_id' => 43, 'a_content' => "clock", 'q_image' => $l8G43image . "clock" . ".png",
-                'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "clock" . ".mp3", "background" => $l8G43image . "bg1.png"
-            ],
-            [
                 'round' => 1, 'game_id' => 43, 'a_content' => "dresser", 'q_image' => $l8G43image . "dresser" . ".png",
                 'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "audio" . ".mp3", "background" => $l8G43image . "bg1.png"
             ],
@@ -1035,6 +1031,10 @@ class AnsNQueSeeder extends Seeder
             [
                 'round' => 2, 'game_id' => 43, 'a_content' => "bottle", 'q_image' => $l8G43image . "bottle" . ".png",
                 'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "bottle" . ".mp3", "background" => $l8G43image . "bg2.png"
+            ],
+            [
+                'round' => 2, 'game_id' => 43, 'a_content' => "clock", 'q_image' => $l8G43image . "clock" . ".png",
+                'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "clock" . ".mp3", "background" => $l8G43image . "bg2.png"
             ],
             [
                 'round' => 2, 'game_id' => 43, 'a_content' => "cup", 'q_image' => $l8G43image . "cup" . ".png",
