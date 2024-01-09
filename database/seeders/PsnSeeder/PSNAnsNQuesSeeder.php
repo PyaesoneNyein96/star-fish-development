@@ -1052,15 +1052,16 @@ class PSNAnsNQuesSeeder extends Seeder
                     'a_audio' => $AudioDomain . "Grade_1/Lesson_31/Listen_and_Practice/" . strtolower($v) . ".mp3",
                     'a_content' => $v,
                     'round' => 1,
+                    'background' => $ImageDomain . "/Grade_1/Lesson_31/Listen_and_Practice/Game_1/bg.png"
                 ],
             ]);
         }
 
-        $L12_U3_bg = $ImageDomain . "/Grade_1/Lesson_31/Listen_and_Practice/Game_1/bg.png";
+        // $L12_U3_bg = $ImageDomain . "/Grade_1/Lesson_31/Listen_and_Practice/Game_1/bg.png";
 
-        DB::table('ans_n_ques')->insert([
-            ['game_id' => 193, 'round' => 1, 'background' => $L12_U3_bg]
-        ]);
+        // DB::table('ans_n_ques')->insert([
+        //     ['game_id' => 193, 'round' => 1, 'background' => $L12_U3_bg]
+        // ]);
 
 
 
@@ -1081,15 +1082,11 @@ class PSNAnsNQuesSeeder extends Seeder
                     'a_audio' => $AudioDomain . "Grade_1/Lesson_31/Listen_and_Practice/" . $v . ".mp3",
                     'a_content' => $v,
                     'round' => 1,
+                    'background' => $ImageDomain . "/Grade_1/Lesson_31/Listen_and_Practice/Game_2/bg.png"
                 ],
             ]);
         }
 
-        $L12_U3_2_bg = $ImageDomain . "/Grade_1/Lesson_31/Listen_and_Practice/Game_2/bg.png";
-
-        DB::table('ans_n_ques')->insert([
-            ['game_id' => 194, 'round' => 1, 'background' => $L12_U3_2_bg]
-        ]);
 
 
 
@@ -1269,14 +1266,10 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_image' => $ImageDomain . "Grade_1/Lesson_32/Listen_and_Practice/" . $v . ".png",
                     'a_audio' => $AudioDomain . "Grade_1/Lesson_32/Listen_and_Practice/" . $v . ".mp3",
                     'a_content' => $v,
+                    'background' => $ImageDomain . "/Grade_1/Lesson_32/Listen_and_Practice/bg.png"
                 ],
             ]);
         }
-        $L32_U3_bg = $ImageDomain . "/Grade_1/Lesson_32/Listen_and_Practice/";
-
-        DB::table('ans_n_ques')->insert([
-            ['game_id' => 201, 'round' => 1, 'background' => $L32_U3_bg . "bg.png"]
-        ]);
 
 
         //--------------- sub -2
@@ -1294,14 +1287,11 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_image' => $ImageDomain . "Grade_1/Lesson_32/Listen_and_Practice/" . $v . ".png",
                     'a_audio' => $AudioDomain . "Grade_1/Lesson_32/Listen_and_Practice/" . $v . ".mp3",
                     'a_content' => $v,
+                    'background' => $ImageDomain . "/Grade_1/Lesson_32/Listen_and_Practice/bg2.png"
                 ],
             ]);
         }
-        $L32_U3_bg = $ImageDomain . "/Grade_1/Lesson_32/Listen_and_Practice/";
 
-        DB::table('ans_n_ques')->insert([
-            ['game_id' => 202, 'round' => 2, 'background' => $L32_U3_bg . "bg2.png"]
-        ]);
 
 
 
@@ -1487,6 +1477,7 @@ class PSNAnsNQuesSeeder extends Seeder
         'Write-abc','Please-be-quiet','Close-your-book','Open-your-book'
         ];
 
+        $L33_U3_bg = $ImageDomain . "/Grade_1/Lesson_33/Listen_and_Practice/bg.png";
 
         foreach ($L33_U3_contents as $v) {
             DB::table('ans_n_ques')->insert([
@@ -1496,6 +1487,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_image' => $ImageDomain . "Grade_1/Lesson_33/Listen_and_Practice/" . $v . ".png",
                     'a_audio' => $AudioDomain . "Grade_1/Lesson_33/Listen_and_Practice/" . $v . ".mp3",
                     'a_content' => $v,
+                    'background' => $L33_U3_bg
                 ],
             ]);
         }
@@ -1507,15 +1499,10 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_image' => $ImageDomain . "Grade_1/Lesson_33/Listen_and_Practice/" . $v . ".png",
                     'a_audio' => $AudioDomain . "Grade_1/Lesson_33/Listen_and_Practice/" . $v . ".mp3",
                     'a_content' => $v,
+                    'background' => $L33_U3_bg
                 ],
             ]);
         }
-        $L33_U3_bg = $ImageDomain . "/Grade_1/Lesson_33/Listen_and_Practice/";
-
-        DB::table('ans_n_ques')->insert([
-            ['game_id' => 208, 'round' => 1, 'background' => $L33_U3_bg . "bg.png"],
-            ['game_id' => 208, 'round' => 2, 'background' => $L33_U3_bg . "bg.png"],
-        ]);
 
 
 
@@ -2030,14 +2017,11 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_image' => $ImageDomain . "Grade_1/Lesson_36/Listen_and_Practice_Game/" . $v . ".png",
                     'a_audio' => $audio . $v . ".mp3",
                     'a_content' => $v, 'round' => 1,
+                    'background' => $ImageDomain . "/Grade_1/Lesson_36/Listen_and_Practice_Game/bg.png",
                 ],
             ]);
         }
-        $L36_U3_bg = $ImageDomain . "/Grade_1/Lesson_36/Listen_and_Practice_Game/bg.png";
 
-        DB::table('ans_n_ques')->insert([
-            ['game_id' => 225, 'round' => 1, 'background' => $L36_U3_bg]
-        ]);
 
 
 
@@ -2251,6 +2235,8 @@ class PSNAnsNQuesSeeder extends Seeder
         $img = $ImageDomain . "Grade_1/Lesson_37/Listen_and_Practice_Game/";
         $audio = $AudioDomain . "Grade_1/Lesson_37/Listen_and_Practice_Game/";
 
+        $L37_U3_bg = $ImageDomain . "/Grade_1/Lesson_37/Listen_and_Practice_Game/bg.png";
+
         foreach ($content_1 as $k => $v) {
             DB::table('ans_n_ques')->insert([
                 [
@@ -2260,6 +2246,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'a_audio' => $audio . str_replace(' ', '-', $v) . ".mp3",
                     'a_content' => $v,
                     'round' => 1,
+                    'background' => $L37_U3_bg
                 ],
             ]);
         }
@@ -2273,17 +2260,15 @@ class PSNAnsNQuesSeeder extends Seeder
                     'a_audio' => $audio . str_replace(' ', '-', $v) . ".mp3",
                     'a_content' => $v,
                     'round' => 2,
+                    'background' => $L37_U3_bg
                 ],
             ]);
         }
 
 
-        $L37_U3_bg = $ImageDomain . "/Grade_1/Lesson_37/Listen_and_Practice_Game/bg.png";
 
-        DB::table('ans_n_ques')->insert([
-            ['game_id' => 232, 'round' => 1, 'background' => $L37_U3_bg],
-            ['game_id' => 232, 'round' => 2, 'background' => $L37_U3_bg],
-        ]);
+
+
 
 
 
@@ -2424,15 +2409,11 @@ class PSNAnsNQuesSeeder extends Seeder
                         'q_image' => $img . str_replace(' ', '-', $v) . ".png",
                         'a_audio' => $audio . str_replace(' ', '-', $v) . ".mp3",
                         'a_content' => $v, 'round' => $k + 1,
+                        'background' => $ImageDomain . "/Grade_1/Lesson_38/Listen_and_Practice_Game/bg.png"
                     ],
                 ]);
             }
 
-            $L37_U3_bg = $ImageDomain . "/Grade_1/Lesson_38/Listen_and_Practice_Game/bg.png";
-
-            DB::table('ans_n_ques')->insert([
-                ['game_id' => 237, 'round' => $k + 1, 'background' => $L37_U3_bg]
-            ]);
         }
 
 
@@ -2606,19 +2587,10 @@ class PSNAnsNQuesSeeder extends Seeder
                     'a_audio' => $audio . str_replace(' ', '-', $audioContent[$k]) . ".mp3",
                     'a_content' => $v,
                     'round' => 1,
+                    'background' => $ImageDomain . "/Grade_1/Lesson_39/Listen_and_Practice/bg.png"
                 ],
             ]);
         }
-        $L37_U3_bg = $ImageDomain . "/Grade_1/Lesson_39/Listen_and_Practice/bg.png";
-
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 243,
-                'background' => $L37_U3_bg,
-                'round' => 1,
-            ],
-        ]);
-
 
 
 
@@ -2839,7 +2811,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         ////////////////////////////
-
+    $bg = $ImageDomain . "/Grade_1/Lesson_40/Listen_and_Practice/bg.png";
 
         foreach ($content[0] as $v) {
             DB::table('ans_n_ques')->insert([
@@ -2849,6 +2821,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_image' =>  $img . str_replace(' ', '-', $v) . ".png",
                     'a_audio' => $audio . str_replace(' ', '-', $v) . ".mp3",
                     'a_content' => $v,
+                    'background' =>  $bg
                 ],
             ]);
         }
@@ -2860,15 +2833,13 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_image' =>  $img . str_replace(' ', '-', $v) . ".png",
                     'a_audio' => $audio . str_replace(' ', '-', $v) . ".mp3",
                     'a_content' => $v,
+                    'background' =>  $bg
                 ],
             ]);
         }
-        $bg = $ImageDomain . "/Grade_1/Lesson_40/Listen_and_Practice/";
 
-        DB::table('ans_n_ques')->insert([
-            ['game_id' => 250, 'round' => 1, 'background' => $bg . "bg.png"],
-            ['game_id' => 250, 'round' => 2, 'background' => $bg . "bg.png"],
-        ]);
+
+
 
 
 
