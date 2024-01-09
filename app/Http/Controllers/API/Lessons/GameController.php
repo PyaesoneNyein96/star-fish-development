@@ -383,9 +383,8 @@ class GameController extends Controller
 
 
 
-      public function end_match(Request $request)
+    public function end_match(Request $request)
     {
-
 
         $token = $request->header('token');
         $gameId = $request->header('game_id');
@@ -395,81 +394,67 @@ class GameController extends Controller
 
         // =================================
 
-
         $student = Student::where('token', $token)->first();
 
         $game = Game::find($gameId);
-
         $unit = optional($game)->unit;
-
         $grade = Lesson::where('id', $lesson_id)->first()->grade;
 
         $exists = $unit->lesson_id == $lesson_id ? true : false;
-
 
         if (!$student || !$game || !$exists) {
             return 404;
         }
 
 
-        $alreadyDone = StudentGame::where('student_id', $student->id)
-            ->where('game_id', $gameId)->first();
+        $alreadyDone = $student->games()->where('game_id', $gameId)->first();
 
-        $alreadyDoneUnit = StudentUnit::where('student_id', $student->id)
-            ->where('unit_id', $unit->id)->first();
+        if(!$alreadyDone){
+            StudentGame::insert([
+                'student_id' => $student->id,
+                'unit_id' => $unit->id,
+                'game_id' => $gameId,
+                'count' => 1
+            ]);
 
-        $alreadyDoneLesson = StudentLesson::where('student_id', $student->id)
-            ->where('lesson_id', $lesson_id)->first();
-
-        $alreadyDoneGrade = StudentGrade::where('student_id', $student->id)
-            ->where('grade_id', $grade->id)->where('isDone', 1)->first();
-
-        if ($alreadyDone || $alreadyDoneUnit || $alreadyDoneLesson || $alreadyDoneGrade) {
-            return response()->json(['status' => 'already done this game'], 403);
         }
 
-        // TEMPORARY BLOCK THIS FEATURE (POINT FILTER)
-        // if ($student->grades->count() == 0)  return response()->json(["status" => "Plz subscribe the plan."], 200);
+        $count = StudentGame::where('student_id',$student->id)
+        ->where('game_id',$gameId)->pluck('count')->first();
 
 
-        StudentGame::insert([
-            'student_id' => $student->id,
-            'game_id' => $gameId,
-            'unit_id' => $unit->id,
-            'status' => 1,
-            'count' => +1,
-        ]);
+        if($count < 5){
+
+            StudentGame::where('student_id', $student->id)
+            ->where('game_id', $gameId)
+            ->update([
+                'unit_id' => $unit->id,
+                'count' => $count + 1,
+            ]);
 
 
+        }
 
-        $gameDone = StudentGame::where('student_id', $student->id)->get();
+        // Alternative point values
+        $alreadyDoneGame = $student->games()->where('game_id', $gameId)->first();
+        $point = ($alreadyDoneGame->count == 3) ? $point * 1.5 : (($alreadyDoneGame->count == 5) ? $point * 2 : $point);
 
-        $unitCheck = $unit->games->reject(function ($g) use ($gameDone) {
-            return $gameDone->contains('game_id', $g->id);
-        });
+        // $gameCount3 = $student->games()->where('student_id', $student->id)->first();
 
-        if ($unitCheck->count() == 0) {
+        // $repetitive = $gameDone->groupBy('game_id')->map(function ($group) {
+        //     return $group->count();
+        // })->values();
 
+
+        if ($count == 5 && !StudentUnit::where('student_id',$student->unit)->where('unit_id',$unit->id)->exists() ) {
             $unitInsert = StudentUnit::insert([
                 'student_id' => $student->id,
                 'unit_id' => $unit->id,
                 'lesson_id' => $lesson_id,
-                'count' => +1
             ]);
-
-            if ($unitInsert) {
-                StudentGame::where('student_id', $student->id)
-                    ->where('unit_id', $unit->id)->delete();
-            }
-
-        // array_push($this->messages,['unit_status' => "This unit is complete."]);
-
         }
 
-
-
         $lessonUnit = Unit::where('lesson_id', $lesson_id)->get();
-
 
         if (
             $this->lessonCheck($student, $lessonUnit)->count() == 0
@@ -488,10 +473,10 @@ class GameController extends Controller
                 'status' => 1
             ]);
 
-            if ($lessonInsert) {
-                StudentUnit::where('student_id', $student->id)
-                    ->where('lesson_id', $lesson_id)->delete();
-            }
+            // if ($lessonInsert) {
+            //     StudentUnit::where('student_id', $student->id)
+            //         ->where('lesson_id', $lesson_id)->delete();
+            // }
         }
 
 
