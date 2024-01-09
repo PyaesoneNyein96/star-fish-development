@@ -580,22 +580,24 @@ class PSNAnsNQuesSeeder extends Seeder
             'girl', 'hand', 'ear', 'egg', 'hat', 'dog',
         ];
 
-
+    $L12_U3_bg = $ImageDomain . "/Grade_1/Lesson_12/Listen_and_Practice/bg.png";
         foreach ($L12_U3_content as $v) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 68, 'a_content' => $v,
                     'q_image' => $ImageDomain . "Grade_1/Lesson_12/Listen_and_Practice/" . $v . ".png",
                     'a_audio' => $AudioDomain . "Grade_1/Lesson_12/Listen_and_Practice/" . $v . ".mp3",
-                    'a_content' => $v, 'round' => 1,
+                    'a_content' => $v,
+                    'round' => 1,
+                    'background' => $L12_U3_bg
                 ],
             ]);
         }
-        $L12_U3_bg = $ImageDomain . "/Grade_1/Lesson_12/Listen_and_Practice/bg.png";
 
-        DB::table('ans_n_ques')->insert([
-            ['game_id' => 68, 'round' => 1, 'background' => $L12_U3_bg]
-        ]);
+
+        // DB::table('ans_n_ques')->insert([
+        //     ['game_id' => 68, 'round' => 1, 'background' => $L12_U3_bg]
+        // ]);
 
 
         ////////////////////////////////////////////////////////
