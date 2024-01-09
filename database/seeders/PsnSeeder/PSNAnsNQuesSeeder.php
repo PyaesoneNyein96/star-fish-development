@@ -377,7 +377,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
                 [
                     'game_id' => 38, 'round' => $key + 1, 'q_content' => "what's this ?",
-                    // 'q_audio' => "whats_this?".".mp3",
+                    'q_audio' => $AudioDomain."Grade_1/Lesson_7/Speaking_Practice/"."whats_this".".mp3",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_7/Speaking_Practice/" . $g1L7U5[$key] . ".png",
                     'a_content' => $value
                 ]
@@ -580,22 +580,24 @@ class PSNAnsNQuesSeeder extends Seeder
             'girl', 'hand', 'ear', 'egg', 'hat', 'dog',
         ];
 
-
+    $L12_U3_bg = $ImageDomain . "/Grade_1/Lesson_12/Listen_and_Practice/bg.png";
         foreach ($L12_U3_content as $v) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 68, 'a_content' => $v,
                     'q_image' => $ImageDomain . "Grade_1/Lesson_12/Listen_and_Practice/" . $v . ".png",
                     'a_audio' => $AudioDomain . "Grade_1/Lesson_12/Listen_and_Practice/" . $v . ".mp3",
-                    'a_content' => $v, 'round' => 1,
+                    'a_content' => $v,
+                    'round' => 1,
+                    'background' => $L12_U3_bg
                 ],
             ]);
         }
-        $L12_U3_bg = $ImageDomain . "/Grade_1/Lesson_12/Listen_and_Practice/bg.png";
 
-        DB::table('ans_n_ques')->insert([
-            ['game_id' => 68, 'round' => 1, 'background' => $L12_U3_bg]
-        ]);
+
+        // DB::table('ans_n_ques')->insert([
+        //     ['game_id' => 68, 'round' => 1, 'background' => $L12_U3_bg]
+        // ]);
 
 
         ////////////////////////////////////////////////////////
@@ -719,8 +721,8 @@ class PSNAnsNQuesSeeder extends Seeder
         ];
 
 
-        $img = $ImageDomain . "Grade_1/Lesson_12/Write_the_correct_letter";
-        $audio = $AudioDomain . "Grade_1/Lesson_12/Write_the_correct_letter";
+        $img = $ImageDomain . "Grade_1/Lesson_12/Write_the_correct_letter/";
+        $audio = $AudioDomain . "Grade_1/Lesson_12/Write_the_correct_letter/";
 
 
         for ($i = 0; $i < count($question_1); $i++) {
@@ -1068,8 +1070,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         $L31_U3_2 = [
-            'star', 'sun', 'sand', 'sea', 'tree'
-            // 'glass_camera','lifebelt','tree','snail','sand','sun' // to FIX
+            'star', 'sun', 'sand', 'snail', 'tree'
         ];
 
         foreach ($L31_U3_2 as $v) {

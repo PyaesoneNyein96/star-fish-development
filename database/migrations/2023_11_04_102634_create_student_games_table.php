@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('unit_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('status')->default(0);
+            $table->integer('count')->nullable()->default(0);
+
             $table->timestamps();
         });
     }
