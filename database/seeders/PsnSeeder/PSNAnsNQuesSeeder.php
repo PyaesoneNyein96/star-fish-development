@@ -2213,15 +2213,19 @@ class PSNAnsNQuesSeeder extends Seeder
         ////////////////////////////////////////////////////////
         ////    Grade 1  Lesson 37 Games 3 (listen and practice) (listening_and_search_items)
 
+        // $content_1 = [
+        //         'This is my aunt', 'This is my brother', 'This is my father', 'This is my grandfather',
+        // ];
         $content_1 = [
-                'This is my aunt', 'This is my brother', 'This is my father', 'This is my grandfather',
+                'This is my grandmother', 'This is my brother', 'This is my sister', 'This is my aunt',
         ];
         $content_2 =  [
-                'This is my grandmother', 'This is my mother', 'This is my sister', 'This is my uncle'
+                'This is my father', 'This is my grandfather', 'This is my uncle', 'This is my aunt'
         ];
 
         $chrImgs = [
-            'aunt','brother','father','grandfather','grandmother','mother','sister','uncle'
+            ['grandmother','brother','sister','aunt'],
+            ['father','grandfather','uncle','Aunt']
         ];
 
         $img = $ImageDomain . "Grade_1/Lesson_37/Listen_and_Practice_Game/";
@@ -2234,7 +2238,7 @@ class PSNAnsNQuesSeeder extends Seeder
                 [
                     'game_id' => 231,
                     'a_content' => $v,
-                    'q_image' => $img . str_replace(' ', '-', $chrImgs[$k]) . ".png",
+                    'q_image' => $img . str_replace(' ', '-', $chrImgs[0][$k]) . ".png",
                     'a_audio' => $audio . str_replace(' ', '-', $v) . ".mp3",
                     'a_content' => $v,
                     'round' => 1,
@@ -2248,7 +2252,7 @@ class PSNAnsNQuesSeeder extends Seeder
                 [
                     'game_id' => 231,
                     'a_content' => $v,
-                    'q_image' => $img . str_replace(' ', '-', $chrImgs[$k]) . ".png",
+                    'q_image' => $img . str_replace(' ', '-', $chrImgs[1][$k]) . ".png",
                     'a_audio' => $audio . str_replace(' ', '-', $v) . ".mp3",
                     'a_content' => $v,
                     'round' => 2,
@@ -2382,8 +2386,8 @@ class PSNAnsNQuesSeeder extends Seeder
             ],
             [
                 'Hello, my name is Susan', 'This is my aunt.Her name is Mary',
-                'This is my grandfather.His name is James', 'This is my grandmother.Her name is Alice',
-                'This is my uncle.His name is John'
+                'This is my grandfather.His name is James', 'This is my grandmother Her name is Alice',
+                'This is my uncle His name is John'
             ],
 
 
