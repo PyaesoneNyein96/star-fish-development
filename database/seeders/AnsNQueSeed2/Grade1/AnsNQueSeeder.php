@@ -569,17 +569,17 @@ class AnsNQueSeeder extends Seeder
 
         $qG27 = [
             ["Good evening, Mary.", "I'm fine.", "GoodBye.", "How are you?", "I'm great.", "And you?"],
-            ["Good evening, Mike.", "I'm OK.", "GoodBye.", "How are you?", "I'm great.", "And you?"],
+            ["Good afternoon, Mike.", "I'm OK.", "GoodBye.", "How are you?", "I'm great.", "And you?"],
         ];
 
         $audiosG27 = [
-            "audio",
-            "audio"
+            "Good-evening-Mary-How-are-you",
+            "Good-afternoon-Mike-How-are-you"
         ];
 
         $aG27 = [
-            "Good evening, Mary. How are you? I'm great. And you? I'm fine. GoodBye.",
-            "Good evening, Mike. How are you? I'm great. And you? I'm OK. GoodBye.",
+            "Good evening, Mary. How are you? I'm OK. And you? I'm great. GoodBye.",
+            "Good afternoon, Mike. How are you? I'm fine. And you? I'm great. GoodBye.",
 
         ];
 
@@ -1122,16 +1122,16 @@ class AnsNQueSeeder extends Seeder
         $G1_L8_Speaking = "Grade_1/" . "Lesson_8/" . "Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 45, 'q_image' => $l8G45image . "plate.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "audio.mp3", "q_content" => "Look at the picture and say a word."],
-            ['round' => 2, 'game_id' => 45, 'q_image' => $l8G45image . "spoon.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "audio.mp3", "q_content" => "Look at the picture and say a word."],
-            ['round' => 3, 'game_id' => 45, 'q_image' => $l8G45image . "cup.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "audio.mp3", "q_content" => "Look at the picture and say a word."],
-            ['round' => 4, 'game_id' => 45, 'q_image' => $l8G45image . "table.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "audio.mp3", "q_content" => "Look at the picture and say a word."],
-            ['round' => 5, 'game_id' => 45, 'q_image' => $l8G45image . "clock.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "audio.mp3", "q_content" => "Look at the picture and say a word."],
-            ['round' => 6, 'game_id' => 45, 'q_image' => $l8G45image . "bottle.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "audio.mp3", "q_content" => "Look at the picture and say a word."],
-            ['round' => 7, 'game_id' => 45, 'q_image' => $l8G45image . "apple.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "audio.mp3", "q_content" => "Look at the picture and say a word."],
-            ['round' => 8, 'game_id' => 45, 'q_image' => $l8G45image . "fan.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "audio.mp3", "q_content" => "Look at the picture and say a word."],
-            ['round' => 9, 'game_id' => 45, 'q_image' => $l8G45image . "cake.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "audio.mp3", "q_content" => "Look at the picture and say a word."],
-            ['round' => 10, 'game_id' => 45, 'q_image' => $l8G45image . "bed.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "audio.mp3", "q_content" => "Look at the picture and say a word."],
+            ['round' => 1, 'game_id' => 45, 'q_image' => $l8G45image . "plate.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "SubBlock_Look-at-the-picture-and-say-a.mp3", "q_content" => "Look at the picture and say a word."],
+            ['round' => 2, 'game_id' => 45, 'q_image' => $l8G45image . "spoon.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "SubBlock_Look-at-the-picture-and-say-a.mp3", "q_content" => "Look at the picture and say a word."],
+            ['round' => 3, 'game_id' => 45, 'q_image' => $l8G45image . "cup.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "SubBlock_Look-at-the-picture-and-say-a.mp3", "q_content" => "Look at the picture and say a word."],
+            ['round' => 4, 'game_id' => 45, 'q_image' => $l8G45image . "table.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "SubBlock_Look-at-the-picture-and-say-a.mp3", "q_content" => "Look at the picture and say a word."],
+            ['round' => 5, 'game_id' => 45, 'q_image' => $l8G45image . "clock.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "SubBlock_Look-at-the-picture-and-say-a.mp3", "q_content" => "Look at the picture and say a word."],
+            ['round' => 6, 'game_id' => 45, 'q_image' => $l8G45image . "bottle.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "SubBlock_Look-at-the-picture-and-say-a.mp3", "q_content" => "Look at the picture and say a word."],
+            ['round' => 7, 'game_id' => 45, 'q_image' => $l8G45image . "apple.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "SubBlock_Look-at-the-picture-and-say-a.mp3", "q_content" => "Look at the picture and say a word."],
+            ['round' => 8, 'game_id' => 45, 'q_image' => $l8G45image . "fan.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "SubBlock_Look-at-the-picture-and-say-a.mp3", "q_content" => "Look at the picture and say a word."],
+            ['round' => 9, 'game_id' => 45, 'q_image' => $l8G45image . "cake.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "SubBlock_Look-at-the-picture-and-say-a.mp3", "q_content" => "Look at the picture and say a word."],
+            ['round' => 10, 'game_id' => 45, 'q_image' => $l8G45image . "bed.png", "q_audio" => $AudioDomain . $G1_L8_Speaking . "SubBlock_Look-at-the-picture-and-say-a.mp3", "q_content" => "Look at the picture and say a word."],
         ]);
 
 
@@ -2628,7 +2628,7 @@ class AnsNQueSeeder extends Seeder
             ['round' => 1, 'game_id' => 86, 'a_image' => $l15G85image . "mouse.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "yellow_cat_how.mp3", "a_conver" => "Yellow Cat, Yellow Cat. \nHow are you?", 'q_image' => null, "background" => $l15G85image . "bg.png"],
             ['round' => 1, 'game_id' => 86, 'a_image' => $l15G85image . "catright.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "im_fine.mp3", "a_conver" => "I'm fine. \nI'm ok.", 'q_image' => null, "background" => $l15G85image . "bg.png"],
 
-            ['round' => 2, 'game_id' => 86, 'a_image' => $l15G85image . "dogcat.jpeg", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "red_ant.mp3", "a_conver" => "Red ant, Red ant. \nHow are you?", 'q_image' => null, "background" => $l15G85image . "bg.png"],
+            ['round' => 2, 'game_id' => 86, 'a_image' => $l15G85image . "dogcat.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "red_ant.mp3", "a_conver" => "Red ant, Red ant. \nHow are you?", 'q_image' => null, "background" => $l15G85image . "bg.png"],
             ['round' => 2, 'game_id' => 86, 'a_image' => $l15G85image . "ant.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "im_great.mp3", "a_conver" => "I'm great. \nI'm great.", 'q_image' => null, "background" => $l15G85image . "bg.png"],
 
             ['round' => 3, 'game_id' => 86, 'a_image' => $l15G85image . "dogleft.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "tom_tom.mp3", "a_conver" => "Tom, Tom, What's this?", 'q_image' => null, "background" => $l15G85image . "bg3.jpg"],
