@@ -351,6 +351,8 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 4 Game 21 ( Writing (arranging order) )
         ////////////////////////////////////////////////////////
 
+        $G1_L4_writing = "Grade_1/" . "Lesson_4/" . "writing/";
+
         // round 1
         $qG21R1 = [
             "your", "What's", "name", "?", "Dory.", "My", "name's"
@@ -362,7 +364,7 @@ class AnsNQueSeeder extends Seeder
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 21, 'a_content' => "What's your name ? My name's Dory.", 'a_audio' => "audio"],
+            ['round' => 1, 'game_id' => 21, 'a_content' => "What's your name ? My name's Dory.", 'a_audio' =>  $AudioDomain . $G1_L4_writing . "My-name's-dory-for-Writing.mp3"],
         ]);
 
         // round 2
@@ -377,7 +379,7 @@ class AnsNQueSeeder extends Seeder
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 2, 'game_id' => 21, 'a_content' => "What is your name ? My name is Susan.", 'a_audio' => "audio"],
+            ['round' => 2, 'game_id' => 21, 'a_content' => "What is your name ? My name is Susan.", 'a_audio' =>   $AudioDomain . $G1_L4_writing . "My-name's-Susan-for-Writing.mp3"],
         ]);
 
         // round 3
@@ -392,7 +394,7 @@ class AnsNQueSeeder extends Seeder
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 3, 'game_id' => 21, 'a_content' => "What's your name ? My name's Chris.", 'a_audio' => "audio"],
+            ['round' => 3, 'game_id' => 21, 'a_content' => "What's your name ? My name's Chris.", 'a_audio' =>  $AudioDomain . $G1_L4_writing . "My-name's-Chris-for-Writing.mp3"],
         ]);
 
         // round 4
@@ -407,7 +409,7 @@ class AnsNQueSeeder extends Seeder
         }
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 4, 'game_id' => 21, 'a_content' => "What is your name ? My name is Mary.", 'a_audio' => "audio"],
+            ['round' => 4, 'game_id' => 21, 'a_content' => "What is your name ? My name is Mary.", 'a_audio' =>  $AudioDomain . $G1_L4_writing . "My-name's-Mary-for-Writing.mp3"],
         ]);
 
 
@@ -546,12 +548,12 @@ class AnsNQueSeeder extends Seeder
         $G1_L5_Speaking = "Grade_1/" . "Lesson_5/" . "Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "audio" . ".mp3", 'q_image' => $l5G26image . "orangestar.png", "q_content" => '"Good evening"'],
-            ['round' => 2, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "audio" . ".mp3", 'q_image' => $l5G26image . "orangestar.png", "q_content" => '"Good afternoon"'],
-            ['round' => 3, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "audio" . ".mp3", 'q_image' => $l5G26image . "orangestar.png", "q_content" => '"Good morning"'],
-            ['round' => 4, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "audio" . ".mp3", 'q_image' => $l5G26image . "greenstar.png", "q_content" => "How are you"],
-            ['round' => 5, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "audio" . ".mp3", 'q_image' => $l5G26image . "boy.png", "q_content" => "Nice to meet you, too. How are you?"],
-            ['round' => 6, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "audio" . ".mp3", 'q_image' => $l5G26image . "boy.png", "q_content" => "I'm Chris. What is your name?"],
+            ['round' => 1, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "Good-evening" . ".mp3", 'q_image' => $l5G26image . "orangestar.png", "q_content" => '"Good evening"'],
+            ['round' => 2, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "Good-afternoon" . ".mp3", 'q_image' => $l5G26image . "orangestar.png", "q_content" => '"Good afternoon"'],
+            ['round' => 3, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "Good-morning" . ".mp3", 'q_image' => $l5G26image . "orangestar.png", "q_content" => '"Good morning"'],
+            ['round' => 4, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "How-are-you" . ".mp3", 'q_image' => $l5G26image . "greenstar.png", "q_content" => "How are you"],
+            ['round' => 5, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "SubBlock_Nice-to-meet-you-too-How-are" . ".mp3", 'q_image' => $l5G26image . "boy.png", "q_content" => "Nice to meet you, too. How are you?"],
+            ['round' => 6, 'game_id' => 26, "q_audio" =>  $AudioDomain . $G1_L5_Speaking . "SubBlock_Im-chris-what-is-your-name" . ".mp3", 'q_image' => $l5G26image . "boy.png", "q_content" => "I'm Chris. What is your name?"],
         ]);
 
 
@@ -2624,13 +2626,13 @@ class AnsNQueSeeder extends Seeder
 
             // game 86
             ['round' => 1, 'game_id' => 86, 'a_image' => $l15G85image . "mouse.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "yellow_cat_how.mp3", "a_conver" => "Yellow Cat, Yellow Cat. \nHow are you?", 'q_image' => null, "background" => $l15G85image . "bg.png"],
-            ['round' => 1, 'game_id' => 86, 'a_image' => $l15G85image . "cat2right.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "im_fine.mp3", "a_conver" => "I'm fine. \nI'm ok.", 'q_image' => null, "background" => $l15G85image . "bg.png"],
+            ['round' => 1, 'game_id' => 86, 'a_image' => $l15G85image . "catright.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "im_fine.mp3", "a_conver" => "I'm fine. \nI'm ok.", 'q_image' => null, "background" => $l15G85image . "bg.png"],
 
             ['round' => 2, 'game_id' => 86, 'a_image' => $l15G85image . "dogcat.jpeg", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "red_ant.mp3", "a_conver" => "Red ant, Red ant. \nHow are you?", 'q_image' => null, "background" => $l15G85image . "bg.png"],
             ['round' => 2, 'game_id' => 86, 'a_image' => $l15G85image . "ant.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "im_great.mp3", "a_conver" => "I'm great. \nI'm great.", 'q_image' => null, "background" => $l15G85image . "bg.png"],
 
-            ['round' => 3, 'game_id' => 86, 'a_image' => $l15G85image . "dogleft.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "tom_tom.mp3", "a_conver" => "Tom, Tom, What's this?", 'q_image' => null, "background" => $l15G85image . "bg3.png"],
-            ['round' => 3, 'game_id' => 86, 'a_image' => $l15G85image . "catright.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "mouse_mouse.mp3",  "a_conver" => "Mouse, Mouse. It's a mouse. \nIt's small. It's brown.", 'q_image' => $l15G85image . "mousemiddle.png", "background" => $l15G85image . "bg3.png"],
+            ['round' => 3, 'game_id' => 86, 'a_image' => $l15G85image . "dogleft.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "tom_tom.mp3", "a_conver" => "Tom, Tom, What's this?", 'q_image' => null, "background" => $l15G85image . "bg3.jpg"],
+            ['round' => 3, 'game_id' => 86, 'a_image' => $l15G85image . "catright.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "mouse_mouse.mp3",  "a_conver" => "Mouse, Mouse. It's a mouse. \nIt's small. It's brown.", 'q_image' => $l15G85image . "mousemiddle.png", "background" => $l15G85image . "bg3.jpg"],
 
         ]);
 
