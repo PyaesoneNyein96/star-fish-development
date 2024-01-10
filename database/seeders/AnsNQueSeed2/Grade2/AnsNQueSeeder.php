@@ -410,13 +410,11 @@ class AnsNQueSeeder extends Seeder
             ['round' => 2, 'game_id' => 263, 'a_image' => $l2_G263image . "jane.png", "a_audio" => $AudioDomain . $G2_L2_listen_n_speak . "Hello-Im-Chris-I-like-angel.mp3", "a_conver" => "Hello, I'm Chris. I like angels. What about you?", "background" =>  $l2_G263image . "bg.png"],
             ['round' => 2, 'game_id' => 263, 'a_image' => $l2_G263image . "rosy.png", "a_audio" => $AudioDomain . $G2_L2_listen_n_speak . "SubBlock_Hi-Chris-Im-Jane-I-like-br.mp3", "a_conver" => "Hi, Chris. I'm Jane. I like bread. What about you?", "background" =>  $l2_G263image . "bg.png"],
             ['round' => 2, 'game_id' => 263, 'a_image' => $l2_G263image . "chris-right.png", "a_audio" => $AudioDomain . $G2_L2_listen_n_speak . "Hello-Jane-My-names-Rosy-I.mp3", "a_conver" => "Hello, Jane. My name's Rosy. I like angels too.", "background" =>  $l2_G263image . "bg.png"],
+        ]);
 
-
-
+        DB::table('ans_n_ques')->insert([
             ['round' => 3, 'game_id' => 263, 'q_audio' => $AudioDomain . $G2_L2_listen_n_speak . "look-at-the-picture-and-say-wh" . ".mp3", 'q_image' => $l2_G263image . "teacher.png", "q_content" => $l2_G263image . "bicycle.png", "q_conver" => "Look at the pictures and say \nwhat you like and don't like."],
             ['round' => 4, 'game_id' => 263, 'q_audio' => $AudioDomain . $G2_L2_listen_n_speak . "look-at-the-picture-and-say-wh" . ".mp3", 'q_image' => $l2_G263image . "teacher.png", "q_content" => $l2_G263image . "apple.png", "q_conver" => "Look at the pictures and say \nwhat you like and don't like."],
-
-
         ]);
     }
 }
