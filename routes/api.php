@@ -79,8 +79,8 @@ Route::get('game', [GameController::class, 'specificGame']);
 Route::get('end_match', [GameController::class, 'end_match']);
 
 Route::prefix('control')->group(function () {
-    Route::post('/',[GameController::class,'lockAndUnlock']);
-    Route::post('/check',[GameController::class,'showLockAndUnlock']);
+    Route::post('/', [GameController::class, 'lockAndUnlock']);
+    Route::post('/check', [GameController::class, 'showLockAndUnlock']);
 });
 
 
@@ -92,3 +92,7 @@ Route::prefix('subscription')->group(function () {
 
 
 
+// ===============================
+// ============ test =============
+// ===============================
+Route::get('/test', [GameController::class, 'test']);
