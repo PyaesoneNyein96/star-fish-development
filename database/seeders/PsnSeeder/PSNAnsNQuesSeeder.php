@@ -2386,8 +2386,8 @@ class PSNAnsNQuesSeeder extends Seeder
             ],
             [
                 'Hello, my name is Susan', 'This is my aunt.Her name is Mary',
-                'This is my grandfather.His name is James', 'This is my grandmother Her name is Alice',
-                'This is my uncle His name is John'
+                'This is my grandfather.His name is James', 'This is my mother Her name is Emma',
+                'This is my uncle His name is Chris'
             ],
 
 
@@ -2522,11 +2522,11 @@ class PSNAnsNQuesSeeder extends Seeder
         // SubUnit -2 (Reading-2)
 
         $content = [
-            'I have a older sister', 'I have a Grandfather', 'I have two cousins'
+            'I have an older sister', 'I have a Grandfather', 'I have two cousins'
         ];
 
-        $img = $ImageDomain . "Grade_1/Lesson_38/Reading-2/";
-        $audio = $AudioDomain . "Grade_1/Lesson_38/Reading-2/";
+        $img = $ImageDomain . "Grade_1/Lesson_39/Reading-2/";
+        $audio = $AudioDomain . "Grade_1/Lesson_39/Reading-2/";
 
         foreach ($content as $value) {
 
@@ -2568,7 +2568,7 @@ class PSNAnsNQuesSeeder extends Seeder
             'This is my mother',
             'This is my grandfather',
             'This is my grandmother',
-            null
+            'This is my older sister'
         ];
 
 
@@ -2784,20 +2784,14 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         $content = [
-            [
-                "I am 6 years old I have 3 brothers and an older sister",
+
+                // "I am 6 years old I have 3 brothers and an older sister",
+                "She is seven years old",
                 'He is one',
-                'She is 10',
-                'He is eight years old',
                 'He is 5',
-            ],
-            [
-                "I am 7 years old I have an older sister two younger sisters and a younger brother",
                 'She is 10',
-                'She is one',
                 'She is 4 years old',
-                'He is also 4 years old',
-            ]
+
         ];
 
 
@@ -2809,7 +2803,7 @@ class PSNAnsNQuesSeeder extends Seeder
         ////////////////////////////
     $bg = $ImageDomain . "/Grade_1/Lesson_40/Listen_and_Practice/bg.png";
 
-        foreach ($content[0] as $v) {
+        foreach ($content as $v) {
             DB::table('ans_n_ques')->insert([
                 [
                     'round' =>  1,
@@ -2821,18 +2815,18 @@ class PSNAnsNQuesSeeder extends Seeder
                 ],
             ]);
         }
-        foreach ($content[1] as $v) {
-            DB::table('ans_n_ques')->insert([
-                [
-                    'round' =>  2,
-                    'game_id' => 249, 'a_content' => $v,
-                    'q_image' =>  $img . str_replace(' ', '-', $v) . ".png",
-                    'a_audio' => $audio . str_replace(' ', '-', $v) . ".mp3",
-                    'a_content' => $v,
-                    'background' =>  $bg
-                ],
-            ]);
-        }
+        // foreach ($content[1] as $v) {
+        //     DB::table('ans_n_ques')->insert([
+        //         [
+        //             'round' =>  2,
+        //             'game_id' => 249, 'a_content' => $v,
+        //             'q_image' =>  $img . str_replace(' ', '-', $v) . ".png",
+        //             'a_audio' => $audio . str_replace(' ', '-', $v) . ".mp3",
+        //             'a_content' => $v,
+        //             'background' =>  $bg
+        //         ],
+        //     ]);
+        // }
 
 
 
