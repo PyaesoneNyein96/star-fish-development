@@ -5610,13 +5610,15 @@ class AnsNQueSeeder extends Seeder
 
         $G1_L28_Game175_Matching_image = [
 
-            ['9', '3', '2', '8', '4'],
-            ['3', '4', '5', '6', '7'],
+            ['three', 'eight', 'four', 'two', 'nine'],
+            ['one', 'five', 'four', 'six', 'seven'],
+
         ];
 
         $G1_L28_Game175_Matching = [
-            ['three', 'eight', 'four', 'two', 'nine'],
-            ['three', 'five', 'four', 'six', 'two'],
+
+            ['9', '3', '2', '8', '4'],
+            ['1', '7', '4', '6', '5'],
 
         ];
 
@@ -5638,7 +5640,7 @@ class AnsNQueSeeder extends Seeder
                 DB::table('ans_n_ques')->insert([
                     [
                         'game_id' => 175, 'round' => $i + 1, 'q_content' => $q,
-                        'q_image' => strtolower($q), 'q_audio' => $AudioDomain . $G1_L28_Matching . str_replace(' ', '', strtolower($q)) . ".mp3",
+                        'q_image' => $q, 'q_audio' => $AudioDomain . $G1_L28_Matching . $q . ".mp3",
                     ]
                 ]);
             }
