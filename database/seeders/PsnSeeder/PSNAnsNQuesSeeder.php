@@ -28,7 +28,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
         $AtoZUpdate = $domain . "/storage/audios/A_to_Z_update/";
 
-        $AtiZUpdate = [
+        $AZUpdate = [
             'A-for-apple', 'B-for-ball', 'C-for-Cat', 'D-for-Dog', 'E-for-Elephant', 'F-for-Fish', 'G-for-Grapes', 'H-for-Hat', 'I-for-Ice-cream', 'J-for-Jug',
             'K-for-Kite', 'L-for-Lion', 'M-for-mouse', 'N-for-Noodles', 'O-for-Orange',
             'P-for-Panda', 'Q-for-Quail', 'R-for-ring', 'S-for-Snake', 'T-for-Tree', 'U-for-Umbrella', 'V-for-Violin', 'W-for-Whale', 'X-for-xylophone', 'Y-for-Yacht', 'Z-for-Zebra'
@@ -56,7 +56,7 @@ class PSNAnsNQuesSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 2, 'a_content' => $key, 'a_image' => $ImageDomainAZ . $key . ".png",
-                    'a_audio' => $AudioDomain . "A_to_Z_update/" . $AtiZUpdate[$k] . ".mp3"
+                    'a_audio' => $AudioDomain . "A_to_Z_update/" . $AZUpdate[$k] . ".mp3"
                 ],
             ]);
         }
@@ -174,7 +174,7 @@ class PSNAnsNQuesSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 ['game_id' => 7,
                 'a_content' => strtolower($key), 'a_image' => $ImageDomainAZ_small . $key . ".png",
-                'a_audio' => $AudioDomain . "A_to_Z_update/" . $AtiZUpdate[$k] . ".mp3"
+                'a_audio' => $AudioDomain . "A_to_Z_update/" . $AZUpdate[$k] . ".mp3"
             ],
             ]);
         }
@@ -2386,8 +2386,8 @@ class PSNAnsNQuesSeeder extends Seeder
             ],
             [
                 'Hello, my name is Susan', 'This is my aunt.Her name is Mary',
-                'This is my grandfather.His name is James', 'This is my mother Her name is Emma',
-                'This is my uncle His name is Chris'
+                'This is my grandfather.His name is James', 'This is my grandmother Her name is Alice',
+                'This is my uncle His name is John'
             ],
 
 
@@ -2568,7 +2568,7 @@ class PSNAnsNQuesSeeder extends Seeder
             'This is my mother',
             'This is my grandfather',
             'This is my grandmother',
-            'This is my older sister'
+            null
         ];
 
 
@@ -2784,14 +2784,20 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         $content = [
-
-                // "I am 6 years old I have 3 brothers and an older sister",
-                "She is seven years old",
+            [
+                "I am 6 years old I have 3 brothers and an older sister",
                 'He is one',
-                'He is 5',
                 'She is 10',
+                'He is eight years old',
+                'He is 5',
+            ],
+            [
+                "I am 7 years old I have an older sister two younger sisters and a younger brother",
+                'She is 10',
+                'She is one',
                 'She is 4 years old',
-
+                'He is also 4 years old',
+            ]
         ];
 
 
@@ -2803,7 +2809,7 @@ class PSNAnsNQuesSeeder extends Seeder
         ////////////////////////////
     $bg = $ImageDomain . "/Grade_1/Lesson_40/Listen_and_Practice/bg.png";
 
-        foreach ($content as $v) {
+        foreach ($content[0] as $v) {
             DB::table('ans_n_ques')->insert([
                 [
                     'round' =>  1,
@@ -2815,18 +2821,18 @@ class PSNAnsNQuesSeeder extends Seeder
                 ],
             ]);
         }
-        // foreach ($content[1] as $v) {
-        //     DB::table('ans_n_ques')->insert([
-        //         [
-        //             'round' =>  2,
-        //             'game_id' => 249, 'a_content' => $v,
-        //             'q_image' =>  $img . str_replace(' ', '-', $v) . ".png",
-        //             'a_audio' => $audio . str_replace(' ', '-', $v) . ".mp3",
-        //             'a_content' => $v,
-        //             'background' =>  $bg
-        //         ],
-        //     ]);
-        // }
+        foreach ($content[1] as $v) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' =>  2,
+                    'game_id' => 249, 'a_content' => $v,
+                    'q_image' =>  $img . str_replace(' ', '-', $v) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $v) . ".mp3",
+                    'a_content' => $v,
+                    'background' =>  $bg
+                ],
+            ]);
+        }
 
 
 

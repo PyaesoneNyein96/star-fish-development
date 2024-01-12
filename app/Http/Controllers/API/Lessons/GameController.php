@@ -200,7 +200,7 @@ class GameController extends Controller
         $unit = Unit::where('id', $unit_id)->where('lesson_id', $lesson_id)->first();
         // $unit = Unit::find($unit_id);
 
-        if (!$unit || !$student) return "lesson and unit are not match.";
+        if (!$unit || !$student) return "lesson and unit are not match or student not found.";
 
         $gameInUnit = Game::where('unit_id', $unit_id)->where('id', $game_id)->exists();
         // if(!$gameUnit && $unit && $gameId) return "SubUnit game not found!";
@@ -220,7 +220,14 @@ class GameController extends Controller
         $games = Game::where('unit_id', $unit_id)->get();
 
         if ($games->count() == 1) {
+
+
             $name = strval($games->first()->category->name);
+
+            if(!function_exists($name)){
+              return $this->common_functions($games,$student, $unit);
+            }
+
             return $this->$name($games, $student, $unit);
         };
 

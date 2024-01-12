@@ -763,7 +763,7 @@ class GameSeeder extends Seeder
 
                 ['name' => 'Grammar Explanation', 'unit_id' => 331,'category_id' => 1, 'instructionGIF' => null ],
                 ['name' => 'Listen and Repeat', 'unit_id' => 332,'category_id' => 2, 'instructionGIF' => null ],
-                ['name' => 'Matching words and pictures', 'unit_id' => 332,'category_id' => 7, 'instructionGIF' => null ],
+                ['name' => 'Matching words and pictures', 'unit_id' => 333,'category_id' => 7, 'instructionGIF' => null ],
                 ['name' => 'Choose your answer', 'unit_id' => 334,'category_id' => 20, 'instructionGIF' => null ],
                 ['name' => 'Speak', 'unit_id' => 335,'category_id' => 11 , 'instructionGIF' => null ],
 
@@ -878,78 +878,78 @@ class GameSeeder extends Seeder
 
 
                 ['name' => 'Grammar Explanation', 'unit_id' => 391 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Listen and Repeat', 'unit_id' => 392 ,'category_id' => 1,  'instructionGIF' => null],
+                ['name' => 'Listen and Repeat', 'unit_id' => 392 ,'category_id' => 8,  'instructionGIF' => null],
 
                 ['name' => 'unknown', 'unit_id' => 392 ,'category_id' => 1,  'instructionGIF' => null],
                 ['name' => 'unknown', 'unit_id' => 392 ,'category_id' => 1,  'instructionGIF' => null],
 
-                ['name' => 'Speak', 'unit_id' => 393 ,'category_id' => 1,  'instructionGIF' => null],
+                ['name' => 'Speak', 'unit_id' => 393 ,'category_id' => 11,  'instructionGIF' => null],
 
 
             // // unit 34's games
 
                 ['name' => 'Listen and Repeat', 'unit_id' => 394 , 'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Trace Word', 'unit_id' => 395 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Matching', 'unit_id' => 396 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Listen and Write', 'unit_id' => 397 ,'category_id' => 1, 'instructionGIF' => null],
-                ['name' => 'Speak', 'unit_id' => 398 ,'category_id' => 1, 'instructionGIF' => null],
+                ['name' => 'Trace Word', 'unit_id' => 395 ,'category_id' => 31,  'instructionGIF' => null],
+                ['name' => 'Matching', 'unit_id' => 396 ,'category_id' => 7,  'instructionGIF' => null],
+                ['name' => 'Listen and Write', 'unit_id' => 397 ,'category_id' => 14, 'instructionGIF' => null],
+                ['name' => 'Speak', 'unit_id' => 398 ,'category_id' => 11, 'instructionGIF' => null],
 
 
             // // unit 35's games
 
                 ['name' => 'Video', 'unit_id' => 399 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Reading 1', 'unit_id' => 400 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Reading 2', 'unit_id' => 400 , 'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Listen and Write', 'unit_id' => 401,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Matching', 'unit_id' => 402,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Speak', 'unit_id' => 403,'category_id' => 1,  'instructionGIF' => null],
+                ['name' => 'Reading 1', 'unit_id' => 400 ,'category_id' => 2,  'instructionGIF' => null],
+                ['name' => 'Reading 2', 'unit_id' => 400 , 'category_id' => 2,  'instructionGIF' => null],
+                ['name' => 'Listen and Write', 'unit_id' => 401,'category_id' => 14,  'instructionGIF' => null],
+                ['name' => 'Matching', 'unit_id' => 402,'category_id' => 7,  'instructionGIF' => null],
+                ['name' => 'Speak', 'unit_id' => 403,'category_id' => 11,  'instructionGIF' => null],
 
 
             // // unit 36's games
 
                 ['name' => 'Video', 'unit_id' => 404 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Reading 1', 'unit_id' => 405 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Reading 2', 'unit_id' => 405 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Listen and Write', 'unit_id' => 406, 'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Speak', 'unit_id' => 407 , 'category_id' => 1, 'instructionGIF' => null],
-                ['name' => 'Reading', 'unit_id' => 408 , 'category_id' => 1, 'instructionGIF' => null],
+                ['name' => 'Reading 1', 'unit_id' => 405 ,'category_id' => 2,  'instructionGIF' => null],
+                ['name' => 'Reading 2', 'unit_id' => 405 ,'category_id' => 2,  'instructionGIF' => null],
+                ['name' => 'Listen and Write', 'unit_id' => 406, 'category_id' => 39,  'instructionGIF' => null],
+                ['name' => 'Speak', 'unit_id' => 407 , 'category_id' => 11, 'instructionGIF' => null],
+                ['name' => 'Reading', 'unit_id' => 408 , 'category_id' => 16, 'instructionGIF' => null],
 
 
             // // unit 37's games
 
                 ['name' => 'Target Language Explanation', 'unit_id' => 409 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Listen and Learn', 'unit_id' => 410 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Sing and Dance', 'unit_id' => 411 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Speak', 'unit_id' => 412 ,'category_id' => 1,  'instructionGIF' => null],
+                ['name' => 'Listen and Learn', 'unit_id' => 410 ,'category_id' => 2,  'instructionGIF' => null],
+                ['name' => 'Sing and Dance', 'unit_id' => 411 ,'category_id' => 3,  'instructionGIF' => null],
+                ['name' => 'Speak', 'unit_id' => 412 ,'category_id' => 11,  'instructionGIF' => null],
 
 
             // // unit 38's games
 
                 ['name' => 'Video', 'unit_id' => 413 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Reading 1', 'unit_id' => 414 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Reading 2', 'unit_id' => 414 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Tracing', 'unit_id' => 415 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Arranging Letters', 'unit_id' => 416 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Matching', 'unit_id' => 417 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Speak', 'unit_id' => 418 ,'category_id' => 1,  'instructionGIF' => null],
+                ['name' => 'Reading 1', 'unit_id' => 414 ,'category_id' => 2,  'instructionGIF' => null],
+                ['name' => 'Reading 2', 'unit_id' => 414 ,'category_id' => 2,  'instructionGIF' => null],
+                ['name' => 'Tracing', 'unit_id' => 415 ,'category_id' => 31,  'instructionGIF' => null],
+                ['name' => 'Arranging Letters', 'unit_id' => 416 ,'category_id' => 14,  'instructionGIF' => null],
+                ['name' => 'Matching', 'unit_id' => 417 ,'category_id' => 7,  'instructionGIF' => null],
+                ['name' => 'Speak', 'unit_id' => 418 ,'category_id' => 11,  'instructionGIF' => null],
 
 
             // // unit 39's games
 
                 ['name' => 'Grammar Explanation', 'unit_id' => 419 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Reading 1', 'unit_id' => 420 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Reading 2', 'unit_id' => 420 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Look and write', 'unit_id' => 421 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Speak', 'unit_id' => 422 ,'category_id' => 1,  'instructionGIF' => null],
+                ['name' => 'Reading 1', 'unit_id' => 420 ,'category_id' => 2,  'instructionGIF' => null],
+                ['name' => 'Reading 2', 'unit_id' => 420 ,'category_id' => 2,  'instructionGIF' => null],
+                ['name' => 'Look and write', 'unit_id' => 421 ,'category_id' => 39,  'instructionGIF' => null],
+                ['name' => 'Speak', 'unit_id' => 422 ,'category_id' => 11,  'instructionGIF' => null],
 
 
             // // unit 40's games
 
                 ['name' => 'Grammar Explanation', 'unit_id' => 423 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Listen and Repeat', 'unit_id' => 424 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Listen and Practice', 'unit_id' => 425 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Matching', 'unit_id' => 426 ,'category_id' => 1,  'instructionGIF' => null],
-                ['name' => 'Reading Passage', 'unit_id' => 427,'category_id' => 1,  'instructionGIF' => null],
+                ['name' => 'Listen and Repeat', 'unit_id' => 424 ,'category_id' => 2,  'instructionGIF' => null],
+                ['name' => 'Listen and Practice', 'unit_id' => 425 ,'category_id' => 37,  'instructionGIF' => null],
+                ['name' => 'Matching', 'unit_id' => 426 ,'category_id' => 7,  'instructionGIF' => null],
+                ['name' => 'Reading Passage', 'unit_id' => 427,'category_id' => 16,  'instructionGIF' => null],
 
 
 
