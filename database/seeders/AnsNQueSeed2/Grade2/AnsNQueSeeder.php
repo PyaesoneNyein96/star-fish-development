@@ -416,5 +416,92 @@ class AnsNQueSeeder extends Seeder
             ['round' => 3, 'game_id' => 263, 'q_audio' => $AudioDomain . $G2_L2_listen_n_speak . "look-at-the-picture-and-say-wh" . ".mp3", 'q_image' => $l2_G263image . "teacher.png", "q_content" => $l2_G263image . "bicycle.png", "q_conver" => "Look at the pictures and say \nwhat you like and don't like."],
             ['round' => 4, 'game_id' => 263, 'q_audio' => $AudioDomain . $G2_L2_listen_n_speak . "look-at-the-picture-and-say-wh" . ".mp3", 'q_image' => $l2_G263image . "teacher.png", "q_content" => $l2_G263image . "apple.png", "q_conver" => "Look at the pictures and say \nwhat you like and don't like."],
         ]);
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 2  Lesson 3 Game 264 ( listen and Repeat )
+        //////////////////////////////////////////////////////////////
+
+
+        $l3_G264_image = $domain . "/storage/images/Grade_2/lesson_3/listen_n_repeat/";
+        $G2_L3_reading = "Grade_2/" . "Lesson_3/" . "listen_n_repeat/";
+
+
+        $ansl3_G264_Content = [
+            "Angry", "Bored", "Excited", "Happy", "Hungry", "Jealous", "Joyful", "Nervous", "Sad", "Shy", "Surprised", "Thirsty"
+        ];
+
+        foreach ($ansl3_G264_Content as $key) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 264, 'a_content' => $key, 'a_image' => $l3_G264_image . str_replace(' ', '', $key) . ".png",
+                    'a_audio' => $AudioDomain . $G2_L3_reading . str_replace(' ', '', strtolower($key)) . ".mp3"
+                ],
+            ]);
+        }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Lesson 3 Game 265 ( speaking )
+        ////////////////////////////////////////////////////////
+
+        $l3_G265_image = $domain . "/storage/images/Grade_1/lesson_30/Speaking/";
+        $G1_L30_Speaking = "Grade_1/" . "Lesson_30/" . "Speaking/";
+
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 188,  'q_image' => $l3_G265_image . "bird.png", "q_content" => "Look at the picture and say a word."],
+            ['round' => 2, 'game_id' => 188,  'q_image' => $l3_G265_image . "raincoat.png", "q_content" => "Look at the picture and say a word."],
+            ['round' => 3, 'game_id' => 188,  'q_image' => $l3_G265_image . "rainbow.png", "q_content" => "Look at the picture and say a word."],
+            ['round' => 4, 'game_id' => 188,  'q_image' => $l3_G265_image . "road.png", "q_content" => "Look at the picture and say a word."],
+            ['round' => 5, 'game_id' => 188,  'q_image' => $l3_G265_image . "rhino.png", "q_content" => "Look at the picture and say a word."],
+            ['round' => 6, 'game_id' => 188,  'q_image' => $l3_G265_image . "rambutan.png", "q_content" => "Look at the picture and say a word."],
+            ['round' => 7, 'game_id' => 188,  'q_image' => $l3_G265_image . "queen.png", "q_content" => "Look at the picture and say a word."],
+            ['round' => 8, 'game_id' => 188,  'q_image' => $l3_G265_image . "pear.png", "q_content" => "Look at the picture and say a word."],
+
+        ]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Lesson 3 Game 266 ( reading passage )
+        ////////////////////////////////////////////////////////
+
+        $G2_L3_reading_passage_path = "Grade_2/" . "Lesson_3/" . "reading_passage/";
+        $l3_G266_image = $domain . "/storage/images/Grade_2/lesson_3/reading_passage/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 266, "q_audio" => null, 'q_content' => "True", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 1, 'game_id' => 266, "q_audio" => null, 'q_content' => "False", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 1, 'game_id' => 266, "q_audio" => $AudioDomain . $G2_L3_reading_passage_path . "There-are-7-bananas-true-or-f.mp3", "q_conver" => "There are 7 bananas", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 1, 'game_id' => 266, "q_audio" => $AudioDomain . $G2_L3_reading_passage_path . "I-Iike-fruits-I-have-a-pineap.mp3", "q_content" => "I like fruits.", 'q_conver' => "I like fruits. I have a pineapple, one melon and an apple. There are three bananas and two oranges. I also eat grapes. I like green grapes. I don't like purple grapes.", 'a_content' => null, "background" => $l3_G266_image . "bg.jpg"],
+
+
+            ['round' => 2, 'game_id' => 266, "q_audio" =>  null, 'q_content' => "True", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 2, 'game_id' => 266, "q_audio" =>  null, 'q_content' => "False", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 2, 'game_id' => 266, "q_audio" => $AudioDomain . $G2_L3_reading_passage_path . "I-eat-grapes-true-or-false.mp3", "q_conver" =>  "I eat grapes", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 2, 'game_id' => 266, "q_audio" => $AudioDomain . $G2_L3_reading_passage_path . "I-Iike-fruits-I-have-a-pineap.mp3", "q_content" => "I like fruits.", 'q_conver' => "I like fruits. I have a pineapple, one melon and an apple. There are three bananas and two oranges. I also eat grapes. I like green grapes. I don't like purple grapes.", 'a_content' => null, "background" => $l3_G266_image . "bg.jpg"],
+
+
+            ['round' => 3, 'game_id' => 266, "q_audio" =>  null, 'q_content' => "True",  "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 3, 'game_id' => 266, "q_audio" =>  null, 'q_content' => "False", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 3, 'game_id' => 266, "q_audio" => $AudioDomain . $G2_L3_reading_passage_path . "I-like-purple-grapes-true-or-f.mp3", "q_conver" => "I like purple grapes", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 3, 'game_id' => 266, "q_audio" => $AudioDomain . $G2_L3_reading_passage_path . "I-Iike-fruits-I-have-a-pineap.mp3", "q_content" => "I like fruits.", 'q_conver' => "I like fruits. I have a pineapple, one melon and an apple. There are three bananas and two oranges. I also eat grapes. I like green grapes. I don't like purple grapes.", 'a_content' => null, "background" => $l3_G266_image . "bg.jpg"],
+
+
+            ['round' => 4, 'game_id' => 266, "q_audio" =>  null, 'q_content' => "True", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 4, 'game_id' => 266, "q_audio" =>  null, 'q_content' => "False", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 4, 'game_id' => 266, "q_audio" => $AudioDomain . $G2_L3_reading_passage_path . "There-are-2-oranges-true-or-f.mp3", "q_conver" => "There are 2 oranges", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 4, 'game_id' => 266, "q_audio" => $AudioDomain . $G2_L3_reading_passage_path . "I-Iike-fruits-I-have-a-pineap.mp3", "q_content" => "I like fruits.", 'q_conver' => "I like fruits. I have a pineapple, one melon and an apple. There are three bananas and two oranges. I also eat grapes. I like green grapes. I don't like purple grapes.", 'a_content' => null, "background" => $l3_G266_image . "bg.jpg"],
+
+
+            ['round' => 5, 'game_id' => 266, "q_audio" =>  null, 'q_content' => "True", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 5, 'game_id' => 266, "q_audio" =>  null, 'q_content' => "False", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 5, 'game_id' => 266, "q_audio" => $AudioDomain . $G2_L3_reading_passage_path . "I-have-2-pineapples-true-or-f.mp3", "q_conver" => "I have 2 pineapples", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 5, 'game_id' => 266, "q_audio" => $AudioDomain . $G2_L3_reading_passage_path . "I-Iike-fruits-I-have-a-pineap.mp3", "q_content" => "I like fruits.", 'q_conver' => "I like fruits. I have a pineapple, one melon and an apple. There are three bananas and two oranges. I also eat grapes. I like green grapes. I don't like purple grapes.", 'a_content' => null, "background" => $l3_G266_image . "bg.jpg"],
+
+        ]);
     }
 }

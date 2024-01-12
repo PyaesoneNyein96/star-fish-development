@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('isLocal')->nullable();
             $table->string('background')->nullable();
 
-            $table->longText('q_extra')->nullable();
+            $table->longText('round_instruction')->nullable();
             $table->longText('a_extra')->nullable();
             $table->timestamps();
         });
