@@ -834,5 +834,73 @@ class AnsNQueSeeder extends Seeder
             ]);
             $G2_L6_Game278_index++;
         }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Lesson 6 Game 279 (  Matching  )
+        ////////////////////////////////////////////////////////
+
+        $l6_G279_image = $domain . "/storage/images/Grade_2/lesson_6/Matching/";
+        $G2_L6_Matching = "Grade_2/" . "Lesson_6/" . "Matching/";
+
+
+        $G2_L6_Game279_Matching = [
+
+            ['Dark eyes', 'Short hair', 'Long hair', 'Round face', "Oval face"],
+            ['Short hair', 'Dark eyes',   "Oval face", 'Round face', 'Long hair'],
+
+        ];
+
+        $G2_L6_Game279_Matching_image = [
+
+            ['long-hair', 'oval-face', 'short-hair', 'dark-eyes', "round-face"],
+            ['oval-face', 'long-hair',  "round-face", 'dark-eyes', 'short-hair'],
+
+        ];
+
+
+        for ($i = 0; $i < count($G2_L6_Game279_Matching); $i++) {
+
+            foreach ($G2_L6_Game279_Matching[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 279, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $q, 'q_audio' => $AudioDomain . $G2_L6_Matching .  str_replace(' ', '-', strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+
+            foreach ($G2_L6_Game279_Matching_image[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 279, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $l6_G279_image . strtolower($q) . ".png", 'q_audio' => $AudioDomain . $G2_L6_Matching .  strtolower($q) . ".mp3",
+                    ]
+                ]);
+            }
+        }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Lesson 6 Game 280 ( speaking )
+        ////////////////////////////////////////////////////////
+
+        $l6_G280_image = $domain . "/storage/images/Grade_2/lesson_6/Speaking/";
+        $G2_L6_Speaking = "Grade_2/" . "Lesson_6/" . "Speaking/";
+
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 280,  'q_image' => $l6_G280_image . "long-hair.png", "q_content" => "Look at the picture and say."],
+            ['round' => 2, 'game_id' => 280,  'q_image' => $l6_G280_image . "short-hair.png", "q_content" => "Look at the picture and say."],
+            ['round' => 3, 'game_id' => 280,  'q_image' => $l6_G280_image . "oval-face.png", "q_content" => "Look at the picture and say."],
+            ['round' => 4, 'game_id' => 280,  'q_image' => $l6_G280_image . "dark-eyes.png", "q_content" => "Look at the picture and say."],
+            ['round' => 5, 'game_id' => 280,  'q_image' => $l6_G280_image . "round-face.png", "q_content" => "Look at the picture and say."],
+
+        ]);
     }
 }
