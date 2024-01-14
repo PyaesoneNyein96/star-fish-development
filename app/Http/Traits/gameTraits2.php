@@ -23,6 +23,7 @@ trait gameTraits2
      *  14. listening_and_choosing_bubbles
      *  15. fill_in_the_blanks_two
      *  16. sentence_tracing
+     *  17. listen_and_speak
      *
      *
      */
@@ -56,7 +57,6 @@ trait gameTraits2
 
     public function drag_n_drop_and_columns($game, $student, $unit)
     {
-        if (isset($game[0])) $game = $game[0];
         return $this->common_fun($game, $unit);
     }
 
@@ -106,6 +106,11 @@ trait gameTraits2
     }
 
     public function sentence_tracing($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
+    public function listen_and_speak($game, $student, $unit)
     {
         return $this->common_fun($game, $unit);
     }

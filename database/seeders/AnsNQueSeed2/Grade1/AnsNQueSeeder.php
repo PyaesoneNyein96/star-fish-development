@@ -5713,7 +5713,10 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-
+            [
+                'round' => 1, 'game_id' => 180, 'a_content' => "orange", 'q_image' => $l29_G180_image . "orange" . ".png",
+                'a_audio' => $AudioDomain . $G1_L29_listen_n_practice . "Please-give-me-some-oranges" . ".mp3", "background" => $l29_G180_image . "bg.png"
+            ],
             [
                 'round' => 1, 'game_id' => 180, 'a_content' => "pineapple", 'q_image' => $l29_G180_image . "pineapple" . ".png",
                 'a_audio' => $AudioDomain . $G1_L29_listen_n_practice . "Please-give-me-a-pineapple" . ".mp3", "background" => $l29_G180_image . "bg.png"
@@ -5731,10 +5734,6 @@ class AnsNQueSeeder extends Seeder
                 'a_audio' => $AudioDomain . $G1_L29_listen_n_practice . "Please-give-me-some-cherries" . ".mp3", "background" => $l29_G180_image . "bg.png"
             ],
             [
-                'round' => 1, 'game_id' => 180, 'a_content' => "orange", 'q_image' => $l29_G180_image . "orange" . ".png",
-                'a_audio' => $AudioDomain . $G1_L29_listen_n_practice . "Please-give-me-some-oranges" . ".mp3", "background" => $l29_G180_image . "bg.png"
-            ],
-            [
                 'round' => 1, 'game_id' => 180, 'a_content' => "grape", 'q_image' => $l29_G180_image . "grape" . ".png",
                 'a_audio' => $AudioDomain . $G1_L29_listen_n_practice . "Give-me-some-grapes" . ".mp3", "background" => $l29_G180_image . "bg.png"
             ],
@@ -5745,24 +5744,12 @@ class AnsNQueSeeder extends Seeder
                 'a_audio' => $AudioDomain . $G1_L29_listen_n_practice . "Please-give-me-some-lemons" . ".mp3", "background" => $l29_G180_image . "bg.png"
             ],
             [
-                'round' => 2, 'game_id' => 180, 'a_content' => "orange", 'q_image' => $l29_G180_image . "orange2" . ".png",
-                'a_audio' => $AudioDomain . $G1_L29_listen_n_practice . "Please-give-me-some-oranges" . ".mp3", "background" => $l29_G180_image . "bg.png"
-            ],
-            [
-                'round' => 2, 'game_id' => 180, 'a_content' => "pineapple", 'q_image' => $l29_G180_image . "pineapple" . ".png",
-                'a_audio' => $AudioDomain . $G1_L29_listen_n_practice . "Please-give-me-a-pineapple" . ".mp3", "background" => $l29_G180_image . "bg.png"
-            ],
-            [
                 'round' => 2, 'game_id' => 180, 'a_content' => "coconut", 'q_image' => $l29_G180_image . "coconut" . ".png",
                 'a_audio' => $AudioDomain . $G1_L29_listen_n_practice . "Give-me-3-coconuts" . ".mp3", "background" => $l29_G180_image . "bg.png"
             ],
             [
-                'round' => 2, 'game_id' => 180, 'a_content' => "guava", 'q_image' => $l29_G180_image . "guava" . ".png",
-                'a_audio' => $AudioDomain . $G1_L29_listen_n_practice . "Give-me-some-guavas" . ".mp3", "background" => $l29_G180_image . "bg.png"
-            ],
-            [
                 'round' => 2, 'game_id' => 180, 'a_content' => "mango", 'q_image' => $l29_G180_image . "mango2" . ".png",
-                'a_audio' => $AudioDomain . $G1_L29_listen_n_practice . "Give-me-some-mangoes" . ".mp3", "background" => $l29_G180_image . "bg.png"
+                'a_audio' => $AudioDomain . $G1_L29_listen_n_practice . "Give-me-2-mangoes" . ".mp3", "background" => $l29_G180_image . "bg.png"
             ],
             [
                 'round' => 2, 'game_id' => 180, 'a_content' => "watermelon", 'q_image' => $l29_G180_image . "watermelon" . ".png",
