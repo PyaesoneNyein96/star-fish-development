@@ -25,6 +25,9 @@ trait gameTraits2
      *  16. sentence_tracing
      *  17. listen_and_speak
      *  18. choose_right_sentence
+     *  19. rearrange_and_fill_blanks
+     *  20. reading_carousel_two
+     *  21. look_and_write
      *
      *
      */
@@ -117,6 +120,21 @@ trait gameTraits2
     }
 
     public function choose_right_sentence($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
+    public function rearrange_and_fill_blanks($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
+    public function reading_carousel_two($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
+    public function look_and_write($game, $student, $unit)
     {
         return $this->common_fun($game, $unit);
     }
