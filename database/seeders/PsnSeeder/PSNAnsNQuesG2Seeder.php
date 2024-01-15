@@ -348,8 +348,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
     // Lesson 23 unit 4 Speaking <Speaking_recording>
 
 
-       $contentImg = "Jane";
-
+        $contentImg = "Jane";
 
         $questionContent = [
                 "HI,I am ___. I can ___ ___. \n I can ___ ___ and ___ ___. \n I can't ___ ___. I like ___. \n My favorite ___ is ___.It is ___."
@@ -376,6 +375,216 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
             ]);
         }
+
+
+
+
+    // Lesson 24 unit 2 Listen and Practice <Reading_carousel>
+
+    $contents = [
+        'Quail', 'Queen', 'Question', 'Quilt', 'Quiz', 'Rabbit',
+        'Radio', 'Raincoat', 'Rhino', 'Ring', 'Rocket', 'Rope', 'Ruler'
+    ];
+
+    $audio = $AudioDomain."Grade_2/Lesson_24/Listen_and_Practice/";
+    $img = $ImageDomain."Grade_2/Lesson_24/Listen_and_Practice/";
+
+        foreach ($contents as $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 368,
+                    'a_content' => $val,
+                    'a_image' => $img.ucfirst($val).".png",
+                    'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
+                ],
+            ]);
+        }
+
+
+
+    // Lesson 24 Unit 3 Trace Words <sentence_tracing>
+
+
+
+    $words = [
+        'Cow','Dog','Cat','Bird',
+    ];
+
+    $letters = [
+        ['R','o','p','e'],
+        ['R','i','n','g'],
+        ['Q','u','i','z'],
+        ['Q','u','a','i','l'],
+    ];
+
+    $audio = $AudioDomain."Grade_2/Lesson_24/Trace_words/";
+    $img = $ImageDomain."Grade_2/Lesson_24/Trace_words/";
+
+
+    foreach ($words as $key => $val) {
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 369,
+                'round' => $key + 1,
+                'q_image' => $img.$val.".png",
+                'q_audio' => $audio.$val.".mp3",
+                'a_content' => $val
+
+            ]
+        ]);
+
+
+        foreach ($letters[$key] as $value) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 369,
+                    'round' => $key + 1,
+                    'q_content' => $img.$value.".png",
+
+                ]
+            ]);
+        }
+
+    }
+
+
+
+    // Lesson -24 Unit -4 <matching_columns>
+
+    $contents = [
+            ['Rope', 'Quail', 'Raincoat', 'Rocket', 'Radio'],
+            ['Queen', 'Question', 'Rhino', 'Ring', 'Ruler']
+        ];
+
+        $randomValues = [
+            ['Raincoat', 'Radio', 'Rocket', 'Quail', 'Rope'],
+            ['Queen', 'Ring', 'Ruler', 'Rhino', 'Question']
+        ];
+
+        $audio = $AudioDomain . "Grade_2/Lesson_24/Matching/";
+        $img = $ImageDomain . "Grade_2/Lesson_24/Matching/";
+
+        for ($i = 0; $i < count($contents); $i++) {
+
+            foreach ($contents[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 370, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $q,
+                        'q_audio' => $audio . strtolower($q) . ".mp3",
+                    ]
+                ]);
+            }
+
+
+            foreach ($randomValues[$i] as $q) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 370, 'round' => $i + 1, 'q_content' => strtolower($q),
+                        'q_image' => $img . strtolower($q) . ".png",
+                        'q_audio' => $audio . strtolower($q) . ".mp3",
+                    ]
+                ]);
+            }
+        }
+
+
+
+    // Lesson -24 Writing <rearrange with audio>
+
+
+        $Questions = [
+            ['I', 'O', 'D', 'R', 'A'],
+            ['O', 'P', 'R', 'E'],
+            ['I', 'N', 'R', 'C', 'O', 'A', 'A','T'],
+            ['I', 'U', 'Q', 'Z'],
+            ['R', 'U', 'R', 'E', 'L'],
+            ['O', 'P', 'R','E'],
+            ['O', 'R', 'H','N','I'],
+            ['O','Q','I','I','E','S','U','N'],
+            ['E','Q','E','U','N'],
+            ['R','O','E','T','K','C'],
+        ];
+
+        $answers = [
+            'RADIO', 'ROPE', 'RAINCOAT', 'QUIZ', 'RULER', 'ROPE','RHINO','QUESTION','QUEEN','ROCKET'
+        ];
+
+        for ($i = 0; $i < count($Questions); $i++) {
+
+            foreach ($Questions[$i]  as  $innerVal) {
+                DB::table('ans_n_ques')->insert([
+                    ['game_id' => 371, 'round' => $i + 1, 'q_content' => $innerVal]
+                ]);
+            }
+
+
+            $img = $ImageDomain . "Grade_2/Lesson_24/Writing/";
+            $audio = $AudioDomain . "Grade_1/Lesson_24/Writing/";
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 371,
+                    'round' => $i + 1,
+                    'q_image' => $img . strtolower($answers[$i]) . ".png",
+                    'q_audio' => $audio . strtolower($answers[$i]) . ".mp3",
+                    'a_content' => $answers[$i],
+                ]
+            ]);
+        }
+
+
+        //// Lesson 24 Unit 6 (Speaking) <speaking_and_recording>
+
+        // $L33_U6 = [
+        //     "Quail", "Noodle", "Quail", "Raincoat", "Rabbit", "Rabbit", "Rocket", "Rocket",
+        // ];
+
+        // $Question_contents = [
+        //     'What is it?', 'What is your favorite food?',
+        //     'Can you draw ___? \n Yes,___ ___. No ___, ___.',
+        //     'Do you like ___? \n Yes,______,'
+        // ];
+
+
+        // foreach ($L33_U6 as $key => $value) {
+
+        //     DB::table('ans_n_ques')->insert([
+
+        //         [
+        //             'game_id' => 209, 'round' => $key + 1,
+        //             'q_content' => "Look at this picture and say.",
+        //             'q_audio' => $AudioDomain."/Grade_1/Lesson_33/Speaking/"."Look-at-the-picture-and-say".".mp3",
+        //             'q_image' => $ImageDomain . "Grade_1/Lesson_33/Speaking/" . $value . ".png",
+        //             'a_content' => str_replace('-', ' ', $value)
+        //         ]
+
+        //     ]);
+        // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -2788,16 +2788,10 @@ class PSNAnsNQuesSeeder extends Seeder
                 "I am 6 years old I have 3 brothers and an older sister",
                 'He is one',
                 'She is 10',
-                'He is eight years old',
+                'She is 4 years old',
                 'He is 5',
             ],
-            [
-                "I am 7 years old I have an older sister two younger sisters and a younger brother",
-                'She is 10',
-                'She is one',
-                'She is 4 years old',
-                'He is also 4 years old',
-            ]
+
         ];
 
 
@@ -2821,18 +2815,7 @@ class PSNAnsNQuesSeeder extends Seeder
                 ],
             ]);
         }
-        foreach ($content[1] as $v) {
-            DB::table('ans_n_ques')->insert([
-                [
-                    'round' =>  2,
-                    'game_id' => 249, 'a_content' => $v,
-                    'q_image' =>  $img . str_replace(' ', '-', $v) . ".png",
-                    'a_audio' => $audio . str_replace(' ', '-', $v) . ".mp3",
-                    'a_content' => $v,
-                    'background' =>  $bg
-                ],
-            ]);
-        }
+
 
 
 
