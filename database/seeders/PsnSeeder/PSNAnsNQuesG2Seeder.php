@@ -537,34 +537,110 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
         //// Lesson 24 Unit 6 (Speaking) <speaking_and_recording>
 
-        // $L33_U6 = [
-        //     "Quail", "Noodle", "Quail", "Raincoat", "Rabbit", "Rabbit", "Rocket", "Rocket",
-        // ];
+        $contents = [
+            "Quail", "rabbit", "Rocket", "Rocket",
+            "Quail", "Raincoat", "Rabbit", "Noodle",
+        ];
 
-        // $Question_contents = [
-        //     'What is it?', 'What is your favorite food?',
-        //     'Can you draw ___? \n Yes,___ ___. No ___, ___.',
-        //     'Do you like ___? \n Yes,______,'
-        // ];
+        $Question_contents = [
+            'What is it?',
+            'Do you like rabbit',
+            'Can you draw a rocket? \n Yes, I can.',
+            'Can you draw a rocket?',
 
-
-        // foreach ($L33_U6 as $key => $value) {
-
-        //     DB::table('ans_n_ques')->insert([
-
-        //         [
-        //             'game_id' => 209, 'round' => $key + 1,
-        //             'q_content' => "Look at this picture and say.",
-        //             'q_audio' => $AudioDomain."/Grade_1/Lesson_33/Speaking/"."Look-at-the-picture-and-say".".mp3",
-        //             'q_image' => $ImageDomain . "Grade_1/Lesson_33/Speaking/" . $value . ".png",
-        //             'a_content' => str_replace('-', ' ', $value)
-        //         ]
-
-        //     ]);
-        // }
+            'Can you draw ___? \n Yes,___ ___. No ___, ___.',
+            'Do you like ___? \n Yes,______,No ___ ___.',
+            'What is it? \n It ___ ___ ___.',
+            'What is your favorite food?',
+        ];
 
 
+        foreach ($contents as $key => $value) {
 
+            DB::table('ans_n_ques')->insert([
+
+                [
+                    'game_id' => 372, 'round' => $key + 1,
+                    'round_instruction' => "Look at this picture and speak.",
+                    'q_content' => $Question_contents[$key],
+                    'q_audio' => $AudioDomain."/Grade_1/Lesson_33/Speaking/".$contents[$key].".mp3",
+                    'q_image' => $ImageDomain . "Grade_1/Lesson_33/Speaking/" . $value . ".png",
+                    'a_content' => str_replace('-', ' ', $value)
+                ]
+
+            ]);
+        }
+
+
+
+
+        //// Lesson 24 Unit 7 (Reading Short) < reading_passage >
+
+        $images = $ImageDomain . "Grade_2/Lesson_24/Reading_Short/";
+        $audios = $AudioDomain . "Grade_2/Lesson_24/Reading_Short/";
+        // $L32U5_content = ['umbrella','violin','vase'];
+
+        $L32U5_para = "My name is Chris.I have a rabbit. Her name is Lovely. She is white. She like strawberries and mangoes. She eats ten strawberries every day. She eat three mangoes on Sunday. She can hop and jump. She can't play badminton.";
+
+        $L32U5_given_q = [
+            ["Does she like mangoes? ----, She does.", "Yes"],
+            ["What does she eat on Sunday?", "three"],
+            ["Can she play badminton? ___ She can.", 'No'],
+            ["What color is the rabbit?", "White"],
+            ["What is the rabbit's name?.", 'Lovely'],
+        ];
+        $given_audio = [
+            "Does-she-like-mango.mp3",
+            "What-does-she-eat-on-sunday.mp3",
+            "Can-she-play-badminton.mp3",
+            "WHat-color-is-the-rabbit.mp3",
+            "What-is-the-rabbit-name.mp3"
+        ];
+        $paraName = "My-name-is-Chris.I-have-a-rabbit.mp3";
+
+        $given_answer = [
+            ['Yes', 'No'],
+            ['Two mango', 'Five mango', 'Three mango'],
+            ['Yes', 'No',],
+            ['White', 'Gray', 'Black'],
+            ['Lovely', 'Sofia', 'Likely']
+        ];
+
+
+        for ($i = 0; $i < count($given_answer); $i++) {
+
+
+            foreach ($given_answer[$i] as $k => $value) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1,
+                        'game_id' => 373,
+                        'q_audio' => $audios . $value . ".mp3",
+                        'q_content' => $value,
+                        'a_content' => $value == $L32U5_given_q[$i][1] ? 1 : 0
+                    ]
+                ]);
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 373,
+                    'q_audio' => $audios . $given_audio[$i],
+                    'q_conver' => $L32U5_given_q[$i][0],    //giver Q
+                ]
+            ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 373,
+                    'q_audio' => $audios . $paraName,
+                    'q_content' => null,
+                    'q_conver' => $L32U5_para,
+                    'q_image' => $images . "character.png", //char
+                    'background' => $images . "bg.png"
+                ]
+            ]);
+        }
 
 
 

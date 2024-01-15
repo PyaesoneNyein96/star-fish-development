@@ -860,7 +860,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         $G1L17U3facePart = ["nose", 'left-eye', 'right-eye', 'lip', 'left-ear', 'right-ear','face'];
-        $facePartAudio = ["nose", 'eye', 'eye', 'lip', 'ear', 'ear','face'];
+        $facePartAudio = ["nose", 'left-eye', 'right-eye', 'lip', 'left-ear', 'right-ear','face'];
         $L17U3Img = $ImageDomain . "Grade_1/Lesson_17/Listen_and_Practice/";
         $L17U3Audio = $AudioDomain . "Grade_1/Lesson_17/Listen_and_Practice/";
         foreach ($G1L17U3facePart as $k => $v) {
