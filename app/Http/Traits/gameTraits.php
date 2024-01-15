@@ -5,6 +5,8 @@ namespace App\Http\Traits;
 trait gameTraits
 {
 
+    // common_functions
+
     // listening_and_choosing_clouds_one,
     // listening_and_choosing_clouds_two
     // reading_carousel,
@@ -48,6 +50,40 @@ trait gameTraits
             'games' => $gamesData,
 
         ];
+    }
+
+
+    public function common_functions($game, $student, $unit){
+
+
+        if (isset($game[0])) $game = $game[0];
+
+        $rounds =  $game->ans_n_ques->groupBy('round')->values();
+
+        $roundExist = $game->ans_n_ques->some(function ($g) {
+            return array_key_exists('round', $g->toArray());
+        });
+
+
+        $data = [
+            'game_id' => $game->id,
+            'lesson_id' => $unit->lesson_id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'game_status' => $game->status,
+            'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
+            'instructionGIF'  => $game->instructionGIF,
+            'instructions' =>  $game->instructions->isEmpty() ? null : $game->instructions,
+        ];
+
+        if ($roundExist) {
+            $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
+            return $data;
+        }
+        $data['data'] = $game->ans_n_ques;
+        return $data;
+
     }
 
 
