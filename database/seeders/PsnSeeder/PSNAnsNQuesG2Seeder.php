@@ -342,12 +342,40 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'a_content' => $ques[$key][1] == $val ? true : false
                 ]
             ]);
-
-
-
     }
 
 
+    // Lesson 23 unit 4 Speaking <Speaking_recording>
+
+
+       $contentImg = "Jane";
+
+
+        $questionContent = [
+                "HI,I am ___. I can ___ ___. \n I can ___ ___ and ___ ___. \n I can't ___ ___. I like ___. \n My favorite ___ is ___.It is ___."
+        ];
+
+        $questionAudio = ["Hi i am Jane.I can sing"];
+
+        $img = $ImageDomain . "Grade_2/Lesson_23/Speaking/";
+        $audio = $AudioDomain . "Grade_2/Lesson_23/Speaking/";
+
+        foreach ($questionContent as $key => $value) {
+
+            DB::table('ans_n_ques')->insert([
+
+                [
+                    'game_id' => 366,
+                    'round' => $key + 1,
+                    'q_content' => $value,
+                    'q_image' => $img . str_replace(' ', '-', $contentImg[$key]) . ".png",
+                    'a_content' => null,
+                    // 'q_audio' => $audio.str_replace(' ','-',$questionAudio[$key])."mp3",
+                    'q_audio' => null
+                ]
+
+            ]);
+        }
 
 
 

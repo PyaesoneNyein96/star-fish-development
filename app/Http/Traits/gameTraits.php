@@ -74,13 +74,11 @@ trait gameTraits
             'sub_unit'  => $game->count() < 1 ? true : false,
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
-            'instructions' =>  !isset($game->instructions) ? null : $game->instructions,
-            // 'rounds' => $rounds
+            'instructions' =>  $game->instructions->isEmpty() ? null : $game->instructions,
         ];
 
         if ($roundExist) {
             $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
-            // $data['round_count'] = count($game->ans_n_ques->groupBy('round')->values());
             return $data;
         }
         $data['data'] = $game->ans_n_ques;

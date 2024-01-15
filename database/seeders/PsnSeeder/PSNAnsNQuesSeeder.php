@@ -1268,7 +1268,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_image' => $ImageDomain . "Grade_1/Lesson_32/Listen_and_Practice/" . $v . ".png",
                     'a_audio' => $AudioDomain . "Grade_1/Lesson_32/Listen_and_Practice/" . $v . ".mp3",
                     'a_content' => $v,
-                    'background' => $ImageDomain . "/Grade_1/Lesson_32/Listen_and_Practice/bg.png"
+                    'background' => $ImageDomain . "/Grade_1/Lesson_32/Listen_and_Practice/bg1.png"
                 ],
             ]);
         }
