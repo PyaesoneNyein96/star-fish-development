@@ -649,14 +649,14 @@ class GameInstructionSeeder extends Seeder
 
             // Lesson - 38
             // Game 3  (2 rounds)
-            [
-                'content' => "Listen to the boy and tick what he said.", "game_id" => 236,
-                'audio' =>  $Instructions . "Listen-to-the-boy-and-tick-what-he-said" . ".mp3"
-            ],
-            [
-                'content' => "Listen to the girl and tick what she said.", "game_id" => 236,
-                'audio' =>  $Instructions . "Listen-to-the-girl-and-tick-what-she-said" . ".mp3"
-            ],
+            // [
+            //     'content' => "Listen to the boy and tick what he said.", "game_id" => 236,
+            //     'audio' =>  $Instructions . "Listen-to-the-boy-and-tick-what-he-said" . ".mp3"
+            // ],
+            // [
+            //     'content' => "Listen to the girl and tick what she said.", "game_id" => 236,
+            //     'audio' =>  $Instructions . "Listen-to-the-girl-and-tick-what-she-said" . ".mp3"
+            // ],
 
             // Game 6
             [

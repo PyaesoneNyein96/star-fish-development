@@ -2390,11 +2390,16 @@ class PSNAnsNQuesSeeder extends Seeder
                 'This is my uncle His name is John'
             ],
 
-
         ];
+
 
         $img = $ImageDomain . "Grade_1/Lesson_38/Listen_and_Practice_Game/";
         $audio = $AudioDomain . "Grade_1/Lesson_38/Listen_and_Practice_Game/";
+
+        $roundInstructions = [
+            "Listen-to-the-boy-and-tick-what-he-said",
+            "Listen-to-the-girl-and-tick-what-she-said",
+        ];
 
         foreach ($contents as $k => $content) {
 
@@ -2405,6 +2410,7 @@ class PSNAnsNQuesSeeder extends Seeder
                         'q_image' => $img . str_replace(' ', '-', $v) . ".png",
                         'a_audio' => $audio . str_replace(' ', '-', $v) . ".mp3",
                         'a_content' => $v, 'round' => $k + 1,
+                        'round_instruction' =>$audio.$roundInstructions[$k].".mp3",
                         'background' => $ImageDomain . "/Grade_1/Lesson_38/Listen_and_Practice_Game/bg.png"
                     ],
                 ]);
