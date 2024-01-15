@@ -200,7 +200,7 @@ class GameController extends Controller
         $unit = Unit::where('id', $unit_id)->where('lesson_id', $lesson_id)->first();
         // $unit = Unit::find($unit_id);
 
-        if (!$unit || !$student) return "lesson and unit are not match.";
+        if (!$unit || !$student) return "lesson and unit are not match or student not found.";
 
         $gameInUnit = Game::where('unit_id', $unit_id)->where('id', $game_id)->exists();
         // if(!$gameUnit && $unit && $gameId) return "SubUnit game not found!";
@@ -211,22 +211,29 @@ class GameController extends Controller
 
             $name = strval($game->category->name);
 
+            $name = strval(Game::find($game_id)->category->name);
             if (!$name) return "this game is not subUnit game";
 
-            return $this->$name($game, $student, $unit);
+            return $this->$name(Game::find($game_id), $student, $unit);
         }
-
 
         $games = Game::where('unit_id', $unit_id)->get();
 
         if ($games->count() == 1) {
+
+
             $name = strval($games->first()->category->name);
+
+            if(!function_exists($name)){
+              return $this->common_functions($games,$student, $unit);
+            }
+
             return $this->$name($games, $student, $unit);
         };
 
-
         return $this->Subunit_category($games, $unit);
     }
+
 
 
     public function end_match(Request $request)
