@@ -224,8 +224,8 @@ class GameController extends Controller
 
             $name = strval($games->first()->category->name);
 
-            if(!function_exists($name)){
-              return $this->common_functions($games,$student, $unit);
+            if ($name == "") {
+                return $this->common_functions($games, $student, $unit);
             }
 
             return $this->$name($games, $student, $unit);
@@ -316,8 +316,7 @@ class GameController extends Controller
                     ->where('unit_id', $unit->id)->delete();
             }
 
-            array_push($this->messages,['unit_status' => "This unit is complete."]);
-
+            array_push($this->messages, ['unit_status' => "This unit is complete."]);
         }
 
 
