@@ -815,6 +815,33 @@ class GameInstructionSeeder extends Seeder
 
 
 
+            // G-2 lesson_9 U-273
+            ['content' => "Listen and Repeat", 'game_id' => 293, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_9 U-274
+            ['content' => "Trace and write", "game_id" => 294, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+
+            // G-2 lesson_9 U-275
+            ['content' => "Matching things in class", 'game_id' => 295, 'audio' =>  $Instructions . "Matching-things-in-class" . ".mp3"],
+
+            // G-2 lesson_9 U-276
+            ['content' => "Arranging the letters", 'game_id' => 296, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+
+            // G-2 lesson_9 U-277
+            ['content' => "Look at the pictures and speak", 'game_id' => 297, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
+
+
+
+            // G-2 lesson_10 U-279
+            ['content' => "Listen and Repeat", 'game_id' => 299, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_10 U-280
+            ['content' => "Arranging the letters", 'game_id' => 300, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+
+            // G-2 lesson_10 U-281
+            ['content' => "Look at the pictures and speak", 'game_id' => 301, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
+
+
         ]);
 
         // // Grade 3   (Temporary)
