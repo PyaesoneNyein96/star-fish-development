@@ -45,7 +45,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 353, 'a_content' => $val,
+                    'game_id' => 354, 'a_content' => $val,
                     'a_image' => $img . str_replace(' ', '-', $val) . ".png",
                     'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
                 ],
@@ -72,7 +72,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         foreach ($contents as $key => $val) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 354,
+                    'game_id' => 355,
                     'round' => 1,
                     'q_content' => $val,
                     'q_image' => $val . ".png",
@@ -85,7 +85,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         foreach ($ans as $key => $val) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 354,
+                    'game_id' => 355,
                     'round' => 1,
                     'q_content' => strtolower($val),
                     'q_image' => $img . $val . ".png",
@@ -116,7 +116,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 355,
+                    'game_id' => 356,
                     'round' => $key + 1,
                     'q_image' => $img . $val . ".png",
                     'q_audio' => $audio . str_replace('_', '-', $val) . ".mp3",
@@ -128,7 +128,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 355,
+                    'game_id' => 356,
                     'round' => $key + 1,
                     'q_content' => "false",
                     'a_content' => false == $ans[$key] ? true :  false
@@ -168,7 +168,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
             DB::table('ans_n_ques')->insert([
 
                 [
-                    'game_id' => 356,
+                    'game_id' => 357,
                     'round' => $key + 1,
                     'q_content' => $value,
                     'q_image' => $img . str_replace(' ', '-', $contentImg[$key]) . ".png",
@@ -216,7 +216,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
             DB::table('ans_n_ques')->insert([
 
                 [
-                    'game_id' => 360,
+                    'game_id' => 361,
                     'round' => $key + 1,
                     'q_content' => $value,
                     'q_image' => $img . str_replace(' ', '-', $contentImg[$key]) . ".png",
@@ -244,7 +244,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 362,
+                    'game_id' => 363,
                     'a_content' => $val,
                     'a_image' => $img . ucfirst($val) . ".png",
                     'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
@@ -274,7 +274,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         foreach ($words as $key => $val) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 363,
+                    'game_id' => 364,
                     'round' => $key + 1,
                     'q_image' => $img . $val . ".png",
                     'q_audio' => $audio . $val . ".mp3",
@@ -287,7 +287,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
             foreach ($letters[$key] as $value) {
                 DB::table('ans_n_ques')->insert([
                     [
-                        'game_id' => 363,
+                        'game_id' => 364,
                         'round' => $key + 1,
                         'q_content' => $img . $value . ".png",
 
@@ -322,7 +322,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         foreach ($imgs as $key => $val) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 366,
+                    'game_id' => 365,
                     'round' => $key + 1,
                     'q_image' => $img . $val . ".png",
                     'q_audio' => $audio . $val . ".mp3",
@@ -335,7 +335,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 366,
+                    'game_id' => 365,
                     'round'  => $key +  1,
                     'q_content' => $ques[$key][1],
                     'a_content' => $ques[$key][1] == $val ? true : false
@@ -364,7 +364,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
             DB::table('ans_n_ques')->insert([
 
                 [
-                    'game_id' => 367,
+                    'game_id' => 365,
                     'round' => $key + 1,
                     'q_content' => $value,
                     'q_image' => $img . str_replace(' ', '-', $contentImg[$key]) . ".png",
