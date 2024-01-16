@@ -500,7 +500,6 @@ class UnitSeeder extends Seeder
             // lesson 11's units count(3) start (282,274)
 
             ['name' => 'Listen and Write', 'lesson_id' => 51],             // 282
-            ['name' => 'Coloring', 'lesson_id' => 51],
             ['name' => 'Speak', 'lesson_id' => 51],                         // 284
 
 

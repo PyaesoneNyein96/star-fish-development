@@ -28,6 +28,8 @@ trait gameTraits2
      *  19. rearrange_and_fill_blanks
      *  20. reading_carousel_two
      *  21. look_and_write
+     *  22. listen_and_choose_three
+     *  23. mcq_grammar_two
      *
      *
      */
@@ -135,6 +137,16 @@ trait gameTraits2
     }
 
     public function look_and_write($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
+    public function listen_and_choose_three($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
+    public function mcq_grammar_two($game, $student, $unit)
     {
         return $this->common_fun($game, $unit);
     }
