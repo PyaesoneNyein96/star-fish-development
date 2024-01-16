@@ -578,8 +578,8 @@ class AnsNQueSeeder extends Seeder
         ];
 
         $aG27 = [
-            "Good evening, Mary. How are you? I'm OK. And you? I'm great. GoodBye.",
-            "Good afternoon, Mike. How are you? I'm fine. And you? I'm great. GoodBye.",
+            "Good evening, Mary. How are you? I'm fine. And you? I'm great. GoodBye.",
+            "Good afternoon, Mike. How are you? I'm OK. And you? I'm great. GoodBye.",
 
         ];
 
