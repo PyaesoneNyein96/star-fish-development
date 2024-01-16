@@ -60,7 +60,7 @@ class AnsNQueSeeder extends Seeder
         $l1_G254image = $domain . "/storage/images/Grade_2/lesson_1/practice_speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 254,  "q_audio" =>  $AudioDomain . $G2_L1_practice_speaking . "Whats-your-name-girl" . ".mp3", 'q_image' => $l1_G254image . "teacher.png", "q_content" => "What is your name?"],
+            ['round' => 1, 'game_id' => 254,   'q_image' => $l1_G254image . "teacher.png", "q_conver" => "What is your name?"],
         ]);
 
 

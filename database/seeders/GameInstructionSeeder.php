@@ -20,6 +20,11 @@ class GameInstructionSeeder extends Seeder
 
         DB::table('game_instructions')->insert([
 
+            //////////////////////////////////
+            ///////       Grade 1      ///////
+            //////////////////////////////////
+
+
             // G-1 lesson_1 U-2
             ['content' => "Reading the alphabet and repeat after each", 'game_id' => 2, 'audio' =>  $Instructions . "Reading-the-alphabet-and-repeat-after-each" . ".mp3"],
 
@@ -705,10 +710,20 @@ class GameInstructionSeeder extends Seeder
 
 
 
+
+
+
+
+            //////////////////////////////////
+            ///////       Grade 2      ///////
+            //////////////////////////////////
+
+            // G-2 lesson_1 U-234
+            ['content' => "Make sure to close your mouth at the end of name say and practice", 'game_id' => 253, 'audio' =>  $Instructions . "Make-sure-to-close-your-mouth" . ".mp3"],
+
+            // G-2 lesson_1 U-235
+            ['content' => "what is your name?", 'game_id' => 254, 'audio' =>  $Instructions . "Whats-your-name-girl" . ".mp3"],
         ]);
-
-
-
 
         // // Grade 3   (Temporary)
         // DB::table('game_instructions')->insert([
