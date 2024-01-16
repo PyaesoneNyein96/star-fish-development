@@ -181,7 +181,7 @@ class AnsNQueSeeder extends Seeder
                 ]);
             }
             DB::table('ans_n_ques')->insert([
-                ['round' => $i + 1, 'game_id' => 15, 'q_image' => $l3G15image . "reading_character.png", 'a_content' => $aG16R1[$G16Index], 'a_audio' => $AudioDomain . $G1_L3_writing_path . $audiosG16[$G16Index] . ".mp3"],
+                ['round' => $i + 1, 'game_id' => 15,  'a_content' => $aG16R1[$G16Index], 'a_audio' => $AudioDomain . $G1_L3_writing_path . $audiosG16[$G16Index] . ".mp3"],
             ]);
             $G16Index++;
         }
