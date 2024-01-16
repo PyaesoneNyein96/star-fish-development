@@ -2723,7 +2723,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
                 [
                     'game_id' => 245,
-                    // 'round' => $key + 1,
+                    'round' => $key + 1,
                     'q_content' => $value,
                     'q_image' => $img . str_replace(' ', '-', $content) . ".png",
                     'a_content' => null,

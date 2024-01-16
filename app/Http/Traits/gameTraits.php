@@ -80,9 +80,10 @@ trait gameTraits
 
         if ($roundExist) {
             $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
-            return $data;
+            if (count($data['rounds'][0]) == 1) $data["rounds"] = $game->ans_n_ques;
+        } else {
+            $data['data'] = $game->ans_n_ques;
         }
-        $data['data'] = $game->ans_n_ques;
         return $data;
     }
 
