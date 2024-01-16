@@ -2712,8 +2712,13 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         $questionContent = [
-            'Do you have brother or sister?', 'Do you have Grandfather or Grandmother?',
-            "I'm great.What's your father name?", 'Good morning how are you?',
+            'Do you have brother or sister ?', 'Do you have Grandfather or Grandmother ?',
+            "I'm great.What's your father name ?", 'Good morning how are you ? ',
+        ];
+
+        $ques_audio = [
+            'Do you have brother or sister', 'Do you have Grandfather or Grandmother',
+            "I'm great.What's your father name", 'Good morning how are you',
         ];
 
         $img = $ImageDomain . "Grade_1/Lesson_39/Speaking/";
@@ -2729,7 +2734,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_content' => $value,
                     'q_image' => $img . str_replace(' ', '-', $content) . ".png",
                     'a_content' => null,
-                    'q_audio' => $AudioDomain."Grade_1/Lesson_39/Speaking/".str_replace(' ','-', $value).".mp3",
+                    'q_audio' => $AudioDomain."Grade_1/Lesson_39/Speaking/".str_replace(' ','-', $ques_audio[$key]).".mp3",
                 ]
 
             ]);
