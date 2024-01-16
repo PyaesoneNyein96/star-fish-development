@@ -174,7 +174,6 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'q_image' => $img . str_replace(' ', '-', $contentImg[$key]) . ".png",
                     'a_content' => null,
                     // 'q_audio' => $audio.$questionAudio[$key],
-                    'q_audio' => null
                 ]
 
             ]);
@@ -221,8 +220,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'q_content' => $value,
                     'q_image' => $img . str_replace(' ', '-', $contentImg[$key]) . ".png",
                     'a_content' => null,
-                    // 'q_audio' => $audio.$questionAudio[$key],
-                    'q_audio' => null
+                    'q_audio' => $audio.$questionAudio[$key],
+
                 ]
 
             ]);
@@ -395,7 +394,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'game_id' => 367,
                     'a_content' => $val,
                     'a_image' => $img.ucfirst($val).".png",
-                    'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
+                    'a_audio' => $audio.str_replace(' ','-',strtolower($val)).".mp3"
                 ],
             ]);
         }
@@ -407,7 +406,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
     $words = [
-        'Cow','Dog','Cat','Bird',
+        'Rope','Ring','Quiz','Quail',
     ];
 
     $letters = [
@@ -521,13 +520,13 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
             $img = $ImageDomain . "Grade_2/Lesson_24/Writing/";
-            $audio = $AudioDomain . "Grade_1/Lesson_24/Writing/";
+            $audio = $AudioDomain . "Grade_2/Lesson_24/Writing/";
 
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 370,
                     'round' => $i + 1,
-                    'q_image' => $img . strtolower($answers[$i]) . ".png",
+                    'q_image' => $img . ucfirst(strtolower($answers[$i])) . ".png",
                     'q_audio' => $audio . strtolower($answers[$i]) . ".mp3",
                     'a_content' => $answers[$i],
                 ]
@@ -538,8 +537,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
         //// Lesson 24 Unit 6 (Speaking) <speaking_and_recording>
 
         $contents = [
-            "Quail", "rabbit", "Rocket", "Rocket",
-            "Quail", "Raincoat", "Rabbit", "Noodle",
+            "Quail", "Rabbit", "Rocket", "Rocket",
+            "Quail", "Raincoat", "Rabbit", "Food",
         ];
 
         $Question_contents = [
@@ -593,7 +592,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
             "Does-she-like-mango.mp3",
             "What-does-she-eat-on-sunday.mp3",
             "Can-she-play-badminton.mp3",
-            "WHat-color-is-the-rabbit.mp3",
+            "What-color-is-the-rabbit.mp3",
             "What-is-the-rabbit-name.mp3"
         ];
         $paraName = "My-name-is-Chris.I-have-a-rabbit.mp3";
@@ -616,7 +615,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     [
                         'round' => $i + 1,
                         'game_id' => 372,
-                        'q_audio' => $audios . $value . ".mp3",
+                        'q_audio' => $audios . str_replace(' ','-',strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $L32U5_given_q[$i][1] ? 1 : 0
                     ]
@@ -636,7 +635,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'q_audio' => $audios . $paraName,
                     'q_content' => null,
                     'q_conver' => $L32U5_para,
-                    'q_image' => $images . "character.png", //char
+                    // 'q_image' => $images . "character.png", //char
                     'background' => $images . "bg.png"
                 ]
             ]);
