@@ -697,9 +697,8 @@ class UnitSeeder extends Seeder
             ['name' => 'Grammar Explanation', 'lesson_id' => 73],              // 390
             ['name' => 'Listen and Repeat', 'lesson_id' => 73],
             ///////////////////////////////////////////
-            ['name' => 'Unknown', 'lesson_id' => 1],
-            ['name' => 'Unknown', 'lesson_id' => 1],
-            ///////////////////////////////////////////
+            ['name' => 'Writing exercise', 'lesson_id' => 1],
+
             ['name' => 'Speak', 'lesson_id' => 73],              // 393
 
 
