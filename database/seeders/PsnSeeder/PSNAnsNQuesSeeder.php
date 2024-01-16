@@ -860,7 +860,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         $G1L17U3facePart = ["nose", 'left-eye', 'right-eye', 'lip', 'left-ear', 'right-ear','face'];
-        $facePartAudio = ["nose", 'eye', 'eye', 'lip', 'ear', 'ear','face'];
+        $facePartAudio = ["nose", 'left-eye', 'right-eye', 'lip', 'left-ear', 'right-ear','face'];
         $L17U3Img = $ImageDomain . "Grade_1/Lesson_17/Listen_and_Practice/";
         $L17U3Audio = $AudioDomain . "Grade_1/Lesson_17/Listen_and_Practice/";
         foreach ($G1L17U3facePart as $k => $v) {
@@ -2390,11 +2390,16 @@ class PSNAnsNQuesSeeder extends Seeder
                 'This is my uncle His name is John'
             ],
 
-
         ];
+
 
         $img = $ImageDomain . "Grade_1/Lesson_38/Listen_and_Practice_Game/";
         $audio = $AudioDomain . "Grade_1/Lesson_38/Listen_and_Practice_Game/";
+
+        $roundInstructions = [
+            "Listen-to-the-boy-and-tick-what-he-said",
+            "Listen-to-the-girl-and-tick-what-she-said",
+        ];
 
         foreach ($contents as $k => $content) {
 
@@ -2405,6 +2410,7 @@ class PSNAnsNQuesSeeder extends Seeder
                         'q_image' => $img . str_replace(' ', '-', $v) . ".png",
                         'a_audio' => $audio . str_replace(' ', '-', $v) . ".mp3",
                         'a_content' => $v, 'round' => $k + 1,
+                        'round_instruction' =>$audio.$roundInstructions[$k].".mp3",
                         'background' => $ImageDomain . "/Grade_1/Lesson_38/Listen_and_Practice_Game/bg.png"
                     ],
                 ]);
@@ -2568,7 +2574,8 @@ class PSNAnsNQuesSeeder extends Seeder
             'This is my mother',
             'This is my grandfather',
             'This is my grandmother',
-            null
+            'This is my older sister'
+
         ];
 
 
@@ -2788,16 +2795,10 @@ class PSNAnsNQuesSeeder extends Seeder
                 "I am 6 years old I have 3 brothers and an older sister",
                 'He is one',
                 'She is 10',
-                'He is eight years old',
+                'She is 4 years old',
                 'He is 5',
             ],
-            [
-                "I am 7 years old I have an older sister two younger sisters and a younger brother",
-                'She is 10',
-                'She is one',
-                'She is 4 years old',
-                'He is also 4 years old',
-            ]
+
         ];
 
 
@@ -2821,18 +2822,7 @@ class PSNAnsNQuesSeeder extends Seeder
                 ],
             ]);
         }
-        foreach ($content[1] as $v) {
-            DB::table('ans_n_ques')->insert([
-                [
-                    'round' =>  2,
-                    'game_id' => 249, 'a_content' => $v,
-                    'q_image' =>  $img . str_replace(' ', '-', $v) . ".png",
-                    'a_audio' => $audio . str_replace(' ', '-', $v) . ".mp3",
-                    'a_content' => $v,
-                    'background' =>  $bg
-                ],
-            ]);
-        }
+
 
 
 
