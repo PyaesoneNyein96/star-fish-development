@@ -228,8 +228,10 @@ class PSNAnsNQuesSeeder extends Seeder
 
                 DB::table('ans_n_ques')->insert([
                     [
-                        'game_id' => 10, 'round' => $i + 1, 'q_content' => $q,
-                        'q_image' => $q, 'q_audio' => $AtoZAudio . $prefix . strtoupper($q) . ".mp3",
+                        'game_id' => 10, 'round' => $i + 1,
+                        'q_content' => $q,
+                        'q_image' => $q,
+                        'q_audio' => $AtoZAudio . $prefix . strtoupper($q) . ".mp3",
                     ]
                 ]);
             }
@@ -345,7 +347,7 @@ class PSNAnsNQuesSeeder extends Seeder
                 DB::table('ans_n_ques')->insert([
                     [
                         'game_id' => 37, 'round' => $i + 1, 'q_content' => $q,
-                        'q_image' => $q . ".png",
+                        'q_image' => $q,
                         'q_audio' => $AudioDomain . "Grade_1/Lesson_7/Matching/" . strtolower($q) . ".mp3",
                     ]
                 ]);
@@ -624,7 +626,7 @@ class PSNAnsNQuesSeeder extends Seeder
                 DB::table('ans_n_ques')->insert([
                     [
                         'game_id' => 69, 'round' => $i + 1, 'q_content' => $q,
-                        'q_image' => $q . ".png",
+                        'q_image' => $q,
                         'q_audio' => $AudioDomain . "Grade_1/Lesson_12/Matching/" . strtolower($q) . ".mp3",
                     ]
                 ]);
@@ -901,7 +903,7 @@ class PSNAnsNQuesSeeder extends Seeder
                 DB::table('ans_n_ques')->insert([
                     [
                         'game_id' => 104, 'round' => $i + 1, 'q_content' => $q,
-                        'q_image' => $ImageDomain . $q . ".png",
+                        'q_image' =>  $q ,
                         'q_audio' => $L17U4Audio . $q . ".mp3",
                     ]
                 ]);
