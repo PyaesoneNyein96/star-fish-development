@@ -1224,7 +1224,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'round' => $i + 1,
                     'a_content' => $L31_6_as[$i],
                     'q_image' => $ImageDomain . "Grade_1/Lesson_31/Writing_2/" . strtolower($L31_6_as[$i]) . ".png",
-                    'q_audio' => $AudioDomain . "Grade_1/Lesson_31/Writing_2/" . strtolower($L31_6_as[$i]) . ".mp3",
+                    'a_audio' => $AudioDomain . "Grade_1/Lesson_31/Writing_2/" . strtolower($L31_6_as[$i]) . ".mp3",
                 ]
             ]);
         }
