@@ -53,7 +53,8 @@ trait gameTraits
     }
 
 
-    public function common_functions($game, $student, $unit){
+    public function common_functions($game, $student, $unit)
+    {
 
 
         if (isset($game[0])) $game = $game[0];
@@ -83,7 +84,6 @@ trait gameTraits
         }
         $data['data'] = $game->ans_n_ques;
         return $data;
-
     }
 
 
@@ -118,7 +118,7 @@ trait gameTraits
 
         if ($roundExist) {
             $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
-        }else{
+        } else {
             $data['data'] = $game->ans_n_ques;
         }
         return $data;
@@ -283,7 +283,7 @@ trait gameTraits
 
         if ($roundExist) {
             $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
-        }else{
+        } else {
             $data['data'] = $game->ans_n_ques;
         }
 
@@ -452,13 +452,14 @@ trait gameTraits
 
         if ($roundExist) {
             $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
-        }else{
+        } else {
             $data['data'] = $game->ans_n_ques;
         }
         return $data;
     }
 
-    public function drag_n_drop_and_pics($game, $student, $unit){
+    public function drag_n_drop_and_pics($game, $student, $unit)
+    {
 
         if (isset($game[0])) $game = $game[0];
 
@@ -480,17 +481,17 @@ trait gameTraits
 
         if ($roundExist) {
             $data['rounds'] = $game->ans_n_ques->groupBy('round')->values();
-        }else{
+        } else {
             $data['data'] = $game->ans_n_ques;
         }
 
         return $data;
-
     }
 
 
 
-    public function mcq_tf_grammar($game, $student, $unit){
+    public function mcq_tf_grammar($game, $student, $unit)
+    {
 
         if (isset($game[0])) $game = $game[0];
 
@@ -517,56 +518,5 @@ trait gameTraits
         $data['data'] = $game->ans_n_ques;
 
         return $data;
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -720,7 +720,7 @@ class AnsNQueSeeder extends Seeder
 
             ['Bag', 'Desk', 'Chair', 'Crayons', 'Ruler'],
             ['Chair', 'book', 'pen', 'pencil', 'Ruler'],
-            ['Bag', 'sharpener', 'desk', 'pencil case', 'color pencil'],
+            ['Bag', 'sharpener', 'desk', 'pencil-case', 'color-pencil'],
 
         ];
 
@@ -728,7 +728,7 @@ class AnsNQueSeeder extends Seeder
 
             ['Chair', 'Bag', 'Ruler', 'Crayons', 'Desk'],
             ['Book', 'Chair', 'pencil', 'Ruler', 'Pen'],
-            ['Sharpener', 'colorpencil', 'Bag', 'Desk', 'PencilCase'],
+            ['Sharpener', 'color-pencil', 'Bag', 'Desk', 'Pencil-Case'],
 
         ];
 
@@ -739,8 +739,8 @@ class AnsNQueSeeder extends Seeder
             'chair', 'book', 'pen', 'pencil', 'ruler',
             'book', 'chair', 'pencil', 'ruler', 'pen',
 
-            'bag', 'sharpener', 'desk', 'pencil-case', 'crayon',
-            'sharpener', 'crayon', 'bag', 'desk', 'pencil-case'
+            'bag', 'sharpener', 'desk', 'pencil-case', 'color-pencil',
+            'sharpener', 'color-pencil', 'bag', 'desk', 'pencil-case'
         ];
 
         $G1_L6_Game31_index = 0;
