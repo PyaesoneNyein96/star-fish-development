@@ -2617,7 +2617,7 @@ class PSNAnsNQuesSeeder extends Seeder
         ];
 
         $ansSentence = [
-            'I have a older brother.',
+            'I have an older brother.',
             'I have an uncle.',
             'I have a sister.',
             'I have a younger brother.',
@@ -2631,6 +2631,7 @@ class PSNAnsNQuesSeeder extends Seeder
         $answer = ['a', 'an'];
 
         $img = $ImageDomain . "Grade_1/Lesson_39/Grammar/";
+        $audio = $AudioDomain . "Grade_1/Lesson_39/Grammar/";
 
         foreach ($question as $k => $value) {
 
@@ -2639,6 +2640,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'game_id' => 243,
                     'round' => $k + 1,
                     'q_image' => $img . str_replace(' ', '-', $chars[$k]) . ".png",
+                    'q_audio' => $audio.$chars[$k].".mp3",
                     'q_content' => $answer[0],
                     'q_conver' => $value,
                     'a_content' => $ansList[$k] == $answer[0] ? true : false
@@ -2694,7 +2696,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'game_id' => 244,
                     'round' => $i + 1,
                     // 'q_image' => $img . str_replace(' ', '-', $answers[$i]) . ".png",
-                    // 'q_audio' => $audio . str_replace(' ', '-', $answers[$i]) . ".mp3",
+                    'a_audio' => $audio . str_replace(' ', '-', $answers[$i]) . ".mp3",
                     'a_content' => $answers[$i],
                 ]
             ]);
