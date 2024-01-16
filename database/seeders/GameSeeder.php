@@ -830,7 +830,7 @@ class GameSeeder extends Seeder
             ['name' => 'Reading', 'unit_id' => 366, 'category_id' => 2,  'instructionGIF' => null],
             ['name' => 'Listen and write', 'unit_id' => 367, 'category_id' => 39,  'instructionGIF' => null],
             ['name' => 'Matching', 'unit_id' => 368, 'category_id' => 7,  'instructionGIF' => null],
-            ['name' => 'Reading', 'unit_id' => 369, 'category_id' => 16,  'instructionGIF' => null],
+            ['name' => 'Reading Short', 'unit_id' => 369, 'category_id' => 16,  'instructionGIF' => null],
 
 
             // // unit 29's games

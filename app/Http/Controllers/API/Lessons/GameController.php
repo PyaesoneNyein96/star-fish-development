@@ -223,7 +223,7 @@ class GameController extends Controller
 
             $name = strval($games->first()->category->name);
 
-            if(empty($name)){
+            if(!function_exists($name)){
               return $this->common_functions($games,$student, $unit);
             }
 
