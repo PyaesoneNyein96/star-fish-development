@@ -4503,7 +4503,7 @@ class AnsNQueSeeder extends Seeder
 
         // game 148
         $ansl23_G148_Content = ["Do you like apples? Yes, I do.", "Do you like chicken? Yes, I do.", "Do you like coffee? No, I don't.", "Do you like fruits? Yes, I do.", "Do you like juice? Yes, I do.", "Do you like meat? No, I don't.", "Do you like milk? Yes, I do.", "Do you like tea? No, I don't.", "Do you like cake? Yes, I do.", "Do you like vegetable? No, I don't."];
-        $ansl24_G148_Image_audio = ["do_you_like_apple", "do_u_like_chicken", "do_u_like_coffee", "do_u_like_fruit", "do_u_like_juice", "SubBlock_Do-you-like-meat", "do_u_like_milk", "do_u_like_tea", "do_u_like_cake", "do_you_like_vege"];
+        $ansl24_G148_Image_audio = ["do_u_like_apple", "do_u_like_chicken", "do_u_like_coffee", "do_u_like_fruit", "do_u_like_juice", "Do_u_like_meat", "do_u_like_milk", "do_u_like_tea", "do_u_like_cake", "do_u_like_vege"];
         $ansl24_G148_Index = 0;
 
 
@@ -5357,7 +5357,7 @@ class AnsNQueSeeder extends Seeder
         $G1_L27_Game169_Matching_image = [
 
             ['watermelon', 'papaya', 'mango', 'peach', 'pineapple'],
-            ['guava', 'pineapple', 'jackfruit', 'coconut', "watermelon"],
+            ['guava', 'pineapple', 'durian', 'coconut', "watermelon"],
             ['rambutan', 'lychee', 'cherry', 'blueberries', "strawberry"],
 
         ];
@@ -5567,8 +5567,8 @@ class AnsNQueSeeder extends Seeder
 
         $G1_L28_Game175_Matching_image = [
 
-            ['three', 'eight', 'four', 'two', 'nine'],
-            ['one', 'five', 'four', 'six', 'seven'],
+            ['3', '8', '4', '2', '9'],
+            ['1', '5', '4', '6', '7'],
 
         ];
 
@@ -5978,7 +5978,7 @@ class AnsNQueSeeder extends Seeder
         $G1_L30_Game187_Matching = [
 
             ['raincoat', 'rain', 'rhino', 'rainbow', "rabbit"],
-            ['Road', 'Qunice', 'Queen', 'Rambutan', "Quiet"],
+            ['Road', 'quince', 'Queen', 'Rambutan', "Quiet"],
 
         ];
 

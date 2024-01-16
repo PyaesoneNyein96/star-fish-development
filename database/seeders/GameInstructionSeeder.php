@@ -723,6 +723,98 @@ class GameInstructionSeeder extends Seeder
 
             // G-2 lesson_1 U-235
             ['content' => "what is your name?", 'game_id' => 254, 'audio' =>  $Instructions . "Whats-your-name-girl" . ".mp3"],
+
+            // G-2 lesson_1 U-236
+            ['content' => "Make sure to close your mouth at the end of name say and practice", 'game_id' => 255, 'audio' =>  $Instructions . "Make-sure-to-close-your-mouth" . ".mp3"],
+
+
+            // G-2 lesson_2 U-239
+            ['content' => "Listen and Repeat", 'game_id' => 258, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_2 U-240
+            ['content' => "Trace and write", "game_id" => 259, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+
+            // G-2 lesson_2 U-241
+            ['content' => "Matching things in class", 'game_id' => 260, 'audio' =>  $Instructions . "Matching-things-in-class" . ".mp3"],
+
+            // G-2 lesson_2 U-242
+            ['content' => "Arranging the letters", 'game_id' => 261, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+
+
+
+            // G-2 lesson_3 U-245
+            ['content' => "Listen and Repeat", 'game_id' => 264, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_3 U-246
+            ['content' => "Say how you are feeling today", 'game_id' => 265, 'audio' => $Instructions . "Say-how-you-are-feeling-today.mp3"],
+
+            // G-2 lesson_3 U-247
+            ['content' => "Complete the sentences about Jane", 'game_id' => 266, 'audio' => $Instructions . "Complete-the-sentences-about-J.mp3"],
+
+
+
+            // G-2 lesson_4 U-248
+            ['content' => "Listen and Repeat", 'game_id' => 267, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_4 U-249
+            ['content' => "Trace and write", "game_id" => 268, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+
+            // G-2 lesson_4 U-250
+            ['content' => "Matching things in class", 'game_id' => 269, 'audio' =>  $Instructions . "Matching-things-in-class" . ".mp3"],
+
+            // G-2 lesson_4 U-251
+            ['content' => "Arranging the letters", 'game_id' => 270, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+
+
+
+            // G-2 lesson_5 U-254
+            ['content' => "Listen and Repeat", 'game_id' => 273, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+
+
+            // G-2 lesson_6 U-258
+            ['content' => "Listen and Repeat", 'game_id' => 277, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_6 U-258
+            ['content' => "Listen and Repeat", 'game_id' => 278, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_6 U-259
+            ['content' => "Matching things in class", 'game_id' => 279, 'audio' =>  $Instructions . "Matching-things-in-class" . ".mp3"],
+
+            // G-2 lesson_6 U-260
+            ['content' => "Look at the pictures and say", 'game_id' => 280, 'audio' =>  $Instructions . "Look-at-the-pictures-and-say" . ".mp3"],
+
+
+
+            // G-2 lesson_7 U-262
+            ['content' => "Listen and Repeat", 'game_id' => 282, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_7 U-263
+            ['content' => "Trace and write", "game_id" => 283, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+
+            // G-2 lesson_7 U-264
+            ['content' => "Matching things in class", 'game_id' => 284, 'audio' =>  $Instructions . "Matching-things-in-class" . ".mp3"],
+
+            // G-2 lesson_7 U-265
+            ['content' => "Arranging the letters", 'game_id' => 285, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+
+
+
+
+            // G-2 lesson_8 U-268
+            ['content' => "Listen and Repeat", 'game_id' => 288, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_8 U-269
+            ['content' => "Arranging the letters", 'game_id' => 289, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+
+            // G-2 lesson_8 U-271
+            ['content' => "Choose the correct answer", 'game_id' => 291, 'audio' =>  $Instructions . "Choose-the-correct-answer" . ".mp3"],
+
+            // G-2 lesson_8 U-272
+            ['content' => "What is it", 'game_id' => 292, 'audio' =>  $Instructions . "What-is-it" . ".mp3"],
+
+
+
         ]);
 
         // // Grade 3   (Temporary)
