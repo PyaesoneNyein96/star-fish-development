@@ -728,7 +728,7 @@ class AnsNQueSeeder extends Seeder
 
             ['Chair', 'Bag', 'Ruler', 'Crayons', 'Desk'],
             ['Book', 'Chair', 'pencil', 'Ruler', 'Pen'],
-            ['Sharpener', 'Crayons', 'Bag', 'Desk', 'Pencil_Case'],
+            ['Sharpener', 'colorpencil', 'Bag', 'Desk', 'PencilCase'],
 
         ];
 
@@ -807,7 +807,7 @@ class AnsNQueSeeder extends Seeder
 
         // round 1
         $G33R1 = [
-            "A", "S", "K", "E", "D"
+            "S", "K", "E", "D"
         ];
         foreach ($G33R1 as $i) {
             DB::table('ans_n_ques')->insert([
