@@ -6,6 +6,7 @@ use stdClass;
 use Carbon\Carbon;
 use App\Models\Game;
 use App\Models\Unit;
+use ReflectionClass;
 use App\Models\Grade;
 use App\Models\Round;
 use App\Models\Lesson;
@@ -223,9 +224,8 @@ class GameController extends Controller
 
             $name = strval($games->first()->category->name);
 
-            if ($name == "") {
-                return $this->common_functions($games, $student, $unit);
-            }
+            if (!$this->funExist($name)) return $this->common_functions($games, $student, $unit);
+
 
             return $this->$name($games, $student, $unit);
         };
@@ -631,6 +631,25 @@ class GameController extends Controller
     //     return response()->json($result);
     // }
 
+
+
+
+
+
+    // For Common Function
+
+    private function funExist($method)
+    {
+        $traits = class_uses_recursive(static::class);
+
+        foreach ($traits as $trait) {
+            if (method_exists($trait, $method)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 
 
 
