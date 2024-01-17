@@ -773,35 +773,236 @@ class UnitSeeder extends Seeder
 
         // -------------------- Grade 3 Start ------------------------//
 
-        // Grade 3 Units
         DB::table('units')->insert([
 
-            // G3 lesson 1
+            // // G3 lesson 1
 
-            // ['name' => 'Video', 'lesson_id' => 81],
-            // ['name' => 'Read and Practice', 'lesson_id' => 81],
-            // ['name' => 'Song', 'lesson_id' => 81],
-            // ['name' => 'Listen and Practice', 'lesson_id' => 81],
-            // ['name' => 'Writing (Arranging Order)', 'lesson_id' => 81],
+            ['name' => 'Video', 'lesson_id' => 81],
+            ['name' => 'Vocabulary', 'lesson_id' => 81],
+            ['name' => 'Listen and Practice', 'lesson_id' => 81],
+            ['name' => 'Listen', 'lesson_id' => 81],
+            ['name' => 'Speaking Practice', 'lesson_id' => 81],
+            ['name' => 'Writing', 'lesson_id' => 81],
+            ['name' => 'Speaking Practice', 'lesson_id' => 81],
 
-            //G3 lesson 26
-            ['name' => 'Target Language', 'lesson_id' => 106],
-            ['name' => 'Vocabulary', 'lesson_id' => 106],
-            ['name' => 'Practice', 'lesson_id' => 106],
-            ['name' => 'Listening', 'lesson_id' => 106],
-            ['name' => 'Speaking', 'lesson_id' => 106],
-            ['name' => 'Reading', 'lesson_id' => 106],
-            ['name' => 'Writing', 'lesson_id' => 106],
-            ['name' => 'Free practice', 'lesson_id' => 106],
 
-            //G3 lesson 33
-            ['name' => 'Video', 'lesson_id' => 113],
-            ['name' => 'Vocabulary', 'lesson_id' => 113],
-            ['name' => 'Write the opposite', 'lesson_id' => 113],
-            ['name' => 'Writing (Arrange the Order)', 'lesson_id' => 113],
-            ['name' => 'Listen', 'lesson_id' => 113],
-            ['name' => 'Speaking', 'lesson_id' => 113],
-            ['name' => 'Free Speaking Practice', 'lesson_id' => 113],
+            // // G3 lesson 2
+
+            ['name' => 'Video', 'lesson_id' => 82],
+            ['name' => 'Vocabulary', 'lesson_id' => 82],
+            ['name' => 'Listen and Practice', 'lesson_id' => 82],
+            ['name' => 'Listening', 'lesson_id' => 82],
+            ['name' => 'Speaking Practice', 'lesson_id' => 82],
+            ['name' => 'Writing', 'lesson_id' => 82],
+            ['name' => 'Speaking Practice', 'lesson_id' => 82],
+
+            // // G3 lesson 3
+
+            ['name' => 'Video', 'lesson_id' => 83],
+            ['name' => 'Vocabulary', 'lesson_id' => 83],
+            ['name' => 'Listen and Practice', 'lesson_id' => 83],
+            ['name' => 'Listening Practice', 'lesson_id' => 83],
+            ['name' => 'Speaking Practice', 'lesson_id' => 83],
+            ['name' => 'Writing', 'lesson_id' => 83],
+            ['name' => 'Free Practice', 'lesson_id' => 83],
+
+            // // G3 lesson 4
+
+            ['name' => 'Video', 'lesson_id' => 84],
+            ['name' => 'Vocabulary', 'lesson_id' => 84],
+            ['name' => 'Listen and Practice', 'lesson_id' => 84],
+            ['name' => 'Speaking Practice', 'lesson_id' => 84],
+            ['name' => 'Writing', 'lesson_id' => 84],
+
+            // // G3 lesson 5
+
+            ['name' => 'Video', 'lesson_id' => 85],
+            ['name' => 'Vocabulary', 'lesson_id' => 85],
+            ['name' => 'Choose Fruit and Vegetables', 'lesson_id' => 85],
+            ['name' => 'Arrange Letter', 'lesson_id' => 85],
+            ['name' => 'Listen and Practice', 'lesson_id' => 85],
+            ['name' => 'Listen Practice', 'lesson_id' => 85],
+            ['name' => 'Speaking Practice', 'lesson_id' => 85],
+            ['name' => 'Writing', 'lesson_id' => 85],
+            ['name' => 'Free Practice', 'lesson_id' => 85],
+
+            // // G3 lesson 6
+
+            ['name' => 'Video', 'lesson_id' => 86],
+            ['name' => 'Vocabulary', 'lesson_id' => 86],
+            ['name' => 'Listen and Practice', 'lesson_id' => 86],
+            ['name' => 'Reading Passage', 'lesson_id' => 86],
+            ['name' => 'Speaking Practice', 'lesson_id' => 86],
+            ['name' => 'Listening', 'lesson_id' => 86],
+            ['name' => 'Writing', 'lesson_id' => 86],
+            ['name' => 'Free Practice', 'lesson_id' => 86],
+
+            // // G3 lesson 7
+
+            ['name' => 'Target Language', 'lesson_id' => 87],
+            ['name' => 'Vocabulary', 'lesson_id' => 87],
+            ['name' => 'Writing ( arranging )', 'lesson_id' => 87],
+            ['name' => 'Listen and Practice', 'lesson_id' => 87],
+            ['name' => 'Speaking Practice', 'lesson_id' => 87],
+            ['name' => 'Listening', 'lesson_id' => 87],
+            ['name' => 'Free Practice', 'lesson_id' => 87],
+
+            // // G3 lesson 8
+
+            ['name' => 'Video', 'lesson_id' => 88],
+            ['name' => 'Vocabulary', 'lesson_id' => 88],
+            ['name' => 'look and write', 'lesson_id' => 88],
+            ['name' => 'Matching', 'lesson_id' => 88],
+            ['name' => 'Speaking Practice', 'lesson_id' => 88],
+            ['name' => 'Listening', 'lesson_id' => 88],
+            ['name' => 'Reading', 'lesson_id' => 88],
+            ['name' => 'Writing', 'lesson_id' => 88],
+
+            // // G3 lesson 9
+
+            ['name' => 'Video', 'lesson_id' => 89],
+            ['name' => 'Listen and Repeat', 'lesson_id' => 89],
+            ['name' => 'write the words', 'lesson_id' => 89],
+            ['name' => 'Language and Practice', 'lesson_id' => 89],
+            ['name' => 'Listening', 'lesson_id' => 89],
+            ['name' => 'Speaking', 'lesson_id' => 89],
+            ['name' => 'Free Practice', 'lesson_id' => 89],
+
+            // // G3 lesson 10
+
+            ['name' => 'Video', 'lesson_id' => 90],
+            ['name' => 'Listen and Repeat', 'lesson_id' => 90],
+            ['name' => 'Practice', 'lesson_id' => 90],
+            ['name' => 'listen', 'lesson_id' => 90],
+            ['name' => 'Speaking', 'lesson_id' => 90],
+            ['name' => 'Reading', 'lesson_id' => 90],
+            ['name' => 'Writing', 'lesson_id' => 90],
+            ['name' => 'Free Practice', 'lesson_id' => 90],
+
+            // // G3 lesson 11
+
+            ['name' => 'Video', 'lesson_id' => 91],
+            ['name' => 'Vocabulary', 'lesson_id' => 91],
+            ['name' => 'look at the picture', 'lesson_id' => 91],
+            ['name' => 'Practice', 'lesson_id' => 91],
+            ['name' => 'Listen', 'lesson_id' => 91],
+            ['name' => 'Speaking', 'lesson_id' => 91],
+            ['name' => 'Free Practice', 'lesson_id' => 91],
+
+
+            // // G3 lesson 12
+
+            ['name' => 'Video', 'lesson_id' => 92],
+            ['name' => 'arrange', 'lesson_id' => 92],
+            ['name' => 'Vocabulary', 'lesson_id' => 92],
+            ['name' => 'language learning and practice', 'lesson_id' => 92],
+            ['name' => 'Listening', 'lesson_id' => 92],
+            ['name' => 'Speaking', 'lesson_id' => 92],
+            ['name' => 'Reading', 'lesson_id' => 92],
+            ['name' => 'writing', 'lesson_id' => 92],
+            ['name' => 'Free Practice', 'lesson_id' => 92],
+
+
+            // // G3 lesson 13
+
+            ['name' => 'Video', 'lesson_id' => 93],
+            ['name' => 'Vocabulary', 'lesson_id' => 93],
+            ['name' => 'Practice', 'lesson_id' => 93],
+            ['name' => 'Read and choose', 'lesson_id' => 93],
+            ['name' => 'Listening', 'lesson_id' => 93],
+            ['name' => 'Speaking', 'lesson_id' => 93],
+
+
+
+            // // G3 lesson 14
+
+            ['name' => 'Video', 'lesson_id' => 94],
+            ['name' => 'Vocabulary', 'lesson_id' => 94],
+            ['name' => 'arrange writing', 'lesson_id' => 94],
+            ['name' => 'practice', 'lesson_id' => 94],
+            ['name' => 'look and check', 'lesson_id' => 94],
+            ['name' => 'Listening', 'lesson_id' => 94],
+            ['name' => 'Speaking', 'lesson_id' => 94],
+            ['name' => 'Reading', 'lesson_id' => 94],
+            ['name' => 'writing', 'lesson_id' => 94],
+
+
+            // // G3 lesson 15
+
+            ['name' => 'Video', 'lesson_id' => 95],
+            ['name' => 'Vocabulary', 'lesson_id' => 95],
+            ['name' => 'listening Practice', 'lesson_id' => 95],
+            ['name' => 'Listening', 'lesson_id' => 95],
+            ['name' => 'Speaking', 'lesson_id' => 95],
+
+            // // G3 lesson 16
+
+            ['name' => 'Video', 'lesson_id' => 96],
+            ['name' => 'Vocabulary', 'lesson_id' => 96],
+            ['name' => 'choose', 'lesson_id' => 96],
+            ['name' => 'practice', 'lesson_id' => 96],
+            ['name' => 'Listen', 'lesson_id' => 96],
+            ['name' => 'Speaking', 'lesson_id' => 96],
+            ['name' => 'Reading', 'lesson_id' => 96],
+            ['name' => 'Answer the question', 'lesson_id' => 96],
+
+            // // G3 lesson 17
+
+            ['name' => 'Video', 'lesson_id' => 97],
+            ['name' => 'Listen and say', 'lesson_id' => 97],
+            ['name' => 'Write Color', 'lesson_id' => 97],
+            ['name' => 'practice', 'lesson_id' => 97],
+            ['name' => 'Listen', 'lesson_id' => 97],
+            ['name' => 'Speaking', 'lesson_id' => 97],
+
+            // // G3 lesson 18
+
+            ['name' => 'Video', 'lesson_id' => 98],
+            ['name' => 'Vocabulary', 'lesson_id' => 98],
+            ['name' => 'choose the number', 'lesson_id' => 98],
+            ['name' => 'practice', 'lesson_id' => 98],
+            ['name' => 'Listen', 'lesson_id' => 98],
+            ['name' => 'Speaking', 'lesson_id' => 98],
+            ['name' => 'Reading', 'lesson_id' => 98],
+            ['name' => 'Writing', 'lesson_id' => 98],
+
+            // // G3 lesson 19
+
+            ['name' => 'Video', 'lesson_id' => 98],
+            ['name' => 'Listen and Repeat', 'lesson_id' => 98],
+            ['name' => 'practice', 'lesson_id' => 98],
+            ['name' => 'Listen', 'lesson_id' => 98],
+            ['name' => 'Speaking', 'lesson_id' => 98],
+
+            // // G3 lesson 20
+
+            ['name' => 'Video', 'lesson_id' => 100],
+            ['name' => 'Listen and Repeat', 'lesson_id' => 100],
+            ['name' => 'practice', 'lesson_id' => 100],
+            ['name' => 'Arrange Writing', 'lesson_id' => 100],
+            ['name' => 'Listen', 'lesson_id' => 100],
+            ['name' => 'Reading', 'lesson_id' => 100],
+            ['name' => 'Speaking', 'lesson_id' => 100],
+            ['name' => 'Writing', 'lesson_id' => 100],
+
+            // //G3 lesson 26
+            // ['name' => 'Target Language', 'lesson_id' => 106],
+            // ['name' => 'Vocabulary', 'lesson_id' => 106],
+            // ['name' => 'Practice', 'lesson_id' => 106],
+            // ['name' => 'Listening', 'lesson_id' => 106],
+            // ['name' => 'Speaking', 'lesson_id' => 106],
+            // ['name' => 'Reading', 'lesson_id' => 106],
+            // ['name' => 'Writing', 'lesson_id' => 106],
+            // ['name' => 'Free practice', 'lesson_id' => 106],
+
+            // //G3 lesson 33
+            // ['name' => 'Video', 'lesson_id' => 113],
+            // ['name' => 'Vocabulary', 'lesson_id' => 113],
+            // ['name' => 'Write the opposite', 'lesson_id' => 113],
+            // ['name' => 'Writing (Arrange the Order)', 'lesson_id' => 113],
+            // ['name' => 'Listen', 'lesson_id' => 113],
+            // ['name' => 'Speaking', 'lesson_id' => 113],
+            // ['name' => 'Free Speaking Practice', 'lesson_id' => 113],
         ]);
 
 

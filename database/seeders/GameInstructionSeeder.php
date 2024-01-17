@@ -842,6 +842,141 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Look at the pictures and speak", 'game_id' => 301, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
 
 
+            // G-2 lesson_11 U-282
+            ['content' => "Arranging the letters", 'game_id' => 302, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+
+            // G-2 lesson_11 U-283
+            ['content' => "Look at the pictures and speak", 'game_id' => 303, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
+
+
+
+            // G-2 lesson_12 U-285
+            ['content' => "Listen and Repeat", 'game_id' => 305, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_12 U-286
+            ['content' => "Listen to the audio and answer the question", 'game_id' => 306, 'audio' => $Instructions . "Listen-to-the-audio-and-answer.mp3"],
+
+            // G-2 lesson_12 U-287
+            ['content' => "Look at the pictures and speak", 'game_id' => 307, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
+
+            // G-1 lesson_12 U-288
+            ['content' => "Answer the question", 'game_id' => 308, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
+
+
+
+
+            // G-2 lesson_13 U-289
+            ['content' => "Listen and Repeat", 'game_id' => 309, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_13 U-290
+            ['content' => "Trace and write", "game_id" => 310, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+
+            // G-2 lesson_13 U-291
+            ['content' => "Matching things in class", 'game_id' => 311, 'audio' =>  $Instructions . "Matching-things-in-class" . ".mp3"],
+
+            // G-2 lesson_13 U-292
+            ['content' => "Arranging the letters", 'game_id' => 312, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+
+            // G-2 lesson_13 U-293
+            ['content' => "Look at the pictures and answer the question", 'game_id' => 313, 'audio' =>  $Instructions . "Look-at-the-pictures-and-answe" . ".mp3"],
+
+
+
+
+            // G-2 lesson_14 U-296
+            ['content' => "Listen and Repeat", 'game_id' => 316, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_14 U-298
+            ['content' => "Look at the pictures and answer the question", 'game_id' => 319, 'audio' =>  $Instructions . "Look-at-the-pictures-and-answe" . ".mp3"],
+
+            // G-2 lesson_14 U-299
+            ['content' => "Now talk about yourself", 'game_id' => 320, 'audio' =>  $Instructions . "Now-talk-about-yourself" . ".mp3"],
+
+
+
+            // G-2 lesson_15 U-300
+            ['content' => "Listen and Repeat", 'game_id' => 321, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_15 U-301
+            ['content' => "Trace and write", "game_id" => 322, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+
+            // G-2 lesson_15 U-302
+            ['content' => "Matching things in class", 'game_id' => 323, 'audio' =>  $Instructions . "Matching-things-in-class" . ".mp3"],
+
+            // G-2 lesson_15 U-303
+            ['content' => "Arranging the letters", 'game_id' => 324, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+
+            // G-2 lesson_15 U-304
+            ['content' => "Now talk about yourself", 'game_id' => 325, 'audio' =>  $Instructions . "Now-talk-about-yourself" . ".mp3"],
+
+            // G-2 lesson_15 U-305
+            ['content' => "Choose the correct answers", 'game_id' => 326, 'audio' =>  $Instructions . "Choose-the-correct-answers" . ".mp3"],
+
+
+
+            // G-2 lesson_16 U-307
+            ['content' => "Listen and Repeat", 'game_id' => 328, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_16 U-308
+            ['content' => "Days of the week", 'game_id' => 329, 'audio' => $Instructions . "Days-of-the-week.mp3"],
+
+            // G-2 lesson_16 U-310
+            ['content' => "Look at the pictures and speak", 'game_id' => 331, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
+
+
+            // G-2 lesson_17 U-312
+            ['content' => "Listen and Repeat", 'game_id' => 333, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_17 U-313
+            ['content' => "Look at the pictures and answer True or False", 'game_id' => 334, 'audio' => $Instructions . "Look-at-the-pictures-and-answe.mp3"],
+
+            // G-2 lesson_17 U-314
+            ['content' => "Talk about your best friend", 'game_id' => 335, 'audio' => $Instructions . "Talk-about-your-best-friend.mp3"],
+
+
+
+            // G-2 lesson_18 U-316
+            ['content' => "Listen and Repeat", 'game_id' => 337, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_18 U-317
+            ['content' => "Look at the pictures and speak", 'game_id' => 338, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
+
+            // G-2 lesson_18 U-318
+            ['content' => "Look at the pictures and answer True or False", 'game_id' => 339, 'audio' => $Instructions . "Look-at-the-pictures-and-answe.mp3"],
+
+
+
+
+            // G-2 lesson_19 U-320
+            ['content' => "Listen and Repeat", 'game_id' => 341, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_19 U-321
+            ['content' => "Trace and write", "game_id" => 342, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+
+            // G-2 lesson_19 U-322
+            ['content' => "Matching things in class", 'game_id' => 343, 'audio' =>  $Instructions . "Matching-things-in-class" . ".mp3"],
+
+            // G-2 lesson_19 U-323
+            ['content' => "Arranging the letters", 'game_id' => 344, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+
+
+
+            // G-2 lesson_20 U-325
+            ['content' => "Listen and Repeat", 'game_id' => 347, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_20 U-326
+            ['content' => "Trace and write", "game_id" => 348, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+
+            // G-2 lesson_20 U-327
+            ['content' => "Matching things in class", 'game_id' => 349, 'audio' =>  $Instructions . "Matching-things-in-class" . ".mp3"],
+
+            // G-2 lesson_20 U-328
+            ['content' => "Arranging the letters", 'game_id' => 350, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+
+            // G-1 lesson_20 U-329
+            ['content' => "Answer the question", 'game_id' => 351, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
+
+
         ]);
 
         // // Grade 3   (Temporary)

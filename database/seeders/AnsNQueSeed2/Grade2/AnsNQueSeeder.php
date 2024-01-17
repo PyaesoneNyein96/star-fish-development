@@ -2047,10 +2047,10 @@ class AnsNQueSeeder extends Seeder
         ]);
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 319,  'q_image' => $l14_G318_image . "juice.png", "q_content" => "What's your favorite juice?"],
-            ['round' => 2, 'game_id' => 319,  'q_image' => $l14_G318_image . "food.png", "q_content" => "What's your favorite food?"],
-            ['round' => 3, 'game_id' => 319,  'q_image' => $l14_G318_image . "cake.png", "q_content" => "What's your favorite food?"],
-            ['round' => 4, 'game_id' => 319,  'q_image' => $l14_G318_image . "straw.png", "q_content" => "What's your favorite fruit?"],
+            ['round' => 1, 'game_id' => 319,  'q_image' => $l14_G318_image . "juice.png", "q_content" => "What's your favorite juice?", "round_instruction" => $AudioDomain . $G2_L14_speak . "Whats-your-favorite-juice.mp3"],
+            ['round' => 2, 'game_id' => 319,  'q_image' => $l14_G318_image . "food.png", "q_content" => "What's your favorite food?", "round_instruction" => $AudioDomain . $G2_L14_speak . "Whats-your-favorite-food.mp3"],
+            ['round' => 3, 'game_id' => 319,  'q_image' => $l14_G318_image . "cake.png", "q_content" => "What's your favorite food?", "round_instruction" => $AudioDomain . $G2_L14_speak . "Whats-your-favorite-food.mp3"],
+            ['round' => 4, 'game_id' => 319,  'q_image' => $l14_G318_image . "straw.png", "q_content" => "What's your favorite fruit?", "round_instruction" => $AudioDomain . $G2_L14_speak . "Whats-your-favorite-fruit.mp3"],
         ]);
 
 
@@ -2516,16 +2516,16 @@ class AnsNQueSeeder extends Seeder
         $G2_L18_Speaking = "Grade_2/" . "Lesson_18/" . "Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 338,  'q_image' => $l18_G338_image . "swim.png", "q_content" => "Look at the picture and speak?"],
-            ['round' => 2, 'game_id' => 338,  'q_image' => $l18_G338_image . "jump.png", "q_content" => "Look at the picture and speak?"],
-            ['round' => 3, 'game_id' => 338,  'q_image' => $l18_G338_image . "kite.png", "q_content" => "Look at the picture and speak?"],
-            ['round' => 4, 'game_id' => 338,  'q_image' => $l18_G338_image . "read.png", "q_content" => "Look at the picture and speak?"],
-            ['round' => 5, 'game_id' => 338,  'q_image' => $l18_G338_image . "smile.png", "q_content" => "Look at the picture and speak?"],
-            ['round' => 6, 'game_id' => 338,  'q_image' => $l18_G338_image . "speak.png", "q_content" => "Look at the picture and speak?"],
-            ['round' => 7, 'game_id' => 338,  'q_image' => $l18_G338_image . "draw.png", "q_content" => "Look at the picture and speak?"],
-            ['round' => 8, 'game_id' => 338,  'q_image' => $l18_G338_image . "sing.png", "q_content" => "Look at the picture and speak?"],
-            ['round' => 9, 'game_id' => 338,  'q_image' => $l18_G338_image . "listen.png", "q_content" => "Look at the picture and speak?"],
-            ['round' => 10, 'game_id' => 338,  'q_image' => $l18_G338_image . "dance.png", "q_content" => "Look at the picture and speak?"],
+            ['round' => 1, 'game_id' => 338,  'q_image' => $l18_G338_image . "swim.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-he-swim", "q_content" => "Can he swim?"],
+            ['round' => 2, 'game_id' => 338,  'q_image' => $l18_G338_image . "jump.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-jump", "q_content" => "Can she jump?"],
+            ['round' => 3, 'game_id' => 338,  'q_image' => $l18_G338_image . "kite.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-run", "q_content" => "Can she run?"],
+            ['round' => 4, 'game_id' => 338,  'q_image' => $l18_G338_image . "read.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-read", "q_content" => "Can she read?"],
+            ['round' => 5, 'game_id' => 338,  'q_image' => $l18_G338_image . "smile.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-he-smile", "q_content" => "Can he smile?"],
+            ['round' => 6, 'game_id' => 338,  'q_image' => $l18_G338_image . "speak.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-speak-english", "q_content" => "Can she speak english?"],
+            ['round' => 7, 'game_id' => 338,  'q_image' => $l18_G338_image . "draw.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-he-write", "q_content" => "Can he write?"],
+            ['round' => 8, 'game_id' => 338,  'q_image' => $l18_G338_image . "sing.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-sing", "q_content" => "Can she sing?"],
+            ['round' => 9, 'game_id' => 338,  'q_image' => $l18_G338_image . "listen.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-sing", "q_content" => "Can she sing?"],
+            ['round' => 10, 'game_id' => 338,  'q_image' => $l18_G338_image . "dance.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-dance", "q_content" => "Can she dance?"],
         ]);
 
 
@@ -2941,32 +2941,32 @@ class AnsNQueSeeder extends Seeder
         DB::table('ans_n_ques')->insert([
             ['round' => 1, 'game_id' => 351, "q_audio" =>  null, 'q_content' => "True", "q_conver" => null, 'a_content' => 1, "background" => null],
             ['round' => 1, 'game_id' => 351, "q_audio" =>  null, 'q_content' => "False", "q_conver" => null, 'a_content' => 0, "background" => null],
-            ['round' => 1, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "Jane-likes-fried-noodles-Tru.mp3", "q_conver" => "Jane likes fried noodles", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 1, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "One-day-Jack-goes-to-his-favo.mp3", "q_content" => null, 'q_conver' => "One day, Jack goes to his favorite restaurant with his friends Chris and Jane. There are a lot of people there. Jack orders a big hamburger. The hamburger has meat and vegetables. Chris orders a cheese sandwich, and Jane orders fried noodles. The food is delicious and they are satisfied with their orders. After eating, they drink apple juice. It is cold and sweet. They have a great day.", 'a_content' => null, "background" => $l20_G351_image . "bg.jpg"],
+            ['round' => 1, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "On-Wednesday-Rosy-and-Jane-sw.mp3", "q_conver" => "On Wednesday, Rosy \nand Jane swim", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 1, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "Rosy-likes-strawberry-On-Sund.mp3", "q_content" => null, 'q_conver' => "Rosy likes strawberry. On Sunday, she eats ten strawberries. Her friend is Jane. On Monday, she eats two watermelons. She likes them very much. On Wednesday, Rosy and Jane go to the park to swim. They can swim fast. They swim the whole day. Then, they drink orange juice. Rosy can sing and Jane can dance. On Friday, Rosy and Jane sing and dance. They can't play guitar.", 'a_content' => null, "background" => $l20_G351_image . "bg.jpg"],
 
 
-            ['round' => 2, 'game_id' => 351, "q_audio" =>  null, 'q_content' => "True", "q_conver" => null, 'a_content' => 0, "background" => null],
-            ['round' => 2, 'game_id' => 351, "q_audio" =>  null, 'q_content' => "False", "q_conver" => null, 'a_content' => 1, "background" => null],
-            ['round' => 2, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "They-are-not-satisfied-with-th.mp3", "q_conver" =>  "They are not satisfied with the food", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 2, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "One-day-Jack-goes-to-his-favo.mp3", "q_content" => null, 'q_conver' => "One day, Jack goes to his favorite restaurant with his friends Chris and Jane. There are a lot of people there. Jack orders a big hamburger. The hamburger has meat and vegetables. Chris orders a cheese sandwich, and Jane orders fried noodles. The food is delicious and they are satisfied with their orders. After eating, they drink apple juice. It is cold and sweet. They have a great day.", 'a_content' => null, "background" => $l20_G351_image . "bg.jpg"],
+            ['round' => 2, 'game_id' => 351, "q_audio" =>  null, 'q_content' => "True", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 2, 'game_id' => 351, "q_audio" =>  null, 'q_content' => "False", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 2, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "Rosy-can-sing-and-Jane-can-dan.mp3", "q_conver" =>  "Rosy can sing and \nJane can dance.", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 2, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "Rosy-likes-strawberry-On-Sund.mp3", "q_content" => null, 'q_conver' => "Rosy likes strawberry. On Sunday, she eats ten strawberries. Her friend is Jane. On Monday, she eats two watermelons. She likes them very much. On Wednesday, Rosy and Jane go to the park to swim. They can swim fast. They swim the whole day. Then, they drink orange juice. Rosy can sing and Jane can dance. On Friday, Rosy and Jane sing and dance. They can't play guitar.", 'a_content' => null, "background" => $l20_G351_image . "bg.jpg"],
 
 
-            ['round' => 3, 'game_id' => 351, "q_audio" =>  null, 'q_content' => "True",  "q_conver" => null, 'a_content' => 1, "background" => null],
-            ['round' => 3, 'game_id' => 351, "q_audio" =>  null, 'q_content' => "False",  "q_conver" => null, 'a_content' => 0, "background" => null],
-            ['round' => 3, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "They-have-a-great-day-TrueF.mp3", "q_conver" => "They have a great day", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 3, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "One-day-Jack-goes-to-his-favo.mp3", "q_content" => null, 'q_conver' => "One day, Jack goes to his favorite restaurant with his friends Chris and Jane. There are a lot of people there. Jack orders a big hamburger. The hamburger has meat and vegetables. Chris orders a cheese sandwich, and Jane orders fried noodles. The food is delicious and they are satisfied with their orders. After eating, they drink apple juice. It is cold and sweet. They have a great day.", 'a_content' => null, "background" => $l20_G351_image . "bg.jpg"],
+            ['round' => 3, 'game_id' => 351, "q_audio" =>  null, 'q_content' => "True",  "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 3, 'game_id' => 351, "q_audio" =>  null, 'q_content' => "False",  "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 3, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "They-can-play-guitar-True-fal.mp3", "q_conver" => "They can play guitar", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 3, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "Rosy-likes-strawberry-On-Sund.mp3", "q_content" => null, 'q_conver' => "Rosy likes strawberry. On Sunday, she eats ten strawberries. Her friend is Jane. On Monday, she eats two watermelons. She likes them very much. On Wednesday, Rosy and Jane go to the park to swim. They can swim fast. They swim the whole day. Then, they drink orange juice. Rosy can sing and Jane can dance. On Friday, Rosy and Jane sing and dance. They can't play guitar.", 'a_content' => null, "background" => $l20_G351_image . "bg.jpg"],
 
 
-            ['round' => 4, 'game_id' => 351, "q_audio" =>  null, 'q_content' => "True", "q_conver" => null, 'a_content' => 1, "background" => null],
-            ['round' => 4, 'game_id' => 351, "q_audio" =>  null, 'q_content' => "False", "q_conver" => null, 'a_content' => 0, "background" => null],
-            ['round' => 4, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "Jack-orders-a-big-hamburger.mp3", "q_conver" => "Jack orders a big hamburger", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 4, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "One-day-Jack-goes-to-his-favo.mp3", "q_content" => null, 'q_conver' => "One day, Jack goes to his favorite restaurant with his friends Chris and Jane. There are a lot of people there. Jack orders a big hamburger. The hamburger has meat and vegetables. Chris orders a cheese sandwich, and Jane orders fried noodles. The food is delicious and they are satisfied with their orders. After eating, they drink apple juice. It is cold and sweet. They have a great day.", 'a_content' => null, "background" => $l20_G351_image . "bg.jpg"],
+            ['round' => 4, 'game_id' => 351, "q_audio" =>  null, 'q_content' => "True", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 4, 'game_id' => 351, "q_audio" =>  null, 'q_content' => "False", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 4, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "On-Monday-Jane-eats-a-waterme.mp3", "q_conver" => "On Monday, Jane eats \na watermelon", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 4, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "Rosy-likes-strawberry-On-Sund.mp3", "q_content" => null, 'q_conver' => "Rosy likes strawberry. On Sunday, she eats ten strawberries. Her friend is Jane. On Monday, she eats two watermelons. She likes them very much. On Wednesday, Rosy and Jane go to the park to swim. They can swim fast. They swim the whole day. Then, they drink orange juice. Rosy can sing and Jane can dance. On Friday, Rosy and Jane sing and dance. They can't play guitar.", 'a_content' => null, "background" => $l20_G351_image . "bg.jpg"],
 
 
-            ['round' => 5, 'game_id' => 351, "q_audio" => null, 'q_content' => "True", "q_conver" => null, 'a_content' => 0, "background" => null],
-            ['round' => 5, 'game_id' => 351, "q_audio" => null, 'q_content' => "False", "q_conver" => null, 'a_content' => 1, "background" => null],
-            ['round' => 5, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "Jack-goes-to-his-favorite-rest.mp3", "q_conver" => "Jack goes to his favorite restaurant with his father", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 5, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "One-day-Jack-goes-to-his-favo.mp3", "q_content" => null, 'q_conver' => "One day, Jack goes to his favorite restaurant with his friends Chris and Jane. There are a lot of people there. Jack orders a big hamburger. The hamburger has meat and vegetables. Chris orders a cheese sandwich, and Jane orders fried noodles. The food is delicious and they are satisfied with their orders. After eating, they drink apple juice. It is cold and sweet. They have a great day.", 'a_content' => null, "background" => $l20_G351_image . "bg.jpg"],
+            ['round' => 5, 'game_id' => 351, "q_audio" => null, 'q_content' => "True", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 5, 'game_id' => 351, "q_audio" => null, 'q_content' => "False", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 5, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "On-Sunday-Rosy-eats-strawberr.mp3", "q_conver" => "On Sunday, Rosy eats \nstrawberry", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 5, 'game_id' => 351, "q_audio" => $AudioDomain . $G2_L20_reading_passage_path . "Rosy-likes-strawberry-On-Sund.mp3", "q_content" => null, 'q_conver' => "Rosy likes strawberry. On Sunday, she eats ten strawberries. Her friend is Jane. On Monday, she eats two watermelons. She likes them very much. On Wednesday, Rosy and Jane go to the park to swim. They can swim fast. They swim the whole day. Then, they drink orange juice. Rosy can sing and Jane can dance. On Friday, Rosy and Jane sing and dance. They can't play guitar.", 'a_content' => null, "background" => $l20_G351_image . "bg.jpg"],
 
         ]);
     }
