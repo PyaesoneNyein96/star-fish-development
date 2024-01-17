@@ -32,6 +32,7 @@ trait gameTraits2
      *  23. mcq_grammar_two
      *  24. listening_choosing_answer
      *  25. free_speaking
+     *  26. listening_conversation_and_record_audio
      *
      *
      */
@@ -159,6 +160,11 @@ trait gameTraits2
     }
 
     public function free_speaking($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
+    public function listening_conversation_and_record_audio($game, $student, $unit)
     {
         return $this->common_fun($game, $unit);
     }

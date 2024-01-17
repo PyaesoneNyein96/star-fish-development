@@ -74,26 +74,26 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 255, 'a_image' => $l1_G255image . "teacher.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "These-two-are-the-same-Im-Su.mp3", "a_conver" => "There two are the same. \nI'm Su Su. = My name's Su Su.", "background" =>  $l1_G255image . "bg1.png"],
+            ['round' => 1, 'game_id' => 255, 'a_image' => $l1_G255image . "teacher.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "These-two-are-the-same-Im-Su.mp3", "a_conver" => "There two are the same. \nI'm Su Su. = My name's Su Su.", "background" =>  $l1_G255image . "bg1.jpg"],
 
 
-            ['round' => 2, 'game_id' => 255, 'a_image' => $l1_G255image . "jane.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "Hello-my-names-Jane.mp3", "a_conver" => "Hello, my name's Jane. \nWhat's your name?", "background" =>  $l1_G255image . "bg2.png"],
-            ['round' => 2, 'game_id' => 255, 'a_image' => $l1_G255image . "chris.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "Hi-my-names-Chris-Im-Chris.mp3", "a_conver" => "Hi, my name's Chris. \nI'm Chris.", "background" =>  $l1_G255image . "bg2.png"],
+            ['round' => 2, 'game_id' => 255, 'a_image' => $l1_G255image . "jane.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "Hello-my-names-Jane.mp3", "a_conver" => "Hello, my name's Jane. \nWhat's your name?", "background" =>  $l1_G255image . "bg2.jpg"],
+            ['round' => 2, 'game_id' => 255, 'a_image' => $l1_G255image . "chris.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "Hi-my-names-Chris-Im-Chris.mp3", "a_conver" => "Hi, my name's Chris. \nI'm Chris.", "background" =>  $l1_G255image . "bg2.jpg"],
 
-            ['round' => 3, 'game_id' => 255, 'a_image' => $l1_G255image . "rosy.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "Hello-my-names-Rosy-Whats.mp3", "a_conver" => "Hello, my name's Rosy. \nWhat's your name?", "background" =>  $l1_G255image . "bg2.png"],
-            ['round' => 3, 'game_id' => 255, 'a_image' => $l1_G255image . "jane-right.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "Hi-my-names-Jane-Im-Jane.mp3", "a_conver" => "Hi, my name's Jane. \nI'm Jane.", "background" =>  $l1_G255image . "bg2.png"],
-
-
-            ['round' => 4, 'game_id' => 255, 'a_image' => $l1_G255image . "teacher.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "He-is-Hes-She-is-Shes.mp3", "a_conver" => "He is = He's \nShe is = She's", "background" =>  $l1_G255image . "bg1.png"],
+            ['round' => 3, 'game_id' => 255, 'a_image' => $l1_G255image . "rosy.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "Hello-my-names-Rosy-Whats.mp3", "a_conver" => "Hello, my name's Rosy. \nWhat's your name?", "background" =>  $l1_G255image . "bg2.jpg"],
+            ['round' => 3, 'game_id' => 255, 'a_image' => $l1_G255image . "jane-right.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "Hi-my-names-Jane-Im-Jane.mp3", "a_conver" => "Hi, my name's Jane. \nI'm Jane.", "background" =>  $l1_G255image . "bg2.jpg"],
 
 
-            ['round' => 5, 'game_id' => 255, 'a_image' => $l1_G255image . "jack.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "Hello-my-names-Jack-Whats.mp3", "a_conver" => "Hello, my name's Jack. \nWhat's your name?", "background" =>  $l1_G255image . "bg3.png"],
-            ['round' => 5, 'game_id' => 255, 'a_image' => $l1_G255image . "jane-right.png", "a_audio" =>  $AudioDomain . $G2_L1_listen_n_practice . "Hi-my-names-Jane.mp3", "a_conver" => "Hello, my name's Jane.", "background" =>  $l1_G255image . "bg3.png"],
-            ['round' => 5, 'game_id' => 255, 'a_image' => $l1_G255image . "jack.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "Hello-Jane-Shes-Rosy.mp3", "a_conver" => "Hello, Jane. \nShe's Rosy.", "background" =>  $l1_G255image . "bg3.png"],
+            ['round' => 4, 'game_id' => 255, 'a_image' => $l1_G255image . "teacher.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "He-is-Hes-She-is-Shes.mp3", "a_conver" => "He is = He's \nShe is = She's", "background" =>  $l1_G255image . "bg1.jpg"],
 
-            ['round' => 6, 'game_id' => 255, 'a_image' => $l1_G255image . "jack.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "Hello-my-names-Jane.mp3", "a_conver" => "Hello, my name's Jane. \nWhat's your name?", "background" =>  $l1_G255image . "bg4.png"],
-            ['round' => 6, 'game_id' => 255, 'a_image' => $l1_G255image . "rosy-right.png", "a_audio" =>  $AudioDomain . $G2_L1_listen_n_practice . "Hi-my-names-Rosy-Im-Rosy.mp3", "a_conver" => "Hi, my name's Rosy. \nI'm Rosy.", "background" =>  $l1_G255image . "bg4.png"],
-            ['round' => 6, 'game_id' => 255, 'a_image' => $l1_G255image . "jane.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "Hello-rosy-Hes-Chris.mp3", "a_conver" => "Hello, Rosy. \nShe's Chris.", "background" =>  $l1_G255image . "bg4.png"],
+
+            ['round' => 5, 'game_id' => 255, 'a_image' => $l1_G255image . "jack.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "Hello-my-names-Jack-Whats.mp3", "a_conver" => "Hello, my name's Jack. \nWhat's your name?", "background" =>  $l1_G255image . "bg3.jpg"],
+            ['round' => 5, 'game_id' => 255, 'a_image' => $l1_G255image . "jane-right.png", "a_audio" =>  $AudioDomain . $G2_L1_listen_n_practice . "Hi-my-names-Jane.mp3", "a_conver" => "Hello, my name's Jane.", "background" =>  $l1_G255image . "bg3.jpg"],
+            ['round' => 5, 'game_id' => 255, 'a_image' => $l1_G255image . "jack.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "Hello-Jane-Shes-Rosy.mp3", "a_conver" => "Hello, Jane. \nShe's Rosy.", "background" =>  $l1_G255image . "bg3.jpg"],
+
+            ['round' => 6, 'game_id' => 255, 'a_image' => $l1_G255image . "jack.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "Hello-my-names-Jane.mp3", "a_conver" => "Hello, my name's Jane. \nWhat's your name?", "background" =>  $l1_G255image . "bg4.jpg"],
+            ['round' => 6, 'game_id' => 255, 'a_image' => $l1_G255image . "rosy-right.png", "a_audio" =>  $AudioDomain . $G2_L1_listen_n_practice . "Hi-my-names-Rosy-Im-Rosy.mp3", "a_conver" => "Hi, my name's Rosy. \nI'm Rosy.", "background" =>  $l1_G255image . "bg4.jpg"],
+            ['round' => 6, 'game_id' => 255, 'a_image' => $l1_G255image . "jane.png", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "Hello-rosy-Hes-Chris.mp3", "a_conver" => "Hello, Rosy. \nShe's Chris.", "background" =>  $l1_G255image . "bg4.jpg"],
 
         ]);
 
