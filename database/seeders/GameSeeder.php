@@ -886,7 +886,7 @@ class GameSeeder extends Seeder
 
             // // unit 34's games
 
-            ['name' => 'Listen and Repeat', 'unit_id' => 394, 'category_id' => 1,  'instructionGIF' => null],
+            ['name' => 'Listen and Repeat', 'unit_id' => 394, 'category_id' => 2,  'instructionGIF' => null],
             ['name' => 'Trace Word', 'unit_id' => 395, 'category_id' => 31,  'instructionGIF' => null],
             ['name' => 'Matching', 'unit_id' => 396, 'category_id' => 7,  'instructionGIF' => null],
             ['name' => 'Listen and Write', 'unit_id' => 397, 'category_id' => 14, 'instructionGIF' => null],
