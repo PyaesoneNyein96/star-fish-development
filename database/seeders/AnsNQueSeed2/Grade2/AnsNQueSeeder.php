@@ -859,6 +859,13 @@ class AnsNQueSeeder extends Seeder
 
         ];
 
+        $G2_L6_Game279_Matching_image_que = [
+
+            'long hair', 'oval face', 'short hair', 'dark eyes', "round face",
+            'oval face', 'long hair',  "round face", 'dark eyes', 'short hair',
+
+        ];
+        $G2_L6_Game279_Matching_image_que_index = 0;
 
         for ($i = 0; $i < count($G2_L6_Game279_Matching); $i++) {
 
@@ -876,10 +883,11 @@ class AnsNQueSeeder extends Seeder
 
                 DB::table('ans_n_ques')->insert([
                     [
-                        'game_id' => 279, 'round' => $i + 1, 'q_content' => $q,
+                        'game_id' => 279, 'round' => $i + 1, 'q_content' => $G2_L6_Game279_Matching_image_que[$G2_L6_Game279_Matching_image_que_index],
                         'q_image' => $l6_G279_image . strtolower($q) . ".png", 'q_audio' => $AudioDomain . $G2_L6_Matching .  strtolower($q) . ".mp3",
                     ]
                 ]);
+                $G2_L6_Game279_Matching_image_que_index++;
             }
         }
 
@@ -2265,25 +2273,25 @@ class AnsNQueSeeder extends Seeder
             ['round' => 2, 'game_id' => 326, "q_audio" =>  $AudioDomain . $G2_L15_reading_passage_path . "fried-rice.mp3", 'q_content' => "fried rice", "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 2, 'game_id' => 326, "q_audio" =>  $AudioDomain . $G2_L15_reading_passage_path . "fried-noodles.mp3", 'q_content' => "fried noodles", "q_conver" => null, 'a_content' => 1, "background" => null],
             ['round' => 2, 'game_id' => 326, "q_audio" => $AudioDomain . $G2_L15_reading_passage_path . "Chris-favorite-food-is-fried.mp3", "q_conver" =>  "Chris' favorite food is _____.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 2, 'game_id' => 326, "q_audio" => $AudioDomain . $G2_L15_reading_passage_path . "SubBlock_My-name-is-Chris-I-have-a-fri.mp3", "q_content" => null, 'q_conver' => "Hello, my name's Jane. My feelings change like you. When I want to drink, I'm thirsty. I feel hungry when I want to eat. I feel excited when I play with friends, but I feel bored when I watch movies. When I visit my grandparents, I am happy.", 'a_content' => null, "background" => $l15_G326_image . "bg.jpg"],
+            ['round' => 2, 'game_id' => 326, "q_audio" => $AudioDomain . $G2_L15_reading_passage_path . "SubBlock_My-name-is-Chris-I-have-a-fri.mp3", "q_content" => null, 'q_conver' => "My name is Chris. I have a friend. Her name is Rosy. She has a colorful and beautiful kite. Rosy and I like to fly kites in the evening. We are satisfied when we fly kites. My favorite fruit is strawberry. Rosy's favorite food is fried noodles. Rosy and I like chocolate cake. We sometimes go to our favorite restaurant and eat.", 'a_content' => null, "background" => $l15_G326_image . "bg.jpg"],
 
 
             ['round' => 3, 'game_id' => 326, "q_audio" =>  $AudioDomain . $G2_L15_reading_passage_path . "park.mp3", 'q_content' => "park",  "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 3, 'game_id' => 326, "q_audio" =>  $AudioDomain . $G2_L15_reading_passage_path . "restaurant.mp3", 'q_content' => "restaurant",  "q_conver" => null, 'a_content' => 1, "background" => null],
             ['round' => 3, 'game_id' => 326, "q_audio" => $AudioDomain . $G2_L15_reading_passage_path . "They-sometimes-go-to-their-fav.mp3", "q_conver" => "They sometimes go to their \nfavorite _____ and eat.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 3, 'game_id' => 326, "q_audio" => $AudioDomain . $G2_L15_reading_passage_path . "SubBlock_My-name-is-Chris-I-have-a-fri.mp3", "q_content" => null, 'q_conver' => "Hello, my name's Jane. My feelings change like you. When I want to drink, I'm thirsty. I feel hungry when I want to eat. I feel excited when I play with friends, but I feel bored when I watch movies. When I visit my grandparents, I am happy.", 'a_content' => null, "background" => $l15_G326_image . "bg.jpg"],
+            ['round' => 3, 'game_id' => 326, "q_audio" => $AudioDomain . $G2_L15_reading_passage_path . "SubBlock_My-name-is-Chris-I-have-a-fri.mp3", "q_content" => null, 'q_conver' => "My name is Chris. I have a friend. Her name is Rosy. She has a colorful and beautiful kite. Rosy and I like to fly kites in the evening. We are satisfied when we fly kites. My favorite fruit is strawberry. Rosy's favorite food is fried noodles. Rosy and I like chocolate cake. We sometimes go to our favorite restaurant and eat.", 'a_content' => null, "background" => $l15_G326_image . "bg.jpg"],
 
 
             ['round' => 4, 'game_id' => 326, "q_audio" =>  $AudioDomain . $G2_L15_reading_passage_path . "kite.mp3", 'q_content' => "kite", "q_conver" => null, 'a_content' => 1, "background" => null],
             ['round' => 4, 'game_id' => 326, "q_audio" =>  $AudioDomain . $G2_L15_reading_passage_path . "food.mp3", 'q_content' => "food", "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 4, 'game_id' => 326, "q_audio" => $AudioDomain . $G2_L15_reading_passage_path . "Chris-and-Rosy-like-to-fly-ki.mp3", "q_conver" => "Chris and Rosy like \nto fly _____ .", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 4, 'game_id' => 326, "q_audio" => $AudioDomain . $G2_L15_reading_passage_path . "SubBlock_My-name-is-Chris-I-have-a-fri.mp3", "q_content" => null, 'q_conver' => "Hello, my name's Jane. My feelings change like you. When I want to drink, I'm thirsty. I feel hungry when I want to eat. I feel excited when I play with friends, but I feel bored when I watch movies. When I visit my grandparents, I am happy.", 'a_content' => null, "background" => $l15_G326_image . "bg.jpg"],
+            ['round' => 4, 'game_id' => 326, "q_audio" => $AudioDomain . $G2_L15_reading_passage_path . "SubBlock_My-name-is-Chris-I-have-a-fri.mp3", "q_content" => null, 'q_conver' => "My name is Chris. I have a friend. Her name is Rosy. She has a colorful and beautiful kite. Rosy and I like to fly kites in the evening. We are satisfied when we fly kites. My favorite fruit is strawberry. Rosy's favorite food is fried noodles. Rosy and I like chocolate cake. We sometimes go to our favorite restaurant and eat.", 'a_content' => null, "background" => $l15_G326_image . "bg.jpg"],
 
 
             ['round' => 5, 'game_id' => 326, "q_audio" =>  $AudioDomain . $G2_L15_reading_passage_path . "friend.mp3", 'q_content' => "friend", "q_conver" => null, 'a_content' => 1, "background" => null],
             ['round' => 5, 'game_id' => 326, "q_audio" =>  $AudioDomain . $G2_L15_reading_passage_path . "sister.mp3", 'q_content' => "sister", "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 5, 'game_id' => 326, "q_audio" => $AudioDomain . $G2_L15_reading_passage_path . "Rosy-is-Chris-friend-sister.mp3", "q_conver" => "Rosy is Chris' _____.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 5, 'game_id' => 326, "q_audio" => $AudioDomain . $G2_L15_reading_passage_path . "SubBlock_My-name-is-Chris-I-have-a-fri.mp3", "q_content" => null, 'q_conver' => "Hello, my name's Jane. My feelings change like you. When I want to drink, I'm thirsty. I feel hungry when I want to eat. I feel excited when I play with friends, but I feel bored when I watch movies. When I visit my grandparents, I am happy.", 'a_content' => null, "background" => $l15_G326_image . "bg.jpg"],
+            ['round' => 5, 'game_id' => 326, "q_audio" => $AudioDomain . $G2_L15_reading_passage_path . "SubBlock_My-name-is-Chris-I-have-a-fri.mp3", "q_content" => null, 'q_conver' => "My name is Chris. I have a friend. Her name is Rosy. She has a colorful and beautiful kite. Rosy and I like to fly kites in the evening. We are satisfied when we fly kites. My favorite fruit is strawberry. Rosy's favorite food is fried noodles. Rosy and I like chocolate cake. We sometimes go to our favorite restaurant and eat.", 'a_content' => null, "background" => $l15_G326_image . "bg.jpg"],
 
         ]);
 
