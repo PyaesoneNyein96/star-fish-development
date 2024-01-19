@@ -1075,7 +1075,7 @@ class GameSeeder extends Seeder
             ['name' => 'Video', 'unit_id' => 501, 'category_id' => 1, "instructionGIF" => null],
             ['name' => 'Vocabulary', 'unit_id' => 502, 'category_id' => 2, "instructionGIF" => null],
             ['name' => 'look at the picture', 'unit_id' => 503, 'category_id' => 11, "instructionGIF" => null],
-            ['name' => 'Practice', 'unit_id' => 504, 'category_id' => 30, "instructionGIF" => null],
+            ['name' => 'Practice', 'unit_id' => 504, 'category_id' => 40, "instructionGIF" => null],
             ['name' => 'Listen', 'unit_id' => 505, 'category_id' => 43, "instructionGIF" => null],
             ['name' => 'Speaking', 'unit_id' => 506, 'category_id' => 11, "instructionGIF" => null],
             ['name' => 'Free Practice', 'unit_id' => 507, 'category_id' => 11, "instructionGIF" => null],
