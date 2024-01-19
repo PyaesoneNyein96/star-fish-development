@@ -654,7 +654,7 @@ class UnitSeeder extends Seeder
             ['name' => 'Reading', 'lesson_id' => 68],
             ['name' => 'Listen and write', 'lesson_id' => 68],
             ['name' => 'Matching', 'lesson_id' => 68],
-            ['name' => 'Reading', 'lesson_id' => 68],                       // 369
+            ['name' => 'Reading Short', 'lesson_id' => 68],                       // 369
 
 
             // // lesson 29's units count(4) start (371,374)
@@ -697,8 +697,8 @@ class UnitSeeder extends Seeder
             ['name' => 'Grammar Explanation', 'lesson_id' => 73],              // 390
             ['name' => 'Listen and Repeat', 'lesson_id' => 73],
             ///////////////////////////////////////////
-            ['name' => 'writing exercise', 'lesson_id' => 1],
-            ///////////////////////////////////////////
+            ['name' => 'Writing exercise', 'lesson_id' => 1],
+
             ['name' => 'Speak', 'lesson_id' => 73],              // 393
 
 

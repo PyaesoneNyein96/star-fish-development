@@ -180,6 +180,7 @@ trait gameTraits2
     // common function
     private function common_fun($game, $unit)
     {
+
         if (isset($game[0])) $game = $game[0];
 
         $roundExist = $game->ans_n_ques->some(function ($g) {

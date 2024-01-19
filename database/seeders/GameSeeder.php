@@ -830,7 +830,7 @@ class GameSeeder extends Seeder
             ['name' => 'Reading', 'unit_id' => 366, 'category_id' => 2,  'instructionGIF' => null],
             ['name' => 'Listen and write', 'unit_id' => 367, 'category_id' => 39,  'instructionGIF' => null],
             ['name' => 'Matching', 'unit_id' => 368, 'category_id' => 7,  'instructionGIF' => null],
-            ['name' => 'Reading', 'unit_id' => 369, 'category_id' => 16,  'instructionGIF' => null],
+            ['name' => 'Reading Short', 'unit_id' => 369, 'category_id' => 16,  'instructionGIF' => null],
 
 
             // // unit 29's games
@@ -879,7 +879,7 @@ class GameSeeder extends Seeder
             ['name' => 'Grammar Explanation', 'unit_id' => 391, 'category_id' => 1,  'instructionGIF' => null],
             ['name' => 'Listen and Repeat', 'unit_id' => 392, 'category_id' => 8,  'instructionGIF' => null],
 
-            ['name' => 'writing exercise', 'unit_id' => 392, 'category_id' => 1,  'instructionGIF' => null],
+            ['name' => 'Writing exercise', 'unit_id' => 392, 'category_id' => 1,  'instructionGIF' => null],
 
             ['name' => 'Speak', 'unit_id' => 393, 'category_id' => 11,  'instructionGIF' => null],
 

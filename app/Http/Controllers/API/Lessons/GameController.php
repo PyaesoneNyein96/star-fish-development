@@ -221,7 +221,6 @@ class GameController extends Controller
 
         if ($games->count() == 1) {
 
-
             $name = strval($games->first()->category->name);
 
             if ($name == "") {
