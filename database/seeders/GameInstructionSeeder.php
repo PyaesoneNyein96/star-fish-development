@@ -886,6 +886,9 @@ class GameInstructionSeeder extends Seeder
             // G-2 lesson_14 U-296
             ['content' => "Listen and Repeat", 'game_id' => 316, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
+            // G-2 lesson_14 U-297
+            ['content' => "Listen and choose what you like", 'game_id' => 317, 'audio' => $Instructions . "SubBlock_Listen-and-Choose-what-you-lik.mp3"],
+
             // G-2 lesson_14 U-298
             ['content' => "Look at the pictures and answer the question", 'game_id' => 319, 'audio' =>  $Instructions . "Look-at-the-pictures-and-answe" . ".mp3"],
 
@@ -958,6 +961,9 @@ class GameInstructionSeeder extends Seeder
 
             // G-2 lesson_19 U-323
             ['content' => "Arranging the letters", 'game_id' => 344, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+
+            // G-2 lesson_19 U-324
+            ['content' => "Read the question and answer it", 'game_id' => 346, 'audio' =>  $Instructions . "SubBlock_Read-the-question-and-answer-i" . ".mp3"],
 
 
 

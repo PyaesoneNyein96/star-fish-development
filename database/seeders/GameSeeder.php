@@ -533,7 +533,7 @@ class GameSeeder extends Seeder
         DB::table('games')->insert([
 
             ['name' => 'Video', 'unit_id' => 233, 'category_id' => 1, 'instructionGIF' => null],
-            ['name' => 'Pronunciation', 'unit_id' => 234, 'category_id' => 9, 'instructionGIF' =>  $Gif_path . "Conversation.gif"],
+            ['name' => 'Pronunciation', 'unit_id' => 234, 'category_id' => 8, 'instructionGIF' =>  $Gif_path . "Conversation.gif"],
             ['name' => 'Practice for Speaking', 'unit_id' => 235, 'category_id' => 11, 'instructionGIF' => $Gif_path . "Speaking.gif"],
             ['name' => 'Listen and Practice', 'unit_id' => 236, 'category_id' => 38, 'instructionGIF' => $Gif_path . "Conversation.gif"],
             ['name' => 'Fill in the blank', 'unit_id' => 237, 'category_id' => 30, 'instructionGIF' =>  $Gif_path . "Re-arrange-in-order.gif"],
@@ -938,7 +938,8 @@ class GameSeeder extends Seeder
             ['name' => 'Reading 1', 'unit_id' => 420, 'category_id' => 2,  'instructionGIF' => null],
             ['name' => 'Reading 2', 'unit_id' => 420, 'category_id' => 2,  'instructionGIF' => null],
             ['name' => 'Look and write', 'unit_id' => 421, 'category_id' => 39,  'instructionGIF' => null],
-            ['name' => 'Speak', 'unit_id' => 422, 'category_id' => 11,  'instructionGIF' => null],
+            ['name' => 'Speak ( 1 )', 'unit_id' => 422, 'category_id' => 11,  'instructionGIF' => null],
+            ['name' => 'Speak ( 2 )', 'unit_id' => 422, 'category_id' => 11,  'instructionGIF' => null],
 
 
             // // unit 40's games
