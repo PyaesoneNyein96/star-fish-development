@@ -35,6 +35,7 @@ trait gameTraits2
      *  26. listening_conversation_and_record_audio
      *  27. listening_choosing_answer_two
      *  28. look_and_choose
+     *  29. speak_listen_and_record
      *
      *
      */
@@ -177,6 +178,11 @@ trait gameTraits2
     }
 
     public function look_and_choose($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
+    public function speak_listen_and_record($game, $student, $unit)
     {
         return $this->common_fun($game, $unit);
     }
