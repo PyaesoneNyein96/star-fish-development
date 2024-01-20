@@ -2,9 +2,10 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\CanChat;
 use Commands\MigrateInOrder;
 use App\Http\Middleware\Cors;
+use App\Http\Middleware\CanChat;
+use App\Http\Middleware\GameAuthMiddleware;
 use App\Http\Middleware\delayMessageMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -72,7 +73,8 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'delaySendMessage' => delayMessageMiddleware::class,
         'canChat' => CanChat::class,
-        'Cors' => Cors::class
+        'Cors' => Cors::class,
+        'GameAuth' => GameAuthMiddleware::class,
     ];
 
 

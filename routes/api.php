@@ -72,11 +72,15 @@ Route::prefix('chat')->group(function () {
 });
 
 
-Route::get('grades', [GameController::class, 'grades']);
-Route::get('lessons', [GameController::class, 'lessons']);
-Route::get('units', [GameController::class, 'games']);
-Route::get('game', [GameController::class, 'specificGame']);
-Route::get('end_match', [GameController::class, 'end_match']);
+Route::middleware('GameAuth')->group(function () {
+    Route::get('grades', [GameController::class, 'grades']);
+    Route::get('lessons', [GameController::class, 'lessons']);
+    Route::get('units', [GameController::class, 'games']);
+    Route::get('game', [GameController::class, 'specificGame']);
+    Route::get('end_match', [GameController::class, 'end_match']);
+});
+
+
 
 Route::prefix('control')->group(function () {
     Route::post('/', [GameController::class, 'lockAndUnlock']);
