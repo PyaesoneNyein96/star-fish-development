@@ -3707,5 +3707,38 @@ class AnsNQueSeeder extends Seeder
             ['round' => 3, 'game_id' => 591, "q_audio" => $AudioDomain . $G3_L18_reading_passage_path . "this-is-our-school-it-is-beautiful.mp3", "q_content" => "Our school", 'q_conver' => "This is our school. It is a beautiful school. In our school, There are eighty students, fifteen teachers and thirteen classrooms. The teachers are very kind. And all the classrooms are very big. In my classroom, there are twenty-five students. There are fifteen girls and ten boys. We have six windows and two big doors in our classroom. There is a playground in front of our school. We play there when we have a break.", 'a_content' => null, "background" => $l18_G591_image . "bg.jpg"],
 
         ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 3  Lesson 18 Game 592 ( Writing )
+        ////////////////////////////////////////////////////////
+
+        $l18_G592_image = $domain . "/storage/images/Grade_3/lesson_18/writing/";
+        $G3_L18_writing = "Grade_3/" . "Lesson_18/" . "writing/";
+
+
+        $ques_G3_L18_game592 = "1.How many students are there in your school? \n2. How many teachers are there? \n3. How many students are there in your classroom? \n4.How many boys are there? \n5.How many girls are there?";
+
+        $sampleANS_G3_L18_game592 = "My favorite food is beef steak. I like steak a lot.I don't like fried chicken. I like omelet for breakfast. I like  rice and curry for lunch and dinner. I also like spaghetti for lunch and dinner";
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 592,
+                "q_image" => $l18_G592_image . "classroom.png",
+                'q_content' => $ques_G3_L18_game592,
+                'a_content' => $sampleANS_G3_L18_game592
+            ],
+        ]);
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 3  Lesson 19 Game 593 ( video )
+        //////////////////////////////////////////////////////////////
+
+
+        DB::table('ans_n_ques')->insert(['game_id' => 593, 'a_content' => 'lesson_19_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 593, 'a_content' => 'lesson_19_video_global', 'isLocal' => 0]);
     }
 }
