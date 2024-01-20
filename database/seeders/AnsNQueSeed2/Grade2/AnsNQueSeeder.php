@@ -128,8 +128,21 @@ class AnsNQueSeeder extends Seeder
             "Hello, my ____ Jane. \nWhat's your ____ ?",
             "Hi, ____ Rosy. \nWhat's your ____ ?",
             "Hi, ____ Rosy. \nHello Rosy. ____ Chris.",
-            "Hello, My ____ Jane. \n What's your ____ ?",
+            "Hello, My ____ Jane. \nWhat's your ____ ?",
             "Hi, ____ Jane. \nWhat's your ____ ? \n____ Jack."
+        ];
+
+
+        $g1_l16_Game256_fill_a = [
+            "Hello, my name's Rosy. \nWhat's your name ?",
+            "Hi, I'm Chris. \nHello Chris. She's Rosy.",
+            "Hello, my name's Chris. \nWhat's your name ?",
+            "Hi, She's Jane. What's your \nname ? I'm Jack.",
+            "Hello, my name's Jane. \nWhat's your name ?",
+            "Hi, I'm Rosy. \nWhat's your name ?",
+            "Hi, She's Rosy. \nHello Rosy. I'm Chris.",
+            "Hi, My name's Jane. \nWhat's your name ?",
+            "Hi, She's Jane. \nWhat's your name ? \nI'm Jack."
         ];
 
         $correct_G2_l1_Ans =   [
@@ -147,9 +160,6 @@ class AnsNQueSeeder extends Seeder
 
         ];
 
-        $g1_l16_Game256_fill_a = [
-            "Hello, my name's Rosy. What's your name ?", "Hi, I'm Chris. Hello Chris. She's Rosy.", "Hello, my name's Chris. What's your name ?", "Hi, She's Jane. What's your name ? I'm Jack.", "Hello, my name's Jane. What's your name ?", "Hi, I'm Rosy. What's your name ?", "Hi, She's Rosy. Hello Rosy. I'm Chris.", "Hi, I'm Jane. What's your name ?", "Hi, She's Jane. What's your name ? I'm Jack."
-        ];
         $g1_l16_Game256_fill_audio = [
             "Hello-my-names-Rosy-Whats", "Hi-i-am-chris", "SubBlock_Hello-my-names-chris-Whats-y", "Hi-She's-Jane-What's-your-name", "Hello-my-names-Jane", "SubBlock_Hello-I-am-rosy-Whats-your-na", "Hi-she's-rosy", "Hello-my-names-Jane", "Hi-She's-Jane-What's-your-name"
         ];

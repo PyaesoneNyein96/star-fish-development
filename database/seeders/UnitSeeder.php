@@ -412,7 +412,7 @@ class UnitSeeder extends Seeder
 
             ['name' => 'Video', 'lesson_id' => 41,],                // 233
             ['name' => 'Pronunciation', 'lesson_id' => 41],
-            ['name' => 'Practice for Specking', 'lesson_id' => 41],
+            ['name' => 'Practice for Speaking', 'lesson_id' => 41],
             ['name' => 'Listen and Practice', 'lesson_id' => 41],
             ['name' => 'Fill in the blank', 'lesson_id' => 41],
             ['name' => 'Free Practice', 'lesson_id' => 41],         //238

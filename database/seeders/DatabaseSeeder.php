@@ -143,6 +143,65 @@ class DatabaseSeeder extends Seeder
             'isSubscriber' => 0
         ]);
 
+        Student::factory()->create([
+            'name' => 'Wy',
+            'phone' => "+959688002017",
+            'password' => '$2y$10$uZRQEi/eOHri8AqNJRSDT.hy7DEccp4CwqMR4ipc6cABLQAdyBcmO',
+            'age' => 12,
+            'country_id' => 1,
+            'city_id' => 1,
+            'agreeToPolicy' => 1,
+            'deviceId' => '705f8af0-f5a2-411b-a2bc-0c66f4c9f623',
+            'isAuth' => 0,
+            'level' => 1,
+            'isLocal' => 1,
+            'status' => 0,
+            'token' => "3|whm8PLnF2vtxp0kOuooMf064Og4cabMZvRQCnpWTc81fba52",
+            'isSubscriber' => 0
+        ]);
+
+        Student::factory()->create([
+            'name' => 'waian',
+            'phone' => "+959766999775",
+            'password' => '$2y$10$vvJBDuMDrMU4mHlokQlaJOGKS40C9D7egRGKrmhUT3ZNojT8Hn9qS',
+            'age' => 10,
+            'grade_chosen' => 1,
+            'token' => "5|IZCTuyfVS0JiHq9HO1vJx247tPABYPHPen174U6L0852f6a7",
+            'deviceId' => '1d9698c2-9090-4add-b73d-e8fee8564d71',
+            'isAuth' => 1,
+            'agreeToPolicy' => 1,
+            'point' => 110,
+            'fixed_point' => 110,
+            'level' => 11,
+            'status' => 1,
+            'isLocal' => 1,
+            'question_answer' => 110,
+            'isSubscriber' => 0,
+            'country_id' => 1,
+            'city_id' => 1,
+        ]);
+
+        Student::factory()->create([
+            'name' => 'Timothy',
+            'phone' => "+959777704382",
+            'password' => '$2y$10$j5.we.hqbEtnH97UdOePTeKBrm9PE6ch.7nFD2vgol4V7wIBC38BK',
+            'age' => 10,
+            'grade_chosen' => 1,
+            'token' => "4|FykZB6AIrCUqaXX8iHD4SMuLftJfwVrkBbnATgng3dc80536",
+            'deviceId' => 'b041a905-15e4-4132-93d7-8643eb27adeb',
+            'isAuth' => 1,
+            'agreeToPolicy' => 1,
+            'point' => 0,
+            'fixed_point' => 0,
+            'level' => 1,
+            'status' => 1,
+            'isLocal' => 1,
+            'question_answer' => 0,
+            'isSubscriber' => 0,
+            'country_id' => 1,
+            'city_id' => 1,
+        ]);
+
 
         $this->call(GradeSeeder::class);
         $this->call(LessonSeeder::class);
