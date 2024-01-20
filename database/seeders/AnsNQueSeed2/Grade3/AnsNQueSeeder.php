@@ -3740,5 +3740,28 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert(['game_id' => 593, 'a_content' => 'lesson_19_video', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 593, 'a_content' => 'lesson_19_video_global', 'isLocal' => 0]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 3  Lesson 19 Game 594 (  Vocabulary  )
+        ////////////////////////////////////////////////////////
+
+        $l3_G594_image = $domain . "/storage/images/Grade_3/lesson_19/vocab/";
+        $G3_L19_vocab = "Grade_3/" . "Lesson_19/" . "vocab/";
+
+
+        $ans_G594 = [
+            "be-quiet", "close-the-door", "close-the-book", "come-here", "dont-go-there", "dont-make-a-noise", "draw-a-picture", "listen-up", "open-your-book", "pass-your-ruler",
+            "put-away-your-books", "put-your-pens", "sit-down", "stand-up"
+        ];
+
+        foreach ($ans_G594 as $key) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 594, 'a_content' => $key, 'a_image' => $l3_G594_image . str_replace(' ', '-',  $key) . ".png",
+                    'a_audio' => $AudioDomain . $G3_L19_vocab . str_replace(' ', '-', strtolower($key)) . ".mp3"
+                ],
+            ]);
+        }
     }
 }
