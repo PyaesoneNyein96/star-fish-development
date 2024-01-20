@@ -121,28 +121,28 @@ class AnsNQueSeeder extends Seeder
         ];
 
         $g2_l1_Game256_fill_q2 = [
-            "Hello, my ____ Rosy. \nWhat's your ____ ?",
-            "Hi, ____ Chris. \nHello Chris. ____ Rosy.",
-            "Hello, my ____ Chris. \nWhat's your ____ ?",
-            "Hi, ____ Jane. What's your \n____ ? ____ Jack.",
-            "Hello, my ____ Jane. \nWhat's your ____ ?",
-            "Hi, ____ Rosy. \nWhat's your ____ ?",
-            "Hi, ____ Rosy. \nHello Rosy. ____ Chris.",
-            "Hello, My ____ Jane. \nWhat's your ____ ?",
-            "Hi, ____ Jane. \nWhat's your ____ ? \n____ Jack."
+            "Hello, my ____ Rosy.\nWhat's your ____ ?",
+            "Hi, ____ Chris.\nHello Chris. ____ Rosy.",
+            "Hello, my ____ Chris.\nWhat's your ____ ?",
+            "Hi, ____ Jane. What's your\n____ ? ____ Jack.",
+            "Hello, my ____ Jane.\nWhat's your ____ ?",
+            "Hi, ____ Rosy.\nWhat's your ____ ?",
+            "Hi, ____ Rosy.\nHello Rosy. ____ Chris.",
+            "Hello, My ____ Jane.\nWhat's your ____ ?",
+            "Hi, ____ Jane.\nWhat's your ____ ?\n____ Jack."
         ];
 
 
         $g1_l16_Game256_fill_a = [
-            "Hello, my name's Rosy. \nWhat's your name ?",
-            "Hi, I'm Chris. \nHello Chris. She's Rosy.",
-            "Hello, my name's Chris. \nWhat's your name ?",
-            "Hi, She's Jane. What's your \nname ? I'm Jack.",
-            "Hello, my name's Jane. \nWhat's your name ?",
-            "Hi, I'm Rosy. \nWhat's your name ?",
-            "Hi, She's Rosy. \nHello Rosy. I'm Chris.",
-            "Hi, My name's Jane. \nWhat's your name ?",
-            "Hi, She's Jane. \nWhat's your name ? \nI'm Jack."
+            "Hello, my name's Rosy.\nWhat's your name ?",
+            "Hi, I'm Chris.\nHello Chris. She's Rosy.",
+            "Hello, my name's Chris.\nWhat's your name ?",
+            "Hi, She's Jane. What's your\nname ? I'm Jack.",
+            "Hello, my name's Jane.\nWhat's your name ?",
+            "Hi, I'm Rosy.\nWhat's your name ?",
+            "Hi, She's Rosy.\nHello Rosy. I'm Chris.",
+            "Hi, My name's Jane.\nWhat's your name ?",
+            "Hi, She's Jane.\nWhat's your name ?\nI'm Jack."
         ];
 
         $correct_G2_l1_Ans =   [

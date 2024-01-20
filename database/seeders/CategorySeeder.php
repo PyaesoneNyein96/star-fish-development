@@ -52,7 +52,7 @@ class CategorySeeder extends Seeder
             'listen_and_speak',
             'reading_carousel_two',
             'look_and_write',
-            'coloring',
+            'speak_listen_and_record',
             'rearrange_and_fill_blanks',
             'mcq_grammar_two',
             'listening_conversation_and_record_audio',
@@ -74,7 +74,8 @@ class CategorySeeder extends Seeder
             'skimming_reading_passage',
             'listening_and_chossing_pics_three',
             'memory_cards',
-            'skimming_reading_conversation'
+            'skimming_reading_conversation',
+
 
         ];
 

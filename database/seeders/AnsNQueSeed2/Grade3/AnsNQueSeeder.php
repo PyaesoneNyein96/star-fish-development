@@ -3504,65 +3504,65 @@ class AnsNQueSeeder extends Seeder
             ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Forty-seven", 'a_content' => 0],
             ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "A hundred", 'a_content' => 1],
 
-            ['round' => 1, 'game_id' => 587, "q_image" => $l18_G587_image . "76.png", "q_conver" => "Choose the correct answer.", 'q_content' => "Sixty-one", 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Sixty-three", 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Seventy-six", 'a_content' => 1],
+            ['round' => 2, 'game_id' => 587, "q_image" => $l18_G587_image . "76.png", "q_conver" => "Choose the correct answer.", 'q_content' => "Sixty-one", 'a_content' => 0],
+            ['round' => 2, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Sixty-three", 'a_content' => 0],
+            ['round' => 2, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Seventy-six", 'a_content' => 1],
 
-            ['round' => 1, 'game_id' => 587, "q_image" => $l18_G587_image . "43.png", "q_conver" => "Choose the correct answer.", 'q_content' => "Sixty-three", 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Forty-three", 'a_content' => 1],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Forty-four", 'a_content' => 0],
+            ['round' => 3, 'game_id' => 587, "q_image" => $l18_G587_image . "43.png", "q_conver" => "Choose the correct answer.", 'q_content' => "Sixty-three", 'a_content' => 0],
+            ['round' => 3, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Forty-three", 'a_content' => 1],
+            ['round' => 3, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Forty-four", 'a_content' => 0],
 
-            ['round' => 1, 'game_id' => 587, "q_image" => $l18_G587_image . "35.png", "q_conver" => "Choose the correct answer.", 'q_content' => "Thirty-nine", 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Thirty-five", 'a_content' => 1],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Fifty-one", 'a_content' => 0],
+            ['round' => 4, 'game_id' => 587, "q_image" => $l18_G587_image . "35.png", "q_conver" => "Choose the correct answer.", 'q_content' => "Thirty-nine", 'a_content' => 0],
+            ['round' => 4, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Thirty-five", 'a_content' => 1],
+            ['round' => 4, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Fifty-one", 'a_content' => 0],
 
-            ['round' => 1, 'game_id' => 587, "q_image" => $l18_G587_image . "66.png", "q_conver" => "Choose the correct answer.", 'q_content' => "Forty-one", 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Twenty-two", 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Sixty-six", 'a_content' => 1],
+            ['round' => 5, 'game_id' => 587, "q_image" => $l18_G587_image . "66.png", "q_conver" => "Choose the correct answer.", 'q_content' => "Forty-one", 'a_content' => 0],
+            ['round' => 5, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Twenty-two", 'a_content' => 0],
+            ['round' => 5, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Sixty-six", 'a_content' => 1],
 
-            ['round' => 1, 'game_id' => 587, "q_image" => $l18_G587_image . "58.png", "q_conver" => "Choose the correct answer.", 'q_content' => "Fifty-eight", 'a_content' => 1],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Twenty-one", 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Fifty-three", 'a_content' => 0],
+            ['round' => 6, 'game_id' => 587, "q_image" => $l18_G587_image . "58.png", "q_conver" => "Choose the correct answer.", 'q_content' => "Fifty-eight", 'a_content' => 1],
+            ['round' => 6, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Twenty-one", 'a_content' => 0],
+            ['round' => 6, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Fifty-three", 'a_content' => 0],
 
-            ['round' => 1, 'game_id' => 587, "q_image" => $l18_G587_image . "fifty-two.png", "q_conver" => "Choose the correct answer.", 'q_content' => 52, 'a_content' => 1],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 54, 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 65, 'a_content' => 0],
+            ['round' => 7, 'game_id' => 587, "q_image" => $l18_G587_image . "fifty-two.png", "q_conver" => "Choose the correct answer.", 'q_content' => 52, 'a_content' => 1],
+            ['round' => 7, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 54, 'a_content' => 0],
+            ['round' => 7, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 65, 'a_content' => 0],
 
-            ['round' => 1, 'game_id' => 587, "q_image" => $l18_G587_image . "forty-six.png", "q_conver" => "Choose the correct answer.", 'q_content' => 42, 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 100, 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 46, 'a_content' => 1],
+            ['round' => 8, 'game_id' => 587, "q_image" => $l18_G587_image . "forty-six.png", "q_conver" => "Choose the correct answer.", 'q_content' => 42, 'a_content' => 0],
+            ['round' => 8, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 100, 'a_content' => 0],
+            ['round' => 8, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 46, 'a_content' => 1],
 
-            ['round' => 1, 'game_id' => 587, "q_image" => $l18_G587_image . "sixty-six.png", "q_conver" => "Choose the correct answer.", 'q_content' => 66, 'a_content' => 1],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 77, 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 22, 'a_content' => 0],
+            ['round' => 9, 'game_id' => 587, "q_image" => $l18_G587_image . "sixty-six.png", "q_conver" => "Choose the correct answer.", 'q_content' => 66, 'a_content' => 1],
+            ['round' => 9, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 77, 'a_content' => 0],
+            ['round' => 9, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 22, 'a_content' => 0],
 
-            ['round' => 1, 'game_id' => 587, "q_image" => $l18_G587_image . "ninety-eight.png", "q_conver" => "Choose the correct answer.", 'q_content' => 88, 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 98, 'a_content' => 1],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 80, 'a_content' => 0],
+            ['round' => 10, 'game_id' => 587, "q_image" => $l18_G587_image . "ninety-eight.png", "q_conver" => "Choose the correct answer.", 'q_content' => 88, 'a_content' => 0],
+            ['round' => 10, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 98, 'a_content' => 1],
+            ['round' => 10, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 80, 'a_content' => 0],
 
-            ['round' => 1, 'game_id' => 587, "q_image" => $l18_G587_image . "eight-one.png", "q_conver" => "Choose the correct answer.", 'q_content' => 81, 'a_content' => 1],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 67, 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 84, 'a_content' => 0],
+            ['round' => 11, 'game_id' => 587, "q_image" => $l18_G587_image . "eight-one.png", "q_conver" => "Choose the correct answer.", 'q_content' => 81, 'a_content' => 1],
+            ['round' => 11, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 67, 'a_content' => 0],
+            ['round' => 11, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 84, 'a_content' => 0],
 
-            ['round' => 1, 'game_id' => 587, "q_image" => $l18_G587_image . "seventy-eight.png", "q_conver" => "Choose the correct answer.", 'q_content' => 57, 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 72, 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 78, 'a_content' => 1],
+            ['round' => 12, 'game_id' => 587, "q_image" => $l18_G587_image . "seventy-eight.png", "q_conver" => "Choose the correct answer.", 'q_content' => 57, 'a_content' => 0],
+            ['round' => 12, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 72, 'a_content' => 0],
+            ['round' => 12, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 78, 'a_content' => 1],
 
-            ['round' => 1, 'game_id' => 587, "q_image" => $l18_G587_image . "ninety-nine.png", "q_conver" => "Choose the correct answer.", 'q_content' => 89, 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 99, 'a_content' => 1],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 90, 'a_content' => 0],
+            ['round' => 13, 'game_id' => 587, "q_image" => $l18_G587_image . "ninety-nine.png", "q_conver" => "Choose the correct answer.", 'q_content' => 89, 'a_content' => 0],
+            ['round' => 13, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 99, 'a_content' => 1],
+            ['round' => 13, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 90, 'a_content' => 0],
 
-            ['round' => 1, 'game_id' => 587, "q_image" => $l18_G587_image . "a-hundred.png", "q_conver" => "Choose the correct answer.", 'q_content' => 100, 'a_content' => 1],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 87, 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 75, 'a_content' => 0],
+            ['round' => 14, 'game_id' => 587, "q_image" => $l18_G587_image . "a-hundred.png", "q_conver" => "Choose the correct answer.", 'q_content' => 100, 'a_content' => 1],
+            ['round' => 14, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 87, 'a_content' => 0],
+            ['round' => 14, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => 75, 'a_content' => 0],
 
-            ['round' => 1, 'game_id' => 587, "q_image" => $l18_G587_image . "29.png", "q_conver" => "Choose the correct answer.", 'q_content' => "Twenty-nine", 'a_content' => 1],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Ninety-seven", 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Eighty-five", 'a_content' => 0],
+            ['round' => 15, 'game_id' => 587, "q_image" => $l18_G587_image . "29.png", "q_conver" => "Choose the correct answer.", 'q_content' => "Twenty-nine", 'a_content' => 1],
+            ['round' => 15, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Ninety-seven", 'a_content' => 0],
+            ['round' => 15, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Eighty-five", 'a_content' => 0],
 
-            ['round' => 1, 'game_id' => 587, "q_image" => $l18_G587_image . "81.png", "q_conver" => "Choose the correct answer.", 'q_content' => "Seventy-one", 'a_content' => 0],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Eighty-one", 'a_content' => 1],
-            ['round' => 1, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Eighty-six", 'a_content' => 0],
+            ['round' => 16, 'game_id' => 587, "q_image" => $l18_G587_image . "81.png", "q_conver" => "Choose the correct answer.", 'q_content' => "Seventy-one", 'a_content' => 0],
+            ['round' => 16, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Eighty-one", 'a_content' => 1],
+            ['round' => 16, 'game_id' => 587, "q_image" => null, "q_conver" => null, 'q_content' => "Eighty-six", 'a_content' => 0],
 
         ]);
 
@@ -3637,7 +3637,7 @@ class AnsNQueSeeder extends Seeder
             ['round' => 1, 'game_id' => 589,  'q_audio' =>  null, "q_content" => 15, "a_content" => 0],
 
             ['round' => 2, 'game_id' => 589,  'q_audio' =>  $AudioDomain . $G3_L18_listen . "in-my-school" . ".mp3", "q_content" => 45, "a_content" => 0],
-            ['round' => 2, 'game_id' => 589,  'q_audio' =>  null, "q_content" => "green", "a_content" => 16],
+            ['round' => 2, 'game_id' => 589,  'q_audio' =>  null, "q_content" => 16, "a_content" => 0],
             ['round' => 2, 'game_id' => 589,  'q_audio' =>  null, "q_content" => 15, "a_content" => 1],
 
             ['round' => 3, 'game_id' => 589,  'q_audio' =>  $AudioDomain . $G3_L18_listen . "in-my-school" . ".mp3", "q_content" => 19, "a_content" => 0],
@@ -3743,13 +3743,13 @@ class AnsNQueSeeder extends Seeder
 
 
         ////////////////////////////////////////////////////////
-        ////    Grade 3  Lesson 19 Game 594 (  Vocabulary  )
+        ////    Grade 3  Lesson 19 Game 594 , 595 (  Vocabulary  )
         ////////////////////////////////////////////////////////
 
-        $l3_G594_image = $domain . "/storage/images/Grade_3/lesson_19/vocab/";
+        $l3_G594_G595_image = $domain . "/storage/images/Grade_3/lesson_19/vocab/";
         $G3_L19_vocab = "Grade_3/" . "Lesson_19/" . "vocab/";
 
-
+        // Game 594
         $ans_G594 = [
             "be-quiet", "close-the-door", "close-the-book", "come-here", "dont-go-there", "dont-make-a-noise", "draw-a-picture", "listen-up", "open-your-book", "pass-your-ruler",
             "put-away-your-books", "put-your-pens", "sit-down", "stand-up"
@@ -3758,10 +3758,109 @@ class AnsNQueSeeder extends Seeder
         foreach ($ans_G594 as $key) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 594, 'a_content' => $key, 'a_image' => $l3_G594_image . str_replace(' ', '-',  $key) . ".png",
+                    'game_id' => 594, 'a_content' => $key, 'a_image' => $l3_G594_G595_image . str_replace(' ', '-',  $key) . ".png",
                     'a_audio' => $AudioDomain . $G3_L19_vocab . str_replace(' ', '-', strtolower($key)) . ".mp3"
                 ],
             ]);
         }
+        // Game 595
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 3  Lesson 19 Game 596 ( Practice )
+        ////////////////////////////////////////////////////////
+
+        $l19_G596_image = $domain . "/storage/images/Grade_3/lesson_19/practice/";
+        $G3_L19_practice = "Grade_3/" . "Lesson_19/" . "practice/";
+
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 596, "q_image" => $l19_G596_image . "door.png", "q_conver" => "Look at the picture and choose.", 'q_content' => "Pass me your ruler", 'a_content' => 0],
+            ['round' => 1, 'game_id' => 596, "q_image" => null, "q_conver" => null, 'q_content' => "Close the door", 'a_content' => 1],
+
+            ['round' => 2, 'game_id' => 596, "q_image" => $l19_G596_image . "sitting.png", "q_conver" => "Look at the picture and choose.", 'q_content' => "Sit down", 'a_content' => 1],
+            ['round' => 2, 'game_id' => 596, "q_image" => null, "q_conver" => null, 'q_content' => "Come here", 'a_content' => 0],
+
+            ['round' => 3, 'game_id' => 596, "q_image" => $l19_G596_image . "book.png", "q_conver" => "Look at the picture and choose.", 'q_content' => "Don't stand there", 'a_content' => 0],
+            ['round' => 3, 'game_id' => 596, "q_image" => null, "q_conver" => null, 'q_content' => "Open your book", 'a_content' => 1],
+
+            ['round' => 4, 'game_id' => 596, "q_image" => $l19_G596_image . "picture.png", "q_conver" => "Look at the picture and choose.", 'q_content' => "Stand up", 'a_content' => 0],
+            ['round' => 4, 'game_id' => 596, "q_image" => null, "q_conver" => null, 'q_content' => "Draw a picture", 'a_content' => 1],
+
+            ['round' => 5, 'game_id' => 596, "q_image" => $l19_G596_image . "listening.png", "q_conver" => "Look at the picture and choose.", 'q_content' => "Listen up!", 'a_content' => 1],
+            ['round' => 5, 'game_id' => 596, "q_image" => null, "q_conver" => null, 'q_content' => "Sit down", 'a_content' => 0],
+
+            ['round' => 6, 'game_id' => 596, "q_image" => $l19_G596_image . "dont-go.png", "q_conver" => "Look at the picture and choose.", 'q_content' => "Open your door", 'a_content' => 0],
+            ['round' => 6, 'game_id' => 596, "q_image" => null, "q_conver" => null, 'q_content' => "Don't go there", 'a_content' => 1],
+
+            ['round' => 7, 'game_id' => 596, "q_image" => $l19_G596_image . "quiet.png", "q_conver" => "Look at the picture and choose.", 'q_content' => "Be quiet", 'a_content' => 1],
+            ['round' => 7, 'game_id' => 596, "q_image" => null, "q_conver" => null, 'q_content' => "Sit down", 'a_content' => 0],
+
+            ['round' => 8, 'game_id' => 596, "q_image" => $l19_G596_image . "stand.png", "q_conver" => "Look at the picture and choose.", 'q_content' => "Open your book", 'a_content' => 0],
+            ['round' => 8, 'game_id' => 596, "q_image" => null, "q_conver" => null, 'q_content' => "Stand up", 'a_content' => 1],
+
+        ]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 3  Lesson 19 Game 597 ( Listen )
+        ////////////////////////////////////////////////////////
+
+        $l19_G597_image = $domain . "/storage/images/Grade_3/lesson_19/listen/";
+        $G3_L19_listen = "Grade_3/" . "Lesson_19/" . "listen/";
+
+
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 597,  'q_audio' =>  $AudioDomain . $G3_L19_listen . "teacher_matt_sally" . ".mp3", "q_content" => "Down", "q_conver" => "____ down please.", "a_content" => 0],
+            ['round' => 1, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Sit", "q_conver" => null, "a_content" => 1],
+            ['round' => 1, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Open", "q_conver" => null, "a_content" => 0],
+
+            ['round' => 2, 'game_id' => 597,  'q_audio' =>  $AudioDomain . $G3_L19_listen . "teacher_matt_sally" . ".mp3", "q_content" => "Don't", "q_conver" => "____ your book.", "a_content" => 0],
+            ['round' => 2, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Open", "q_conver" => null, "a_content" => 1],
+            ['round' => 2, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Sit", "q_conver" => null, "a_content" => 0],
+
+            ['round' => 3, 'game_id' => 597,  'q_audio' =>  $AudioDomain . $G3_L19_listen . "teacher_matt_sally" . ".mp3", "q_content" => "Pass", "q_conver" => "____ me a pencil please.", "a_content" => 1],
+            ['round' => 3, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Don't", "q_conver" => null, "a_content" => 0],
+            ['round' => 3, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Up", "q_conver" => null, "a_content" => 0],
+
+            ['round' => 4, 'game_id' => 597,  'q_audio' =>  $AudioDomain . $G3_L19_listen . "teacher_matt_sally" . ".mp3", "q_content" => "Don't", "q_conver" => "Stand ____.", "a_content" => 0],
+            ['round' => 4, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Down", "q_conver" => null, "a_content" => 0],
+            ['round' => 4, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Up", "q_conver" => null, "a_content" => 1],
+
+            ['round' => 5, 'game_id' => 597,  'q_audio' =>  $AudioDomain . $G3_L19_listen . "teacher_matt_sally" . ".mp3", "q_content" => "Down", "q_conver" => "____ sit down there.", "a_content" => 1],
+            ['round' => 5, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Up", "q_conver" => null, "a_content" => 0],
+            ['round' => 5, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Don't", "q_conver" => null, "a_content" => 0],
+
+            ['round' => 6, 'game_id' => 597,  'q_audio' =>  $AudioDomain . $G3_L19_listen . "teacher_matt_sally" . ".mp3", "q_content" => "Down", "q_conver" => "Sit ____ here.", "a_content" => 1],
+            ['round' => 6, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Sit", "q_conver" => null, "a_content" => 0],
+            ['round' => 6, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Up", "q_conver" => null, "a_content" => 0],
+
+        ]);
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 3  Lesson 19 Game 598 (  Speaking Practice )
+        //////////////////////////////////////////////////////////////
+
+        $G3_L19_practice_speaking = "Grade_3/" . "Lesson_19/" . "practice_speaking/";
+        $l19_G598image = $domain . "/storage/images/Grade_3/lesson_19/practice_speaking/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 598, 'q_image' => $l19_G598image . "sit.png", "q_content" => "What is your brother?"],
+            ['round' => 2, 'game_id' => 598, 'q_image' => $l19_G598image . "close-door.png", "q_content" => "What is your sister?"],
+            ['round' => 3, 'game_id' => 598, 'q_image' => $l19_G598image . "take-away.png", "q_content" => "What are you?"],
+            ['round' => 4, 'game_id' => 598, 'q_image' => $l19_G598image . "open-book.png", "q_content" => "What is your mother?"],
+            ['round' => 5, 'game_id' => 598, 'q_image' => $l19_G598image . "draw-pic.png", "q_content" => "What is your father?"],
+            ['round' => 6, 'game_id' => 598, 'q_image' => $l19_G598image . "listen.png", "q_content" => "What is your father?"],
+            ['round' => 7, 'game_id' => 598, 'q_image' => $l19_G598image . "noise.png", "q_content" => "What is your father?"],
+            ['round' => 8, 'game_id' => 598, 'q_image' => $l19_G598image . "close-book.png", "q_content" => "What is your father?"],
+            ['round' => 9, 'game_id' => 598, 'q_image' => $l19_G598image . "dont-go.png", "q_content" => "What is your father?"],
+            ['round' => 10, 'game_id' => 598, 'q_image' => $l19_G598image . "stand.png", "q_content" => "What is your father?"],
+        ]);
     }
 }
