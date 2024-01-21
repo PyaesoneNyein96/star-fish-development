@@ -2531,16 +2531,16 @@ class AnsNQueSeeder extends Seeder
         $G2_L18_Speaking = "Grade_2/" . "Lesson_18/" . "Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 338,  'q_image' => $l18_G338_image . "swim.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-he-swim", "q_content" => "Can he swim?"],
-            ['round' => 2, 'game_id' => 338,  'q_image' => $l18_G338_image . "jump.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-jump", "q_content" => "Can she jump?"],
-            ['round' => 3, 'game_id' => 338,  'q_image' => $l18_G338_image . "kite.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-run", "q_content" => "Can she run?"],
-            ['round' => 4, 'game_id' => 338,  'q_image' => $l18_G338_image . "read.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-read", "q_content" => "Can she read?"],
-            ['round' => 5, 'game_id' => 338,  'q_image' => $l18_G338_image . "smile.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-he-smile", "q_content" => "Can he smile?"],
-            ['round' => 6, 'game_id' => 338,  'q_image' => $l18_G338_image . "speak.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-speak-english", "q_content" => "Can she speak english?"],
-            ['round' => 7, 'game_id' => 338,  'q_image' => $l18_G338_image . "draw.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-he-write", "q_content" => "Can he write?"],
-            ['round' => 8, 'game_id' => 338,  'q_image' => $l18_G338_image . "sing.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-sing", "q_content" => "Can she sing?"],
-            ['round' => 9, 'game_id' => 338,  'q_image' => $l18_G338_image . "listen.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-sing", "q_content" => "Can she sing?"],
-            ['round' => 10, 'game_id' => 338,  'q_image' => $l18_G338_image . "dance.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-dance", "q_content" => "Can she dance?"],
+            ['round' => 1, 'game_id' => 338,  'q_image' => $l18_G338_image . "swim.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-he-swim.mp3", "q_content" => "Can he swim?"],
+            ['round' => 2, 'game_id' => 338,  'q_image' => $l18_G338_image . "jump.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-jump.mp3", "q_content" => "Can she jump?"],
+            ['round' => 3, 'game_id' => 338,  'q_image' => $l18_G338_image . "kite.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-run.mp3", "q_content" => "Can she run?"],
+            ['round' => 4, 'game_id' => 338,  'q_image' => $l18_G338_image . "read.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-read.mp3", "q_content" => "Can she read?"],
+            ['round' => 5, 'game_id' => 338,  'q_image' => $l18_G338_image . "smile.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-he-smile.mp3", "q_content" => "Can he smile?"],
+            ['round' => 6, 'game_id' => 338,  'q_image' => $l18_G338_image . "speak.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-speak-english.mp3", "q_content" => "Can she speak english?"],
+            ['round' => 7, 'game_id' => 338,  'q_image' => $l18_G338_image . "draw.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-he-write.mp3", "q_content" => "Can he write?"],
+            ['round' => 8, 'game_id' => 338,  'q_image' => $l18_G338_image . "sing.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-sing.mp3", "q_content" => "Can she sing?"],
+            ['round' => 9, 'game_id' => 338,  'q_image' => $l18_G338_image . "listen.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-she-sing.mp3", "q_content" => "Can she sing?"],
+            ['round' => 10, 'game_id' => 338,  'q_image' => $l18_G338_image . "dance.png", "round_instruction" => $AudioDomain . $G2_L18_Speaking . "can-he-dance.mp3", "q_content" => "Can he dance?"],
         ]);
 
 
@@ -2566,7 +2566,7 @@ class AnsNQueSeeder extends Seeder
             ['round' => 4, 'game_id' => 339, 'q_audio' => $AudioDomain . $G2_L18_listen_n_choose_path . "Can-you-draw-Yes-I-can-No.mp3", "q_conver" =>  "Can you draw?", 'q_content' =>  "Yes, I can.", 'a_content' => 0, 'q_image' =>  $l18G339image . "draw.png"],
             ['round' => 4, 'game_id' => 339, 'q_audio' => null, "q_conver" => null, 'q_content' =>  "No, I can't.", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 5, 'game_id' => 339, 'q_audio' => $AudioDomain . $G2_L18_listen_n_choose_path . "Can-you-smile-Yes-I-can-No.mp3", "q_conver" =>  "Can you smile?", 'q_content' =>  "Yes, I can.", 'a_content' => 1, 'q_image' =>  $l18G339image . "simle.png"],
+            ['round' => 5, 'game_id' => 339, 'q_audio' => $AudioDomain . $G2_L18_listen_n_choose_path . "Can-you-smile-Yes-I-can-No.mp3", "q_conver" =>  "Can you smile?", 'q_content' =>  "Yes, I can.", 'a_content' => 1, 'q_image' =>  $l18G339image . "smile.png"],
             ['round' => 5, 'game_id' => 339, 'q_audio' => null, "q_conver" => null, 'q_content' =>  "No, I can't.", 'a_content' => 0, 'q_image' => null],
 
             ['round' => 6, 'game_id' => 339, 'q_audio' => $AudioDomain . $G2_L18_listen_n_choose_path . "SubBlock_Can-you-read-Yes-i-can-No-I-c.mp3", "q_conver" =>  "Can you read?", 'q_content' =>  "Yes, I can.", 'a_content' => 1, 'q_image' =>  $l18G339image . "read.png"],
@@ -2724,7 +2724,6 @@ class AnsNQueSeeder extends Seeder
             ["M", "E", "Y", "N", "O", "K"],
             ["A", "O", "G", "N", "M"],
             ["N", "O", "M", "O"],
-            ["W", "E", "N", "P", "S", "P", "E", "R", "A"],
             ["I", "L", "A", "N"],
             ["C", "K", "A", "E", "L", "E", "N", "C"],
             ["D", "E", "E", "N", "L", "E"],
@@ -2736,7 +2735,7 @@ class AnsNQueSeeder extends Seeder
         ];
 
         $a_G344 = [
-            "MONKEY", "MANGO", "MOON", "NEWSPAPER", "NAIL", "NECKLACE", "NEEDLE", "MAN", "MUG", "MAGIC"
+            "MONKEY", "MANGO", "MOON",  "NAIL", "NECKLACE", "NEEDLE", "MAN", "MUG", "MAGIC"
         ];
 
         $G344_Index = 0;
