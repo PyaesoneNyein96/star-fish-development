@@ -3743,11 +3743,11 @@ class AnsNQueSeeder extends Seeder
 
 
         ////////////////////////////////////////////////////////
-        ////    Grade 3  Lesson 19 Game 594 , 595 (  Vocabulary  )
+        ////    Grade 3  Lesson 19 Game 594 , 595 (  Listen and Repeat  )
         ////////////////////////////////////////////////////////
 
-        $l3_G594_G595_image = $domain . "/storage/images/Grade_3/lesson_19/vocab/";
-        $G3_L19_vocab = "Grade_3/" . "Lesson_19/" . "vocab/";
+        $l19_G594_G595_image = $domain . "/storage/images/Grade_3/lesson_19/listen_n_repeat/";
+        $G3_L19_vocab = "Grade_3/" . "Lesson_19/" . "listen_n_repeat/";
 
         // Game 594
         $ans_G594 = [
@@ -3758,12 +3758,69 @@ class AnsNQueSeeder extends Seeder
         foreach ($ans_G594 as $key) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 594, 'a_content' => $key, 'a_image' => $l3_G594_G595_image . str_replace(' ', '-',  $key) . ".png",
+                    'game_id' => 594, 'a_content' => $key, 'a_image' => $l19_G594_G595_image . str_replace(' ', '-',  $key) . ".png",
                     'a_audio' => $AudioDomain . $G3_L19_vocab . str_replace(' ', '-', strtolower($key)) . ".mp3"
                 ],
             ]);
         }
+
         // Game 595
+        $g3_l19_Game595_rearrange_the_letter_q1 = [
+            ['A', 'T', 'D', 'S', 'N'],
+            ['O', 'N', 'P', 'E'],
+            ['E', 'C', 'M', 'O'],
+            ['L', 'C', 'O', 'E', 'S'],
+            ['O', 'D', 'N', 'W'],
+            ['O', 'K', 'O', 'B'],
+        ];
+
+        $g3_l19_Game595_rearrange_the_letter_q2 = [
+            '___ up', "Don't ___ your bag", '___ here', '___ the door', 'Sit ___', 'Open your ___'
+        ];
+
+        $correctAns_G595 =   [
+
+            ['S', 'T', 'A', 'N', 'D'],
+            ['O', 'P', 'E', 'N'],
+            ['C', 'O', 'M', 'E'],
+            ['C', 'L', 'O', 'S', 'E'],
+            ['D', 'O', 'W', 'N'],
+            ['B', 'O', 'O', 'E'],
+
+        ];
+
+        $g3_l19_Game595_rearrange_the_letter_a = [
+            'Stand up', "Don't open your bag", 'Come here', 'Close the door', 'Sit down', 'Open your book'
+        ];
+
+
+
+
+        for ($i = 0; $i < count($g3_l19_Game595_rearrange_the_letter_q1); $i++) {
+
+            foreach ($g3_l19_Game595_rearrange_the_letter_q1[$i] as $k => $word) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1, 'game_id' => 595,
+                        'q_audio' => $AudioDomain . $G3_L19_vocab . strtoupper($word) . ".mp3", 'q_content' => $word,
+                        'a_content' =>  implode(' ', $correctAns_G595[$i]),
+                    ]
+                ]);
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 595,
+                    'q_audio' => $AudioDomain . $G3_L19_vocab . str_replace(' ', '-',  strtolower($g3_l19_Game595_rearrange_the_letter_a[$i])) . ".mp3",
+                    'q_image' => $l19_G594_G595_image . str_replace(' ', '-',  strtolower($g3_l19_Game595_rearrange_the_letter_a[$i])) . ".png",
+                    'q_content' => $g3_l19_Game595_rearrange_the_letter_q2[$i],
+                    'a_content' => $g3_l19_Game595_rearrange_the_letter_a[$i]
+                ],
+            ]);
+        }
+
+
 
 
 
@@ -3861,6 +3918,235 @@ class AnsNQueSeeder extends Seeder
             ['round' => 8, 'game_id' => 598, 'q_image' => $l19_G598image . "close-book.png", "q_content" => "What is your father?"],
             ['round' => 9, 'game_id' => 598, 'q_image' => $l19_G598image . "dont-go.png", "q_content" => "What is your father?"],
             ['round' => 10, 'game_id' => 598, 'q_image' => $l19_G598image . "stand.png", "q_content" => "What is your father?"],
+        ]);
+
+
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 3  Lesson 20 Game 599 ( video )
+        //////////////////////////////////////////////////////////////
+
+
+        DB::table('ans_n_ques')->insert(['game_id' => 599, 'a_content' => 'lesson_20_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 599, 'a_content' => 'lesson_20_video_global', 'isLocal' => 0]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 3  Lesson 20 Game 600 (  Vocabulary  )
+        ////////////////////////////////////////////////////////
+
+        $l20_G600_image = $domain . "/storage/images/Grade_3/lesson_20/vocab/";
+        $G3_L20_vocab = "Grade_3/" . "Lesson_20/" . "vocab/";
+
+
+        $ans_G600 = [
+            "Bakery", "Barbershop", "Bookstore", "Bus-station", "Cafeteria", "Clinic", "Department-store", "Drugstore", "Hairsaloon", "Hospital", "Hotel", "Laundromat", "Restaurant", "School", "Train-station"
+        ];
+
+        foreach ($ans_G600 as $key) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 600, 'a_content' => $key, 'a_image' => $l20_G600_image . str_replace(' ', '-',  $key) . ".png",
+                    'a_audio' => $AudioDomain . $G3_L20_vocab . str_replace(' ', '-', strtolower($key)) . ".mp3"
+                ],
+            ]);
+        }
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 3  Lesson 20 Game 601 ( practice )
+        ////////////////////////////////////////////////////////
+
+        $l20_G601_image = $domain . "/storage/images/Grade_3/lesson_20/practice/";
+        $G3_L20_practice = "Grade_3/" . "Lesson_20/" . "practice/";
+
+        $q_content_G3_L20_Game601_img = ["cinema", "park", "library", "bakery", "train-station", "department-store", "zoo", "school"];
+
+        $a_content_G3_L20_Game601 = [
+            "Yes, It has.",
+            "Yes, It has.",
+            "No, It hasn't.",
+            "No, It hasn't.",
+            "Yes, It has.",
+            "No, It hasn't.",
+            "No, It hasn't.",
+            "Yes, it has."
+
+        ];
+
+        foreach ($q_content_G3_L20_Game601_img as $key => $value) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 601, 'round' => $key + 1,
+                    'q_image' => $l20_G601_image . $value . ".png",
+                    'q_audio' => $AudioDomain . $G3_L20_practice . $value . ".mp3",
+                    'a_content' => $a_content_G3_L20_Game601[$key],
+                ],
+            ]);
+        }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 3  Lesson 20 Game 602 ( Arrange Letter )
+        ////////////////////////////////////////////////////////
+
+        $G3_L20_arrange_letter = "Grade_3/" . "Lesson_20/" . "arrange_letter/";
+        $l20_G602_image = $domain . "/storage/images/Grade_3/lesson_20/arrange_letter/";
+
+
+        $q_G602 = [
+
+            ["r", "u", "d", "g", "t", "s", "r", "e", "o"],
+            ["f", "a", "c", "e", "r", "i", "a", "t", "e"],
+            ["b", "o", "k", "o", "t", "s", "r", "e", "o"],
+            ["a", "r", "b",  "e", "r", "o", "p", "s", "h"],
+            ["b", "e", "k", "a", "y", "r"],
+            ["t", "d", "l", "u", "n", "d", "r", "o", "a", "m"],
+            ["o", "o", "s", "c", "h", "l"],
+            ["n", "i", "a", "t", "r", "t", "a", "t", "s", "n", "i", "o"],
+
+        ];
+
+        $a_G602 = [
+            "drugstore", "cafeteria", "bookstore", "barbershop", "bakery", "laundromat", "school", "trainstation"
+        ];
+
+        $G602_Index = 0;
+
+        for ($i = 0; $i < count($q_G602); $i++) {
+            foreach ($q_G602[$i] as $j) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 602, 'q_content' => $j, 'q_audio' => $AudioDomain . $G3_L20_arrange_letter . strtoupper($j) . ".mp3"],
+                ]);
+            }
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 602,
+                    'q_image' => $l20_G602_image . str_replace(' ', '', strtolower($a_G602[$G602_Index])) . ".png",
+                    'a_audio' => $AudioDomain . $G3_L20_arrange_letter . strtolower($a_G602[$G602_Index]) . ".mp3",
+                    'a_content' => $a_G602[$G602_Index],
+                ],
+            ]);
+            $G602_Index++;
+        }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 3  Lesson 20 Game 603 ( Listen )
+        ////////////////////////////////////////////////////////
+
+        $l20_G603_image = $domain . "/storage/images/Grade_3/lesson_20/listen/";
+        $G3_L20_listen = "Grade_3/" . "Lesson_20/" . "listen/";
+
+
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 603,  'q_audio' =>  $AudioDomain . $G3_L20_listen . "abby_anna" . ".mp3", "q_content" => "Yes", "q_conver" => "Post office", "a_content" => 1],
+            ['round' => 1, 'game_id' => 603,  'q_audio' =>  null, "q_content" => "No", "q_conver" => null, "a_content" => 0],
+
+            ['round' => 2, 'game_id' => 603,  'q_audio' =>  $AudioDomain . $G3_L20_listen . "abby_anna" . ".mp3", "q_content" => "Yes", "q_conver" => "A hospital", "a_content" => 1],
+            ['round' => 2, 'game_id' => 603,  'q_audio' =>  null, "q_content" => "No", "q_conver" => null, "a_content" => 0],
+
+            ['round' => 3, 'game_id' => 603,  'q_audio' =>  $AudioDomain . $G3_L20_listen . "abby_anna" . ".mp3", "q_content" => "Yes", "q_conver" => "A zoo", "a_content" => 0],
+            ['round' => 3, 'game_id' => 603,  'q_audio' =>  null, "q_content" => "No", "q_conver" => null, "a_content" => 1],
+
+            ['round' => 4, 'game_id' => 603,  'q_audio' =>  $AudioDomain . $G3_L20_listen . "abby_anna" . ".mp3", "q_content" => "Yes", "q_conver" => "A park", "a_content" => 1],
+            ['round' => 4, 'game_id' => 603,  'q_audio' =>  null, "q_content" => "No", "q_conver" => null, "a_content" => 0],
+
+            ['round' => 5, 'game_id' => 603,  'q_audio' =>  $AudioDomain . $G3_L20_listen . "abby_anna" . ".mp3", "q_content" => "Yes", "q_conver" => "Restaurants", "a_content" => 1],
+            ['round' => 5, 'game_id' => 603,  'q_audio' =>  null, "q_content" => "No", "q_conver" => null, "a_content" => 0],
+
+        ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 3  Lesson 6 Game 604 ( reading passage )
+        ////////////////////////////////////////////////////////
+
+        $G3_L20_reading_passage_path = "Grade_3/" . "Lesson_20/" . "reading_passage/";
+        $l20_G604_image = $domain . "/storage/images/Grade_3/lesson_20/reading_passage/";
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 604, "q_audio" =>  $AudioDomain . $G3_L20_reading_passage_path . "restaurant.mp3", 'q_content' => "Restaurant", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 1, 'game_id' => 604, "q_audio" =>  $AudioDomain . $G3_L20_reading_passage_path . "zoo.mp3", 'q_content' => "Zoo", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 1, 'game_id' => 604, "q_audio" =>  $AudioDomain . $G3_L20_reading_passage_path . "cinema.mp3", 'q_content' => "Cinema", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 1, 'game_id' => 604, "q_audio" => $AudioDomain . $G3_L20_reading_passage_path . "what-is-your-fav-place.mp3", "q_conver" => "What is your favorite place?", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 1, 'game_id' => 604, "q_audio" => $AudioDomain . $G3_L20_reading_passage_path . "my-fav-place-in-town-is.mp3", "q_content" => null, 'q_conver' => "My favorite place in town is cinema. We always go to the cinema on Sunday afternoons. My mom and my dad take me every weekend. They show films for children. Sometimes we have popcorn and sweets. But I don't go to the cinema during the week because I go to school from Monday to Friday. After the movie, we go out for dinner. It has got a nice restaurant in the town. Sometimes it is crowded on the weekends.", 'a_content' => null, "background" => $l20_G604_image . "bg.jpg"],
+
+
+            ['round' => 2, 'game_id' => 604, "q_audio" =>  $AudioDomain . $G3_L20_reading_passage_path . "saturday.mp3", 'q_content' => "Saturday", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 2, 'game_id' => 604, "q_audio" =>  $AudioDomain . $G3_L20_reading_passage_path . "sunday.mp3", 'q_content' => "Sunday", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 2, 'game_id' => 604, "q_audio" =>  $AudioDomain . $G3_L20_reading_passage_path . "during-the-week.mp3", 'q_content' => "During the week", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 2, 'game_id' => 604, "q_audio" => $AudioDomain . $G3_L20_reading_passage_path . "when-do-you-go.mp3", "q_conver" =>  "When do you go to the cinema?", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 2, 'game_id' => 604, "q_audio" => $AudioDomain . $G3_L20_reading_passage_path . "my-fav-place-in-town-is.mp3", "q_content" => null, 'q_conver' => "My favorite place in town is cinema. We always go to the cinema on Sunday afternoons. My mom and my dad take me every weekend. They show films for children. Sometimes we have popcorn and sweets. But I don't go to the cinema during the week because I go to school from Monday to Friday. After the movie, we go out for dinner. It has got a nice restaurant in the town. Sometimes it is crowded on the weekends.", 'a_content' => null, "background" => $l20_G604_image . "bg.jpg"],
+
+
+            ['round' => 3, 'game_id' => 604, "q_audio" =>  $AudioDomain . $G3_L20_reading_passage_path . "breakfast.mp3", 'q_content' => "Breakfast",  "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 3, 'game_id' => 604, "q_audio" =>  $AudioDomain . $G3_L20_reading_passage_path . "lunch.mp3", 'q_content' => "Lunch",  "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 3, 'game_id' => 604, "q_audio" =>  $AudioDomain . $G3_L20_reading_passage_path . "dinner.mp3", 'q_content' => "Dinner",  "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 3, 'game_id' => 604, "q_audio" => $AudioDomain . $G3_L20_reading_passage_path . "after-the-movie.mp3", "q_conver" => "After the movie, we go out for", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 3, 'game_id' => 604, "q_audio" => $AudioDomain . $G3_L20_reading_passage_path . "my-fav-place-in-town-is.mp3", "q_content" => null, 'q_conver' => "My favorite place in town is cinema. We always go to the cinema on Sunday afternoons. My mom and my dad take me every weekend. They show films for children. Sometimes we have popcorn and sweets. But I don't go to the cinema during the week because I go to school from Monday to Friday. After the movie, we go out for dinner. It has got a nice restaurant in the town. Sometimes it is crowded on the weekends.", 'a_content' => null, "background" => $l20_G604_image . "bg.jpg"],
+
+
+            ['round' => 4, 'game_id' => 604, "q_audio" =>  $AudioDomain . $G3_L20_reading_passage_path . "mom.mp3", 'q_content' => "Your mom", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 4, 'game_id' => 604, "q_audio" =>  $AudioDomain . $G3_L20_reading_passage_path . "dad.mp3", 'q_content' => "Your father", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 4, 'game_id' => 604, "q_audio" =>  $AudioDomain . $G3_L20_reading_passage_path . "both.mp3", 'q_content' => "Both your mom and dad", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 4, 'game_id' => 604, "q_audio" => $AudioDomain . $G3_L20_reading_passage_path . "who-take-to.mp3", "q_conver" =>  "Who take you to the cinema?", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 4, 'game_id' => 604, "q_audio" => $AudioDomain . $G3_L20_reading_passage_path . "my-fav-place-in-town-is.mp3", "q_content" => null, 'q_conver' => "My favorite place in town is cinema. We always go to the cinema on Sunday afternoons. My mom and my dad take me every weekend. They show films for children. Sometimes we have popcorn and sweets. But I don't go to the cinema during the week because I go to school from Monday to Friday. After the movie, we go out for dinner. It has got a nice restaurant in the town. Sometimes it is crowded on the weekends.", 'a_content' => null, "background" => $l20_G604_image . "bg.jpg"],
+
+
+            ['round' => 5, 'game_id' => 604, "q_audio" =>  $AudioDomain . $G3_L20_reading_passage_path . "on-saturday.mp3", 'q_content' => "On Saturday", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 5, 'game_id' => 604, "q_audio" =>  $AudioDomain . $G3_L20_reading_passage_path . "on-sunday.mp3", 'q_content' => "On Sunday", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 5, 'game_id' => 604, "q_audio" =>  $AudioDomain . $G3_L20_reading_passage_path . "during-the-week.mp3", 'q_content' => "During the week", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 5, 'game_id' => 604, "q_audio" => $AudioDomain . $G3_L20_reading_passage_path . "when-do-you-go-to-the-res.mp3", "q_conver" => "When do you go to the restaurant?", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 5, 'game_id' => 604, "q_audio" => $AudioDomain . $G3_L20_reading_passage_path . "my-fav-place-in-town-is.mp3", "q_content" => null, 'q_conver' => "My favorite place in town is cinema. We always go to the cinema on Sunday afternoons. My mom and my dad take me every weekend. They show films for children. Sometimes we have popcorn and sweets. But I don't go to the cinema during the week because I go to school from Monday to Friday. After the movie, we go out for dinner. It has got a nice restaurant in the town. Sometimes it is crowded on the weekends.", 'a_content' => null, "background" => $l20_G604_image . "bg.jpg"],
+
+        ]);
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 3  Lesson 20 Game 605 (  Speaking Practice )
+        //////////////////////////////////////////////////////////////
+
+        $G3_L20_practice_speaking = "Grade_3/" . "Lesson_20/" . "practice_speaking/";
+        $l20_G605image = $domain . "/storage/images/Grade_3/lesson_20/practice_speaking/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 605, 'q_image' => $l20_G605image . "town-like.png", "q_content" => "Has your town got a library?", "round_instruction" => $AudioDomain . $G3_L20_practice_speaking . "library" . ".mp3"],
+            ['round' => 2, 'game_id' => 605, 'q_image' => $l20_G605image . "town-dislike.png", "q_content" => "Has your town got a laundromat?", "round_instruction" => $AudioDomain . $G3_L20_practice_speaking . "laundromat" . ".mp3"],
+            ['round' => 3, 'game_id' => 605, 'q_image' => $l20_G605image . "town-like.png", "q_content" => "Has your town got a hotel?", "round_instruction" => $AudioDomain . $G3_L20_practice_speaking . "hotel" . ".mp3"],
+            ['round' => 4, 'game_id' => 605, 'q_image' => $l20_G605image . "town-dislike.png", "q_content" => "Has your town got a zoo?", "round_instruction" => $AudioDomain . $G3_L20_practice_speaking . "zoo" . ".mp3"],
+            ['round' => 5, 'game_id' => 605, 'q_image' => $l20_G605image . "town-like.png", "q_content" => "Has your town got a clinic?", "round_instruction" => $AudioDomain . $G3_L20_practice_speaking . "clinic" . ".mp3"],
+            ['round' => 6, 'game_id' => 605, 'q_image' => $l20_G605image . "town-like.png", "q_content" => "Has your town got a bookstore?", "round_instruction" => $AudioDomain . $G3_L20_practice_speaking . "bookstore" . ".mp3"],
+            ['round' => 7, 'game_id' => 605, 'q_image' => $l20_G605image . "town-dislike.png", "q_content" => "Has your town got a post office?", "round_instruction" => $AudioDomain . $G3_L20_practice_speaking . "post-office" . ".mp3"],
+            ['round' => 8, 'game_id' => 605, 'q_image' => $l20_G605image . "town-like.png", "q_content" => "Has your town got a park?", "round_instruction" => $AudioDomain . $G3_L20_practice_speaking . "park" . ".mp3"],
+        ]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 3  Lesson 20 Game 606 ( Writing )
+        ////////////////////////////////////////////////////////
+
+        $l20_G606_image = $domain . "/storage/images/Grade_3/lesson_20/writing/";
+        $G3_L20_writing = "Grade_3/" . "Lesson_20/" . "writing/";
+
+        $sampleANS_G3_L20_game606 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum ";
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 606,
+                'a_content' => $sampleANS_G3_L20_game606
+            ],
         ]);
     }
 }

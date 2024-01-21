@@ -638,7 +638,7 @@ class AnsNQueSeeder extends Seeder
         $G2_L4_Game269_Matching_image = [
 
             ['desk', 'deer', 'door', 'doll', 'dinosaur'],
-            ['cake', 'circle', 'cup', 'cat', "circle"],
+            ['cake', 'circle', 'cup', 'cat', "clock"],
 
         ];
 
@@ -828,7 +828,7 @@ class AnsNQueSeeder extends Seeder
         foreach ($ans_G277 as $key) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 277, 'a_content' => $key, 'a_image' => $l6_G277_G278_image . $ans_G277[$G2_L6_Game277_index] . ".jpg",
+                    'game_id' => 277, 'a_content' => $key, 'a_image' => $l6_G277_G278_image . $ans_G277[$G2_L6_Game277_index] . ".png",
                     'a_audio' => $AudioDomain . $G2_L6_reading . strtolower($ans_G277[$G2_L6_Game277_index]) . ".mp3"
                 ],
             ]);
@@ -858,21 +858,18 @@ class AnsNQueSeeder extends Seeder
         $G2_L6_Game279_Matching = [
 
             ['Dark eyes', 'Short hair', 'Long hair', 'Round face', "Oval face"],
-            ['Short hair', 'Dark eyes',   "Oval face", 'Round face', 'Long hair'],
 
         ];
 
         $G2_L6_Game279_Matching_image = [
 
             ['long-hair', 'oval-face', 'short-hair', 'dark-eyes', "round-face"],
-            ['oval-face', 'long-hair',  "round-face", 'dark-eyes', 'short-hair'],
 
         ];
 
         $G2_L6_Game279_Matching_image_que = [
 
             'long hair', 'oval face', 'short hair', 'dark eyes', "round face",
-            'oval face', 'long hair',  "round face", 'dark eyes', 'short hair',
 
         ];
         $G2_L6_Game279_Matching_image_que_index = 0;
@@ -1021,14 +1018,14 @@ class AnsNQueSeeder extends Seeder
         $G2_L7_Game284_Matching = [
 
             ['Fan', 'Farmer', 'Flower', 'Earth', "Eagle"],
-            ['Fox', 'Fish', 'Forg', 'Elbow', "Envelope"],
+            ['Fox', 'Fish', 'Frog', 'Elbow', "Envelope"],
 
         ];
 
         $G2_L7_Game284_Matching_image = [
 
             ['earth', 'fan', 'eagle', 'farmer', "flower"],
-            ['fish', 'forg', 'fox', 'envelope', 'elbow'],
+            ['fish', 'frog', 'fox', 'envelope', 'elbow'],
 
         ];
 
@@ -1459,12 +1456,12 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 297,  'q_image' => $l9_G297_image . "thin-dog.png", "q_content" => "Look at the picture and speak. What about you? Do you like it?"],
+            ['round' => 1, 'game_id' => 297,  'q_image' => $l9_G297_image . "thin-dog.png", "q_content" => "Look at the picture and speak. \nWhat about you? Do you like it?"],
             ['round' => 2, 'game_id' => 297,  'q_image' => $l9_G297_image . "yellowhat.png", "q_content" => "Look at the picture and speak. What about you? Do you like it?"],
-            ['round' => 3, 'game_id' => 297,  'q_image' => $l9_G297_image . "house.png", "q_content" => "Look at the picture and speak. What about you? Do you like it?"],
-            ['round' => 4, 'game_id' => 297,  'q_image' => $l9_G297_image . "blue-hat.png", "q_content" => "Look at the picture and speak. What about you? Do you like it?"],
-            ['round' => 5, 'game_id' => 297,  'q_image' => $l9_G297_image . "fat-dog.png", "q_content" => "Look at the picture and speak. What about you? Do you like it?"],
-            ['round' => 6, 'game_id' => 297,  'q_image' => $l9_G297_image . "drink.png", "q_content" => "Look at the picture and speak. What about you? Do you like it?"],
+            ['round' => 3, 'game_id' => 297,  'q_image' => $l9_G297_image . "house.png", "q_content" => "Look at the picture and speak. \nWhat about you? Do you like it?"],
+            ['round' => 4, 'game_id' => 297,  'q_image' => $l9_G297_image . "blue-hat.png", "q_content" => "Look at the picture and speak. \nWhat about you? Do you like it?"],
+            ['round' => 5, 'game_id' => 297,  'q_image' => $l9_G297_image . "fat-dog.png", "q_content" => "Look at the picture and speak. \nWhat about you? Do you like it?"],
+            ['round' => 6, 'game_id' => 297,  'q_image' => $l9_G297_image . "drink.png", "q_content" => "Look at the picture and speak. \nWhat about you? Do you like it?"],
 
         ]);
 
