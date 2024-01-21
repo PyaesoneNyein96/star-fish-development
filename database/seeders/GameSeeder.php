@@ -781,7 +781,7 @@ class GameSeeder extends Seeder
             ['name' => 'Video', 'unit_id' => 339, 'category_id' => 1, 'instructionGIF' => null],
             ['name' => 'Listen and Repeat', 'unit_id' => 340, 'category_id' => 2, 'instructionGIF' => null],
             ['name' => 'Trace Words', 'unit_id' => 341, 'category_id' => 31, 'instructionGIF' => null],
-            ['name' => 'Listen and Choose', 'unit_id' => 342, 'category_id' => 37, 'instructionGIF' => null],
+            ['name' => 'Listen and Choose', 'unit_id' => 342, 'category_id' => 21, 'instructionGIF' => null],
             ['name' => 'Speak', 'unit_id' => 343, 'category_id' => 11, 'instructionGIF' => null,],
 
 
@@ -800,7 +800,7 @@ class GameSeeder extends Seeder
 
             ['name' => 'Grammar Explanation', 'unit_id' => 351, 'category_id' => 1, 'instructionGIF' => null],
             ['name' => 'Listen and Repeat', 'unit_id' => 352, 'category_id' => 2, 'instructionGIF' => null],
-            ['name' => 'Choose', 'unit_id' => 353, 'category_id' => 37, 'instructionGIF' => null],
+            ['name' => 'Choose', 'unit_id' => 353, 'category_id' => 21, 'instructionGIF' => null],
             ['name' => 'Listen and write', 'unit_id' => 354, 'category_id' => 39,  'instructionGIF' => null],
             ['name' => 'Speak', 'unit_id' => 355, 'category_id' => 11,  'instructionGIF' => null],
 
