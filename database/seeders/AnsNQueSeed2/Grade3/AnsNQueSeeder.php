@@ -37,7 +37,7 @@ class AnsNQueSeeder extends Seeder
 
 
         $ans_G459 = [
-            "He is a writer", "She is a shopkeeper", "She is a teacher", "He is a farmer",  "He is a dancer", "She is a student", "He is a sailor", "She is a flight attendant", "He is a pilot", "He is a waiter", "He is an engineer", "He is a bus driver", "She is a singer", "He is a guitarist", "He is a taxi driver"
+            "He is a writer", "She is a shopkeeper", "She is a teacher", "He is a farmer", "She is a student", "He is a flight attendant", "He is a pilot", "He is a waiter", "He is an engineer", "He is a bus driver", "She is a singer", "He is a guitarist", "He is a taxi driver"
         ];
 
         $G3_L1_Game459_index = 0;
@@ -61,14 +61,14 @@ class AnsNQueSeeder extends Seeder
         $l1_G460_image = $domain . "/storage/images/Grade_3/lesson_1/learning_n_practice/";
         $G3_L1_look_n_write = "Grade_3/" . "Lesson_1/" . "learning_n_practice/";
 
-        $q_content_G3_L1_Game460_img = ["doctor", "dancer", "teacher", "writer", "farmer", "shopkeeper", "flight-attendant", "engineer", "waiter", "student"];
+        $q_content_G3_L1_Game460_img = ["doctor", "dancer", "teacher", "writer", "farmer", "shopkeeper",  "engineer", "waiter"];
 
         $a_content_G3_L1_Game460 = [
-            'Yes, He is a doctor', 'He is a dancer', 'She is a teacher', 'He is a writer', 'He is a farmer', 'She is a shopkeeper', 'she is a flight attendant', 'He is an engineer', "They are waiters", "I am a student"
+            'Yes, He is a doctor', 'He is a dancer', 'She is a teacher', 'He is a writer', 'He is a farmer', 'She is a shopkeeper', 'He is an engineer', "They are waiters",
         ];
 
         $q_content_G3_L1_Game460 = [
-            'What is he?', 'What is he?', 'What is he?', 'What is he?', 'What is he?', 'What is she?', 'What is she?', 'What is he?', "What are they?", "What are you?"
+            'What is he?', 'What is he?', 'What is he?', 'What is he?', 'What is he?', 'What is she?', 'What is he?', "What are they?"
         ];
 
         foreach ($q_content_G3_L1_Game460_img as $key => $value) {

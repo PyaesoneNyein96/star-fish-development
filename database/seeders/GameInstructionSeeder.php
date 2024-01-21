@@ -983,6 +983,45 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Answer the question", 'game_id' => 351, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
 
 
+
+
+
+
+
+
+
+            //////////////////////////////////
+            ///////       Grade 3      ///////
+            //////////////////////////////////
+
+            // G-3 lesson_1 U-429
+            ['content' => "Listen and Repeat", 'game_id' => 459, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_1 U-430
+            ['content' => "Look at the pictures and answer the question", 'game_id' => 460, 'audio' =>  $Instructions . "Look-at-the-pictures-and-answe" . ".mp3"],
+
+            // G-2 lesson_1 U-431
+            ['content' => "Listen and choose the correct answer", 'game_id' => 461, 'audio' =>  $Instructions . "Listen-and-choose-the-correct" . ".mp3"],
+
+            // G-2 lesson_1 U-434
+            ['content' => "Describe your family member", 'game_id' => 464, 'audio' =>  $Instructions . "Describe-your-family-members-H" . ".mp3"],
+
+
+
+            // G-3 lesson_2 U-436
+            ['content' => "Listen and Repeat", 'game_id' => 466, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-2 lesson_1 U-437
+            ['content' => "Look at the pictures and answer the question", 'game_id' => 467, 'audio' =>  $Instructions . "Look-at-the-pictures-and-answe" . ".mp3"],
+
+            // G-2 lesson_1 U-438
+            ['content' => "Look at the pictures and choose the right answer", 'game_id' => 468, 'audio' =>  $Instructions . "look-at-the-pictures-and-choos" . ".mp3"],
+
+
+            // G-2 lesson_1 U-439
+            ['content' => "Listen and choose the right question", 'game_id' => 469, 'audio' =>  $Instructions . "Listen-and-choose-the-right-qu" . ".mp3"],
+
+
         ]);
 
         // // Grade 3   (Temporary)

@@ -1692,35 +1692,35 @@ class AnsNQueSeeder extends Seeder
 
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "Do-you-like-cake.mp3", 'q_content' =>  "Yes, I do.", 'a_content' => 1, 'q_image' =>  $l12G306image . "cake.png"],
-            ['round' => 1, 'game_id' => 306, 'q_audio' => null,  'q_content' =>  "No, I don't.", 'a_content' => 0, 'q_image' => null],
+            ['round' => 1, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "Do-you-like-cake.mp3", 'q_conver' => "Do you like cake?", 'q_content' =>  "Yes, I do.", 'a_content' => 1, 'q_image' =>  $l12G306image . "cake.png"],
+            ['round' => 1, 'game_id' => 306, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "No, I don't.", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 2, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "SubBlock_Do-you-like-Hamburger-Yes-I-d.mp3",  'q_content' =>  "Yes, I do.", 'a_content' => 0, 'q_image' =>  $l12G306image . "hamburger.png"],
-            ['round' => 2, 'game_id' => 306, 'q_audio' => null,  'q_content' =>  "No, I don't.", 'a_content' => 1, 'q_image' => null],
+            ['round' => 2, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "SubBlock_Do-you-like-Hamburger-Yes-I-d.mp3", 'q_conver' => "Do you like hamburger?", 'q_content' =>  "Yes, I do.", 'a_content' => 0, 'q_image' =>  $l12G306image . "hamburger.png"],
+            ['round' => 2, 'game_id' => 306, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "No, I don't.", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 3, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "Do-you-like-biscuits.mp3",  'q_content' =>  "Yes, I do.", 'a_content' => 0, 'q_image' =>  $l12G306image . "cookie.png"],
-            ['round' => 3, 'game_id' => 306, 'q_audio' => null,  'q_content' =>  "No, I don't.", 'a_content' => 1, 'q_image' => null],
+            ['round' => 3, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "Do-you-like-biscuits.mp3", 'q_conver' => "Do you like biscuits?", 'q_content' =>  "Yes, I do.", 'a_content' => 0, 'q_image' =>  $l12G306image . "cookie.png"],
+            ['round' => 3, 'game_id' => 306, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "No, I don't.", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 4, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "Do-you-like-milk.mp3", 'q_content' =>  "Yes, I do.", 'a_content' => 1, 'q_image' =>  $l12G306image . "milk.png"],
-            ['round' => 4, 'game_id' => 306, 'q_audio' => null,  'q_content' =>  "No, I don't.", 'a_content' => 0, 'q_image' => null],
+            ['round' => 4, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "Do-you-like-milk.mp3", 'q_conver' => "Do you like milk?", 'q_content' =>  "Yes, I do.", 'a_content' => 1, 'q_image' =>  $l12G306image . "milk.png"],
+            ['round' => 4, 'game_id' => 306, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "No, I don't.", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 5, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "Do-you-like-vegetables.mp3",  'q_content' =>  "Yes, I do.", 'a_content' => 0, 'q_image' =>  $l12G306image . "vege.png"],
-            ['round' => 5, 'game_id' => 306, 'q_audio' => null,  'q_content' =>  "No, I don't.", 'a_content' => 1, 'q_image' => null],
+            ['round' => 5, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "Do-you-like-vegetables.mp3", 'q_conver' => "Do you like vegetables?", 'q_content' =>  "Yes, I do.", 'a_content' => 0, 'q_image' =>  $l12G306image . "vege.png"],
+            ['round' => 5, 'game_id' => 306, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "No, I don't.", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 6, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "SubBlock_Do-you-like-bread-Yes-I-do-No.mp3", 'q_content' =>  "Yes, I do.", 'a_content' => 1, 'q_image' =>  $l12G306image . "bread.png"],
-            ['round' => 6, 'game_id' => 306, 'q_audio' => null,  'q_content' =>  "No, I don't.", 'a_content' => 0, 'q_image' => null],
+            ['round' => 6, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "SubBlock_Do-you-like-bread-Yes-I-do-No.mp3", 'q_conver' => "Do you like bread?", 'q_content' =>  "Yes, I do.", 'a_content' => 1, 'q_image' =>  $l12G306image . "bread.png"],
+            ['round' => 6, 'game_id' => 306, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "No, I don't.", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 7, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "Do-you-like-fruit.mp3", 'q_content' =>  "Yes, I do.", 'a_content' => 1, 'q_image' =>  $l12G306image . "fruit.png"],
-            ['round' => 7, 'game_id' => 306, 'q_audio' => null,  'q_content' =>  "No, I don't.", 'a_content' => 0, 'q_image' => null],
+            ['round' => 7, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "Do-you-like-fruit.mp3", 'q_conver' => "Do you like fruits?", 'q_content' =>  "Yes, I do.", 'a_content' => 1, 'q_image' =>  $l12G306image . "fruit.png"],
+            ['round' => 7, 'game_id' => 306, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "No, I don't.", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 8, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "Do-you-like-friend-rice.mp3", 'q_content' =>  "Yes, I do.", 'a_content' => 1, 'q_image' =>  $l12G306image . "fried-rice.png"],
-            ['round' => 8, 'game_id' => 306, 'q_audio' => null,  'q_content' =>  "No, I don't.", 'a_content' => 0, 'q_image' => null],
+            ['round' => 8, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "Do-you-like-friend-rice.mp3", 'q_conver' => "Do you like fried rice?", 'q_content' =>  "Yes, I do.", 'a_content' => 1, 'q_image' =>  $l12G306image . "fried-rice.png"],
+            ['round' => 8, 'game_id' => 306, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "No, I don't.", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 9, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "Do-you-like-salad.mp3", 'q_content' =>  "Yes, I do.", 'a_content' => 1, 'q_image' =>  $l12G306image . "salad.png"],
-            ['round' => 9, 'game_id' => 306, 'q_audio' => null,  'q_content' =>  "No, I don't.", 'a_content' => 0, 'q_image' => null],
+            ['round' => 9, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "Do-you-like-salad.mp3", 'q_conver' => "Do you like salad?", 'q_content' =>  "Yes, I do.", 'a_content' => 1, 'q_image' =>  $l12G306image . "salad.png"],
+            ['round' => 9, 'game_id' => 306, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "No, I don't.", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 10, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "Do-you-like-fish.mp3", 'q_content' =>  "Yes, I do.", 'a_content' => 1, 'q_image' =>  $l12G306image . "fish.png"],
-            ['round' => 10, 'game_id' => 306, 'q_audio' => null,  'q_content' =>  "No, I don't.", 'a_content' => 0, 'q_image' => null],
+            ['round' => 10, 'game_id' => 306, 'q_audio' => $AudioDomain . $G2_L12_listen_n_choose_path . "Do-you-like-fish.mp3", 'q_conver' => "Do you like fish?", 'q_content' =>  "Yes, I do.", 'a_content' => 1, 'q_image' =>  $l12G306image . "fish.png"],
+            ['round' => 10, 'game_id' => 306, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "No, I don't.", 'a_content' => 0, 'q_image' => null],
 
         ]);
 
