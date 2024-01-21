@@ -68,31 +68,34 @@ class PSNAnsNQuesG2Seeder extends Seeder
         $audio = $AudioDomain."Grade_2/Lesson_21/Matching/";
         $img = $ImageDomain."Grade_2/Lesson_21/Matching/";
 
+        foreach ($ans as $key => $val) {
+            DB::table('ans_n_ques')->insert([
+                 [
+                     'game_id' => 354,
+                     'round' => 1,
+                     'q_content' => strtolower($val),
+                     'q_image' => $img.$val.".png",
+                     'q_audio' => $audio.$val.".mp3",
+                 ]
+             ]);
+     }
+
+
 
         foreach ($contents as $key => $val) {
                DB::table('ans_n_ques')->insert([
                     [
                         'game_id' => 354,
                         'round' => 1,
-                        // 'q_content' => $val,
-                        'q_image' => $val.".png",
+                        'q_image' => $val,
                         'q_audio' => $audio.$val.".mp3",
+                        'q_content' => $val,
                     ]
                 ]);
         }
 
 
-        foreach ($ans as $key => $val) {
-               DB::table('ans_n_ques')->insert([
-                    [
-                        'game_id' => 354,
-                        'round' => 1,
-                        'q_content' => strtolower($val),
-                        'q_image' => $img.$val.".png",
-                        'q_audio' => $audio.$val.".mp3",
-                    ]
-                ]);
-        }
+
 
 
     // ========================================
@@ -120,9 +123,9 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 'round' => $key + 1,
                 'q_image' => $img.$val.".png",
                 'q_audio' => $audio.str_replace('_','-',$val).".mp3",
-                'q_content' => "true",
                 'q_conver' => "I can play " .str_replace('_',' ',$val).".Can you play it?",
-                'a_content' =>  true == $ans[$key] ? true :  false ,
+                'q_content' =>  true == $ans[$key] ? "Yes, I can" : "No, I can't",
+                'a_content' =>  "true",
                 ]
         ]);
 
@@ -130,8 +133,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
             [
                 'game_id' => 355,
                 'round' => $key + 1,
-                'q_content' => "false",
-                'a_content' => false == $ans[$key] ? true :  false
+                'q_content' => false == $ans[$key] ? "Yes, I can" : "No, I can't",
+                'a_content' => "false",
             ]
         ]);
     }
@@ -501,7 +504,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
             ['R', 'U', 'R', 'E', 'L'],
             ['O', 'P', 'R','E'],
             ['O', 'R', 'H','N','I'],
-            ['O','Q','I','I','E','S','U','N'],
+            ['O','Q','I','T','E','S','U','N'],
             ['E','Q','E','U','N'],
             ['R','O','E','T','K','C'],
         ];
@@ -527,7 +530,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'game_id' => 370,
                     'round' => $i + 1,
                     'q_image' => $img . ucfirst(strtolower($answers[$i])) . ".png",
-                    'q_audio' => $audio . strtolower($answers[$i]) . ".mp3",
+                    'a_audio' => $audio . strtolower($answers[$i]) . ".mp3",
                     'a_content' => $answers[$i],
                 ]
             ]);
@@ -583,7 +586,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
         $L32U5_given_q = [
             ["Does she like mangoes? ----, She does.", "Yes"],
-            ["What does she eat on Sunday?", "three"],
+            ["What does she eat on Sunday?", "Three mango"],
             ["Can she play badminton? ___ She can.", 'No'],
             ["What color is the rabbit?", "White"],
             ["What is the rabbit's name?.", 'Lovely'],
@@ -950,7 +953,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ['O', 'E', 'S', 'H'],
         ['A', 'E', 'S'],
         ['A', 'X', 'T', 'I'],
-        ['C','T','R','C','K'],
+        ['C','T','R','U','K'],
         ['A','T','O','O','M','A'],
         ['U','N','S'],
         ['A','N','S','E','K']
@@ -977,7 +980,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 'game_id' => 381,
                 'round' => $i + 1,
                 'q_image' => $img . strtolower($answers[$i]) . ".png",
-                'q_audio' => $audio . strtolower($answers[$i]) . ".mp3",
+                'a_audio' => $audio . strtolower($answers[$i]) . ".mp3",
                 'a_content' => $answers[$i],
             ]
         ]);
@@ -1044,7 +1047,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
     // sub -2
 
     $contents = [
-        'deer','duck','elephant','giraffe','monkey','tiger',
+        'Deer','Duck','Elephant','Giraffe','Tiger','Monkey'
      ];
 
      $audio = $AudioDomain."Grade_2/Lesson_27/Reading-2/";
@@ -1128,12 +1131,12 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
         //// Lesson 27 Unit 4 (Speak) <speaking_and_recording>
 
-        // $contents = [
-        //     "elephant", "monkey", "duck", "tiger", "giraffe",
-        // ];
         $contents = [
-           1,3,4,8,10
+            "elephant", "monkey", "duck", "tiger", "giraffe",
         ];
+        // $contents = [
+        //    1,3,4,8,10
+        // ];
 
 
 
@@ -1385,7 +1388,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
             ]);
         }
 
-        // Sub - 1 <Carousel>
+        // Sub - 2 <Carousel>
 
         $contents = [
             'What are your wearing today? I am wearing a yellow blouse.',
@@ -1491,8 +1494,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
     $contents = "boy_and_girl";
 
     $Question_contents = [
-        'My name is Chris. I like sport shirts and shorts. \n My favorite color are brown and blue. \n Today, I am wearing a blue sport shirt and black sandals. \n When I go out, I wear shorts.',
-        'My name is ___. I like ___ and ___., \n My favorite color are ___ and ___. \n Today I am wearing a ___ and white sandals. \n When I go out, I wear ___.',
+        "My name is Chris. I like sport shirts and shorts. \n My favorite color are brown and blue.\n Today, I am wearing a blue sport shirt and black sandals.\n When I go out, I wear shorts.",
+        "My name is ___. I like ___ and ___.,\n My favorite color are ___ and ___.\n Today I am wearing a ___ and white sandals.\n When I go out, I wear ___.",
 
     ];
 
@@ -1618,7 +1621,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'round' => $i + 1,
                     'q_content' => $q,
                     'q_image' => $q,
-                    'q_audio' => $audio . strtolower($q) . ".mp3",
+                    'a_audio' => $audio . $q . ".mp3",
                 ]
             ]);
         }
@@ -1630,7 +1633,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'game_id' => 400, 'round' => $i + 1,
                     'q_content' => strtolower($q),
                     'q_image' => $img . strtolower($q) . ".png",
-                    'q_audio' => $audio . $q . ".mp3",
+                    'a_audio' => $audio . $q . ".mp3",
                 ]
             ]);
         }
@@ -1680,7 +1683,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 'game_id' => 401,
                 'round' => $i + 1,
                 'q_image' => $img . strtolower($answers[$i]) . ".png",
-                'q_audio' => $audio .ucfirst(strtolower($answers[$i])) . ".mp3",
+                'a_audio' => $audio .ucfirst(strtolower($answers[$i])) . ".mp3",
                 'a_content' => $answers[$i],
             ]
         ]);
@@ -1703,7 +1706,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'game_id' => 402,
                     'round' => $key + 1,
                     'round_instruction' => "Look at this picture and speak.",
-                    'q_content' => "Where is the ".$value."?",
+                    'q_content' => "This is ___.",
                     'q_audio' => $AudioDomain."/Grade_2/Lesson_30/Speak/".$value.".mp3",
                     'q_image' => $ImageDomain . "Grade_2/Lesson_30/Speak/" . $value . ".png",
                     'a_content' => str_replace('-', ' ', $value)
@@ -2087,7 +2090,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 'game_id' => 413,
                 'round' => $i + 1,
                 'q_image' => $img . strtolower($answers[$i]) . ".png",
-                'q_audio' => $audio .ucfirst(strtolower($answers[$i])) . ".mp3",
+                'a_audio' => $audio .ucfirst(strtolower($answers[$i])) . ".mp3",
                 'a_content' => $answers[$i],
             ]
         ]);
@@ -2523,7 +2526,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'game_id' => 427,
                     'round' => $i + 1,
                     'q_image' => $img . ucfirst(strtolower($answers[$i])) . ".png",
-                    'q_audio' => $audio . strtolower($answers[$i]) . ".mp3",
+                    'a_audio' => $audio . strtolower($answers[$i]) . ".mp3",
                     'a_content' => $answers[$i],
                 ]
             ]);
@@ -3006,7 +3009,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'game_id' => 444,
                     'round' => $i + 1,
                     'q_image' => $img . ucfirst(strtolower($answers[$i])) . ".png",
-                    'q_audio' => $audio . strtolower($answers[$i]) . ".mp3",
+                    'a_audio' => $audio . strtolower($answers[$i]) . ".mp3",
                     'a_content' => $answers[$i],
                 ]
             ]);
