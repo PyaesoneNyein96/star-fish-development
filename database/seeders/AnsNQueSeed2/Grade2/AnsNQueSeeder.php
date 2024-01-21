@@ -2225,7 +2225,7 @@ class AnsNQueSeeder extends Seeder
             ["L", "O", "N", "I"],
             ["N", "E", "E", "K"],
             ["N", "K", "A", "A", "O", "R", "G", "O"],
-            ["L", "O", "N", "I"],
+            ["L", "E", "K", "E", "T", "T"],
             ["I", "E", "T", "K"],
 
 
@@ -2272,7 +2272,7 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
             ['round' => 1, 'game_id' => 326, "q_audio" =>  $AudioDomain . $G2_L15_reading_passage_path . "sad.mp3", 'q_content' => "sad", "q_conver" => null, 'a_content' => 0, "background" => null],
-            ['round' => 1, 'game_id' => 326, "q_audio" =>  $AudioDomain . $G2_L15_reading_passage_path . "satisfied.mp3", 'q_content' => "thirsty", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 1, 'game_id' => 326, "q_audio" =>  $AudioDomain . $G2_L15_reading_passage_path . "satisfied.mp3", 'q_content' => "satisfied", "q_conver" => null, 'a_content' => 1, "background" => null],
             ['round' => 1, 'game_id' => 326, "q_audio" => $AudioDomain . $G2_L15_reading_passage_path . "They-are-when-they-fly-kites.mp3", "q_conver" => "They are _____ \nwhen they fly kites.", 'q_content' => null, 'a_content' => null, "background" => null],
             ['round' => 1, 'game_id' => 326, "q_audio" => $AudioDomain . $G2_L15_reading_passage_path . "SubBlock_My-name-is-Chris-I-have-a-fri.mp3", "q_content" => null, 'q_conver' => "My name is Chris. I have a friend. Her name is Rosy. She has a colorful and beautiful kite. Rosy and I like to fly kites in the evening. We are satisfied when we fly kites. My favorite fruit is strawberry. Rosy's favorite food is fried noodles. Rosy and I like chocolate cake. We sometimes go to our favorite restaurant and eat.", 'a_content' => null, "background" => $l15_G326_image . "bg.jpg"],
 
