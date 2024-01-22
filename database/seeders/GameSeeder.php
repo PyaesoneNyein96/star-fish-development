@@ -723,7 +723,7 @@ class GameSeeder extends Seeder
 
 
             ['name' => 'Grammar Explain', 'unit_id' => 315, 'category_id' => 1, 'instructionGIF' => null],
-            ['name' => 'Listen and Repeat', 'unit_id' => 316, 'category_id' => 9, 'instructionGIF' => null],
+            ['name' => 'Listen and Repeat', 'unit_id' => 316, 'category_id' => 2, 'instructionGIF' => null],
             ['name' => 'Speak', 'unit_id' => 317, 'category_id' => 11, 'instructionGIF' =>  $Gif_path . "Speaking.gif"],
             ['name' => 'Listen and Choose', 'unit_id' => 318, 'category_id' => 21, 'instructionGIF' => null],
 
