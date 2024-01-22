@@ -984,6 +984,41 @@ class GameInstructionSeeder extends Seeder
 
 
 
+            // G-2 lesson-21 U-334
+
+            ['content' => "Match the pictures and words. Draw lines", 'game_id' => 354, 'audio' =>  $Instructions . "Match-the-pictures-and-words" . ".mp3"],
+
+            ['content' => "Look at the pictures and speak", 'game_id' => 356, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
+
+            ['content' => "Answer the question", 'game_id' => 360, 'audio' =>  $Instructions .
+            "Look-at-the-pictures-and-speak" . ".mp3"],
+
+            ['content' => "Listen and choose the correct answer", 'game_id' => 364, 'audio' =>  $Instructions . "Listen-and-choose-the-correct" . ".mp3"],
+
+             ['content' => "Now talk about yourself", 'game_id' => 365, 'audio' =>  $Instructions . "Now-talk-about-yourself" . ".mp3"],
+
+            ['content' => "Listen and Repeat", 'game_id' => 367, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Arranging the letters", 'game_id' => 370, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+
+            ['content' => "Look at the pictures and speak", 'game_id' => 371, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
+
+            ['content' => "Look at the pictures and speak", 'game_id' => 377, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
+
+
+            ['content' => "Listen and Repeat", 'game_id' => 378, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Arranging the letters", 'game_id' => 381, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+
+
+            ['content' => "Look at the pictures and speak", 'game_id' => 382, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
+
+            ['content' => "Match the pictures and words. Draw lines", 'game_id' => 391, 'audio' =>  $Instructions . "Match-the-pictures-and-words" . ".mp3"],
+
+
+
+
+
 
 
 
