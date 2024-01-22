@@ -1647,7 +1647,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
     $Questions = [
         ['E', 'G', 'L', 'I', 'V', 'L', 'A'],
-        ['E', 'C', 'L', 'N','C','Y','E','I'],
+        ['E', 'C', 'L', 'N','C','Y','U','I'],
         ['E', 'A', 'S', 'V'],
         ['E', 'T', 'S', 'V'],
         ['O', 'V', 'I', 'N', 'L', 'I'],
