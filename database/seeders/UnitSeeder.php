@@ -968,11 +968,11 @@ class UnitSeeder extends Seeder
 
             // // G3 lesson 19
 
-            ['name' => 'Video', 'lesson_id' => 98],
-            ['name' => 'Listen and Repeat', 'lesson_id' => 98],
-            ['name' => 'practice', 'lesson_id' => 98],
-            ['name' => 'Listen', 'lesson_id' => 98],
-            ['name' => 'Speaking', 'lesson_id' => 98],
+            ['name' => 'Video', 'lesson_id' => 99],
+            ['name' => 'Listen and Repeat', 'lesson_id' => 99],
+            ['name' => 'practice', 'lesson_id' => 99],
+            ['name' => 'Listen', 'lesson_id' => 99],
+            ['name' => 'Speaking', 'lesson_id' => 99],
 
             // // G3 lesson 20
 

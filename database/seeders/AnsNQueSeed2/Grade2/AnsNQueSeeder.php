@@ -1631,7 +1631,7 @@ class AnsNQueSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1, 'game_id' => 302,
-                    'q_audio' => $AudioDomain . $G2_L11_listen_n_write . strtolower($g2_l11_Game302_rearrange_the_letter_a_image_audio[$i]) . ".mp3",
+                    'a_audio' => $AudioDomain . $G2_L11_listen_n_write . strtolower($g2_l11_Game302_rearrange_the_letter_a_image_audio[$i]) . ".mp3",
                     'q_image' => $l11_G302_image .  strtolower($g2_l11_Game302_rearrange_the_letter_a_image_audio[$i]) . ".png",
                     'q_content' => $g2_l11_Game302_rearrange_the_letter_q2[$i],
                     'a_conver' => $g2_l11_Game302_rearrange_the_letter_a_conver[$i],

@@ -1000,8 +1000,6 @@ class GameInstructionSeeder extends Seeder
             // G-2 lesson_1 U-430
             ['content' => "Look at the pictures and answer the question", 'game_id' => 460, 'audio' =>  $Instructions . "Look-at-the-pictures-and-answe" . ".mp3"],
 
-            // G-2 lesson_1 U-431
-            ['content' => "Listen and choose the correct answer", 'game_id' => 461, 'audio' =>  $Instructions . "Listen-and-choose-the-correct" . ".mp3"],
 
             // G-2 lesson_1 U-434
             ['content' => "Describe your family member", 'game_id' => 464, 'audio' =>  $Instructions . "Describe-your-family-members-H" . ".mp3"],
@@ -1060,11 +1058,108 @@ class GameInstructionSeeder extends Seeder
             // G-3 lesson_5 U-457
             ['content' => "Look at the pictures and rearrange the letter", 'game_id' => 488, 'audio' => $Instructions . "Look-at-the-pictures-and-rearr.mp3"],
 
-            // G-3 lesson_5 U-457
-            ['content' => "Look at the pictures and rearrange the letter", 'game_id' => 488, 'audio' => $Instructions . "Look-at-the-pictures-and-rearr.mp3"],
+            // G-3 lesson_5 U-458
+            ['content' => "Look at the pictures and complete the sentences", 'game_id' => 489, 'audio' => $Instructions . "Look-at-the-pictures-and-compl.mp3"],
 
-            // G-3 lesson_5 U-457
-            ['content' => "Look at the pictures and complete the sentences", 'game_id' => 488, 'audio' => $Instructions . "Look-at-the-pictures-and-compl.mp3"],
+            // G-3 lesson_5 U-459
+            ['content' => "Listen and choose the right answers. \nWhat is your favorite fruit or vegetable?", 'game_id' => 490, 'audio' => $Instructions . "Listen-and-choose-the-right-an.mp3"],
+
+            // G-3 lesson_5 U-461
+            ['content' => "Complete the sentences", 'game_id' => 492, 'audio' => $Instructions . "Complete-the-sentences.mp3"],
+
+
+
+
+            // G-3 lesson_6 U-464
+            ['content' => "Listen and Repeat", 'game_id' => 495, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-3 lesson_6 U-465
+            ['content' => "Look at the pictures and complete the sentences", 'game_id' => 496, 'audio' => $Instructions . "Look-at-the-pictures-and-compl.mp3"],
+
+            // G-3 lesson_6 U-466
+            ['content' => "Reading Comprehension. My favorite Sports and Games.", 'game_id' => 497, 'audio' => $Instructions . "Reading-Comprehension-My-favo.mp3"],
+
+
+            // G-3 lesson_6 U-468
+            ['content' => "Listen to the conversation and choose the right answer.", 'game_id' => 499, 'audio' => $Instructions . "SubBlock_Listen-to-the-conversation-and.mp3"],
+
+            // G-3 lesson_6 U-469
+            ['content' => "Complete the sentences", 'game_id' => 500, 'audio' => $Instructions . "Complete-the-sentences.mp3"],
+
+
+
+
+            // G-3 lesson_7 U-472
+            ['content' => "Listen and Repeat", 'game_id' => 503, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-3 lesson_7 U-473
+            ['content' => "Look at the pictures and rearrange the letter", 'game_id' => 504, 'audio' => $Instructions . "Look-at-the-pictures-and-rearr.mp3"],
+
+            // G-3 lesson_7 U-474
+            ['content' => "Look at the pictures and complete the sentences", 'game_id' => 505, 'audio' => $Instructions . "Look-at-the-pictures-and-compl.mp3"],
+
+            // G-3 lesson_7 U-476
+            ['content' => "Listen and Match the people with their favorite subjects.", 'game_id' => 507, 'audio' => $Instructions . "Listen-and-Match-the-people.mp3"],
+
+
+            // G-3 lesson_8 U-479
+            ['content' => "Listen and Repeat", 'game_id' => 510, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-3 lesson_8 U-480
+            ['content' => "Look and Write", 'game_id' => 511, 'audio' => $Instructions . "Look-and-write.mp3"],
+
+            // G-3 lesson_8 U-481
+            ['content' => "Matching things in class", 'game_id' => 512, 'audio' =>  $Instructions . "Matching-things-in-class" . ".mp3"],
+
+            // G-3 lesson_8 U-483
+            ['content' => "Listen and choose the correct answer", 'game_id' => 514, 'audio' =>  $Instructions . "Listen-and-choose-the-correct" . ".mp3"],
+
+            // G-3 lesson_8 U-484
+            ['content' => "Read the text and write Yes or No.", 'game_id' => 515, 'audio' =>  $Instructions . "Read-the-text-and-write-Yes-or" . ".mp3"],
+
+            // G-3 lesson_8 U-485
+            ['content' => "Choose a pet and write about your pet.", 'game_id' => 516, 'audio' =>  $Instructions . "Choose-a-pet-and-write-about-y" . ".mp3"],
+
+
+
+
+            // G-3 lesson_9 U-487
+            ['content' => "Listen and Repeat", 'game_id' => 518, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-3 lesson_9 U-488
+            ['content' => "write the words in the right column", 'game_id' => 519, 'audio' => $Instructions . "write-the-words-in-the-right-c.mp3"],
+
+            // G-3 lesson_9 U-489
+            ['content' => "Fill in the blanks with is or are.", 'game_id' => 520, 'audio' => $Instructions . "Fill-in-the-blanks-with-is-or.mp3"],
+
+            // G-3 lesson_9 U-490
+            ['content' => "Rearrange to make the correct sentences.", 'game_id' => 521, 'audio' => $Instructions . "Rearrange-to-make-the-correct.mp3"],
+
+            // G-3 lesson_9 U-491
+            ['content' => "Listen and choose the correct picture.", 'game_id' => 522, 'audio' => $Instructions . "Listen-and-choose-the-correct-pic.mp3"],
+
+
+
+            // G-3 lesson_10 U-494
+            ['content' => "Listen and Repeat", 'game_id' => 526, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-3 lesson_10 U-495
+            ['content' => "Look at the pictures and fill in the blanks.", 'game_id' => 527, 'audio' => $Instructions . "Look-at-the-pictures-and-fill.mp3"],
+
+            // G-3 lesson_10 U-496
+            ['content' => "Look at the pictures and fill in the blanks.", 'game_id' => 528, 'audio' => $Instructions . "Look-at-the-pictures-and-fill.mp3"],
+
+            // G-3 lesson_10 U-496
+            ['content' => "Look at the pictures and write the sentences.", 'game_id' => 529, 'audio' => $Instructions . "look-at-the-pictures-and-write-senc.mp3"],
+
+            // G-3 lesson_10 U-497
+            ['content' => "Listen and choose the correct answer", 'game_id' => 530, 'audio' =>  $Instructions . "Listen-and-choose-the-correct" . ".mp3"],
+
+            // G-3 lesson_10 U-498
+            ['content' => "Look at the pictures and speak", 'game_id' => 531, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
+
+            // G-3 lesson_10 U-499
+            ['content' => "Read the text and write Yes or No.", 'game_id' => 532, 'audio' =>  $Instructions . "Read-the-text-and-write-Yes-or" . ".mp3"],
 
         ]);
 
