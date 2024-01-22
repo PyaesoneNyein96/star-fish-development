@@ -316,10 +316,12 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
         $G3_L2_Game470_ans = ["boys", "girl-cat", 'girl', "man", "old", "boy"];
+        $l2_G401image = $domain . "/storage/images/Grade_3/lesson_2/writing_topic/";
+
 
         foreach ($G3_L2_Game470_ans as $key => $value) {
             DB::table('ans_n_ques')->insert([
-                ["round" => $key + 1, 'game_id' => 470, 'q_content' => $value],
+                ["round" => $key + 1, 'game_id' => 470, 'q_content' => $l2_G401image . $value . ".png"],
             ]);
         }
 

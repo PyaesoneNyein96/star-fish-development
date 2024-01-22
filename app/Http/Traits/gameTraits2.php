@@ -137,11 +137,6 @@ trait gameTraits2
         return $this->common_fun($game, $unit);
     }
 
-    public function reading_carousel_two($game, $student, $unit)
-    {
-        return $this->common_fun($game, $unit);
-    }
-
     public function look_and_write($game, $student, $unit)
     {
         return $this->common_fun($game, $unit);
@@ -188,6 +183,30 @@ trait gameTraits2
     }
 
 
+    // reading_carousel_two
+    public function reading_carousel_two($game, $student, $unit)
+    {
+        if (isset($game[0])) $game = $game[0];
+
+        $roundExist = $game->ans_n_ques->some(function ($g) {
+            return array_key_exists('round', $g->toArray());
+        });
+
+        return [
+
+            'game_id' => $game->id,
+            'lesson_id' => $unit->lesson_id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'game_status' => $game->status,
+            'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
+            'instructionGIF'  => $game->instructionGIF,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
+            'data' => $game->ans_n_ques->groupBy('q_content')->values()
+
+        ];
+    }
 
     // common function
     private function common_fun($game, $unit)

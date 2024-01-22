@@ -1485,18 +1485,30 @@ class AnsNQueSeeder extends Seeder
 
 
         $ansL10_G299 = [
-            "new-house", "old-house", "heavy-bag", "light-bag",  "hot-coffee", "cold-water", "easy-lesson", "difficult-lesson", "long-pencil", "short-pencil", "clean-jacket", "dirty-jacket"
+            ["new-house", "old-house"],
+            ["heavy-bag", "light-bag"],
+            ["hot-coffee", "cold-water"],
+            ["easy-lesson", "difficult-lesson"],
+            ["long-pencil", "short-pencil"],
+            ["clean-jacket", "dirty-jacket"]
         ];
 
         $G2_L10_Game299_index = 0;
 
-        foreach ($ansL10_G299 as $key) {
-            DB::table('ans_n_ques')->insert([
-                [
-                    'game_id' => 299, 'a_content' => $key, 'a_image' => $l10_G299_image . $ansL10_G299[$G2_L10_Game299_index] . ".png",
-                    'a_audio' => $AudioDomain . $G2_L10_listen_n_repeat . strtolower($ansL10_G299[$G2_L10_Game299_index]) . ".mp3"
-                ],
-            ]);
+        for ($i = 0; $i < count($ansL10_G299); $i++) {
+            for ($j = 0; $j < count($ansL10_G299[$i]); $j++) {
+                $key = $ansL10_G299[$i][$j];
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 299,
+                        'a_content' => $key,
+                        'a_image' => $l10_G299_image . $key . ".png",
+                        'a_audio' => $AudioDomain . $G2_L10_listen_n_repeat . strtolower($key) . ".mp3",
+                        'q_content' => $G2_L10_Game299_index
+                    ],
+                ]);
+            }
             $G2_L10_Game299_index++;
         }
 
@@ -2078,7 +2090,7 @@ class AnsNQueSeeder extends Seeder
         $G2_L14_Speaking = "Grade_2/" . "Lesson_14/" . "Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 320,  'q_image' => $l14_G320_image . "speaker.png", "q_content" => "Hello, my name is _____. I am ___ years old. I am _____. I have ______ and _______. I have ______. My favorite food is _______. My favorite juice is ______. My favorite animal is ______."],
+            ['round' => 1, 'game_id' => 320,  'q_image' => $l14_G320_image . "speaker.png", "q_audio" => $AudioDomain . $G2_L14_Speaking . "Hello-my-name-is-Jack-I-am-6.mp3", "q_content" => "Hello, my name is _____. I am ___ years old. I am _____. I have ______ and _______. I have ______. My favorite food is _______. My favorite juice is ______. My favorite animal is ______."],
         ]);
 
 
@@ -2259,7 +2271,7 @@ class AnsNQueSeeder extends Seeder
         $G2_L15_Speaking = "Grade_2/" . "Lesson_15/" . "Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 325,  'q_image' => $l15_G325_image . "speaker.png", "q_content" => "My name's _____. I have a _______. His/her name's ______. She has a ______  kite. _____ and I like kites. They are ______  and _______. We fly kites in the ______ . We are ______ when we fly kites. "],
+            ['round' => 1, 'game_id' => 325,  'q_image' => $l15_G325_image . "speaker.png", "q_audio" => $AudioDomain . $G2_L15_Speaking . "My-names-Chris-I-have-a-frie.mp3", "q_content" => "My name's _____. I have a _______. His/her name's ______. She has a ______  kite. _____ and I like kites. They are ______  and _______. We fly kites in the ______ . We are ______ when we fly kites. "],
         ]);
 
 

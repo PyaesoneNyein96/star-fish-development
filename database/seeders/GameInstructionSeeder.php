@@ -1011,15 +1011,31 @@ class GameInstructionSeeder extends Seeder
             // G-3 lesson_2 U-436
             ['content' => "Listen and Repeat", 'game_id' => 466, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
-            // G-2 lesson_1 U-437
+            // G-2 lesson_2 U-437
             ['content' => "Look at the pictures and answer the question", 'game_id' => 467, 'audio' =>  $Instructions . "Look-at-the-pictures-and-answe" . ".mp3"],
 
-            // G-2 lesson_1 U-438
+            // G-2 lesson_2 U-438
             ['content' => "Look at the pictures and choose the right answer", 'game_id' => 468, 'audio' =>  $Instructions . "look-at-the-pictures-and-choos" . ".mp3"],
 
 
-            // G-2 lesson_1 U-439
+            // G-2 lesson_2 U-439
             ['content' => "Listen and choose the right question", 'game_id' => 469, 'audio' =>  $Instructions . "Listen-and-choose-the-right-qu" . ".mp3"],
+
+
+            // G-3 lesson_3 U-443
+            ['content' => "Listen and Repeat", 'game_id' => 473, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-3 lesson_3 U-444
+            ['content' => "Look at the pictures and write", 'game_id' => 474, 'audio' => $Instructions . "Look-at-the-pictures-and-write.mp3"],
+
+            // G-3 lesson_3 U-445
+            ['content' => "Listen and write the jobs for each person", 'game_id' => 475, 'audio' => $Instructions . "Listen-and-write-the-jobs-for.mp3"],
+
+            // G-2 lesson_3 U-446
+            ['content' => "Look at the pictures and answer the question", 'game_id' => 476, 'audio' =>  $Instructions . "Look-at-the-pictures-and-answe" . ".mp3"],
+
+            // G-2 lesson_3 U-447
+            ['content' => "Write about your dream job. \nWhat do you want to be? What do your brothers and sisters want to be?", 'game_id' => 477, 'audio' =>  $Instructions . "Write-about-your-dream-job-Wh" . ".mp3"],
 
 
         ]);
