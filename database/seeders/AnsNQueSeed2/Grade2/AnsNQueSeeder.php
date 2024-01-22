@@ -1581,15 +1581,15 @@ class AnsNQueSeeder extends Seeder
         ];
 
         $g2_l11_Game302_rearrange_the_letter_q2 = [
-            "Is this your car? \nNo, it isn't. My car is ____.\n\nIs it red? No, it isn't. It is ____.",
+            "Is this your car? No, it isn't. My car is ____. \nIs it red? No, it isn't. It is ____.",
 
             "Is this your bag? Yes, it is. \nIs it light? No, it isn't. It is ____.",
 
             "Is this your pencil? Yes, it is. \nIs it short? No, it isn't. It is ____.",
 
-            "Is this your cat? \nNo, it isn't. My cat is ____.\n\nIs it black? No, it isn't. It is ____.",
+            "Is this your cat? No, it isn't. My cat is ____. \nIs it black? No, it isn't. It is ____.",
 
-            "Is this your frog? \nNo, it isn't. My frog is ____.\n\nIs it yellow? No, it isn't. It is ____.",
+            "Is this your frog? No, it isn't. My frog is ____. \nIs it yellow? No, it isn't. It is ____.",
         ];
 
         $g2_l11_Game302_rearrange_the_letter_a = [

@@ -1038,6 +1038,34 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Write about your dream job. \nWhat do you want to be? What do your brothers and sisters want to be?", 'game_id' => 477, 'audio' =>  $Instructions . "Write-about-your-dream-job-Wh" . ".mp3"],
 
 
+
+            // G-2 lesson_4 U-450
+            ['content' => "Look at the family tree and add the words to it. And repeat the words", 'game_id' => 480, 'audio' =>  $Instructions . "Look-at-the-family-tree-and-ad" . ".mp3"],
+
+            // G-2 lesson_4 U-451
+            ['content' => "Listen to two conversations. How is the second person related to the first person.", 'game_id' => 481, 'audio' =>  $Instructions . "Listen-to-two-conversations-H" . ".mp3"],
+            // G-2 lesson_4 U-452
+            ['content' => "Listen to two conversations. How is the second person related to the first person.", 'game_id' => 482, 'audio' =>  $Instructions . "Listen-to-two-conversations-H" . ".mp3"],
+
+            // G-2 lesson_4 U-453
+            ['content' => "Write about your family members. What are their names? \nWhat are they? What are they like? What do they look like?", 'game_id' => 483, 'audio' =>  $Instructions . "Write-about-your-family-member" . ".mp3"],
+
+
+            // G-3 lesson_5 U-455
+            ['content' => "Listen and Repeat", 'game_id' => 486, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // G-3 lesson_5 U-456
+            ['content' => "Write the fruits and vegetables in the correct box.", 'game_id' => 487, 'audio' => $Instructions . "Write-the-fruit-and-vegetables.mp3"],
+
+            // G-3 lesson_5 U-457
+            ['content' => "Look at the pictures and rearrange the letter", 'game_id' => 488, 'audio' => $Instructions . "Look-at-the-pictures-and-rearr.mp3"],
+
+            // G-3 lesson_5 U-457
+            ['content' => "Look at the pictures and rearrange the letter", 'game_id' => 488, 'audio' => $Instructions . "Look-at-the-pictures-and-rearr.mp3"],
+
+            // G-3 lesson_5 U-457
+            ['content' => "Look at the pictures and complete the sentences", 'game_id' => 488, 'audio' => $Instructions . "Look-at-the-pictures-and-compl.mp3"],
+
         ]);
 
         // // Grade 3   (Temporary)
