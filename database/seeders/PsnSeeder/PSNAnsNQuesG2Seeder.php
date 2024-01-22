@@ -2861,8 +2861,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
         // Lesson 37 unit-2 listen and learn <reading_carousel>
         $contents = range(1,10);
 
-        $audio = $AudioDomain."Grade_2/Lesson_37/Listen_and_Repeat/Reading-1";
-        $img = $ImageDomain."Grade_2/Lesson_37/Listen_and_Repeat/Reading-1";
+        $audio = $AudioDomain."Grade_2/Lesson_37/Listen_and_Learn/Reading-1/";
+        $img = $ImageDomain."Grade_2/Lesson_37/Listen_and_Learn/Reading-1/";
 
         foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
@@ -2870,7 +2870,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'game_id' => 437,
                     'a_content' => $val." bottle",
                     'a_image' => $img.str_replace(' ','-',$val).".png",
-                    'a_audio' => $audio.str_replace(' ','-',$val."-bottle").".mp3"
+                    'a_audio' => $audio.str_replace(' ','-',$val."-green-bottles").".mp3"
                 ],
             ]);
         }
@@ -2933,7 +2933,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
     // sub -2
 
     $contents = [
-        'eight watermelons','five cars','four banana','nice cats','two bottles',
+        'eight watermelons','five cars','four bananas','nine cats','two balls',
         'one apple','seven oranges','six bottles' ,'ten dogs', 'three cups'
      ];
 
@@ -3088,8 +3088,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
                         'game_id' => 445,
                         'round' => $i + 1,
                         'q_content' => strtolower($q),
-                        'q_image' => $img . strtolower($q) . ".png",
-                        'q_audio' => $audio . $q . ".mp3",
+                        'q_image' => $img . ucfirst(strtolower($q)) . ".png",
+                        'q_audio' => $audio .  strtolower($q) . ".mp3",
                     ]
                 ]);
             }
@@ -3100,7 +3100,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
     // Lesson - 38 Unit -5 Speak
 
        $contents = [
-            "two cats", "10 dogs", "5 apples", "8 balls", "5 bottles"
+            "two cats", "ten dogs", "five apples", "seven balls", "five bottles"
         ];
 
         $Question_contents = [
@@ -3125,8 +3125,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'round' => $key + 1,
                     'round_instruction' => "Look at this picture and speak.",
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $audio.str_replace('-', ' ', $value).".mp3",
-                    'q_image' => $img.str_replace('-', ' ', $value). ".png",
+                    'q_audio' => $audio.str_replace(' ', '-', $value).".mp3",
+                    'q_image' => $img.str_replace(' ', '-', $value). ".png",
                     // 'a_content' => str_replace('-', ' ', $value)
                 ]
 
@@ -3153,7 +3153,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 448, 'a_content' => $val,
-                'a_image' => $img.str_replace(' ','-',$val)."-hr.png",
+                'a_image' => $img.str_replace(' ','-',$val).".png",
                 'a_audio' => $audio.str_replace(' ','-',$val)."hr.mp3"
             ],
         ]);
@@ -3164,7 +3164,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
     $contents = [
         'time-to-go-home','time-to-have-dinner','time-to-get-up','time-to-have-breakfast',
-        'time-to-go-to-school','time-to-go-back','time-to-have-lunch',''
+        'time-to-go-to-school','time-to-go-bed','time-to-have-lunch',
      ];
 
      $audio = $AudioDomain."Grade_2/Lesson_39/Listen_and_Repeat/Reading-2/";
@@ -3219,6 +3219,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
         "12 O'clock","2 O'clock","4 O'clock","6 O'clock","8 O'clock",
     ];
 
+    $aud = [1,3,5,7,9,12,2,4,6,8];
+
     $audio = $AudioDomain."Grade_2/Lesson_39/Look_and_write/";
     $img = $ImageDomain."Grade_2/Lesson_39/Look_and_write/";
 
@@ -3227,8 +3229,9 @@ class PSNAnsNQuesG2Seeder extends Seeder
             [
                 'game_id' => 450,
                 'round' => $key + 1,
-                'q_audio' => $audio.$val.".mp3",
+                'q_audio' => $audio.$aud[$key]."hr.mp3",
                 'q_content' => $given_ques[$key][0],
+                'q_image' => $img.$val.".png",
                 // 'q_conver'  =>  "Where is the $val ?". $second_q_contents[$key] ,
                 'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
             ]
@@ -3288,7 +3291,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 'game_id' => 451,
                 'round' => $key + 1,
                 'a_image' => $img.$v.".png",
-                'a_audio' => $audio.$convers[$key][$k].".mp3",
+                'a_audio' => str_replace(' ','-',$audio.$convers[$key][$k]).".mp3",
                 'a_conver' => $convers[$key][$k],
                 "background" => $img."bg".$key + 1 .".png"
                 ]
@@ -3333,7 +3336,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'round' => $key + 1,
                     'round_instruction' => $round_ins[$key],
                     'q_content' =>  $value,
-                    'q_audio' => $audio.$data[$key].".mp3",
+                    // 'q_audio' => $audio.$data[$key].".mp3",
                     'q_image' => $img . $data[$key] . ".png",
                     // 'a_content' => str_replace('-', ' ', $value)
                 ]
@@ -3347,14 +3350,14 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
  $contents = [3,5,6,7,8,10];
 
-    $audio = $AudioDomain."Grade_2/Lesson_39/Listen_and_Repeat/";
-    $img = $ImageDomain."Grade_2/Lesson_39/Listen_and_Repeat/";
+    $audio = $AudioDomain."Grade_2/Lesson_40/Listen_and_Repeat/";
+    $img = $ImageDomain."Grade_2/Lesson_40/Listen_and_Repeat/";
 
     foreach ($contents as $val) {
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 454, 'a_content' => $val,
-                'a_image' => $img.str_replace(' ','-',$val)."-hr.png",
+                'a_image' => $img.str_replace(' ','-',$val).".png",
                 'a_audio' => $audio.str_replace(' ','-',$val)."hr.mp3"
             ],
         ]);
@@ -3382,11 +3385,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
     $audio = $AudioDomain."Grade_2/Lesson_40/Listen_and_Practice/";
     $img = $ImageDomain."Grade_2/Lesson_40/Listen_and_Practice/";
 
-    $second_q_contents = [
-        'The cat ___ the table.', 'The cow ___ the farm house.', 'The dog ___ the chair.',
-        'The rabbit ___ the bush.','The quail ___  the tree.','It is ___ the nest.',
-        'it is ___ the tree.'
-    ];
+
 
     $ans = [
         7,5,12,10,6
@@ -3438,6 +3437,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
          ["10 O'clock", "5 O'clock", "7 O'clock","9 O'clock","6 O'clock"],
         ];
 
+
         $randomValues = [
            [2,11,4,3,1],
            [5,6,10,7,9],
@@ -3448,7 +3448,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
         for ($i = 0; $i < count($contents); $i++) {
 
-            foreach ($contents[$i] as $q) {
+            foreach ($contents[$i] as $k => $q) {
 
                 DB::table('ans_n_ques')->insert([
                     [
@@ -3456,7 +3456,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                         'round' => $i + 1,
                         'q_content' => $q,
                         'q_image' => $q,
-                        'q_audio' => $audio . strtolower($q) . ".mp3",
+                        'q_audio' => $audio . strtolower(str_replace(' ','-',$q)) . ".mp3",
                     ]
                 ]);
             }
@@ -3468,8 +3468,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
                         'game_id' => 456,
                         'round' => $i + 1,
                         'q_content' => strtolower($q),
-                        'q_image' => $img . strtolower($q) . ".png",
-                        'q_audio' => $audio . $q . ".mp3",
+                        'q_image' => $img . strtolower($q) . "hr.png",
+                        'q_audio' => $audio . $q."-o'clock" . ".mp3",
                     ]
                 ]);
             }
@@ -3497,8 +3497,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
             "On-Saturday-he-gets-up",
             "After-lunch-he-sleep-for.mp3",
             "He-goes-to-bad.mp3",
-            "He-eat-breakfast",
-            "Chris-goes-to-school"
+            "He-eat-breakfast.mp3",
+            "Chris-goes-to-school.mp3"
         ];
 
         $paraName = "Chris-is-student.mp3";
