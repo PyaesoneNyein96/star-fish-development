@@ -1593,7 +1593,7 @@ class AnsNQueSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1, 'game_id' => 520,
-                    "q_image" => $l9_G520_G521_image . $g3_l9_Game520_fill_audio_img[$i] . ".png",
+                    "q_image" => $l9_G520_G521_image . $g3_l9_Game520_fill_audio_img[$i] . "1/" . ".png",
                     'q_audio' => $AudioDomain . $G3_L9_language_n_practice . $g3_l9_Game520_fill_audio_img[$i] . ".mp3",
                     'q_content' => $g3_l9_Game520_fill_q2[$i],
                     'a_content' => $g3_l9_Game520_fill_a[$i]
@@ -1632,7 +1632,7 @@ class AnsNQueSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1, 'game_id' => 521,
-                    'q_image' => $l9_G520_G521_image . str_replace(' ', '', strtolower($audio_img_G521[$G521_Index])) . ".png",
+                    'q_image' => $l9_G520_G521_image . str_replace(' ', '', strtolower($audio_img_G521[$G521_Index])) . "2/" . ".png",
                     'a_audio' => $AudioDomain . $G3_L9_language_n_practice . strtolower($audio_img_G521[$G521_Index]) . ".mp3",
                     'a_content' => $a_G521[$G521_Index],
                 ],
