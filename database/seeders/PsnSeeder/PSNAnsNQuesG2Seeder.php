@@ -2293,7 +2293,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 'game_id' => 418,
                 'round' => $key + 1,
                 // 'round_instruction' => "Look at this picture and speak.",
-                'q_content' => "Look at this picture and speak.",
+                // 'q_content' => "Look at this picture and speak.",
                 'q_audio' => $AudioDomain."/Grade_2/Lesson_33/Speak/".$contents[$key].".mp3",
                 'q_image' => $ImageDomain . "Grade_2/Lesson_33/Speak/" . $value . ".png",
                 'a_content' => str_replace('-', ' ', $value)
@@ -2798,8 +2798,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
         $questionAudio = [
             "today_is_friday_restaurant.mp3",
-            "today_is_friday_market.mp3",
-            "today_is_friday_cinema.mp3",
+            "today_is_Sunday_library.mp3",
+            "today_is_Saturday_cinema.mp3",
         ];
 
         $img = $ImageDomain . "Grade_2/Lesson_36/Speak/";
@@ -2815,7 +2815,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'q_content' => $value,
                     'q_image' => $img . str_replace(' ', '-', $contentImg[$key]) . ".png",
                     'a_content' => null,
-                    // 'q_audio' => $audio.$questionAudio[$key],
+                    'q_audio' => $audio.$questionAudio[$key],
                 ]
 
             ]);
