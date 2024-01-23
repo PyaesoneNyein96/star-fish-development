@@ -1183,7 +1183,7 @@ class GameSeeder extends Seeder
             //////////////////////////////////////////
 
 
-            // // G3 lesson 21
+            // // // G3 lesson 21
 
             ['name' => 'Video', 'unit_id' => 572, 'category_id' => 1, "instructionGIF" => null],
             ['name' => 'Reading', 'unit_id' => 573, 'category_id' => 2, "instructionGIF" => null],      //
@@ -1427,13 +1427,13 @@ class GameSeeder extends Seeder
         DB::table('games')->insert([
             // // G4 lesson 1
 
-            ['name' => 'Video', 'unit_id' => 428, 'category_id' => 1, "instructionGIF" => null],
-            ['name' => 'Vocabulary', 'unit_id' => 429, 'category_id' => 2, "instructionGIF" => null],
-            ['name' => 'Listen and Practice', 'unit_id' => 430, 'category_id' => 34, "instructionGIF" => $Gif_path .  "Writing-Preview.gif"],
-            ['name' => 'Listen', 'unit_id' => 431, 'category_id' => 39, "instructionGIF" => $Gif_path .  "Listen-and-choose-correct.gif"],
-            ['name' => 'Speaking Practice', 'unit_id' => 432, 'category_id' => 11, "instructionGIF" =>  $Gif_path . "Speaking.gif"],
-            ['name' => 'Writing', 'unit_id' => 433, 'category_id' => 26, "instructionGIF" => $Gif_path . "Writing.gif"],
-            ['name' => 'Speaking Practice', 'unit_id' => 434, 'category_id' => 42, "instructionGIF" =>  $Gif_path . "Speaking.gif"],
+            // ['name' => 'Video', 'unit_id' => 428, 'category_id' => 1, "instructionGIF" => null],
+            // ['name' => 'Vocabulary', 'unit_id' => 429, 'category_id' => 2, "instructionGIF" => null],
+            // ['name' => 'Listen and Practice', 'unit_id' => 430, 'category_id' => 34, "instructionGIF" => $Gif_path .  "Writing-Preview.gif"],
+            // ['name' => 'Listen', 'unit_id' => 431, 'category_id' => 39, "instructionGIF" => $Gif_path .  "Listen-and-choose-correct.gif"],
+            // ['name' => 'Speaking Practice', 'unit_id' => 432, 'category_id' => 11, "instructionGIF" =>  $Gif_path . "Speaking.gif"],
+            // ['name' => 'Writing', 'unit_id' => 433, 'category_id' => 26, "instructionGIF" => $Gif_path . "Writing.gif"],
+            // ['name' => 'Speaking Practice', 'unit_id' => 434, 'category_id' => 42, "instructionGIF" =>  $Gif_path . "Speaking.gif"],
 
         ]);
 

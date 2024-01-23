@@ -54,7 +54,7 @@ class CategorySeeder extends Seeder
             'look_and_write',
             'speak_listen_and_record',
             'rearrange_and_fill_blanks',
-            'mcq_grammar_two',
+            'matching_columns_two',
             'listening_conversation_and_record_audio',
             'listening_choosing_answer',
             'choose_right_sentence',
