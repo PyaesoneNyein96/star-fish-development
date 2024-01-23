@@ -1128,7 +1128,7 @@ class UnitSeeder extends Seeder
             ['name' => 'Writing (Arrange order)', 'lesson_id' => 113],
             ['name' => 'Listen', 'lesson_id' => 113],
             ['name' => 'Speaking', 'lesson_id' => 113],
-            ['name' => 'Free Practice', 'lesson_id' => 113],
+            ['name' => 'Free Speaking Practice', 'lesson_id' => 113],
 
 
             // // G3 lesson 34
