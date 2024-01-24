@@ -784,14 +784,14 @@ class AnsNQueSeeder extends Seeder
 
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 32, 'q_image' => $l6G32image . "crayon.png", "q_content" => "Look at the picture and say the words. \nWhat's this?", "round_instruction" => $G1_L6_Speaking . "Look-at-the-picture-and-say-th.mp3"],
-            ['round' => 2, 'game_id' => 32, 'q_image' => $l6G32image . "eraser.png", "q_content" => "Look at the picture and say the words. \nWhat's this?", "round_instruction" => $G1_L6_Speaking . "Look-at-the-picture-and-say-th.mp3"],
-            ['round' => 3, 'game_id' => 32, 'q_image' => $l6G32image . "pen.png", "q_content" => "Look at the picture and say the words. \nWhat's this?", "round_instruction" => $G1_L6_Speaking . "Look-at-the-picture-and-say-th.mp3"],
-            ['round' => 4, 'game_id' => 32, 'q_image' => $l6G32image . "pencilcase.png", "q_content" => "Look at the picture and say the words. \nWhat's this?", "round_instruction" => $G1_L6_Speaking . "Look-at-the-picture-and-say-th.mp3"],
-            ['round' => 5, 'game_id' => 32, 'q_image' => $l6G32image . "ruler.png", "q_content" => "Look at the picture and say the words. \nWhat's this?", "round_instruction" => $G1_L6_Speaking . "Look-at-the-picture-and-say-th.mp3"],
-            ['round' => 6, 'game_id' => 32, 'q_image' => $l6G32image . "sharpener.png", "q_content" => "Look at the picture and say the words. \nWhat's this?", "round_instruction" => $G1_L6_Speaking . "Look-at-the-picture-and-say-th.mp3"],
-            ['round' => 7, 'game_id' => 32, 'q_image' => $l6G32image . "bag.png", "q_content" => "Look at the picture and say the words. \nWhat's this?", "round_instruction" => $G1_L6_Speaking . "Look-at-the-picture-and-say-th.mp3"],
-            ['round' => 8, 'game_id' => 32, 'q_image' => $l6G32image . "book.png", "q_content" => "Look at the picture and say the words. \nWhat's this?", "round_instruction" => $G1_L6_Speaking . "Look-at-the-picture-and-say-th.mp3"],
+            ['round' => 1, 'game_id' => 32, 'q_image' => $l6G32image . "crayon.png", "q_content" => "Look at the picture and say the words. \nWhat's this?", "round_instruction" => $AudioDomain . $G1_L6_Speaking . "Look-at-the-picture-and-say-th.mp3"],
+            ['round' => 2, 'game_id' => 32, 'q_image' => $l6G32image . "eraser.png", "q_content" => "Look at the picture and say the words. \nWhat's this?", "round_instruction" => $AudioDomain . $G1_L6_Speaking . "Look-at-the-picture-and-say-th.mp3"],
+            ['round' => 3, 'game_id' => 32, 'q_image' => $l6G32image . "pen.png", "q_content" => "Look at the picture and say the words. \nWhat's this?", "round_instruction" => $AudioDomain . $G1_L6_Speaking . "Look-at-the-picture-and-say-th.mp3"],
+            ['round' => 4, 'game_id' => 32, 'q_image' => $l6G32image . "pencilcase.png", "q_content" => "Look at the picture and say the words. \nWhat's this?", "round_instruction" => $AudioDomain . $G1_L6_Speaking . "Look-at-the-picture-and-say-th.mp3"],
+            ['round' => 5, 'game_id' => 32, 'q_image' => $l6G32image . "ruler.png", "q_content" => "Look at the picture and say the words. \nWhat's this?", "round_instruction" => $AudioDomain . $G1_L6_Speaking . "Look-at-the-picture-and-say-th.mp3"],
+            ['round' => 6, 'game_id' => 32, 'q_image' => $l6G32image . "sharpener.png", "q_content" => "Look at the picture and say the words. \nWhat's this?", "round_instruction" => $AudioDomain . $G1_L6_Speaking . "Look-at-the-picture-and-say-th.mp3"],
+            ['round' => 7, 'game_id' => 32, 'q_image' => $l6G32image . "bag.png", "q_content" => "Look at the picture and say the words. \nWhat's this?", "round_instruction" => $AudioDomain . $G1_L6_Speaking . "Look-at-the-picture-and-say-th.mp3"],
+            ['round' => 8, 'game_id' => 32, 'q_image' => $l6G32image . "book.png", "q_content" => "Look at the picture and say the words. \nWhat's this?", "round_instruction" => $AudioDomain . $G1_L6_Speaking . "Look-at-the-picture-and-say-th.mp3"],
         ]);
 
 
