@@ -1808,6 +1808,17 @@ class AnsNQueSeeder extends Seeder
 
         for ($i = 0; $i < count($G1_L10_Game57_Matching); $i++) {
 
+            foreach ($G1_L10_Game57_Matching[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 57, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $q, 'q_audio' => $AudioDomain . $G1_L10_Matching .   strtolower($G1_L10_Game57_Matching_audio[$G1_L10_Game57_index]) . ".mp3",
+                    ]
+                ]);
+                $G1_L10_Game57_index++;
+            }
+
             foreach ($G1_L10_Game57_Matching_image[$i] as $q) {
 
                 DB::table('ans_n_ques')->insert([
@@ -1818,17 +1829,6 @@ class AnsNQueSeeder extends Seeder
                 ]);
                 $G1_L10_Game57_index++;
                 $G1_L10_Game57_index_img++;
-            }
-
-            foreach ($G1_L10_Game57_Matching[$i] as $q) {
-
-                DB::table('ans_n_ques')->insert([
-                    [
-                        'game_id' => 57, 'round' => $i + 1, 'q_content' => $q,
-                        'q_image' => $q, 'q_audio' => $AudioDomain . $G1_L10_Matching .   strtolower($G1_L10_Game57_Matching_audio[$G1_L10_Game57_index]) . ".mp3",
-                    ]
-                ]);
-                $G1_L10_Game57_index++;
             }
         }
 
@@ -5582,22 +5582,22 @@ class AnsNQueSeeder extends Seeder
 
         for ($i = 0; $i < count($G1_L28_Game175_Matching_image); $i++) {
 
-            foreach ($G1_L28_Game175_Matching_image[$i] as $q) {
-
-                DB::table('ans_n_ques')->insert([
-                    [
-                        'game_id' => 175, 'round' => $i + 1, 'q_content' => $q,
-                        'q_image' => $l28G175image . str_replace(' ', '', strtolower($q)) . ".png", 'q_audio' => $AudioDomain . $G1_L28_Matching . str_replace(' ', '', strtolower($q)) . ".mp3",
-                    ]
-                ]);
-            }
-
             foreach ($G1_L28_Game175_Matching[$i] as $q) {
 
                 DB::table('ans_n_ques')->insert([
                     [
                         'game_id' => 175, 'round' => $i + 1, 'q_content' => $q,
                         'q_image' => $q, 'q_audio' => $AudioDomain . $G1_L28_Matching . $q . ".mp3",
+                    ]
+                ]);
+            }
+
+            foreach ($G1_L28_Game175_Matching_image[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 175, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $l28G175image . str_replace(' ', '', strtolower($q)) . ".png", 'q_audio' => $AudioDomain . $G1_L28_Matching . str_replace(' ', '', strtolower($q)) . ".mp3",
                     ]
                 ]);
             }
@@ -5986,22 +5986,22 @@ class AnsNQueSeeder extends Seeder
 
         for ($i = 0; $i < count($G1_L30_Game187_Matching); $i++) {
 
-            foreach ($G1_L30_Game187_Matching_image[$i] as $q) {
-
-                DB::table('ans_n_ques')->insert([
-                    [
-                        'game_id' => 187, 'round' => $i + 1, 'q_content' => $q,
-                        'q_image' => $l30_G187_image . str_replace(' ', '', strtolower($q)) . ".png", 'q_audio' => $AudioDomain . $G1_L30_Matching . str_replace(' ', '', strtolower($q)) . ".mp3",
-                    ]
-                ]);
-            }
-
             foreach ($G1_L30_Game187_Matching[$i] as $q) {
 
                 DB::table('ans_n_ques')->insert([
                     [
                         'game_id' => 187, 'round' => $i + 1, 'q_content' => $q,
                         'q_image' => str_replace(' ', '', strtolower($q)), 'q_audio' => $AudioDomain . $G1_L30_Matching . str_replace(' ', '', strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+
+            foreach ($G1_L30_Game187_Matching_image[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 187, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $l30_G187_image . str_replace(' ', '', strtolower($q)) . ".png", 'q_audio' => $AudioDomain . $G1_L30_Matching . str_replace(' ', '', strtolower($q)) . ".mp3",
                     ]
                 ]);
             }

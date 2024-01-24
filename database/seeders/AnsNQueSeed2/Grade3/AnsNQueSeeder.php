@@ -1210,22 +1210,22 @@ class AnsNQueSeeder extends Seeder
 
         $G3_L7_Game507_Matching = [
 
+            'english', 'maths', "social-studies", 'science',
             'james.png', 'alice.png', 'amy.png', 'maria.png',
-            'english', 'maths', "social-studies", 'science'
 
         ];
 
         $G3_L7_Game507_Matching_audio = [
 
+            'english', 'maths', "social-studies", 'science',
             'james', 'alice', 'amy', 'maria',
-            'english', 'maths', "social-studies", 'science'
 
         ];
 
         $G3_L7_Game507_Matching_ans = [
 
+            'English', 'Maths', "social studies", 'science',
             'social studies', 'science', 'Maths', 'English',
-            'English', 'Maths', "social studies", 'science'
 
         ];
 
@@ -3278,7 +3278,7 @@ class AnsNQueSeeder extends Seeder
 
 
         ////////////////////////////////////////////////////////
-        ////    Grade 3  Lesson 17 Game 579 , 580 (  look_n_say  )
+        ////    Grade 3  Lesson 17 Game 579 , 580 (  look and say  )
         ////////////////////////////////////////////////////////
 
         $l17_G579_G580_image = $domain . "/storage/images/Grade_3/lesson_17/look_n_say/";
