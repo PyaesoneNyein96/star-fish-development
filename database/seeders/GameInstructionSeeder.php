@@ -1397,7 +1397,54 @@ class GameInstructionSeeder extends Seeder
             // G-1 lesson_20 U-571
             ['content' => "Imagine a town and write five things It has.", 'game_id' => 606, 'audio' =>  $Instructions . "Imagine-a-town-and-write-five" . ".mp3"],
 
+
+
+
+
+
+
+
+
+
+
+
+            // Grade 3
+            /////////// 21 ////////////////////
+
+            // G-3 lesson_21 U-575
+            ['content' => "Listen and choose the correct picture.", 'game_id' => 611 , 'audio' => $Instructions . "Listen-and-choose-the-correct-pic.mp3"],
+
+            // G-3 lesson_21 U-576
+            ['content' => "Look at the pictures and speak", 'game_id' => 612, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
+
+
+
+            // G-3 lesson_22 U-580
+            ['content' => "Listen and choose the correct picture.", 'game_id' => 617 , 'audio' => $Instructions . "Listen-and-choose-the-correct-pic.mp3"],
+
+
+
+
+
+
+
+
         ]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // // Grade 3   (Temporary)
         // DB::table('game_instructions')->insert([
@@ -1424,5 +1471,20 @@ class GameInstructionSeeder extends Seeder
         //         'audio' =>  $Instructions . "Listen-to-the-audio-and-choose-the-right-picture" . ".mp3"
         //     ],
         // ]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
