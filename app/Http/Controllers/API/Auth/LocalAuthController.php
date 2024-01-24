@@ -24,7 +24,8 @@ class LocalAuthController extends Controller
 
     public function Register(Request $request){
 
-        $tryAgain = Student::where('deviceId', $request->deviceId)->where('status',0)->where('name',$request->name)->where('phone', $request->phone)->exists();
+        $tryAgain = Student::where('deviceId', $request->deviceId)->where('status',0)
+        ->where('name',$request->name)->where('phone', $request->phone)->exists();
 
         if($tryAgain  == 1 && $request->token !== null ){
            return $this->Request_otp($request);
