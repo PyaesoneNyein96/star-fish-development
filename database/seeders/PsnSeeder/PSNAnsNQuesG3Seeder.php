@@ -3217,42 +3217,267 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
 
-    // Unit 2 Vocabulary  <Reading_carousel>
+    // Unit 2 Vocabulary  <cl>
 
-        // $contents = [
-        //     ['Tall','Short'],
-        //     ['Young','Old'],
-        //     ['Fat','Thing'],
-        //     ['Married','Single'],
-        //     ['New','Old'],
-        //     ['Handsome','Ugly'],
-        //     ['Large','Small'],
-        //     ['Noisy','Quite'],
-        //     ['Expensive','Cheap'],
-        //     ['Rich','Poor'],
-        //     ['Easy','Difficult']
+        $contents = [
+            ['Tall','Short'],
+            ['Young','Old'],
+            ['Fat','Thing'],
+            ['Married','Single'],
+            ['New','Old'],
+            ['Handsome','Ugly'],
+            ['Large','Small'],
+            ['Noisy','Quite'],
+            ['Expensive','Cheap'],
+            ['Rich','Poor'],
+            ['Easy','Difficult']
+        ];
+
+        $audio = $AudioDomain."Grade_3/Lesson_33/Vocabulary/";
+        $img = $ImageDomain."Grade_3/Lesson_33/Vocabulary/";
+
+        foreach ($contents as $key =>  $val) {
+
+            foreach ($val as $v) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 697,
+                        'a_content' => $v,
+                        'a_image' => $img.$this->removeSpace($v).".png",
+                        'a_audio' => $audio.$this->removeSpace($v).".mp3",
+                        'q_content' => $key
+                    ],
+                ]);
+            }
+
+
+        }
+
+
+
+
+        // Unit 3 Write the opposite <write_opposite>
+
+        $audio = $AudioDomain."Grade_3/Lesson_33/Write_the_opposite/";
+        $img = $ImageDomain."Grade_3/Lesson_33/Write_the_opposite/";
+
+        $contents = [
+            'noisy','expensive','ugly','fat','married','old','easy','poor'
+        ];
+
+        $ans = [
+            'quiet','cheap','handsome','thin','single','young','difficult','rich'
+        ];
+
+        foreach ($contents as $key => $value) {
+            DB::table('ans_n_ques')->insert([
+               [
+                'game_id' => 698,
+                'round' => $key + 1,
+                'q_image' => $img.$value.".png",
+                'q_audio' => $audio.$value.".mp3",
+                'q_content' => $value,
+                'a_content' => $ans[$key],
+               ],
+           ]);
+       }
+
+
+    // Unit -3 Writing (Arranging) <rearrange_with_audio>
+
+        $given_ans = [
+            ['Are','they','married','?'],
+            ['difficult','English','is','?'],
+            ['new','car','is','there','?'],
+            ['noisy','he','is','or','quiet','?'],
+            ['dog','your','large','?','is'],
+            ['busy','you','are','?']
+        ];
+
+        $img = $ImageDomain . "Grade_3/Lesson_33/Writing/";
+        $audio = $AudioDomain . "Grade_3/Lesson_33/Writing/";
+
+        $answers = [
+            'Are they married?', 'is English difficult?', 'is there new car?',
+            'Is he noisy or quiet?', 'Is your dog large','Are you busy?'
+        ];
+
+
+        for ($i = 0; $i < count($given_ans); $i++) {
+
+            foreach ($given_ans[$i]  as  $innerVal) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 699,
+                        'round' => $i + 1,
+                        'q_content' => $innerVal
+                    ]
+                ]);
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 699,
+                    'round' => $i + 1,
+                    'q_image' => $img . ucfirst(strtolower($answers[$i])) . ".png",
+                    // 'q_content' => $questions[$i],
+                    'a_audio' => $audio . ucfirst(strtolower($answers[$i])) . ".mp3",
+                    'a_content' => $answers[$i],
+                ]
+            ]);
+        }
+
+
+
+
+    // Unit - 4 Listen and write <listening_choosing_answer>
+
+
+            $audio_q = [
+                'tall','big','ugly','heavy','short'
+            ];
+
+            $given_ans = ["Yes","No"];
+
+            $ques = [
+                "Mrs. Grant is tall.",
+                "Their house is big.",
+                "Their cat is ugly.",
+                "Mrs. Grant is heavy.",
+                "Mrs. Grant is short.",
+            ];
+
+            $ans = [
+                "Yes","No","No","Yes","Yes"
+            ];
+
+            $audio = $AudioDomain."Grade_3/Lesson_33/Listen/";
+            $img = $ImageDomain."Grade_3/Lesson_33/Listen/";
+
+            foreach ($audio_q as $key => $val) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 700,
+                        'round' => $key + 1,
+                        'q_audio' => $audio.$val.".mp3",
+                        'q_content' => $given_ans[0],
+                        'q_conver'  =>  $ques[$key],
+                        'a_content' => $given_ans[0] == $ans[$key] ? true : false
+                    ]
+                ]);
+
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 700,
+                        'round'  => $key +  1,
+                        'q_content' => $given_ans[1],
+                        'a_content' => $given_ans[1] == $ans[$key] ? true : false
+                    ]
+                ]);
+
+
+            }
+
+
+
+    // Unit 6 Speaking <speaking_and_recording>
+
+        $contents = [
+            "new","noisy","cheap","difficult","young"
+        ];
+
+        $Question_contents = [
+            "Tell me about your computer. \n Is is new? \n Yes,it is new",
+            "Tell me about your neighbors? \n Are they noisy?.",
+            "Tell me about the restaurant. \n Is it cheap?",
+            "Tell me about the questions in your English book?. \n Are they difficult?",
+            "Tell me about your boss. \n Is he young?",
+
+        ];
+
+
+
+        $images = $ImageDomain . "Grade_3/Lesson_33/Speaking/";
+        $audios = $AudioDomain . "Grade_3/Lesson_33/Speaking/";
+
+        foreach ($contents as $key => $value) {
+
+            DB::table('ans_n_ques')->insert([
+
+                [
+                    'game_id' => 701,
+                    'round' => $key + 1,
+                    'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                    'q_content' => $Question_contents[$key],
+                    'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                    'q_image' => $images .$this->removeSpace($value) . ".png",
+                ]
+
+            ]);
+        }
+
+
+
+
+
+    //// Unit 7 FreePractice <speaking_and_recording>
+
+
+    $images = $ImageDomain . "Grade_3/Lesson_33/FreePractice/";
+    $audios = $AudioDomain . "Grade_3/Lesson_33/FreePractice/";
+
+
+    DB::table('ans_n_ques')->insert([
+        [
+            'game_id' => 702,
+            'q_content' =>  "Use adjectives to talk about your family member. \n your house, your neighbors and your pets? ",
+            'q_audio' => $audio."Talk-about-your-family-member-use-adjectives.mp3",
+            'q_image' => $images . "green_animal",
+        ]
+
+    ]);
+
+
+
+
+
+
+
+
+
+
+
+        // -----------
+
+
+        // $q_content_G3_L33_U3 = [
+        //     'noisy','expensive','ugly','fat','married','old','easy','poor'
+        // ];
+        // $q_content_G3_L33_U3_img = ['noisy','expensive','ugly','fat','married','old','easy','poor'];
+
+        // $a_content_G3_L33_U3 = [
+        //     'quiet','cheap','handsome','thin','single','young','difficult','rich'
         // ];
 
-        // $audio = $AudioDomain."Grade_3/Lesson_32/Vocabulary/";
-        // $img = $ImageDomain."Grade_3/Lesson_32/Vocabulary/";
+        // $audios = [
+        //     'noisy--quiet','expensive-cheap','handsome--ugly','fat-thin',
+        //     'married--single','young-old','easy-difficult','rich-poor'
+        // ];
 
-        // foreach ($contents as $val) {
-        //     DB::table('ans_n_ques')->insert([
+
+        // foreach ($q_content_G3_L33_U3 as $key => $value) {
+        //      DB::table('ans_n_ques')->insert([
         //         [
-        //             'game_id' => 688,
-        //             'a_content' => $val,
-        //             'a_image' => $img.$this->removeSpace($val).".png",
-        //             'a_audio' => $audio.$this->removeSpace($val).".mp3"
+        //          'game_id' => 698,
+        //          'round' => $key + 1,
+        //          'q_image' => $img.$q_content_G3_L33_U3_img[$key].".png",
+        //          'q_content' => $value, 'a_content' => $a_content_G3_L33_U3[$key],
+        //          'q_audio' => $AudioDomain."Grade_3/Lesson_33/Write_the_Opposite/".$a_content_G3_L33_U3_audio[$key].".mp3"
         //         ],
         //     ]);
         // }
-
-
-
-
-
-
-
 
 
 
