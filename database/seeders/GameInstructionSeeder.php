@@ -1053,11 +1053,13 @@ class GameInstructionSeeder extends Seeder
             // G-3 lesson_1 U-429
             ['content' => "Listen and Repeat", 'game_id' => 459, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
-            // G-2 lesson_1 U-430
+            // G-3 lesson_1 U-430
             ['content' => "Look at the pictures and answer the question", 'game_id' => 460, 'audio' =>  $Instructions . "Look-at-the-pictures-and-answe" . ".mp3"],
 
+            // G-3 lesson_1 U-433
+            ['content' => "Write about your family members and their jobs", 'game_id' => 463, 'audio' =>  $Instructions . "SubBlock_Write-about-your-family-member" . ".mp3"],
 
-            // G-2 lesson_1 U-434
+            // G-3 lesson_1 U-434
             ['content' => "Describe your family member", 'game_id' => 464, 'audio' =>  $Instructions . "Describe-your-family-members-H" . ".mp3"],
 
 
@@ -1065,10 +1067,10 @@ class GameInstructionSeeder extends Seeder
             // G-3 lesson_2 U-436
             ['content' => "Listen and Repeat", 'game_id' => 466, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
-            // G-2 lesson_2 U-437
+            // G-3 lesson_2 U-437
             ['content' => "Look at the pictures and answer the question", 'game_id' => 467, 'audio' =>  $Instructions . "Look-at-the-pictures-and-answe" . ".mp3"],
 
-            // G-2 lesson_2 U-438
+            // G-3 lesson_2 U-438
             ['content' => "Look at the pictures and choose the right answer", 'game_id' => 468, 'audio' =>  $Instructions . "look-at-the-pictures-and-choos" . ".mp3"],
 
 
@@ -1206,16 +1208,16 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Look at the pictures and fill in the blanks.", 'game_id' => 528, 'audio' => $Instructions . "Look-at-the-pictures-and-fill.mp3"],
 
             // G-3 lesson_10 U-496
-            ['content' => "Look at the pictures and write the sentences.", 'game_id' => 529, 'audio' => $Instructions . "look-at-the-pictures-and-write-senc.mp3"],
+            ['content' => "Listen and choose the right answer from the options", 'game_id' => 529, 'audio' => $Instructions . "Listen-and-choose-the-right-answer-from.mp3"],
 
             // G-3 lesson_10 U-497
             // ['content' => "Listen and choose the correct answer", 'game_id' => 530, 'audio' =>  $Instructions . "Listen-and-choose-the-correct" . ".mp3"],
 
             // G-3 lesson_10 U-498
-            ['content' => "Look at the pictures and speak", 'game_id' => 531, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
+            ['content' => "Answer the question", 'game_id' => 531, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
 
             // G-3 lesson_10 U-499
-            ['content' => "Read the text and write Yes or No.", 'game_id' => 532, 'audio' =>  $Instructions . "Read-the-text-and-write-Yes-or" . ".mp3"],
+            ['content' => "Look and Write", 'game_id' => 532, 'audio' => $Instructions . "Look-and-write.mp3"],
 
 
             // G-3 lesson_11 U-502
@@ -1412,7 +1414,7 @@ class GameInstructionSeeder extends Seeder
             /////////// 21 ////////////////////
 
             // G-3 lesson_21 U-575
-            ['content' => "Listen and choose the correct picture.", 'game_id' => 611 , 'audio' => $Instructions . "Listen-and-choose-the-correct-pic.mp3"],
+            ['content' => "Listen and choose the correct picture.", 'game_id' => 611, 'audio' => $Instructions . "Listen-and-choose-the-correct-pic.mp3"],
 
             // G-3 lesson_21 U-576
             ['content' => "Look at the pictures and speak", 'game_id' => 612, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
@@ -1420,7 +1422,7 @@ class GameInstructionSeeder extends Seeder
 
 
             // G-3 lesson_22 U-580
-            ['content' => "Listen and choose the correct picture.", 'game_id' => 617 , 'audio' => $Instructions . "Listen-and-choose-the-correct-pic.mp3"],
+            ['content' => "Listen and choose the correct picture.", 'game_id' => 617, 'audio' => $Instructions . "Listen-and-choose-the-correct-pic.mp3"],
 
 
 
