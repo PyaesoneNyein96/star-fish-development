@@ -301,6 +301,22 @@ trait gameTraits
 
         $rounds =  $game->ans_n_ques->groupBy('round')->values();
 
+
+
+        $data = [];
+
+        foreach ($rounds as  $round) {
+
+            $first = array_slice($round->toArray(),0,4);
+            $second = array_slice($round->toArray(),5);
+            shuffle($second);
+
+            $final = array_merge($first,$second);
+            $data[] = $final;
+        }
+
+
+
         return [
             'game_id' => $game->id,
             'lesson_id' => $unit->lesson_id,
@@ -311,7 +327,7 @@ trait gameTraits
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
-            'rounds' => $rounds
+            'rounds' => $data
         ];
     }
 
