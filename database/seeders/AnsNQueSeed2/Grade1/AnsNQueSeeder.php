@@ -2340,7 +2340,7 @@ class AnsNQueSeeder extends Seeder
         $G1_L13_Speaking = "Grade_1/" . "Lesson_13/" . "Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 77, "q_audio" => $AudioDomain . $G1_L13_Speaking . "soft-Its-soft.mp3", 'q_image' => $l13G77image . "dog.png", "round_instruction" => $AudioDomain . $G1_L13_Speaking . "Describe-the-pictures-Its.mp3", "q_content" => "Describe the picture. It's ____."],
+            ['round' => 1, 'game_id' => 77, "q_audio" => $AudioDomain . $G1_L13_Speaking . "small-Its-small.mp3", 'q_image' => $l13G77image . "dog.png", "round_instruction" => $AudioDomain . $G1_L13_Speaking . "Describe-the-pictures-Its.mp3", "q_content" => "Describe the picture. It's ____."],
             ['round' => 2, 'game_id' => 77, "q_audio" => $AudioDomain . $G1_L13_Speaking . "new-Its-new.mp3", 'q_image' => $l13G77image . "house.png", "round_instruction" => $AudioDomain . $G1_L13_Speaking . "Describe-the-pictures-Its.mp3", "q_content" => "Describe the picture. It's ____."],
             ['round' => 3, 'game_id' => 77, "q_audio" => $AudioDomain . $G1_L13_Speaking . "long---Its-long.mp3", 'q_image' => $l13G77image . "ruler.png", "round_instruction" => $AudioDomain . $G1_L13_Speaking . "Describe-the-pictures-Its.mp3", "q_content" => "Describe the picture. It's ____."],
             ['round' => 4, 'game_id' => 77, "q_audio" => $AudioDomain . $G1_L13_Speaking . "slow-Its-slow.mp3", 'q_image' => $l13G77image . "girl.png", "round_instruction" => $AudioDomain . $G1_L13_Speaking . "Describe-the-pictures-Its.mp3", "q_content" => "Describe the picture. It's ____."],

@@ -3162,19 +3162,19 @@ class AnsNQueSeeder extends Seeder
         DB::table('ans_n_ques')->insert([
 
             ['round' => 1, 'game_id' => 574,  'q_audio' =>  $AudioDomain . $G3_L16_listening . "ovals" . ".mp3", "q_content" => 3, "a_content" => 0],
-            ['round' => 1, 'game_id' => 574,  'q_audio' =>  null, "q_content" => 1, "a_content" => 1],
+            ['round' => 1, 'game_id' => 574,  'q_audio' =>  null, "q_content" => 5, "a_content" => 1],
             ['round' => 1, 'game_id' => 574,  'q_audio' =>  null, "q_content" => 2, "a_content" => 0],
 
             ['round' => 2, 'game_id' => 574,  'q_audio' =>  $AudioDomain . $G3_L16_listening . "star" . ".mp3", "q_content" => 2, "a_content" => 0],
             ['round' => 2, 'game_id' => 574,  'q_audio' =>  null, "q_content" => 5, "a_content" => 0],
-            ['round' => 2, 'game_id' => 574,  'q_audio' =>  null, "q_content" => 3, "a_content" => 1],
+            ['round' => 2, 'game_id' => 574,  'q_audio' =>  null, "q_content" => 1, "a_content" => 1],
 
             ['round' => 3, 'game_id' => 574,  'q_audio' =>  $AudioDomain . $G3_L16_listening . "circles" . ".mp3", "q_content" => 4, "a_content" => 0],
-            ['round' => 3, 'game_id' => 574,  'q_audio' =>  null, "q_content" => 2, "a_content" => 1],
+            ['round' => 3, 'game_id' => 574,  'q_audio' =>  null, "q_content" => 3, "a_content" => 1],
             ['round' => 3, 'game_id' => 574,  'q_audio' =>  null, "q_content" => 1, "a_content" => 0],
 
-            ['round' => 3, 'game_id' => 574,  'q_audio' =>  $AudioDomain . $G3_L16_listening . "squares" . ".mp3", "q_content" => 5, "a_content" => 1],
-            ['round' => 3, 'game_id' => 574,  'q_audio' =>  null, "q_content" => 2, "a_content" => 0],
+            ['round' => 3, 'game_id' => 574,  'q_audio' =>  $AudioDomain . $G3_L16_listening . "squares" . ".mp3", "q_content" => 5, "a_content" => 0],
+            ['round' => 3, 'game_id' => 574,  'q_audio' =>  null, "q_content" => 2, "a_content" => 1],
             ['round' => 3, 'game_id' => 574,  'q_audio' =>  null, "q_content" => 3, "a_content" => 0],
 
         ]);
@@ -3203,8 +3203,8 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 3  Lesson 16 Game 576 ( reading passage )
         ////////////////////////////////////////////////////////
 
-        $G3_L6_reading_passage_path = "Grade_3/" . "Lesson_6/" . "reading_passage/";
-        $l6_G576_image = $domain . "/storage/images/Grade_3/lesson_6/reading_passage/";
+        $G3_L6_reading_passage_path = "Grade_3/" . "Lesson_16/" . "reading_passage/";
+        $l6_G576_image = $domain . "/storage/images/Grade_3/lesson_16/reading_passage/";
 
         DB::table('ans_n_ques')->insert([
 
@@ -3287,7 +3287,7 @@ class AnsNQueSeeder extends Seeder
         $G3_L17_Game579_look_n_say = [
 
             'Yellow', 'Orange', "Green", 'Blue', 'Purple',
-            'green.png', 'purple.png', 'orange.png', 'yellow.png', 'blue.png'
+            $l17_G579_G580_image . 'green.png', $l17_G579_G580_image . 'purple.png', $l17_G579_G580_image . 'orange.png', $l17_G579_G580_image . 'yellow.png', $l17_G579_G580_image .  'blue.png'
 
         ];
 
@@ -3304,7 +3304,7 @@ class AnsNQueSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 579, 'round' => 1, 'q_content' => $G3_L17_Game579_look_n_say_ans[$key],
-                    'q_image' => $l17_G579_G580_image . strtolower($value), 'q_audio' => $AudioDomain . $G3_L17_look_n_say .  strtolower($G3_L17_Game579_look_n_say_ans[$key]) . ".mp3",
+                    'q_image' => $value, 'q_audio' => $AudioDomain . $G3_L17_look_n_say .  strtolower($G3_L17_Game579_look_n_say_ans[$key]) . ".mp3",
                 ]
             ]);
         }
@@ -3501,7 +3501,7 @@ class AnsNQueSeeder extends Seeder
         $ans_G586 = [
             "20", "21", "22", "23", "24", "25", "26", "27", "28", "29",
             "30", "31", "32", "33", "34", "35", "36", "37", "38", "39",
-            "40", "41", "44", "43", "44", "45", "46", "47", "48", "49",
+            "40", "41", "42", "43", "44", "45", "46", "47", "48", "49",
             "50", "51", "52", "53", "54", "55", "56", "57", "58", "59",
             "60", "61", "62", "63", "64", "65", "66", "67", "68", "69",
             "70", "71", "72", "73", "74", "75", "76", "77", "78", "79",
@@ -3763,7 +3763,7 @@ class AnsNQueSeeder extends Seeder
 
         // Game 594
         $ans_G594 = [
-            "be-quiet", "close-the-door", "close-the-book", "come-here", "dont-go-there", "dont-make-a-noise", "draw-a-picture", "listen-up", "open-your-book", "pass-your-ruler",
+            "be-quiet", "close-the-door", "close-your-book", "come-here", "dont-go-there", "dont-make-a-noise", "draw-a-picture", "listen-up", "open-your-book", "pass-your-ruler",
             "put-away-your-books", "put-your-pens", "sit-down", "stand-up"
         ];
 
@@ -3906,9 +3906,9 @@ class AnsNQueSeeder extends Seeder
             ['round' => 4, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Down", "q_conver" => null, "a_content" => 0],
             ['round' => 4, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Up", "q_conver" => null, "a_content" => 1],
 
-            ['round' => 5, 'game_id' => 597,  'q_audio' =>  $AudioDomain . $G3_L19_listen . "dont-sit" . ".mp3", "q_content" => "Down", "q_conver" => "____ sit down there.", "a_content" => 1],
+            ['round' => 5, 'game_id' => 597,  'q_audio' =>  $AudioDomain . $G3_L19_listen . "dont-sit" . ".mp3", "q_content" => "Down", "q_conver" => "____ sit down there.", "a_content" => 0],
             ['round' => 5, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Up", "q_conver" => null, "a_content" => 0],
-            ['round' => 5, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Don't", "q_conver" => null, "a_content" => 0],
+            ['round' => 5, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Don't", "q_conver" => null, "a_content" => 1],
 
             ['round' => 6, 'game_id' => 597,  'q_audio' =>  $AudioDomain . $G3_L19_listen . "down" . ".mp3", "q_content" => "Down", "q_conver" => "Sit ____ here.", "a_content" => 1],
             ['round' => 6, 'game_id' => 597,  'q_audio' =>  null, "q_content" => "Sit", "q_conver" => null, "a_content" => 0],
@@ -3924,16 +3924,16 @@ class AnsNQueSeeder extends Seeder
         $l19_G598image = $domain . "/storage/images/Grade_3/lesson_19/practice_speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 598, 'q_image' => $l19_G598image . "sit.png", "q_content" => "What is your brother?"],
-            ['round' => 2, 'game_id' => 598, 'q_image' => $l19_G598image . "close-door.png", "q_content" => "What is your sister?"],
-            ['round' => 3, 'game_id' => 598, 'q_image' => $l19_G598image . "take-away.png", "q_content" => "What are you?"],
-            ['round' => 4, 'game_id' => 598, 'q_image' => $l19_G598image . "open-book.png", "q_content" => "What is your mother?"],
-            ['round' => 5, 'game_id' => 598, 'q_image' => $l19_G598image . "draw-pic.png", "q_content" => "What is your father?"],
-            ['round' => 6, 'game_id' => 598, 'q_image' => $l19_G598image . "listen.png", "q_content" => "What is your father?"],
-            ['round' => 7, 'game_id' => 598, 'q_image' => $l19_G598image . "noise.png", "q_content" => "What is your father?"],
-            ['round' => 8, 'game_id' => 598, 'q_image' => $l19_G598image . "close-book.png", "q_content" => "What is your father?"],
-            ['round' => 9, 'game_id' => 598, 'q_image' => $l19_G598image . "dont-go.png", "q_content" => "What is your father?"],
-            ['round' => 10, 'game_id' => 598, 'q_image' => $l19_G598image . "stand.png", "q_content" => "What is your father?"],
+            ['round' => 1, 'game_id' => 598, 'q_image' => $l19_G598image . "sit.png", "q_content" => "Look at the picture and speak."],
+            ['round' => 2, 'game_id' => 598, 'q_image' => $l19_G598image . "close-door.png", "q_content" => "Look at the picture and speak."],
+            ['round' => 3, 'game_id' => 598, 'q_image' => $l19_G598image . "take-away.png", "q_content" => "Look at the picture and speak."],
+            ['round' => 4, 'game_id' => 598, 'q_image' => $l19_G598image . "open-book.png", "q_content" => "Look at the picture and speak."],
+            ['round' => 5, 'game_id' => 598, 'q_image' => $l19_G598image . "draw-pic.png", "q_content" => "Look at the picture and speak."],
+            ['round' => 6, 'game_id' => 598, 'q_image' => $l19_G598image . "listen.png", "q_content" => "Look at the picture and speak."],
+            ['round' => 7, 'game_id' => 598, 'q_image' => $l19_G598image . "noise.png", "q_content" => "Look at the picture and speak."],
+            ['round' => 8, 'game_id' => 598, 'q_image' => $l19_G598image . "close-book.png", "q_content" => "Look at the picture and speak."],
+            ['round' => 9, 'game_id' => 598, 'q_image' => $l19_G598image . "dont-go.png", "q_content" => "Look at the picture and speak."],
+            ['round' => 10, 'game_id' => 598, 'q_image' => $l19_G598image . "stand.png", "q_content" => "Look at the picture and speak."],
         ]);
 
 
