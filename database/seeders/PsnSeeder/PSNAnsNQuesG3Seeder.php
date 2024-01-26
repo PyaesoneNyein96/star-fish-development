@@ -4557,6 +4557,48 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
 
+    // Unit 3 Practice <look_and_write>
+
+
+        $contents = [
+        "University", "police-station", "Bus-station", "market", "bakery"
+        ];
+
+        $questions = [
+            "How do i get to University from here?",
+            "How do i get to the police station from here?",
+            "How do i get to the Bus station from here?",
+            "How do i get to the Bus market from here?",
+            "How do i get to the Bus bakery from here?",
+
+        ];
+
+        $ans = [
+          "Walk along Elm Street. It’s on the right, opposite the museum.",
+          "Walk up South Street. It’s on the right, next to the bank.",
+          "Walk down South Street. It’s on the left, opposite the hospital.",
+          "Go straight and turn right. It’s on the left.",
+          "Go straight and turn left. It is on the right"
+
+        ];
+
+
+        $images = $ImageDomain . "Grade_3/Lesson_38/Practice/";
+        $audios = $AudioDomain . "Grade_3/Lesson_38/Practice/";
+
+        foreach ($questions as $key => $q) {
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 736,
+                    'round' => $key + 1,
+                    'q_image' => $images.$contents[$key].".png",
+                    'q_audio' => $audios.$contents[$key].".mp3",
+                    'q_content' => $q,
+                    'a_content' => $ans[$key],
+                ]
+            ]);
+        }
 
 
 
@@ -4564,7 +4606,105 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
 
+    // Unit - 4 Listening <listening_choosing_answer>
 
+
+      $questions = [
+        'Walk ___ Mall Street.',
+        'Turn ___ on Third Avenue.',
+        'Go past the  ___',
+        'Turn ___ on Maple Street.',
+        "___ the flower shop."
+
+      ];
+
+      $given_ques = [
+            ["along", "opposite","right"],
+            ["left", "opposite","right"],
+            ["left", "opposite","movie theater"],
+            ["left", "right","opposite"],
+            ["along", "right","opposite"],
+      ];
+
+    $ans = [
+       "along","left","movie theater","right", "opposite"
+    ];
+
+
+    $audio = $AudioDomain."Grade_3/Lesson_38/Listening/";
+    $img = $ImageDomain."Grade_3/Lesson_38/Listening/";
+
+
+
+        foreach ($questions as $key => $val) {
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 737,
+                'round' => $key + 1,
+                'q_audio' => $audio.$ans[$key].".mp3",
+                'q_content' => $given_ques[$key][0],
+                'q_conver'  => $val,
+                'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
+            ]
+        ]);
+
+
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 737,
+                'round'  => $key +  1,
+                'q_content' => $given_ques[$key][1],
+                'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
+            ]
+        ]);
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 737,
+                'round'  => $key +  1,
+                'q_content' => $given_ques[$key][2],
+                'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
+            ]
+        ]);
+    }
+
+
+
+    // Unit 5 Speaking <speaking_and_recording>
+
+        $contents = [
+            "concert-hall","park","department-store","zoo","bus-department",
+        ];
+
+        $Question_contents = [
+            "Excuse me. How do I get to the pet shop from concert hall?",
+            "Excuse me. How do I get to the clinic from the park?",
+            "Excuse me. How do I get to the shoe store from the department store?",
+            "Excuse me. How do I get to the flower shop from the zoo?",
+            "Excuse me. How do I get to the bus station from department store?",
+        ];
+
+
+
+        $images = $ImageDomain . "Grade_3/Lesson_38/Speaking/";
+        $audios = $AudioDomain . "Grade_3/Lesson_38/Speaking/";
+
+        foreach ($contents as $key => $value) {
+
+            DB::table('ans_n_ques')->insert([
+
+                [
+                    'game_id' => 738,
+                    'round' => $key + 1,
+                    'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                    'q_content' => $Question_contents[$key],
+                    'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                    'q_image' => $images .$this->removeSpace($value) . ".png",
+                ]
+
+            ]);
+        }
 
 
 
