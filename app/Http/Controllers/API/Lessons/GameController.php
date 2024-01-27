@@ -213,6 +213,8 @@ class GameController extends Controller
             $name = strval($game->category->name);
 
             $name = strval(Game::find($game_id)->category->name);
+
+            if (!$this->funExist($name)) return $this->common_functions($game, $student, $unit);
             if (!$name) return "this game is not subUnit game";
 
             return $this->$name(Game::find($game_id), $student, $unit);
