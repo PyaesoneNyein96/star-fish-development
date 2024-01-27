@@ -898,7 +898,7 @@ class GameSeeder extends Seeder
             ['name' => 'Video', 'unit_id' => 399, 'category_id' => 1,  'instructionGIF' => null],
             ['name' => 'Reading 1', 'unit_id' => 400, 'category_id' => 2,  'instructionGIF' => null],
             ['name' => 'Reading 2', 'unit_id' => 400, 'category_id' => 2,  'instructionGIF' => null],
-            ['name' => 'Listen and Write', 'unit_id' => 401, 'category_id' => 14,  'instructionGIF' => null],
+            ['name' => 'Listen and Write', 'unit_id' => 401, 'category_id' => 14,  'instructionGIF' => $Gif_path . "Re-arrange-in-order.gif"],
             ['name' => 'Matching', 'unit_id' => 402, 'category_id' => 7,  'instructionGIF' =>  $Gif_path . "Matching.gif"],
             ['name' => 'Speak', 'unit_id' => 403, 'category_id' => 11,  'instructionGIF' => $Gif_path . "Speaking.gif"],
 
@@ -908,7 +908,7 @@ class GameSeeder extends Seeder
             ['name' => 'Video', 'unit_id' => 404, 'category_id' => 1,  'instructionGIF' => null],
             ['name' => 'Reading 1', 'unit_id' => 405, 'category_id' => 2,  'instructionGIF' => null],
             ['name' => 'Reading 2', 'unit_id' => 405, 'category_id' => 2,  'instructionGIF' => null],
-            ['name' => 'Listen and Write', 'unit_id' => 406, 'category_id' => 39,  'instructionGIF' => null],
+            ['name' => 'Listen and Write', 'unit_id' => 406, 'category_id' => 39,  'instructionGIF' =>  $Gif_path."Listen-and-choose-correct.gif"],
             ['name' => 'Speak', 'unit_id' => 407, 'category_id' => 11, 'instructionGIF' => $Gif_path . "Speaking.gif"],
             ['name' => 'Reading', 'unit_id' => 408, 'category_id' => 16, 'instructionGIF' =>  $Gif_path . "Read-the-passage.gif"],
 
@@ -927,7 +927,7 @@ class GameSeeder extends Seeder
             ['name' => 'Reading 1', 'unit_id' => 414, 'category_id' => 2,  'instructionGIF' => null],
             ['name' => 'Reading 2', 'unit_id' => 414, 'category_id' => 2,  'instructionGIF' => null],
             ['name' => 'Tracing', 'unit_id' => 415, 'category_id' => 31,  'instructionGIF' => $Gif_path . "Tracing.gif"],
-            ['name' => 'Arranging Letters', 'unit_id' => 416, 'category_id' => 14,  'instructionGIF' => null],
+            ['name' => 'Arranging Letters', 'unit_id' => 416, 'category_id' => 14,  'instructionGIF' => $Gif_path."Listen-and-choose-correct.gif"],
             ['name' => 'Matching', 'unit_id' => 417, 'category_id' => 7,  'instructionGIF' =>  $Gif_path . "Matching.gif"],
             ['name' => 'Speak', 'unit_id' => 418, 'category_id' => 11,  'instructionGIF' => $Gif_path . "Speaking.gif"],
 
@@ -937,7 +937,7 @@ class GameSeeder extends Seeder
             ['name' => 'Grammar Explanation', 'unit_id' => 419, 'category_id' => 1,  'instructionGIF' => null],
             ['name' => 'Reading 1', 'unit_id' => 420, 'category_id' => 2,  'instructionGIF' => null],
             ['name' => 'Reading 2', 'unit_id' => 420, 'category_id' => 2,  'instructionGIF' => null],
-            ['name' => 'Look and write', 'unit_id' => 421, 'category_id' => 39,  'instructionGIF' => null],
+            ['name' => 'Look and write', 'unit_id' => 421, 'category_id' => 39,  'instructionGIF' => $Gif_path."Listen-and-choose-correct.gif"],
             ['name' => 'Speak 1', 'unit_id' => 422, 'category_id' => 11,  'instructionGIF' => $Gif_path . "Conversation.gif"],
             ['name' => 'Speak 2', 'unit_id' => 422, 'category_id' => 11,  'instructionGIF' => $Gif_path . "Speaking.gif"],
 
