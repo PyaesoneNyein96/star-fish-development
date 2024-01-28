@@ -1029,6 +1029,8 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Look at the pictures and speak", 'game_id' => 371, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
 
+            ['content' => "Look at the pictures and write the preposition", 'game_id' => 375, 'audio' =>  $Instructions . "Look-at-the-pictures-and-write-the-preposition" . ".mp3"],
+
             ['content' => "Look at the pictures and speak", 'game_id' => 377, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
 
 
@@ -1045,13 +1047,20 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Match the pictures and words. Draw lines", 'game_id' => 391, 'audio' =>  $Instructions . "Match-the-pictures-and-words" . ".mp3"],
 
+            ['content' => "Look at the pictures and write the word", 'game_id' => 396, 'audio' =>  $Instructions . "Look-at-the-pictures-and-write-the-word" . ".mp3"],
+
             ['content' => "Trace and write", "game_id" => 399, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
+
+            ['content' => "Look at the pictures and match them with the words", 'game_id' => 400, 'audio' =>  $Instructions . "Look-at-the-pictures-and-match-them-with-the-words" . ".mp3"],
 
             ['content' => "Arranging the letters", 'game_id' => 401, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
 
-            ['content' => "Look at the pictures and write", 'game_id' => 405, 'audio' => $Instructions . "Look-at-the-pictures-and-write.mp3"],
+            ['content' => "Look at the pictures and write", 'game_id' => 406, 'audio' => $Instructions . "Look-at-the-pictures-and-write.mp3"],
 
-            // ['content' => "Look at the pictures and make sentences out loud", 'game_id' => 405, 'audio' => $Instructions . "Look-at-the-pictures-and-make-sentences-out-loud.mp3"],
+            ['content' => "Look at the pictures and match them with the words", 'game_id' => 407, 'audio' =>  $Instructions . "Look-at-the-pictures-and-match-them-with-the-words" . ".mp3"],
+
+            ['content' => "Look at the pictures and make sentences out loud", 'game_id' => 408, 'audio' => $Instructions . "Look-at-the-pictures-and-make-sentences-out-loud.mp3"],
+
 
             ['content' => "Trace and write", "game_id" => 411, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
 
@@ -1069,7 +1078,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Trace and write", "game_id" => 420, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
 
-            // ['content' => "Look at the pictures and match them with the words", "game_id" => 421, 'audio' =>  $Instructions . "Look-at-the-pictures-and-match-them-with-the-words" . ".mp3"],
+            ['content' => "Look at the pictures and match them with the words", 'game_id' => 421, 'audio' =>  $Instructions . "Look-at-the-pictures-and-match-them-with-the-words" . ".mp3"],
 
             ['content' => "Arranging the letters", 'game_id' => 423, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
 
@@ -1078,8 +1087,8 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Listen and Repeat", 'game_id' => 427, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
-              // ['content' => "Look at the pictures and match them with the words", "game_id" => 428, 'audio' =>  $Instructions . "Look-at-the-pictures-and-match-them-with-the-words" . ".mp3"],
-              // ['content' => "Look at the pictures and make sentences out loud", "game_id" => 429, 'audio' =>  $Instructions . "Look at the pictures and make sentences out loud" . ".mp3"],
+              ['content' => "Look at the pictures and match them with the words", "game_id" => 428, 'audio' =>  $Instructions . "Look-at-the-pictures-and-match-them-with-the-words" . ".mp3"],
+              ['content' => "Look at the pictures and make sentences out loud", "game_id" => 429, 'audio' =>  $Instructions . "Look-at-the-pictures-and-make-sentences-out-loud" . ".mp3"],
 
 
               // G-2 36
@@ -1087,10 +1096,10 @@ class GameInstructionSeeder extends Seeder
             //   ['content' => "Students listen and repeat the words and sentences. ", "game_id" => 432, 'audio' =>  $Instructions . "Students-listen-and-repeat-the-words-and-sentences" . ".mp3"],
             //   ['content' => "Listen and complete the sentences", "game_id" => 433, 'audio' =>  $Instructions . "Listen-and-complete-the-sentences" . ".mp3"],
 
-             // ['content' => "Look at the pictures and make sentences", 'game_id' => 434, 'audio' => $Instructions . "Look-at-the-pictures-and-make-sentences.mp3"],
+             ['content' => "Look at the pictures and make sentences", 'game_id' => 434, 'audio' => $Instructions . "Look-at-the-pictures-and-make-sentences.mp3"],
 
              //G-2 37
-             // ['content' => "Listen and repeat the phrases", 'game_id' => 437, 'audio' => $Instructions . "Listen and repeat the phrases.mp3"],
+             ['content' => "Listen and repeat the phrases", 'game_id' => 437, 'audio' => $Instructions . "Listen-and-repeat-the-phrases.mp3"],
              ['content' => "Look at the pictures and speak", 'game_id' => 439, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
 
              // G-2 38
@@ -1110,12 +1119,12 @@ class GameInstructionSeeder extends Seeder
             // ['content' => "Students Listen and repeat the phrases", 'game_id' => 437, 'audio' => $Instructions . "Students listen and repeat the phrases.mp3"],
             // ['content' => "Listen and repeat the sentences", 'game_id' => 437, 'audio' => $Instructions . "Listen and repeat the sentences.mp3"],
             // ['content' => "Listen and write the time", 'game_id' => 437, 'audio' => $Instructions . "Listen and write the time.mp3"],
-            // ['content' => "Look at the clocks and say the time", 'game_id' => 437, 'audio' => $Instructions . "Look at the clocks and say the time.mp3"],
+            ['content' => "Look at the clocks and write the time", 'game_id' => 437, 'audio' => $Instructions . "Look-at-the-clocks-and-write-the-time.mp3"],
 
 
             // G-40
 
-            // ['content' => "Look at the clocks and match them with the times", 'game_id' => 456, 'audio' => $Instructions . "Look at the clocks and match them with the times.mp3"],
+            ['content' => "Look at the clocks and match them with the times", 'game_id' => 456, 'audio' => $Instructions . "Look-at-the-clocks-and-match-them-with-the-times.mp3"],
 
 
 

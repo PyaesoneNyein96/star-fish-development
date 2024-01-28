@@ -77,7 +77,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
         $contents = [
-            'exercise','throw','feed','do','wash','paint', 'wash', 'clean',
+            'exercise','throw','feed','do','wash-clothes','paint', 'wash-car', 'clean',
         ];
 
         $questions = [
@@ -175,27 +175,27 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ["round" => 1, "game_id" => 611, "q_image" => $images . "feed.png", "q_audio" => null, "a_content" => 0],
         ["round" => 1, "game_id" => 611, "q_image" => $images . "sweep-lady.png", "q_audio" => null, "a_content" => 0],
         ["round" => 1, "game_id" => 611, "q_image" => $images . "throw.png", "q_audio" => null, "a_content" => 1],
-        ["round" => 1, "game_id" => 611, "q_image" =>  null, "q_audio" => $audio . "throw" . ".mp3", "a_content" => null],
+        ["round" => 1, "game_id" => 611, "q_image" =>  null, "q_audio" => $audios . "throw" . ".mp3", "a_content" => null],
 
         ["round" => 2, "game_id" => 611, "q_image" => $images . "feed.png", "q_audio" => null, "a_content" => 0],
         ["round" => 2, "game_id" => 611, "q_image" => $images . "fix.png", "q_audio" => null, "a_content" => 0],
         ["round" => 2, "game_id" => 611, "q_image" => $images . "wash-clothes.png", "q_audio" => null, "a_content" => 1],
-        ["round" => 2, "game_id" => 611, "q_image" =>  null, "q_audio" => $audio . "wash-clothes" . ".mp3", "a_content" => null],
+        ["round" => 2, "game_id" => 611, "q_image" =>  null, "q_audio" => $audios . "wash-clothes" . ".mp3", "a_content" => null],
 
         ["round" => 3, "game_id" => 611, "q_image" => $images . "check-email.png", "q_audio" => null, "a_content" => 0],
         ["round" => 3, "game_id" => 611, "q_image" => $images . "exercise.png", "q_audio" => null, "a_content" => 1],
         ["round" => 3, "game_id" => 611, "q_image" => $images . "paint.png", "q_audio" => null, "a_content" => 0],
-        ["round" => 3, "game_id" => 611, "q_image" =>  null, "q_audio" => $audio . "exercise" . ".mp3", "a_content" => null],
+        ["round" => 3, "game_id" => 611, "q_image" =>  null, "q_audio" => $audios . "exercise" . ".mp3", "a_content" => null],
 
         ["round" => 4, "game_id" => 611, "q_image" => $images . "sweep-boy.png", "q_audio" => null, "a_content" => 0],
         ["round" => 4, "game_id" => 611, "q_image" => $images . "sweep-lady.png", "q_audio" => null, "a_content" => 1],
         ["round" => 4, "game_id" => 611, "q_image" => $images . "clean-yard.png", "q_audio" => null, "a_content" => 0],
-        ["round" => 4, "game_id" => 611, "q_image" =>  null, "q_audio" => $audio . "sweep-lady" . ".mp3", "a_content" => null],
+        ["round" => 4, "game_id" => 611, "q_image" =>  null, "q_audio" => $audios . "sweep-lady" . ".mp3", "a_content" => null],
 
         ["round" => 5, "game_id" => 611, "q_image" => $images . "brush.png", "q_audio" => null, "a_content" => 1],
         ["round" => 5, "game_id" => 611, "q_image" => $images . "clean-yard.png", "q_audio" => null, "a_content" => 0],
         ["round" => 5, "game_id" => 611, "q_image" => $images . "sweep-boy.png", "q_audio" => null, "a_content" => 0],
-        ["round" => 5, "game_id" => 611, "q_image" =>  null, "q_audio" => $audio . "brush" . ".mp3", "a_content" => null],
+        ["round" => 5, "game_id" => 611, "q_image" =>  null, "q_audio" => $audios . "brush" . ".mp3", "a_content" => null],
 
     ]);
 
@@ -217,6 +217,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
         "what do you do in the afternoon?",
     ];
 
+    $aud = [
+        'morning','evening','evening','afternoon','morning','morning','afternoon','afternoon'
+    ];
+
     $images = $ImageDomain . "Grade_3/Lesson_21/Speaking/";
     $audios = $AudioDomain . "Grade_3/Lesson_21/Speaking/";
 
@@ -229,7 +233,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => $key + 1,
                 // 'round_instruction' => "Look at this picture and speak.",
                 'q_content' => $Question_contents[$key],
-                'q_audio' => $audio.$contents[$key].".mp3",
+                'q_audio' => $audios.$aud[$key].".mp3",
                 'q_image' => $images . $value . ".png",
                 'a_content' => str_replace('-', ' ', $value)
             ]
@@ -251,10 +255,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $contents = [
             'do physical exercise','clean the board','Raise your hand',
-            'listen to songs','close your arms','listen to the teacher','draw pictures',
-            'play with friends', 'water the plants', 'Help each other','work in groups',
+            'listen to songs','cross your arms','listen to the teacher','draw pictures',
+            'play with friends', 'water the plants', 'help each other','work in groups',
             'clean the classroom', 'work alone', 'play games',
-            'stay in library', 'work in pair'
+            'study in library', 'work in pair'
         ];
 
         $audio = $AudioDomain."Grade_3/Lesson_22/Reading/";
@@ -280,8 +284,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
         $contents = [
-            'listen to songs','help-each-other','water-the-plants','draw the pictures','work alone',
-            'play with friends', 'stay in library', 'listen to the teacher',
+            'listen to songs','help each other','water the plants','draw the pictures','work alone',
+            'play with friends', 'study in library', 'listen to the teacher',
         ];
 
         $ans = [
@@ -333,9 +337,13 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "listen to the teacher",
         ];
 
+        $q_audio = [
+            "sometime",'alway','usually','often','sometime','alway','often'
+        ];
 
-        $images = $ImageDomain . "Grade_3/Lesson_21/Practice/";
-        $audios = $AudioDomain . "Grade_3/Lesson_21/Practice/";
+
+        $images = $ImageDomain . "Grade_3/Lesson_22/Practice/";
+        $audios = $AudioDomain . "Grade_3/Lesson_22/Practice/";
 
         foreach ($questions as $key => $q) {
 
@@ -344,7 +352,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'game_id' => 616,
                     'round' => $key + 1,
                     'q_image' => $images.$contents[$key].".png",
-                    'q_audio' => $audios.$contents[$key].".mp3",
+                    'q_audio' => $audios.$q_audio[$key].".mp3",
                     'q_content' => $q,
                     'a_content' => $ans[$key],
                 ]
@@ -410,7 +418,11 @@ class PSNAnsNQuesG3Seeder extends Seeder
     // Unit 5 Speaking <speaking_and_recording>
 
     $contents = [
-        "listening", "help", "sweep", "watering", "draw", "draw", "listen-teacher", "playing"
+      "draw","listen-teacher","play-fris","plants","draw-2","listen","help","help-2"
+    ];
+
+    $aud = [
+        "often","usually","alway","usually","sometime","often","sometime","alway"
     ];
 
     $Question_contents = [
@@ -436,7 +448,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => $key + 1,
                 // 'round_instruction' => "Look at this picture and speak.",
                 'q_content' => $Question_contents[$key],
-                'q_audio' => $audio.$contents[$key].".mp3",
+                'q_audio' => $audios.$aud[$key].".mp3",
                 'q_image' => $images . $value . ".png",
                 'a_content' => str_replace('-', ' ', $value)
             ]
