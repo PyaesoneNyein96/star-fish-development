@@ -996,12 +996,12 @@ class PSNAnsNQuesG2Seeder extends Seeder
     ];
 
     $Question_contents = [
-        'My father is a  ___',
-        'He goes to school by ___',
-        'The school is ___ ths ___.',
-        'I have a  ___. It is white and fast.',
-        'The rabbit is ___ the __now. \n I love it very much.',
-        'I live in   ___',
+        "Look at the picture and speak. \n My father is a  ___",
+        "Look at the picture and speak. \n He goes to school by ___",
+        "Look at the picture and speak. \n The school is ___ ths ___.",
+        "Look at the picture and speak. \n I have a  ___. It is white and fast.",
+        "Free practice, \n The rabbit is ___ the __now. \n I love it very much.",
+        "Look at the picture and speak. \n I live in   ___",
     ];
 
 
