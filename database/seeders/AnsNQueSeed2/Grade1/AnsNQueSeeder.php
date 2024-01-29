@@ -267,18 +267,18 @@ class AnsNQueSeeder extends Seeder
 
         $converG20 = [
             [
-                "Hello, I'm Mary.",
-                "Hello, I'm Mike.",
+                "hello-mary",
+                "hello-mike",
 
-                "Hello, I'm Chris.",
-                "Hello, I'm Susan.",
+                "hello-chris",
+                "hello-susan",
             ],
 
             [
-                "Nice to meet you.",
-                "Nice to meet you.",
-                "Nice to meet you.",
-                "Nice to meet you."
+                "nice-to-meet-you-left",
+                "nice-to-meet-you-right",
+                "nice-to-meet-you-left",
+                "nice-to-meet-you-right"
             ]
         ];
 
@@ -322,7 +322,7 @@ class AnsNQueSeeder extends Seeder
             for ($j = 0; $j < count($converG20[$i]); $j++) {
 
                 DB::table('ans_n_ques')->insert([
-                    ['round' => $G20Id, 'game_id' => 20, 'a_image' => $l4G20Image . $imageG20[$i][$j] . ".gif", 'a_conver' => $converG20[$i][$j], 'a_audio' => $AudioDomain . $G1_L4_listen_and_practice_path . $audiosG20[$i][$j] . ".mp3", "background" => $l4G20Image . "background.png"],
+                    ['round' => $G20Id, 'game_id' => 20, 'a_image' => $l4G20Image . $imageG20[$i][$j] . ".gif", 'a_conver' => $l4G20Image . $converG20[$i][$j] . ".png", 'a_audio' => $AudioDomain . $G1_L4_listen_and_practice_path . $audiosG20[$i][$j] . ".mp3", "background" => $l4G20Image . "background.png"],
                 ]);
             }
             $G20Id++;
