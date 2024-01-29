@@ -2649,7 +2649,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
         $Question_contents = [
             "Hi, I am Jane. I like books. \n I go to the library on Friday. \n I go there by bus.",
-            "Hi, I am ___. I like books. \n I go to the ___ on ___ . \n I go there by ___.",
+            "Hi, I am ___. I like ___. \n I go to the ___ on ___ . \n I go there by ___.",
             "Your turn; Hi, I am ___. I like books. \n I go to the ___ on ___ . \n I go there by ___.",
 
         ];
