@@ -1621,7 +1621,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'round' => $i + 1,
                     'q_content' => $q,
                     'q_image' => $q,
-                    'a_audio' => $audio . $q . ".mp3",
+                    'q_audio' => $audio . $q . ".mp3",
                 ]
             ]);
         }
@@ -1633,7 +1633,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'game_id' => 400, 'round' => $i + 1,
                     'q_content' => strtolower($q),
                     'q_image' => $img . strtolower($q) . ".png",
-                    'a_audio' => $audio . $q . ".mp3",
+                    'q_audio' => $audio . $q . ".mp3",
                 ]
             ]);
         }
