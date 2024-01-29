@@ -307,8 +307,8 @@ trait gameTraits
 
         foreach ($rounds as  $round) {
 
-            $first = array_slice($round->toArray(),0,5);
-            $second = array_slice($round->toArray(),5);
+            $first = array_slice($round->toArray(),0,$round->count()/2);
+            $second = array_slice($round->toArray(),$round->count()/2);
             shuffle($second);
 
             $final = array_merge($first,$second);
