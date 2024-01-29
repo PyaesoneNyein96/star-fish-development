@@ -3377,7 +3377,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'round_instruction' => $audio."Look-at-the-clock-and-speak-the-time.mp3",
                     'q_content' =>  $questions[$key],
                     'q_image' => $img . $data[$key] . ".png",
-                    'a_audio' => $audio.$data[$key].".mp3",
+                    'q_audio' => $audio.$data[$key].".mp3",
                 ]
 
             ]);
