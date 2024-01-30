@@ -2101,7 +2101,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_image' => $ImageDomain . "Grade_1/Lesson_36/Speaking/" . str_replace(' ', '-', $content[$key]) . ".png",
                     'a_content' => $value,
                     'q_audio' => $AudioDomain."Grade_1/Lesson_36/Speaking/".$value.".mp3",
-                    'round_instruction' => $AudioDomain."Grade_1/Lesson_36/Speaking/"."Look-at-the-picture-and-say.mp3".".mp3",
+                    'round_instruction' => $AudioDomain."Grade_1/Lesson_36/Speaking/"."Look-at-the-picture-and-say-a-word.mp3",
                 ]
 
             ]);
