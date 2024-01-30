@@ -23,6 +23,8 @@ class GameInstructionSeeder extends Seeder
 
             // Grade 1 > Lesson 1 - 30
             16, 26, 32, 45, 52, 58, 64, 77, 83, 90, 96, 97, 112, 118, 123, 124, 132, 139, 146, 151, 157, 165, 170, 177, 183, 188,
+            //
+            38, 70, 196, 204, 209, 214, 221, 226, 233, 238, 245, 251,
 
             // Grade 2 > Lesson 1 - 20
             254, 257, 280, 292, 297, 301, 303, 307, 313, 319, 320, 325, 331, 335, 338, 346,
@@ -158,10 +160,6 @@ class GameInstructionSeeder extends Seeder
                 'content' => "Matching things from this session", 'game_id' => 37,
                 'audio' => $Instructions . "Matching-things-from-this-session.mp3"
             ],
-
-            // G-1 lesson_7 U-5
-            // ['content' => "Tap the things on the table and answer the question.",'game_id' => 38,
-            // 'audio' => $Instructions."Tap-the-things-on-the-table-and-answer-the-question.mp3"],
 
 
             // G-1 lesson_7 U-39
@@ -589,8 +587,6 @@ class GameInstructionSeeder extends Seeder
             // Game 195
             ['content' => "Matching things.", "game_id" => 195, 'audio' =>  $Instructions . "Matching-things" . ".mp3"],
 
-            ['content' => "What do you see in the picture?", "game_id" => 196, 'audio' =>  $Instructions . "What-do-you-see-in-the-picture" . ".mp3"],
-
 
             // G-1 lesson_32
             // Game 3 (201)
@@ -614,9 +610,6 @@ class GameInstructionSeeder extends Seeder
 
             // Game 6 (205)
             ['content' => "Matching verbs and picture.", 'game_id' => 208, 'audio' =>  $Instructions . "Matching-verbs-and-picture" . ".mp3"],
-
-            // Game 6 (206)
-            ['content' => "Look at the picture and say.", 'game_id' => 209, 'audio' =>  $Instructions . "Look-at-the-picture-and-say"],
 
 
 
@@ -646,7 +639,7 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Matching verbs and picture.", 'game_id' => 219, 'audio' =>  $Instructions . "Matching-verbs-and-picture" . ".mp3"],
 
             // Game 6 (222)
-            ['content' => "Look at the picture and say.", 'game_id' => 221, 'audio' =>  $Instructions . "Look-at-the-picture-and-say" . ".mp3"],
+            // ['content' => "Look at the picture and say.", 'game_id' => 221, 'audio' =>  $Instructions . "Look-at-the-picture-and-say" . ".mp3"],
 
             // Lesson -36
             // Game 3 (225)
@@ -655,8 +648,6 @@ class GameInstructionSeeder extends Seeder
             // Game 4 (226)
             ['content' => "Matching things", 'game_id' => 225, 'audio' =>  $Instructions . "Matching-things" . ".mp3"],
 
-            // Game 5 (227)
-            ['content' => "Look at the half of the picture and say a word", 'game_id' => 226, 'audio' =>  $Instructions . "Look-at-the-half-of-the-picture" . ".mp3"],
 
             // Game 6 (228,229)
             ['content' => "Trace and write", "game_id" => 227, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
@@ -670,8 +661,8 @@ class GameInstructionSeeder extends Seeder
             // Game 4
             ['content' => "Matching the words and the picture", "game_id" => 232, 'audio' =>  $Instructions . "Matching-the-words-and-the-picture" . ".mp3"],
 
-            // Game 6 (222)
-            ['content' => "Who are they?", 'game_id' => 233, 'audio' =>  $Instructions . "Who-are-they" . ".mp3"],
+            // // Game 6 (222)
+            // ['content' => "Who are they?", 'game_id' => 233, 'audio' =>  $Instructions . "Who-are-they" . ".mp3"],
 
 
             // Lesson - 38
@@ -686,10 +677,10 @@ class GameInstructionSeeder extends Seeder
             // ],
 
             // Game 6
-            [
-                'content' => "Listen who they are Tap each speaker and record", "game_id" => 238,
-                'audio' =>  $Instructions . "Listen-who-they-are-Tap-each-speaker-and-record" . ".mp3"
-            ],
+            // [
+            //     'content' => "Listen who they are Tap each speaker and record", "game_id" => 238,
+            //     'audio' =>  $Instructions . "Listen-who-they-are-Tap-each-speaker-and-record" . ".mp3"
+            // ],
 
 
 
@@ -719,16 +710,6 @@ class GameInstructionSeeder extends Seeder
                 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear.mp3"
             ],
 
-            // Game 6
-            [
-                'content' => "Look at the picture. Read and say", "game_id" => 251,
-                'audio' =>  $Instructions . "Look-at-the-picture-Read-and-Say.mp3"
-            ],
-
-            [
-                'content' => "How old are you?", "game_id" => 251,
-                'audio' =>  $Instructions . "How-old-are-you.mp3"
-            ],
 
 
 

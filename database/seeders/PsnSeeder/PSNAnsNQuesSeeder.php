@@ -87,7 +87,7 @@ class PSNAnsNQuesSeeder extends Seeder
             ['g', 'u', 'y', 'F', 'c', 'I', 'J'],
             ['D', 'k', 'f', 'A', 'W', 'E', 'G'],
             ['y', 'B', 'S', 'F', 'e', 'I', 'Z'],
-            ['e', 'K', 'S', 'M', 'T', 'M', 'p'],
+            ['e', 'K', 'S', 'M', 'T', 'J', 'p'],
 
         ];
 
@@ -1158,8 +1158,8 @@ class PSNAnsNQuesSeeder extends Seeder
                 [
                     'game_id' => 196,
                     'round' => $key + 1,
-                    'q_content' => "What do you see in the picture?",
-                    'q_audio' => $AudioDomain."/Grade_1/Lesson_31/Speaking/"."What-do-you-see-in-the-picture.mp3",
+                    'q_content' => $AudioDomain."/Grade_1/Lesson_31/Speaking/"."What-do-you-see-in-the-picture.mp3",
+                    'q_audio' => $AudioDomain."/Grade_1/Lesson_31/Speaking/".$value.".mp3",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_31/Speaking/" . $value . ".png", 'a_content' => $value
                 ]
 
@@ -1436,8 +1436,9 @@ class PSNAnsNQuesSeeder extends Seeder
                     'game_id' => 204, 'round' => $key + 1,
                     'q_image' => $ImageDomain . "Grade_1/Lesson_32/Speaking/" . $value . ".png",
                     'q_content' => $L32_U6_q,
-                    'q_audio' => $AudioDomain."Grade_1/Lesson_32/Speaking/".str_replace(' ', '-', $L32_U6_q).".mp3",
-                    'a_content' => $value
+                    'q_audio' => $AudioDomain."Grade_1/Lesson_32/Speaking/".$value.".mp3",
+                    'a_content' => $value,
+                    'round_instruction' => $AudioDomain."Grade_1/Lesson_32/Speaking/".$L32_U6_q.".mp3"
                 ]
 
             ]);
@@ -1565,11 +1566,13 @@ class PSNAnsNQuesSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
 
                 [
-                    'game_id' => 209, 'round' => $key + 1,
+                    'game_id' => 209,
+                    'round' => $key + 1,
                     'q_content' => "Look at this picture and say.",
-                    'q_audio' => $AudioDomain."/Grade_1/Lesson_33/Speaking/"."Look-at-the-picture-and-say".".mp3",
+                    'q_audio' => $AudioDomain."/Grade_1/Lesson_33/Speaking/".$value.".mp3",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_33/Speaking/" . $value . ".png",
-                    'a_content' => str_replace('-', ' ', $value)
+                    'a_content' => str_replace('-', ' ', $value),
+                    'round_instruction' => $AudioDomain."/Grade_1/Lesson_33/Speaking/"."Look-at-the-picture-and-say".".mp3"
                 ]
 
             ]);
@@ -1733,11 +1736,12 @@ class PSNAnsNQuesSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
 
                 [
-                    'game_id' => 214, 'round' => $key + 1, 'q_content' => "Look at the picture and say.",
+                    'game_id' => 214, 'round' => $key + 1,
+                    'q_content' => "Look at the picture and say.",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_34/Speaking/" . str_replace(' ', '-', $L34_U3_q_img[$key]) . ".png",
                     'a_content' => $value,
-                    'q_audio' => $AudioDomain."Grade_1/Lesson_34/Speaking/"."Look-at-the-picture-and-say.mp3"
-
+                    'q_audio' => $AudioDomain."Grade_1/Lesson_34/Speaking/". $value.".mp3",
+                    'round_instruction' => $AudioDomain."Grade_1/Lesson_34/Speaking/"."Look-at-the-picture-and-say.mp3"
                 ]
 
             ]);
@@ -1959,10 +1963,12 @@ class PSNAnsNQuesSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
 
                 [
-                    'game_id' => 221, 'round' => $key + 1, 'q_content' => "Look at the picture and say.",
+                    'game_id' => 221,
+                    'round' => $key + 1, 'q_content' => "Look at the picture and say.",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_35/Speaking/" . str_replace(' ', '-', $content[$key]) . ".png",
                     'a_content' => $value,
-                    'q_audio' => $AudioDomain."Grade_1/Lesson_35/Speaking/"."Look-at-the-picture-and-say.mp3",
+                    'q_audio' => $AudioDomain."Grade_1/Lesson_35/Speaking/". $value .".mp3",
+                    'round_instruction' =>  $AudioDomain."Grade_1/Lesson_35/Speaking/"."Look-at-the-picture-and-say.mp3"
                 ]
 
             ]);
@@ -2078,10 +2084,12 @@ class PSNAnsNQuesSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
 
                 [
-                    'game_id' => 226, 'round' => $key + 1, 'q_content' => "Look at the picture and say a word.",
+                    'game_id' => 226,
+                    'round' => $key + 1,
+                    'q_content' => "Look at the picture and say a word.",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_36/Speaking/" . str_replace(' ', '-', $content[$key]) . ".png",
                     'a_content' => $value,
-                    'q_audio' => $AudioDomain."Grade_1/Lesson_36/Speaking/"."look-at-the-picture-and-say-a-word.mp3",
+                    'q_audio' => $AudioDomain."Grade_1/Lesson_36/Speaking/".$value.".mp3",
                 ]
 
             ]);
@@ -2333,11 +2341,12 @@ class PSNAnsNQuesSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
 
                 [
-                    'game_id' => 233, 'round' => $key + 1,
+                    'game_id' => 233,
+                    'round' => $key + 1,
                     'q_content' => "This is my $value." . $likes[$key],
                     'q_image' => $ImageDomain . "Grade_1/Lesson_37/Speaking/" . str_replace(' ', '-', $content[$key]) . ".png",
                     'a_content' => $value,
-                    // 'q_audio' => $AudioDomain."Grade_1/Lesson_37/Speaking/"."This-is-my-$value." . str_replace(' ','-',$likes[$key]).".mp3",
+                    'q_audio' => $AudioDomain."Grade_1/Lesson_37/Speaking/"."This-is-my-$value." . str_replace(' ','-',$likes[$key]).".mp3",
                 ]
 
             ]);
@@ -2486,7 +2495,9 @@ class PSNAnsNQuesSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
 
                 [
-                    'game_id' => 238, 'round' => $key + 1, 'q_content' => "This is my $value." . $names[$key],
+                    'game_id' => 238,
+                    'round' => $key + 1,
+                    'q_content' => "This is my $value." . $names[$key],
                     'q_image' => $ImageDomain . "Grade_1/Lesson_38/Speaking/" . str_replace(' ', '-', $content[$key]) . ".png",
                     'a_content' => $value,
                     'q_audio' => $AudioDomain."Grade_1/Lesson_38/Speaking/"."This-is-my-".str_replace(' ','-',$value)."-".str_replace(' ','-',$names[$key]).".mp3",
