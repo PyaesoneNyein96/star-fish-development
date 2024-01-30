@@ -1344,7 +1344,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $contents = [
             'eat dinner','talk on the phone','do homework','take a bath','study english','play video games','play violin',
-            'listen music', 'switch off light', 'go to bed'
+            'listen music', 'switch off light', 'go to bed', 'comb hair', 'get dressed','eat breakfast','brush teeth','wash face','get up'
         ];
 
         $audio = $AudioDomain."Grade_3/Lesson_26/Vocabulary_1/";
@@ -1378,6 +1378,17 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "comb-hair"
         ];
 
+        $ans = [
+            'take a bath',
+            'play violin',
+            'do homework',
+            'play video games',
+            'listen to music',
+            'get up',
+            'eat breakfast',
+            'comb my hair'
+        ];
+
 
         $images = $ImageDomain . "Grade_3/Lesson_26/Vocabulary_2/";
         $audios = $AudioDomain . "Grade_3/Lesson_26/Vocabulary_2/";
@@ -1391,7 +1402,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'q_image' => $images.$this->removeSpace($q).".png",
                     'q_audio' => $audios.$this->removeSpace($q).".mp3",
                     'q_content' => null,
-                    'a_content' => null,
+                    'a_content' => $ans[$key],
                 ]
             ]);
         }
@@ -1405,8 +1416,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
         $contents = [
-            "3-45.",
-            "3-55",
+            "2-45",
+            "11-15",
             "1-30",
             "2-10",
             "9-45",
@@ -1429,8 +1440,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'round' => $key + 1,
                     'q_image' => $images.$this->removeSpace($q).".png",
                     'q_audio' => $audios.$this->removeSpace($q).".mp3",
-                    'q_content' => $q,
-                    'a_content' => null,
+                    'q_content' => "What time is it?",
+                    'a_content' => "It's ". str_replace('-',':', $q),
                 ]
             ]);
         }
@@ -1445,17 +1456,17 @@ class PSNAnsNQuesG3Seeder extends Seeder
             $audios = $AudioDomain . "Grade_3/Lesson_26/Listening/";
 
             $contents = [
-                ['3-45', '6-30','4-00'],
-                ['6-40', '7-00','3-10'],
-                ['6-30', '7-00','4-50'],
-                ['6-30', '6-10','4-50'],
+                ['9-35', '6-30','4-00'],
+                ['6-40', '7-00','2-10'],
+                ['6-30', '7-00','10-20'],
+                ['6-30', '2-10','10-20'],
             ];
 
 
             $ans = [
-                '6-30',
+                '4-00',
                 '6-40',
-                '4-50',
+                '7-00',
                 '6-30',
             ];
 
