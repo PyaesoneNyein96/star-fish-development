@@ -1166,9 +1166,9 @@ class PSNAnsNQuesSeeder extends Seeder
                     'game_id' => 196,
                     'round' => $key + 1,
                     'q_content' => "What do you see in this picture?",
-                    'q_content' => $AudioDomain."/Grade_1/Lesson_31/Speaking/"."What-do-you-see-in-the-picture.mp3",
                     'q_audio' => $AudioDomain."/Grade_1/Lesson_31/Speaking/".$value.".mp3",
-                    'q_image' => $ImageDomain . "Grade_1/Lesson_31/Speaking/" . $value . ".png", 'a_content' => $value
+                    'q_image' => $ImageDomain . "Grade_1/Lesson_31/Speaking/" . $value . ".png", 'a_content' => $value,
+                    'round_instruction' => $AudioDomain."/Grade_1/Lesson_31/Speaking/"."What-do-you-see-in-the-picture.mp3",
                 ]
 
             ]);
@@ -1443,7 +1443,7 @@ class PSNAnsNQuesSeeder extends Seeder
                 [
                     'game_id' => 204, 'round' => $key + 1,
                     'q_image' => $ImageDomain . "Grade_1/Lesson_32/Speaking/" . $value . ".png",
-                    'q_content' => $L32_U6_q,
+                    'q_content' => "Look at the picture and say a word.",
                     'q_audio' => $AudioDomain."Grade_1/Lesson_32/Speaking/".$value.".mp3",
                     'a_content' => $value,
                     'round_instruction' => $AudioDomain."Grade_1/Lesson_32/Speaking/".$L32_U6_q.".mp3"
@@ -1962,8 +1962,8 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         $content = [
-            "Sing ABC song", 'Work to the door', 'Sing and act', 'Practice with your friend',
-            'Say the words', 'Raise your hand', 'Sing and dance', 'Come here', 'clap your hands', 'Ask and answer',
+            "Sing ABC song", 'Walk to the door', 'Sing and act', 'Practice with your friend',
+            'Say the words', 'Raise your hand', 'Sing and dance', 'Come here', 'Clap your hands', 'Ask and answer',
         ];
 
 
@@ -1973,7 +1973,8 @@ class PSNAnsNQuesSeeder extends Seeder
 
                 [
                     'game_id' => 221,
-                    'round' => $key + 1, 'q_content' => "Look at the picture and say.",
+                    'round' => $key + 1,
+                    'q_content' => "Look at the picture and say.",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_35/Speaking/" . str_replace(' ', '-', $value) . ".png",
                     'a_content' => $value,
                     'q_audio' => $AudioDomain."Grade_1/Lesson_35/Speaking/". str_replace(' ', '-', $value) .".mp3",
@@ -2755,8 +2756,9 @@ class PSNAnsNQuesSeeder extends Seeder
                     'round' => $key + 1,
                     'q_content' => $value,
                     'q_image' => $img . str_replace(' ', '-', $content) . ".png",
-                    'a_content' => null,
                     'q_audio' => $AudioDomain."Grade_1/Lesson_39/Speaking/".str_replace(' ','-', $ques_audio[$key]).".mp3",
+                    'a_content' => null,
+                    'round_instruction' => $AudioDomain."Grade_1/Lesson_39/Speaking/".str_replace(' ','-', $ques_audio[$key]).".mp3",
                 ]
 
             ]);
