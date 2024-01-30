@@ -2693,7 +2693,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
     // Unit 2 Vocabulary  <Reading_carousel>
 
         $contents = [
-            'collect-thing','Doing-yoga', 'going-dancing', 'hiking', 'jogging', 'making-origami',
+            'collect-thing','doing-yoga', 'going-dancing', 'hiking', 'jogging', 'making-origami',
             'mountain-climbing', 'photography','volleyball', 'seeing-movie', 'seeing-play', 'skating',
             'skiing','traveling','writing-stories'
         ];
