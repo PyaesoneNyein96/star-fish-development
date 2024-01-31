@@ -898,22 +898,60 @@ class AnsNQueSeeder extends Seeder
 
         $l4_G789_q_audio = [
             "How-many-people-do-you-see-in",
-            "What-is-the-name-of-Johns-cat"
+            "What-is-the-name-of-Johns-cat",
+            "What-is-John-doing-Playing-wit",
+            "Does-John-have-long-hair-Yes",
+            "Does-Max-have-long-hair-Yes-h",
+            "Does-Emma-have-short-hair-Yes",
+            "What-is-Emma-doing-Picking-app",
+            "Who-is-helping-Emma-Max-john",
+            "How-is-the-weather-Sunny-Rainy",
+            "Where-are-they-In-the-shopping"
         ];
         $l4_G789_q_conver = [
             "How many people do you see in picture?",
-            "What is the name of John's cat?"
+            "What is the name of John's cat?",
+            "What is John doing?",
+            "Does John have long hair?",
+            "Does Max have long hair?",
+            "Does Emma have short hair?",
+            "What is Emma doing?",
+            "Who is helping Emma?",
+            "How is the weather?",
+            "Where are they?"
         ];
         $l4_G789_q_audio_ans = [
             ["Two", "Three", "Four"],
-            ["Kate", "Max", "Ben"]
+            ["Kate", "Max", "Ben"],
+            ["Playing with his cat", "Digging the soil", "Picking apples"],
+            ["Yes, he does", "No, he doesn't"],
+            ["Yes, he does", "No, he doesn't"],
+            ["Yes, she does", "No, she doesn't"],
+            ["Picking apples", "Planting", "Playing in the garden"],
+            ["Max", "John", "Ben"],
+            ["Sunny", "Rainy", "Cloudy"],
+            ["In the shopping mall", "In the playground", "In the garden"]
+
         ];
+        $l4_G789_q_audio_a_content = [
+            [0, 1, 0],
+            [0, 0, 1],
+            [1, 0, 0],
+            [0, 1],
+            [0, 1],
+            [0, 1],
+            [0, 1, 0],
+            [1, 0, 0],
+            [0, 0, 1],
+            [0, 0, 1],
+        ];
+
 
         for ($i = 0; $i < count($l4_G789_q_audio); $i++) {
 
-            foreach ($l4_G789_q_audio_ans[$i] as $val) {
+            foreach ($l4_G789_q_audio_ans[$i] as $key => $val) {
                 DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 789, "q_audio" => $AudioDomain . $G4_L4_reading_lesson_path . strtolower($val) . ".mp3", 'q_content' => $val, "q_conver" => null, 'a_content' => 1, "background" => null],
+                    ['round' => $i + 1, 'game_id' => 789, "q_audio" => $AudioDomain . $G4_L4_reading_lesson_path . str_replace(' ', '-', strtolower($val)) . ".mp3", 'q_content' => $val, "q_conver" => null, 'a_content' => $l4_G789_q_audio_a_content[$i][$key], "background" => null],
                 ]);
             }
 
