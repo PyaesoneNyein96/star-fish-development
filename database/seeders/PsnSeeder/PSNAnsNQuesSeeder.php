@@ -124,9 +124,11 @@ class PSNAnsNQuesSeeder extends Seeder
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'round' => $i + 1, 'game_id' => 4,
-                    'q_audio' => $AudioDomain . $G1_L1_U4_path . $audios[$index] . ".mp3", 'a_content' => $answers[$index],
-                    'q_conver' => $conver[$index],
+                    'round' => $i + 1,
+                    'game_id' => 4,
+                    'q_audio' => $AudioDomain . $G1_L1_U4_path . $audios[$index] . ".mp3",
+                    'a_content' => $answers[$index],
+                    'q_conver' =>  $ImageDomain.$G1_L1_U4_path.str_replace(' ','-',$audios[$index]).".png"   ,
                     'background' => $i + 1 > 4 && $i + 1 < 8 ? $ImageDomain . $G1_L1_U4_path . "G1_L1_U4_bg2" . ".png" : $ImageDomain . $G1_L1_U4_path . "G1_L1_U4_bg1" . ".png"
                 ],
             ]);
