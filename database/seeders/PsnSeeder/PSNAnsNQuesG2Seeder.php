@@ -996,12 +996,12 @@ class PSNAnsNQuesG2Seeder extends Seeder
     ];
 
     $Question_contents = [
-        'My father is a  ___',
-        'He goes to school by ___',
-        'The school is ___ ths ___.',
-        'I have a  ___. It is white and fast.',
-        'The rabbit is ___ the __now. \n I love it very much.',
-        'I live in   ___',
+        "Look at the picture and speak. \n My father is a  ___",
+        "Look at the picture and speak. \n He goes to school by ___",
+        "Look at the picture and speak. \n The school is ___ ths ___.",
+        "Look at the picture and speak. \n I have a  ___. It is white and fast.",
+        "Free practice, \n The rabbit is ___ the __now. \n I love it very much.",
+        "Look at the picture and speak. \n I live in   ___",
     ];
 
 
@@ -1621,7 +1621,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'round' => $i + 1,
                     'q_content' => $q,
                     'q_image' => $q,
-                    'a_audio' => $audio . $q . ".mp3",
+                    'q_audio' => $audio . $q . ".mp3",
                 ]
             ]);
         }
@@ -1633,7 +1633,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'game_id' => 400, 'round' => $i + 1,
                     'q_content' => strtolower($q),
                     'q_image' => $img . strtolower($q) . ".png",
-                    'a_audio' => $audio . $q . ".mp3",
+                    'q_audio' => $audio . $q . ".mp3",
                 ]
             ]);
         }
@@ -2293,8 +2293,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
             [
                 'game_id' => 418,
                 'round' => $key + 1,
-                // 'round_instruction' => "Look at this picture and speak.",
-                // 'q_content' => "Look at this picture and speak.",
+                'round_instruction' => $AudioDomain."/Grade_2/Lesson_33/Speak/". "Look-at-the-pictures-and-speak.mp3",
+                'q_content' => "Look at this picture and speak.",
                 'q_audio' => $AudioDomain."/Grade_2/Lesson_33/Speak/".$contents[$key].".mp3",
                 'q_image' => $ImageDomain . "Grade_2/Lesson_33/Speak/" . $value . ".png",
                 'a_content' => str_replace('-', ' ', $value)
@@ -2649,7 +2649,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
         $Question_contents = [
             "Hi, I am Jane. I like books. \n I go to the library on Friday. \n I go there by bus.",
-            "Hi, I am ___. I like books. \n I go to the ___ on ___ . \n I go there by ___.",
+            "Hi, I am ___. I like ___. \n I go to the ___ on ___ . \n I go there by ___.",
             "Your turn; Hi, I am ___. I like books. \n I go to the ___ on ___ . \n I go there by ___.",
 
         ];
@@ -3377,7 +3377,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'round_instruction' => $audio."Look-at-the-clock-and-speak-the-time.mp3",
                     'q_content' =>  $questions[$key],
                     'q_image' => $img . $data[$key] . ".png",
-                    'a_audio' => $audio.$data[$key].".mp3",
+                    'q_audio' => $audio.$data[$key].".mp3",
                 ]
 
             ]);
