@@ -1344,7 +1344,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $contents = [
             'eat dinner','talk on the phone','do homework','take a bath','study english','play video games','play violin',
-            'listen music', 'switch off light', 'go to bed'
+            'listen music', 'switch off light', 'go to bed', 'comb hair', 'get dressed','eat breakfast','brush teeth','wash face','get up'
         ];
 
         $audio = $AudioDomain."Grade_3/Lesson_26/Vocabulary_1/";
@@ -1378,6 +1378,17 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "comb-hair"
         ];
 
+        $ans = [
+            'take a bath',
+            'play violin',
+            'do homework',
+            'play video games',
+            'listen to music',
+            'get up',
+            'eat breakfast',
+            'comb my hair'
+        ];
+
 
         $images = $ImageDomain . "Grade_3/Lesson_26/Vocabulary_2/";
         $audios = $AudioDomain . "Grade_3/Lesson_26/Vocabulary_2/";
@@ -1391,7 +1402,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'q_image' => $images.$this->removeSpace($q).".png",
                     'q_audio' => $audios.$this->removeSpace($q).".mp3",
                     'q_content' => null,
-                    'a_content' => null,
+                    'a_content' => $ans[$key],
                 ]
             ]);
         }
@@ -1405,8 +1416,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
         $contents = [
-            "3-45.",
-            "3-55",
+            "2-45",
+            "11-15",
             "1-30",
             "2-10",
             "9-45",
@@ -1429,8 +1440,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'round' => $key + 1,
                     'q_image' => $images.$this->removeSpace($q).".png",
                     'q_audio' => $audios.$this->removeSpace($q).".mp3",
-                    'q_content' => $q,
-                    'a_content' => null,
+                    'q_content' => "What time is it?",
+                    'a_content' => "It's ". str_replace('-',':', $q),
                 ]
             ]);
         }
@@ -1445,17 +1456,17 @@ class PSNAnsNQuesG3Seeder extends Seeder
             $audios = $AudioDomain . "Grade_3/Lesson_26/Listening/";
 
             $contents = [
-                ['3-45', '6-30','4-00'],
-                ['6-40', '7-00','3-10'],
-                ['6-30', '7-00','4-50'],
-                ['6-30', '6-10','4-50'],
+                ['9-35', '6-30','4-00'],
+                ['6-40', '7-00','2-10'],
+                ['6-30', '7-00','10-20'],
+                ['6-30', '2-10','10-20'],
             ];
 
 
             $ans = [
-                '6-30',
+                '4-00',
                 '6-40',
-                '4-50',
+                '7-00',
                 '6-30',
             ];
 
@@ -1488,18 +1499,18 @@ class PSNAnsNQuesG3Seeder extends Seeder
     // Unit 5 Speaking <speaking_and_recording>
 
         $contents = [
-            "sleep", "watch TV", "do homework", "wash dishes", "singing", "make breakfast", "get up"
+            "dinner","sleep", "watch TV", "do homework", "wash dishes", "singing", "make breakfast", "get up"
         ];
 
         $Question_contents = [
-            "What do he do at 8 o'clock at night?",
+            "What do you do at 6 o'clock in the evening?",
+            "What does he do at 8 o'clock at night?",
             "What do they do at 6:30 in the evening?",
-            "What do they do at 6 o'clock in the evening?",
+            "What does you do at 6 o'clock in the evening?",
             "What does she do at 8 o'clock in the morning?",
             "What do you do at 2 in the afternoon?",
             "What do you do at 7 o'clock in the morning?",
             "What do you do at 6:30 in the morning?",
-
         ];
 
         $images = $ImageDomain . "Grade_3/Lesson_26/Speaking/";
@@ -1512,8 +1523,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 [
                     'game_id' => 646,
                     'round' => $key + 1,
+                    'round_instruction' =>$audios.$this->removeSpace(str_replace('?','',$Question_contents[$key])).".mp3" ,
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                    'q_audio' => $audios.$this->removeSpace($value).".mp3",
                     'q_image' => $images . $this->removeSpace($value) . ".png",
                     'a_content' => $value
                 ]
@@ -1531,11 +1543,11 @@ class PSNAnsNQuesG3Seeder extends Seeder
     $para = "Hi, My name is Toby. I am 8 years old. I am a Grade 3 student. Today is very busy. In the morning I get up at 6:30. And I brush my teeth, take a bath and eat breakfast at 7:00. Then I get dressed, and I go to school. In the afternoon I eat my lunch at 12:30. And I play with my friends at school. I come back home at 3:00 in the afternoon. I do my homework at 5:00,and  I eat dinner at 6:00 in the evening. After dinner, I watch TV for a while. I go to bed at 8:00. I have a very busy day.";
 
     $given_q = [
-        ["What does he do after lunch at school?", "I play with my friends at school"],
-        ["What time does he eat dinner?", "I watch TV for a while"],
-        ["What time does he go to bed?", "8 o'clock"],
-        ["What time does he eat breakfast in the morning?", "7 o'clock"],
-        ["What time does Toby get up in the morning?", "6:30"],
+        ["What does he do after lunch at school?", "He plays with his friends at school after lunch at school"],
+        ["What time does he eat dinner?", "He eats dinner at 6:00 in the evening"],
+        ["What time does he go to bed?", "He goes to bed at 8:00 "],
+        ["What time does he eat breakfast in the morning?", "He eats breakfast at 7:00 in the morning"],
+        ["What time does Toby get up in the morning?", "He gets up at 6:30 in the morning"],
     ];
 
     $given_audio = [
@@ -1580,7 +1592,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         $images = $ImageDomain . "Grade_3/Lesson_22/Writing/";
         $audios = $AudioDomain . "Grade_3/Lesson_22/Writing/";
 
-        $sample_content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum ";
+        $sample_content = "Sample: Hi, My name is Toby. I am 8 years old. I am a Grade 3 student. Today is very busy. In the morning I get up at 6:30. And I brush my teeth, take a bath and eat breakfast at 7:00. Then I get dressed, and I go to school. In the afternoon I eat my lunch at 12:30. And I play with my friends at school. I come back home at 3:00 in the afternoon. I do my homework at 5:00,and  I eat dinner at 6:00 in the evening. After dinner, I watch TV for a while. I go to bed at 8:00. I have a very busy day.";
 
         DB::table('ans_n_ques')->insert([
             [
@@ -1665,11 +1677,24 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
         $contents = [
-            'I alway go to school at 8:25','I usually have breakfast at 7:30',
-            "I often do the housework at 4:30", "I usually go home at 3:45",
-            "I sometime watch TV at 8:30", "I usually study my lesson at 7:30",
-            "I usually go to bed at 9:00", "I often have a bath at 6:15",
             "I usually get up at 6:00",
+            "I often have a bath at 6:15",
+            "I usually have breakfast at 7:30",
+            'I alway go to school at 8:25',
+            "I usually go home at 3:45",
+            "I often do the housework at 4:30",
+            "I usually study my lesson at 7:30",
+            "I sometime watch TV at 8:30",
+            "I usually go to bed at 9:00",
+
+        ];
+
+        $ans = [
+            "What time do you usually get up?", "What time do you often have a bath?",
+            "What time do you usually have breakfast?", "What time do you always go to school?",
+            "What time do you usually go home?", "What time do you often do the housework?",
+            "What time do you often study your lessons?", "What time do you sometimes watch TV?",
+            "What time do you usually go to bed?"
         ];
 
 
@@ -1685,7 +1710,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'game_id' => 652,
                     'round' => $key + 1,
                     'q_image' => $images.$this->removeSpace($val).".png",
-                    'q_audio' => $audio.$this->removeSpace($val).".mp3",
+                    // 'q_audio' => $audio.$this->removeSpace($val).".mp3",
+                    'q_content' => $val,
+                    'a_content' => $ans[$key] ,
+                    'a_audio' => $audios.$this->removeSpace(str_replace('?','',$ans[$key])).".mp3",
 
                 ]
             ]);
@@ -1798,9 +1826,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 654,
                 'round' => $key + 1,
-                'round_instruction' => $audio.$this->removeSpace($Question_contents[$key]).".mp3",
-                'q_content' => $Question_contents[$key]." ?",
-                'q_audio' => $audio.$contents[$key].".mp3",
+                'round_instruction' => $audios.$this->removeSpace($Question_contents[$key]).".mp3",
+                'q_content' => $Question_contents[$key]."?",
+                'q_audio' => $audios.$contents[$key].".mp3",
                 'q_image' => $images . $value . ".png",
             ]
 
@@ -1821,7 +1849,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         [
             'game_id' => 655,
             'q_content' =>  "Talk about What do you do at home everyday?",
-            'q_audio' => $audio."Talk-about-your-do-at-home.mp3",
+            'q_audio' => $audios."Talk-about-your-do-at-home.mp3",
             'q_image' => $images . "green_animal",
         ]
 
@@ -2693,7 +2721,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
     // Unit 2 Vocabulary  <Reading_carousel>
 
         $contents = [
-            'collect-thing','Doing-yoga', 'going-dancing', 'hiking', 'jogging', 'making-origami',
+            'collect-thing','doing-yoga', 'going-dancing', 'hiking', 'jogging', 'making-origami',
             'mountain-climbing', 'photography','volleyball', 'seeing-movie', 'seeing-play', 'skating',
             'skiing','traveling','writing-stories'
         ];
