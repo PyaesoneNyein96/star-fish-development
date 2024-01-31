@@ -37,6 +37,8 @@ trait gameTraits2
      *  28. look_and_choose
      *  29. speak_listen_and_record
      *  30. rearrange_with_audio_two
+     *  31. look_and_choose_two
+     *  32. speaking_and_recording_conversation
      *
      *
      */
@@ -184,6 +186,16 @@ trait gameTraits2
     }
 
     public function rearrange_with_audio_two($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
+    public function look_and_choose_two($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
+    public function speaking_and_recording_conversation($game, $student, $unit)
     {
         return $this->common_fun($game, $unit);
     }
