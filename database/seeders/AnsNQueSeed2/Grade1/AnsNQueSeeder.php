@@ -3235,19 +3235,19 @@ class AnsNQueSeeder extends Seeder
         $l18_G110_image = $domain . "/storage/images/Grade_1/lesson_18/listen_n_act/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 110, 'q_audio' => $AudioDomain . $G1_L18_listen_n_act . "Dont-touch-your-feet.mp3", 'q_content' => "Don't touch your feet", 'q_image' =>  $l18_G110_image . "hair.png", 'a_content' => 1],
+            ['round' => 1, 'game_id' => 110, 'q_audio' => $AudioDomain . $G1_L18_listen_n_act . "Dont-touch-your-feet.mp3", 'q_content' =>   $l18_G110_image . "Dont-touch-your-feet.png", 'q_image' =>  $l18_G110_image . "hair.png", 'a_content' => 1],
             ['round' => 1, 'game_id' => 110, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l18_G110_image . "feet.png", 'a_content' => 0],
 
-            ['round' => 2, 'game_id' => 110, 'q_audio' => $AudioDomain . $G1_L18_listen_n_act . "touch-your-waist.mp3", 'q_content' => "Touch your waist", 'q_image' =>  $l18_G110_image . "feet.png", 'a_content' => 0],
+            ['round' => 2, 'game_id' => 110, 'q_audio' => $AudioDomain . $G1_L18_listen_n_act . "touch-your-waist.mp3", 'q_content' =>   $l18_G110_image . "touch-your-waist.png", 'q_image' =>  $l18_G110_image . "feet.png", 'a_content' => 0],
             ['round' => 2, 'game_id' => 110, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l18_G110_image . "waist.png", 'a_content' => 1],
 
-            ['round' => 3, 'game_id' => 110, 'q_audio' => $AudioDomain . $G1_L18_listen_n_act . "Dont-touch-your-ankle.mp3", 'q_content' => "Don't touch your ankle", 'q_image' =>  $l18_G110_image . "leg.png", 'a_content' => 1],
+            ['round' => 3, 'game_id' => 110, 'q_audio' => $AudioDomain . $G1_L18_listen_n_act . "Dont-touch-your-ankle.mp3", 'q_content' =>   $l18_G110_image . "Dont-touch-your-ankle.png", 'q_image' =>  $l18_G110_image . "leg.png", 'a_content' => 1],
             ['round' => 3, 'game_id' => 110, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l18_G110_image . "ankle.png", 'a_content' => 0],
 
-            ['round' => 4, 'game_id' => 110, 'q_audio' => $AudioDomain . $G1_L18_listen_n_act . "Touch-your-knee.mp3", 'q_content' => "Touch your knee", 'q_image' =>  $l18_G110_image . "mouth.png", 'a_content' => 0],
+            ['round' => 4, 'game_id' => 110, 'q_audio' => $AudioDomain . $G1_L18_listen_n_act . "Touch-your-knee.mp3", 'q_content' =>   $l18_G110_image . "Touch-your-knee.png", 'q_image' =>  $l18_G110_image . "mouth.png", 'a_content' => 0],
             ['round' => 4, 'game_id' => 110, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l18_G110_image . "knee.png", 'a_content' => 1],
 
-            ['round' => 5, 'game_id' => 110, 'q_audio' => $AudioDomain . $G1_L18_listen_n_act . "Touch-your-arm.mp3", 'q_content' => "Touch your arm", 'q_image' =>  $l18_G110_image . "arm.png", 'a_content' => 1],
+            ['round' => 5, 'game_id' => 110, 'q_audio' => $AudioDomain . $G1_L18_listen_n_act . "Touch-your-arm.mp3", 'q_content' =>   $l18_G110_image . "Touch-your-arm.png", 'q_image' =>  $l18_G110_image . "arm.png", 'a_content' => 1],
             ['round' => 5, 'game_id' => 110, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l18_G110_image . "head.png", 'a_content' => 0],
 
         ]);
@@ -3459,19 +3459,19 @@ class AnsNQueSeeder extends Seeder
         $l19_G116_image = $domain . "/storage/images/Grade_1/lesson_19/listen_n_act/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 116, 'q_audio' => $AudioDomain . $G1_L19_listen_n_act . "Dont-touch-your-feet.mp3", 'q_content' => "Don't touch your feet", 'q_image' =>  $l19_G116_image . "hair.png", 'a_content' => 1],
+            ['round' => 1, 'game_id' => 116, 'q_audio' => $AudioDomain . $G1_L19_listen_n_act . "Dont-touch-your-feet.mp3", 'q_content' => $l19_G116_image .   "Dont-touch-your-feet.png", 'q_image' =>  $l19_G116_image . "hair.png", 'a_content' => 1],
             ['round' => 1, 'game_id' => 116, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l19_G116_image . "feet.png", 'a_content' => 0],
 
-            ['round' => 2, 'game_id' => 116, 'q_audio' => $AudioDomain . $G1_L19_listen_n_act . "touch-your-waist.mp3", 'q_content' => "Touch your waist", 'q_image' =>  $l19_G116_image . "feet.png", 'a_content' => 0],
+            ['round' => 2, 'game_id' => 116, 'q_audio' => $AudioDomain . $G1_L19_listen_n_act . "touch-your-waist.mp3", 'q_content' => $l19_G116_image . "touch-your-waist.png", 'q_image' =>  $l19_G116_image . "feet.png", 'a_content' => 0],
             ['round' => 2, 'game_id' => 116, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l19_G116_image . "waist.png", 'a_content' => 1],
 
-            ['round' => 3, 'game_id' => 116, 'q_audio' => $AudioDomain . $G1_L19_listen_n_act . "Dont-touch-your-ankle.mp3", 'q_content' => "Don't touch your ankle", 'q_image' =>  $l19_G116_image . "leg.png", 'a_content' => 1],
+            ['round' => 3, 'game_id' => 116, 'q_audio' => $AudioDomain . $G1_L19_listen_n_act . "Dont-touch-your-ankle.mp3", 'q_content' =>  $l19_G116_image . "Dont-touch-your-ankle.png", 'q_image' =>  $l19_G116_image . "leg.png", 'a_content' => 1],
             ['round' => 3, 'game_id' => 116, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l19_G116_image . "ankle.png", 'a_content' => 0],
 
-            ['round' => 4, 'game_id' => 116, 'q_audio' => $AudioDomain . $G1_L19_listen_n_act . "Touch-your-knee.mp3", 'q_content' => "Touch your knee", 'q_image' =>  $l19_G116_image . "mouth.png", 'a_content' => 0],
+            ['round' => 4, 'game_id' => 116, 'q_audio' => $AudioDomain . $G1_L19_listen_n_act . "Touch-your-knee.mp3", 'q_content' =>  $l19_G116_image . "Touch-your-knee.png", 'q_image' =>  $l19_G116_image . "mouth.png", 'a_content' => 0],
             ['round' => 4, 'game_id' => 116, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l19_G116_image . "knee.png", 'a_content' => 1],
 
-            ['round' => 5, 'game_id' => 116, 'q_audio' => $AudioDomain . $G1_L19_listen_n_act . "Touch-your-arm.mp3", 'q_content' => "Touch your arm", 'q_image' =>  $l19_G116_image . "arm.png", 'a_content' => 1],
+            ['round' => 5, 'game_id' => 116, 'q_audio' => $AudioDomain . $G1_L19_listen_n_act . "Touch-your-arm.mp3", 'q_content' =>  $l19_G116_image .  "Touch-your-arm.png", 'q_image' =>  $l19_G116_image . "arm.png", 'a_content' => 1],
             ['round' => 5, 'game_id' => 116, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l19_G116_image . "face.png", 'a_content' => 0],
 
         ]);
