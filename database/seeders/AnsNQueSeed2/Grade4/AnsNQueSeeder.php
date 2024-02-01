@@ -1175,7 +1175,7 @@ class AnsNQueSeeder extends Seeder
                 DB::table('ans_n_ques')->insert([
                     [
                         'game_id' => 796,
-                        'a_content' => $$ansL5_G796[$i][$j],
+                        'a_content' => $ansL5_G796[$i][$j],
                         'a_image' => $l5_G795_G796_image . $key . "2/" . ".png",
                         'a_audio' => $AudioDomain . $G4_L5_listen_n_repeat . strtolower($key) . ".mp3",
                         'q_content' => $i,
