@@ -1926,7 +1926,7 @@ class PSNAnsNQuesSeeder extends Seeder
         //// Lesson 36 Unit 2 (Reading_Carousel) <Read , Listen and Repeat>
 
         $content = [
-            'X-ray', 'xylophone', 'yacht', 'yellow', 'yolk', 'zebra', 'zero', 'zigzag', 'zoo', 'zoom',
+            'X-ray', 'xylophone', 'yacht','yolk', 'zebra', 'zero', 'zigzag', 'zoo',
         ];
 
         $img = $ImageDomain . "Grade_1/Lesson_36/Read_Listen_and_Repeat/";
