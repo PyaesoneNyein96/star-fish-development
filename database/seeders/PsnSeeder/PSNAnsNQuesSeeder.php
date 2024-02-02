@@ -124,9 +124,11 @@ class PSNAnsNQuesSeeder extends Seeder
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'round' => $i + 1, 'game_id' => 4,
-                    'q_audio' => $AudioDomain . $G1_L1_U4_path . $audios[$index] . ".mp3", 'a_content' => $answers[$index],
-                    'q_conver' => $conver[$index],
+                    'round' => $i + 1,
+                    'game_id' => 4,
+                    'q_audio' => $AudioDomain . $G1_L1_U4_path . $audios[$index] . ".mp3",
+                    'a_content' => $answers[$index],
+                    'q_conver' =>  $ImageDomain.$G1_L1_U4_path.str_replace(' ','-',$audios[$index]).".png"   ,
                     'background' => $i + 1 > 4 && $i + 1 < 8 ? $ImageDomain . $G1_L1_U4_path . "G1_L1_U4_bg2" . ".png" : $ImageDomain . $G1_L1_U4_path . "G1_L1_U4_bg1" . ".png"
                 ],
             ]);
@@ -282,16 +284,19 @@ class PSNAnsNQuesSeeder extends Seeder
         ////    Grade 1  Lesson 7 Games 2 (Carousel)
 
 
-        $L7_U2_content = ['Apple', 'Ball', 'Boy', 'Ant', 'Airplane', 'Cake', 'Cup', 'Dog', 'Duster', 'Doll'];
+        // $L7_U2_content = ['Apple', 'Ball', 'Boy', 'Ant', 'Airplane', 'Cake', 'Cup', 'Dog', 'Duster', 'Doll'];
+        $content = ['Airplane', 'Ant', 'Apple', 'Ball', 'Banana', 'Boy', 'Cake', 'Car',
+                    'Cat', 'Cup', 'Dog', 'Doll','Duster'];
 
         $L7_U2_Img = $ImageDomain . "Grade_1/Lesson_7/Read_Listen_and_Repeat/";
         $L7_U2_audio = $AudioDomain . "Grade_1/Lesson_7/Read_Listen_and_Repeat/";
 
-        foreach ($L7_U2_content as $key) {
+        foreach ($content as $value) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 35, 'a_content' => $key, 'a_image' => $L7_U2_Img . strtolower($key) . ".png",
-                    'a_audio' => $L7_U2_audio . strtolower($key) . ".mp3"
+                    'game_id' => 35, 'a_content' => $value,
+                    'a_image' => $L7_U2_Img . ucfirst($value) . ".png",
+                    'a_audio' => $L7_U2_audio . strtolower($value) . ".mp3"
                 ],
             ]);
         }
@@ -299,8 +304,7 @@ class PSNAnsNQuesSeeder extends Seeder
         ////////////////////////////////////////////////////////
         ////    Grade 1  Lesson 7 Games 3
 
-        $L7_U3_items_1 = ['airplane', 'doll', 'dog', 'apple', 'cup', 'banana'];
-        $L7_U3_items_2 = ['ball', 'boy', 'cake', 'ant', 'car', 'duster'];
+        $L7_U3_items_1 = ['mangosteen','apple','dog','cake', 'cup', 'car','cat','ant'];
 
         $L7_U3_Img = $ImageDomain . "Grade_1/Lesson_7/Listening_and_practice/";
         $L7_U3_audio = $AudioDomain . "Grade_1/Lesson_7/Listening_and_practice/";
@@ -312,13 +316,6 @@ class PSNAnsNQuesSeeder extends Seeder
                     'a_audio' => $L7_U3_audio . $value . ".mp3",
                     'background' => $L7_U3_Img . "bg.png"
                 ],
-
-                [
-                    'game_id' => 36, 'round' => 2, 'a_content' => $L7_U3_items_2[$key], 'q_image' => $L7_U3_Img . $L7_U3_items_2[$key] . ".png",
-                    'a_audio' => $L7_U3_audio . $L7_U3_items_2[$key] . ".mp3",
-                    'background' => $L7_U3_Img . "bg.png"
-                ]
-
             ]);
         }
 
@@ -416,72 +413,6 @@ class PSNAnsNQuesSeeder extends Seeder
                 ],
             ]);
         }
-        // // -------------------
-        // // < fill_in_the_blanks >
-
-        // $g1_l7_u6_rearrange_the_letter_q1 = [
-        //     ['A','B','L','L'],
-        //     ['A','C','E','K'],
-        //     ['G','D','O'],
-        //     ['D','U','S','T','R','E'],
-        //     ['P','A','E','L','P'],
-        //     ['N','A','T'],
-        // ];
-
-        // $g1_l7_u6_rearrange_the_letter_q2 = [
-        //     '_all','_ake','_og','_uster','_pple','_nt'
-        // ];
-
-        // $correctAns =   [
-
-        //  ['B'],
-        //  ['C'],
-        //  ['D'],
-        //  ['D'],
-        //  ['A'],
-        //  ['A'],
-
-        // ];
-
-        // // $g1_l7_u6_rearrange_the_letter_a = [
-        // //     'BALL','CAKE','DOG','DUSTER','APPLE','ANT'
-        // // ];
-        // $g1_l7_u6_rearrange_the_letter_a = [
-        //     'Ball','Cake','Dog','Duster','Apple','Ant'
-        // ];
-
-
-
-
-        // for ($i=0; $i < count($g1_l7_u6_rearrange_the_letter_q1) ; $i++) {
-
-        //     $roundAnswers = [];
-        //     foreach ($g1_l7_u6_rearrange_the_letter_q1[$i] as $k => $word) {
-
-        //         $isCorrect = in_array($word, $correctAns[$i]);
-        //         $roundAnswers[] = $isCorrect;
-
-        //         DB::table('ans_n_ques')->insert([
-        //             [   'round' => $i + 1, 'game_id' => 40,
-        //                 'q_audio' => $word.".mp3",'q_content' => $word,
-        //                 'a_content' => $isCorrect ? 1 : 0,
-        //             ]
-        //         ]);
-        //     }
-
-        //     // $roundAnswer = implode('', $roundAnswers);
-
-        //     DB::table('ans_n_ques')->insert([
-        //         [
-        //             'round' => $i + 1, 'game_id' => 40,
-        //             'q_audio' =>$AudioDomain."Grade_1/Lesson_7/Writing_Sentences_order/". $g1_l7_u6_rearrange_the_letter_a[$i].".mp3",
-        //             'q_image' =>$ImageDomain."Grade_1/Lesson_7/Writing_Sentences_order/".$g1_l7_u6_rearrange_the_letter_a[$i].".png" ,
-        //             'q_content' => $g1_l7_u6_rearrange_the_letter_q2[$i],
-        //             'a_content' => $g1_l7_u6_rearrange_the_letter_a[$i],
-        //         ],
-        //     ]);
-
-        // }
 
 
         // -------------------
@@ -1082,7 +1013,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         $L31_U3_2 = [
-            'star', 'sun', 'sand', 'snail', 'tree'
+            'star', 'sun', 'sand', 'snail', 'tree','sun-glasses',
         ];
 
         foreach ($L31_U3_2 as $v) {
@@ -1995,7 +1926,7 @@ class PSNAnsNQuesSeeder extends Seeder
         //// Lesson 36 Unit 2 (Reading_Carousel) <Read , Listen and Repeat>
 
         $content = [
-            'X-ray', 'xylophone', 'yacht', 'yellow', 'yolk', 'zebra', 'zero', 'zigzag', 'zoo', 'zoom',
+            'X-ray', 'xylophone', 'yacht','yolk', 'zebra', 'zero', 'zigzag', 'zoo',
         ];
 
         $img = $ImageDomain . "Grade_1/Lesson_36/Read_Listen_and_Repeat/";
@@ -2242,12 +2173,12 @@ class PSNAnsNQuesSeeder extends Seeder
                 'This is my grandmother', 'This is my brother', 'This is my sister', 'This is my aunt',
         ];
         $content_2 =  [
-                'This is my father', 'This is my grandfather', 'This is my uncle', 'This is my aunt'
+                'This is my father', 'This is my grandfather', 'This is my uncle', 'This is my mother'
         ];
 
         $chrImgs = [
             ['grandmother','brother','sister','aunt'],
-            ['father','grandfather','uncle','Aunt']
+            ['father','grandfather','uncle','mother']
         ];
 
         $img = $ImageDomain . "Grade_1/Lesson_37/Listen_and_Practice_Game/";
@@ -2298,12 +2229,12 @@ class PSNAnsNQuesSeeder extends Seeder
 
         $question = [
             ['Grandfather', 'Aunt', 'Brother', 'Uncle', 'Grandmother'],
-            ['Grand-father', 'Father', 'Mother', 'Sister', 'brother'],
+            ['Grandfather', 'Father', 'Mother', 'Sister', 'Brother'],
         ];
 
         $randomValues = [
             ['Brother', 'Grandmother', 'Grandfather', 'Aunt', 'Uncle'],
-            ['Sister', 'brother', 'Father', 'Grand-father', 'Mother']
+            ['Sister', 'Brother', 'Father', 'Grandfather', 'Mother']
         ];
 
         $img = $ImageDomain . "Grade_1/Lesson_37/Matching/";
@@ -2373,25 +2304,32 @@ class PSNAnsNQuesSeeder extends Seeder
 
         // ucfirst
 
-        $content = [
-            'This is my mother.Her name is Emma', 'This is my aunt.Her name is Mary', 'This is my grandmother.Her name is Alice',
-            'This is my father.His name is David', 'This is my uncle.His name is John', 'This is my grandfather.His name is James',
-        ];
+        // $content = [
+        //     'This is my mother.Her name is Emma',
+        //     'This is my aunt.Her name is Mary',
+        //     'This is my grandmother.Her name is Alice',
+        //     'This is my father.His name is David',
+        //     'This is my uncle.His name is John',
+        //     'This is my older sister.His name is Susan.',
+        //     'This is my grandfather.His name is James',
+        //     'This is my younger brother.His name is Kevin',
+        // ];
 
         $imgContent = [
-            'mother','aunt','grandmother','father','uncle','grandfather'
+            'mother','aunt','grandmother','father','uncle','sister','grandfather','brother'
         ];
 
         $img = $ImageDomain . "Grade_1/Lesson_38/Read_Listen_and_Repeat/";
         $audio = $AudioDomain . "Grade_1/Lesson_38/Read_Listen_and_Repeat/";
 
-        foreach ($content as $k => $value) {
+        foreach ($imgContent as $k => $value) {
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 235, 'a_content' => $value,
-                    'a_image' => $img . str_replace(' ', '-', $imgContent[$k]) . ".png",
-                    'a_audio' => $audio . str_replace(' ', '-', $value) . ".mp3"
+                    'game_id' => 235,
+                    'a_content' => $value,
+                    'a_image' => $img . ucfirst($value) . ".png",
+                    'a_audio' => $audio . $value . ".mp3"
                 ],
             ]);
         }
