@@ -1352,15 +1352,15 @@ class AnsNQueSeeder extends Seeder
 
 
         $ansl9Content = [
-            "Bird", "Cat", "Dog", "Fish", "Kitten", "Parrot", "Puppy"
+            "Bird", "Cat", "Chameleon", "Dog", "Fish", "Goldfish", "Hamster", "Kitten", "Parrot", "Puppy", "Rabbit", "Turtle"
         ];
 
         $ansl9Image = [
-            "Bird", "Cat", "Dog", "Fish", "Kitten", "Parrot", "Puppy"
+            "Bird", "Cat", "Chameleon", "Dog", "Fish", "Goldfish", "Hamster", "Kitten", "Parrot", "Puppy", "Rabbit", "Turtle"
         ];
 
         $ansl9Audio = [
-            "bird", "cat", "dog", "fish", "kitten", "parrot", "puppy"
+            "bird", "cat", "chameleon", "dog", "fish", "goldfish", "hamster", "kitten", "parrot", "puppy", "rabbit", "turtle"
         ];
 
 
@@ -1370,7 +1370,7 @@ class AnsNQueSeeder extends Seeder
         foreach ($ansl9Content as $key) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 49, 'a_content' => $key, 'a_image' => $l9G49image . strtolower($ansl9Image[$G1_L9_Game49_index]) . ".png",
+                    'game_id' => 49, 'a_content' => $key, 'a_image' => $l9G49image . $ansl9Image[$G1_L9_Game49_index] . ".png",
                     'a_audio' => $AudioDomain . $G1_L9_reading . strtolower($ansl9Audio[$G1_L9_Game49_index]) . ".mp3"
                 ],
             ]);
@@ -1679,15 +1679,15 @@ class AnsNQueSeeder extends Seeder
 
 
         $ansl10Content = [
-            "Dog", "Goldfish", "Parrot", "Rabbit", "Turtle"
+            "Cat", "Cock", "Cow", "Dog", "Duck", "Goat", "Goldfish", "Horse", "Pig", "Parrot", "Rabbit", "Sheep", "Turtle"
         ];
 
         $ansl10Image = [
-            "Dog", "Goldfish", "Parrot", "Rabbit", "Turtle"
+            "Cat", "Cock", "Cow", "Dog", "Duck", "Goat", "Goldfish", "Horse", "Pig", "Parrot", "Rabbit", "Sheep", "Turtle"
         ];
 
         $ansl10Audio = [
-            "dog", "goldfish", "parrot", "rabbit", "turtle"
+            "Cat", "Cock", "Cow", "dog", "Duck", "Goat", "goldfish", "Horse", "Pig", "parrot", "rabbit", "Sheep", "turtle"
         ];
 
 
@@ -1698,7 +1698,7 @@ class AnsNQueSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 55, 'a_content' => $key, 'a_image' => $l10G55image . $ansl10Image[$G1_L10_Game55_index] . ".png",
-                    'a_audio' => $AudioDomain . $G1_L10_reading . $ansl10Audio[$G1_L10_Game55_index] . ".mp3"
+                    'a_audio' => $AudioDomain . $G1_L10_reading . strtolower($ansl10Audio[$G1_L10_Game55_index]) . ".mp3"
                 ],
             ]);
             $G1_L10_Game55_index++;
