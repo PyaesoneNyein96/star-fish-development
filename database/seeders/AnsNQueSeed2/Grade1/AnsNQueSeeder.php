@@ -2320,29 +2320,29 @@ class AnsNQueSeeder extends Seeder
 
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 76, 'q_audio' => $AudioDomain . $G1_L13_listen_and_practice_path . "This-cat-is-small-and-short-T.mp3", 'q_conver' => "This Cat is Small and Short", 'q_content' => "true", 'a_content' => 1, 'q_image' => $l13G76image . "cat.png"],
-            ['round' => 1, 'game_id' => 76, 'q_audio' => null, 'q_conver' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 1, 'game_id' => 76, 'q_audio' => $AudioDomain . $G1_L13_listen_and_practice_path . "This-cat-is-small-and-short-T.mp3", 'q_content' => "true", 'a_content' => 1, 'q_image' => $l13G76image . "cat.png"],
+            ['round' => 1, 'game_id' => 76, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 2, 'game_id' => 76, 'q_audio' => $AudioDomain . $G1_L13_listen_and_practice_path . "This-hat-is-old-True-or-False.mp3", 'q_conver' => "This Hat is Old", 'q_content' => "true", 'a_content' => 1, 'q_image' => $l13G76image . "girl.png"],
-            ['round' => 2, 'game_id' => 76, 'q_audio' => null, 'q_conver' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 2, 'game_id' => 76, 'q_audio' => $AudioDomain . $G1_L13_listen_and_practice_path . "This-hat-is-old-True-or-False.mp3", 'q_content' => "true", 'a_content' => 1, 'q_image' => $l13G76image . "girl.png"],
+            ['round' => 2, 'game_id' => 76, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 3, 'game_id' => 76, 'q_audio' => $AudioDomain . $G1_L13_listen_and_practice_path . "This-house-is-big-True-or-Fal.mp3", 'q_conver' => "This house is big.", 'q_content' => "true", 'a_content' => 1, 'q_image' => $l13G76image . "house.png"],
-            ['round' => 3, 'game_id' => 76, 'q_audio' => null, 'q_conver' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 3, 'game_id' => 76, 'q_audio' => $AudioDomain . $G1_L13_listen_and_practice_path . "This-house-is-big-True-or-Fal.mp3", 'q_content' => "true", 'a_content' => 1, 'q_image' => $l13G76image . "house.png"],
+            ['round' => 3, 'game_id' => 76, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 4, 'game_id' => 76, 'q_audio' => $AudioDomain . $G1_L13_listen_and_practice_path . "TIts-a-cake-Its-soft-True-o.mp3", 'q_conver' => "It's a cake. It's soft", 'q_content' => "true", 'a_content' => 1, 'q_image' => $l13G76image . "cake.png"],
-            ['round' => 4, 'game_id' => 76, 'q_audio' => null, 'q_conver' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 4, 'game_id' => 76, 'q_audio' => $AudioDomain . $G1_L13_listen_and_practice_path . "TIts-a-cake-Its-soft-True-o.mp3", 'q_content' => "true", 'a_content' => 1, 'q_image' => $l13G76image . "cake.png"],
+            ['round' => 4, 'game_id' => 76, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 5, 'game_id' => 76, 'q_audio' => $AudioDomain . $G1_L13_listen_and_practice_path . "This-girl-is-dirty-True-or-Fal.mp3", 'q_conver' => "This girl is dirty", 'q_content' => "true", 'a_content' => 1, 'q_image' => $l13G76image . "boy.png"],
-            ['round' => 5, 'game_id' => 76, 'q_audio' => null, 'q_conver' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 5, 'game_id' => 76, 'q_audio' => $AudioDomain . $G1_L13_listen_and_practice_path . "This-girl-is-dirty-True-or-Fal.mp3", 'q_content' => "true", 'a_content' => 1, 'q_image' => $l13G76image . "boy.png"],
+            ['round' => 5, 'game_id' => 76, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 6, 'game_id' => 76, 'q_audio' => $AudioDomain . $G1_L13_listen_and_practice_path . "Its-a-turtle-Its-fast-True.mp3", 'q_conver' => "It's a turtle. It's fast.", 'q_content' => "true", 'a_content' => 0, 'q_image' => $l13G76image . "turtle.png"],
-            ['round' => 6, 'game_id' => 76, 'q_audio' => null, 'q_conver' => null, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
+            ['round' => 6, 'game_id' => 76, 'q_audio' => $AudioDomain . $G1_L13_listen_and_practice_path . "Its-a-turtle-Its-fast-True.mp3",  'q_content' => "true", 'a_content' => 0, 'q_image' => $l13G76image . "turtle.png"],
+            ['round' => 6, 'game_id' => 76, 'q_audio' => null, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 7, 'game_id' => 76, 'q_audio' => $AudioDomain . $G1_L13_listen_and_practice_path . "This-bag-is-new-True-or-False.mp3", 'q_conver' => "This Bag is new", 'q_content' => "true", 'a_content' => 1, 'q_image' => $l13G76image . "bag.png"],
-            ['round' => 7, 'game_id' => 76, 'q_audio' => null, 'q_conver' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 7, 'game_id' => 76, 'q_audio' => $AudioDomain . $G1_L13_listen_and_practice_path . "This-bag-is-new-True-or-False.mp3",  'q_content' => "true", 'a_content' => 1, 'q_image' => $l13G76image . "bag.png"],
+            ['round' => 7, 'game_id' => 76, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 8, 'game_id' => 76, 'q_audio' => $AudioDomain . $G1_L13_listen_and_practice_path . "This-pencil-is-long-True-or-Fa.mp3", 'q_conver' => "This pencil is long.", 'q_content' => "true", 'a_content' => 1, 'q_image' => $l13G76image . "pencil.png"],
-            ['round' => 8, 'game_id' => 76, 'q_audio' => null, 'q_conver' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 8, 'game_id' => 76, 'q_audio' => $AudioDomain . $G1_L13_listen_and_practice_path . "This-pencil-is-long-True-or-Fa.mp3", 'q_content' => "true", 'a_content' => 1, 'q_image' => $l13G76image . "pencil.png"],
+            ['round' => 8, 'game_id' => 76, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
 
         ]);
 
