@@ -40,17 +40,17 @@ class AnsNQueSeeder extends Seeder
 
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 13, 'a_image' => $l3G13image . "susan.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "helloiamsusan.mp3", "a_conver" => $l3G13image .  "susan-hello.png", "background" =>  $l3G13image . "bg.png"],
-            ['round' => 1, 'game_id' => 13, 'a_image' => $l3G13image . "mary-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "merry_nicetomeetyou.mp3", "a_conver" => $l3G13image .  "nice-to.png", "background" =>  $l3G13image . "bg.png"],
+            ['round' => 1, 'game_id' => 13, 'a_image' => $l3G13image . "susan.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "helloiamsusan.mp3", "a_conver" => $l3G13image .  "susan-hello.png", "background" =>  $l3G13image . "bg.jpg"],
+            ['round' => 1, 'game_id' => 13, 'a_image' => $l3G13image . "mary-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "merry_nicetomeetyou.mp3", "a_conver" => $l3G13image .  "nice-to.png", "background" =>  $l3G13image . "bg.jpg"],
 
-            ['round' => 2, 'game_id' => 13, 'a_image' => $l3G13image . "mary.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "helloiammerry.mp3", "a_conver" => $l3G13image .  "mary-hello.png", "background" =>  $l3G13image . "bg.png"],
-            ['round' => 2, 'game_id' => 13, 'a_image' => $l3G13image . "susan-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "nicetomeetyou_susan.mp3", "a_conver" => $l3G13image .  "nice-to.png", "background" =>  $l3G13image . "bg.png"],
+            ['round' => 2, 'game_id' => 13, 'a_image' => $l3G13image . "mary.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "helloiammerry.mp3", "a_conver" => $l3G13image .  "mary-hello.png", "background" =>  $l3G13image . "bg.jpg"],
+            ['round' => 2, 'game_id' => 13, 'a_image' => $l3G13image . "susan-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "nicetomeetyou_susan.mp3", "a_conver" => $l3G13image .  "nice-to.png", "background" =>  $l3G13image . "bg.jpg"],
 
-            ['round' => 3, 'game_id' => 13, 'a_image' => $l3G13image . "tom.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "helloiamtom.mp3", "a_conver" => $l3G13image .  "tom-hello.png", "background" =>  $l3G13image . "bg1.png"],
-            ['round' => 3, 'game_id' => 13, 'a_image' => $l3G13image . "jerry-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "jerry_nicetomeetyou.mp3", "a_conver" => $l3G13image .  "Nice to meet you.", "background" =>  $l3G13image . "bg1.png"],
+            ['round' => 3, 'game_id' => 13, 'a_image' => $l3G13image . "tom.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "helloiamtom.mp3", "a_conver" => $l3G13image .  "tom-hello.png", "background" =>  $l3G13image . "bg.jpg"],
+            ['round' => 3, 'game_id' => 13, 'a_image' => $l3G13image . "jerry-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "jerry_nicetomeetyou.mp3", "a_conver" => $l3G13image .  "Nice to meet you.", "background" =>  $l3G13image . "bg.jpg"],
 
-            ['round' => 4, 'game_id' => 13, 'a_image' => $l3G13image . "jerry.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "helloiamjerry.mp3", "a_conver" => $l3G13image .  "jerry-hello.png", "background" =>  $l3G13image . "bg1.png"],
-            ['round' => 4, 'game_id' => 13, 'a_image' => $l3G13image . "tom-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "tom_nicetomeetyou.mp3", "a_conver" => $l3G13image .  "Nice to meet you.", "background" =>  $l3G13image . "bg1.png"],
+            ['round' => 4, 'game_id' => 13, 'a_image' => $l3G13image . "jerry.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "helloiamjerry.mp3", "a_conver" => $l3G13image .  "jerry-hello.png", "background" =>  $l3G13image . "bg.jpg"],
+            ['round' => 4, 'game_id' => 13, 'a_image' => $l3G13image . "tom-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "tom_nicetomeetyou.mp3", "a_conver" => $l3G13image .  "Nice to meet you.", "background" =>  $l3G13image . "bg.jpg"],
 
         ]);
 
@@ -246,10 +246,10 @@ class AnsNQueSeeder extends Seeder
 
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 19, 'q_image' => $l4image . "bowie.png", "q_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "SubBlock_My-names-Bowie.mp3", "q_conver" => "My name's Bowie.", "q_content" => "What's your name?"],
-            ['round' => 2, 'game_id' => 19, 'q_image' => $l4image . "kelly.png", "q_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "SubBlock_My-names-kelly.mp3",  "q_conver" => "My name's Kelly.", "q_content" => "What's your name?"],
-            ['round' => 3, 'game_id' => 19, 'q_image' => $l4image . "goldie.png", "q_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "SubBlock_My-names-Goldie.mp3",  "q_conver" => "My name's Goldie.", "q_content" => "What's your name?"],
-            ['round' => 4, 'game_id' => 19, 'q_image' => $l4image . "blu.png", "q_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "SubBlock_My-names-Blu.mp3",  "q_conver" => "My name's Blu.", "q_content" => "What's your name?"],
+            ['round' => 1, 'game_id' => 19, 'q_image' => $l4image . "bowie.png", "q_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "SubBlock_My-names-Bowie.mp3", "q_conver" => $l4image . "name-bowie.png", "q_content" => "What's your name?"],
+            ['round' => 2, 'game_id' => 19, 'q_image' => $l4image . "kelly.png", "q_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "SubBlock_My-names-kelly.mp3",  "q_conver" => $l4image . "name-kelly.png", "q_content" => "What's your name?"],
+            ['round' => 3, 'game_id' => 19, 'q_image' => $l4image . "goldie.png", "q_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "SubBlock_My-names-Goldie.mp3",  "q_conver" => $l4image . "name-goldie.png", "q_content" => "What's your name?"],
+            ['round' => 4, 'game_id' => 19, 'q_image' => $l4image . "blu.png", "q_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "SubBlock_My-names-Blu.mp3",  "q_conver" => $l4image . "name-blu.png", "q_content" => "What's your name?"],
         ]);
 
 
@@ -665,8 +665,8 @@ class AnsNQueSeeder extends Seeder
                 'a_audio' => $AudioDomain . $G1_L6_listen_n_practice . "pencil" . ".mp3", "background" => $l6G30image . "background.png"
             ],
             [
-                'round' => 1, 'game_id' => 30, 'a_content' => "color pen", 'q_image' => $l6G30image . "color_pen" . ".png",
-                'a_audio' => $AudioDomain . $G1_L6_listen_n_practice . "color-pencil" . ".mp3", "background" => $l6G30image . "background.png"
+                'round' => 1, 'game_id' => 30, 'a_content' => "crayon", 'q_image' => $l6G30image . "crayon" . ".png",
+                'a_audio' => $AudioDomain . $G1_L6_listen_n_practice . "crayon" . ".mp3", "background" => $l6G30image . "background.png"
             ],
             [
                 'round' => 1, 'game_id' => 30, 'a_content' => "ruler", 'q_image' => $l6G30image . "ruler" . ".png",

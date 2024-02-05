@@ -1456,5 +1456,58 @@ class AnsNQueSeeder extends Seeder
         DB::table('ans_n_ques')->insert([
             ["round" => 1, 'game_id' => 803, 'q_content' => $l5_G803image . "farm.png", 'a_content' => $G5_L5_Game803_ans],
         ]);
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 10 Game 835 ( video )
+        //////////////////////////////////////////////////////////////
+
+
+        DB::table('ans_n_ques')->insert(['game_id' => 835, 'a_content' => 'lesson_10_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 835, 'a_content' => 'lesson_10_video_global', 'isLocal' => 0]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 10 Game 836 ( Listen and Repeat )
+        ////////////////////////////////////////////////////////
+
+        $G4_L10_listen_and_repeat_path = "Grade_4/" . "Lesson_10/" . "listen_and_repeat/";
+        $l10G836Image = $domain . "/storage/images/Grade_4/lesson_10/listen_and_repeat/";
+
+
+        $conver_audio_G836 = [
+            ["what-sun", "sun-text"],
+            ["what-mon", "mon-text"],
+            ["what-tue", "tue-text"],
+            ["what-wed", "wed-text"],
+            ["what-thur", "thur-text"],
+            ["what-fri", "fri-text"],
+            ["what-sat", "sat-text"],
+        ];
+
+        $imageG836 = [
+            ["mike", "mary"],
+            ["mike", "mary"],
+            ["mike", "mary"],
+            ["mike", "mary"],
+            ["mike", "mary"],
+            ["mike", "mary"],
+            ["mike", "mary"],
+        ];
+
+        $bg_G836 = [
+            "sun-bg", "mon-bg", "tue-bg", "wed-bg", "thur-bg", "fri-bg", "sat-bg"
+        ];
+
+        for ($i = 0; $i < count($conver_audio_G836); $i++) {
+
+            for ($j = 0; $j < count($conver_audio_G836[$i]); $j++) {
+
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 836, 'a_image' => $l10G836Image . $imageG836[$i][$j] . ".gif", 'a_conver' => $l10G836Image . $conver_audio_G836[$i][$j] . ".png", 'a_audio' => $AudioDomain . $G4_L10_listen_and_repeat_path . $conver_audio_G836[$i][$j] . ".mp3", "background" => $l10G836Image . $bg_G836[$j] . ".png"],
+                ]);
+            }
+        }
     }
 }
