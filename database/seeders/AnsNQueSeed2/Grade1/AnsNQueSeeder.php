@@ -110,10 +110,10 @@ class AnsNQueSeeder extends Seeder
             ],
 
             [
-                "Nice-to-meet-you-W",
-                "Nice-to-meet-you-M",
-                "Nice-to-meet-you-M",
-                "Nice-to-meet-you-W"
+                "SubBlock_Nice-to-meet-you-mary",
+                "SubBlock_Nice-to-meet-you-mike",
+                "SubBlock_Nice-to-meet-you-chirs",
+                "SubBlock_Nice-to-meet-you-susan"
             ]
         ];
 
@@ -309,10 +309,10 @@ class AnsNQueSeeder extends Seeder
             ],
 
             [
-                "Nice-to-meet-you-W",
-                "Nice-to-meet-you-M",
-                "Nice-to-meet-you-M",
-                "Nice-to-meet-you-W"
+                "SubBlock_Nice-to-meet-you-mary",
+                "SubBlock_Nice-to-meet-you-mike",
+                "SubBlock_Nice-to-meet-you-chirs",
+                "SubBlock_Nice-to-meet-you-susan"
             ]
         ];
 
