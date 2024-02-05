@@ -134,13 +134,13 @@ class AnsNQueSeeder extends Seeder
         // round 3 + 4 + 5
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 3, 'game_id' => 14, 'q_audio' => $AudioDomain . $G1_L3_listen_and_practice_path . "Who-is-Mary.mp3", 'q_content' =>  "Who is Mary?", 'q_image' =>  $l3G14image . "mary.png", 'a_content' => 1],
+            ['round' => 3, 'game_id' => 14, 'q_audio' => $AudioDomain . $G1_L3_listen_and_practice_path . "Who-is-Mary.mp3", 'q_content' =>  $l3G14image . "who-is-mary.png", 'q_image' =>  $l3G14image . "mary.png", 'a_content' => 1],
             ['round' => 3, 'game_id' => 14, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l3G14image . "susan.png", 'a_content' => 0],
 
-            ['round' => 4, 'game_id' => 14, 'q_audio' => $AudioDomain . $G1_L3_listen_and_practice_path . "Who-is-Susan.mp3", 'q_content' =>  "Who is Susan?", 'q_image' => $l3G14image . "mary.png", 'a_content' => 0],
+            ['round' => 4, 'game_id' => 14, 'q_audio' => $AudioDomain . $G1_L3_listen_and_practice_path . "Who-is-Susan.mp3", 'q_content' => $l3G14image . "who-is-susan.png", 'q_image' => $l3G14image . "mary.png", 'a_content' => 0],
             ['round' => 4, 'game_id' => 14, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l3G14image . "susan.png", 'a_content' => 1],
 
-            ['round' => 5, 'game_id' => 14, 'q_audio' => $AudioDomain . $G1_L3_listen_and_practice_path . "Who-is-Chris.mp3", 'q_content' =>  "Who is Chris?", 'q_image' => $l3G14image . "chris.png", 'a_content' => 1],
+            ['round' => 5, 'game_id' => 14, 'q_audio' => $AudioDomain . $G1_L3_listen_and_practice_path . "Who-is-Chris.mp3", 'q_content' => $l3G14image . "who-is-chris.png", 'q_image' => $l3G14image . "chris.png", 'a_content' => 1],
             ['round' => 5, 'game_id' => 14, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l3G14image . "susan.png", 'a_content' => 0],
         ]);
 
@@ -334,13 +334,13 @@ class AnsNQueSeeder extends Seeder
         $l4G20image = $domain . "/storage/images/Grade_1/lesson_4/listen_and_practice/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 3, 'game_id' => 20, 'q_audio' => $AudioDomain . $G1_L4_listen_and_practice_path . "Who-is-Chris.mp3", 'q_content' => "Who is Chris?", 'q_image' =>  $l4G20image . "chris.png", 'a_content' => 1],
+            ['round' => 3, 'game_id' => 20, 'q_audio' => $AudioDomain . $G1_L4_listen_and_practice_path . "Who-is-Chris.mp3", 'q_content' => $l4G20image . "who-is-chris.png", 'q_image' =>  $l4G20image . "chris.png", 'a_content' => 1],
             ['round' => 3, 'game_id' => 20, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l4G20image . "blue_girl_white_border.png", 'a_content' => 0],
 
-            ['round' => 4, 'game_id' => 20, 'q_audio' => $AudioDomain . $G1_L4_listen_and_practice_path . "Who-is-Susan.mp3", 'q_content' => "Who is Susan?", 'q_image' =>  $l4G20image . "pink_girl_white_border.png", 'a_content' => 0],
+            ['round' => 4, 'game_id' => 20, 'q_audio' => $AudioDomain . $G1_L4_listen_and_practice_path . "Who-is-Susan.mp3", 'q_content' => $l4G20image .  "who-is-susan.png", 'q_image' =>  $l4G20image . "pink_girl_white_border.png", 'a_content' => 0],
             ['round' => 4, 'game_id' => 20, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l4G20image . "blue_girl_white_border.png", 'a_content' => 1],
 
-            ['round' => 5, 'game_id' => 20, 'q_audio' => $AudioDomain . $G1_L4_listen_and_practice_path . "Whos_Mike.mp3", 'q_content' => "Who is Mike?", 'q_image' =>  $l4G20image . "blue_boy_white_border.png", 'a_content' => 1],
+            ['round' => 5, 'game_id' => 20, 'q_audio' => $AudioDomain . $G1_L4_listen_and_practice_path . "Whos_Mike.mp3", 'q_content' => $l4G20image .  "who-is-mike.png", 'q_image' =>  $l4G20image . "blue_boy_white_border.png", 'a_content' => 1],
             ['round' => 5, 'game_id' => 20, 'q_audio' => null, 'q_content' => null, 'q_image' =>  $l4G20image . "blue_girl_white_border.png", 'a_content' => 0],
         ]);
 
