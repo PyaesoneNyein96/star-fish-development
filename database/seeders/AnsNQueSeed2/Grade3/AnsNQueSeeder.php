@@ -550,25 +550,25 @@ class AnsNQueSeeder extends Seeder
         DB::table('ans_n_ques')->insert([
 
             // game 481
-            ['round' => 1, 'game_id' => 481, 'a_image' => $l4_G481_G481_image . "mom.gif", "a_audio" => $AudioDomain . $G3_L4_listen_practice . "download-song.mp3", "a_conver" => "Are you downloading a song, Cindy?", "background" =>  $l4_G481_G481_image . "bg1.jpg"],
-            ['round' => 1, 'game_id' => 481, 'a_image' => $l4_G481_G481_image . "cindy.gif", "a_audio" => $AudioDomain . $G3_L4_listen_practice . "yes-song.mp3", "a_conver" => "Oh, Hi mom. Yes I am. It is \nthe new Miley Cyrus's song.", "background" =>  $l4_G481_G481_image . "bg1.jpg"],
+            ['round' => 1, 'game_id' => 481, 'a_image' => $l4_G481_G481_image . "mom.gif", "a_audio" => $AudioDomain . $G3_L4_listen_practice . "download-song.mp3", "a_conver" => $l4_G481_G481_image . "download-song-cindy.png", "background" =>  $l4_G481_G481_image . "bg1.jpg"],
+            ['round' => 1, 'game_id' => 481, 'a_image' => $l4_G481_G481_image . "cindy.gif", "a_audio" => $AudioDomain . $G3_L4_listen_practice . "yes-song.mp3", "a_conver" => $l4_G481_G481_image . "mom-yes.png", "background" =>  $l4_G481_G481_image . "bg1.jpg"],
 
-            ['round' => 2, 'game_id' => 481, 'a_image' => $l4_G481_G481_image . "mom.gif", "a_audio" => $AudioDomain . $G3_L4_listen_practice . "miley-is-she.mp3", "a_conver" => "Miley Cyrus.... \nIs she Billy Ray Cyrus's daughter?", "background" =>  $l4_G481_G481_image . "bg1.jpg"],
-            ['round' => 2, 'game_id' => 481, 'a_image' => $l4_G481_G481_image . "cindy.gif", "a_audio" =>  $AudioDomain . $G3_L4_listen_practice . "dont-know.mp3", "a_conver" => "I don't know. Who is he?", "background" =>  $l4_G481_G481_image . "bg1.jpg"],
+            ['round' => 2, 'game_id' => 481, 'a_image' => $l4_G481_G481_image . "mom.gif", "a_audio" => $AudioDomain . $G3_L4_listen_practice . "miley-is-she.mp3", "a_conver" => $l4_G481_G481_image . "miley-cyrus-song.png", "background" =>  $l4_G481_G481_image . "bg1.jpg"],
+            ['round' => 2, 'game_id' => 481, 'a_image' => $l4_G481_G481_image . "cindy.gif", "a_audio" =>  $AudioDomain . $G3_L4_listen_practice . "dont-know.mp3", "a_conver" => $l4_G481_G481_image . "dont-know-who.png", "background" =>  $l4_G481_G481_image . "bg1.jpg"],
 
-            ['round' => 3, 'game_id' => 481, 'a_image' => $l4_G481_G481_image . "mom.gif", "a_audio" => $AudioDomain . $G3_L4_listen_practice . "he-is-singer-actor.mp3", "a_conver" => "He is a singer and actor. He is very \nhandsome.", "background" =>  $l4_G481_G481_image . "bg1.jpg"],
-            ['round' => 3, 'game_id' => 481, 'a_image' => $l4_G481_G481_image . "cindy.gif", "a_audio" => null, "a_conver" => null, "background" =>  $l4_G481_G481_image . "bg1.jpg"],
+            ['round' => 3, 'game_id' => 481, 'a_image' => $l4_G481_G481_image . "mom.gif", "a_audio" => $AudioDomain . $G3_L4_listen_practice . "he-is-singer-actor.mp3", "a_conver" => $l4_G481_G481_image . "singer-actor-handsome.png", "background" =>  $l4_G481_G481_image . "bg1.jpg"],
+            ['round' => 3, 'game_id' => 481, 'a_image' => $l4_G481_G481_image . "cindy.gif", "a_audio" => null, "a_conver" =>  null, "background" =>  $l4_G481_G481_image . "bg1.jpg"],
 
 
             // game 482
-            ['round' => 1, 'game_id' => 482, 'a_image' => $l4_G481_G481_image . "left.png", "a_audio" => $AudioDomain . $G3_L4_listen_practice . "what-reading.mp3", "a_conver" => "What are you reading, Pete?", "background" =>  $l4_G481_G481_image . "bg2.jpg"],
-            ['round' => 1, 'game_id' => 482, 'a_image' => $l4_G481_G481_image . "right.png", "a_audio" => $AudioDomain . $G3_L4_listen_practice . "reading-about.mp3", "a_conver" => "I am reading about \nFrancis Ford Coppola.", "background" =>  $l4_G481_G481_image . "bg2.jpg"],
+            ['round' => 1, 'game_id' => 482, 'a_image' => $l4_G481_G481_image . "left.png", "a_audio" => $AudioDomain . $G3_L4_listen_practice . "what-reading.mp3", "a_conver" => $l4_G481_G481_image . "reading-pete.png", "background" =>  $l4_G481_G481_image . "bg2.jpg"],
+            ['round' => 1, 'game_id' => 482, 'a_image' => $l4_G481_G481_image . "right.png", "a_audio" => $AudioDomain . $G3_L4_listen_practice . "reading-about.mp3", "a_conver" => $l4_G481_G481_image . "reading-ford.png", "background" =>  $l4_G481_G481_image . "bg2.jpg"],
 
-            ['round' => 2, 'game_id' => 482, 'a_image' => $l4_G481_G481_image . "left.png", "a_audio" => $AudioDomain . $G3_L4_listen_practice . "who.mp3", "a_conver" => "who?", "background" =>  $l4_G481_G481_image . "bg2.jpg"],
-            ['round' => 2, 'game_id' => 482, 'a_image' => $l4_G481_G481_image . "right.png", "a_audio" =>  $AudioDomain . $G3_L4_listen_practice . "nephew.mp3", "a_conver" => "Francis Ford Coppola. The \ndirector. Do you know who \nhis nephew is? The actor \nNicholas Cage.", "background" =>  $l4_G481_G481_image . "bg2.jpg"],
+            ['round' => 2, 'game_id' => 482, 'a_image' => $l4_G481_G481_image . "left.png", "a_audio" => $AudioDomain . $G3_L4_listen_practice . "who.mp3", "a_conver" => $l4_G481_G481_image . "who.png", "background" =>  $l4_G481_G481_image . "bg2.jpg"],
+            ['round' => 2, 'game_id' => 482, 'a_image' => $l4_G481_G481_image . "right.png", "a_audio" =>  $AudioDomain . $G3_L4_listen_practice . "nephew.mp3", "a_conver" => $l4_G481_G481_image . "his-nephew-nicolas.png", "background" =>  $l4_G481_G481_image . "bg2.jpg"],
 
-            ['round' => 3, 'game_id' => 482, 'a_image' => $l4_G481_G481_image . "left.png", "a_audio" => $AudioDomain . $G3_L4_listen_practice . "really.mp3", "a_conver" => "Oh, really.", "background" =>  $l4_G481_G481_image . "bg2.jpg"],
-            ['round' => 3, 'game_id' => 482, 'a_image' => $l4_G481_G481_image . "right.png", "a_audio" => null, "a_conver" => null, "background" =>  $l4_G481_G481_image . "bg2.jpg"],
+            ['round' => 3, 'game_id' => 482, 'a_image' => $l4_G481_G481_image . "left.png", "a_audio" => $AudioDomain . $G3_L4_listen_practice . "really.mp3", "a_conver" => $l4_G481_G481_image . "really.png", "background" =>  $l4_G481_G481_image . "bg2.jpg"],
+            ['round' => 3, 'game_id' => 482, 'a_image' => $l4_G481_G481_image . "right.png", "a_audio" => null, "a_conver" =>  null, "background" =>  $l4_G481_G481_image . "bg2.jpg"],
 
         ]);
 

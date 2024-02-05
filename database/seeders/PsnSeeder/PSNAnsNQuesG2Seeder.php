@@ -2205,10 +2205,10 @@ class PSNAnsNQuesG2Seeder extends Seeder
     ];
 
     $main_conver = [
-        'This is Toe Toe. He is wearing a black cap and a yellow shirt. He is wearing a green shorts, yellow socks and brown shoes.',
-        'This is Moe Moe. She is wearing a yellow raincoat and red shirt. She is wearing a brown trousers and red boots.',
-        'This is Ni Ni. She is wearing a pink scarf a white blouse. She is wearing a blue skirt and green boots.',
-        'Hello, I am San San. I have three friends. They are Ni Ni, Toe Toe and Moe Moe.'
+        'Toe-Toe-conversation',
+        'Moe-Moe-conversation',
+        'Ni-Ni-conversation',
+        'San-San-conversation'
     ];
 
     $images = $ImageDomain . "Grade_2/Lesson_33/Listen_and_Repeat/";
@@ -2220,9 +2220,9 @@ class PSNAnsNQuesG2Seeder extends Seeder
             [
             'game_id' => 416,
             'round' => $key + 1,
-            'a_image' =>  $images.str_replace(' ','-',$value).".png",
+            'a_image' =>  $images.str_replace(' ','-',$value).".gif",
             'a_audio' => $audios.str_replace(' ','-',$value).".mp3",
-            'a_conver' => $main_conver[$key],
+            'a_conver' => $images.$main_conver[$key].".png",
             'background' => $images."bg".$key + 1 .".png",
             ]
 
