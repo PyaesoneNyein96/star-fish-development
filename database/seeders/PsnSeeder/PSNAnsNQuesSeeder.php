@@ -191,13 +191,18 @@ class PSNAnsNQuesSeeder extends Seeder
             ['D', 'z', 'h', 'e', 'a', 'f', 'e', 'I'],
             ['h', 'z', 'g', 'v', 'a', 'o', 'x', 'P'],
             ['i', 'z', 'g', 'y', 's', 'o', 'x', 'P'],
-            ['i', 't', 'c', 'n', 'm', 'r', 'I', 'e'],
+            ['i', 't', 'c', 'n', 'm', 'r', 'l', 'e'],
         ];
 
         for ($i = 0; $i < count($G1_l2_U9_rounds); $i++) {
             foreach ($G1_l2_U9_rounds[$i] as $j => $word) {
                 DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 9, 'q_content' => $word, 'q_audio' => $AtoZAudio . $prefix . strtoupper($word) . ".mp3",],
+                    [
+                        'round' => $i + 1,
+                        'game_id' => 9,
+                        'q_content' => $word,
+                        'q_audio' => $AtoZAudio . $prefix . strtoupper($word) . ".mp3",
+                    ],
                 ]);
             }
 
@@ -398,8 +403,8 @@ class PSNAnsNQuesSeeder extends Seeder
         $imgDomain = $ImageDomain . "Grade_1/Lesson_7/Writing_Sentences_order/";
 
         $g1_l7_u6_trace_n_write = [
-            // 'G','H','e','f','g','h','F','E'
-            'C', 'D', 'a', 'b', 'c', 'd', 'B', 'A'
+            // 'C', 'D', 'a', 'b', 'c', 'd', 'B', 'A'
+            'A', 'a','B', 'b', 'C','c','D', 'd',
         ];
         foreach ($g1_l7_u6_trace_n_write as $i => $trace) {
             DB::table('ans_n_ques')->insert([
