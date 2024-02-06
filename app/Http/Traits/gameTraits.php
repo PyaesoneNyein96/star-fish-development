@@ -56,7 +56,6 @@ trait gameTraits
     public function common_functions($game, $student, $unit)
     {
 
-
         if (isset($game[0])) $game = $game[0];
 
         $rounds =  $game->ans_n_ques->groupBy('round')->values();
@@ -536,4 +535,54 @@ trait gameTraits
 
         return $data;
     }
+
+
+
+    // skimming_reading_passage
+    public function skimming_reading_conversation($game, $student, $unit)
+    {
+
+        if (isset($game[0])) $game = $game[0];
+
+        $roundExist = $game->ans_n_ques->some(function ($g) {
+            return array_key_exists('round', $g->toArray());
+        });
+
+        $data = [
+
+            'game_id' => $game->id,
+            'lesson_id' => $unit->lesson_id,
+            'game_name' => $game->name,
+            'unit_name' => $unit->name,
+            'game_status' => $game->status,
+            'sub_unit'  => $game->count() < 1 ? true : false,
+            'category' => $game->category->name,
+            'instructionGIF'  => $game->instructionGIF,
+            'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
+        ];
+
+        if ($roundExist) {
+            $json = collect($game->ans_n_ques);
+
+            $groupedByRound = $json->groupBy('round')->values();
+
+            $result = $groupedByRound->map(function ($q) {
+                return collect($q)->groupBy('q_content')->values();
+            });
+
+            $data['rounds'] = $result->collapse();
+
+        }else{
+              $data['data'] = $game->ans_n_ques;
+        }
+        return $data;
+
+
+    }
+
+
+
+
+
+
 }
