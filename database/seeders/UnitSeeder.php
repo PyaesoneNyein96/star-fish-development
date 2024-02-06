@@ -1326,9 +1326,9 @@ class UnitSeeder extends Seeder
             ['name' => 'Video', 'lesson_id' => 130],
             ['name' => 'Listen and Repeat', 'lesson_id' => 130],
             ['name' => 'Practice', 'lesson_id' => 130],
-            ['name' => 'Listen and Practice', 'lesson_id' => 130],
             ['name' => 'Speaking Practice', 'lesson_id' => 130],
             ['name' => 'Listen and Practice', 'lesson_id' => 130],
+            ['name' => 'Reading Passage', 'lesson_id' => 130],
             ['name' => 'Speaking Topic', 'lesson_id' => 130],
             ['name' => 'Writing Topic', 'lesson_id' => 130],
 

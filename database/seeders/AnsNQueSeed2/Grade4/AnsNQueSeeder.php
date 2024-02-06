@@ -303,8 +303,8 @@ class AnsNQueSeeder extends Seeder
         $l1_G765image = $domain . "/storage/images/Grade_4/lesson_1/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 765, "q_audio" => $AudioDomain . $G4_L1_practice_speaking . "" . ".mp3", 'q_image' => $l1_G765image . "girl.png", "q_content" => null, "round_instruction" => $AudioDomain . $G4_L1_practice_speaking . "Describe-the-pictures" . ".mp3"],
-            ['round' => 2, 'game_id' => 765, "q_audio" => $AudioDomain . $G4_L1_practice_speaking . "" . ".mp3", 'q_image' => $l1_G765image . "boy.png", "q_content" => null, "round_instruction" =>  $AudioDomain . $G4_L1_practice_speaking . "Describe-the-pictures" . ".mp3"],
+            ['round' => 1, 'game_id' => 765,  'q_image' => $l1_G765image . "girl.png", "q_content" => null, "round_instruction" => $AudioDomain . $G4_L1_practice_speaking . "Describe-the-pictures" . ".mp3"],
+            ['round' => 2, 'game_id' => 765,  'q_image' => $l1_G765image . "boy.png", "q_content" => null, "round_instruction" =>  $AudioDomain . $G4_L1_practice_speaking . "Describe-the-pictures" . ".mp3"],
         ]);
 
 
@@ -621,7 +621,7 @@ class AnsNQueSeeder extends Seeder
 
 
         ////////////////////////////////////////////////////////
-        ////    Grade 4  Lesson 1 Game 779 ( Spelling Game )
+        ////    Grade 4  Lesson 3 Game 779 ( Spelling Game )
         ////////////////////////////////////////////////////////
 
         $G4_L3_spelling_game = "Grade_4/" . "Lesson_3/" . "spelling_game/";
@@ -1451,10 +1451,10 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
         $l5_G803image = $domain . "/storage/images/Grade_4/lesson_5/writing_topic/";
-        $G5_L5_Game803_ans = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu";
+        $G4_L5_Game803_ans = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu";
 
         DB::table('ans_n_ques')->insert([
-            ["round" => 1, 'game_id' => 803, 'q_content' => $l5_G803image . "farm.png", 'a_content' => $G5_L5_Game803_ans],
+            ["round" => 1, 'game_id' => 803, 'q_content' => $l5_G803image . "farm.png", 'a_content' => $G4_L5_Game803_ans],
         ]);
 
 
@@ -1509,5 +1509,353 @@ class AnsNQueSeeder extends Seeder
                 ]);
             }
         }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 10 Game 837 , 838  (  Practice  )
+        ////////////////////////////////////////////////////////
+
+        $l10_G837_G838_image = $domain . "/storage/images/Grade_4/lesson_10/practice/";
+        $G4_L10_practice_path = "Grade_4/" . "Lesson_10/" . "practice/";
+
+        // Game 837
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 837, 'q_image' => $l10_G837_G838_image . "1/" . "sun.png", "q_conver" => "On Sunday, it will be windy.", "q_content" => "True", "a_content" => 1],
+            ['round' => 1, 'game_id' => 837, 'q_image' => null, "q_conver" => null, "q_content" => "False", "a_content" => 0],
+
+            ['round' => 2, 'game_id' => 837, 'q_image' => $l10_G837_G838_image . "1/" . "mon.png", "q_conver" => "On Monday, it will be rainy.", "q_content" => "True", "a_content" => 0],
+            ['round' => 2, 'game_id' => 837, 'q_image' => null, "q_conver" => null, "q_content" => "False", "a_content" => 1],
+
+            ['round' => 3, 'game_id' => 837, 'q_image' => $l10_G837_G838_image . "1/" . "tue.png", "q_conver" => "On Tuesday, it will be thunder.", "q_content" => "True", "a_content" => 1],
+            ['round' => 3, 'game_id' => 837, 'q_image' => null, "q_conver" => null, "q_content" => "False", "a_content" => 0],
+
+            ['round' => 4, 'game_id' => 837, 'q_image' => $l10_G837_G838_image . "1/" . "wed.png", "q_conver" => "On Wednesday, it will be snowy.", "q_content" => "True", "a_content" => 0],
+            ['round' => 4, 'game_id' => 837, 'q_image' => null, "q_conver" => null, "q_content" => "False", "a_content" => 1],
+
+            ['round' => 5, 'game_id' => 837, 'q_image' => $l10_G837_G838_image . "1/" . "thur.png", "q_conver" => "On Thursday, it will be foggy.", "q_content" => "True", "a_content" => 0],
+            ['round' => 5, 'game_id' => 837, 'q_image' => null, "q_conver" => null, "q_content" => "False", "a_content" => 1],
+
+            ['round' => 6, 'game_id' => 837, 'q_image' => $l10_G837_G838_image . "1/" . "fri.png", "q_conver" => "On Friday, it will be rainy.", "q_content" => "True", "a_content" => 1],
+            ['round' => 6, 'game_id' => 837, 'q_image' => null, "q_conver" => null, "q_content" => "False", "a_content" => 0],
+
+            ['round' => 7, 'game_id' => 837, 'q_image' => $l10_G837_G838_image . "1/" . "sat.png", "q_conver" => "On Saturday, it will be cold.", "q_content" => "True", "a_content" => 0],
+            ['round' => 7, 'game_id' => 837, 'q_image' => null, "q_conver" => null, "q_content" => "False", "a_content" => 1],
+
+        ]);
+
+        // Game 838
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 838, 'q_image' => $l10_G837_G838_image . "2/" . "cloudy.png", "q_conver" => "Is it cloudy?", "q_content" => "Yes, It is.", "a_content" => 1],
+            ['round' => 1, 'game_id' => 838, 'q_image' => null, "q_conver" => null, "q_content" => "No, It isn't.", "a_content" => 0],
+
+            ['round' => 2, 'game_id' => 838, 'q_image' => $l10_G837_G838_image . "2/" . "snowy.png", "q_conver" => "Is it sunny?", "q_content" => "Yes, It is.", "a_content" => 0],
+            ['round' => 2, 'game_id' => 838, 'q_image' => null, "q_conver" => null, "q_content" => "No, It isn't.", "a_content" => 1],
+
+            ['round' => 3, 'game_id' => 838, 'q_image' => $l10_G837_G838_image . "2/" . "windy.png", "q_conver" => "Is it rainy?", "q_content" => "Yes, It is.", "a_content" => 0],
+            ['round' => 3, 'game_id' => 838, 'q_image' => null, "q_conver" => null, "q_content" => "No, It isn't.", "a_content" => 1],
+
+            ['round' => 4, 'game_id' => 838, 'q_image' => $l10_G837_G838_image . "2/" . "hot.png", "q_conver" => "Is it hot?", "q_content" => "Yes, It is.", "a_content" => 1],
+            ['round' => 4, 'game_id' => 838, 'q_image' => null, "q_conver" => null, "q_content" => "No, It isn't.", "a_content" => 0],
+
+            ['round' => 5, 'game_id' => 838, 'q_image' => $l10_G837_G838_image . "2/" . "rainy.png", "q_conver" => "Is it cloudy?", "q_content" => "Yes, It is.", "a_content" => 0],
+            ['round' => 5, 'game_id' => 838, 'q_image' => null, "q_conver" => null, "q_content" => "No, It isn't.", "a_content" => 1],
+
+            ['round' => 6, 'game_id' => 838, 'q_image' => $l10_G837_G838_image . "2/" . "sunny.png", "q_conver" => "Is it sunny?", "q_content" => "Yes, It is.", "a_content" => 1],
+            ['round' => 6, 'game_id' => 838, 'q_image' => null, "q_conver" => null, "q_content" => "No, It isn't.", "a_content" => 0],
+
+            ['round' => 7, 'game_id' => 838, 'q_image' => $l10_G837_G838_image . "2/" . "cold.png", "q_conver" => "Is it cold?", "q_content" => "Yes, It is.", "a_content" => 1],
+            ['round' => 7, 'game_id' => 838, 'q_image' => null, "q_conver" => null, "q_content" => "No, It isn't.", "a_content" => 0],
+
+            ['round' => 8, 'game_id' => 838, 'q_image' => $l10_G837_G838_image . "2/" . "stormy.png", "q_conver" => "Is it stormy?", "q_content" => "Yes, It is.", "a_content" => 1],
+            ['round' => 8, 'game_id' => 838, 'q_image' => null, "q_conver" => null, "q_content" => "No, It isn't.", "a_content" => 0],
+
+            ['round' => 9, 'game_id' => 838, 'q_image' => $l10_G837_G838_image . "2/" . "foggy.png", "q_conver" => "Is it rainy?", "q_content" => "Yes, It is.", "a_content" => 0],
+            ['round' => 9, 'game_id' => 838, 'q_image' => null, "q_conver" => null, "q_content" => "No, It isn't.", "a_content" => 1],
+        ]);
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 10 Game 839 (  Speaking Practice  )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L10_speaking_practice = "Grade_4/" . "Lesson_10/" . "speaking_practice/";
+        $l10_G829image = $domain . "/storage/images/Grade_4/lesson_10/speaking_practice/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 839, "q_audio" => $AudioDomain . $G4_L10_speaking_practice . ".mp3", 'q_image' => $l10_G829image . "mon.png", "q_content" => "Talk about the weather \nforecast for a week.", "round_instruction" => $AudioDomain . $G4_L10_speaking_practice . "SubBlock_Talk-about-the-weather-forecas" . ".mp3"],
+            ['round' => 2, 'game_id' => 839, "q_audio" => $AudioDomain . $G4_L10_speaking_practice . ".mp3", 'q_image' => $l10_G829image . "tue.png", "q_content" => "Talk about the weather \nforecast for a week.", "round_instruction" => $AudioDomain . $G4_L10_speaking_practice . "SubBlock_Talk-about-the-weather-forecas" . ".mp3"],
+            ['round' => 3, 'game_id' => 839, "q_audio" => $AudioDomain . $G4_L10_speaking_practice . ".mp3", 'q_image' => $l10_G829image . "wed.png", "q_content" => "Talk about the weather \nforecast for a week.", "round_instruction" => $AudioDomain . $G4_L10_speaking_practice . "SubBlock_Talk-about-the-weather-forecas" . ".mp3"],
+            ['round' => 4, 'game_id' => 839, "q_audio" => $AudioDomain . $G4_L10_speaking_practice . ".mp3", 'q_image' => $l10_G829image . "thur.png", "q_content" => "Talk about the weather \nforecast for a week.", "round_instruction" => $AudioDomain . $G4_L10_speaking_practice . "SubBlock_Talk-about-the-weather-forecas" . ".mp3"],
+            ['round' => 5, 'game_id' => 839, "q_audio" => $AudioDomain . $G4_L10_speaking_practice . ".mp3", 'q_image' => $l10_G829image . "fri.png", "q_content" => "Talk about the weather \nforecast for a week.", "round_instruction" => $AudioDomain . $G4_L10_speaking_practice . "SubBlock_Talk-about-the-weather-forecas" . ".mp3"],
+            ['round' => 6, 'game_id' => 839, "q_audio" => $AudioDomain . $G4_L10_speaking_practice . ".mp3", 'q_image' => $l10_G829image . "sat.png", "q_content" => "Talk about the weather \nforecast for a week.", "round_instruction" => $AudioDomain . $G4_L10_speaking_practice . "SubBlock_Talk-about-the-weather-forecas" . ".mp3"],
+            ['round' => 7, 'game_id' => 839, "q_audio" => $AudioDomain . $G4_L10_speaking_practice . ".mp3", 'q_image' => $l10_G829image . "sun.png", "q_content" => "Talk about the weather \nforecast for a week.", "round_instruction" => $AudioDomain . $G4_L10_speaking_practice . "SubBlock_Talk-about-the-weather-forecas" . ".mp3"],
+        ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 10 Game 840 ( Listen and Practice )
+        ////////////////////////////////////////////////////////
+
+        $l10_G840_image = $domain . "/storage/images/Grade_4/lesson_10/listen_n_practice/";
+        $G4_L10_listen_n_practice = "Grade_4/" . "Lesson_10/" . "listen_n_practice/";
+
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 840,  'q_audio' =>  $AudioDomain . $G4_L10_listen_n_practice . "Welcome-to-the-weather-forecas" . ".mp3", "q_content" => "Cloudy", "q_conver" => "In Japan, it is cold and ____.", "a_content" => 0],
+            ['round' => 1, 'game_id' => 840,  'q_audio' =>  null, "q_content" => "Snowy", "q_conver" => null, "a_content" => 0],
+            ['round' => 1, 'game_id' => 840,  'q_audio' =>  null, "q_content" => "Windy", "q_conver" => null, "a_content" => 1],
+
+            ['round' => 2, 'game_id' => 840,  'q_audio' =>  $AudioDomain . $G4_L10_listen_n_practice . "Welcome-to-the-weather-forecas" . ".mp3", "q_content" => "Hot", "q_conver" => "In Singapore, it is ____ the whole day.", "a_content" => 0],
+            ['round' => 2, 'game_id' => 840,  'q_audio' =>  null, "q_content" => "Cloudy", "q_conver" => null, "a_content" => 0],
+            ['round' => 2, 'game_id' => 840,  'q_audio' =>  null, "q_content" => "Rainy", "q_conver" => null, "a_content" => 1],
+
+            ['round' => 3, 'game_id' => 840,  'q_audio' =>  $AudioDomain . $G4_L10_listen_n_practice . "Welcome-to-the-weather-forecas" . ".mp3", "q_content" => "Windy", "q_conver" => "In Thailand, it is hot and ____.", "a_content" => 0],
+            ['round' => 3, 'game_id' => 840,  'q_audio' =>  null, "q_content" => "Cloudy", "q_conver" => null, "a_content" => 0],
+            ['round' => 3, 'game_id' => 840,  'q_audio' =>  null, "q_content" => "Sunny", "q_conver" => null, "a_content" => 1],
+
+            ['round' => 4, 'game_id' => 840,  'q_audio' =>  $AudioDomain . $G4_L10_listen_n_practice . "Welcome-to-the-weather-forecas" . ".mp3", "q_content" => "Singapore", "q_conver" => "It does not rain in ____ today.", "a_content" => 0],
+            ['round' => 4, 'game_id' => 840,  'q_audio' =>  null, "q_content" => "Egypt", "q_conver" => null, "a_content" => 0],
+            ['round' => 4, 'game_id' => 840,  'q_audio' =>  null, "q_content" => "Thailand", "q_conver" => null, "a_content" => 1],
+
+            ['round' => 5, 'game_id' => 840,  'q_audio' =>  $AudioDomain . $G4_L10_listen_n_practice . "Welcome-to-the-weather-forecas" . ".mp3", "q_content" => "Cloudy", "q_conver" => "In Myanmar, it is ____ and sunny.", "a_content" => 1],
+            ['round' => 5, 'game_id' => 840,  'q_audio' =>  null, "q_content" => "Sunny", "q_conver" => null, "a_content" => 0],
+            ['round' => 5, 'game_id' => 840,  'q_audio' =>  null, "q_content" => "Windy", "q_conver" => null, "a_content" => 0],
+
+        ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 10 Game 841 (  Practice  )
+        ////////////////////////////////////////////////////////
+
+        $l10_G841_image = $domain . "/storage/images/Grade_4/lesson_10/reading_passage/";
+        $G4_L10_reading_passage_path = "Grade_4/" . "Lesson_10/" . "reading_passage/";
+
+        $l10_G841_q_audio = [
+            "audio",
+            "audio",
+            "audio",
+            "audio",
+            "audio",
+            "audio"
+        ];
+        $l10_G841_q_conver = [
+            "In the early morning, it will be windy.",
+            "At 9 in the morning, you should take an umbrella.",
+            "At 9 in the morning, it will not be sunny.",
+            "In the afternoon, it will be sunny and hot.",
+            "At 7 in the evening, you should fly a kite.",
+            "At 7 in the evening, it will be stormy and snowy.",
+        ];
+        $l10_G841_q_audio_ans = [
+            ["True", "False"],
+            ["True", "False"],
+            ["True", "False"],
+            ["True", "False"],
+            ["True", "False"],
+            ["True", "False"]
+        ];
+        $l10_G841_q_audio_a_content = [
+            [0, 1],
+            [1, 0],
+            [0, 1],
+            [1, 0],
+            [1, 0],
+            [0, 1],
+        ];
+
+
+        for ($i = 0; $i < count($l10_G841_q_audio); $i++) {
+
+            foreach ($l10_G841_q_audio_ans[$i] as $key => $val) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 841, "q_audio" => $AudioDomain . $G4_L10_reading_passage_path . str_replace(' ', '-', strtolower($val)) . ".mp3", 'q_content' => $val, "q_conver" => null, 'a_content' => $l10_G841_q_audio_a_content[$i][$key], "background" => null],
+                ]);
+            }
+
+            foreach ($l10_G841_q_audio as $key => $val) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 841, "q_audio" => $AudioDomain . $G4_L10_reading_passage_path . $val . ".mp3", "q_conver" => $l10_G841_q_conver[$key], 'q_content' => null, 'a_content' => null, "background" => null],
+                ]);
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 841, "q_audio" => $AudioDomain . $G4_L10_reading_passage_path . "Good morning! It is six o'clock in the morning. Here is the weather news. It is very cold outside. Wear warm clothes and jackets. \nHere is the weather at 9 o'clock. It's raining now. Don't forget your umbrellas and your raincoats. Don't get wet! \nIt's 2 o'clock in the afternoon. The weather is now sunny and hot. Don't forget your sun hats and sunglasses. Have a nice afternoon in the sun.\nIt's 7 o'clock and here is the weather. It's very windy outside now. It's a good time to fly a kite. But, don't let your hats fly away!",
+                    'a_content' => null, "background" => $l10_G841_image . "bg.jpg"
+                ],
+            ]);
+        }
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 10 Game 842 (  Speaking Topic )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L1_practice_speaking = "Grade_4/" . "Lesson_1/" . "speaking_topic/";
+        $l1_G842image = $domain . "/storage/images/Grade_4/lesson_1/speaking_topic/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 842,  'q_image' => $l1_G842image . "1.png", "a_content" => "Today, in the morning, it is sunny. In the afternoon, it is partly cloudy. In the evening, it is rainy. At night, it is windy. ", "q_content" => null, "round_instruction" => $AudioDomain . $G4_L1_practice_speaking . "SubBlock_speak-a-weather-forecast-for-t" . ".mp3"],
+            ['round' => 2, 'game_id' => 842,  'q_image' => $l1_G842image . "2.png", "a_content" => null, "q_content" => null, "round_instruction" =>  $AudioDomain . $G4_L1_practice_speaking . "SubBlock_speak-a-weather-forecast-for-t" . ".mp3"],
+        ]);
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 10 Game 843 (  Writing Topic )
+        //////////////////////////////////////////////////////////////
+
+        $l10_G843image = $domain . "/storage/images/Grade_4/lesson_10/writing_topic/";
+        $G4_L10_Game843_ans = "On Monday, it will be sunny.\nOn Tuesday, it will be stormy.\nOn Wednesday, it will be rainy.\nOn Thursday, it will be rainy.\nOn Friday, it will be sunny, and rainy.\nOn Saturday, it will be cloudy, and sunny. \nOn Sunday, it will be sunny.";
+
+        DB::table('ans_n_ques')->insert([
+            ["round" => 1, 'game_id' => 843, 'q_content' => $l10_G843image . "1.png", 'a_content' => $G4_L10_Game843_ans],
+        ]);
+
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 11 Game 844 ( video )
+        //////////////////////////////////////////////////////////////
+
+        DB::table('ans_n_ques')->insert(['game_id' => 844, 'a_content' => 'lesson_11_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 844, 'a_content' => 'lesson_11_video_global', 'isLocal' => 0]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 11 Game 845 (  Vocabulary  )
+        ////////////////////////////////////////////////////////
+
+        $l11_G845_image = $domain . "/storage/images/Grade_4/lesson_11/vocab/";
+        $G4_L11_vocab = "Grade_4/" . "Lesson_11/" . "vocab/";
+
+
+        $ans_G845 = [
+            "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+        ];
+
+        foreach ($ans_G845 as $key) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 845, 'a_content' => $key, 'a_image' => $l11_G845_image . str_replace(' ', '-', $key)  . ".png",
+                    'a_audio' => $AudioDomain . $G4_L11_vocab . str_replace(' ', '-', strtolower($key)) . ".mp3"
+                ],
+            ]);
+        }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 11 Game 846 ( Spelling Game )
+        ////////////////////////////////////////////////////////
+
+        $G4_L10_spelling_game = "Grade_4/" . "Lesson_11/" . "spelling_game/";
+        $l10_G846_image = $domain . "/storage/images/Grade_4/lesson_11/spelling_game/";
+
+
+        $q_G846 = [
+
+            ["A", "N", "Y", "A", "R", "J", "U"],
+            ["U", "A", "B", "R", "Y", "R", "F", "E"],
+            ["H", "M", "A", "C", "R"],
+            ["P", "R", "L", "I", "A"],
+            ["A", "M", "Y"],
+            ["J", "E", "N", "U"],
+            ["J", "Y", "L", "U"],
+            ["U", "G", "T", "U", "S", "A"],
+            ["M", "B", "P", "E", "S", "T", "R", "E", "E"],
+            ["B", "E", "O", "R", "O", "T", "C"],
+            ["V", "N", "B", "E", "E", "R", "M", "O"],
+            ["E", "B", "E", "M", "R", "D", "E", "C"],
+
+        ];
+
+        $a_G846 = [
+            "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
+        ];
+        $img_G846 = [
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+        ];
+
+        $G846_Index = 0;
+
+        for ($i = 0; $i < count($q_G846); $i++) {
+            foreach ($q_G846[$i] as $j) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 846, 'q_content' => $j, 'q_audio' => $AudioDomain . $G4_L10_spelling_game . strtoupper($j) . ".mp3"],
+                ]);
+            }
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 846,
+                    'q_image' => $l10_G846_image . $img_G846[$G846_Index] . ".png",
+                    'a_audio' => $AudioDomain . $G4_L10_spelling_game . strtolower($a_G846[$G846_Index]) . ".mp3",
+                    'a_content' => $a_G846[$G846_Index],
+                ],
+            ]);
+            $G846_Index++;
+        }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 11 Game 847   (  Practice  )
+        ////////////////////////////////////////////////////////
+
+        $l11_G847_image = $domain . "/storage/images/Grade_4/lesson_11/practice/";
+        $G4_L11_practice_path = "Grade_4/" . "Lesson_11/" . "practice/";
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 847, 'q_image' => $l11_G847_image .  "1.png",  "q_content" => "February", "a_content" => 0],
+            ['round' => 1, 'game_id' => 847, 'q_image' => null, "q_content" => "January", "a_content" => 1],
+            ['round' => 1, 'game_id' => 847, 'q_image' => null, "q_content" => "April", "a_content" => 0],
+
+            ['round' => 2, 'game_id' => 847, 'q_image' => $l11_G847_image .  "3.png",  "q_content" => "May", "a_content" => 0],
+            ['round' => 2, 'game_id' => 847, 'q_image' => null, "q_content" => "March", "a_content" => 1],
+            ['round' => 2, 'game_id' => 847, 'q_image' => null, "q_content" => "April", "a_content" => 0],
+
+            ['round' => 3, 'game_id' => 847, 'q_image' => $l11_G847_image .  "4.png",  "q_content" => "April", "a_content" => 1],
+            ['round' => 3, 'game_id' => 847, 'q_image' => null, "q_content" => "June", "a_content" => 0],
+            ['round' => 3, 'game_id' => 847, 'q_image' => null, "q_content" => "July", "a_content" => 0],
+
+            ['round' => 4, 'game_id' => 847, 'q_image' => $l11_G847_image .  "6.png",  "q_content" => "July", "a_content" => 0],
+            ['round' => 4, 'game_id' => 847, 'q_image' => null, "q_content" => "December", "a_content" => 0],
+            ['round' => 4, 'game_id' => 847, 'q_image' => null, "q_content" => "June", "a_content" => 1],
+
+            ['round' => 5, 'game_id' => 847, 'q_image' => $l11_G847_image .  "7.png",  "q_content" => "June", "a_content" => 0],
+            ['round' => 5, 'game_id' => 847, 'q_image' => null, "q_content" => "July", "a_content" => 1],
+            ['round' => 5, 'game_id' => 847, 'q_image' => null, "q_content" => "August", "a_content" => 0],
+
+            ['round' => 6, 'game_id' => 847, 'q_image' => $l11_G847_image .  "8.png",  "q_content" => "October", "a_content" => 0],
+            ['round' => 6, 'game_id' => 847, 'q_image' => null, "q_content" => "July", "a_content" => 0],
+            ['round' => 6, 'game_id' => 847, 'q_image' => null, "q_content" => "August", "a_content" => 1],
+
+            ['round' => 7, 'game_id' => 847, 'q_image' => $l11_G847_image .  "9.png",  "q_content" => "October", "a_content" => 0],
+            ['round' => 7, 'game_id' => 847, 'q_image' => null, "q_content" => "Spetember", "a_content" => 1],
+            ['round' => 7, 'game_id' => 847, 'q_image' => null, "q_content" => "December", "a_content" => 0],
+
+            ['round' => 8, 'game_id' => 847, 'q_image' => $l11_G847_image .  "10.png",  "q_content" => "October", "a_content" => 1],
+            ['round' => 8, 'game_id' => 847, 'q_image' => null, "q_content" => "December", "a_content" => 0],
+            ['round' => 8, 'game_id' => 847, 'q_image' => null, "q_content" => "November", "a_content" => 0],
+
+            ['round' => 9, 'game_id' => 847, 'q_image' => $l11_G847_image .  "11.png",  "q_content" => "September", "a_content" => 0],
+            ['round' => 9, 'game_id' => 847, 'q_image' => null, "q_content" => "October", "a_content" => 0],
+            ['round' => 9, 'game_id' => 847, 'q_image' => null, "q_content" => "November", "a_content" => 1],
+
+            ['round' => 10, 'game_id' => 847, 'q_image' => $l11_G847_image .  "12.png",  "q_content" => "December", "a_content" => 1],
+            ['round' => 10, 'game_id' => 847, 'q_image' => null, "q_content" => "January", "a_content" => 0],
+            ['round' => 10, 'game_id' => 847, 'q_image' => null, "q_content" => "October", "a_content" => 0],
+
+        ]);
     }
 }
