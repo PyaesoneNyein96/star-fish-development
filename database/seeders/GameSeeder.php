@@ -1707,6 +1707,156 @@ class GameSeeder extends Seeder
             ['name' => 'Writing Topic', 'unit_id' => 900, 'category_id' => 26, "instructionGIF" => null],
 
 
+
+
+            // // G4 Lesson 26
+            ['name' => 'Video Lesson', 'unit_id' => 901 ,'category_id' => 1, "instructionGIF" => null],
+            ['name' => 'Listen and Repeat (1)', 'unit_id' => 902,'category_id' => 2, "instructionGIF" => null],
+            ['name' => 'Listen and Repeat (2)', 'unit_id' => 902,'category_id' => 1, "instructionGIF" => null],
+            ['name' => 'Practice', 'unit_id' => 903,'category_id' => 1, "instructionGIF" => null],
+            ['name' => 'Speaking Practice', 'unit_id' => 904,'category_id' => 1, "instructionGIF" => null],
+            ['name' => 'Listening Practice', 'unit_id' => 905,'category_id' => 1, "instructionGIF" => null],
+            ['name' => 'Reading', 'unit_id' => 906,'category_id' => 1, "instructionGIF" => null],
+            ['name' => 'Speaking Topic', 'unit_id' => 907,'category_id' => 1, "instructionGIF" => null],
+
+            // // G4 Lesson 27
+            ['name' => 'Video Lesson', 'unit_id' => 908,'category_id' => 1, "instructionGIF" => null],
+            ['name' => 'Listen and Repeat (1)', 'unit_id' => 909,'category_id' => 1, "instructionGIF" => null],
+            ['name' => 'Listen and Repeat (2)', 'unit_id' => 909,'category_id' => 1, "instructionGIF" => null],
+            ['name' => 'Practice', 'unit_id' => 910,'category_id' => 1, "instructionGIF" => null],
+            ['name' => 'Speaking Practice', 'unit_id' => 911,'category_id' => 1, "instructionGIF" => null],
+            ['name' => 'Listening Practice', 'unit_id' => 912,'category_id' => 1, "instructionGIF" => null],
+
+            // // // G4 Lesson 28
+            // ['name' => 'Video Lesson', 'unit_id' => 148],
+            // ['name' => 'Listen and Repeat', 'unit_id' => 148],
+            // ['name' => 'Listen and Repeat', 'unit_id' => 148],
+            // ['name' => 'Practice', 'unit_id' => 148],
+            // ['name' => 'Speaking Practice', 'unit_id' => 148],
+            // ['name' => 'Listening Practice', 'unit_id' => 148],
+            // ['name' => 'Reading Practice', 'unit_id' => 148],
+            // ['name' => 'Speaking Topic', 'unit_id' => 148],
+            // ['name' => 'Writing Topic', 'unit_id' => 148],
+
+            // // // G4 Lesson 29
+            // ['name' => 'Video Lesson', 'unit_id' => 149],
+            // ['name' => 'Listen and Repeat', 'unit_id' => 149],
+            // ['name' => 'Listen and Repeat', 'unit_id' => 149],
+            // ['name' => 'Practice', 'unit_id' => 149],
+            // ['name' => 'Speaking Practice', 'unit_id' => 149],
+            // ['name' => 'Listening Practice', 'unit_id' => 149],
+            // ['name' => 'Speaking Topic', 'unit_id' => 149],
+            // ['name' => 'Writing Topic', 'unit_id' => 149],
+
+
+            // // // G4 Lesson 30
+            // ['name' => 'Video Lesson', 'unit_id' => 150],
+            // ['name' => 'Listen and Repeat', 'unit_id' => 150],
+            // ['name' => 'Listen and Repeat', 'unit_id' => 150],
+            // ['name' => 'Practice', 'unit_id' => 150],
+            // ['name' => 'Speaking Practice', 'unit_id' => 150],
+            // ['name' => 'Listening Practice', 'unit_id' => 150],
+            // ['name' => 'Reading Passage', 'unit_id' => 150],
+            // ['name' => 'Speaking Topic', 'unit_id' => 150],
+
+
+            // // // G4 Lesson 31
+            // ['name' => 'Video Lesson', 'unit_id' => 151],
+            // ['name' => 'Listen and Repeat', 'unit_id' => 151],
+            // ['name' => 'Practice', 'unit_id' => 151],
+            // ['name' => 'Speaking Practice', 'unit_id' => 151],
+            // ['name' => 'Listening Practice', 'unit_id' => 151],
+            // ['name' => 'Speaking Topic', 'unit_id' => 151],
+
+
+            // // // G4 Lesson 32
+            // ['name' => 'Video Lesson', 'unit_id' => 152],
+            // ['name' => 'Listen and Repeat', 'unit_id' => 152],
+            // ['name' => 'Spelling Game', 'unit_id' => 152],
+            // ['name' => 'Practice', 'unit_id' => 152],
+            // ['name' => 'Speaking Practice', 'unit_id' => 152],
+            // ['name' => 'Listening Practice', 'unit_id' => 152],
+            // ['name' => 'Reading Passage', 'unit_id' => 152],
+            // ['name' => 'Speaking Topic', 'unit_id' => 152],
+            // ['name' => 'Writing Topic', 'unit_id' => 152],
+
+
+            // // // G4 Lesson 33
+            // ['name' => 'Video Lesson', 'unit_id' => 153],
+            // ['name' => 'Listen and Repeat', 'unit_id' => 153],
+            // ['name' => 'Listen and Repeat', 'unit_id' => 153],
+            // ['name' => 'Practice', 'unit_id' => 153],
+            // ['name' => 'Speaking Practice', 'unit_id' => 153],
+            // ['name' => 'Listening Practice', 'unit_id' => 153],
+            // ['name' => 'Speaking Topic', 'unit_id' => 153],
+            // ['name' => 'Writing Topic', 'unit_id' => 153],
+
+
+            // // // G4 Lesson 34
+            // ['name' => 'Listen and Repeat', 'unit_id' => 154],
+            // ['name' => 'Speaking Practice', 'unit_id' => 154],
+            // ['name' => 'Listening Practice', 'unit_id' => 154],
+            // ['name' => 'Reading Passage', 'unit_id' => 154],
+            // ['name' => 'Speaking Topic', 'unit_id' => 154],
+
+
+            // // // G4 Lesson 35
+            // ['name' => 'Listen and Repeat', 'unit_id' => 155],
+            // ['name' => 'Spelling Game', 'unit_id' => 155],
+            // ['name' => 'Practice (matching)', 'unit_id' => 155],
+            // ['name' => 'Practice', 'unit_id' => 155],
+            // ['name' => 'Speaking Practice', 'unit_id' => 155],
+            // ['name' => 'Listening Practice', 'unit_id' => 155],
+            // ['name' => 'Speaking Topic', 'unit_id' => 155],
+            // ['name' => 'Writing Topic', 'unit_id' => 155],
+
+
+            // // // G4 Lesson 36
+            // ['name' => 'Listen and Repeat', 'unit_id' => 156],
+            // ['name' => 'Practice', 'unit_id' => 156],
+            // ['name' => 'Speaking Practice', 'unit_id' => 156],
+            // ['name' => 'Reading Passage', 'unit_id' => 156],
+            // ['name' => 'Speaking Topic', 'unit_id' => 156],
+
+
+            // // // G4 Lesson 37
+            // ['name' => 'Listen and Repeat', 'unit_id' => 157],
+            // ['name' => 'Speaking Practice', 'unit_id' => 157],
+            // ['name' => 'Listening Practice', 'unit_id' => 157],
+            // ['name' => 'Speaking Topic', 'unit_id' => 157],
+            // ['name' => 'Writing Topic', 'unit_id' => 157],
+
+
+            // // // G4 Lesson 38
+            // ['name' => 'Listen and Repeat', 'unit_id' => 158],
+            // ['name' => 'Speaking Practice', 'unit_id' => 158],
+            // ['name' => 'Listening Practice', 'unit_id' => 158],
+            // ['name' => 'Reading Passage', 'unit_id' => 158],
+            // ['name' => 'Speaking Topic', 'unit_id' => 158],
+
+
+            // // // G4 Lesson 39
+            // ['name' => 'Video Lesson', 'unit_id' => 159],
+            // ['name' => 'Listen and Repeat', 'unit_id' => 159],
+            // ['name' => 'Listen and Repeat', 'unit_id' => 159],
+            // ['name' => 'Speaking Practice', 'unit_id' => 159],
+            // ['name' => 'Listening Practice', 'unit_id' => 159],
+            // ['name' => 'Speaking Topic', 'unit_id' => 159],
+
+            // // // G4 Lesson 40
+            // ['name' => 'Listen and Repeat', 'unit_id' => 160],
+            // ['name' => 'Practice', 'unit_id' => 160],
+            // ['name' => 'Speaking Practice', 'unit_id' => 160],
+            // ['name' => 'Reading Passage', 'unit_id' => 160],
+            // ['name' => 'Speaking Topic', 'unit_id' => 160],
+            // ['name' => 'Writing Topic', 'unit_id' => 160],
+
+
+
+
+
+
+
         ]);
 
 
@@ -1714,43 +1864,5 @@ class GameSeeder extends Seeder
 
 
 
-
-
-        //--------------  Grade 3 Games -------------------
-
-        // DB::table('games')->insert([
-        //     ['name' => 'Target Language', 'unit_id' => 233, 'category_id' => 1],
-        //     ['name' => 'Vocabulary', 'unit_id' => 234, 'category_id' => 1],
-        //     ['name' => 'Practice', 'unit_id' => 235, 'category_id' => 1],
-        //     ['name' => 'Listening', 'unit_id' => 236, 'category_id' => 1],
-        //     ['name' => 'Speaking', 'unit_id' => 237, 'category_id' => 1],
-        //     ['name' => 'Reading', 'unit_id' => 238, 'category_id' => 3],
-        //     ['name' => 'Writing', 'unit_id' => 239, 'category_id' => 26],   // ***
-        //     ['name' => 'Free practice', 'unit_id' => 240, 'category_id' => 3],
-        // ]);
-
-        // ////////////////////
-
-        // DB::table('games')->insert([
-        //     ['name' => 'Video', 'unit_id' => 241, 'category_id' => 1],
-        //     ['name' => 'Vocabulary', 'unit_id' => 242, 'category_id' => 1],
-        //     ['name' => 'Write the opposite', 'unit_id' => 243, 'category_id' => 27],  // ***
-        //     ['name' => 'Writing', 'unit_id' => 244, 'category_id' => 1],
-        //     ['name' => 'Listen', 'unit_id' => 245, 'category_id' => 1],
-        //     ['name' => 'Speaking', 'unit_id' => 246, 'category_id' => 3],
-        //     ['name' => 'Free Speaking Practice', 'unit_id' => 247, 'category_id' => 3],
-        // ]);
-
-
-
-        // // //----------------- Grade 3 games -------------------------
-
-        // DB::table('games')->insert([
-        //     ['name' => 'Reading Lesson', 'unit_id' => 248, 'category_id' => 1],
-        //     ['name' => 'Listen and Repeat', 'unit_id' => 249, 'category_id' => 1],
-        //     ['name' => 'Speaking Practice', 'unit_id' => 250, 'category_id' => 1],
-        //     ['name' => 'Listen and Practice', 'unit_id' => 251, 'category_id' => 28],
-        //     ['name' => 'Speaking Topic', 'unit_id' => 252, 'category_id' => 1],
-        // ]);
     }
 }

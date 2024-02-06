@@ -1326,8 +1326,68 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
 
+/////////////////////////////////////////// Lesson 26 /////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+// Unit - 1 Video Lesson
+// Game_id - 901
+
+
+
+// Unit - 2 Listen and Repeat , Sub - 1 (Reading_carousel)
+
+
+        $contents = [
+           "blouse","cap","dress","flip-flops","hat","sunglasses","t-shirt","shorts","jeans",
+           "jacket","scarf","Skirt","socks","sweater","tracksuit","winter-coat"
+        ];
+
+
+        $audio = $AudioDomain."Grade_4/Lesson_26/Listen_and_Repeat_1/";
+        $img = $ImageDomain."Grade_4/Lesson_26/Listen_and_Repeat_1/";
+
+        foreach ($contents as $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 964,
+                    'a_content' => $val,
+                    'a_image' => $img.$this->removeSpace($val).".png",
+                    'a_audio' => $audio.$this->removeSpace($val).".mp3"
+                ],
+            ]);
+        }
+
+
+
+
+    // Unit 2 SUb - 2 <Reading_carousel_two>
+
+       $contents = [
+            ['cold','hot'],
+            ['cold-2','hot-2'],
+        ];
+
+        $audio = $AudioDomain."Grade_4/Lesson_326/Listen_and_Repeat_2/";
+        $img = $ImageDomain."Grade_4/Lesson_26/Listen_and_Repeat_2/";
+
+        foreach ($contents as $key =>  $val) {
+
+            foreach ($val as $v) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 965,
+                        // 'round'=> 1,
+                        'a_content' => $v,
+                        'a_image' => $img.$this->removeSpace($v).".png",
+                        'a_audio' => $audio.$this->removeSpace($v).".mp3",
+                        'q_content' => $key
+                    ],
+                ]);
+            }
+
+        }
 
 
 

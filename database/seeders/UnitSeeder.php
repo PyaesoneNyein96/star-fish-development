@@ -1451,43 +1451,43 @@ class UnitSeeder extends Seeder
 
 
             // // G4 lesson 22
-            ['name' => 'Video', 'lesson_id' => 141],
-            ['name' => 'Listen and Repeat', 'lesson_id' => 141],
-            ['name' => 'Spelling Game', 'lesson_id' => 141],
-            ['name' => 'Practice', 'lesson_id' => 141],
-            ['name' => 'Speaking Practice', 'lesson_id' => 141],
-            ['name' => 'Listening Practice', 'lesson_id' => 141],
-            ['name' => 'Reading Practice', 'lesson_id' => 141],
-            ['name' => 'Speaking Topic', 'lesson_id' => 141],
+            ['name' => 'Video', 'lesson_id' => 142],
+            ['name' => 'Listen and Repeat', 'lesson_id' => 142],
+            ['name' => 'Spelling Game', 'lesson_id' => 142],
+            ['name' => 'Practice', 'lesson_id' => 142],
+            ['name' => 'Speaking Practice', 'lesson_id' => 142],
+            ['name' => 'Listening Practice', 'lesson_id' => 142],
+            ['name' => 'Reading Practice', 'lesson_id' => 142],
+            ['name' => 'Speaking Topic', 'lesson_id' => 142],
 
 
             // // G4 lesson 23
-            ['name' => 'Video Lesson', 'lesson_id' => 141],
-            ['name' => 'Listen and Repeat', 'lesson_id' => 141],
-            ['name' => 'Practice', 'lesson_id' => 141],
-            ['name' => 'Speaking Practice', 'lesson_id' => 141],
-            ['name' => 'Listening Practice', 'lesson_id' => 141],
-            ['name' => 'Speaking Topic', 'lesson_id' => 141],
+            ['name' => 'Video Lesson', 'lesson_id' => 143],
+            ['name' => 'Listen and Repeat', 'lesson_id' => 143],
+            ['name' => 'Practice', 'lesson_id' => 143],
+            ['name' => 'Speaking Practice', 'lesson_id' => 143],
+            ['name' => 'Listening Practice', 'lesson_id' => 143],
+            ['name' => 'Speaking Topic', 'lesson_id' => 143],
 
 
             // // G4 lesson 24
-            ['name' => 'Listen and Repeat', 'lesson_id' => 141],
-            ['name' => 'Practice', 'lesson_id' => 141],
-            ['name' => 'Speaking Practice', 'lesson_id' => 141],
-            ['name' => 'Listening Practice', 'lesson_id' => 141],
-            ['name' => 'Reading Practice', 'lesson_id' => 141],
-            ['name' => 'Speaking Topic', 'lesson_id' => 141],
+            ['name' => 'Listen and Repeat', 'lesson_id' => 144],
+            ['name' => 'Practice', 'lesson_id' => 144],
+            ['name' => 'Speaking Practice', 'lesson_id' => 144],
+            ['name' => 'Listening Practice', 'lesson_id' => 144],
+            ['name' => 'Reading Practice', 'lesson_id' => 144],
+            ['name' => 'Speaking Topic', 'lesson_id' => 144],
 
 
             // // G4 lesson 25
-            ['name' => 'Video Lesson', 'lesson_id' => 141],
-            ['name' => 'Listen and Repeat', 'lesson_id' => 141],
-            ['name' => 'Spelling Game', 'lesson_id' => 141],
-            ['name' => 'Practice', 'lesson_id' => 141],
-            ['name' => 'Speaking Practice', 'lesson_id' => 141],
-            ['name' => 'Listening Practice', 'lesson_id' => 141],
-            ['name' => 'Speaking Topic', 'lesson_id' => 141],
-            ['name' => 'Writing Topic', 'lesson_id' => 141],
+            ['name' => 'Video Lesson', 'lesson_id' => 145],
+            ['name' => 'Listen and Repeat', 'lesson_id' => 145],
+            ['name' => 'Spelling Game', 'lesson_id' => 145],
+            ['name' => 'Practice', 'lesson_id' => 145],
+            ['name' => 'Speaking Practice', 'lesson_id' => 145],
+            ['name' => 'Listening Practice', 'lesson_id' => 145],
+            ['name' => 'Speaking Topic', 'lesson_id' => 145],
+            ['name' => 'Writing Topic', 'lesson_id' => 145],
 
 
             // ------------
