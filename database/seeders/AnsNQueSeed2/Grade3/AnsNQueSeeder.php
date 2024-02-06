@@ -1211,7 +1211,7 @@ class AnsNQueSeeder extends Seeder
         $G3_L7_Game507_Matching = [
 
             'english', 'maths', "social-studies", 'science',
-            'james.png', 'alice.png', 'amy.png', 'maria.png',
+            $l7_G507_image .  'james.png', $l7_G507_image .  'alice.png', $l7_G507_image . 'amy.png', $l7_G507_image .  'maria.png',
 
         ];
 
@@ -1235,7 +1235,7 @@ class AnsNQueSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 507, 'round' => 1, 'q_content' => $G3_L7_Game507_Matching_ans[$key],
-                    'q_image' => $l7_G507_image . strtolower($value), 'q_audio' => $AudioDomain . $G3_L7_Matching .  strtolower($G3_L7_Game507_Matching_audio[$key]) . ".mp3",
+                    'q_image' => strtolower($value), 'q_audio' => $AudioDomain . $G3_L7_Matching .  strtolower($G3_L7_Game507_Matching_audio[$key]) . ".mp3",
                 ]
             ]);
         }
@@ -1355,7 +1355,7 @@ class AnsNQueSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 512, 'round' => 1, 'q_content' => $G3_L8_Game512_Matching_ans[$key],
-                    'q_image' => strtolower($value), 'q_audio' => $AudioDomain . $G3_L8_Matching .  strtolower($G3_L8_Game512_Matching_auido[$key]) . ".mp3",
+                    'q_image' => $value, 'q_audio' => $AudioDomain . $G3_L8_Matching .  strtolower($G3_L8_Game512_Matching_auido[$key]) . ".mp3",
                 ]
             ]);
         }

@@ -1688,7 +1688,7 @@ class AnsNQueSeeder extends Seeder
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'round' => $i + 1, 'game_id' => 841, "q_audio" => $AudioDomain . $G4_L10_reading_passage_path . "Good morning! It is six o'clock in the morning. Here is the weather news. It is very cold outside. Wear warm clothes and jackets. \nHere is the weather at 9 o'clock. It's raining now. Don't forget your umbrellas and your raincoats. Don't get wet! \nIt's 2 o'clock in the afternoon. The weather is now sunny and hot. Don't forget your sun hats and sunglasses. Have a nice afternoon in the sun.\nIt's 7 o'clock and here is the weather. It's very windy outside now. It's a good time to fly a kite. But, don't let your hats fly away!",
+                    'round' => $i + 1, 'game_id' => 841, "q_audio" => $AudioDomain . $G4_L10_reading_passage_path . "audio" . ".mp3", "q_conver" => "Good morning! It is six o'clock in the morning. Here is the weather news. It is very cold outside. Wear warm clothes and jackets. \nHere is the weather at 9 o'clock. It's raining now. Don't forget your umbrellas and your raincoats. Don't get wet! \nIt's 2 o'clock in the afternoon. The weather is now sunny and hot. Don't forget your sun hats and sunglasses. Have a nice afternoon in the sun.\nIt's 7 o'clock and here is the weather. It's very windy outside now. It's a good time to fly a kite. But, don't let your hats fly away!",
                     'a_content' => null, "background" => $l10_G841_image . "bg.jpg"
                 ],
             ]);
@@ -1857,5 +1857,934 @@ class AnsNQueSeeder extends Seeder
             ['round' => 10, 'game_id' => 847, 'q_image' => null, "q_content" => "October", "a_content" => 0],
 
         ]);
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 11 Game 848 (  Speaking Topic )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L11_practice_speaking = "Grade_4/" . "Lesson_11/" . "speaking_practice/";
+        $l11_G848image = $domain . "/storage/images/Grade_4/lesson_11/speaking_practice/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 848,  'q_image' => $l11_G848image . "1.png", "a_content" => "There are 30 days in June.", "q_content" => "How many days are there in June?", "round_instruction" => $AudioDomain . $G4_L11_practice_speaking . "SubBlock_How-many-days-are-there-in-Jun" . ".mp3"],
+        ]);
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 2, 'game_id' => 848,  'q_image' => $l11_G848image . "1.png",  "q_content" => "How many days are there in February?", "round_instruction" =>  $AudioDomain . $G4_L11_practice_speaking . "SubBlock_How-many-days-are-there-in-Feb" . ".mp3"],
+            ['round' => 3, 'game_id' => 848,  'q_image' => $l11_G848image . "1.png",  "q_content" => "How many days are there in December?", "round_instruction" =>  $AudioDomain . $G4_L11_practice_speaking . "SubBlock_How-many-days-are-there-in-Dec" . ".mp3"],
+            ['round' => 4, 'game_id' => 848,  'q_image' => $l11_G848image . "1.png",  "q_content" => "How many days are there in July?", "round_instruction" =>  $AudioDomain . $G4_L11_practice_speaking . "SubBlock_How-many-days-are-there-in-Jul" . ".mp3"],
+            ['round' => 5, 'game_id' => 848,  'q_image' => $l11_G848image . "1.png",  "q_content" => "How many days are there in September?", "round_instruction" =>  $AudioDomain . $G4_L11_practice_speaking . "SubBlock_How-many-days-are-there-in-Sep" . ".mp3"],
+            ['round' => 6, 'game_id' => 848,  'q_image' => $l11_G848image . "1.png",  "q_content" => "How many days are there in May?", "round_instruction" =>  $AudioDomain . $G4_L11_practice_speaking . "SubBlock_How-many-days-are-there-in-May" . ".mp3"],
+            ['round' => 7, 'game_id' => 848,  'q_image' => $l11_G848image . "1.png",  "q_content" => "How many days are there in April?", "round_instruction" =>  $AudioDomain . $G4_L11_practice_speaking . "SubBlock_How-many-days-are-there-in-Apr" . ".mp3"],
+            ['round' => 8, 'game_id' => 848,  'q_image' => $l11_G848image . "1.png",  "q_content" => "How many months are there in a year?", "round_instruction" =>  $AudioDomain . $G4_L11_practice_speaking . "SubBlock_How-many-months-are-there-in-a" . ".mp3"],
+
+        ]);
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 11 Game 849 ( Listen and Practice )
+        ////////////////////////////////////////////////////////
+
+        $l11_G849_image = $domain . "/storage/images/Grade_4/lesson_11/listen_n_practice/";
+        $G4_L11_listen_n_practice = "Grade_4/" . "Lesson_11/" . "listen_n_practice/";
+
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 849,  'q_audio' =>  $AudioDomain . $G4_L11_listen_n_practice . "september" . ".mp3", "q_content" => "September", "a_content" => 1],
+            ['round' => 1, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "October", "a_content" => 0],
+            ['round' => 1, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "November", "a_content" => 0],
+
+            ['round' => 2, 'game_id' => 849,  'q_audio' =>  $AudioDomain . $G4_L11_listen_n_practice . "june" . ".mp3", "q_content" => "June",  "a_content" => 1],
+            ['round' => 2, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "July", "a_content" => 0],
+            ['round' => 2, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "August", "a_content" => 0],
+
+            ['round' => 3, 'game_id' => 849,  'q_audio' =>  $AudioDomain . $G4_L11_listen_n_practice . "november" . ".mp3", "q_content" => "October", "a_content" => 0],
+            ['round' => 3, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "November", "a_content" => 1],
+            ['round' => 3, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "December", "a_content" => 0],
+
+            ['round' => 4, 'game_id' => 849,  'q_audio' =>  $AudioDomain . $G4_L11_listen_n_practice . "february" . ".mp3", "q_content" => "January", "a_content" => 0],
+            ['round' => 4, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "February", "a_content" => 1],
+            ['round' => 4, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "March", "a_content" => 0],
+
+            ['round' => 5, 'game_id' => 849,  'q_audio' =>  $AudioDomain . $G4_L11_listen_n_practice . "october" . ".mp3", "q_content" => "September",  "a_content" => 0],
+            ['round' => 5, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "October", "a_content" => 1],
+            ['round' => 5, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "November", "a_content" => 0],
+
+            ['round' => 6, 'game_id' => 849,  'q_audio' =>  $AudioDomain . $G4_L11_listen_n_practice . "august" . ".mp3", "q_content" => "July",  "a_content" => 0],
+            ['round' => 6, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "August", "a_content" => 1],
+            ['round' => 6, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "September", "a_content" => 0],
+
+            ['round' => 7, 'game_id' => 849,  'q_audio' =>  $AudioDomain . $G4_L11_listen_n_practice . "december" . ".mp3", "q_content" => "December",  "a_content" => 1],
+            ['round' => 7, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "January", "a_content" => 0],
+            ['round' => 7, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "February", "a_content" => 0],
+
+            ['round' => 8, 'game_id' => 849,  'q_audio' =>  $AudioDomain . $G4_L11_listen_n_practice . "april" . ".mp3", "q_content" => "April",  "a_content" => 1],
+            ['round' => 8, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "May", "a_content" => 0],
+            ['round' => 8, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "June", "a_content" => 0],
+
+            ['round' => 9, 'game_id' => 849,  'q_audio' =>  $AudioDomain . $G4_L11_listen_n_practice . "january" . ".mp3", "q_content" => "October",  "a_content" => 0],
+            ['round' => 9, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "January", "a_content" => 1],
+            ['round' => 9, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "December", "a_content" => 0],
+
+            ['round' => 10, 'game_id' => 849,  'q_audio' =>  $AudioDomain . $G4_L11_listen_n_practice . "march" . ".mp3", "q_content" => "February",  "a_content" => 0],
+            ['round' => 10, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "March", "a_content" => 1],
+            ['round' => 10, 'game_id' => 849,  'q_audio' =>  null, "q_content" => "April", "a_content" => 0],
+
+        ]);
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 11 Game 850 (  Speaking Topic )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L11_speaking_topic = "Grade_4/" . "Lesson_11/" . "speaking_topic/";
+        $l11_G850image = $domain . "/storage/images/Grade_4/lesson_11/speaking_topic/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 850, "q_audio" => $AudioDomain . $G4_L11_speaking_topic . "audio.mp3", "q_conver" => $l11_G850image . "text.png", "round_instruction" => $AudioDomain . $G4_L11_speaking_topic . "audio" . ".mp3"],
+        ]);
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 12 Game 851 ( video )
+        //////////////////////////////////////////////////////////////
+
+
+        DB::table('ans_n_ques')->insert(['game_id' => 851, 'a_content' => 'lesson_12_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 851, 'a_content' => 'lesson_12_video_global', 'isLocal' => 0]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 12 Game 852 (  Liaten and Repeat  )
+        ////////////////////////////////////////////////////////
+
+        $l12_G852_image = $domain . "/storage/images/Grade_4/lesson_12/listen_n_repeat/";
+        $G4_L12_listen_n_repeat = "Grade_4/" . "Lesson_12/" . "listen_n_repeat/";
+
+
+        $ans_G852 = [
+            "spring", "summer", "the-rainy-season", "fall-autumn", "winter"
+        ];
+
+        foreach ($ans_G852 as $key) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 852, 'a_content' => $key, 'a_image' => $l12_G852_image . str_replace(' ', '-', $key)  . ".png",
+                    'a_audio' => $AudioDomain . $G4_L12_listen_n_repeat . str_replace(' ', '-', strtolower($key)) . ".mp3"
+                ],
+            ]);
+        }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 3  Lesson 12 Game 853 , 854 (  Matching  )
+        ////////////////////////////////////////////////////////
+
+        $l12_G853_image = $domain . "/storage/images/Grade_3/lesson_12/Matching/";
+        $G4_L12_Matching = "Grade_3/" . "Lesson_12/" . "Matching/";
+
+        // Game 853
+        $G4_L12_Game853_Matching = [
+
+            $l12_G853_image . 'fall.png', $l12_G853_image . 'spring.png', $l12_G853_image . 'winter.png', $l12_G853_image . 'rainy.png', $l12_G853_image . 'summer.png',
+            'Fall', 'The hot season / Summer', "Rainy Season", 'Spring', 'The cold season / Winter'
+
+        ];
+
+        $G4_L12_Game853_Matching_audio_ans = [
+
+            'fall-autumn', 'spring', "winter", 'the-rainy-season', 'summer',
+            'fall-autumn', 'summer', 'the-rainy-season', 'spring', 'winter'
+
+        ];
+
+        foreach ($G4_L12_Game853_Matching as $key => $value) {
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 853, 'round' => 1, 'q_content' => $G4_L12_Game853_Matching_audio_ans[$key],
+                    'q_image' =>  strtolower($value), 'q_audio' => $AudioDomain . $G4_L12_Matching .  strtolower($G4_L12_Game853_Matching_audio_ans[$key]) . ".mp3",
+                ]
+            ]);
+        }
+
+
+        // Game 854
+        $G4_L12_Game854_Matching = [
+
+            'Spring', 'Summer', 'Rainy Season', 'Fall / Autumn', 'Winter',
+            'It rains a lot.', "It's very cold. Sometimes, it snows.", "It is very hot and dry.", 'Flowers blossom and they are beautiful.', 'Leaves fall. Trees are colorful.'
+
+        ];
+
+        $G4_L12_Game854_Matching_audio = [
+
+            'spring', 'summer', 'the-rainy-season', 'fall-autumn',  "winter",
+            'It-rains-a-lot', 'It-is-very-cold-Sometimes-it', 'It-is-very-hot-and-dry', 'Flowers-blossom-and-they-are-b', 'Leaves-fall-Trees-are-colorfu'
+
+        ];
+
+        $G4_L12_Game854_Matching_ans = [
+
+            'spring', 'summer', 'the-rainy-season', 'fall-autumn',  "winter",
+            'the-rainy-season', 'winter', 'summer', 'fall-autumn', 'spring'
+
+        ];
+
+        foreach ($G4_L12_Game854_Matching as $key => $value) {
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 854, 'round' => 1, 'q_content' => $G4_L12_Game854_Matching_ans[$key],
+                    'q_image' =>  strtolower($value), 'q_audio' => $AudioDomain . $G4_L12_Matching .  strtolower($G4_L12_Game854_Matching_audio[$key]) . ".mp3",
+                ]
+            ]);
+        }
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 12 Game 855 (  Speaking Practice  )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L12_practice_speaking = "Grade_4/" . "Lesson_12/" . "speaking_practice/";
+        $l12_G855image = $domain . "/storage/images/Grade_4/lesson_12/speaking_practice/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 855,  'q_image' => $l12_G855image . "summer.png", "a_content" => "It is summer.", "q_audio" => $AudioDomain . $G4_L12_practice_speaking . "" . ".mp3", "q_content" => "What is the hottest season?", "round_instruction" => $AudioDomain . $G4_L12_practice_speaking . "SubBlock_What-is-the-hottest-season" . ".mp3"],
+        ]);
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 2, 'game_id' => 855,  'q_image' => $l12_G855image . "winter.png", "q_audio" => $AudioDomain . $G4_L12_practice_speaking . "" . ".mp3", "q_content" => "What is the coldest season? \n ____", "round_instruction" =>  $AudioDomain . $G4_L12_practice_speaking . "SubBlock_What-is-the-coldest-season" . ".mp3"],
+            ['round' => 3, 'game_id' => 855,  'q_image' => $l12_G855image . "rainy.png", "q_audio" => $AudioDomain . $G4_L12_practice_speaking . "" . ".mp3", "q_content" => "In which season does it rain? \nIt rains in ____", "round_instruction" =>  $AudioDomain . $G4_L12_practice_speaking . "In-which-season-does-it-rain" . ".mp3"],
+            ['round' => 4, 'game_id' => 855,  'q_image' => $l12_G855image . "spring.png", "q_audio" => $AudioDomain . $G4_L12_practice_speaking . "" . ".mp3", "q_content" => "When are flowers colorful? \nFlowers are colorful in ____.", "round_instruction" =>  $AudioDomain . $G4_L12_practice_speaking . "SubBlock_When-are-flowers-colorful" . ".mp3"],
+            ['round' => 5, 'game_id' => 855,  'q_image' => $l12_G855image . "fall.png", "q_audio" => $AudioDomain . $G4_L12_practice_speaking . "" . ".mp3", "q_content" => "When are trees colorful? \nTrees are ____.", "round_instruction" =>  $AudioDomain . $G4_L12_practice_speaking . "SubBlock_When-are-trees-colorful" . ".mp3"],
+            ['round' => 6, 'game_id' => 855,  'q_image' => $l12_G855image . "spring2.png", "q_audio" => $AudioDomain . $G4_L12_practice_speaking . "" . ".mp3", "q_content" => "When is it sunny? \nIt is in ____.", "round_instruction" =>  $AudioDomain . $G4_L12_practice_speaking . "SubBlock_When-is-it-sunny" . ".mp3"],
+            ['round' => 7, 'game_id' => 855,  'q_image' => $l12_G855image . "summer2.png", "q_audio" => $AudioDomain . $G4_L12_practice_speaking . "" . ".mp3", "q_content" => "When is it hot? \n ____", "round_instruction" =>  $AudioDomain . $G4_L12_practice_speaking . "SubBlock_When-is-it-hot" . ".mp3"],
+            ['round' => 8, 'game_id' => 855,  'q_image' => $l12_G855image . "rainy.png", "q_audio" => $AudioDomain . $G4_L12_practice_speaking . "" . ".mp3", "q_content" => "In which season does it thunder? \nIt is in ____.", "round_instruction" =>  $AudioDomain . $G4_L12_practice_speaking . "In-which-season-does-it-thunde" . ".mp3"],
+
+        ]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 12 Game 856 ( Listening )
+        ////////////////////////////////////////////////////////
+
+        $l12_G856_image = $domain . "/storage/images/Grade_4/lesson_12/listening/";
+        $G4_L12_listening = "Grade_4/" . "Lesson_12/" . "listening/";
+
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 856,  'q_audio' =>  $AudioDomain . $G4_L12_listening . "SubBlock_The-sky-is-blue-The-sun-is-ho" . ".mp3", "q_content" => "Summer", "a_content" => 1],
+            ['round' => 1, 'game_id' => 856,  'q_audio' =>  null, "q_content" => "Rainy Season", "a_content" => 0],
+            ['round' => 1, 'game_id' => 856,  'q_audio' =>  null, "q_content" => "Fall", "a_content" => 0],
+
+            ['round' => 2, 'game_id' => 856,  'q_audio' =>  $AudioDomain . $G4_L12_listening . "SubBlock_The-sky-is-grey-There-are-lot" . ".mp3", "q_content" => "Summer",  "a_content" => 0],
+            ['round' => 2, 'game_id' => 856,  'q_audio' =>  null, "q_content" => "Rainy Season", "a_content" => 1],
+            ['round' => 2, 'game_id' => 856,  'q_audio' =>  null, "q_content" => "Cold Season", "a_content" => 0],
+
+            ['round' => 3, 'game_id' => 856,  'q_audio' =>  $AudioDomain . $G4_L12_listening . "It-snows-and-is-cold-What-is" . ".mp3", "q_content" => "Summer", "a_content" => 0],
+            ['round' => 3, 'game_id' => 856,  'q_audio' =>  null, "q_content" => "Spring", "a_content" => 0],
+            ['round' => 3, 'game_id' => 856,  'q_audio' =>  null, "q_content" => "Cold Season", "a_content" => 1],
+
+            ['round' => 4, 'game_id' => 856,  'q_audio' =>  $AudioDomain . $G4_L12_listening . "SubBlock_The-sky-is-dark-There-is-ligh" . ".mp3", "q_content" => "Sunny", "a_content" => 0],
+            ['round' => 4, 'game_id' => 856,  'q_audio' =>  null, "q_content" => "Windy", "a_content" => 0],
+            ['round' => 4, 'game_id' => 856,  'q_audio' =>  null, "q_content" => "Stormy", "a_content" => 1],
+
+            ['round' => 5, 'game_id' => 856,  'q_audio' =>  $AudioDomain . $G4_L12_listening . "SubBlock_The-air-is-moving-fast-You-ca" . ".mp3", "q_content" => "Sunny",  "a_content" => 0],
+            ['round' => 5, 'game_id' => 856,  'q_audio' =>  null, "q_content" => "Windy", "a_content" => 1],
+            ['round' => 5, 'game_id' => 856,  'q_audio' =>  null, "q_content" => "Stormy", "a_content" => 0],
+
+            ['round' => 6, 'game_id' => 856,  'q_audio' =>  $AudioDomain . $G4_L12_listening . "Flowers-are-colorful-and-beaut" . ".mp3", "q_content" => "Summer",  "a_content" => 0],
+            ['round' => 6, 'game_id' => 856,  'q_audio' =>  null, "q_content" => "Winter", "a_content" => 0],
+            ['round' => 6, 'game_id' => 856,  'q_audio' =>  null, "q_content" => "Spring", "a_content" => 1],
+
+        ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 12 Game 857 (  Practice  )
+        ////////////////////////////////////////////////////////
+
+        $l12_G857_image = $domain . "/storage/images/Grade_4/lesson_12/reading_passage/";
+        $G4_L12_reading_passage_path = "Grade_4/" . "Lesson_12/" . "reading_passage/";
+
+        $l12_G857_q_audio = [
+            "SubBlock_Who-was-the-weather-like-sunn",
+            "SubBlock_Who-are-the-twins-Jack-and-Ju",
+            "SubBlock_What-did-dad-say-to-them-To-wa",
+            "What-did-mom-say-to-them-To-w",
+            "SubBlock_What-did-Jack-make-with-snow",
+            "audio"
+        ];
+        $l12_G857_q_conver = [
+            "Who was the weather like?",
+            "Who are the twins?",
+            "What did dad say to them?",
+            "What did mom say to them?",
+            "What did Jack make with snow?",
+            "What did June make with snow?",
+        ];
+        $l12_G857_q_audio_ans = [
+            ["Sunny", "Icy", "Snowy"],
+            ["Jack and June", "Joe and June", "Jack and Joe"],
+            ["To warm up", "To eat more", "To play outside"],
+            ["To wear jackets", "To wear hats", "To wear socks"],
+            ["Snow man", "Snow angel", "Snowball"],
+            ["Snow man", "Snow angel", "Snowball"],
+        ];
+        $l12_G857_q_audio_a_content = [
+            [0, 0, 1],
+            [1, 0, 0],
+            [1, 0, 0],
+            [0, 1, 0],
+            [0, 0, 1],
+            [0, 1, 0],
+        ];
+
+
+        for ($i = 0; $i < count($l12_G857_q_audio); $i++) {
+
+            foreach ($l12_G857_q_audio_ans[$i] as $key => $val) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 857, "q_audio" => $AudioDomain . $G4_L12_reading_passage_path . str_replace(' ', '-', strtolower($val)) . ".mp3", 'q_content' => $val, "q_conver" => null, 'a_content' => $l12_G857_q_audio_a_content[$i][$key], "background" => null],
+                ]);
+            }
+
+            foreach ($l12_G857_q_audio as $key => $val) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 857, "q_audio" => $AudioDomain . $G4_L12_reading_passage_path . $val . ".mp3", "q_conver" => $l12_G857_q_conver[$key], 'q_content' => null, 'a_content' => null, "background" => null],
+                ]);
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 857, "q_audio" => $AudioDomain . $G4_L12_reading_passage_path . "It-was-snowing-like-never-bef" . ".mp3", "q_content" => "The Special Snowman", "q_conver" => "It was snowing, like never before. The twins Jack and June just couldn't wait to go out there, into the deep snow. \n\"Wrap up warm,\" Dad yelled. \n\"Hats and gloves,\" Mom shouted. \nIt was very cold, but the twins were ready for everything. \n\"Snowballs,\" Jack started making the snowballs into a pile.\n\"A snow angel,\" June fell onto the snow and moved her arms wide, up and down like the angel's wings. \nMom called for lunch. \"Snow makes you hungry. I know it.\" She smiled.\nThey smelled a yummy smell in the kitchen.\n\"A carrot soup,\" Jack and June smiled.",
+                    'a_content' => null, "background" => $l12_G857_image . "bg.png"
+                ],
+            ]);
+        }
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 12 Game 858 (  Speaking Topic )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L12_speaking_topic = "Grade_4/" . "Lesson_12/" . "speaking_topic/";
+        $l12_G858image = $domain . "/storage/images/Grade_4/lesson_12/speaking_topic/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 858, "q_conver" => $l12_G858image . "text.png", "round_instruction" => $AudioDomain . $G4_L12_speaking_topic . "SubBlock_Talk-about-your-favorite-seaso" . ".mp3"],
+        ]);
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 12 Game 859 (  Writing Topic )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L12_Game859_ans = "Rainy season is my favorite season. It is rainy and wet. School opens during this season. I like it because I can see my friends at school. I like running in the rain. Trees are green and beautiful";
+
+        DB::table('ans_n_ques')->insert([
+            ["round" => 1, 'game_id' => 859, 'q_content' => "My favorite season is _____. \nIt is _____ and _____. \n_____ (what happens during the season) \n_____ (what do you do?)", 'a_content' => $G4_L12_Game859_ans],
+        ]);
+
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 13 Game 860 ( video )
+        //////////////////////////////////////////////////////////////
+
+        DB::table('ans_n_ques')->insert(['game_id' => 860, 'a_content' => 'lesson_13_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 860, 'a_content' => 'lesson_13_video_global', 'isLocal' => 0]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 13 Game 861 (  Liaten and Repeat  )
+        ////////////////////////////////////////////////////////
+
+        $l13_G861_image = $domain . "/storage/images/Grade_4/lesson_13/listen_n_repeat/";
+        $G4_L13_listen_n_repeat = "Grade_4/" . "Lesson_13/" . "listen_n_repeat/";
+
+
+        $ans_G861 = [
+            "First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth", "Eleventh", "Twelfth"
+        ];
+
+        foreach ($ans_G861 as $key) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 861, 'a_content' => $key, 'a_image' => $l13_G861_image . $key  . ".png",
+                    'a_audio' => $AudioDomain . $G4_L13_listen_n_repeat . strtolower($key) . ".mp3"
+                ],
+            ]);
+        }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 13 Game 862 (  Matching  )
+        ////////////////////////////////////////////////////////
+
+        $l13_G862_image = $domain . "/storage/images/Grade_4/lesson_13/Matching/";
+        $G4_L13_Matching = "Grade_4/" . "Lesson_13/" . "Matching/";
+
+
+        $G4_L13_Game862_Matching = [
+
+            ['First', 'Fifth', 'Fourth', 'Second', "Third"],
+            ['Seventh', 'Tenth', 'Sixth', "Ninth",  'Eighth'],
+
+        ];
+
+        $G4_L13_Game862_Matching_image = [
+
+            ['Fifth', 'Second', 'First', "Third",  'Fourth'],
+            ["Ninth", 'Eighth', 'Tenth', 'Sixth', 'Seventh'],
+
+        ];
+
+
+        for ($i = 0; $i < count($G4_L13_Game862_Matching); $i++) {
+
+            foreach ($G4_L13_Game862_Matching[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 862, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $q, 'q_audio' => $AudioDomain . $G4_L13_Matching .  strtolower($q) . ".mp3",
+                    ]
+                ]);
+            }
+
+            foreach ($G4_L13_Game862_Matching_image[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 862, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $l13_G862_image . $q . ".png", 'q_audio' => $AudioDomain . $G4_L13_Matching .  strtolower($q) . ".mp3",
+                    ]
+                ]);
+            }
+        }
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 13 Game 863 (  Speaking Topic )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L13_practice_speaking = "Grade_4/" . "Lesson_13/" . "speaking_practice/";
+        $l13_G863image = $domain . "/storage/images/Grade_4/lesson_13/speaking_practice/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 863,  'q_image' => $l13_G863image . "1.png", "q_audio" => $AudioDomain . $G4_L13_practice_speaking . "" . ".mp3",  "q_content" => "Anna is in the ____ place."],
+            ['round' => 2, 'game_id' => 863,  'q_image' => $l13_G863image . "1.png", "q_audio" => $AudioDomain . $G4_L13_practice_speaking . "" . ".mp3",  "q_content" => "Emma is in the ____ place."],
+            ['round' => 3, 'game_id' => 863,  'q_image' => $l13_G863image . "1.png", "q_audio" => $AudioDomain . $G4_L13_practice_speaking . "" . ".mp3",  "q_content" => "Rose is in the ____ place."],
+            ['round' => 4, 'game_id' => 863,  'q_image' => $l13_G863image . "1.png", "q_audio" => $AudioDomain . $G4_L13_practice_speaking . "" . ".mp3",  "q_content" => "Max is in the ____ place."],
+            ['round' => 5, 'game_id' => 863,  'q_image' => $l13_G863image . "1.png", "q_audio" => $AudioDomain . $G4_L13_practice_speaking . "" . ".mp3",  "q_content" => "Paul is in the ____ place."],
+            ['round' => 6, 'game_id' => 863,  'q_image' => $l13_G863image . "1.png", "q_audio" => $AudioDomain . $G4_L13_practice_speaking . "" . ".mp3",  "q_content" => "Sam is in the ____ place."],
+            ['round' => 7, 'game_id' => 863,  'q_image' => $l13_G863image . "1.png", "q_audio" => $AudioDomain . $G4_L13_practice_speaking . "" . ".mp3",  "q_content" => "John is in the ____ place."],
+            ['round' => 8, 'game_id' => 863,  'q_image' => $l13_G863image . "1.png", "q_audio" => $AudioDomain . $G4_L13_practice_speaking . "" . ".mp3",  "q_content" => "Sara is in the ____ place."],
+            ['round' => 9, 'game_id' => 863,  'q_image' => $l13_G863image . "1.png", "q_audio" => $AudioDomain . $G4_L13_practice_speaking . "" . ".mp3",  "q_content" => "David is in the ____ place."],
+            ['round' => 10, 'game_id' => 863,  'q_image' => $l13_G863image . "1.png", "q_audio" => $AudioDomain . $G4_L13_practice_speaking . "" . ".mp3",  "q_content" => "Jack is in the ____ place."],
+            ['round' => 11, 'game_id' => 863,  'q_image' => $l13_G863image . "1.png", "q_audio" => $AudioDomain . $G4_L13_practice_speaking . "" . ".mp3",  "q_content" => "Ben is in the ____ place."],
+            ['round' => 12, 'game_id' => 863,  'q_image' => $l13_G863image . "1.png", "q_audio" => $AudioDomain . $G4_L13_practice_speaking . "" . ".mp3",  "q_content" => "Amara is in the ____ place."],
+
+        ]);
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 13 Game 864 (  Reading  )
+        ////////////////////////////////////////////////////////
+
+        $l13_G864_image = $domain . "/storage/images/Grade_4/lesson_13/reading_passage/";
+        $G4_L13_reading_passage_path = "Grade_4/" . "Lesson_13/" . "reading_passage/";
+
+        $l13_G864_q_audio = [
+            "SubBlock_The-sisters-had-hair-brown-bl",
+            "SubBlock_Except-the-last-one-the-siste",
+            "SubBlock_Who-could-ride-the-scooter-Th",
+            "SubBlock_Whom-could-the-third-sister-ta",
+            "SubBlock_What-could-the-sixth-sister-ma",
+            "SubBlock_What-could-the-seventh-sister"
+        ];
+        $l13_G864_q_conver = [
+            "The sisters had ____ hair.",
+            "Except the last one, the sisters were ____.",
+            "Who could ride the scooter?",
+            "Whom could the third sister talk to?",
+            "What could the sixth sister make?",
+            "What could the seventh sister do?",
+        ];
+        $l13_G864_q_audio_ans = [
+            ["Brown", "Blonde", "Black"],
+            ["Tall", "Short", "Neither tall nor short"],
+            ["First", "second", "Third"],
+            ["Cats", "Dogs", "Birds"],
+            ["Noodle", "Shabu", "Fried rice"],
+            ["Karate", "Catching ball", "Nothing yet"]
+        ];
+        $l13_G864_q_audio_a_content = [
+            [0, 0, 1],
+            [1, 0, 0],
+            [1, 0, 0],
+            [0, 1, 0],
+            [1, 0, 0],
+            [0, 0, 1],
+        ];
+
+
+        for ($i = 0; $i < count($l13_G864_q_audio); $i++) {
+
+            foreach ($l13_G864_q_audio_ans[$i] as $key => $val) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 864, "q_audio" => $AudioDomain . $G4_L13_reading_passage_path . str_replace(' ', '-', strtolower($val)) . ".mp3", 'q_content' => $val, "q_conver" => null, 'a_content' => $l13_G864_q_audio_a_content[$i][$key], "background" => null],
+                ]);
+            }
+
+            foreach ($l13_G864_q_audio as $key => $val) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 864, "q_audio" => $AudioDomain . $G4_L13_reading_passage_path . $val . ".mp3", "q_conver" => $l13_G864_q_conver[$key], 'q_content' => null, 'a_content' => null, "background" => null],
+                ]);
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 864, "q_audio" => $AudioDomain . $G4_L13_reading_passage_path . "SubBlock_Once-upon-a-time-there-were-s" . ".mp3", "q_conver" => "Once upon a time, there were seven sisters who lived together and took care of each other. \nEach sister had shining black hair and sparkling eyes. Each stood straight and tall, except for Seventh sister, who was just a baby. \nBut, the sisters were very different.\nThe first sister could ride the scooter as fast as the wind. \nThe second sister knew karate- kick, chop, hi-yah.\nThe third sister could count -to five hundred and beyond.\nThe fourth sister could talk to dogs.\nThe fifth sister could catch the ball- no matter how fast or high it was thrown.\nThe sixth sister could cook the most delicious noodle soup in the world.\nAnd, the seventh sister? No one was really sure yet what she could do, as she was so little, she had never spoken even one word.",
+                    'a_content' => null, "background" => $l13_G864_image . "bg.jpg"
+                ],
+            ]);
+        }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 13 Game 865 ( writing topic )
+        ////////////////////////////////////////////////////////
+
+        $l13_G865_image = $domain . "/storage/images/Grade_4/lesson_13/writing_topic/";
+        $G4_L13_look_n_write = "Grade_4/" . "Lesson_13/" . "writing_topic/";
+
+        $q_content_G4_L13_Game865_img = ["feb", "june", "a", "j", "dec", "july",  "sept", "c", "f", "k"];
+
+        $a_content_G4_L13_Game865 = [
+            "February is the second month of the year.",
+            "June is the sixth month of the year.",
+            "A is the first letter of English alphabet.",
+            "J is the tenth letter of English alphabet.",
+            "December is the twelfth month of the year.",
+            "July is the seventh month of the yar.",
+            "September is the ninth month of the year.",
+            "C is the third letter of the alphabet.",
+            "F is the sixth letter of the alphabet.",
+            "K is the eleventh letter of the alphabet."
+        ];
+
+        $q_content_G4_L13_Game865 = [
+            'February is the ____ month of the year.',
+            'June is the ____ month of the year.',
+            'A is the ____ letter of English alphabet.',
+            'J is the ____ letter of English alphabet.',
+            'December is the ____ month of the year.',
+            'July is the ____ month of the year.',
+            'September is the ____ month of the year.',
+            "C is the ____ letter of the alphabet.",
+            "F is the ____ letter of the alphabet.",
+            "K is the ____ letter of the alphabet."
+        ];
+
+        foreach ($q_content_G4_L13_Game865_img as $key => $value) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 865, 'round' => $key + 1,
+                    'q_content' => $q_content_G4_L13_Game865[$key],
+                    'q_image' => $l13_G865_image . $value . ".png",
+                    'a_content' => $a_content_G4_L13_Game865[$key],
+                ],
+            ]);
+        }
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 11 Game 866 (  Speaking Topic )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L13_speaking_topic = "Grade_4/" . "Lesson_13/" . "speaking_topic/";
+        $l13_G866image = $domain . "/storage/images/Grade_4/lesson_13/speaking_topic/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 866, "q_audio" => $AudioDomain . $G4_L13_speaking_topic . "" . ".mp3", 'q_image' => $l13_G866image . "feb.png",  "q_content" => "February is the ____ month of the year."],
+            ['round' => 2, 'game_id' => 866, "q_audio" => $AudioDomain . $G4_L13_speaking_topic . "" . ".mp3", 'q_image' => $l13_G866image . "june.png",  "q_content" => "June is the ____ month of the year."],
+            ['round' => 3, 'game_id' => 866, "q_audio" => $AudioDomain . $G4_L13_speaking_topic . "" . ".mp3", 'q_image' => $l13_G866image . "alpha.png",  "q_content" => "A is the ____ letter of English alphabet."],
+            ['round' => 4, 'game_id' => 866, "q_audio" => $AudioDomain . $G4_L13_speaking_topic . "" . ".mp3", 'q_image' => $l13_G866image . "alpha.png",  "q_content" => "J is the ____ letter of English alphabet."],
+            ['round' => 5, 'game_id' => 866, "q_audio" => $AudioDomain . $G4_L13_speaking_topic . "" . ".mp3", 'q_image' => $l13_G866image . "dec.png",  "q_content" => "December is the ____ month of the year."],
+            ['round' => 6, 'game_id' => 866, "q_audio" => $AudioDomain . $G4_L13_speaking_topic . "" . ".mp3", 'q_image' => $l13_G866image . "july.png",  "q_content" => "July is the ____ month of the year."],
+            ['round' => 7, 'game_id' => 866, "q_audio" => $AudioDomain . $G4_L13_speaking_topic . "" . ".mp3", 'q_image' => $l13_G866image . "sept.png",  "q_content" => "September is the ____ month of the year."],
+            ['round' => 8, 'game_id' => 866, "q_audio" => $AudioDomain . $G4_L13_speaking_topic . "" . ".mp3", 'q_image' => $l13_G866image . "alpha.png",  "q_content" => "C is the ____ letter of the alphabet."],
+            ['round' => 9, 'game_id' => 866, "q_audio" => $AudioDomain . $G4_L13_speaking_topic . "" . ".mp3", 'q_image' => $l13_G866image . "alpha.png",  "q_content" => "F is the ____ letter of the alphabet."],
+            ['round' => 10, 'game_id' => 866, "q_audio" => $AudioDomain . $G4_L13_speaking_topic . "" . ".mp3", 'q_image' => $l13_G866image . "alpha.png",  "q_content" => "K is the ____ letter of the alphabet."],
+
+        ]);
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 14 Game 867 ( video )
+        //////////////////////////////////////////////////////////////
+
+        DB::table('ans_n_ques')->insert(['game_id' => 867, 'a_content' => 'lesson_14_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 867, 'a_content' => 'lesson_14_video_global', 'isLocal' => 0]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 14 Game 868 (  Liaten and Repeat  )
+        ////////////////////////////////////////////////////////
+
+        $l14_G868_image = $domain . "/storage/images/Grade_4/lesson_14/listen_n_repeat/";
+        $G4_L14_listen_n_repeat = "Grade_4/" . "Lesson_14/" . "listen_n_repeat/";
+
+
+        $ans_G868 = [
+            13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
+        ];
+
+        foreach ($ans_G868 as $key) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 868, 'a_content' => $key, 'a_image' => $l14_G868_image . $key  . ".png",
+                    'a_audio' => $AudioDomain . $G4_L14_listen_n_repeat . $key . ".mp3"
+                ],
+            ]);
+        }
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 14 Game 869 (  Matching  )
+        ////////////////////////////////////////////////////////
+
+        $l13_G869_image = $domain . "/storage/images/Grade_4/lesson_14/Matching/";
+        $G4_L14_Matching = "Grade_4/" . "Lesson_14/" . "Matching/";
+
+
+        $G4_L14_Game869_Matching = [
+
+            ['13th', '16th', '15th', '17th', "14th"],
+            ['18th', '21th', '22th', '22th', "19th"],
+            ['23th', '24th', '25th', '26th', "27th"],
+
+        ];
+
+        $G4_L14_Game869_Matching_audio1 = [
+
+            ['13', '16', '15', '17', "14"],
+            ['18', '21', '22', '22', "19"],
+            ['23', '24', '25', '26', "27"],
+
+        ];
+
+        $G4_L14_Game869_Matching_audio2 = [
+
+            ['14', '16', '13', '17', "15"],
+            ['20', '19', '18', '21', "22"],
+            ['25', '27', '26', '24', "23"],
+
+        ];
+
+
+        $G4_L14_Game869_Matching_image = [
+
+            ['Fourteenth', 'Sixteenth', 'thirteenth', "Seventeenth",  'Fifteenth'],
+            ['Twentieth', 'Nineteenth', 'Eighteenth', "Twenty first",  'Twenty second'],
+            ["Twenty fifty", 'Twenty Seventh', 'Twenty sixth', 'Twenty fourth', 'Twenty third'],
+
+        ];
+
+
+        for ($i = 0; $i < count($G4_L14_Game869_Matching); $i++) {
+
+            foreach ($G4_L14_Game869_Matching_audio1[$i] as $key => $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 869, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $G4_L14_Game869_Matching[$i][$key], 'q_audio' => $AudioDomain . $G4_L14_Matching .  $q . ".mp3",
+                    ]
+                ]);
+            }
+
+            foreach ($G4_L14_Game869_Matching_audio2[$i] as $key => $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 869, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $G4_L14_Game869_Matching_image[$i][$key], 'q_audio' => $AudioDomain . $G4_L14_Matching .  $q . ".mp3",
+                    ]
+                ]);
+            }
+        }
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 14 Game 870 (  Speaking Practice )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L14_practice_speaking = "Grade_4/" . "Lesson_14/" . "speaking_practice/";
+        $l14_G870image = $domain . "/storage/images/Grade_4/lesson_14/speaking_practice/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 870,  'q_image' => $l14_G870image . "1.png", "a_content" => "7th of June. ", "q_audio" => $AudioDomain . $G4_L14_practice_speaking . "" . ".mp3",  "q_content" => "Rose, when's your birthday?"],
+        ]);
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 2, 'game_id' => 870,  'q_image' => $l14_G870image . "1.png", "q_audio" => $AudioDomain . $G4_L14_practice_speaking . "" . ".mp3",  "q_content" => "Emma, when's your birthday?"],
+            ['round' => 3, 'game_id' => 870,  'q_image' => $l14_G870image . "1.png", "q_audio" => $AudioDomain . $G4_L14_practice_speaking . "" . ".mp3",  "q_content" => "Anna, when's your birthday?"],
+            ['round' => 4, 'game_id' => 870,  'q_image' => $l14_G870image . "1.png", "q_audio" => $AudioDomain . $G4_L14_practice_speaking . "" . ".mp3",  "q_content" => "Jack, when's your birthday?"],
+            ['round' => 5, 'game_id' => 870,  'q_image' => $l14_G870image . "1.png", "q_audio" => $AudioDomain . $G4_L14_practice_speaking . "" . ".mp3",  "q_content" => "Max, when's your birthday?"],
+            ['round' => 6, 'game_id' => 870,  'q_image' => $l14_G870image . "1.png", "q_audio" => $AudioDomain . $G4_L14_practice_speaking . "" . ".mp3",  "q_content" => "Ben, when's your birthday?"],
+            ['round' => 7, 'game_id' => 870,  'q_image' => $l14_G870image . "1.png", "q_audio" => $AudioDomain . $G4_L14_practice_speaking . "" . ".mp3",  "q_content" => "Paul, when's your birthday?"],
+        ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 14 Game 871 (  Reading  )
+        ////////////////////////////////////////////////////////
+
+        $l14_G871_image = $domain . "/storage/images/Grade_4/lesson_14/reading_passage/";
+        $G4_L14_reading_passage_path = "Grade_4/" . "Lesson_14/" . "reading_passage/";
+
+        $l14_G871_q_audio = [
+            "SubBlock_The-sisters-had-hair-brown-bl",
+            "SubBlock_Except-the-last-one-the-siste",
+            "SubBlock_Who-could-ride-the-scooter-Th",
+            "SubBlock_Whom-could-the-third-sister-ta",
+            "SubBlock_What-could-the-sixth-sister-ma",
+            "SubBlock_What-could-the-seventh-sister"
+        ];
+        $l14_G871_q_conver = [
+            "The sisters had ____ hair.",
+            "Except the last one, the sisters were ____.",
+            "Who could ride the scooter?",
+            "Whom could the third sister talk to?",
+            "What could the sixth sister make?",
+            "What could the seventh sister do?",
+        ];
+        $l14_G871_q_audio_ans = [
+            ["Brown", "Blonde", "Black"],
+            ["Tall", "Short", "Neither tall nor short"],
+            ["First", "Second", "Third"],
+            ["Cats", "Dogs", "Birds"],
+            ["Noodle", "Shabu", "Fried rice"],
+            ["Karate", "Catching ball", "Nothing yet"]
+        ];
+        $l14_G871_q_audio_a_content = [
+            [0, 0, 1],
+            [1, 0, 0],
+            [1, 0, 0],
+            [0, 1, 0],
+            [1, 0, 0],
+            [0, 0, 1],
+        ];
+
+
+        for ($i = 0; $i < count($l14_G871_q_audio); $i++) {
+
+            foreach ($l14_G871_q_audio_ans[$i] as $key => $val) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 871, "q_audio" => $AudioDomain . $G4_L14_reading_passage_path . str_replace(' ', '-', strtolower($val)) . ".mp3", 'q_content' => $val, "q_conver" => null, 'a_content' => $l14_G871_q_audio_a_content[$i][$key], "background" => null],
+                ]);
+            }
+
+            foreach ($l14_G871_q_audio as $key => $val) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 871, "q_audio" => $AudioDomain . $G4_L14_reading_passage_path . $val . ".mp3", "q_conver" => $l14_G871_q_conver[$key], 'q_content' => null, 'a_content' => null, "background" => null],
+                ]);
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 871, "q_audio" => $AudioDomain . $G4_L14_reading_passage_path . "SubBlock_Once-upon-a-time-there-were-s" . ".mp3", "q_conver" => "Once upon a time, there were seven sisters who lived together and took care of each other. \nEach sister had shining black hair and sparkling eyes. Each stood straight and tall, except for Seventh sister, who was just a baby. \nBut, the sisters were very different.\nThe first sister could ride the scooter as fast as the wind. \nThe second sister knew karate- kick, chop, hi-yah.\nThe third sister could count -to five hundred and beyond.\nThe fourth sister could talk to dogs.\nThe fifth sister could catch the ball- no matter how fast or high it was thrown.\nThe sixth sister could cook the most delicious noodle soup in the world.\nAnd, the seventh sister? No one was really sure yet what she could do, as she was so little, she had never spoken even one word.",
+                    'a_content' => null, "background" => $l14_G871_image . "bg.jpg"
+                ],
+            ]);
+        }
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 14 Game 872 (  Speaking Topic )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L14_speaking_topic = "Grade_4/" . "Lesson_14/" . "speaking_topic/";
+        $l14_G872image = $domain . "/storage/images/Grade_4/lesson_14/speaking_topic/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 872, "round_instruction" => $AudioDomain . $G4_L14_speaking_topic . "SubBlock_Ask-your-family-members-and-fr" . ".mp3", 'q_image' => $l14_G872image . "1.png",  "q_content" => "Ask your family members and friends,\n \"when's your birthday?\"\nTalk about their birthday."],
+        ]);
+
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 15 Game 873 ( video )
+        //////////////////////////////////////////////////////////////
+
+
+        DB::table('ans_n_ques')->insert(['game_id' => 873, 'a_content' => 'lesson_15_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 873, 'a_content' => 'lesson_15_video_global', 'isLocal' => 0]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 15 Game 874 , 875 (  Liaten and Repeat  )
+        ////////////////////////////////////////////////////////
+
+        $l15_G874_G875_image = $domain . "/storage/images/Grade_4/lesson_15/listen_n_repeat/";
+        $G4_L15_listen_n_repeat = "Grade_4/" . "Lesson_15/" . "listen_n_repeat/";
+
+        // Game 874
+        $ans_G874 = [
+            "Chinese-New-Year", "Christmas", "Diwali", "Festival-of-lights", "Halloween", "Thanksgiving", "Valentines-Day", "Water-festival"
+        ];
+
+        foreach ($ans_G874 as $key) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 874, 'a_content' => $key, 'a_image' => $l15_G874_G875_image . "1/" . $key  . ".png",
+                    'a_audio' => $AudioDomain . $G4_L15_listen_n_repeat . strtolower($key) . ".mp3"
+                ],
+            ]);
+        }
+
+        // Game 875
+        $ans_G875 = [
+            "Exchange-Gifts", "Have-dinner", "Lightcandles", "Pay-homage-to-elders", "Praying-to-god", "Sing-Songs", "Throw-water", "Wear-costumes"
+        ];
+
+        foreach ($ans_G875 as $key) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 875, 'a_content' => $key, 'a_image' => $l15_G874_G875_image . "2/" . $key  . ".png",
+                    'a_audio' => $AudioDomain . $G4_L15_listen_n_repeat . strtolower($key) . ".mp3"
+                ],
+            ]);
+        }
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 15 Game 876 (  Matching  )
+        ////////////////////////////////////////////////////////
+
+        $l15_G876_image = $domain . "/storage/images/Grade_4/lesson_15/Matching/";
+        $G4_L15_Matching = "Grade_4/" . "Lesson_15/" . "Matching/";
+
+
+        $G4_L15_Game876_Matching = [
+
+            ['Have dinner', 'Wear costumes', 'Light candles', 'Praying to god', "Throw water"],
+            ['Pay homage to elders', 'Throw water', 'Sing songs', "Exchange gifts",  'Wear costumes'],
+
+        ];
+
+        $G4_L15_Game876_Matching_image = [
+
+            ['Wear costumes', "Throw water", 'Have dinner', 'Praying to god', 'Light candles'],
+            ['Wear costumes', 'Pay homage to elders', 'Sing songs', 'Throw water', "Exchange gifts"],
+
+        ];
+
+
+        for ($i = 0; $i < count($G4_L15_Game876_Matching); $i++) {
+
+            foreach ($G4_L15_Game876_Matching[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 876, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $q, 'q_audio' => $AudioDomain . $G4_L15_Matching .  str_replace(' ', '-', strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+
+            foreach ($G4_L15_Game876_Matching_image[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 876, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $l15_G876_image . str_replace(' ', '-', strtolower($q)) . ".png", 'q_audio' => $AudioDomain . $G4_L15_Matching . str_replace(' ', '-',  strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+        }
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 15 Game 877 (  listen practice  )
+        ////////////////////////////////////////////////////////
+
+        $l15_G876_image = $domain . "/storage/images/Grade_4/lesson_15/listen_n_practice/";
+        $G4_L15_listen_n_practice = "Grade_4/" . "Lesson_15/" . "listen_n_practice/";
+
+
+        $G4_L15_Game876_listen_n_practice_image = [
+
+            ['speaker', "speaker", 'speaker', 'speaker', 'speaker', 'speaker'],
+
+        ];
+
+        $G4_L15_Game876_listen_n_practice_image_ans = [
+
+            ["Water festival", "Chinese New Year", 'Halloween', 'Thadingyut', 'Christmas',  "Valentine's Day",],
+
+        ];
+
+        $G4_L15_Game876_listen_n_practice_audio = [
+
+            ['SubBlock_It-is-in-April-People-throw-w', "SubBlock_It-is-in-October-People-pay-h", 'SubBlock_It-is-in-October-People-wear', 'SubBlock_It-is-known-as-the-festival-of', 'SubBlock_It-is-usually-in-December-Dur', 'SubBlock_It-is-usually-in-February-Peo'],
+
+        ];
+
+        $G4_L15_Game876_listen_n_practice = [
+
+            ['Christmas', 'Halloween', 'Thadingyut', "Valentine's Day", "Water festival", "Chinese New Year"],
+
+        ];
+
+
+        for ($i = 0; $i < count($G4_L15_Game876_listen_n_practice); $i++) {
+
+            foreach ($G4_L15_Game876_listen_n_practice_image[$i] as $key => $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 876, 'round' => $i + 1, 'q_content' => $G4_L15_Game876_listen_n_practice_image_ans[$key][$i],
+                        'q_image' => $l15_G876_image . str_replace(' ', '-', strtolower($q)) . ".png", 'q_audio' => $AudioDomain . $G4_L15_listen_n_practice . str_replace(' ', '-',  strtolower($G4_L15_Game876_listen_n_practice_audio[$key][$i])) . ".mp3",
+                    ]
+                ]);
+            }
+            foreach ($G4_L15_Game876_listen_n_practice[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 876, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $q, 'q_audio' => $AudioDomain . $G4_L15_listen_n_practice .  str_replace(' ', '-', strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+        }
     }
 }
