@@ -2736,55 +2736,198 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 15 Game 877 (  listen practice  )
         ////////////////////////////////////////////////////////
 
-        $l15_G876_image = $domain . "/storage/images/Grade_4/lesson_15/listen_n_practice/";
+        $l15_G877_image = $domain . "/storage/images/Grade_4/lesson_15/listen_n_practice/";
         $G4_L15_listen_n_practice = "Grade_4/" . "Lesson_15/" . "listen_n_practice/";
 
 
-        $G4_L15_Game876_listen_n_practice_image = [
+        $G4_L15_Game877_listen_n_practice_image = [
 
             ['speaker', "speaker", 'speaker', 'speaker', 'speaker', 'speaker'],
 
         ];
 
-        $G4_L15_Game876_listen_n_practice_image_ans = [
+        $G4_L15_Game877_listen_n_practice_image_ans = [
 
             ["Water festival", "Chinese New Year", 'Halloween', 'Thadingyut', 'Christmas',  "Valentine's Day",],
 
         ];
 
-        $G4_L15_Game876_listen_n_practice_audio = [
+        $G4_L15_Game877_listen_n_practice_audio = [
 
             ['SubBlock_It-is-in-April-People-throw-w', "SubBlock_It-is-in-October-People-pay-h", 'SubBlock_It-is-in-October-People-wear', 'SubBlock_It-is-known-as-the-festival-of', 'SubBlock_It-is-usually-in-December-Dur', 'SubBlock_It-is-usually-in-February-Peo'],
 
         ];
 
-        $G4_L15_Game876_listen_n_practice = [
+        $G4_L15_Game877_listen_n_practice = [
 
             ['Christmas', 'Halloween', 'Thadingyut', "Valentine's Day", "Water festival", "Chinese New Year"],
 
         ];
 
 
-        for ($i = 0; $i < count($G4_L15_Game876_listen_n_practice); $i++) {
+        for ($i = 0; $i < count($G4_L15_Game877_listen_n_practice); $i++) {
 
-            foreach ($G4_L15_Game876_listen_n_practice_image[$i] as $key => $q) {
+            foreach ($G4_L15_Game877_listen_n_practice_image[$i] as $key => $q) {
 
                 DB::table('ans_n_ques')->insert([
                     [
-                        'game_id' => 876, 'round' => $i + 1, 'q_content' => $G4_L15_Game876_listen_n_practice_image_ans[$key][$i],
-                        'q_image' => $l15_G876_image . str_replace(' ', '-', strtolower($q)) . ".png", 'q_audio' => $AudioDomain . $G4_L15_listen_n_practice . str_replace(' ', '-',  strtolower($G4_L15_Game876_listen_n_practice_audio[$key][$i])) . ".mp3",
+                        'game_id' => 877, 'round' => $i + 1, 'q_content' => $G4_L15_Game877_listen_n_practice_image_ans[$key][$i],
+                        'q_image' => $l15_G877_image . str_replace(' ', '-', strtolower($q)) . ".png", 'q_audio' => $AudioDomain . $G4_L15_listen_n_practice . str_replace(' ', '-',  strtolower($G4_L15_Game877_listen_n_practice_audio[$key][$i])) . ".mp3",
                     ]
                 ]);
             }
-            foreach ($G4_L15_Game876_listen_n_practice[$i] as $q) {
+            foreach ($G4_L15_Game877_listen_n_practice[$i] as $q) {
 
                 DB::table('ans_n_ques')->insert([
                     [
-                        'game_id' => 876, 'round' => $i + 1, 'q_content' => $q,
+                        'game_id' => 877, 'round' => $i + 1, 'q_content' => $q,
                         'q_image' => $q, 'q_audio' => $AudioDomain . $G4_L15_listen_n_practice .  str_replace(' ', '-', strtolower($q)) . ".mp3",
                     ]
                 ]);
             }
+        }
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 15 Game 878 (  Speaking Practice )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L15_practice_speaking = "Grade_4/" . "Lesson_15/" . "speaking_practice/";
+        $l15_G878image = $domain . "/storage/images/Grade_4/lesson_15/speaking_practice/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 878,  'q_image' => $l15_G878image . "christmas.png", "a_content" => "It is in December.\nWhat do you do?\nI sing and exchange gifts.", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3",   "q_content" => "When is Christmas?"],
+        ]);
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 2, 'game_id' => 878,  'q_image' => $l15_G878image . "valentine.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3",  "q_content" => "When is Christmas?"],
+            ['round' => 3, 'game_id' => 878,  'q_image' => $l15_G878image . "water.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3",  "q_content" => "When is the water festival?"],
+            ['round' => 4, 'game_id' => 878,  'q_image' => $l15_G878image . "thading.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3",  "q_content" => "When is Thadingyut?"],
+            ['round' => 5, 'game_id' => 878,  'q_image' => $l15_G878image . "chinese.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3",  "q_content" => "When is the Chinese New Year?"],
+            ['round' => 6, 'game_id' => 878,  'q_image' => $l15_G878image . "thanks.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3",  "q_content" => " When is thanksgiving?"],
+            ['round' => 7, 'game_id' => 878,  'q_image' => $l15_G878image . "halloween.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3",  "q_content" => "When is Halloween?"],
+            ['round' => 8, 'game_id' => 878,  'q_image' => $l15_G878image . "diwali.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3",  "q_content" => "When is Diwali?"],
+        ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 15 Game 879 (  Practice  )
+        ////////////////////////////////////////////////////////
+
+        $l15_G879_image = $domain . "/storage/images/Grade_4/lesson_15/reading_passage/";
+        $G4_L15_reading_passage_path = "Grade_4/" . "Lesson_15/" . "reading_passage/";
+
+        $l15_G879_q_audio = [
+            "SubBlock_Diwali-is-called-festival-of-W",
+            "SubBlock_On-the-first-day-of-Diwali-pe",
+            "SubBlock_On-the-second-day-homes-are-d",
+            "SubBlock_Who-do-families-do-on-the-thir",
+            "SubBlock_On-the-fourth-day-what-do-the",
+            "SubBlock_On-the-last-day-what-else-do"
+        ];
+        $l15_G879_q_conver = [
+            "Diwali is called festival \nof ____.",
+            "On the first day of Diwali, \npeople clean their homes \nand shop for ____.",
+            "On the second day, \nhomes are decorated \nwith ____.",
+            "Who do families do on \nthe third day of Diwali?",
+            "On the fourth day, \nwhat do they do?",
+            "On the last day, \nwhat else do siblings do apart \nfrom exchanging gifts?",
+        ];
+        $l15_G879_q_audio_ans = [
+            ["Water", "Lights", "Colors"],
+            ["Kitchenware", "Food", "Gifts"],
+            ["Lamps", "Flowers", "Candles"],
+            ["Praysto goddess Lakshmi", "Sharing food", "Going to relatives"],
+            ["Decoration with lamps", "Giving gifts", "Visiting temples"],
+            ["Praying", "Visting Temples", "Cleaning workspaces"]
+        ];
+        $l15_G879_q_audio_a_content = [
+            [0, 1, 0],
+            [1, 0, 0],
+            [1, 0, 0],
+            [1, 0, 0],
+            [0, 1, 0],
+            [0, 0, 1],
+        ];
+
+
+        for ($i = 0; $i < count($l15_G879_q_audio); $i++) {
+
+            foreach ($l15_G879_q_audio_ans[$i] as $key => $val) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 879, "q_audio" => $AudioDomain . $G4_L15_reading_passage_path . str_replace(' ', '-', strtolower($val)) . ".mp3", 'q_content' => $val, "q_conver" => null, 'a_content' => $l15_G879_q_audio_a_content[$i][$key], "background" => null],
+                ]);
+            }
+
+            foreach ($l15_G879_q_audio as $key => $val) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 879, "q_audio" => $AudioDomain . $G4_L15_reading_passage_path . $val . ".mp3", "q_conver" => $l15_G879_q_conver[$key], 'q_content' => null, 'a_content' => null, "background" => null],
+                ]);
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 879, "q_audio" => $AudioDomain . $G4_L15_reading_passage_path . "Block_Binny-woke-up-happy-but-nervou" . ".mp3", "q_conver" => "Binny woke up happy but nervous, it was her day to share about Diwali, the festival of Lights!\nSince her class was learning about different celebrations, her teacher, Mr. Boomer, had asked her to talk about her favorite holiday.\nToday, it was Binny's turn. She hoped everything would go just as she and her teacher planned.\nAfter morning circle time, Mr. Boomer called Binny's name.\nWhen she stood, suddenly she felt shy and scared.\n\"Today is Diwali,\" Binny said nervously.\n\"Take a deep breath,\" Mr. Boomer said. \"I know you can do this.\"\n\"On the first day of Diwali, people often clean their homes and shop for kitchen utensils.\nOn the second day, homes are decorated with lamps and color patterns called rangoli, which are created on the floor with colored sand or powder.\nOn the third day, families gather to pray to the goddess Lakshmi, to enjoy a delicious feast, and to watch fireworks.\nOn the fourth day, friends and relatives give one another gifts, and good wishes for the season.\nOn the fifth and the last day, siblings visit one another and exchange gifts. Others use the day to clean and organize their workspaces.\"\n\"Happy Diwali to you all!\" Binny said.\n\"Happy Diwali to you, too,\" her friends said with big smiles.",
+                    'q_content' => "Binny's Diwali", "background" => $l15_G879_image . "bg.jpg"
+                ],
+            ]);
+        }
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 15 Game 880 (  Writing Topic )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L15_Game880_ans = "I like Christmas. During this festival, I visit my friends, sing along with them, and exchange gifts. I love going carol singing with my friends. I also like receiving gifts from my parents and friends. I love enjoying Christmas dinner with the family, too.";
+
+        DB::table('ans_n_ques')->insert([
+            ["round" => 1, 'game_id' => 880, 'q_content' => "The festival I like\nI like ____.\nDuring the festival, \nI ____.\nI ____.", 'a_content' => $G4_L15_Game880_ans],
+        ]);
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 15 Game 881 (  Speaking Topic )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L14_speaking_topic = "Grade_4/" . "Lesson_14/" . "speaking_topic/";
+        $l14_G881image = $domain . "/storage/images/Grade_4/lesson_14/speaking_topic/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 881, "round_instruction" => $AudioDomain . $G4_L14_speaking_topic . "SubBlock_What-is-your-favorite-festival" . ".mp3", 'q_image' => $l14_G881image . "green-star.png",  "q_content" => "What is your favorite festival? \nTalk about it and why do you like it."],
+        ]);
+
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 16 Game 882 ( video )
+        //////////////////////////////////////////////////////////////
+
+
+        DB::table('ans_n_ques')->insert(['game_id' => 882, 'a_content' => 'lesson_16_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 882, 'a_content' => 'lesson_16_video_global', 'isLocal' => 0]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 16 Game 883 (  Liaten and Repeat  )
+        ////////////////////////////////////////////////////////
+
+        $l16_G883_image = $domain . "/storage/images/Grade_4/lesson_16/listen_n_repeat/";
+        $G4_L16_listen_n_repeat = "Grade_4/" . "Lesson_16/" . "listen_n_repeat/";
+
+        $ans_G883 = [
+            "Artist", "Doctor", "Engineer", "Fire-Fighter", "Nurse", "Postman", "Singer", "Student", "Teacher"
+        ];
+
+        foreach ($ans_G883 as $key) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 883, 'a_content' => $key, 'a_image' => $l16_G883_image .  $key  . ".png",
+                    'a_audio' => $AudioDomain . $G4_L16_listen_n_repeat . strtolower($key) . ".mp3"
+                ],
+            ]);
         }
     }
 }
