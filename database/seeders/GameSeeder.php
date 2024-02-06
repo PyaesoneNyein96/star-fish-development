@@ -1732,20 +1732,20 @@ class GameSeeder extends Seeder
             ['name' => 'Listen and Repeat (3)', 'unit_id' => 914, 'category_id' => 2, "instructionGIF" => null],
             ['name' => 'Practice', 'unit_id' => 915, 'category_id' => 45, "instructionGIF" => null],
             ['name' => 'Speaking Practice', 'unit_id' => 916, 'category_id' => 11, "instructionGIF" => null],
-            ['name' => 'Listening Practice', 'unit_id' => 917, 'category_id' => 1, "instructionGIF" => null],
+            ['name' => 'Listening Practice', 'unit_id' => 917, 'category_id' => 15, "instructionGIF" => null],
             ['name' => 'Reading Practice', 'unit_id' => 918, 'category_id' => 16, "instructionGIF" => null],
             ['name' => 'Speaking Topic', 'unit_id' => 919, 'category_id' => 11, "instructionGIF" => null],
             ['name' => 'Writing Topic', 'unit_id' => 920, 'category_id' => 26, "instructionGIF" => null],
 
             // // // G4 Lesson 29
-            // ['name' => 'Video Lesson', 'unit_id' => 149],
-            // ['name' => 'Listen and Repeat', 'unit_id' => 149],
-            // ['name' => 'Listen and Repeat', 'unit_id' => 149],
-            // ['name' => 'Practice', 'unit_id' => 149],
-            // ['name' => 'Speaking Practice', 'unit_id' => 149],
-            // ['name' => 'Listening Practice', 'unit_id' => 149],
-            // ['name' => 'Speaking Topic', 'unit_id' => 149],
-            // ['name' => 'Writing Topic', 'unit_id' => 149],
+            ['name' => 'Video Lesson', 'unit_id' => 149  ,'category_id' => 26, "instructionGIF" => null],
+            ['name' => 'Listen and Repeat', 'unit_id' => 149 ,'category_id' => 26, "instructionGIF" => null],
+            ['name' => 'Listen and Repeat', 'unit_id' => 149 ,'category_id' => 26, "instructionGIF" => null],
+            ['name' => 'Practice', 'unit_id' => 149 ,'category_id' => 26, "instructionGIF" => null],
+            ['name' => 'Speaking Practice', 'unit_id' => 149 ,'category_id' => 26, "instructionGIF" => null],
+            ['name' => 'Listening Practice', 'unit_id' => 149 ,'category_id' => 26, "instructionGIF" => null],
+            ['name' => 'Speaking Topic', 'unit_id' => 149 ,'category_id' => 26, "instructionGIF" => null],
+            ['name' => 'Writing Topic', 'unit_id' => 149 ,'category_id' => 26, "instructionGIF" => null],
 
 
             // // // G4 Lesson 30

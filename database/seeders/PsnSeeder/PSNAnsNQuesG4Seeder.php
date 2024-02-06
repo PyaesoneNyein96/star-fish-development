@@ -1322,7 +1322,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
     ]);
 
 
-
+/////////////////////////////////////////// End of Lesson 9  /////////////////////////////////////////////////////////
 
 
 
@@ -2066,10 +2066,211 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
 
+    //lesson 27  Unit - 4 Speaking Practice <Speaking_and_recording>
+
+    $contents = [
+        'red-boy','white-girl','suit-boy','fat-boy','2-girl','cold-boy','hot-girl'
+    ];
+
+    $Question_contents = [
+        "What do you like to wear? \n I like to wear a T-shirt and pants.",
+        "What does she like to wear? \n She like _____.",
+        "What does he like to wear? \n  _____.",
+        "What does he like to wear? \n  _____.",
+        "What do they like to wear? \n  _____.",
+        "What does he like to wear in the cold season? \n  _____.",
+        "What do you like to wear? \n  _____.",
+    ];
+
+
+    $images = $ImageDomain . "Grade_4/Lesson_28/Speaking/";
+    $audios = $AudioDomain . "Grade_4/Lesson_28/Speaking/";
+
+    foreach ($contents as $key => $value) {
+
+        DB::table('ans_n_ques')->insert([
+
+            [
+                'game_id' => 980,
+                'round' => $key + 1,
+                'round_instruction' => $audio.$this->removeSpace($Question_contents[$key])."_round_ins".".mp3",
+                'q_content' => $Question_contents[$key],
+                'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
+                'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
+            ]
+
+        ]);
+    }
 
 
 
 
+    // lesson 28 Unit 6 Listening Practice <listening_and_choosing_pics_one>
+
+
+
+    $images = $ImageDomain . "Grade_4/Lesson_28/Listen_Practice/";
+    $audios = $AudioDomain . "Grade_4/Lesson_28/Listen_Practice/";
+
+    $contents = [
+        ['red-hat', 'blue-dress','big-hat','red-short','blue-short-dress','orange'],
+    ];
+
+
+    $ans = [
+        'blue-short-dress',
+    ];
+
+    foreach ($ans as $key => $value) {
+
+        foreach ($contents[$key] as $j => $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 981,
+                    'round' => $key + 1,
+                    'q_image' => $images.$val.".png",
+                    'a_content' => $val == $value ? true : false
+                ]
+            ]);
+        }
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 981,
+                'round' => $key + 1,
+                'q_audio' => $audios.$value.".mp3"
+            ]
+        ]);
+
+
+    }
+
+
+
+    // Lesson 28  Unit 6 (Reading Practice) < reading_passage >
+
+
+        $images = $ImageDomain . "Grade_4/Lesson_28/Reading_practice/";
+        $audios = $AudioDomain . "Grade_4/Lesson_28/Reading_practice/";
+
+        $para = "Ben and Emma are brother and sister. Ben is a year older than Emma.Ben is wearing an orange T-shirt, a white and blue jacket, pants and shoes. Emma is wearing a striped T-shirt, a green jacket, a pink skirt, polka dot pants, and shoes. They like to wear school uniforms at school. They like to wear pyjamas in bed. Ben likes to wear a T-shirt, pants, and flipflops in the rainy season. Emma likes to wear a dress and a raincoat in the rainy season. They both love the rainy season.";
+
+        $given_q = [
+            ["Ben is wearing ___ and ___", "A T-shirt and pants"],
+            ["They like to wear __ in bed.", "Pyjamas"],
+            ["They like to wear __ at school.", "School uniforms"],
+            ["Ben likes to wear a raincoat in the rainy season.", "False"],
+            ["Emma is ___ than Ben.", "Younger"],
+            ["Ben and Emma are ___", "Brother and sister"],
+
+        ];
+
+        $given_audio = [
+            "ben-wearing.mp3",
+            "they-like-bed.mp3",
+            "they-like-school.mp3",
+            "ben-raincoat.mp3",
+            "emma-young-ben.mp3",
+            "ben-emma.mp3",
+        ];
+
+        $paraName = "jack-and-animal.mp3";
+
+        $given_answer = [
+            ['A T-shirt and pants', 'A suit','A polka dot shirt and pants'],
+            ['School uniforms', 'Pyjamas', 'Swimsuits '],
+            ['School uniforms', 'Pyjamas', 'Swimsuits'],
+            ['True', 'False'],
+            ['Older', 'Younger ', 'The same age'],
+            ['Friends', 'Brother and sister', 'Neighbours'],
+
+        ];
+
+
+        for ($i = 0; $i < count($given_answer); $i++) {
+
+
+            foreach ($given_answer[$i] as $k => $value) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1,
+                        'game_id' => 982,
+                        'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        'q_content' => $value,
+                        'a_content' => $value == $given_q[$i][1] ? 1 : 0
+                    ]
+                ]);
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'game_id' => 982,
+                    'q_audio' => $audios . $given_audio[$i],
+                    'q_conver' => $given_q[$i][0],    //giver Q
+                ]
+            ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'game_id' => 982,
+                    'q_audio' => $audios . $paraName,
+                    'q_content' => "Ben and Emma",
+                    'q_conver' => $para,
+                    'background' => $images . "bg.png"
+                ]
+            ]);
+        }
+
+
+
+
+    //lesson 28  Unit - 7 Speaking Topic <Speaking_and_recording>
+
+    $contents = [ 'home','school', 'snow-house','snow-house'];
+
+    $Question_contents = [
+        "I like to wear ___ at home?",
+        "I like to wear ___ at school?",
+        "I like to wear ___ at christmas?",
+        "I like to wear ___ at home \n I like to wear ___ at school. \n I like to wear ___ at christmas?"
+    ];
+
+
+    $images = $ImageDomain . "Grade_4/Lesson_28/Speaking_Topic/";
+    $audios = $AudioDomain . "Grade_4/Lesson_28/Speaking_Topic/";
+
+    foreach ($contents as $key => $value) {
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 983,
+                'round' => $key + 1,
+                'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                'q_content' => $Question_contents[$key],
+                'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
+                'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
+            ]
+        ]);
+    }
+
+
+    // Lesson 28 Unit 8  Writing Topic <writing_topic>
+
+
+     $images = $ImageDomain . "Grade_4/Lesson_28/Writing_Topic/";
+     $audios = $AudioDomain . "Grade_4/Lesson_28/Writing_Topic/";
+
+     $sample_content = "Three-girls";
+
+     DB::table('ans_n_ques')->insert([
+         [
+             'game_id' => 984,
+             'a_content' => $sample_content,
+             'q_image' => $images.$sample_content.".png",
+         ],
+     ]);
 
 
 
