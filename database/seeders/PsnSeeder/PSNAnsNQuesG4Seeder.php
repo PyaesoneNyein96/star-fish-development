@@ -1750,7 +1750,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         }
 
 
-    // next rounds for conversations
+    // next rounds for conversations <reading_conversation>
         $chars = [
             ['boy','girl'],
             ['boy','girl-2'],
@@ -2276,6 +2276,132 @@ class PSNAnsNQuesG4Seeder extends Seeder
      ]);
 
 
+
+
+////////////////////////////////// end of lesson 28 /////////////////////////////////////////////
+
+
+
+
+/////////////////////////////////////// Lesson 29 //////////////////////////////////////////////
+
+    // Unit - 1 Video Lesson
+    // Game_id - 985
+
+
+
+    // Unit - 2 Listen and Repeat , Sub - 1 (Reading_carousel)
+
+
+
+     $contents = [
+          "chicken-soup", "chicken-rice", "fish-curry", "fish-sauce-and-vegetable", "fried-egg",
+          "fried-rice", "hamburger", "mont-hin-gah", "noddles-in-coconut-gravy", "salad","sandwich",
+          "steam-sticky-rice",
+        ];
+
+
+        $audio = $AudioDomain."Grade_4/Lesson_29/Listen_and_Repeat_1/";
+        $img = $ImageDomain."Grade_4/Lesson_29/Listen_and_Repeat_1/";
+
+        foreach ($contents as $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 986,
+                    'a_content' => $val,
+                    'a_image' => $img.$this->removeSpace($val).".png",
+                    'a_audio' => $audio.$this->removeSpace($val).".mp3"
+                ],
+            ]);
+        }
+
+
+    // Unit 2 Sub - 2 Listen and Repeat 2 <reading_conversation>
+
+         $chars = [
+            ['boy','girl'],
+            ['boy','girl'],
+            ['boy','girl'],
+            ['boy','girl']
+        ];
+
+
+        $convers = [
+            ['I usually have hamburger for lunch.',"Oh, yes. I like hamburger, too."],
+            ["What do you usually have for lunch?","I usually have chicken rice for lunch. And you?"],
+            ["I usually have mont-hin-gah for breakfast.","Oh, yes. I like mont-hin-gah, too."],
+            ["What do you usually have for lunch?", "I usually have fried rice and coffee for breakfast. And you?"]
+        ];
+
+        $convers_audio = [
+            ['hamburger-for-lunch', "me-too-hamburger"],
+            ["what-ur-lunch", "chicken-rice-lunch"],
+            ['mont-hin-gah-for-breakfast',"me-too-mont-hin-gah"],
+            ["T-shirt jeans trainers", "fried-rice-coffee"]
+        ];
+
+        $audio = $AudioDomain."Grade_4/Lesson_29/Listen_and_Repeat_2/";
+        $img = $ImageDomain."Grade_4/Lesson_29/Listen_and_Repeat_2/";
+
+
+        foreach ($chars as $key => $char) {
+
+        foreach ($char as $k => $v) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                    'game_id' => 987,
+                    'round' => $key + 1,
+                    'a_image' => $img.$v.".png",
+                    'a_audio' => str_replace(' ','-',$audio.$convers_audio[$key][$k]).".mp3",
+                    'a_conver' => $convers[$key][$k],
+                    "background" => $img."bg".$key + 1 .".png"
+                    ]
+                ]);
+
+        }
+    }
+
+
+
+    // Lesson 29 Unit 3 Practice <Matching_column>
+
+        $contents = [
+          'Fish Curry','Fish Sauce','Fried Egg','Chicken Soup','Noodle in coconut gravy'
+        ];
+
+        $ans = [
+            'Fried Egg','Fish Sauce','Fish Curry','Hopscotch','Volleyball'
+        ];
+
+        $audio = $AudioDomain."Grade_2/Lesson_21/Matching/";
+        $img = $ImageDomain."Grade_2/Lesson_21/Matching/";
+
+        foreach ($ans as $key => $val) {
+            DB::table('ans_n_ques')->insert([
+                 [
+                     'game_id' => 354,
+                     'round' => 1,
+                     'q_content' => strtolower($val),
+                     'q_image' => $img.$val.".png",
+                     'q_audio' => $audio.$val.".mp3",
+                 ]
+             ]);
+     }
+
+
+
+        foreach ($contents as $key => $val) {
+               DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 354,
+                        'round' => 1,
+                        'q_image' => $val,
+                        'q_audio' => $audio.$val.".mp3",
+                        'q_content' => $val,
+                    ]
+                ]);
+        }
 
 
 

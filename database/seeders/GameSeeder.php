@@ -1738,25 +1738,26 @@ class GameSeeder extends Seeder
             ['name' => 'Writing Topic', 'unit_id' => 920, 'category_id' => 26, "instructionGIF" => null],
 
             // // // G4 Lesson 29
-            ['name' => 'Video Lesson', 'unit_id' => 149  ,'category_id' => 26, "instructionGIF" => null],
-            ['name' => 'Listen and Repeat', 'unit_id' => 149 ,'category_id' => 26, "instructionGIF" => null],
-            ['name' => 'Listen and Repeat', 'unit_id' => 149 ,'category_id' => 26, "instructionGIF" => null],
-            ['name' => 'Practice', 'unit_id' => 149 ,'category_id' => 26, "instructionGIF" => null],
-            ['name' => 'Speaking Practice', 'unit_id' => 149 ,'category_id' => 26, "instructionGIF" => null],
-            ['name' => 'Listening Practice', 'unit_id' => 149 ,'category_id' => 26, "instructionGIF" => null],
-            ['name' => 'Speaking Topic', 'unit_id' => 149 ,'category_id' => 26, "instructionGIF" => null],
-            ['name' => 'Writing Topic', 'unit_id' => 149 ,'category_id' => 26, "instructionGIF" => null],
+            ['name' => 'Video Lesson', 'unit_id' => 921  ,'category_id' => 1, "instructionGIF" => null],
+            ['name' => 'Listen and Repeat 1', 'unit_id' => 922 ,'category_id' => 2, "instructionGIF" => null],
+            ['name' => 'Listen and Repeat 2', 'unit_id' => 922 ,'category_id' => 8, "instructionGIF" => null],
+            ['name' => 'Practice 1', 'unit_id' => 923 ,'category_id' => 7, "instructionGIF" => null],
+            ['name' => 'Practice 2', 'unit_id' => 923 ,'category_id' => 45, "instructionGIF" => null],
+            ['name' => 'Speaking Practice', 'unit_id' => 924 ,'category_id' => 11, "instructionGIF" => null],
+            ['name' => 'Listening Practice', 'unit_id' => 925 ,'category_id' => 39, "instructionGIF" => null],
+            ['name' => 'Speaking Topic', 'unit_id' => 926 ,'category_id' => 11, "instructionGIF" => null],
+            ['name' => 'Writing Topic', 'unit_id' => 927 ,'category_id' => 26, "instructionGIF" => null],
 
 
             // // // G4 Lesson 30
-            // ['name' => 'Video Lesson', 'unit_id' => 150],
-            // ['name' => 'Listen and Repeat', 'unit_id' => 150],
-            // ['name' => 'Listen and Repeat', 'unit_id' => 150],
-            // ['name' => 'Practice', 'unit_id' => 150],
-            // ['name' => 'Speaking Practice', 'unit_id' => 150],
-            // ['name' => 'Listening Practice', 'unit_id' => 150],
-            // ['name' => 'Reading Passage', 'unit_id' => 150],
-            // ['name' => 'Speaking Topic', 'unit_id' => 150],
+            ['name' => 'Video Lesson', 'unit_id' => 150,'category_id' => 26, "instructionGIF" => null ],
+            ['name' => 'Listen and Repeat 1', 'unit_id' => 150 ,'category_id' => 26, "instructionGIF" => null],
+            ['name' => 'Listen and Repeat 2', 'unit_id' => 150,'category_id' => 26, "instructionGIF" => null],
+            ['name' => 'Practice', 'unit_id' => 150,'category_id' => 26, "instructionGIF" => null],
+            ['name' => 'Speaking Practice', 'unit_id' => 150,'category_id' => 26, "instructionGIF" => null],
+            ['name' => 'Listening Practice', 'unit_id' => 150,'category_id' => 26, "instructionGIF" => null],
+            ['name' => 'Reading Passage', 'unit_id' => 150,'category_id' => 26, "instructionGIF" => null],
+            ['name' => 'Speaking Topic', 'unit_id' => 150,'category_id' => 26, "instructionGIF" => null],
 
 
             // // // G4 Lesson 31
