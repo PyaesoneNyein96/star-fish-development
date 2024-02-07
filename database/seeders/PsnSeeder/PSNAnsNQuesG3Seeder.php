@@ -2775,7 +2775,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'game_id' => 682,
                     'round' => $key + 1,
                     'q_image' => $images.$this->removeSpace($contents[$key]).".png",
-                    'q_audio' => $audios.$this->removeSpace($contents[$key]).".mp3",
+                    // 'q_audio' => $audios.$this->removeSpace($contents[$key]).".mp3",
                     'q_content' => $q,
                     'a_content' => $contents[$key],
                 ]
@@ -2899,9 +2899,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 685,
                 'round' => $key + 1,
-                'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                'round_instruction' => $audios.$this->removeSpace($value).".mp3",
                 'q_content' => $Question_contents[$key],
-                'q_audio' => $audios.$this->removeSpace($value).".mp3",
+                // 'q_audio' => $audios.$this->removeSpace($value).".mp3",
                 'q_image' => $images .$this->removeSpace($value) . ".png",
             ]
 
@@ -2920,7 +2920,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 686,
                 'q_content' =>  "What are you hobbies?, What do you like \n doing in your free time? \n What don't you like doing?",
-                'q_audio' => $audio."What-are-ur-hobbies.mp3",
+                'q_audio' => $audios."What-are-ur-hobbies.mp3",
                 'q_image' => $images . "girl" . ".png",
             ]
 
@@ -2942,7 +2942,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $contents = [
             'angry','bored','cold','embarrassed','happy','hot','hungry','nervous',
-            'sad','scared','sick','sleep','surprise','thirsty','tired',
+            'sad','scared','sick','sleepy','surprised','thirsty','tired',
         ];
 
         $audio = $AudioDomain."Grade_3/Lesson_32/Vocabulary/";
@@ -2969,16 +2969,16 @@ class PSNAnsNQuesG3Seeder extends Seeder
             ['S','D','A','R','C','E'],
             ['T','R','E','I','R'],
             ['B','M','E','A','R','R','S','A','S','D','E'],
-            ['D','R','O','U','P'],
             ['L','C','O','D'],
-            ['A','S','D']
+            ['A','S','D'],
+            // ['D','R','O','U','P'],
         ];
 
         $img = $ImageDomain . "Grade_3/Lesson_32/Arrange/";
         $audio = $AudioDomain . "Grade_3/Lesson_32/Arrange/";
 
         $answers = [
-            'HUNGRY', 'ANGRY', 'SCARED', 'TIRED', 'EMBARRASSED','PROUD','COLD','SAD'
+            'HUNGRY', 'ANGRY', 'SCARED', 'TIRED', 'EMBARRASSED','COLD','SAD','PROUD'
         ];
 
 
@@ -3139,7 +3139,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
     $images = $ImageDomain . "Grade_3/Lesson_32/Reading/";
     $audios = $AudioDomain . "Grade_3/Lesson_32/Reading/";
 
-    $para = "A bad day at the office. Mr. Abby is the president of the company. Unfortunately, all the staff is out today. Nobody is here. As a result, Abby is doing everybody’s job. He is having a very bad day at the office today. He is answering the phone because the receptionist is at the dentist’s office. He is typing because the secretary is in bed with the flu. He is reading the email because the office assistant is on vacation. He is cleaning because the cleaner is late. He is having a very bad day today.";
+    $para = "Mr. Abby is the president of the company. Unfortunately, all the staff is out today. Nobody is here. As a result, Abby is doing everybody’s job. He is having a very bad day at the office today. He is answering the phone because the receptionist is at the dentist’s office. He is typing because the secretary is in bed with the flu. He is reading the email because the office assistant is on vacation. He is cleaning because the cleaner is late. He is having a very bad day today.";
 
     $given_q = [
         ["His receptionist is answering the phone. ________", "No"],
@@ -3250,7 +3250,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 695,
                 'q_content' =>  "Talk about your busy day. \n How do you feel on that day?",
-                'q_audio' => $audio."busy-day.mp3",
+                'q_audio' => $audios."busy-day.mp3",
                 'q_image' => $images . "green_cowboy_starfish" . ".png",
             ]
 
