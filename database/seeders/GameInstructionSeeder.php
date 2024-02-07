@@ -1489,26 +1489,231 @@ class GameInstructionSeeder extends Seeder
 
 
 
-
-
-
-
-
-
-
             // Grade 3
-            /////////// 21 ////////////////////
+            /////////// 21 //////////////////// psn3
 
-            // G-3 lesson_21 U-575
+            ['content' => "Listen and Say", 'game_id' => 608, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            ['content' => "Write the words in the blanks", 'game_id' => 609, 'audio' => $Instructions."Write-the-words-in-the-blanks".".mp3"],
+
+            ['content' => "Answer the question", 'game_id' => 610, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
+
+            ['content' => "Write the words in the blanks", 'game_id' => 609, 'audio' => $Instructions."Write-the-words-in-the-blanks".".mp3"],
+
             ['content' => "Listen and choose the correct picture.", 'game_id' => 611, 'audio' => $Instructions . "Listen-and-choose-the-correct-pic.mp3"],
 
-            // G-3 lesson_21 U-576
-            ['content' => "Look at the pictures and speak", 'game_id' => 612, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
 
+            /////////// L22 ////////////
 
+            ['content' => "Listen and Say", 'game_id' => 614, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
 
-            // G-3 lesson_22 U-580
+             ['content' => "Look at the pictures and write the word", 'game_id' => 615, 'audio' =>  $Instructions . "Look-at-the-pictures-and-write-the-word" . ".mp3"],
+
+            ['content' => "Look at the picture and answer the question", 'game_id' => 616, 'audio' =>  $Instructions . "Look-at-the-picture-and-answer-the-question" . ".mp3"],
+
             ['content' => "Listen and choose the correct picture.", 'game_id' => 617, 'audio' => $Instructions . "Listen-and-choose-the-correct-pic.mp3"],
+
+            ['content' => "Read and write Yes or No", 'game_id' => 619, 'audio' =>  $Instructions . "Read-and-write-Yes-or-No" . ".mp3"],
+
+            ['content' => "Write about what you do in school?", 'game_id' => 620, 'audio' =>  $Instructions . "Write-about-what-you-do-in-school" . ".mp3"],
+
+
+
+            /////////// L23 ////////////
+
+            ['content' => "Listen and say the words", 'game_id' => 622, 'audio' =>  $Instructions . "Listen-and-say-the-words" . ".mp3"],
+
+            ['content' => "Look at the pictures and complete the sentences", 'game_id' => 623, 'audio' => $Instructions ."Look-at-the-pictures-and-compl.mp3"],
+
+            // G-3 lesson 23 U-587
+            ['content' => "Listen and choose the correct picture.", 'game_id' => 625, 'audio' => $Instructions . "Listen-and-choose-the-correct-pic.mp3"],
+
+
+            //////////// L24 ////////////
+
+            ['content' => "Listen and Say", 'game_id' => 628, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            ['content' => "Answer the question", 'game_id' => 629, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
+
+            ['content' => "Listen and match the activities with the days", 'game_id' => 631,
+            'audio' =>  $Instructions . "Listen-and-match-the-activities-with-the-days" . ".mp3"],
+
+            ['content' => "Read the blog. Write Sam’s diary.", 'game_id' => 633,
+            'audio' =>  $Instructions . "Read-the-blog-Write-Sams-diary" . ".mp3"],
+
+            ['content' => "Write what do you do in a week?", 'game_id' => 634, 'audio' =>  $Instructions . "Write-what-do-you-do-in-a-week" . ".mp3"],
+
+
+            //////////// L25 ////////////
+
+            ['content' => "Listen and Say", 'game_id' => 636, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            ['content' => "Look at the pictures and answer the question", 'game_id' => 637, 'audio' =>  $Instructions . "Look-at-the-pictures-and-answe" . ".mp3"],
+
+            ['content' => "What can you do?", 'game_id' => 638, 'audio' =>  $Instructions . "What-can-you-do" . ".mp3"],
+
+            ['content' => "Prepare to speak", 'game_id' => 640, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
+
+
+            /////////// L26 ///////////
+
+            ['content' => "Listen and Say", 'game_id' => 642, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            ['content' => "Look at the pictures and write in the blanks", 'game_id' => 643,
+            'audio' =>  $Instructions . "Look-at-the-pictures-and-write-in-the-blanks" . ".mp3"],
+
+            ['content' => "Look at the clocks and write the time", 'game_id' => 644, 'audio' => $Instructions . "Look-at-the-clocks-and-write-the-time.mp3"],
+
+            ['content' => "Listen and choose the correct time", 'game_id' => 645,
+            'audio' => $Instructions . "Listen-and-choose-the-correct-time.mp3"],
+
+            ['content' => "Write about your daily routine", 'game_id' => 648,
+            'audio' => $Instructions . "Write-about-your-daily-routine.mp3"],
+
+            ['content' => "Prepare to speak", 'game_id' => 649, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
+
+
+
+            /////////// L27 ///////////
+
+            ['content' => "Listen and Say", 'game_id' => 651, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            ['content' => "Listen and choose the correct time", 'game_id' => 653,
+            'audio' => $Instructions . "Listen-and-choose-the-correct-time.mp3"],
+
+            ['content' => "Prepare to speak", 'game_id' => 655, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
+
+
+
+            ///////// L28 ///////////
+
+            ['content' => "Listen and Say", 'game_id' => 657, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            ['content' => "Look at the pictures and answer the question", 'game_id' => 658, 'audio' =>  $Instructions . "Look-at-the-pictures-and-answe" . ".mp3"],
+
+
+            // G-3 Lesson 28 U-619
+            ['content' => "Listen and choose the correct picture.", 'game_id' => 659, 'audio' => $Instructions . "Listen-and-choose-the-correct-pic.mp3"],
+
+
+            // G-3 lesson_28 U-621
+            ['content' => "Read and write Yes or No", 'game_id' => 661, 'audio' =>  $Instructions . "Read-and-write-Yes-or-No" . ".mp3"],
+
+
+            ['content' => "Prepare to speak", 'game_id' => 663, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
+
+
+
+            /////////// L29 ////////////
+
+            ['content' => "Listen and Say", 'game_id' => 665, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            // ['content' => "Look at the pictures and choice the words", 'game_id' => 666,
+            // 'audio' =>  $Instructions . "Look at the pictures and choice the words" . ".mp3"],
+
+            // ['content' => "Listen and complete the sentences", 'game_id' => 667,
+            // 'audio' =>  $Instructions . "Listen-and-complete-the-sentences" . ".mp3"],
+
+            // ['content' => "Listen and choose", 'game_id' => 667,'audio' =>  $Instructions . "Listen and choose" . ".mp3"],
+
+            ['content' => "Prepare to speak", 'game_id' => 670, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
+
+
+
+
+
+            ////////// L30 /////////////
+
+            ['content' => "Listen and Say", 'game_id' => 672, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            ['content' => "Look at the pictures and write the word", 'game_id' => 673, 'audio' =>  $Instructions . "Look-at-the-pictures-and-write-the-word" . ".mp3"],
+
+            ['content' => "Look at the picture and answer the question", 'game_id' => 674, 'audio' =>  $Instructions . "Look-at-the-picture-and-answer-the-question" . ".mp3"],
+
+            ['content' => "Listen and choose the correct answer", 'game_id' => 675, 'audio' =>  $Instructions . "Listen-and-choose-the-correct" . ".mp3"],
+
+            ['content' => "Read and write Yes or No", 'game_id' => 677, 'audio' =>  $Instructions . "Read-and-write-Yes-or-No" . ".mp3"],
+
+            ['content' => "Write about your birthday", 'game_id' => 678, 'audio' =>  $Instructions . "Write-about-your-birthday" . ".mp3"],
+
+            ['content' => "Prepare to speak", 'game_id' => 679, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
+
+
+
+            /////////// L31 ////////////
+
+            ['content' => "Listen and Say", 'game_id' => 681, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            ['content' => "Look at the picture and answer the question", 'game_id' => 682, 'audio' =>  $Instructions . "Look-at-the-picture-and-answer-the-question" . ".mp3"],
+
+            ['content' => "Look at the pictures and complete the sentences", 'game_id' => 683, 'audio' => $Instructions ."Look-at-the-pictures-and-compl.mp3"],
+
+            // ['content' => "Listen and Choice", 'game_id' => 684, 'audio' => $Instructions ."Listen and Choice.mp3"],
+
+            ['content' => "Prepare to speak", 'game_id' => 686, 'audio' => $Instructions ."Prepare-to-speak.mp3"],
+
+
+            ////////////// L32 /////////////
+
+            ['content' => "Listen and Say", 'game_id' => 688, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            ['content' => "Look at the pictures and rearrange the letter", 'game_id' => 689, 'audio' => $Instructions . "Look-at-the-pictures-and-rearr.mp3"],
+
+            ['content' => "Look at the pictures and complete the sentences", 'game_id' => 690, 'audio' => $Instructions . "Look-at-the-pictures-and-compl.mp3"],
+
+            // ['content' => "Listen and Choice", 'game_id' => 691, 'audio' =>  $Instructions . "Listen and Choice" . ".mp3"],
+
+            ['content' => "Read and write Yes or No", 'game_id' => 693, 'audio' =>  $Instructions . "Read-and-write-Yes-or-No" . ".mp3"],
+
+            ['content' => "Answer the question", 'game_id' => 694, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
+
+            ['content' => "Prepare to speak", 'game_id' => 695, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
+
+
+
+            ////////////// L33 /////////////
+
+            ['content' => "Listen and Say", 'game_id' => 697, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            // ['content' => "Write the opposite word", 'game_id' => 698, 'audio' =>  $Instructions . "Write the opposite word" . ".mp3"],
+
+            // ['content' => "Unscramble the questions", 'game_id' => 699, 'audio' =>  $Instructions . "WUnscramble the questions" . ".mp3"],
+
+            // ['content' => "Listen and Choice", 'game_id' => 700, 'audio' =>  $Instructions . "Listen and Choice" . ".mp3"],
+
+
+            ['content' => "Prepare to speak", 'game_id' => 702, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
+
+
+            ////////////// L34 /////////////
+
+            ['content' => "Listen and Say", 'game_id' => 704, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            ['content' => "Look at the pictures and write the word", 'game_id' => 705, 'audio' =>  $Instructions . "Look-at-the-pictures-and-write-the-word" . ".mp3"],
+
+            ['content' => "Look at the picture and answer the questions", 'game_id' => 706, 'audio' =>  $Instructions . "Look-at-the-picture-and-answer-the-question" . ".mp3"],
+
+            // ['content' => "Listen and Choice", 'game_id' => 707, 'audio' =>  $Instructions . "Listen and Choice" . ".mp3"],
+
+            ['content' => "Read and write Yes or No", 'game_id' => 709, 'audio' =>  $Instructions . "Read-and-write-Yes-or-No" . ".mp3"],
+
+            ['content' => "Write about your vacation at the beach", 'game_id' => 710,
+            'audio' =>  $Instructions ."Write-about-your-vacation-at-the-beach" . ".mp3"],
+
+            ['content' => "Prepare to speak", 'game_id' => 711, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
+
+
+            ////////////// L35 /////////////
+
+            ['content' => "Listen and Say", 'game_id' => 713, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            ['content' => "Answer the question", 'game_id' => 714, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
+
+            ['content' => "Look at the pictures and choose the right answer", 'game_id' => 715, 'audio' =>  $Instructions . "look-at-the-pictures-and-choos" . ".mp3"],
+
+            ['content' => "Listen to the conversation and choose the right answer.", 'game_id' => 716, 'audio' => $Instructions . "SubBlock_Listen-to-the-conversation-and.mp3"],
+
+            ['content' => "Prepare to speak", 'game_id' => 718, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
 
 
 

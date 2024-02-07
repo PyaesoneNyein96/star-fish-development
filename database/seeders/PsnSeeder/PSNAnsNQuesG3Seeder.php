@@ -2901,7 +2901,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => $key + 1,
                 'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
                 'q_content' => $Question_contents[$key],
-                'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                'q_audio' => $audios.$this->removeSpace($value).".mp3",
                 'q_image' => $images .$this->removeSpace($value) . ".png",
             ]
 
@@ -2942,7 +2942,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $contents = [
             'angry','bored','cold','embarrassed','happy','hot','hungry','nervous',
-            'sad','scared','sick','sleep','surprise','thirsty','tried',
+            'sad','scared','sick','sleep','surprise','thirsty','tired',
         ];
 
         $audio = $AudioDomain."Grade_3/Lesson_32/Vocabulary/";
@@ -2978,7 +2978,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         $audio = $AudioDomain . "Grade_3/Lesson_32/Arrange/";
 
         $answers = [
-            'HUNGRY', 'ANGRY', 'SCARED', 'TRIED', 'EMBARRASSED','PROUD','COLD','SAD'
+            'HUNGRY', 'ANGRY', 'SCARED', 'TIRED', 'EMBARRASSED','PROUD','COLD','SAD'
         ];
 
 
@@ -3026,8 +3026,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
 
-        $images = $ImageDomain . "Grade_3/Lesson_32/Write/";
-        $audios = $AudioDomain . "Grade_3/Lesson_32/Write/";
+        $images = $ImageDomain . "Grade_3/Lesson_32/Language_and_practice/";
+        $audios = $AudioDomain . "Grade_3/Lesson_32/Language_and_practice/";
 
         foreach ($questions as $key => $q) {
 
@@ -3230,7 +3230,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'game_id' => 694,
                     'round' => $key + 1,
                     'q_image' => $images.$this->removeSpace($val).".png",
-                    'q_audio' => $audio.$this->removeSpace($val).".mp3",
+                    'q_audio' => $audios.$this->removeSpace($val).".mp3",
                     'a_content' => $ans[$key],
                 ]
             ]);
