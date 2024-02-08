@@ -39,6 +39,7 @@ trait gameTraits2
      *  30. rearrange_with_audio_two
      *  31. look_and_choose_two
      *  32. speaking_and_recording_conversation
+     *  33. matching_columns_two
      *
      *
      */
@@ -196,6 +197,11 @@ trait gameTraits2
     }
 
     public function speaking_and_recording_conversation($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
+    public function matching_columns_two($game, $student, $unit)
     {
         return $this->common_fun($game, $unit);
     }

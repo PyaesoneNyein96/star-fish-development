@@ -1666,7 +1666,7 @@ class GameSeeder extends Seeder
             ['name' => 'Listen and Repeat ( 1 )', 'unit_id' => 874, 'category_id' => 2, "instructionGIF" => null],
             ['name' => 'Listen and Repeat ( 2 )', 'unit_id' => 874, 'category_id' => 33, "instructionGIF" => null],
             ['name' => 'Spelling Game', 'unit_id' => 875, 'category_id' => 14, "instructionGIF" => null],
-            ['name' => 'Practice', 'unit_id' => 876, 'category_id' => 34, "instructionGIF" => null],
+            ['name' => 'Practice', 'unit_id' => 876, 'category_id' => 45, "instructionGIF" => null],
             ['name' => 'Speaking Practice', 'unit_id' => 877, 'category_id' => 11, "instructionGIF" => null],
             ['name' => 'Listening Practice', 'unit_id' => 878, 'category_id' => 39, "instructionGIF" => null],
             ['name' => 'Reading Practice', 'unit_id' => 879, 'category_id' => 16, "instructionGIF" => null],
