@@ -3076,7 +3076,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     [
                         'game_id' => 691,
                         'round' => $key + 1,
-                        'q_image' => $images.$val.".png",
+                        // 'q_image' => $images.$val.".png",
+                        'q_content' => $val,
                         'a_content' => $val == $value ? true : false
                     ]
                 ]);
