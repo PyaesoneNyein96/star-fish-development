@@ -2667,9 +2667,9 @@ class AnsNQueSeeder extends Seeder
 
             // game 85
             ['round' => 1, 'game_id' => 85, 'a_image' => $l15G85image . "girl.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "yellow_cat.mp3", "a_conver" =>  $l15G85image . "yellowcat-yellowcat.png", 'q_image' => null, "background" => $l15G85image . "bg.png"],
-            ['round' => 1, 'game_id' => 85, 'a_image' => $l15G85image . "cat.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "dog_dog.mp3", "a_conver" =>  $l15G85image . "dog-dog.png", 'q_image' => $l15G85image . "dog.png", "background" => $l15G85image . "bg.png"],
+            ['round' => 1, 'game_id' => 85, 'a_image' => $l15G85image . "cat.gif", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "dog_dog.mp3", "a_conver" =>  $l15G85image . "dog-dog.png", 'q_image' => $l15G85image . "dog.png", "background" => $l15G85image . "bg.png"],
 
-            ['round' => 2, 'game_id' => 85, 'a_image' => $l15G85image . "cat1.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "black_dog.mp3", "a_conver" =>  $l15G85image . "black-dog.png", 'q_image' => null, "background" => $l15G85image . "bg.png"],
+            ['round' => 2, 'game_id' => 85, 'a_image' => $l15G85image . "cat.gif", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "black_dog.mp3", "a_conver" =>  $l15G85image . "black-dog.png", 'q_image' => null, "background" => $l15G85image . "bg.png"],
             ['round' => 2, 'game_id' => 85, 'a_image' => $l15G85image . "dog.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "cock_cock.mp3", "a_conver" =>  $l15G85image . "cock-cock.png", 'q_image' => $l15G85image . "cock.png", "background" => $l15G85image . "bg.png"],
 
 
@@ -2677,7 +2677,7 @@ class AnsNQueSeeder extends Seeder
             ['round' => 1, 'game_id' => 86, 'a_image' => $l15G85image . "mouse.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "yellow_cat_how.mp3", "a_conver" =>  $l15G85image . "yellocat-howare.png", 'q_image' => null, "background" => $l15G85image . "bg.png"],
             ['round' => 1, 'game_id' => 86, 'a_image' => $l15G85image . "catright.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "im_fine.mp3", "a_conver" =>  $l15G85image . "fine-ok.png", 'q_image' => null, "background" => $l15G85image . "bg.png"],
 
-            ['round' => 2, 'game_id' => 86, 'a_image' => $l15G85image . "dogcat.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "red_ant.mp3", "a_conver" =>  $l15G85image . "redant-redant.png", 'q_image' => null, "background" => $l15G85image . "bg.png"],
+            ['round' => 2, 'game_id' => 86, 'a_image' => $l15G85image . "dogcat.gif", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "red_ant.mp3", "a_conver" =>  $l15G85image . "redant-redant.png", 'q_image' => null, "background" => $l15G85image . "bg.png"],
             ['round' => 2, 'game_id' => 86, 'a_image' => $l15G85image . "ant.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "im_great.mp3", "a_conver" =>  $l15G85image . "great-great.png", 'q_image' => null, "background" => $l15G85image . "bg.png"],
 
             ['round' => 3, 'game_id' => 86, 'a_image' => $l15G85image . "dogleft.png", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "tom_tom.mp3", "a_conver" =>  $l15G85image . "tom-what.png", 'q_image' => null, "background" => $l15G85image . "bg3.jpg"],
