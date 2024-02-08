@@ -2771,8 +2771,8 @@ class AnsNQueSeeder extends Seeder
 
                 DB::table('ans_n_ques')->insert([
                     [
-                        'game_id' => 877, 'round' => $i + 1, 'q_content' => $G4_L15_Game877_listen_n_practice_image_ans[$key][$i],
-                        'q_image' => $l15_G877_image . str_replace(' ', '-', strtolower($q)) . ".png", 'q_audio' => $AudioDomain . $G4_L15_listen_n_practice . str_replace(' ', '-',  strtolower($G4_L15_Game877_listen_n_practice_audio[$key][$i])) . ".mp3",
+                        'game_id' => 877, 'round' => $i + 1, 'q_content' => $G4_L15_Game877_listen_n_practice_image_ans[$i][$key],
+                        'q_image' => $l15_G877_image . str_replace(' ', '-', strtolower($q)) . ".png", 'q_audio' => $AudioDomain . $G4_L15_listen_n_practice . str_replace(' ', '-',  strtolower($G4_L15_Game877_listen_n_practice_audio[$i][$key])) . ".mp3",
                     ]
                 ]);
             }
@@ -3022,7 +3022,7 @@ class AnsNQueSeeder extends Seeder
                 DB::table('ans_n_ques')->insert([
                     [
                         'game_id' => 885, 'round' => $i + 1, 'q_content' => $q,
-                        'q_image' => $l16_G885_image .  "speaker.png", 'q_audio' => $AudioDomain . $G4_L16_listen_n_practice . str_replace(' ', '-',  strtolower($G4_L16_Game885_listen_n_practice_audio[$key][$i])) . ".mp3",
+                        'q_image' => $l16_G885_image .  "speaker.png", 'q_audio' => $AudioDomain . $G4_L16_listen_n_practice . str_replace(' ', '-',  strtolower($G4_L16_Game885_listen_n_practice_audio[$i][$key])) . ".mp3",
                     ]
                 ]);
             }
