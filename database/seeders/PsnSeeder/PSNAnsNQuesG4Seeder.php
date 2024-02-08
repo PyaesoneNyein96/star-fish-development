@@ -1063,7 +1063,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
 
-    ///////////////////////////////////////////////// Lesson 9 ///////////////////////////////////////////////////
+    //////////////////////////////////////////// Lesson 9 /////////////////////////////////////////////
 
     // Unit 1 Video -Game id (828)
 
@@ -3073,8 +3073,6 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
 
-
-
     // Lesson 31 Unit - 6 Speaking Topic <Speaking_and_recording>
 
 
@@ -3093,6 +3091,98 @@ class PSNAnsNQuesG4Seeder extends Seeder
             ]
 
         ]);
+
+
+////////////////////////////////////// End of Lesson 31 ////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////// Lesson 32 //////////////////////////////////////////////////
+
+    // Unit 1 Video -Game id (1007)
+
+    // Lesson 9 Listen and Repeat (Reading_Carousel)
+
+    $contents = [
+        "banana", "cauliflower", "cereal", "chocolate", "corn",
+        "mango", "peanuts", "pudding", "pumpkin", "watermelon"
+    ];
+
+
+    $audio = $AudioDomain."Grade_4/Lesson_32/Listen_and_Repeat/";
+    $img = $ImageDomain."Grade_4/Lesson_32/Listen_and_Repeat/";
+
+    foreach ($contents as $val) {
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1008,
+                'a_content' => $val,
+                'a_image' => $img.$this->removeSpace($val).".png",
+                'a_audio' => $audio.$this->removeSpace($val).".mp3"
+            ],
+        ]);
+    }
+
+
+
+
+    // Lesson 32 Unit - 3 Spelling Game <rearrange_with_audio>
+
+        $given_ans = [
+            ['U','L','I','F','L','E','R','O','W','A','C'],
+            ['O','C','H','C','L','T','E','A','O'],
+            ['N','C','R','O'],
+            ['O','M','G','N','A'],
+            ['S','E','A','P','N','U','T'],
+            ['U','P','D','I','N','G','D'],
+            ['K','I','N','P','M','U','P'],
+            ['L','O','N','E','R','W','A','M','T'],
+            ['E','C','E','A','R','L'],
+            ['A','N','A','A','A','B','N'],
+        ];
+
+        $img = $ImageDomain . "Grade_4/Lesson_32/Spelling_Game/";
+        $audio = $AudioDomain . "Grade_4/Lesson_32/Spelling_Game/";
+
+        $answers = [
+            'CAULIFLOWER', 'CHOCOLATE', 'CORN','MANGO','PEANUTS',
+            'PUDDING', 'PUMPKIN', 'WATERMELON','CEREAL','BANANA'
+        ];
+
+
+        for ($i = 0; $i < count($given_ans); $i++) {
+
+            foreach ($given_ans[$i]  as  $innerVal) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 1009,
+                        'round' => $i + 1,
+                        'q_content' => $innerVal
+                    ]
+                ]);
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 1009,
+                    'round' => $i + 1,
+                    'q_image' => $img . ucfirst(strtolower($answers[$i])) . ".png",
+                    // 'q_content' => $questions[$i],
+                    'a_audio' => $audio . ucfirst(strtolower($answers[$i])) . ".mp3",
+                    'a_content' => $answers[$i],
+                ]
+            ]);
+        }
+
+
+
+
+
+
+
+
+
+
 
 
 
