@@ -2413,63 +2413,6 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
 
-    // Lesson 29 Unit -3 Sub -2 Practice 2  <look_and_choose>
-
-
-
-    $audio = $AudioDomain."Grade_4/Lesson_29/Practice/look_and_choose/";
-    $img = $ImageDomain."Grade_4/Lesson_29/Practice/look_and_choose/";
-
-
-    $given_ans = [
-        ['growth', 'energy', 'health'],
-        ['growth', 'energy', 'health'],
-        ['growth', 'energy', 'health'],
-        ['growth', 'energy', 'health'],
-        ['growth', 'energy', 'health'],
-        ['growth', 'energy', 'health'],
-        ['growth', 'energy', 'health'],
-        ['growth', 'energy', 'health'],
-        ['growth', 'energy', 'health'],
-    ];
-
-    $ans = [
-        "energy", "health", "health", "growth", "energy", "growth", "growth","growth","energy",
-    ];
-
-    foreach ($given_ans as $key => $ga) {
-
-
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 989,
-                'round' => $key + 1,
-                'q_image' => $img.$this->removeSpace($ans[$key]).".png",
-                'q_content' => "Food for ". $ga[0],
-                'a_content' => $ga[0] == $ans[$key] ? true : false
-            ]
-        ]);
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 989,
-                'round' => $key + 1,
-                'q_content' => "Food for ". $ga[1],
-                'a_content' => $ga[1] == $ans[$key] ? true : false
-            ]
-        ]);
-
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 989,
-                'round' => $key + 1,
-                'q_content' => "Food for ". $ga[2],
-                'a_content' => $ga[2] == $ans[$key] ? true : false
-            ]
-        ]);
-
-    }
-
-
 
 // Unit 4 Speaking <Speaking_and_recording>
 
@@ -2501,7 +2444,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
 
             [
-                'game_id' => 990,
+                'game_id' => 989,
                 'round' => $key + 1,
                 'round_instruction' => $audio.$this->removeSpace($q_instruction[$key])."_round_ins".".mp3",
                 'q_content' => $Question_contents[$key],
@@ -2545,7 +2488,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         foreach ($questions as $key => $val) {
         DB::table('ans_n_ques')->insert([
             [
-                'game_id' => 991,
+                'game_id' => 990,
                 'round' => $key + 1,
                 // 'q_audio' => $audio.$ans[$key].".mp3",
                 'q_audio' => $audio.$story.".mp3",
@@ -2559,7 +2502,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
             [
-                'game_id' => 991,
+                'game_id' => 990,
                 'round'  => $key +  1,
                 'q_content' => $given_ques[$key][1],
                 'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
@@ -2568,7 +2511,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
             [
-                'game_id' => 991,
+                'game_id' => 990,
                 'round'  => $key +  1,
                 'q_content' => $given_ques[$key][2],
                 'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
@@ -2593,7 +2536,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
             [
-                'game_id' => 992,
+                'game_id' => 991,
                 'q_content' => $content,
                 'q_audio' => $audio."Talk-about-usually-eat.mp3",
                 'q_image' => $images . "girl-eating.png",
@@ -2613,7 +2556,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
     DB::table('ans_n_ques')->insert([
         [
-            'game_id' => 993,
+            'game_id' => 992,
             'q_image' => $images.$sample_content.".png",
             'a_content' => "I usually have fried rice and tea for breakfast.I have chicken rice, fried vegetables, and soup for lunch. I do not like eating sandwich for lunch. I usually have sandwich, salad, and juice for dinner.I do not like eating hamburgers for dinner. ",
         ],
@@ -2648,7 +2591,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 995,
+                    'game_id' => 994,
                     'a_content' => $val,
                     'a_image' => $img.$this->removeSpace($val).".png",
                     'a_audio' => $audio.$this->removeSpace($val).".mp3"
@@ -2685,7 +2628,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
                 DB::table('ans_n_ques')->insert([
                     [
-                    'game_id' => 996,
+                    'game_id' => 995,
                     'round' => $key + 1,
                     'a_image' => $img.$v.".png",
                     'a_audio' => str_replace(' ','-',$audio.$convers_audio[$key][$k]).".mp3",
@@ -2720,7 +2663,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
                 DB::table('ans_n_ques')->insert([
                     [
-                        'game_id' => 997,
+                        'game_id' => 996,
                         'round' => $i + 1,
                         'q_content' => $q,
                         'q_image' => $q,
@@ -2733,7 +2676,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             foreach ($contents[$i] as $q) {
                 DB::table('ans_n_ques')->insert([
                     [
-                        'game_id' => 997,
+                        'game_id' => 996,
                         'round' => $i + 1,
                         'q_content' => $q,
                         'q_image' => $img . $this->removeSpace(strtolower($q)) . ".png",
@@ -2777,11 +2720,11 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
 
             [
-                'game_id' => 998,
+                'game_id' => 997,
                 'round' => $key + 1,
                 'round_instruction' => $audio.$this->removeSpace($q_instruction[$key])."_round_ins".".mp3",
                 'q_content' => $Question_contents[$key],
-                'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
+                // 'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
                 'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
             ]
 
@@ -2822,7 +2765,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         foreach ($contents[$key] as $j => $val) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 999,
+                    'game_id' => 998,
                     'round' => $key + 1,
                     'q_image' => $images.$val.".png",
                     'a_content' => $val == $value ? true : false
@@ -2832,7 +2775,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
             [
-                'game_id' => 999,
+                'game_id' => 998,
                 'round' => $key + 1,
                 'q_audio' => $audios.$value.".mp3"
             ]
@@ -2890,7 +2833,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 DB::table('ans_n_ques')->insert([
                     [
                         'round' => $i + 1,
-                        'game_id' => 1000,
+                        'game_id' => 999,
                         'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $given_q[$i][1] ? 1 : 0
@@ -2901,7 +2844,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1,
-                    'game_id' => 1000,
+                    'game_id' => 999,
                     'q_audio' => $audios . $given_audio[$i],
                     'q_conver' => $given_q[$i][0],    //giver Q
                 ]
@@ -2909,7 +2852,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1,
-                    'game_id' => 1000,
+                    'game_id' => 999,
                     'q_audio' => $audios . $paraName,
                     'q_content' => "The boy only ate pancake",
                     'q_conver' => $para,
@@ -2931,7 +2874,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
             [
-                'game_id' => 1001,
+                'game_id' => 1000,
                 'q_content' => $content,
                 'q_audio' => $audio."What-is-your-favorite-food.mp3",
                 'q_image' => $images . "plate.png",
@@ -2939,6 +2882,217 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         ]);
 
+
+/////////////////////////////////////////// End of Lesson 30 ///////////////////////////////////////////
+
+
+/////////////////////////////////////////// Lesson 31 ///////////////////////////////////////////////
+
+
+
+// Unit - 2 Listen and Repeat , Sub - 1 (Reading_carousel)
+
+
+    $contents = [
+        "meat-fish", "noodles", "potato", "prawns", "rice", "vegetables"
+    ];
+
+
+    $audio = $AudioDomain."Grade_4/Lesson_31/Listen_and_Repeat/";
+    $img = $ImageDomain."Grade_4/Lesson_31/Listen_and_Repeat/";
+
+    foreach ($contents as $val) {
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1002,
+                'a_content' => $val,
+                'a_image' => $img.$this->removeSpace($val).".png",
+                'a_audio' => $audio.$this->removeSpace($val).".mp3"
+            ],
+        ]);
+    }
+
+
+
+// Lesson 31 Unit - 3 Practice <look_and_choose>
+
+    $audio = $AudioDomain."Grade_4/Lesson_31/Practice/";
+    $img = $ImageDomain."Grade_4/Lesson_31/Practice/";
+
+
+    $given_ans = [
+        ['growth', 'energy', 'health'],
+        ['growth', 'energy', 'health'],
+        ['growth', 'energy', 'health'],
+        ['growth', 'energy', 'health'],
+        ['growth', 'energy', 'health'],
+        ['growth', 'energy', 'health'],
+        ['growth', 'energy', 'health'],
+        ['growth', 'energy', 'health'],
+        ['growth', 'energy', 'health'],
+    ];
+
+    $ans = [
+        "energy", "health", "health", "growth", "energy", "growth", "growth","growth","energy",
+    ];
+
+    foreach ($given_ans as $key => $ga) {
+
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1003,
+                'round' => $key + 1,
+                'q_image' => $img.$this->removeSpace($ans[$key]).".png",
+                'q_content' => "Food for ". $ga[0],
+                'a_content' => $ga[0] == $ans[$key] ? true : false
+            ]
+        ]);
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1003,
+                'round' => $key + 1,
+                'q_content' => "Food for ". $ga[1],
+                'a_content' => $ga[1] == $ans[$key] ? true : false
+            ]
+        ]);
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1003,
+                'round' => $key + 1,
+                'q_content' => "Food for ". $ga[2],
+                'a_content' => $ga[2] == $ans[$key] ? true : false
+            ]
+        ]);
+
+    }
+
+
+
+    // Lesson 31 Unit 4 Speaking Practice <Speaking_and_recording>
+
+
+    $contents = [
+        'fish','egg','bread','vegetables','noodle',
+    ];
+
+    $Question_contents = [
+        "What is your favorite food? \n My favorite food is salmon fish.",
+        "What is your favorite food? \n ____ \n Why? \n ----.",
+        "What is your favorite food? \n ____ \n Why? \n ----.",
+        "What is your favorite food? \n ____ \n Why? \n ----.",
+        "What is your favorite food? \n ____ \n Why? \n ----.",
+    ];
+
+    $q_instruction = [
+        'fish','egg','bread','vegetables','noodle',
+    ];
+
+
+    $images = $ImageDomain . "Grade_4/Lesson_31/Speaking/";
+    $audios = $AudioDomain . "Grade_4/Lesson_31/Speaking/";
+
+    foreach ($contents as $key => $value) {
+
+        DB::table('ans_n_ques')->insert([
+
+            [
+                'game_id' => 1004,
+                'round' => $key + 1,
+                'round_instruction' => $audio.$this->removeSpace($q_instruction[$key])."_round_ins".".mp3",
+                'q_content' => $Question_contents[$key],
+                // 'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
+                'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
+            ]
+
+        ]);
+    }
+
+
+    //Lesson 31 Unit 5 Listen Practice <listening_choosing_answer>
+
+    $questions = [
+        "Which food are good for energy",
+        "Which food shouldn't you eat",
+        "How many groups of food should you include in your meal",
+        "Which food are good for your health",
+        "Which food are good for growth",
+    ];
+
+    $given_ques = [
+        ['Rice and eggs', 'Veggies and fruit','Meet and fish'],
+        ['Veggies', 'Sweet food','Oily Food'],
+        ['2', '3','4'],
+        ['Veggies', 'Sweet food','Oily Food'],
+        ['Rice and eggs', 'Veggies and fruit','Meet and fish'],
+    ];
+
+    $ans = [
+        "Rice and eggs","Oily Food","3","Veggies", "Meet and fish"
+    ];
+
+
+    $audio = $AudioDomain."Grade_4/Lesson_32/Listening/";
+    $img = $ImageDomain."Grade_4/Lesson_32/Listening/";
+
+    $story = "Anna-daily";
+
+        foreach ($questions as $key => $val) {
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1005,
+                'round' => $key + 1,
+                // 'q_audio' => $audio.$ans[$key].".mp3",
+                'q_audio' => $audio.$story.".mp3",
+                'q_content' => $given_ques[$key][0],
+                'q_conver'  => $val."?",
+                'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
+            ]
+        ]);
+
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1005,
+                'round'  => $key +  1,
+                'q_content' => $given_ques[$key][1],
+                'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
+            ]
+        ]);
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1005,
+                'round'  => $key +  1,
+                'q_content' => $given_ques[$key][2],
+                'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
+            ]
+        ]);
+    }
+
+
+
+
+
+    // Lesson 31 Unit - 6 Speaking Topic <Speaking_and_recording>
+
+
+        $images = $ImageDomain . "Grade_4/Lesson_31/Speaking_Topic/";
+        $audios = $AudioDomain . "Grade_4/Lesson_31/Speaking_Topic/";
+
+        $content = "Which food do you like? \n Which foods are good for growth? \n Which foods are good for energy \n Which food are good for your health? ";
+
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1006,
+                'q_content' => $content,
+                'q_audio' => $audio."food-for-health.mp3",
+                'q_image' => $images . "girl-eat.png",
+            ]
+
+        ]);
 
 
 
