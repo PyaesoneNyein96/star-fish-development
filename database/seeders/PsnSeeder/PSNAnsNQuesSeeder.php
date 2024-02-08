@@ -1129,7 +1129,7 @@ class PSNAnsNQuesSeeder extends Seeder
         ];
 
         $letter_counts = [
-            1,1,2,1
+            2,1,2,1
         ];
 
         foreach ($g1_l7_u6_trace_n_write as $i => $trace) {
