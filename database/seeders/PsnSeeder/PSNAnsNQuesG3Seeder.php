@@ -3310,7 +3310,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
 
-        // Unit 3 Write the opposite <write_opposite>
+        // Unit 3 Write the opposite <look_and_write>
 
         $audio = $AudioDomain."Grade_3/Lesson_33/Write_the_opposite/";
         $img = $ImageDomain."Grade_3/Lesson_33/Write_the_opposite/";
