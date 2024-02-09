@@ -40,17 +40,17 @@ class AnsNQueSeeder extends Seeder
 
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 13, 'a_image' => $l3G13image . "susan.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "helloiamsusan.mp3", "a_conver" => $l3G13image .  "susan-hello.png", "background" =>  $l3G13image . "bg.jpg"],
-            ['round' => 1, 'game_id' => 13, 'a_image' => $l3G13image . "mary-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "merry_nicetomeetyou.mp3", "a_conver" => $l3G13image .  "nice-to.png", "background" =>  $l3G13image . "bg.jpg"],
+            ['round' => 1, 'game_id' => 13, 'a_image' => $l3G13image . "susan.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "helloiamsusan.mp3", "a_conver" => $l3G13image .  "susan-hello.png", "background" =>  $l3G13image . "bg.png"],
+            ['round' => 1, 'game_id' => 13, 'a_image' => $l3G13image . "mary-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "merry_nicetomeetyou.mp3", "a_conver" => $l3G13image .  "nice-to.png", "background" =>  $l3G13image . "bg.png"],
 
-            ['round' => 2, 'game_id' => 13, 'a_image' => $l3G13image . "mary.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "helloiammerry.mp3", "a_conver" => $l3G13image .  "mary-hello.png", "background" =>  $l3G13image . "bg.jpg"],
-            ['round' => 2, 'game_id' => 13, 'a_image' => $l3G13image . "susan-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "nicetomeetyou_susan.mp3", "a_conver" => $l3G13image .  "nice-to.png", "background" =>  $l3G13image . "bg.jpg"],
+            ['round' => 2, 'game_id' => 13, 'a_image' => $l3G13image . "mary.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "helloiammerry.mp3", "a_conver" => $l3G13image .  "mary-hello.png", "background" =>  $l3G13image . "bg.png"],
+            ['round' => 2, 'game_id' => 13, 'a_image' => $l3G13image . "susan-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "nicetomeetyou_susan.mp3", "a_conver" => $l3G13image .  "nice-to.png", "background" =>  $l3G13image . "bg.png"],
 
-            ['round' => 3, 'game_id' => 13, 'a_image' => $l3G13image . "tom.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "helloiamtom.mp3", "a_conver" => $l3G13image .  "tom-hello.png", "background" =>  $l3G13image . "bg.jpg"],
-            ['round' => 3, 'game_id' => 13, 'a_image' => $l3G13image . "jerry-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "jerry_nicetomeetyou.mp3", "a_conver" => $l3G13image .  "Nice to meet you.", "background" =>  $l3G13image . "bg.jpg"],
+            ['round' => 3, 'game_id' => 13, 'a_image' => $l3G13image . "tom.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "helloiamtom.mp3", "a_conver" => $l3G13image .  "tom-hello.png", "background" =>  $l3G13image . "bg.png"],
+            ['round' => 3, 'game_id' => 13, 'a_image' => $l3G13image . "jerry-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "jerry_nicetomeetyou.mp3", "a_conver" => $l3G13image .  "Nice to meet you.", "background" =>  $l3G13image . "bg.png"],
 
-            ['round' => 4, 'game_id' => 13, 'a_image' => $l3G13image . "jerry.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "helloiamjerry.mp3", "a_conver" => $l3G13image .  "jerry-hello.png", "background" =>  $l3G13image . "bg.jpg"],
-            ['round' => 4, 'game_id' => 13, 'a_image' => $l3G13image . "tom-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "tom_nicetomeetyou.mp3", "a_conver" => $l3G13image .  "Nice to meet you.", "background" =>  $l3G13image . "bg.jpg"],
+            ['round' => 4, 'game_id' => 13, 'a_image' => $l3G13image . "jerry.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "helloiamjerry.mp3", "a_conver" => $l3G13image .  "jerry-hello.png", "background" =>  $l3G13image . "bg.png"],
+            ['round' => 4, 'game_id' => 13, 'a_image' => $l3G13image . "tom-nice.png", "a_audio" => $AudioDomain . $G1_L3_read_listen_and_practice_path . "tom_nicetomeetyou.mp3", "a_conver" => $l3G13image .  "Nice to meet you.", "background" =>  $l3G13image . "bg.png"],
 
         ]);
 

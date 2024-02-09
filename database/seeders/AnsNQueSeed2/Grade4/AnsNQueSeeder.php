@@ -4131,7 +4131,7 @@ class AnsNQueSeeder extends Seeder
 
 
         //////////////////////////////////////////////////////////////
-        ////    Grade 4  Lesson 22 Game 930 , 931 ( Listen and Repeat] )
+        ////    Grade 4  Lesson 22 Game 930 , 931 ( Listen and Repeat )
         //////////////////////////////////////////////////////////////
 
         $l22_G930_G931_image = $domain . "/storage/images/Grade_4/lesson_22/listen_n_repeat/";
@@ -4805,24 +4805,148 @@ class AnsNQueSeeder extends Seeder
 
 
         //////////////////////////////////////////////////////////////
-        ////    Grade 4  Lesson 25 Game 953 ( Listen and Repeat] )
+        ////    Grade 4  Lesson 25 Game 953 , 954 ( Listen and Repeat )
         //////////////////////////////////////////////////////////////
 
-        $l25_G953_image = $domain . "/storage/images/Grade_4/lesson_25/listen_n_repeat/";
+        $l25_G953_G954_image = $domain . "/storage/images/Grade_4/lesson_25/listen_n_repeat/";
         $G4_L25_listen_n_repeat = "Grade_4/" . "Lesson_25/" . "listen_n_repeat/";
 
         // game 953
         $ans_G953 = [
-            "America", "UK", "France", "Italy", "Germany", "Sweden", "US-Dollar", "Pound", "Euro", "Krona"
+            "Blouse", "Dress", "Flip-flops", "Jeans", "Pyjamas", "Sandals", "Shorts", "Skirt", "Sweater", "Tracksuit", "Trainers", "T-shirt", "Hat", "Cap", "Sunglasses", "Eyeglasses", "Jacket"
         ];
 
         foreach ($ans_G953 as $key) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 953, 'a_content' => $key, 'a_image' => $l25_G953_image . "1/" . $key  . ".png",
+                    'game_id' => 953, 'a_content' => $key, 'a_image' => $l25_G953_G954_image . "1/" . $key  . ".png",
                     'a_audio' => $AudioDomain . $G4_L25_listen_n_repeat . strtolower($key) . ".mp3"
                 ],
             ]);
+        }
+
+        // Game 954
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 954, 'a_image' => $l25_G953_G954_image . "2/" . "girl.gif", "a_audio" => $AudioDomain . $G4_L25_listen_n_repeat . "audio.mp3", "a_conver" => $l25_G953_G954_image . "can-i-help-u.png", "background" =>  $l25_G953_G954_image . "2/" . "bg.jpg"],
+            ['round' => 1, 'game_id' => 954, 'a_image' => $l25_G953_G954_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L25_listen_n_repeat . "audio.mp3", "a_conver" => $l25_G953_G954_image . "i-want-some.png", "background" =>  $l25_G953_G954_image . "2/" . "bg.jpg"],
+
+            ['round' => 2, 'game_id' => 954, 'a_image' => $l25_G953_G954_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L25_listen_n_repeat . "audio.mp3", "a_conver" => $l25_G953_G954_image . "yes-we-do.png", "background" =>  $l25_G953_G954_image . "2/" . "bg.jpg"],
+            ['round' => 2, 'game_id' => 954, 'a_image' => $l25_G953_G954_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L25_listen_n_repeat . "audio.mp3", "a_conver" => $l25_G953_G954_image . "how-much.png", "background" =>  $l25_G953_G954_image . "2/" . "bg.jpg"],
+
+            ['round' => 3, 'game_id' => 954, 'a_image' => $l25_G953_G954_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L25_listen_n_repeat . "audio.mp3", "a_conver" => $l25_G953_G954_image . "500-kyat.png", "background" =>  $l25_G953_G954_image . "2/" . "bg.jpg"],
+            ['round' => 3, 'game_id' => 954, 'a_image' => $l25_G953_G954_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L25_listen_n_repeat . "audio.mp3", "a_conver" => $l25_G953_G954_image . "i-want-six.png", "background" =>  $l25_G953_G954_image . "2/" . "bg.jpg"],
+
+            ['round' => 4, 'game_id' => 954, 'a_image' => $l25_G953_G954_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L25_listen_n_repeat . "audio.mp3", "a_conver" => $l25_G953_G954_image . "3000-kyat.png", "background" =>  $l25_G953_G954_image . "2/" . "bg.jpg"],
+            ['round' => 4, 'game_id' => 954, 'a_image' => $l25_G953_G954_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L25_listen_n_repeat . "audio.mp3", "a_conver" => $l25_G953_G954_image . "here-you-are.png", "background" =>  $l25_G953_G954_image . "2/" . "bg.jpg"],
+
+            ['round' => 5, 'game_id' => 954, 'a_image' => $l25_G953_G954_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L25_listen_n_repeat . "audio.mp3", "a_conver" => $l25_G953_G954_image . "thank-u.png", "background" =>  $l25_G953_G954_image . "2/" . "bg.jpg"],
+            ['round' => 5, 'game_id' => 954, 'a_image' => $l25_G953_G954_image . "2/" . "boy.gif", "a_audio" => null, "a_conver" => null, "background" =>  $l25_G953_G954_image . "2/" . "bg.jpg"],
+
+        ]);
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 25 Game 955 ( Spelling Game )
+        ////////////////////////////////////////////////////////
+
+        $G4_L25_spelling_game = "Grade_4/" . "Lesson_25/" . "spelling_game/";
+        $l25_G955_image = $domain . "/storage/images/Grade_4/lesson_25/spelling_game/";
+
+
+        $q_G955 = [
+
+            ["O", "S", "E", "B", "U", "L"],
+            ["R", "E", "S", "D", "S"],
+            ["P", "F", "L", "L", "O", "I", "P", "F", "S"],
+            ["E", "S", "N", "J", "A"],
+            ["A", "J", "M", "S", "P", "A", "Y"],
+            ["N", "S", "A", "A", "D", "L", "S"],
+            ["S", "O", "S", "T", "H", "R"],
+            ["I", "K", "T", "S", "R"],
+            ["R", "E", "T", "A", "W", "E", "S"],
+            ["K", "U", "T", "A", "I", "C", "T", "S", "R"],
+            ["S", "R", "T", "R", "A", "N", "I", "E"],
+            ["S", "I", "T", "R", "H", "T"],
+            ["G", "A", "S", "L", "S", "E", "S", "U", "N"],
+            ["S", "E", "Y", "G", "S", "E", "L", "S", "E", "A"],
+            ["A", "T", "H"],
+            ["P", "C", "A"],
+
+        ];
+
+        $a_G955 = [
+            "BLOUSE", "DRESS", "FLIPFLOPS", "JEANS", "PYJAMAS", "SANDALS", "SHORTS", "SKIRT", "SWEATER", "TRACKSUIT", "TRAINERS", "TSHIRT", "SUNGLASSES", "EYEGLASSES", "HAT", "CAP"
+        ];
+
+        $G955_Index = 0;
+
+        for ($i = 0; $i < count($q_G955); $i++) {
+            foreach ($q_G955[$i] as $j) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 955, 'q_content' => $j, 'q_audio' => $AudioDomain . $G4_L25_spelling_game . strtoupper($j) . ".mp3"],
+                ]);
+            }
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 955,
+                    'q_image' => $l25_G955_image . str_replace(' ', '', strtolower($a_G955[$G955_Index])) . ".png",
+                    'a_audio' => $AudioDomain . $G4_L25_spelling_game . strtolower($a_G955[$G955_Index]) . ".mp3",
+                    'a_content' => $a_G955[$G955_Index],
+                ],
+            ]);
+            $G955_Index++;
+        }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 25 Game 956 (  Practice  )
+        ////////////////////////////////////////////////////////
+
+        $l25_G956_image = $domain . "/storage/images/Grade_4/lesson_25/practice/";
+        $G4_L25_practice = "Grade_4/" . "Lesson_25/" . "practice/";
+
+
+        $G4_L25_Game956_practice = [
+
+            ['clipboard', 'marker', 'notebook', 'notepad', "crayon"],
+            ['pencil', 'pencil-case', 'eraser', "ruler",  'drawing-book'],
+
+        ];
+
+        $G4_L25_Game956_practice_image = [
+
+            ["crayon", 'notebook', 'notepad', 'clipboard', 'marker'],
+            ["ruler", 'eraser', 'drawing-book',  'pencil', 'pencil-case'],
+
+        ];
+
+
+        for ($i = 0; $i < count($G4_L25_Game956_practice); $i++) {
+
+            foreach ($G4_L25_Game956_practice[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 956, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $q, 'q_audio' => $AudioDomain . $G4_L25_practice .  str_replace(' ', '-', strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+
+            foreach ($G4_L25_Game956_practice_image[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 956, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $l25_G956_image . str_replace(' ', '-', strtolower($q)) . ".png", 'q_audio' => $AudioDomain . $G4_L25_practice . str_replace(' ', '-',  strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
         }
     }
 }
