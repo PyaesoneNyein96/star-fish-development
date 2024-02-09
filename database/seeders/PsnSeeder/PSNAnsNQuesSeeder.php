@@ -28,6 +28,8 @@ class PSNAnsNQuesSeeder extends Seeder
 
         $AtoZUpdate = $domain . "/storage/audios/A_to_Z_update/";
 
+        $traceSuccess = $ImageDomain."TraceSuccessAZ/";
+
         $AZUpdate = [
             'A-for-apple', 'B-for-ball', 'C-for-Cat', 'D-for-Dog', 'E-for-Elephant', 'F-for-Fish', 'G-for-Grapes', 'H-for-Hat', 'I-for-Ice-cream', 'J-for-Jug',
             'K-for-Kite', 'L-for-Lion', 'M-for-mouse', 'N-for-Noodles', 'O-for-Orange',
@@ -402,10 +404,16 @@ class PSNAnsNQuesSeeder extends Seeder
 
         $imgDomain = $ImageDomain . "Grade_1/Lesson_7/Writing_Sentences_order/";
 
+
+
         $g1_l7_u6_trace_n_write = [
-            // 'C', 'D', 'a', 'b', 'c', 'd', 'B', 'A'
             'A', 'a','B', 'b', 'C','c','D', 'd',
         ];
+
+        $trace_counts = [
+            3,2,3,2,1,1,2,2
+        ];
+
         foreach ($g1_l7_u6_trace_n_write as $i => $trace) {
             DB::table('ans_n_ques')->insert([
                 [
@@ -413,8 +421,9 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_audio' => $AtoZAudio . $prefix . strtoupper($trace) . ".mp3",
                     'a_content' => $trace,
                     'q_content' => ctype_lower($trace) ?  $imgDomain . "dotted_small_" . $trace . ".png" : $imgDomain . "dotted_" . $trace . ".png",
-                    // 'q_image' => $imgDomain.$trace.".png",
                     'q_image' => ctype_lower($trace) ?  $imgDomain . "small_" . $trace . ".png" : $imgDomain . $trace . ".png",
+                    'a_image' => $traceSuccess.$trace.".png",
+                    'a_extra' => $trace_counts[$i],
                 ],
             ]);
         }
@@ -443,7 +452,6 @@ class PSNAnsNQuesSeeder extends Seeder
          ['D'],
          ['A'],
          ['A'],
-
         ];
 
 
@@ -618,6 +626,9 @@ class PSNAnsNQuesSeeder extends Seeder
         $g1_L12_u6_trace_n_write = [
             'G', 'H', 'e', 'f', 'g', 'h', 'E', 'F'
         ];
+
+        $trace_counts = [2,3,2,2,2,2,4,3];
+
         foreach ($g1_L12_u6_trace_n_write as $i => $trace) {
             DB::table('ans_n_ques')->insert([
                 [
@@ -625,8 +636,9 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_audio' => $AtoZAudio . $prefix . strtoupper($trace) . ".mp3",
                     'a_content' => $trace,
                     'q_content' => ctype_lower($trace) ?  $imgDomain . "dotted_small_" . $trace . ".png" : $imgDomain . "dotted_" . $trace . ".png",
-                    // 'q_image' => $imgDomain.$trace.".png",
                     'q_image' => ctype_lower($trace) ?  $imgDomain . "small_" . $trace . ".png" : $imgDomain . $trace . ".png",
+                    'a_image' => $traceSuccess.$trace.".png",
+                    'a_extra' => $trace_counts[$i]
                 ],
             ]);
         }
@@ -1117,9 +1129,13 @@ class PSNAnsNQuesSeeder extends Seeder
         $imgDomain = $ImageDomain . "Grade_1/Lesson_31/Writing_1/";
 
         $g1_l7_u6_trace_n_write = [
-            // 'G','H','e','f','g','h','F','E'
             't', 's', 'T', 'S'
         ];
+
+        $trace_counts = [
+            2,1,2,1
+        ];
+
         foreach ($g1_l7_u6_trace_n_write as $i => $trace) {
             DB::table('ans_n_ques')->insert([
                 [
@@ -1127,8 +1143,9 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_audio' => $AtoZAudio . $prefix . strtoupper($trace) . ".mp3",
                     'a_content' => $trace,
                     'q_content' => ctype_lower($trace) ?  $imgDomain . "dotted_small_" . $trace . ".png" : $imgDomain . "dotted_" . $trace . ".png",
-                    // 'q_image' => $imgDomain.$trace.".png",
                     'q_image' => ctype_lower($trace) ?  $imgDomain . "small_" . $trace . ".png" : $imgDomain . $trace . ".png",
+                    'a_image' => $traceSuccess.$trace.".png",
+                    'a_extra' => $trace_counts[$i]
                 ],
             ]);
         }
@@ -2060,6 +2077,9 @@ class PSNAnsNQuesSeeder extends Seeder
         $content = [
             'Y', 'Z', 'y', 'z', 'x', 'X'
         ];
+
+        $trace_counts = [3,3,2,3,2,2];
+
         foreach ($content as $i => $trace) {
             DB::table('ans_n_ques')->insert([
                 [
@@ -2068,6 +2088,8 @@ class PSNAnsNQuesSeeder extends Seeder
                     'a_content' => $trace,
                     'q_content' => ctype_lower($trace) ?  $imgDomain . "dotted_small_" . $trace . ".png" : $imgDomain . "dotted_" . $trace . ".png",
                     'q_image' => ctype_lower($trace) ?  $imgDomain . "small_" . $trace . ".png" : $imgDomain . $trace . ".png",
+                    'a_image' => $traceSuccess.$trace.".png",
+                    'a_extra' => $trace_counts[$i]
                 ],
             ]);
         }

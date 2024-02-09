@@ -338,6 +338,10 @@ trait gameTraits
 
         $rounds = $game->ans_n_ques;
 
+        foreach ($rounds as $k => $count) {
+            $count['a_extra'] = (int)$count['a_extra'];
+        }
+
         return [
             'game_id' => $game->id,
             'lesson_id' => $unit->lesson_id,
