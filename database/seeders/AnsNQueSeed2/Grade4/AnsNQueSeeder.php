@@ -5283,5 +5283,60 @@ class AnsNQueSeeder extends Seeder
             ['round' => 3, 'game_id' => 1057,  'q_image' => $l39_G1057image . "green-star.png", "round_instruction" => $AudioDomain . $G4_L39_speaking_topic . "SubBlock_Look-at-the-given-question-Re" . ".mp3", "q_content" => "A: ___________________? \nB: I am sorry. I can't."],
             ['round' => 4, 'game_id' => 1057,  'q_image' => $l39_G1057image . "green-star.png", "round_instruction" => $AudioDomain . $G4_L39_speaking_topic . "SubBlock_Look-at-the-given-question-Re" . ".mp3", "q_content" => "A: ___________________? \nB: Sure, I would love to."],
         ]);
+
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 40 Game 1058  ( Listen and Repeat )
+        //////////////////////////////////////////////////////////////
+
+        $l40_G1058_image = $domain . "/storage/images/Grade_4/lesson_40/listen_n_repeat/";
+        $G4_L40_listen_n_repeat = "Grade_4/" . "Lesson_40/" . "listen_n_repeat/";
+
+        $ans_G1058 = [
+            "bd-party", "invite", "bd-cake", "coco-rice", "sing-songs"
+        ];
+
+        foreach ($ans_G1058 as $key) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 1058, 'a_content' => $key, 'a_image' => $l40_G1058_image . "1/" . $key  . ".png",
+                    'a_audio' => $AudioDomain . $G4_L40_listen_n_repeat . strtolower($key) . ".mp3"
+                ],
+            ]);
+        }
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 40 Game 1059   (  Practice  )
+        ////////////////////////////////////////////////////////
+
+        $l40_G1059_image = $domain . "/storage/images/Grade_4/lesson_40/practice/";
+        $G4_L40_practice_path = "Grade_4/" . "Lesson_40/" . "practice/";
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 1059, 'q_image' => $l40_G1059_image .  "us.png",  "q_content" => "US Dollar", "a_content" => 1],
+            ['round' => 1, 'game_id' => 1059, 'q_image' => null, "q_content" => "Pound", "a_content" => 0],
+            ['round' => 1, 'game_id' => 1059, 'q_image' => null, "q_content" => "Euro", "a_content" => 0],
+
+            ['round' => 2, 'game_id' => 1059, 'q_image' => $l40_G1059_image .  "france.png",  "q_content" => "US Dollar", "a_content" => 0],
+            ['round' => 2, 'game_id' => 1059, 'q_image' => null, "q_content" => "Pound", "a_content" => 0],
+            ['round' => 2, 'game_id' => 1059, 'q_image' => null, "q_content" => "Euro", "a_content" => 1],
+
+            ['round' => 3, 'game_id' => 1059, 'q_image' => $l40_G1059_image .  "uk.png",  "q_content" => "US Dollar", "a_content" => 0],
+            ['round' => 3, 'game_id' => 1059, 'q_image' => null, "q_content" => "Pound", "a_content" => 1],
+            ['round' => 3, 'game_id' => 1059, 'q_image' => null, "q_content" => "Euro", "a_content" => 0],
+
+            ['round' => 4, 'game_id' => 1059, 'q_image' => $l40_G1059_image .  "italy.png",  "q_content" => "US Dollar", "a_content" => 0],
+            ['round' => 4, 'game_id' => 1059, 'q_image' => null, "q_content" => "Pound", "a_content" => 0],
+            ['round' => 4, 'game_id' => 1059, 'q_image' => null, "q_content" => "Euro", "a_content" => 1],
+
+            ['round' => 5, 'game_id' => 1059, 'q_image' => $l40_G1059_image .  "germany.png",  "q_content" => "US Dollar", "a_content" => 0],
+            ['round' => 5, 'game_id' => 1059, 'q_image' => null, "q_content" => "Pound", "a_content" => 0],
+            ['round' => 5, 'game_id' => 1059, 'q_image' => null, "q_content" => "Euro", "a_content" => 1],
+
+        ]);
     }
 }
