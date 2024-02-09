@@ -3588,7 +3588,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         }
 
 
-     // For round - 1 (with Images)
+     // For round - 1 (with Images) <matching>
 
 
         $audio = $AudioDomain."Grade_4/Lesson_33/Practice/";
@@ -3690,7 +3690,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
     $given_ques = [
         ['Helped her mother', 'Watched TV','Visited the music festival'],
         ['Helped her mother', 'Watched TV','Visited the music festival'],
-        ["Yes,She was", "No,She wasn't", null],
+        ["Yes,She was", "No,She wasn't"],
         ['History', 'Science','English'],
         ['Helped her mother', 'Watched TV','Visited the music festival'],
     ];
@@ -3729,7 +3729,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             ]
         ]);
 
-        if($given_ques[$key][2]){
+        if(isset($given_ques[$key][2])){
             DB::table('ans_n_ques')->insert([
                     [
                         'game_id' => 1021,
@@ -3774,11 +3774,653 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
             [
-                'game_id' => 827,
+                'game_id' => 1022,
                 'q_image' => "someImg"."png",
                 'a_content' => $sample_content
             ],
         ]);
+
+
+
+
+////////////////////////////////////////// End of Lesson 33 ///////////////////////////////////////////////
+
+
+////////////////////////////////////////// Lesson 34 /////////////////////////////////////////////
+
+
+    // Unit - 1 Video Lesson
+    // Game_id - 1023
+
+
+
+    // Lesson -34 Unit - 2 Listen and Repeat , Sub - 1 (Reading_carousel)
+
+
+
+    $contents = [
+        "he", "help-mon-yesterday", "badminton-yesterday", "art-gallery-last-weekend",
+        "watch-tv-last-night", "I", "she", "they",
+    ];
+
+
+    $audio = $AudioDomain."Grade_4/Lesson_34/Listen_and_Repeat/";
+    $img = $ImageDomain."Grade_4/Lesson_34/Listen_and_Repeat/";
+
+    foreach ($contents as $val) {
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1024,
+                'a_content' => $val,
+                'a_image' => $img.$this->removeSpace($val).".png",
+                'a_audio' => $audio.$this->removeSpace($val).".mp3"
+            ],
+        ]);
+    }
+
+
+
+
+ // Lesson 34 Unit 3 Speaking Practice <Speaking_and_recording>
+
+    $contents = [
+        'call-phone','watch-tv','football','paint','reading','cooking'
+    ];
+
+    $Question_contents = [
+        "What did she do yesterday? \n ____ .",
+        "What did they do last night? \n ____.",
+        "What did he do last weekend? \n ____ .",
+        "What did you do yesterday? \n ____ .",
+        "What did they do yesterday? \n ____ .",
+        "What did they do last weekend? \n ____ .",
+    ];
+
+    // $q_instruction = [
+    //     'public-party','badminton','listening','color','art','football'
+    // ];
+
+
+    $images = $ImageDomain . "Grade_4/Lesson_34/Speaking/";
+    $audios = $AudioDomain . "Grade_4/Lesson_34/Speaking/";
+
+    foreach ($contents as $key => $value) {
+
+        DB::table('ans_n_ques')->insert([
+
+            [
+                'game_id' => 1025,
+                'round' => $key + 1,
+                'round_instruction' => $audio.$this->removeSpace($contents[$key])."_round_ins".".mp3",
+                'q_content' => $Question_contents[$key],
+                // 'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
+                'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
+            ]
+
+        ]);
+    }
+
+
+
+
+  // Lesson 34 Unit 4 Listen and Practice <listening_choosing_answer>
+
+    $questions = [
+        "Where did Anna go last weekend",
+        "Who did she go there with",
+        "What did Zoe do last weekend?",
+        "What did Zoe’s mum cook for her",
+        "Did you study English",
+    ];
+
+    $given_ques = [
+        ['The Zoo', 'The Shopping Mall','The Playground'],
+        ['With her parents', 'With her sisters','With her friends'],
+        ['Went Shopping', 'Went to the zoo','Stayed at home'],
+        ['Fried rice', 'Steam rice','Chicken rice'],
+        ["Yes,She did", "No,She didn't"],
+    ];
+
+    $ans = [
+        "The Playground","With her sisters","Stayed at home","Chicken rice", "Yes,She did"
+    ];
+
+
+    $audio = $AudioDomain."Grade_4/Lesson_34/Listening_Practice/";
+    $img = $ImageDomain."Grade_4/Lesson_34/Listening_Practice/";
+
+    $story = "Anna-zoe";
+
+        foreach ($questions as $key => $val) {
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1026,
+                'round' => $key + 1,
+                'q_audio' => $audio.$this->removeSpace($ans[$key]).".mp3",
+                // 'q_audio' => $audio.$story.".mp3",
+                'q_content' => $given_ques[$key][0],
+                'q_conver'  => $val."?",
+                'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
+            ]
+        ]);
+
+
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1026,
+                'round'  => $key +  1,
+                'q_content' => $given_ques[$key][1],
+                'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
+            ]
+        ]);
+
+        if(isset($given_ques[$key][2])){
+            DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 1026,
+                        'round'  => $key +  1,
+                        'q_content' => $given_ques[$key][2],
+                        'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
+                    ]
+                ]);
+        }
+
+    }
+
+
+    // Lesson 34 Unit 4 Reading Passage
+
+
+
+//Lesson 30 Unit 6 Reading Passage <Reading_passage>
+
+
+
+        $images = $ImageDomain . "Grade_4/Lesson_34/Reading_passage/";
+        $audios = $AudioDomain . "Grade_4/Lesson_34/Reading_passage/";
+
+         $para = "How are you? I want to tell you about my last weekend. I visited to Singapore last week. I stayed at my aunt’s house for 3 days. She was very nice and friendly. She prepared special meals for us. How nice! On Saturday, I visited the amusement park with my parents. In the evening, I played badminton with my cousin, Brayan, my aunt’s son. On Sunday, we went shopping the whole day. On Monday morning, we went to the restaurant and ate chicken rice. It was so yummy! I had a wonderful week. Tell me about your weekend, Max.";
+
+        $given_q = [
+            ["Where did Max go?", "Singapore"],
+            ["Where did he stay there?", "At his aunt's"],
+            ["What did she do for Max?", "Prepared a meal"],
+            ["Where did they visit on Saturday morning?", "Amusement Park"],
+            ["What did he do on Saturday evening?", "Played badminton"],
+            ["What did he do on Sunday?", "Went shopping"],
+
+        ];
+
+        $given_audio = [
+            "max-go.mp3",
+            "stay-there.mp3",
+            "she-do-for-max.mp3",
+            "saturday-morning.mp3",
+            "saturday-evening.mp3",
+            "sunday.mp3",
+        ];
+
+        $paraName = "dear-max.mp3";
+
+        $given_answer = [
+            ['Thailand', 'China','Singapore'],
+            ['At a hotel', "At a motel", "At his aunt's"],
+            ['Prepared a meal', 'Drove them somewhere', 'Bought presents'],
+            ['Garden', "Amusement Park", "Shopping Mall"],
+            ['Listened to Music', 'Played badminton','Visited the zoo'],
+            ['Went shopping', 'Dusted his bedroom', 'visited the zoo'],
+        ];
+
+
+        for ($i = 0; $i < count($given_answer); $i++) {
+
+
+            foreach ($given_answer[$i] as $k => $value) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1,
+                        'game_id' => 1027,
+                        'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        'q_content' => $value,
+                        'a_content' => $value == $given_q[$i][1] ? 1 : 0
+                    ]
+                ]);
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'game_id' => 1027,
+                    'q_audio' => $audios . $given_audio[$i],
+                    'q_conver' => $given_q[$i][0],    //giver Q
+                ]
+            ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'game_id' => 1027,
+                    'q_audio' => $audios . $paraName,
+                    'q_content' => "Dear Max",
+                    'q_conver' => $para,
+                    'background' => $images . "bg.png"
+                ]
+            ]);
+        }
+
+
+
+
+
+ /// Unit 5 Speaking Topic <speaking_and_recording>
+
+
+        $images = $ImageDomain . "Grade_4/Lesson_34/Speaking_Topic/";
+        $audios = $AudioDomain . "Grade_4/Lesson_34/Speaking_Topic/";
+
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1028,
+                'round' => 1,
+                'a_conver' => "image.png",
+                'q_audio' => $audio."complete-following-sentence.mp3",
+                'q_image' => $images . "red-starfish.png",
+            ]
+
+        ]);
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1028,
+                'round' => 2,
+                'q_content' => "What did you do on Monday? \n What did you do on Tuesday? \n What did you do on Wednesday? \n
+                 What did you do on Thursday? \n  What did you do on Friday? \n What did you do on Saturday \n What did you do on Sunday",
+                'q_audio' => $audio."what-do-u-do-this-week.mp3",
+                'q_image' => $images . "green-starfish.png",
+            ]
+
+        ]);
+
+
+
+
+/////////////////////////////////////////// End of Lesson 34 ///////////////////////////////////////
+
+
+
+///////////////////////////////////////////// Lesson 35 ///////////////////////////////////////////
+
+
+    // Unit - 1 Listen and Repeat  (Reading_carousel)
+
+
+    $contents = [
+        "bus-stop", "car-park", "dinning-table", "fast-food", "ice-cream", "living-room",
+        "lunch-box", "phone", "orange-juice", "pencil-case", "shopping-center", "pool",
+        "message"
+    ];
+
+
+    $audio = $AudioDomain."Grade_4/Lesson_35/Listen_and_Repeat/";
+    $img = $ImageDomain."Grade_4/Lesson_35/Listen_and_Repeat/";
+
+    foreach ($contents as $val) {
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1029,
+                'a_content' => $val,
+                'a_image' => $img.$this->removeSpace($val).".png",
+                'a_audio' => $audio.$this->removeSpace($val).".mp3"
+            ],
+        ]);
+    }
+
+
+
+    // Lesson 35 Unit - 2 Spelling Game <rearrange_with_audio>
+
+        $v = [
+            ['INDGINBETAL'],
+            ['NGOPHSIPCRENTE'],
+            ['TASFDOOF'],
+            ['CNIEAPISEC'],
+            ['TTXESEMEGAS'],
+            ['AGNEROICUEJ'],
+        ];
+
+
+        $given_ans = array_map(function($arr) {
+            return str_split($arr[0]);
+        }, $v);
+
+
+
+
+        $img = $ImageDomain . "Grade_4/Lesson_35/Spelling_Game/";
+        $audio = $AudioDomain . "Grade_4/Lesson_35/Spelling_Game/";
+
+        $answers = [
+            'DINNING TABLE','SHOPPING MALL', 'FAST FOOD', 'PENCIL CASE', 'TEXT MESSAGE', 'ORANGE JUICE'
+        ];
+
+
+        for ($i = 0; $i < count($given_ans); $i++) {
+
+            foreach ($given_ans[$i]  as  $innerVal) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 1030,
+                        'round' => $i + 1,
+                        'q_content' => $innerVal
+                    ]
+                ]);
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 1030,
+                    'round' => $i + 1,
+                    'q_image' => $img . ucfirst(strtolower($answers[$i])) . ".png",
+                    // 'q_content' => $questions[$i],
+                    'a_audio' => $audio . ucfirst(strtolower($answers[$i])) . ".mp3",
+                    'a_content' => $answers[$i],
+                ]
+            ]);
+        }
+
+
+
+
+    /// Lesson 35 Unit -3 Practice 1 <matching_columns>
+
+
+ // For round - 1 (without Image)
+
+        $audio = $AudioDomain."Grade_4/Lesson_35/Practice/";
+        $img = $ImageDomain."Grade_4/Lesson_35/Practice/";
+
+
+        $contents = [
+            ['Write','Read','Ride','Wear','Go'],
+        ];
+
+        $rightContents = [
+            ['Wrote','Read','Rode','Wrote','Went'],
+        ];
+
+
+
+        for ($i = 0; $i < count($contents); $i++) {
+
+            foreach ($contents[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 1031,
+                        // 'round' => $i + 1,
+                        'q_content' => $q,
+                        'q_image' => $q,
+                        'q_audio' => $audio . $this->removeSpace(strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+
+
+            foreach ($rightContents[$i] as $k => $q) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 1031,
+                        // 'round' => $i + 1,
+                        'q_content' =>  $this->removeSpace(strtolower($contents[$i][$k])),
+                        // 'q_image' => $img . $this->removeSpace(strtolower($q)) . ".png",
+                        'q_image' =>$q ,
+                        'q_audio' => $audio .  $this->removeSpace(strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+        }
+
+
+
+// Lesson 35 Unit - 4 Practice <fill_in_the_blank_three>
+
+
+    $questions = [
+        "Sue _________ a letter to her grandmother last night.",
+        "Jack _________ a horse with his dad last weekend.",
+        "He ___________ a shirt and pants yesterday.",
+        "Anna ____________ a lot of books last night.",
+        "I __________ a lot of ice-creams yesterday.",
+        "I ___________ to the shopping mall yesterday.",
+    ];
+
+    $given_ques = [
+        ['Rode', 'Spoke', 'Wrote'],
+        ['Rode', 'Wore', 'Spoke'],
+        ['Wore', 'Spoke', 'Wrote'],
+        ['Wore', 'Read','Spoke',],
+        ['Ate', 'Rode','Wrote',],
+        ['Went', 'Read','Rode',],
+
+    ];
+
+    $ans = [
+        "Wrote","Rode","Wore","Read","Ate","Went"
+    ];
+
+
+    $audio = $AudioDomain."Grade_4/Lesson_35/Listening_Practice/";
+    $img = $ImageDomain."Grade_4/Lesson_35/Listening_Practice/";
+
+    $ques_audio = [
+        'sue','jack','he','anna','i-cream','shopping'
+    ];
+
+        foreach ($questions as $key => $val) {
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1032,
+                'round' => $key + 1,
+                'q_audio' => $audio.$this->removeSpace($ques_audio[$key]).".mp3",
+                // 'q_audio' => $audio.$story.".mp3",
+                'q_content' => $given_ques[$key][0],
+                'q_conver'  => $val."?",
+                'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
+            ]
+        ]);
+
+
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1032,
+                'round'  => $key +  1,
+                'q_content' => $given_ques[$key][1],
+                'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
+            ]
+        ]);
+
+        if(isset($given_ques[$key][2])){
+            DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 1032,
+                        'round'  => $key +  1,
+                        'q_content' => $given_ques[$key][2],
+                        'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
+                    ]
+                ]);
+        }
+
+    }
+
+
+
+
+
+ // Lesson 35 Unit 5 Speaking Practice <Speaking_and_recording>
+
+    $contents = [
+        'reading','riding','swimming','cinema','watch-tv','horse-riding'
+    ];
+
+    $Question_contents = "What did you do last night? \n ____.\n I went to the shopping mall. \n What did you buy? \n ____.";
+
+
+    $images = $ImageDomain . "Grade_4/Lesson_35/Speaking/";
+    $audios = $AudioDomain . "Grade_4/Lesson_35/Speaking/";
+
+    foreach ($contents as $key => $value) {
+
+        DB::table('ans_n_ques')->insert([
+
+            [
+                'game_id' => 1033,
+                'round' => $key + 1,
+                'round_instruction' => $audio.$this->removeSpace($contents[$key])."_round_ins".".mp3",
+                'q_content' => $Question_contents,
+                // 'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
+                'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
+            ]
+
+        ]);
+    }
+
+
+    // Lesson 35 Unit - 6 Listening Practice <listening_choosing_answer>
+
+
+    $questions = [
+        "What did Tom do on Monday",
+        "What did he do on Tuesday",
+        "Where did he go on Thursday",
+        "Who did he go there with",
+        "Where did he go",
+        "What did he do there",
+    ];
+
+    $given_ques = [
+        ['Went to school', 'Stayed at home','Went to the park'],
+        ['Went to school', 'Stayed at home','Went to the park'],
+        ['The shopping mall', 'Cinema','The library'],
+        ['His friends', 'His parents','His brothers'],
+        ['The library', 'The park','The shopping mall'],
+        ['His friends', 'His parents','His brothers'],
+    ];
+
+    $ans = [
+        "Stayed at home","Went to school","Cinema","His parents", "The park", "His brothers"
+    ];
+
+
+    $audio = $AudioDomain."Grade_4/Lesson_35/Listening_practice/";
+    $img = $ImageDomain."Grade_4/Lesson_35/Listening_practice/";
+
+    $story = "What-did-you-do-last-week";
+
+        foreach ($questions as $key => $val) {
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1034,
+                'round' => $key + 1,
+                // 'q_audio' => $audio.$ans[$key].".mp3",
+                'q_audio' => $audio.$story.".mp3",
+                'q_content' => $given_ques[$key][0],
+                'q_conver'  => $val."?",
+                'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
+            ]
+        ]);
+
+
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1034,
+                'round'  => $key +  1,
+                'q_content' => $given_ques[$key][1],
+                'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
+            ]
+        ]);
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1034,
+                'round'  => $key +  1,
+                'q_content' => $given_ques[$key][2],
+                'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
+            ]
+        ]);
+    }
+
+
+
+
+
+     /// Lesson 35 Unit - 7 Speaking Topic <speaking_and_recording>
+
+
+        $images = $ImageDomain . "Grade_4/Lesson35/Speaking_Topic/";
+        $audios = $AudioDomain . "Grade_4/Lesson_35/Speaking_Topic/";
+
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1035,
+                'q_content' => "Take notes on the table.\n Talk about what you did last week.",
+                'q_audio' => $audio."take-notes-on-the-table.mp3",
+                'q_image' => $images . "green-starfish.png",
+            ]
+
+        ]);
+
+
+
+    // Lesson 35 Unit - 8 Writing Topic <writing_topic>
+
+
+        $images = $ImageDomain . "Grade_4/Lesson_35/Writing_Topic/";
+        $audios = $AudioDomain . "Grade_4/Lesson_35/Writing_Topic/";
+
+        $sample_content = "Dear Max, \n Last Monday, I phoned my grandmother. On Tueday, I helped my mother. \n On Wednesday, I went to the cinema with my sisters. On Thursday, I went shopping with my parents. \n  On Friday, I studied English in the evening. What about you? \n What did you do last week? \n \n Anna";
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1036,
+                'q_image' => "someImg"."png",
+                'a_content' => $sample_content
+            ],
+        ]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
