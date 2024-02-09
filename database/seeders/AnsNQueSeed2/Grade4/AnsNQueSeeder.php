@@ -4997,7 +4997,7 @@ class AnsNQueSeeder extends Seeder
         $l25_G959image = $domain . "/storage/images/Grade_4/lesson_25/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 959,  'q_image' => $l25_G959image . "pic.png", "q_audio" => $AudioDomain . $G4_L25_speaking_topic . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L24_speaking_topic . "SubBlock_Look-at-the-pictures-below-De" . ".mp3", "q_content" => "What's he wearing? What's she wearing?\nHe's wearing ______________________.\nShe's wearing ______________________."],
+            ['round' => 1, 'game_id' => 959,  'q_image' => $l25_G959image . "pic.png", "q_audio" => $AudioDomain . $G4_L25_speaking_topic . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L25_speaking_topic . "SubBlock_Look-at-the-pictures-below-De" . ".mp3", "q_content" => "What's he wearing? What's she wearing?\nHe's wearing ______________________.\nShe's wearing ______________________."],
         ]);
 
 
@@ -5021,20 +5021,20 @@ class AnsNQueSeeder extends Seeder
 
 
         //////////////////////////////////////////////////////////////
-        ////    Grade 4  Lesson 38 Game ___1  ( Listen and Repeat )
+        ////    Grade 4  Lesson 38 Game 1047  ( Listen and Repeat )
         //////////////////////////////////////////////////////////////
 
-        $l38_G___1_image = $domain . "/storage/images/Grade_4/lesson_38/listen_n_repeat/";
+        $l38_G1047_image = $domain . "/storage/images/Grade_4/lesson_38/listen_n_repeat/";
         $G4_L38_listen_n_repeat = "Grade_4/" . "Lesson_38/" . "listen_n_repeat/";
 
-        $ans_G___1 = [
+        $ans_G1047 = [
             "what-will-she", "what-will-he", "what-will-they",
         ];
 
-        foreach ($ans_G___1 as $key) {
+        foreach ($ans_G1047 as $key) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => null, 'a_content' => $key, 'a_image' => $l38_G___1_image . "1/" . $key  . ".png",
+                    'game_id' => 1047, 'a_content' => $key, 'a_image' => $l38_G1047_image . "1/" . $key  . ".png",
                     'a_audio' => $AudioDomain . $G4_L38_listen_n_repeat . strtolower($key) . ".mp3"
                 ],
             ]);
@@ -5042,23 +5042,246 @@ class AnsNQueSeeder extends Seeder
 
 
         //////////////////////////////////////////////////////////////
-        ////    Grade 4  Lesson 38 Game ___2 (  Speaking Practice )
+        ////    Grade 4  Lesson 38 Game 1048 (  Speaking Practice )
         //////////////////////////////////////////////////////////////
 
         $G4_L38_practice_speaking = "Grade_4/" . "Lesson_38/" . "speaking_practice/";
-        $l38_G___2image = $domain . "/storage/images/Grade_4/lesson_38/speaking_practice/";
+        $l38_G1048image = $domain . "/storage/images/Grade_4/lesson_38/speaking_practice/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => null,  'q_image' => $l38_G___2image . "pyjama.png", "q_audio" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3", "q_content" => "Q: What will you do on tomorrow?\nA: _____________________.",  "a_content" => "Sample \nQ: What will you do tomorrow?\nA: I will stay at home tomorrow."],
+            ['round' => 1, 'game_id' => 1048,  'q_image' => $l38_G1048image . "tomorrow.png", "q_audio" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3", "q_content" => "Q: What will you do on tomorrow?\nA: _____________________.",  "a_content" => "Sample \nQ: What will you do tomorrow?\nA: I will stay at home tomorrow."],
         ]);
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 2, 'game_id' => null,  'q_image' => $l38_G___2image . "flower.png", "q_audio" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3",  "q_content" => "Q: What will you do on Monday?\nA: _____________________."],
-            ['round' => 3, 'game_id' => null,  'q_image' => $l38_G___2image . "skirt.png", "q_audio" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3",  "q_content" => "Q: What will you do on Tuesday?\nA: _____________________."],
-            ['round' => 4, 'game_id' => null,  'q_image' => $l38_G___2image . "sunglasses.png", "q_audio" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3",  "q_content" => "Q: What will you do on Wednesday?\nA: _____________________."],
-            ['round' => 5, 'game_id' => null,  'q_image' => $l38_G___2image . "sweater.png", "q_audio" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3",  "q_content" => "Q: What will you do on Thursday?\nA: _____________________."],
-            ['round' => 6, 'game_id' => null,  'q_image' => $l38_G___2image . "trainers.png", "q_audio" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3",  "q_content" => "Q: What will you do on Friday?\nA: _____________________."],
-            ['round' => 7, 'game_id' => null,  'q_image' => $l38_G___2image . "t-shirt.png", "q_audio" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3",  "q_content" => "Q: What will you do on Saturday?\nA: _____________________."],
+            ['round' => 2, 'game_id' => 1048,  'q_image' => $l38_G1048image . "grandma.png", "q_audio" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3",  "q_content" => "Q: What will you do on Monday?\nA: _____________________."],
+            ['round' => 3, 'game_id' => 1048,  'q_image' => $l38_G1048image . "watching.png", "q_audio" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3",  "q_content" => "Q: What will you do on Tuesday?\nA: _____________________."],
+            ['round' => 4, 'game_id' => 1048,  'q_image' => $l38_G1048image . "grandma.png", "q_audio" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3",  "q_content" => "Q: What will you do on Wednesday?\nA: _____________________."],
+            ['round' => 5, 'game_id' => 1048,  'q_image' => $l38_G1048image . "cinema.png", "q_audio" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3",  "q_content" => "Q: What will you do on Thursday?\nA: _____________________."],
+            ['round' => 6, 'game_id' => 1048,  'q_image' => $l38_G1048image . "swim.png", "q_audio" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3",  "q_content" => "Q: What will you do on Friday?\nA: _____________________."],
+            ['round' => 7, 'game_id' => 1048,  'q_image' => $l38_G1048image . "read.png", "q_audio" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L38_practice_speaking . "" . ".mp3",  "q_content" => "Q: What will you do on Saturday?\nA: _____________________."],
+        ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 38 Game 1049 ( Listening Practice )
+        ////////////////////////////////////////////////////////
+
+        $l38_G1049_image = $domain . "/storage/images/Grade_4/lesson_38/listening_practice/";
+        $G4_L38_listening = "Grade_4/" . "Lesson_38/" . "listening_practice/";
+
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 1049,  'q_audio' =>  $AudioDomain . $G4_L38_listening . "SubBlock_She-will-go-to-the-supermarket" . ".mp3", "q_conver" => "What will she buy there?", "q_content" => "A T-shirt", "a_content" => 0],
+            ['round' => 1, 'game_id' => 1049,  'q_audio' =>  null, "q_conver" => null, "q_content" => "A skirt", "a_content" => 0],
+            ['round' => 1, 'game_id' => 1049,  'q_audio' =>  null, "q_conver" => null, "q_content" => "A dress", "a_content" => 1],
+
+            ['round' => 2, 'game_id' => 1049,  'q_audio' =>  $AudioDomain . $G4_L38_listening . "SubBlock_He-will-stay-at-home-and-help" . ".mp3", "q_conver" => "What will he do after?", "q_content" => "Wiil stay at home",  "a_content" => 0],
+            ['round' => 2, 'game_id' => 1049,  'q_audio' =>  null, "q_conver" => null, "q_content" => "Will help his mother", "a_content" => 0],
+            ['round' => 2, 'game_id' => 1049,  'q_audio' =>  null, "q_conver" => null, "q_content" => "Will ride a bicycle", "a_content" => 1],
+
+            ['round' => 3, 'game_id' => 1049,  'q_audio' =>  $AudioDomain . $G4_L38_listening . "SubBlock_He-will-go-to-the-swimming-poo" . ".mp3", "q_conver" => "Who will he help?", "q_content" => "His mother", "a_content" => 1],
+            ['round' => 3, 'game_id' => 1049,  'q_audio' =>  null, "q_conver" => null, "q_content" => "His sister", "a_content" => 0],
+            ['round' => 3, 'game_id' => 1049,  'q_audio' =>  null, "q_conver" => null, "q_content" => "His brother", "a_content" => 0],
+        ]);
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 38 Game 1050 (  Practice  )
+        ////////////////////////////////////////////////////////
+
+        $l38_G1050_image = $domain . "/storage/images/Grade_4/lesson_38/reading_passage/";
+        $G4_L38_reading_passage_path = "Grade_4/" . "Lesson_38/" . "reading_passage/";
+
+        $l38_G1050_q_audio = [
+            "SubBlock_Where-will-Emma-go-on-Monday",
+            "SubBlock_What-will-Emma-do-from-Tuesday",
+            "SubBlock_What-will-she-do-in-the-evenin",
+            "SubBlock_Where-will-she-go-on-Friday-a",
+            "SubBlock_Who-will-she-go-there-with-He",
+            "SubBlock_What-will-she-do-on-Saturday"
+        ];
+        $l38_G1050_q_conver = [
+            "Where will Emma go on Monday?",
+            "What will Emma do from Tuesday to Thursday?",
+            "What will she do in the evening?",
+            "Where will she go on Friday?",
+            "Who will she go there with?",
+            "What will she do on Saturday?",
+        ];
+        $l38_G1050_q_audio_ans = [
+            ["The sport centre", "The swimming pool", "The restaurant "],
+            ["The sport centre", "The school", "The restaurant "],
+            ["Will swim", "Will play badminton", "Will ride a bicycle"],
+            ["A restaurant ", "A library", "A shopping centre"],
+            ["Her parents", "Her friends", "Her sister"],
+            ["Go shopping", "Will swim", "Will stay at home "]
+        ];
+        $l38_G1050_q_audio_a_content = [
+            [0, 1, 0],
+            [0, 1, 0],
+            [0, 1, 0],
+            [1, 0, 0],
+            [1, 0, 0],
+            [1, 0, 0],
+        ];
+
+
+        for ($i = 0; $i < count($l38_G1050_q_audio); $i++) {
+
+            foreach ($l38_G1050_q_audio_ans[$i] as $key => $val) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 1050, "q_audio" => $AudioDomain . $G4_L38_reading_passage_path . str_replace(' ', '-', strtolower($val)) . ".mp3", 'q_content' => $val, 'a_content' => $l38_G1050_q_audio_a_content[$i][$key]],
+                ]);
+            }
+
+            foreach ($l38_G1050_q_audio as $key => $val) {
+                DB::table('ans_n_ques')->insert([
+                    ['round' => $i + 1, 'game_id' => 1050, "q_audio" => $AudioDomain . $G4_L38_reading_passage_path . $val . ".mp3", "q_conver" => $l38_G1050_q_conver[$key]],
+                ]);
+            }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1, 'game_id' => 1050, "q_audio" => $AudioDomain . $G4_L38_reading_passage_path . "SubBlock_Hi-I-am-Emma-This-is-my-plan" . ".mp3", "q_conver" => "Hi! I am Emma. This is my plan for next week. I will go to the swimming pool with my sister on Monday. I am excited. From Tuesday to Thursday, I will go to school. In the evening, I will play badminton with my brother. He is very good at playing badminton. I will go to a restaurant with my parents on Friday. Then, on Saturday, we will go shopping together. On Sunday, I will stay at home and watch TV.",
+                    'a_content' => null, "q_content" => "My plan for next week", "background" => $l38_G1050_image . "bg.png"
+                ],
+            ]);
+        }
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 38 Game 1051 (  Speaking topic )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L38_speaking_topic = "Grade_4/" . "Lesson_38/" . "speaking_topic/";
+        $l38_G1051image = $domain . "/storage/images/Grade_4/lesson_38/speaking_topic/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 1051,  'q_image' => $l38_G1051image . "green-star.png", "round_instruction" => $AudioDomain . $G4_L38_speaking_topic . "SubBlock_Look-at-the-table-below-Talk" . ".mp3", "q_content" => $l38_G1051image . "text.png"],
+        ]);
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 39 Game 1052 ( video )
+        //////////////////////////////////////////////////////////////
+
+
+        DB::table('ans_n_ques')->insert(['game_id' => 1052, 'a_content' => 'lesson_39_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 1052, 'a_content' => 'lesson_39_video_global', 'isLocal' => 0]);
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 39 Game 1053 , 1054 ( Listen and Repeat )
+        //////////////////////////////////////////////////////////////
+
+        $l39_G1053_G1054_image = $domain . "/storage/images/Grade_4/lesson_39/listen_n_repeat/";
+        $G4_L39_listen_n_repeat = "Grade_4/" . "Lesson_39/" . "listen_n_repeat/";
+
+
+        // Game 1053
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 1053, 'a_image' => $l39_G1053_G1054_image . "girl.gif", "a_audio" => $AudioDomain . $G4_L39_listen_n_repeat . "audio.mp3", "a_conver" => $l39_G1053_G1054_image . "hello.png", "background" =>  $l39_G1053_G1054_image . "bg.png"],
+            ['round' => 1, 'game_id' => 1053, 'a_image' => $l39_G1053_G1054_image . "boy.gif", "a_audio" => $AudioDomain . $G4_L39_listen_n_repeat . "audio.mp3", "a_conver" => $l39_G1053_G1054_image . "hello-may-i-speak.png", "background" =>  $l39_G1053_G1054_image . "bg.png"],
+
+            ['round' => 2, 'game_id' => 1053, 'a_image' => $l39_G1053_G1054_image . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L39_listen_n_repeat . "audio.mp3", "a_conver" => $l39_G1053_G1054_image . "this-is-anna.png", "background" =>  $l39_G1053_G1054_image . "bg.png"],
+            ['round' => 2, 'game_id' => 1053, 'a_image' => $l39_G1053_G1054_image . "boy.gif", "a_audio" => $AudioDomain . $G4_L39_listen_n_repeat . "audio.mp3", "a_conver" => $l39_G1053_G1054_image . "hi-anna-this-is-max.png", "background" =>  $l39_G1053_G1054_image . "bg.png"],
+
+            ['round' => 3, 'game_id' => 1053, 'a_image' => $l39_G1053_G1054_image . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L39_listen_n_repeat . "audio.mp3", "a_conver" => $l39_G1053_G1054_image . "that-sound-great.png", "background" =>  $l39_G1053_G1054_image . "bg.png"],
+            ['round' => 3, 'game_id' => 1053, 'a_image' => $l39_G1053_G1054_image . "boy.gif", "a_audio" => $AudioDomain . $G4_L39_listen_n_repeat . "audio.mp3", "a_conver" => $l39_G1053_G1054_image . "at-6.png", "background" =>  $l39_G1053_G1054_image . "bg.png"],
+
+            ['round' => 4, 'game_id' => 1053, 'a_image' => $l39_G1053_G1054_image . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L39_listen_n_repeat . "audio.mp3", "a_conver" => $l39_G1053_G1054_image . "ok-i-be-there.png", "background" =>  $l39_G1053_G1054_image . "bg.png"],
+            ['round' => 4, 'game_id' => 1053, 'a_image' => $l39_G1053_G1054_image . "boy.gif", "a_audio" => $AudioDomain . $G4_L39_listen_n_repeat . "audio.mp3", "a_conver" => $l39_G1053_G1054_image . "see-u.png", "background" =>  $l39_G1053_G1054_image . "bg.png"],
+
+        ]);
+
+        // Game 1054
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 1054, 'a_image' => $l39_G1053_G1054_image . "girl.gif", "a_audio" => $AudioDomain . $G4_L39_listen_n_repeat . "audio.mp3", "a_conver" => $l39_G1053_G1054_image . "i-will-go-to-mus.png", "background" =>  $l39_G1053_G1054_image . "bg.png"],
+            ['round' => 1, 'game_id' => 1054, 'a_image' => $l39_G1053_G1054_image . "boy.gif", "a_audio" => $AudioDomain . $G4_L39_listen_n_repeat . "audio.mp3", "a_conver" => $l39_G1053_G1054_image . "the-mus-that-sound.png", "background" =>  $l39_G1053_G1054_image . "bg.png"],
+
+            ['round' => 2, 'game_id' => 1054, 'a_image' => $l39_G1053_G1054_image . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L39_listen_n_repeat . "audio.mp3", "a_conver" => $l39_G1053_G1054_image . "would-you-like-to.png", "background" =>  $l39_G1053_G1054_image . "bg.png"],
+            ['round' => 2, 'game_id' => 1054, 'a_image' => $l39_G1053_G1054_image . "boy.gif", "a_audio" => $AudioDomain . $G4_L39_listen_n_repeat . "audio.mp3", "a_conver" => $l39_G1053_G1054_image . "sure-i-would.png", "background" =>  $l39_G1053_G1054_image . "bg.png"],
+        ]);
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 39 Game 1055 (  Speaking Practice )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L39_practice_speaking = "Grade_4/" . "Lesson_39/" . "speaking_practice/";
+        $l39_G1055image = $domain . "/storage/images/Grade_4/lesson_39/speaking_practice/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 1055,  'q_image' => $l39_G1055image . "museum.png", "q_audio" => $AudioDomain . $G4_L39_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L39_practice_speaking . "" . ".mp3", "q_content" => "A: I will go to _______ with my aunt tomorrow.\nB: The museum! That sounds great.\nA: Would you like to join us?\nB: __________________________.",  "a_content" => "Sample \nA: I will go to the museum with my aunt tomorrow.\nB: The museum! That sounds great.\nA: Would you like to join us?\nB: Sure, I would love to."],
+        ]);
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 2, 'game_id' => 1055,  'q_image' => $l39_G1055image . "shopping-centre.png", "q_audio" => $AudioDomain . $G4_L39_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L39_practice_speaking . "SubBlock_Look-at-the-following-picture" . ".mp3",  "q_content" => "A: I will go to _______ with my aunt tomorrow.\nB: The shopping centre! That sounds great.\nA: Would you like to join us?\nB: __________________________."],
+            ['round' => 3, 'game_id' => 1055,  'q_image' => $l39_G1055image . "zoo.png", "q_audio" => $AudioDomain . $G4_L39_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L39_practice_speaking . "SubBlock_Look-at-the-following-picture" . ".mp3",  "q_content" => "A: I will go to _______ with my aunt tomorrow.\nB: The zoo! That sounds great.\nA: Would you like to join us?\nB: __________________________."],
+            ['round' => 4, 'game_id' => 1055,  'q_image' => $l39_G1055image . "library.png", "q_audio" => $AudioDomain . $G4_L39_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L39_practice_speaking . "SubBlock_Look-at-the-following-picture" . ".mp3",  "q_content" => "A: I will go to _______ with my aunt tomorrow.\nB: The library! That sounds great.\nA: Would you like to join us?\nB: __________________________."],
+            ['round' => 5, 'game_id' => 1055,  'q_image' => $l39_G1055image . "swim.png", "q_audio" => $AudioDomain . $G4_L39_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L39_practice_speaking . "SubBlock_Look-at-the-following-picture" . ".mp3",  "q_content" => "A: I will go to _______ with my aunt tomorrow.\nB:_______! That sounds great.\nA: __________________?\nB: __________________________."],
+            ['round' => 6, 'game_id' => 1055,  'q_image' => $l39_G1055image . "cinema.png", "q_audio" => $AudioDomain . $G4_L39_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L39_practice_speaking . "SubBlock_Look-at-the-following-picture" . ".mp3",  "q_content" => "A: I will go to _______ with my aunt tomorrow.\nB: _______! That sounds great.\nA: __________________?\nB: __________________________."],
+            ['round' => 7, 'game_id' => 1055,  'q_image' => $l39_G1055image . "playground.png", "q_audio" => $AudioDomain . $G4_L39_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L39_practice_speaking . "SubBlock_Look-at-the-following-picture" . ".mp3",  "q_content" => "A: I will go to _______ with my aunt tomorrow.\nB: _______! That sounds great.\nA: __________________?\nB: __________________________."],
+        ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 39 Game 1056 ( Listening Practice )
+        ////////////////////////////////////////////////////////
+
+        $l39_G1056_image = $domain . "/storage/images/Grade_4/lesson_39/listening_practice/";
+        $G4_L39_listening = "Grade_4/" . "Lesson_39/" . "listening_practice/";
+
+
+        DB::table('ans_n_ques')->insert([
+
+            ['round' => 1, 'game_id' => 1056,  'q_audio' =>  $AudioDomain . $G4_L39_listening . "conver" . ".mp3", "q_conver" => "Where will Max's friend go?", "q_content" => "The park", "a_content" => 0],
+            ['round' => 1, 'game_id' => 1056,  'q_audio' =>  null, "q_conver" => null, "q_content" => "The zoo", "a_content" => 1],
+            ['round' => 1, 'game_id' => 1056,  'q_audio' =>  null, "q_conver" => null, "q_content" => "The shopping centre", "a_content" => 0],
+
+            ['round' => 2, 'game_id' => 1056,  'q_audio' =>  $AudioDomain . $G4_L39_listening . "conver" . ".mp3", "q_conver" => "Will Max join him?", "q_content" => "Yes, he will",  "a_content" => 1],
+            ['round' => 2, 'game_id' => 1056,  'q_audio' =>  null, "q_conver" => null, "q_content" => "No, he won't", "a_content" => 0],
+
+            ['round' => 3, 'game_id' => 1056,  'q_audio' =>  $AudioDomain . $G4_L39_listening . "conver" . ".mp3", "q_conver" => "Where will Jack's friend go?", "q_content" => "The park", "a_content" => 1],
+            ['round' => 3, 'game_id' => 1056,  'q_audio' =>  null, "q_conver" => null, "q_content" => "The zoo", "a_content" => 0],
+            ['round' => 3, 'game_id' => 1056,  'q_audio' =>  null, "q_conver" => null, "q_content" => "The shopping centre", "a_content" => 0],
+
+            ['round' => 4, 'game_id' => 1056,  'q_audio' =>  $AudioDomain . $G4_L39_listening . "conver" . ".mp3", "q_conver" => "Will Jack join him?", "q_content" => "Yes, he will", "a_content" => 1],
+            ['round' => 4, 'game_id' => 1056,  'q_audio' =>  null, "q_conver" => null, "q_content" => "No, he won't", "a_content" => 0],
+
+            ['round' => 5, 'game_id' => 1056,  'q_audio' =>  $AudioDomain . $G4_L39_listening . "conver" . ".mp3", "q_conver" => "When will Rose's friend go to the shopping centre?", "q_content" => "The park", "a_content" => 0],
+            ['round' => 5, 'game_id' => 1056,  'q_audio' =>  null, "q_conver" => null, "q_content" => "The zoo", "a_content" => 0],
+            ['round' => 5, 'game_id' => 1056,  'q_audio' =>  null, "q_conver" => null, "q_content" => "The shopping centre", "a_content" => 1],
+
+            ['round' => 6, 'game_id' => 1056,  'q_audio' =>  $AudioDomain . $G4_L39_listening . "conver" . ".mp3", "q_conver" => "Will she join him? ", "q_content" => "Yes, she will", "a_content" => 0],
+            ['round' => 6, 'game_id' => 1056,  'q_audio' =>  null, "q_conver" => null, "q_content" => "No, she won't", "a_content" => 1],
+
+        ]);
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 39 Game 1057 (  Speaking topic )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L39_speaking_topic = "Grade_4/" . "Lesson_39/" . "speaking_topic/";
+        $l39_G1057image = $domain . "/storage/images/Grade_4/lesson_39/speaking_topic/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 1057,  'q_image' => $l39_G1057image . "green-star.png", "round_instruction" => $AudioDomain . $G4_L39_speaking_topic . "SubBlock_Look-at-the-given-question-Re" . ".mp3", "q_content" => "A: Would you like to go to the library with me?\nB: Yes, ___________________."],
+            ['round' => 2, 'game_id' => 1057,  'q_image' => $l39_G1057image . "green-star.png", "round_instruction" => $AudioDomain . $G4_L39_speaking_topic . "SubBlock_Look-at-the-given-question-Re" . ".mp3", "q_content" => "A: Would you like to go to the swimming pool with me?\nB: I am sorry. ___________________."],
+            ['round' => 3, 'game_id' => 1057,  'q_image' => $l39_G1057image . "green-star.png", "round_instruction" => $AudioDomain . $G4_L39_speaking_topic . "SubBlock_Look-at-the-given-question-Re" . ".mp3", "q_content" => "A: ___________________? \nB: I am sorry. I can't."],
+            ['round' => 4, 'game_id' => 1057,  'q_image' => $l39_G1057image . "green-star.png", "round_instruction" => $AudioDomain . $G4_L39_speaking_topic . "SubBlock_Look-at-the-given-question-Re" . ".mp3", "q_content" => "A: ___________________? \nB: Sure, I would love to."],
         ]);
     }
 }
