@@ -4913,15 +4913,15 @@ class AnsNQueSeeder extends Seeder
 
         $G4_L25_Game956_practice = [
 
-            ['clipboard', 'marker', 'notebook', 'notepad', "crayon"],
-            ['pencil', 'pencil-case', 'eraser', "ruler",  'drawing-book'],
+            ['Trainers', 'Blouse', 'Skirt', 'T-shirt', "Sweater"],
+            ['Sunglasses', 'Eyeglasses', 'Cap', "Hat",  'Jacket'],
 
         ];
 
         $G4_L25_Game956_practice_image = [
 
-            ["crayon", 'notebook', 'notepad', 'clipboard', 'marker'],
-            ["ruler", 'eraser', 'drawing-book',  'pencil', 'pencil-case'],
+            ["Sweater", 'Skirt', 'T-shirt', 'Trainers', 'Blouse'],
+            ["Hat", 'Cap', 'Jacket',  'Sunglasses', 'Eyeglasses'],
 
         ];
 
@@ -4948,5 +4948,65 @@ class AnsNQueSeeder extends Seeder
                 ]);
             }
         }
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 25 Game 957 (  Speaking Practice )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L25_practice_speaking = "Grade_4/" . "Lesson_25/" . "speaking_practice/";
+        $l25_G957image = $domain . "/storage/images/Grade_4/lesson_25/speaking_practice/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 957,  'q_image' => $l25_G957image . "pyjama.png", "q_audio" => $AudioDomain . $G4_L25_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L25_practice_speaking . "SubBlock_Look-at-the-sample-picture-and" . ".mp3", "q_content" => "A: What's he wearing?\nB: __________________________.",  "a_content" => "Sample \nStudent A: What's he wearing?\nStudent B: He's wearing pyjamas."],
+        ]);
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 2, 'game_id' => 957,  'q_image' => $l25_G957image . "flower.png", "q_audio" => $AudioDomain . $G4_L25_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L25_practice_speaking . "SubBlock_Look-at-the-sample-picture-and" . ".mp3",  "q_content" => "A: What's she wearing?\nB: __________________________."],
+            ['round' => 3, 'game_id' => 957,  'q_image' => $l25_G957image . "skirt.png", "q_audio" => $AudioDomain . $G4_L25_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L25_practice_speaking . "SubBlock_Look-at-the-sample-picture-and" . ".mp3",  "q_content" => "A: What's she wearing?\nB: __________________________."],
+            ['round' => 4, 'game_id' => 957,  'q_image' => $l25_G957image . "sunglasses.png", "q_audio" => $AudioDomain . $G4_L25_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L25_practice_speaking . "SubBlock_Look-at-the-sample-picture-and" . ".mp3",  "q_content" => "A: What's she wearing?\nB: __________________________."],
+            ['round' => 5, 'game_id' => 957,  'q_image' => $l25_G957image . "sweater.png", "q_audio" => $AudioDomain . $G4_L25_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L25_practice_speaking . "SubBlock_Look-at-the-sample-picture-and" . ".mp3",  "q_content" => "A: What's he wearing?\nB: __________________________."],
+            ['round' => 6, 'game_id' => 957,  'q_image' => $l25_G957image . "trainers.png", "q_audio" => $AudioDomain . $G4_L25_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L25_practice_speaking . "SubBlock_Look-at-the-sample-picture-and" . ".mp3",  "q_content" => "A: What's he wearing?\nB: __________________________."],
+            ['round' => 7, 'game_id' => 957,  'q_image' => $l25_G957image . "t-shirt.png", "q_audio" => $AudioDomain . $G4_L25_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L25_practice_speaking . "SubBlock_Look-at-the-sample-picture-and" . ".mp3",  "q_content" => "A: What's he wearing?\nB: __________________________."],
+        ]);
+
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 25 Game 958 (  Listen and Practice )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L25_listen_n_practice = "Grade_25/Lesson_25/Listen_and_Practice/";
+        $l25_G958image = $domain .  "/storage/images/Grade_25/lesson_25/Listen_and_Practice/";
+
+        $G4L25U5 = range(1, 4);
+        $G4L25U5content = [
+            "Ben is wearing a sweater, pants, and trainers.",
+            "Anna is wearing a dress, a hat, and trainers.",
+            "Rose is wearing a blouse, a skirt, sunglasses and shoes.",
+            "Max is wearing a T-shirt, pants, and trainers."
+        ];
+
+        foreach ($G4L25U5 as $v) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 958, 'q_image' => $l25_G958image . $G4L25U5[$v - 1] . ".png",
+                    'q_audio' =>  $AudioDomain . $G4_L25_listen_n_practice . $G4L25U5[$v - 1] . ".mp3", 'a_content' => $G4L25U5content[$v - 1]
+                ],
+            ]);
+        }
+
+
+        //////////////////////////////////////////////////////////////
+        ////    Grade 4  Lesson 25 Game 959 (  Speaking topic )
+        //////////////////////////////////////////////////////////////
+
+        $G4_L25_speaking_topic = "Grade_4/" . "Lesson_25/" . "speaking_topic/";
+        $l25_G959image = $domain . "/storage/images/Grade_4/lesson_25/speaking_topic/";
+
+        DB::table('ans_n_ques')->insert([
+            ['round' => 1, 'game_id' => 959,  'q_image' => $l25_G959image . "pic.png", "q_audio" => $AudioDomain . $G4_L25_speaking_topic . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L24_speaking_topic . "SubBlock_Look-at-the-pictures-below-De" . ".mp3", "q_content" => "What's he wearing? What's she wearing?\nHe's wearing ______________________.\nShe's wearing ______________________."],
+        ]);
     }
 }

@@ -44,7 +44,7 @@ class CategorySeeder extends Seeder
             'mcq_sentence',
             'mcq_tf_grammar',
             'writing_topic',
-            'writing_opposite',
+            'writing_image_topic',
             'listening_and_choosing_pics_two',
             'listening_and_choosing_bubbles',
             'fill_in_the_blanks_two',
@@ -73,7 +73,7 @@ class CategorySeeder extends Seeder
             'listen_and_choose_three',
             'skimming_reading_passage',
             'listening_and_chossing_pics_three',
-            'memory_cards',
+            'look_writing_topic',
             'skimming_reading_conversation',
 
 
