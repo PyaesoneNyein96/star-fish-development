@@ -40,6 +40,8 @@ trait gameTraits2
      *  31. look_and_choose_two
      *  32. speaking_and_recording_conversation
      *  33. matching_columns_two
+     *  34. look_writing_topic
+     *  35. writing_image_topic
      *
      *
      */
@@ -202,6 +204,16 @@ trait gameTraits2
     }
 
     public function matching_columns_two($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
+    public function look_writing_topic($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
+    public function writing_image_topic($game, $student, $unit)
     {
         return $this->common_fun($game, $unit);
     }

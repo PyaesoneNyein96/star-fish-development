@@ -1990,7 +1990,7 @@ class AnsNQueSeeder extends Seeder
         $l10_G533image = $domain . "/storage/images/Grade_3/lesson_10/Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 533, "q_image" => $l10_G533image . "green-star.png", "q_content" => "Talk about your house?", "round_instruction" => $AudioDomain . $G3_L10_speaking . "SubBlock_talk-about-your-house" . ".mp3", "q_audio" => $AudioDomain . $G3_L10_speaking . "SubBlock_talk-about-your-house" . ".mp3"],
+            ['game_id' => 533, "q_image" => $l10_G533image . "green-star.png", "q_content" => "Talk about your house?", "round_instruction" => $AudioDomain . $G3_L10_speaking . "SubBlock_talk-about-your-house" . ".mp3", "q_audio" => $AudioDomain . $G3_L10_speaking . "SubBlock_talk-about-your-house" . ".mp3"],
         ]);
 
 
