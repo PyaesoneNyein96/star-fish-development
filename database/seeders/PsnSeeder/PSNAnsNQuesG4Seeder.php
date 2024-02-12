@@ -121,6 +121,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     'game_id' => 806,
                     'round' => $key + 1,
                     'q_image' => $img.$imgs[$key].".png",
+                    'q_audio' => $audio.$imgs[$key].".mp3",
                     'q_conver' => $ques_convers[$key] ,
                     'q_content' => $ga[0],
                     'a_content' => $ga[0] == $ans[$key] ? true : false
@@ -237,7 +238,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     [
                         'round' => $i + 1,
                         'game_id' => 808,
-                        'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $given_q[$i][1] ? 1 : 0
                     ]
@@ -393,8 +394,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 [
                     'game_id' => 811,
                     'a_content' => $val,
-                    'a_image' => $img.$this->removeSpace($val).".png",
-                    'a_audio' => $audio.$this->removeSpace($val).".mp3"
+                    'a_image' => $img.$this->removeSpace(ucfirst($val)).".png",
+                    'a_audio' => $audio.$this->removeSpace(ucfirst($val)).".mp3"
                 ],
             ]);
         }
@@ -415,8 +416,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
             ['seahorse','seahorses'],
             ['dolphin','dolphins'],
             ['shark','sharks'],
-            ['starfish','starfish'],
-            ['fish','fish'],
+            ['starfish','Starfish'],
+            ['fish','Fish'],
             ['whale','whales'],
             ['lobster','lobsters'],
             ['turtle','turtles'],
@@ -436,7 +437,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                         'game_id' => 812,
                         'a_content' => $v,
                         'a_image' => $img.$this->removeSpace($v).".png",
-                        'a_audio' => $audio.$this->removeSpace($v).".mp3",
+                        'a_audio' => $audio.$this->removeSpace(ucfirst($v)).".mp3",
                         'q_content' => $key
                     ],
                 ]);
@@ -639,9 +640,10 @@ class PSNAnsNQuesG4Seeder extends Seeder
              [
                  'game_id' => 816,
                  'round' => $key + 1,
-                //  'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                //  'round_instruction' => $audio.$this->removeSpace($value).".mp3",
+                 'round_instruction' => $audios."What-is-it".".mp3",
                  'q_content' => $Question_contents[0],
-                 'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                //  'q_audio' => $audio.$this->removeSpace($value).".mp3",
                  'q_image' => $images .$this->removeSpace($value) . ".png",
              ]
 
@@ -662,13 +664,13 @@ class PSNAnsNQuesG4Seeder extends Seeder
         ['whales','whale'],
         ['lobster','lobsters'],
         ['giraffes','giraffe'],
-        ['turtles','turtles'],
-        ['seahorse','seahorse'],
-        ['octopus','octopus'],
+        ['turtles','turtle'],
+        ['seahorse','seahorses'],
+        ['Octopus','Octopuses'],
     ];
 
     $ans = [
-        'Tigers','dolphin', 'whales', 'lobster' ,'giraffes','turtles','seahorse', 'octopus'
+        'Tigers','Dolphin', 'Whales', 'Lobster' ,'Giraffes','Turtles','Seahorse', 'Octopus'
     ];
 
 
@@ -682,9 +684,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 [
                     'game_id' => 817,
                     'round' => $key + 1,
-                    'a_image' => $img.$this->removeSpace($v).".png",
-                    'a_audio' => $audio.$this->removeSpace($v).".mp3",
-                    'a_content' => $v == $ans[$key] ? true : false,
+                    'a_image' => $img.$this->removeSpace(ucfirst($v)).".png",
+                    // 'a_audio' => $audio.$this->removeSpace($v).".mp3",
+                    'a_content' => ucfirst($v) == ucfirst($ans[$key]) ? true : false,
                 ],
             ]);
         }
@@ -693,8 +695,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 817,
                 'round' => $key + 1,
-                'a_audio' => $audio.$this->removeSpace($ans[$key]).".mp3",
-                'a_content' => $ans[$key],
+                'a_audio' => $audio.$this->removeSpace(ucfirst($ans[$key])).".mp3",
+                'a_content' => ucfirst($ans[$key]),
             ],
         ]);
 
@@ -801,8 +803,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
     // Unit - 2
 
     $contents = [
-        "big", "black", "blue", "brown", "fast", "green", "grey", "orange", "pink", "red", "slow", "small",
-        "white", "yellow",
+        "Big", "Black", "Blue", "Brown", "Fast", "Green", "Grey", "Orange", "Pink", "Red", "Slow", "Small",
+        "White", "Yellow",
     ];
 
 
@@ -867,9 +869,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 822,
                 'round' => $i + 1,
-                'q_image' => $img . ucfirst(strtolower($answers[$i])) . ".png",
+                'q_image' => $img . ucfirst(strtoupper($answers[$i])) . ".png",
                 // 'q_content' => $questions[$i],
-                'a_audio' => $audio . ucfirst(strtolower($answers[$i])) . ".mp3",
+                // 'a_audio' => $audio . ucfirst(strtolower($answers[$i])) . ".mp3",
                 'a_content' => $answers[$i],
             ]
         ]);
@@ -969,7 +971,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     'game_id' => 824,
                     'round' => $key + 1,
                     'a_image' => $img.$this->removeSpace($v).".png",
-                    'a_audio' => $audio.$this->removeSpace($v).".mp3",
+                    // 'a_audio' => $audio.$this->removeSpace($v).".mp3",
                     'a_content' => $v == $ans[$key] ? true : false,
                 ],
             ]);
@@ -1016,7 +1018,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                  'round' => $key + 1,
                 //  'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
                 //  'q_content' => $Question_contents[0],
-                 'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                 'q_audio' => $audios.$this->removeSpace($value).".mp3",
                  'q_image' => $images .$this->removeSpace($value) . ".png",
              ]
 
@@ -1038,7 +1040,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         [
             'game_id' => 826,
             'q_conver' => $images."question-list.png",
-            'q_audio' => $audio."which-animal-do-you-see.mp3",
+            'q_audio' => $audios."What-is-your-favorite-animal.mp3",
             'q_image' => $images . "orange-starfish.png",
         ]
 
@@ -1073,7 +1075,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
     $contents = [
-        'cloudy','cold','foggy','hail','hot','icy','lighting','rainbow','rainy','snow','snowy','stormy','sunny','thunder','windy',
+        'Cloudy','Cold','Foggy','Hail','Hot','Icy','Lightning','Rainbow','Rainy','Snow','Snowy','Stormy','Sunny','Thunder','Windy',
     ];
 
 
@@ -1116,8 +1118,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
         ['Y','O','U','D','C','L'],
     ];
 
-    $img = $ImageDomain . "Grade_4/Lesson_8/Spelling/";
-    $audio = $AudioDomain . "Grade_4/Lesson_8/Spelling/";
+    $img = $ImageDomain . "Grade_4/Lesson_9/Spelling/";
+    $audio = $AudioDomain . "Grade_4/Lesson_9/Spelling/";
 
     $answers = [
         'THUNDER', 'WINDY', 'SNOWY', 'RAINBOW', 'RAINY','STORMY','HOT','COLD','FOGGY','HAIL','ICY','LIGHTNING','SNOW','SUNNY','CLOUDY'
