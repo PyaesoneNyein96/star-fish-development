@@ -171,9 +171,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 [
                     'game_id' => 807,
                     'round' => $key + 1,
-                    'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                    // 'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                    // 'q_audio' => $audio.$this->removeSpace($value).".mp3",
                     'q_image' => $images .$this->removeSpace($value) . ".png",
                 ]
 
@@ -954,7 +954,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
     ];
 
     $ans = [
-        'whale','pig', 'turtle', 'cheetah' ,'giraffes','elephant'
+        'whale','pig', 'turtle', 'cheetah' ,'giraffe','elephant'
     ];
 
 
@@ -1038,7 +1038,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         [
             'game_id' => 826,
             'q_conver' => $images."question-list.png",
-            'q_audio' => $audio."which-animal-do-you-see.mp3",
+            'q_audio' => $audios."What-is-your-favorite-animal.mp3",
             'q_image' => $images . "orange-starfish.png",
         ]
 
@@ -1401,7 +1401,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
                         'round' => $key + 2,
                         'a_image' => $img.$v.".png",
                         'a_audio' => str_replace(' ','-',$audio.$convers_audio[$key]).".mp3",
-                        'a_conver' => $convers[$key][$k],
+                        // 'a_conver' => $convers[$key][$k],
+                        'a_conver' => $img.$convers_audio[$key].".png",
                         "background" => $img."bg".$key + 1 .".png"
                         ]
                     ]);
@@ -1669,7 +1670,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         $contents = [
-            'A cup','A hat', 'A raincoat', 'A scarf', 'A sweater', 'Boots', 'Gloves', 'Socks', 'Suit'
+            'A cap','A hat', 'A raincoat', 'A scarf', 'A sweater', 'Boots', 'Gloves', 'Socks', 'Suit'
         ];
 
 
@@ -1803,6 +1804,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     'game_id' => 972,
                     'round' => $key + 1,
                     'q_image' => $img.$this->removeSpace($content).".png",
+                    'q_conver' => $questions[$key],
                     'q_content' => $given_ans[0],
                     'a_content' => $given_ans[0] == $ans[$key] ? true : false
                 ]
@@ -1843,10 +1845,10 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 [
                     'game_id' => 973,
                     'round' => $key + 1,
-                    'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                    'round_instruction' => $audios.$this->removeSpace($value).".mp3",
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
-                    'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
+                    'q_audio' => $audios.str_replace('?','',$this->removeSpace($value)).".mp3",
+                    'q_image' => $images."green-starfish".".png",
                 ]
 
             ]);
@@ -1913,7 +1915,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
     // Unit - 2 Listen and Repeat , Sub - 1 (Reading_carousel)
 
         $contents = [
-            "he-like", "I-like", "she-likes", "they-like"
+            "he-likes", "I-like", "she-likes", "they-like", "you-like"
         ];
 
 
@@ -2066,9 +2068,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 980,
                 'round' => $key + 1,
-                'round_instruction' => $audio.$this->removeSpace($Question_contents[$key])."_round_ins".".mp3",
+                // 'round_instruction' => $audio.$this->removeSpace($Question_contents[$key])."_round_ins".".mp3",
                 'q_content' => $Question_contents[$key],
-                'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
+                // 'q_audio' => $audios.str_replace('?','',$this->removeSpace($value)).".mp3",
                 'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
             ]
 
@@ -2147,7 +2149,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             "ben-emma.mp3",
         ];
 
-        $paraName = "jack-and-animal.mp3";
+        $paraName = "Ben-and-Emma.mp3";
 
         $given_answer = [
             ['A T-shirt and pants', 'A suit','A polka dot shirt and pants'],
@@ -2169,7 +2171,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     [
                         'round' => $i + 1,
                         'game_id' => 982,
-                        'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $given_q[$i][1] ? 1 : 0
                     ]
@@ -2220,9 +2222,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 983,
                 'round' => $key + 1,
-                'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                // 'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
                 'q_content' => $Question_contents[$key],
-                'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
+                // 'q_audio' => $audios.str_replace('?','',$this->removeSpace($value)).".mp3",
                 'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
             ]
         ]);
@@ -2242,6 +2244,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
              'game_id' => 984,
              'a_content' => $sample_content,
              'q_image' => $images.$sample_content.".png",
+             'q_content' => $images.$sample_content."_small.png",
          ],
      ]);
 
@@ -2402,7 +2405,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
     ];
 
     $q_instruction = [
-        'breakfast-fried-rice','breakfast','breakfast','lunch','lunch','dinner','breakfast'
+        'breakfast-fried-rice','breakfast-coconut-noodle','breakfast-mont-hin-gah',
+        'lunch-sandwich','lunch-hamburger','dinner-salad','breakfast-steam-sticky-rice'
     ];
 
 
@@ -2416,9 +2420,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 989,
                 'round' => $key + 1,
-                'round_instruction' => $audio.$this->removeSpace($q_instruction[$key])."_round_ins".".mp3",
+                // 'round_instruction' => $audios.$this->removeSpace($q_instruction[$key]).".mp3",
                 'q_content' => $Question_contents[$key],
-                'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
+                // 'q_audio' => $audios.str_replace('?','',$this->removeSpace($value)).".mp3",
                 'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
             ]
 
@@ -2508,7 +2512,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 991,
                 'q_content' => $content,
-                'q_audio' => $audio."Talk-about-usually-eat.mp3",
+                'q_audio' => $audios."Talk-about-usually-eat.mp3",
                 'q_image' => $images . "girl-eating.png",
             ]
 
@@ -2528,6 +2532,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         [
             'game_id' => 992,
             'q_image' => $images.$sample_content.".png",
+            'q_content' => $images.$sample_content."_small.png",
             'a_content' => "I usually have fried rice and tea for breakfast.I have chicken rice, fried vegetables, and soup for lunch. I do not like eating sandwich for lunch. I usually have sandwich, salad, and juice for dinner.I do not like eating hamburgers for dinner. ",
         ],
     ]);
