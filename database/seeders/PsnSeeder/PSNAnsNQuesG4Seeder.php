@@ -2627,7 +2627,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         $contents = [
             ['Puri','BiBimbap','Noodle soup','Pizza','Sushi'],
-            ['Fish and chips','Sushi','Roast lamb','Pad Thai','Bacon and egg'],
+            ['Fish and chips','Sushi','Roast lamb','Phad Thai','Bacon and egg'],
         ];
 
 
@@ -2669,7 +2669,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
     $contents = [
-        'pizza','phat-thai','biBimbap','sushi','puri','noodle-soup','bacon-egg',
+        'pizza','phat-thai','bibimbap','sushi','puri','noodle-soup','bacon-egg',
     ];
 
     $Question_contents = [
@@ -2682,9 +2682,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         "What is your favorite food? \n __________.",
     ];
 
-    $q_instruction = [
-         'pizza','phat-thai','biBimbap','sushi','puri','noodle-soup','bacon-egg',
-    ];
+    $q_instruction = "What-is-your-favorite-food";
 
 
     $images = $ImageDomain . "Grade_4/Lesson_30/Speaking/";
@@ -2697,9 +2695,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 997,
                 'round' => $key + 1,
-                'round_instruction' => $audio.$this->removeSpace($q_instruction[$key])."_round_ins".".mp3",
+                // 'round_instruction' => $audios.$this->removeSpace($q_instruction).".mp3",
                 'q_content' => $Question_contents[$key],
-                // 'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
+                // 'q_audio' => $audios.str_replace('?','',$this->removeSpace($value)).".mp3",
                 'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
             ]
 
@@ -2767,7 +2765,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
         $images = $ImageDomain . "Grade_4/Lesson_30/Reading_passage/";
         $audios = $AudioDomain . "Grade_4/Lesson_30/Reading_passage/";
 
-         $para = "I am Jack. I love animals. There are 3 dogs and 2 cats in the house. I also have 3 golden fish and 1 white rabbit. They are my friends. My dogs are always barking. My cats are running in the house. The rabbit is eating carrots.";
+        $para = "Rekai loved to eat pancakes more than anything in the world. He loved pancakes so much. He simply refused to eat any other food! Rekai’s mom said, “Eat some good food. Have some veggies and fruit! And don’t forget water and juice.” But, Rekai shook his head and said, “No, I don’t want to! Only pancakes will do.” Then, his mom had an idea. “I know how to get Rekai to eat healthy food!” she said.
+        She mixed up a batch of some extra special pancakes with a surprise ingredient. Mom watched as he gobbled them up and she was very pleased. Softly, she giggled and thought, this is great. He has no clue what he has just eaten! \n Then, one day, Rekai caught mom adding butternuts to his pancakes and he was very surprised. “Your secret ingredient is a vegetable?” he cried \n To this day, he enjoys eating his pancakes, and every day mom adds many yummy surprises.
+        Sometimes, she adds spinach. Sometimes, she adds carrots. Sometimes, she adds strawberries, or even apples.";
 
         $given_q = [
             ["What did Rekai’s mom add to his pancake?", "A secret ingredient"],
@@ -2781,7 +2781,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         $given_audio = [
             "mom-pancake.mp3",
-            "love=secret.mp3",
+            "love-secret.mp3",
             "secret-ingredient.mp3",
             "veggies.mp3",
             "mom-say.mp3",
@@ -2809,7 +2809,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     [
                         'round' => $i + 1,
                         'game_id' => 999,
-                        'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $given_q[$i][1] ? 1 : 0
                     ]
@@ -2851,7 +2851,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 1000,
                 'q_content' => $content,
-                'q_audio' => $audio."What-is-your-favorite-food.mp3",
+                'q_audio' => $audios."Draw-your-favorite-food.mp3",
                 'q_image' => $images . "plate.png",
             ]
 
