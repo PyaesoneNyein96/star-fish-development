@@ -1669,7 +1669,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         $contents = [
-            'a cup','a hat', 'a raincoat', 'a scarf', 'a sweater', 'boots', 'gloves', 'socks', 'suit'
+            'A cup','A hat', 'A raincoat', 'A scarf', 'A sweater', 'Boots', 'Gloves', 'Socks', 'Suit'
         ];
 
 
