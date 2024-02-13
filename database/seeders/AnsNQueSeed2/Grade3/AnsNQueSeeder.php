@@ -1043,7 +1043,7 @@ class AnsNQueSeeder extends Seeder
         $G3_L6_writing = "Grade_3/" . "Lesson_6/" . "writing/";
 
 
-        $ques_G3_L6_game500 = "I'm _____ \n\nMy favorite sport is ____ \n\nMy favorite game is ____ \n\nI'm not good at ____";
+        $ques_G3_L6_game500 = $l6_G500_image . "pic.png";
 
         $sampleANS_G3_L6_game500 = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi magnam animi a rem recusandae, nobis voluptate, quas laboriosam alias natus esse delectus necessitatibus ipsum sed debitis dolorem. Repellendus, quibusdam beatae.";
 
@@ -1461,7 +1461,7 @@ class AnsNQueSeeder extends Seeder
         $G3_L8_writing = "Grade_3/" . "Lesson_8/" . "writing/";
 
 
-        $ques_G3_L8_game516 = "1. what is his/ her name? \n2. what colour is it? \n3. what can he/she do? \n4. what can't he /she do?";
+        $ques_G3_L8_game516 = $l8_G516_image . "pic.png";
 
         $sampleANS_G3_L8_game516 = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi magnam animi a rem recusandae, nobis voluptate, quas laboriosam alias natus esse delectus necessitatibus ipsum sed debitis dolorem. Repellendus, quibusdam beatae.";
 
@@ -1724,12 +1724,13 @@ class AnsNQueSeeder extends Seeder
 
 
         //////////////////////////////////////////////////////////////
-        ////    Grade 3  Lesson 10 Game 527 ( practice )
+        ////    Grade 3  Lesson 10 Game 527 , 528 ( practice )
         //////////////////////////////////////////////////////////////
 
         $G3_L10_language_n_practice = "Grade_3/" . "Lesson_10/" . "language_n_practice/";
         $l10_G527_image = $domain . "/storage/images/Grade_3/lesson_10/language_n_practice/";
 
+        // Game 527
         $g3_l10_Game527_fill_q1 = [
 
             ["in", "in front of", "on"],
@@ -1793,7 +1794,7 @@ class AnsNQueSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1, 'game_id' => 527,
-                    "q_image" => $l10_G527_image . $g3_l10_Game527_fill_audio_img[$i] . ".png",
+                    "q_image" => $l10_G527_image . "1/" . $g3_l10_Game527_fill_audio_img[$i] . ".png",
                     'q_audio' => $AudioDomain . $G3_L10_language_n_practice . $g3_l10_Game527_fill_audio_img[$i] . ".mp3",
                     'q_content' => $g3_l10_Game527_fill_q2[$i],
                     'a_content' => $g3_l10_Game527_fill_a[$i]
@@ -1802,40 +1803,29 @@ class AnsNQueSeeder extends Seeder
         }
 
 
-
-        ////////////////////////////////////////////////////////
-        ////    Grade 3  Lesson 10 Game 528 ( Listen and Practice )
-        ////////////////////////////////////////////////////////
-
-        $l10_G528_image = $domain . "/storage/images/Grade_3/lesson_10/listen_n_practice/";
-        $G3_L10_listen_n_practice = "Grade_3/" . "Lesson_10/" . "listen_n_practice/";
-
-        $q_content_G3_L10_Game528_img = ["apple", "cat", "pencil", "pencils-in", "computer", "cats", "books", "flowers", "chairs", "clock"];
+        // Game 528
+        $q_content_G3_L10_Game528_img = ["apple", "cat", "pencil",  "computer", "cats", "books", "flowers", "chairs"];
 
         $a_content_G3_L10_Game528 = [
             "There is an apple in front of the glass.",
             "There is a cat in front of the chair.",
             "There is a pencil next to the book.",
-            "There are pencils in the glass.",
             "There is a computer on the table.",
             "There are three cats under the table.",
             "There are books on the table.",
             "There are flowers in the vase.",
             "There are chairs next to the table.",
-            "There is a clock on the wall."
         ];
 
         $q_content_G3_L10_Game528 = [
             "There is an apple ____ the glass.",
             "There is a cat ____ the chair.",
             "There is a pencil ____ the book.",
-            "There are pencils ____ the glass.",
             "There is a computer ____ the table.",
             "There are three cats ____ the table.",
             "There are books ____ the table.",
             "There are flowers ____ the vase.",
             "There are chairs ____ the table.",
-            "There is a clock ____ the wall."
         ];
 
         foreach ($q_content_G3_L10_Game528_img as $key => $value) {
@@ -1843,8 +1833,8 @@ class AnsNQueSeeder extends Seeder
                 [
                     'game_id' => 528, 'round' => $key + 1,
                     'q_content' => $q_content_G3_L10_Game528[$key],
-                    'q_image' => $l10_G528_image . $value . ".png",
-                    'q_audio' => $AudioDomain . $G3_L10_listen_n_practice . $value . ".mp3",
+                    'q_image' => $l10_G527_image . "2/" . $value . ".png",
+                    'q_audio' => $AudioDomain . $G3_L10_language_n_practice . $value . ".mp3",
                     'a_content' => $a_content_G3_L10_Game528[$key],
                 ],
             ]);
@@ -1969,7 +1959,7 @@ class AnsNQueSeeder extends Seeder
         $G3_L10_writing = "Grade_3/" . "Lesson_10/" . "writing/";
 
 
-        $ques_G3_L10_game532 = "Do you live in a house or apartment? \nIs it big or small? \nHow many rooms are there? \nWhat are there in the living room? In the bedroom? In the kitchen?";
+        $ques_G3_L10_game532 = $l10_G532_image . "pic.png";
 
         $sampleANS_G3_L10_game532 = "I live in a small house. There are only four rooms in my house, a living room, two bedroom, and a kitchen. There are some posters of animals on the wall in the living room. There is a TV in the living room. I have many toys in my bedroom. There are a fridge, a washing machine and dining table in the kitchen.";
 
@@ -2410,9 +2400,9 @@ class AnsNQueSeeder extends Seeder
         $G3_L12_writing = "Grade_3/" . "Lesson_12/" . "writing/";
 
 
-        $ques_G3_L12_game548 = "-Where is he from? \n-What does he/she like? \n-What doesn't he like or she like? \n-Where does he live? \nWhat color is he/she?";
+        $ques_G3_L12_game548 = $l12_G548_image . "pic.png";
 
-        $sampleANS_G3_L12_game548 = "My favorite animal is tiger. He is from India. He likes meat. He doesn’t like carrots. He lives in the zoo. He can run very fast. He is yellow.";
+        $sampleANS_G3_L12_game548 = "My favorite animal is tiger. He is from India. He likes meat. He doesn't like carrots. He lives in the zoo. He can run very fast. He is yellow.";
 
         DB::table('ans_n_ques')->insert([
             [
@@ -3981,7 +3971,7 @@ class AnsNQueSeeder extends Seeder
         $l20_G601_image = $domain . "/storage/images/Grade_3/lesson_20/practice/";
         $G3_L20_practice = "Grade_3/" . "Lesson_20/" . "practice/";
 
-        $q_content_G3_L20_Game601_img = ["city"];
+        $q_content_G3_L20_Game601_img = ["cinema", "park", "library", "bakery", "train", "department", "zoo"];
 
         $a_content_G3_L20_Game601 = [
             "Yes, It has.",
@@ -3991,7 +3981,6 @@ class AnsNQueSeeder extends Seeder
             "Yes, It has.",
             "No, It hasn't.",
             "No, It hasn't.",
-            "Yes, it has."
 
         ];
 
