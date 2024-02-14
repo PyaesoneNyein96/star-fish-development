@@ -229,11 +229,11 @@ class AnsNQueSeeder extends Seeder
             ['round' => 2, 'game_id' => 18, 'a_image' => $l4image . "mike.gif", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "SubBlock_Whats-your-name_mike.mp3", "a_conver" =>  $l4image . "q-right.png", "background" =>  $l4image . "bg.png"],
             ['round' => 2, 'game_id' => 18, 'a_image' => $l4image . "susan.gif", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "My-name's-Susan.mp3", "a_conver" =>  $l4image . "susan-text.png", "background" =>  $l4image . "bg.png"],
 
-            ['round' => 3, 'game_id' => 18, 'a_image' => $l4image . "dory.gif", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "Whats-your-name.mp3", "a_conver" =>  $l4image . "q-right.png", "background" =>  $l4image . "bg.png"],
-            ['round' => 3, 'game_id' => 18, 'a_image' => $l4image . "nemo.gif", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "My-names-Nemo.mp3", "a_conver" =>  $l4image . "nemo-text.png", "background" =>  $l4image . "bg.png"],
+            ['round' => 3, 'game_id' => 18, 'a_image' => $l4image . "dory.gif", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "Whats-your-name.mp3", "a_conver" =>  $l4image . "q-right.png", "background" =>  $l4image . "bg1.png"],
+            ['round' => 3, 'game_id' => 18, 'a_image' => $l4image . "nemo.gif", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "My-names-Nemo.mp3", "a_conver" =>  $l4image . "nemo-text.png", "background" =>  $l4image . "bg1.png"],
 
-            ['round' => 4, 'game_id' => 18, 'a_image' => $l4image . "nemo.gif", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "SubBlock_Whats-your-name_nemo.mp3", "a_conver" =>  $l4image . "q-right.png", "background" =>  $l4image . "bg.png"],
-            ['round' => 4, 'game_id' => 18, 'a_image' => $l4image . "dory.gif", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "My-names-Dory.mp3", "a_conver" =>  $l4image . "dory-text.png", "background" =>  $l4image . "bg.png"],
+            ['round' => 4, 'game_id' => 18, 'a_image' => $l4image . "nemo.gif", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "SubBlock_Whats-your-name_nemo.mp3", "a_conver" =>  $l4image . "q-right.png", "background" =>  $l4image . "bg1.png"],
+            ['round' => 4, 'game_id' => 18, 'a_image' => $l4image . "dory.gif", "a_audio" => $AudioDomain . $G1_L4_Read_Listen_n_Repeat_path . "My-names-Dory.mp3", "a_conver" =>  $l4image . "dory-text.png", "background" =>  $l4image . "bg1.png"],
 
         ]);
 
@@ -468,32 +468,32 @@ class AnsNQueSeeder extends Seeder
 
 
         DB::table('ans_n_ques')->insert([
-            ["round" => 1, "game_id" => 24, "a_image" => $l5G24image . "boy.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "Good-morning.mp3", "a_conver" => $l5G24image . "morning-left.png", "background" => $l5G24image . "bg.png"],
-            ["round" => 1, "game_id" => 24, "a_image" => $l5G24image . "girl.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "SubBlock_Good-morning.mp3", "a_conver" => $l5G24image . "morning-right.png", "background" => $l5G24image . "bg.png"],
+            ["round" => 1, "game_id" => 24, "a_image" => $l5G24image . "boy.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "Good-morning.mp3", "a_conver" => $l5G24image . "morning-left.png", "background" => $l5G24image . "bg.png"],
+            ["round" => 1, "game_id" => 24, "a_image" => $l5G24image . "girl.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "SubBlock_Good-morning.mp3", "a_conver" => $l5G24image . "morning-right.png", "background" => $l5G24image . "bg.png"],
 
-            ["round" => 2, "game_id" => 24, "a_image" => $l5G24image . "boy.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "Good-afternoon.mp3", "a_conver" => $l5G24image . "afternoon-left.png", "background" => $l5G24image . "bg.png"],
-            ["round" => 2, "game_id" => 24, "a_image" => $l5G24image . "girl.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "SubBlock_Good-afternoon.mp3", "a_conver" => $l5G24image . "afternoon-right.png", "background" => $l5G24image . "bg.png"],
+            ["round" => 2, "game_id" => 24, "a_image" => $l5G24image . "boy.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "Good-afternoon.mp3", "a_conver" => $l5G24image . "afternoon-left.png", "background" => $l5G24image . "bg.png"],
+            ["round" => 2, "game_id" => 24, "a_image" => $l5G24image . "girl.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "SubBlock_Good-afternoon.mp3", "a_conver" => $l5G24image . "afternoon-right.png", "background" => $l5G24image . "bg.png"],
 
-            ["round" => 3, "game_id" => 24, "a_image" => $l5G24image . "boy.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "Good-evening.mp3", "a_conver" => $l5G24image . "evening-left.png", "background" => $l5G24image . "bg.png"],
-            ["round" => 3, "game_id" => 24, "a_image" => $l5G24image . "girl.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "SubBlock_Good-evening.mp3", "a_conver" => $l5G24image . "evening-right.png", "background" => $l5G24image . "bg.png"],
-
-
-            ["round" => 4, "game_id" => 24, "a_image" => $l5G24image . "girl.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "how_are_you_chris.mp3", "a_conver" => $l5G24image . "chris-right.png", "background" => $l5G24image . "bg.png"],
-            ["round" => 4, "game_id" => 24, "a_image" => $l5G24image . "boy.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "i'm_fine.mp3", "a_conver" => $l5G24image . "fine.png", "background" => $l5G24image . "bg.png"],
-
-            ["round" => 5, "game_id" => 24, "a_image" => $l5G24image . "boy.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "how_are_you_susan.mp3", "a_conver" => $l5G24image . "susan-left.png", "background" => $l5G24image . "bg.png"],
-            ["round" => 5, "game_id" => 24, "a_image" => $l5G24image . "girl.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "i'm_ok.mp3", "a_conver" => $l5G24image . "ok.png", "background" => $l5G24image . "bg.png"],
+            ["round" => 3, "game_id" => 24, "a_image" => $l5G24image . "boy.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "Good-evening.mp3", "a_conver" => $l5G24image . "evening-left.png", "background" => $l5G24image . "bg.png"],
+            ["round" => 3, "game_id" => 24, "a_image" => $l5G24image . "girl.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "SubBlock_Good-evening.mp3", "a_conver" => $l5G24image . "evening-right.png", "background" => $l5G24image . "bg.png"],
 
 
-            ["round" => 6, "game_id" => 24, "a_image" => $l5G24image . "girl2.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "good_afternoon_susan.mp3", "a_conver" => $l5G24image . "afternoon-susan.png", "background" => $l5G24image . "bg.png"],
-            ["round" => 6, "game_id" => 24, "a_image" => $l5G24image . "girl.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "good_afternoon_mary.mp3", "a_conver" => $l5G24image . "afternoon-mary.png", "background" => $l5G24image . "bg.png"],
+            ["round" => 4, "game_id" => 24, "a_image" => $l5G24image . "girl.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "how_are_you_chris.mp3", "a_conver" => $l5G24image . "chris-right.png", "background" => $l5G24image . "bg.png"],
+            ["round" => 4, "game_id" => 24, "a_image" => $l5G24image . "boy.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "i'm_fine.mp3", "a_conver" => $l5G24image . "fine.png", "background" => $l5G24image . "bg.png"],
 
-            ["round" => 7, "game_id" => 24, "a_image" => $l5G24image . "girl2.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "how_are_you.mp3", "a_conver" => $l5G24image . "how-are-you.png", "background" => $l5G24image . "bg.png"],
-            ["round" => 7, "game_id" => 24, "a_image" => $l5G24image . "girl.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "i'm_great_and_you.mp3", "a_conver" => $l5G24image . "great-you.png", "background" => $l5G24image . "bg.png"],
-            ["round" => 7, "game_id" => 24, "a_image" => $l5G24image . "girl2.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "i'm_ok_2.mp3", "a_conver" => $l5G24image . "ok.png", "background" => $l5G24image . "bg.png"],
+            ["round" => 5, "game_id" => 24, "a_image" => $l5G24image . "boy.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "how_are_you_susan.mp3", "a_conver" => $l5G24image . "susan-left.png", "background" => $l5G24image . "bg.png"],
+            ["round" => 5, "game_id" => 24, "a_image" => $l5G24image . "girl.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "i'm_ok.mp3", "a_conver" => $l5G24image . "ok.png", "background" => $l5G24image . "bg.png"],
 
-            ["round" => 8, "game_id" => 24, "a_image" => $l5G24image . "girl2.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "goodbye.mp3", "a_conver" => $l5G24image . "bye-left.png", "background" => $l5G24image . "bg.png"],
-            ["round" => 8, "game_id" => 24, "a_image" => $l5G24image . "girl.png", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "goodbye_2.mp3", "a_conver" => $l5G24image . "bye-right.png", "background" => $l5G24image . "bg.png"],
+
+            ["round" => 6, "game_id" => 24, "a_image" => $l5G24image . "girl2.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "good_afternoon_susan.mp3", "a_conver" => $l5G24image . "afternoon-susan.png", "background" => $l5G24image . "bg.png"],
+            ["round" => 6, "game_id" => 24, "a_image" => $l5G24image . "girl.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "good_afternoon_mary.mp3", "a_conver" => $l5G24image . "afternoon-mary.png", "background" => $l5G24image . "bg.png"],
+
+            ["round" => 7, "game_id" => 24, "a_image" => $l5G24image . "girl2.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "how_are_you.mp3", "a_conver" => $l5G24image . "how-are-you.png", "background" => $l5G24image . "bg.png"],
+            ["round" => 7, "game_id" => 24, "a_image" => $l5G24image . "girl.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "i'm_great_and_you.mp3", "a_conver" => $l5G24image . "great-you.png", "background" => $l5G24image . "bg.png"],
+            ["round" => 7, "game_id" => 24, "a_image" => $l5G24image . "girl2.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "i'm_ok_2.mp3", "a_conver" => $l5G24image . "ok.png", "background" => $l5G24image . "bg.png"],
+
+            ["round" => 8, "game_id" => 24, "a_image" => $l5G24image . "girl2.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "goodbye.mp3", "a_conver" => $l5G24image . "bye-left.png", "background" => $l5G24image . "bg.png"],
+            ["round" => 8, "game_id" => 24, "a_image" => $l5G24image . "girl.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "goodbye_2.mp3", "a_conver" => $l5G24image . "bye-right.png", "background" => $l5G24image . "bg.png"],
 
         ]);
 
@@ -4564,45 +4564,45 @@ class AnsNQueSeeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'round' => 1, 'game_id' => 149, 'a_content' => "egg", 'q_image' => $l24G149image . "egg" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "egg" . ".mp3", "background" => $l24G149image . "bg.jpg"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "egg" . ".mp3", "background" => $l24G149image . "bg.png"
             ],
             [
                 'round' => 1, 'game_id' => 149, 'a_content' => "meat", 'q_image' => $l24G149image . "meat" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "meat" . ".mp3", "background" => $l24G149image . "bg.jpg"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "meat" . ".mp3", "background" => $l24G149image . "bg.png"
             ],
             [
                 'round' => 1, 'game_id' => 149, 'a_content' => "cheese", 'q_image' => $l24G149image . "cheese" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "cheese" . ".mp3", "background" => $l24G149image . "bg.jpg"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "cheese" . ".mp3", "background" => $l24G149image . "bg.png"
             ],
             [
                 'round' => 1, 'game_id' => 149, 'a_content' => "soda", 'q_image' => $l24G149image . "soda" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "soda" . ".mp3", "background" => $l24G149image . "bg.jpg"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "soda" . ".mp3", "background" => $l24G149image . "bg.png"
             ],
             [
                 'round' => 1, 'game_id' => 149, 'a_content' => "cookie", 'q_image' => $l24G149image . "cookies" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "cookies" . ".mp3", "background" => $l24G149image . "bg.jpg"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "cookies" . ".mp3", "background" => $l24G149image . "bg.png"
             ],
 
 
             [
                 'round' => 2, 'game_id' => 149, 'a_content' => "coke", 'q_image' => $l24G149image . "coke" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "coke" . ".mp3", "background" => $l24G149image . "bg.jpg"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "coke" . ".mp3", "background" => $l24G149image . "bg.png"
             ],
             [
                 'round' => 2, 'game_id' => 149, 'a_content' => "bread", 'q_image' => $l24G149image . "bread" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "bread" . ".mp3", "background" => $l24G149image . "bg.jpg"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "bread" . ".mp3", "background" => $l24G149image . "bg.png"
             ],
             [
                 'round' => 2, 'game_id' => 149, 'a_content' => "milk", 'q_image' => $l24G149image . "milk" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "milk" . ".mp3", "background" => $l24G149image . "bg.jpg"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "milk" . ".mp3", "background" => $l24G149image . "bg.png"
             ],
             [
                 'round' => 2, 'game_id' => 149, 'a_content' => "cake", 'q_image' => $l24G149image . "cake" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "cake" . ".mp3", "background" => $l24G149image . "bg.jpg"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "cake" . ".mp3", "background" => $l24G149image . "bg.png"
             ],
             [
                 'round' => 2, 'game_id' => 149, 'a_content' => "bag", 'q_image' => $l24G149image . "bag" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "bag" . ".mp3", "background" => $l24G149image . "bg.jpg"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "bag" . ".mp3", "background" => $l24G149image . "bg.png"
             ],
         ]);
 
@@ -5720,34 +5720,34 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.png", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Give-me-some-bananas.mp3", "a_conver" => $l29_G179_image . "some-bana.png", "background" =>  $l29_G179_image . "bg1.png"],
-            ['round' => 1, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.png", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "How-many-bananas.mp3", "a_conver" => $l29_G179_image . "how-bana.png", "background" =>  $l29_G179_image . "bg1.png"],
+            ['round' => 1, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.gif", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Give-me-some-bananas.mp3", "a_conver" => $l29_G179_image . "some-bana.png", "background" =>  $l29_G179_image . "bg1.png"],
+            ['round' => 1, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.gif", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "How-many-bananas.mp3", "a_conver" => $l29_G179_image . "how-bana.png", "background" =>  $l29_G179_image . "bg1.png"],
 
-            ['round' => 2, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.png", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "3-bananas.mp3", "a_conver" => $l29_G179_image . "3-bana.png", "background" =>  $l29_G179_image . "bg2.png"],
-            ['round' => 2, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.png", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Here-you-are.mp3", "a_conver" => $l29_G179_image . "here-you-right.png", "background" =>  $l29_G179_image . "bg2.png"],
+            ['round' => 2, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.gif", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "3-bananas.mp3", "a_conver" => $l29_G179_image . "3-bana.png", "background" =>  $l29_G179_image . "bg2.png"],
+            ['round' => 2, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.gif", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Here-you-are.mp3", "a_conver" => $l29_G179_image . "here-you-right.png", "background" =>  $l29_G179_image . "bg2.png"],
 
-            ['round' => 3, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.png", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Thank-you.mp3", "a_conver" => $l29_G179_image . "thank.png", "background" =>  $l29_G179_image . "bg2.png"],
-            ['round' => 3, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.png", "a_audio" => null, "a_conver" => null, "background" =>  $l29_G179_image . "bg2.png"],
-
-
-            ['round' => 4, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.png", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Give-me-some-mangoes.mp3", "a_conver" => $l29_G179_image . "some-mango.png", "background" =>  $l29_G179_image . "bg1.png"],
-            ['round' => 4, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.png", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "How-many-mangoes.mp3", "a_conver" => $l29_G179_image . "how-mango.png", "background" =>  $l29_G179_image . "bg1.png"],
-
-            ['round' => 5, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.png", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "5-mangoes.mp3", "a_conver" => $l29_G179_image . "5-mango.png", "background" =>  $l29_G179_image . "bg2.png"],
-            ['round' => 5, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.png", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Here-you-are.mp3", "a_conver" => $l29_G179_image . "here-you-right.png", "background" =>  $l29_G179_image . "bg2.png"],
-
-            ['round' => 6, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.png", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Thank-you.mp3", "a_conver" => $l29_G179_image . "thank.png", "background" =>  $l29_G179_image . "bg2.png"],
-            ['round' => 6, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.png", "a_audio" => null, "a_conver" => null, "background" =>  $l29_G179_image . "bg2.png"],
+            ['round' => 3, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.gif", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Thank-you.mp3", "a_conver" => $l29_G179_image . "thank.png", "background" =>  $l29_G179_image . "bg2.png"],
+            ['round' => 3, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.gif", "a_audio" => null, "a_conver" => null, "background" =>  $l29_G179_image . "bg2.png"],
 
 
-            ['round' => 7, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.png", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Please-give-me-some-oranges.mp3", "a_conver" => $l29_G179_image . "some-orange.png", "background" =>  $l29_G179_image . "bg1.png"],
-            ['round' => 7, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.png", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "How-many-oranges.mp3", "a_conver" => $l29_G179_image . "how-orange.png", "background" =>  $l29_G179_image . "bg1.png"],
+            ['round' => 4, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.gif", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Give-me-some-mangoes.mp3", "a_conver" => $l29_G179_image . "some-mango.png", "background" =>  $l29_G179_image . "bg1.png"],
+            ['round' => 4, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.gif", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "How-many-mangoes.mp3", "a_conver" => $l29_G179_image . "how-mango.png", "background" =>  $l29_G179_image . "bg1.png"],
 
-            ['round' => 8, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.png", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "7-oranges.mp3", "a_conver" => $l29_G179_image . "7-orange.png", "background" =>  $l29_G179_image . "bg2.png"],
-            ['round' => 8, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.png", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Here-you-are.mp3", "a_conver" => $l29_G179_image . "here-you-right.png", "background" =>  $l29_G179_image . "bg2.png"],
+            ['round' => 5, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.gif", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "5-mangoes.mp3", "a_conver" => $l29_G179_image . "5-mango.png", "background" =>  $l29_G179_image . "bg2.png"],
+            ['round' => 5, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.gif", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Here-you-are.mp3", "a_conver" => $l29_G179_image . "here-you-right.png", "background" =>  $l29_G179_image . "bg2.png"],
 
-            ['round' => 9, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.png", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Thank-you.mp3", "a_conver" => $l29_G179_image . "thank.png", "background" =>  $l29_G179_image . "bg2.png"],
-            ['round' => 9, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.png", "a_audio" => null, "a_conver" => null, "background" =>  $l29_G179_image . "bg2.png"],
+            ['round' => 6, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.gif", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Thank-you.mp3", "a_conver" => $l29_G179_image . "thank.png", "background" =>  $l29_G179_image . "bg2.png"],
+            ['round' => 6, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.gif", "a_audio" => null, "a_conver" => null, "background" =>  $l29_G179_image . "bg2.png"],
+
+
+            ['round' => 7, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.gif", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Please-give-me-some-oranges.mp3", "a_conver" => $l29_G179_image . "some-orange.png", "background" =>  $l29_G179_image . "bg1.png"],
+            ['round' => 7, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.gif", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "How-many-oranges.mp3", "a_conver" => $l29_G179_image . "how-orange.png", "background" =>  $l29_G179_image . "bg1.png"],
+
+            ['round' => 8, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.gif", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "7-oranges.mp3", "a_conver" => $l29_G179_image . "7-orange.png", "background" =>  $l29_G179_image . "bg2.png"],
+            ['round' => 8, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.gif", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Here-you-are.mp3", "a_conver" => $l29_G179_image . "here-you-right.png", "background" =>  $l29_G179_image . "bg2.png"],
+
+            ['round' => 9, 'game_id' => 179, 'a_image' => $l29_G179_image . "boy.gif", "a_audio" => $AudioDomain . $G1_L29_Read_Listen_n_Repeat_path . "Thank-you.mp3", "a_conver" => $l29_G179_image . "thank.png", "background" =>  $l29_G179_image . "bg2.png"],
+            ['round' => 9, 'game_id' => 179, 'a_image' => $l29_G179_image . "girl.gif", "a_audio" => null, "a_conver" => null, "background" =>  $l29_G179_image . "bg2.png"],
         ]);
 
 
