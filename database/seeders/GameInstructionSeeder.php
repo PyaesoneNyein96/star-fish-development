@@ -1297,7 +1297,7 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Listen and choose the right answer from the options", 'game_id' => 529, 'audio' => $Instructions . "Listen-and-choose-the-right-answer-from.mp3"],
 
             // G-3 lesson_10 U-497
-            // ['content' => "Listen and choose the correct answer", 'game_id' => 530, 'audio' =>  $Instructions . "Listen-and-choose-the-correct" . ".mp3"],
+            ['content' => "Listen and choose the correct answer", 'game_id' => 530, 'audio' =>  $Instructions . "Listen-and-choose-the-correct" . ".mp3"],
 
             // G-3 lesson_10 U-498
             ['content' => "Answer the question", 'game_id' => 531, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
@@ -1716,6 +1716,76 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Prepare to speak", 'game_id' => 718, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
 
 
+            //////////////// L36 ////////////////
+
+            ['content' => "Listen and Say", 'game_id' => 720, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            ['content' => "Look at the picture and answer the question", 'game_id' => 721, 'audio' =>  $Instructions . "Look-at-the-picture-and-answer-the-question" . ".mp3"],
+
+            ['content' => "Answer the question", 'game_id' => 722, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
+
+            ['content' => "Listen and choose the correct picture.", 'game_id' => 723, 'audio' => $Instructions . "Listen-and-choose-the-correct-pic.mp3"],
+
+            // ['content' => "Read and Choose the correct answers.", 'game_id' => 725, 'audio' => $Instructions . "Read-and-Choose-the-correct-answers.mp3"],
+
+            ['content' => "Prepare to speak", 'game_id' => 726, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
+
+
+            //////////////// L37 ////////////////
+
+            ['content' => "Listen and Say", 'game_id' => 728, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            // ['content' => "look at the picture and choose the correct phrase", 'game_id' => 729, 'audio' =>  $Instructions . "look-at-the-picture-and-choose-the-correct-phrase" . ".mp3"],
+
+            // ['content' => "Give directions", 'game_id' => 730, 'audio' =>  $Instructions . "Give-directions" . ".mp3"],
+
+            // ['content' => "Listen and choose", 'game_id' => 731,'audio' =>  $Instructions . "Listen and choose" . ".mp3"],
+
+            ['content' => "Prepare to speak", 'game_id' => 733, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
+
+
+            //////////////// L38 ////////////////
+
+            ['content' => "Listen and Say", 'game_id' => 735, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            ['content' => "Look at the picture and answer the question", 'game_id' => 736, 'audio' =>  $Instructions . "Look-at-the-picture-and-answer-the-question" . ".mp3"],
+
+            ['content' => "Listen to the conversation and choose the right answer.", 'game_id' => 737, 'audio' => $Instructions . "SubBlock_Listen-to-the-conversation-and.mp3"],
+
+            ['content' => "Read and write Yes or No", 'game_id' => 739, 'audio' =>  $Instructions . "Read-and-write-Yes-or-No" . ".mp3"],
+
+            ['content' => "Prepare to speak", 'game_id' => 741, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
+
+
+            //////////////// L39 ////////////////
+
+            ['content' => "Listen and Say", 'game_id' => 743, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            // ['content' => "Look at the pictures and write the words for the number", 'game_id' => 744, 'audio' =>  $Instructions . "Look-at-the-pictures-and-write-the-words-for-the-number" . ".mp3"],
+
+            // ['content' => "Match the words with the picture", 'game_id' => 745, 'audio' =>  $Instructions . "Match-the-words-with-the-picture" . ".mp3"],
+
+            // ['content' => "Listen and circle the words you hear", 'game_id' => 746, 'audio' =>  $Instructions . "Listen-and-circle-the-words-you-hear" . ".mp3"],
+
+            ['content' => "Prepare to speak", 'game_id' => 748, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
+
+
+            //////////////// L40 ////////////////
+
+            ['content' => "Listen and Say", 'game_id' => 750, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
+
+            // ['content' => "Match the pictures with the words", 'game_id' => 752, 'audio' =>  $Instructions . "Match-the-pictures-with-the-words" . ".mp3"],
+
+            ['content' => "Listen to the conversation and choose the right answer.", 'game_id' => 753, 'audio' => $Instructions . "SubBlock_Listen-to-the-conversation-and.mp3"],
+
+            // ['content' => "Read and Choose the correct answers.", 'game_id' => 755, 'audio' => $Instructions . "Read-and-Choose-the-correct-answers.mp3"],
+
+            ['content' => "Prepare to speak", 'game_id' => 746, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
+
+
+
+
+
 
 
 
@@ -1820,42 +1890,6 @@ class GameInstructionSeeder extends Seeder
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-        // // Grade 3   (Temporary)
-        // DB::table('game_instructions')->insert([
-        //     // G-3 lesson_26 U-7
-        //     [
-        //         'content' => "Write about your daily routines.", 'game_id' => 113,
-        //         'audio' =>  $Instructions . "Write-about-your-daily-routine" . ".mp3"
-        //     ],
-
-        //     // G-3 lesson_33 U-3
-        //     [
-        //         'content' => "Write the opposite.", 'game_id' => 117,
-        //         'audio' =>  $Instructions . "Write_the_opposite(N/A)" . ".mp3"
-        //     ],
-        // ]);
-
-        // // Grade 4   (Temporary)
-        // DB::table('game_instructions')->insert([
-
-        //     // G-3 lesson_33 U-3
-        //     [
-        //         'content' => "Listen to the audio and choose the right picture.",
-        //         'game_id' => 135,
-        //         'audio' =>  $Instructions . "Listen-to-the-audio-and-choose-the-right-picture" . ".mp3"
-        //     ],
-        // ]);
 
 
 
