@@ -1066,9 +1066,9 @@ class AnsNQueSeeder extends Seeder
         $l4_G791image = $domain . "/storage/images/Grade_4/lesson_3/speaking_practice/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 791, "q_audio" => $AudioDomain . $G4_L4_speaking_practice . ".mp3", "q_conver" => $l4_G791image . "teacher.png", "round_instruction" => $AudioDomain . $G4_L4_speaking_practice . "" . ".mp3"],
-            ['round' => 2, 'game_id' => 791, "q_audio" => $AudioDomain . $G4_L4_speaking_practice . ".mp3", "q_conver" => $l4_G791image . "friend.png", "round_instruction" => $AudioDomain . $G4_L4_speaking_practice . "" . ".mp3"],
-            ['round' => 3, 'game_id' => 791, "q_audio" => $AudioDomain . $G4_L4_speaking_practice . ".mp3", "q_conver" => $l4_G791image . "bro.png", "round_instruction" => $AudioDomain . $G4_L4_speaking_practice . "" . ".mp3"],
+            ['round' => 1, 'game_id' => 791, "q_audio" => $AudioDomain . $G4_L4_speaking_practice . ".mp3", "q_conver" => $l4_G791image . "teacher.png"],
+            ['round' => 2, 'game_id' => 791, "q_audio" => $AudioDomain . $G4_L4_speaking_practice . ".mp3", "q_conver" => $l4_G791image . "friend.png"],
+            ['round' => 3, 'game_id' => 791, "q_audio" => $AudioDomain . $G4_L4_speaking_practice . ".mp3", "q_conver" => $l4_G791image . "bro.png"],
         ]);
 
 
@@ -1260,7 +1260,7 @@ class AnsNQueSeeder extends Seeder
             ['round' => 1, 'game_id' => 798, 'q_image' => null, "q_content" => "Rat", "a_content" => 0],
             ['round' => 1, 'game_id' => 798, 'q_image' => null, "q_content" => "Bear", "a_content" => 0],
 
-            ['round' => 2, 'game_id' => 798, 'q_image' => $l5_G798_G799_image . "1/" . "fish.png", "q_content" => "Has", "a_content" => 1],
+            ['round' => 2, 'game_id' => 798, 'q_image' => $l5_G798_G799_image . "1/" . "fish.png", "q_content" => "Fish", "a_content" => 1],
             ['round' => 2, 'game_id' => 798, 'q_image' => null, "q_content" => "Snake", "a_content" => 0],
             ['round' => 2, 'game_id' => 798, 'q_image' => null, "q_content" => "Sheep", "a_content" => 0],
 
@@ -2420,7 +2420,7 @@ class AnsNQueSeeder extends Seeder
 
 
         //////////////////////////////////////////////////////////////
-        ////    Grade 4  Lesson 11 Game 866 (  Speaking Topic )
+        ////    Grade 4  Lesson 13 Game 866 (  Speaking Topic )
         //////////////////////////////////////////////////////////////
 
         $G4_L13_speaking_topic = "Grade_4/" . "Lesson_13/" . "speaking_topic/";
@@ -3179,16 +3179,16 @@ class AnsNQueSeeder extends Seeder
         $l17_G892image = $domain . "/storage/images/Grade_4/lesson_17/speaking_practice/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 892,  'q_image' => $l17_G892image . "notebook.png", "q_audio" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3", "q_content" => "S: Can I help you?\nC: __________________________.\nS: Sure. How many do you want?\nC: __________________________.\nS: Here you are.\nC: Thank you.",   "a_content" => "Sample \nShopkeeper: Can I help you?\nCustomer: Do you have any notebooks?\nShopkeeper: Sure. How many do you want?\nCustomer: Two, please.\nShopkeeper: Here you are.\nCustomer: Thank you."],
+            ['round' => 1, 'game_id' => 892,  'q_image' => $l17_G892image . "notebook.png", "q_audio" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3", "q_content" => "S: Can I help you?\nC: __________________________.\nS: Sure. How many do you want?\nC: __________________________.\nS: Here you are.\nC: Thank you.",   "a_content" => "Sample \nShopkeeper: Can I help you?\nCustomer: Do you have any notebooks?\nShopkeeper: Sure. How many do you want?\nCustomer: Two, please.\nShopkeeper: Here you are.\nCustomer: Thank you."],
         ]);
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 2, 'game_id' => 892,  'q_image' => $l17_G892image . "crayon.png", "q_audio" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nC: __________________________.\nS: Sure. How many do you want?\nC: __________________________.\nS: Here you are.\nC: Thank you."],
-            ['round' => 3, 'game_id' => 892,  'q_image' => $l17_G892image . "clipboard.png", "q_audio" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nC: __________________________.\nS: Sure. How many do you want?\nC: __________________________.\nS: Here you are.\nC: Thank you."],
-            ['round' => 4, 'game_id' => 892,  'q_image' => $l17_G892image . "highlighter.png", "q_audio" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nC: __________________________.\nS: Sure. How many do you want?\nC: __________________________.\nS: Here you are.\nC: Thank you."],
-            ['round' => 5, 'game_id' => 892,  'q_image' => $l17_G892image . "pencil-case.png", "q_audio" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nC: __________________________.\nS: Sure. How many do you want?\nC: __________________________.\nS: Here you are.\nC: Thank you."],
-            ['round' => 6, 'game_id' => 892,  'q_image' => $l17_G892image . "eraser.png", "q_audio" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nC: __________________________.\nS: Sure. How many do you want?\nC: __________________________.\nS: Here you are.\nC: Thank you."],
-            ['round' => 7, 'game_id' => 892,  'q_image' => $l17_G892image . "sticky-note.png", "q_audio" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nC: __________________________.\nS: Sure. How many do you want?\nC: __________________________.\nS: Here you are.\nC: Thank you."],
+            ['round' => 2, 'game_id' => 892,  'q_image' => $l17_G892image . "crayon.png", "q_audio" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nC: __________________________.\nS: Sure. How many do you want?\nC: __________________________.\nS: Here you are.\nC: Thank you."],
+            ['round' => 3, 'game_id' => 892,  'q_image' => $l17_G892image . "clipboard.png", "q_audio" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nC: __________________________.\nS: Sure. How many do you want?\nC: __________________________.\nS: Here you are.\nC: Thank you."],
+            ['round' => 4, 'game_id' => 892,  'q_image' => $l17_G892image . "highlighter.png", "q_audio" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nC: __________________________.\nS: Sure. How many do you want?\nC: __________________________.\nS: Here you are.\nC: Thank you."],
+            ['round' => 5, 'game_id' => 892,  'q_image' => $l17_G892image . "pencil-case.png", "q_audio" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nC: __________________________.\nS: Sure. How many do you want?\nC: __________________________.\nS: Here you are.\nC: Thank you."],
+            ['round' => 6, 'game_id' => 892,  'q_image' => $l17_G892image . "eraser.png", "q_audio" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nC: __________________________.\nS: Sure. How many do you want?\nC: __________________________.\nS: Here you are.\nC: Thank you."],
+            ['round' => 7, 'game_id' => 892,  'q_image' => $l17_G892image . "sticky-note.png", "q_audio" => $AudioDomain . $G4_L17_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nC: __________________________.\nS: Sure. How many do you want?\nC: __________________________.\nS: Here you are.\nC: Thank you."],
         ]);
 
 
@@ -3842,13 +3842,13 @@ class AnsNQueSeeder extends Seeder
         $l20_G917image = $domain . "/storage/images/Grade_4/lesson_20/speaking_practice/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 917,  'q_image' => $l20_G917image . "pudding.png", "q_audio" => $AudioDomain . $G4_L20_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L20_practice_speaking . "" . ".mp3", "q_content" => "S: Can I help you?\nYou: _______________________________.\nS: Yes, we do.\nYou: ________________________________.\nS: It's $10.\nYou: ________________________________.\nS: Thank you.",  "a_content" => "Sample \nS: Can I help you?\nC: I want some puddings, please. Do you have any?\nS: Yes, we do.\nC: How much is one?\nS: It's $10.\nC: I want six, please.\nS: OK. That will be $60 kyats.\nC: Here you are.\nS: Thank you."],
+            ['round' => 1, 'game_id' => 917,  'q_image' => $l20_G917image . "pudding.png", "q_audio" => $AudioDomain . $G4_L20_practice_speaking . "" . ".mp3", "q_content" => "S: Can I help you?\nYou: _______________________________.\nS: Yes, we do.\nYou: ________________________________.\nS: It's $10.\nYou: ________________________________.\nS: Thank you.",  "a_content" => "Sample \nS: Can I help you?\nC: I want some puddings, please. Do you have any?\nS: Yes, we do.\nC: How much is one?\nS: It's $10.\nC: I want six, please.\nS: OK. That will be $60 kyats.\nC: Here you are.\nS: Thank you."],
         ]);
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 2, 'game_id' => 917,  'q_image' => $l20_G917image . "toy-monkey.png", "q_audio" => $AudioDomain . $G4_L20_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L20_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nYou: _______________________________.\nS: Yes, we do.\nYou: ________________________________.\nS: It's $100.\nYou: ________________________________.\nS: Thank you."],
-            ['round' => 3, 'game_id' => 917,  'q_image' => $l20_G917image . "shirt.png", "q_audio" => $AudioDomain . $G4_L20_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L20_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nYou: _______________________________.\nS: Yes, we do.\nYou: ________________________________.\nS: What color do you want?\nYou: ________________________________.\nS: What size do you want?\nYou: ________________________________.\nYou:________________________________.\nS: It’s $1000.\nYou: ________________________________.\nS: Thank you."],
-            ['round' => 4, 'game_id' => 917,  'q_image' => $l20_G917image . "toy-monkey.png", "q_audio" => $AudioDomain . $G4_L20_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L20_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nYou: _______________________________.\nS: Yes, we do.\nYou: ________________________________.\nS: It's $200.\nYou: ________________________________.\nS: Thank you."],
+            ['round' => 2, 'game_id' => 917,  'q_image' => $l20_G917image . "toy-monkey.png", "q_audio" => $AudioDomain . $G4_L20_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nYou: _______________________________.\nS: Yes, we do.\nYou: ________________________________.\nS: It's $100.\nYou: ________________________________.\nS: Thank you."],
+            ['round' => 3, 'game_id' => 917,  'q_image' => $l20_G917image . "shirt.png", "q_audio" => $AudioDomain . $G4_L20_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nYou: _______________________________.\nS: Yes, we do.\nYou: ________________________________.\nS: What color do you want?\nYou: ________________________________.\nS: What size do you want?\nYou: ________________________________.\nYou:________________________________.\nS: It’s $1000.\nYou: ________________________________.\nS: Thank you."],
+            ['round' => 4, 'game_id' => 917,  'q_image' => $l20_G917image . "toy-monkey.png", "q_audio" => $AudioDomain . $G4_L20_practice_speaking . "" . ".mp3",  "q_content" => "S: Can I help you?\nYou: _______________________________.\nS: Yes, we do.\nYou: ________________________________.\nS: It's $200.\nYou: ________________________________.\nS: Thank you."],
 
         ]);
 

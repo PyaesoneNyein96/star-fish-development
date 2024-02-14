@@ -464,29 +464,29 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 265,  'q_image' => $l3_G265_image . "angry.png", "q_content" => "She is _____."],
-            ['round' => 2, 'game_id' => 265,  'q_image' => $l3_G265_image . "happy.png", "q_content" => "He is _____."],
-            ['round' => 3, 'game_id' => 265,  'q_image' => $l3_G265_image . "hungry.png", "q_content" => "She is _____."],
-            ['round' => 4, 'game_id' => 265,  'q_image' => $l3_G265_image . "jealous.png", "q_content" => "He is _____."],
-            ['round' => 5, 'game_id' => 265,  'q_image' => $l3_G265_image . "joyful.png", "q_content" => "She is _____."],
-            ['round' => 6, 'game_id' => 265,  'q_image' => $l3_G265_image . "nervous.png", "q_content" => "He is _____."],
-            ['round' => 7, 'game_id' => 265,  'q_image' => $l3_G265_image . "sad.png", "q_content" => "She is _____."],
-            ['round' => 8, 'game_id' => 265,  'q_image' => $l3_G265_image . "thirsty.png", "q_content" => "He is _____."],
-            ['round' => 9, 'game_id' => 265,  'q_image' => $l3_G265_image . "excited.png", "q_content" => "He is _____."],
-            ['round' => 10, 'game_id' => 265,  'q_image' => $l3_G265_image . "bored.png", "q_content" => "He is _____."],
+            ['round' => 1, 'game_id' => 265, "q_audio" => $AudioDomain . $G2_L3_Speaking . "angry.mp3",  'q_image' => $l3_G265_image . "angry.png", "q_content" => "She is _____."],
+            ['round' => 2, 'game_id' => 265, "q_audio" => $AudioDomain . $G2_L3_Speaking . "happy.mp3",  'q_image' => $l3_G265_image . "happy.png", "q_content" => "He is _____."],
+            ['round' => 3, 'game_id' => 265, "q_audio" => $AudioDomain . $G2_L3_Speaking . "hungry.mp3",  'q_image' => $l3_G265_image . "hungry.png", "q_content" => "She is _____."],
+            ['round' => 4, 'game_id' => 265, "q_audio" => $AudioDomain . $G2_L3_Speaking . "jealous.mp3",  'q_image' => $l3_G265_image . "jealous.png", "q_content" => "He is _____."],
+            ['round' => 5, 'game_id' => 265, "q_audio" => $AudioDomain . $G2_L3_Speaking . "joyful.mp3",  'q_image' => $l3_G265_image . "joyful.png", "q_content" => "She is _____."],
+            ['round' => 6, 'game_id' => 265, "q_audio" => $AudioDomain . $G2_L3_Speaking . "nervous.mp3",  'q_image' => $l3_G265_image . "nervous.png", "q_content" => "He is _____."],
+            ['round' => 7, 'game_id' => 265, "q_audio" => $AudioDomain . $G2_L3_Speaking . "sad.mp3",  'q_image' => $l3_G265_image . "sad.png", "q_content" => "She is _____."],
+            ['round' => 8, 'game_id' => 265, "q_audio" => $AudioDomain . $G2_L3_Speaking . "thirsty.mp3",  'q_image' => $l3_G265_image . "thirsty.png", "q_content" => "He is _____."],
+            ['round' => 9, 'game_id' => 265, "q_audio" => $AudioDomain . $G2_L3_Speaking . "excited.mp3",  'q_image' => $l3_G265_image . "excited.png", "q_content" => "He is _____."],
+            ['round' => 10, 'game_id' => 265, "q_audio" => $AudioDomain . $G2_L3_Speaking . "bored.mp3",  'q_image' => $l3_G265_image . "bored.png", "q_content" => "He is _____."],
 
         ]);
 
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 11, 'game_id' => 265, 'a_image' => $l3_G265_image . "hla.png", "a_audio" => $AudioDomain . $G2_L3_Speaking . "Hi-Su-Su-How-are-you-feeling.mp3", "a_conver" => "Hi, Su Su. How are you \nfeeling today?", "background" =>  $l3_G265_image . "bg1.png"],
-            ['round' => 11, 'game_id' => 265, 'a_image' => $l3_G265_image . "su.png", "a_audio" => $AudioDomain . $G2_L3_Speaking . "Hello-Hla-Hla-Im-happy.mp3", "a_conver" => "Hello, Hla Hla.\nI'm happy.", "background" =>  $l3_G265_image . "bg1.png"],
+            ['round' => 11, 'game_id' => 265, 'a_image' => $l3_G265_image . "hla.png", "a_audio" => $AudioDomain . $G2_L3_Speaking . "Hi-Su-Su-How-are-you-feeling.mp3", "a_conver" => $l3_G265_image .  "hi-susu.png", "background" =>  $l3_G265_image . "bg1.png"],
+            ['round' => 11, 'game_id' => 265, 'a_image' => $l3_G265_image . "su.png", "a_audio" => $AudioDomain . $G2_L3_Speaking . "Hello-Hla-Hla-Im-happy.mp3", "a_conver" => $l3_G265_image .  "hello-hla-hla.png", "background" =>  $l3_G265_image . "bg1.png"],
 
-            ['round' => 12, 'game_id' => 265, 'a_image' => $l3_G265_image . "su-right.png", "a_audio" => $AudioDomain . $G2_L3_Speaking . "Hi-Aye-Aye-How-are-you-feelin.mp3", "a_conver" => "Hi, Aye Aye. How are you \nfeeling today?", "background" =>  $l3_G265_image . "bg1.png"],
-            ['round' => 12, 'game_id' => 265, 'a_image' => $l3_G265_image . "aye.png", "a_audio" => $AudioDomain . $G2_L3_Speaking . "Hello-Su-Su-Im-hungry.mp3", "a_conver" => "Hello, Su Su.\nI'm hungry.", "background" =>  $l3_G265_image . "bg1.png"],
+            ['round' => 12, 'game_id' => 265, 'a_image' => $l3_G265_image . "su-right.png", "a_audio" => $AudioDomain . $G2_L3_Speaking . "Hi-Aye-Aye-How-are-you-feelin.mp3", "a_conver" => $l3_G265_image .  "hi-aye-aye.png", "background" =>  $l3_G265_image . "bg1.png"],
+            ['round' => 12, 'game_id' => 265, 'a_image' => $l3_G265_image . "aye.png", "a_audio" => $AudioDomain . $G2_L3_Speaking . "Hello-Su-Su-Im-hungry.mp3", "a_conver" => $l3_G265_image .  "hello-susu.png", "background" =>  $l3_G265_image . "bg1.png"],
 
-            ['round' => 13, 'game_id' => 265, 'a_image' => $l3_G265_image . "chris.png", "a_audio" => $AudioDomain . $G2_L3_Speaking . "Block_Hi-Kyaw-Kyaw-How-are-you-feeli.mp3", "a_conver" => "Hi, Kyaw Kyaw. How are you \nfeeling today?", "background" =>  $l3_G265_image . "bg1.png"],
-            ['round' => 13, 'game_id' => 265, 'a_image' => $l3_G265_image . "kyaw.png", "a_audio" =>  $AudioDomain . $G2_L3_Speaking . "Block_Hello-Chris-Im-sad.mp3", "a_conver" => "Hello, Chris.\nI'm sad.", "background" =>  $l3_G265_image . "bg1.png"],
+            ['round' => 13, 'game_id' => 265, 'a_image' => $l3_G265_image . "chris.png", "a_audio" => $AudioDomain . $G2_L3_Speaking . "Block_Hi-Kyaw-Kyaw-How-are-you-feeli.mp3", "a_conver" => $l3_G265_image .  "hi-kyaw-kyaw.png", "background" =>  $l3_G265_image . "bg1.png"],
+            ['round' => 13, 'game_id' => 265, 'a_image' => $l3_G265_image . "kyaw.png", "a_audio" =>  $AudioDomain . $G2_L3_Speaking . "Block_Hello-Chris-Im-sad.mp3", "a_conver" => $l3_G265_image .  "hello-chris.png", "background" =>  $l3_G265_image . "bg1.png"],
         ]);
 
         DB::table('ans_n_ques')->insert([
