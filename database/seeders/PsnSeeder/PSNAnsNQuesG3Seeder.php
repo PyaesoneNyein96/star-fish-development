@@ -4579,9 +4579,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 [
                     'game_id' => 732,
                     'round' => $key + 1,
-                    'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                    'round_instruction' => $audios.$this->removeSpace($value).".mp3",
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                    // 'q_audio' => $audio.$this->removeSpace($value).".mp3",
                     'q_image' => $images .$this->removeSpace($value) . ".png",
                 ]
 
@@ -4601,8 +4601,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         [
             'game_id' => 733,
             'q_content' => "Prepare to speak.\n Look at the map of your town and describe it",
-            'q_audio' => $audio."Prepare-to-speak.mp3",
-            'q_image' => $images . "Map-img",
+            'round_instruction' => $audios."Look-at-map.mp3",
+            'q_image' => $images . "Map-img.png",
         ]
 
     ]);
