@@ -11,6 +11,12 @@ class PSNAnsNQuesG2Seeder extends Seeder
     /**
      * Run the database seeds.
      */
+
+    private function removeSpace($val){
+        return str_replace(' ','-',$val);
+    }
+
+
     public function run(): void
     {
         $domain = app('domain');

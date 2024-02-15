@@ -171,9 +171,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 [
                     'game_id' => 807,
                     'round' => $key + 1,
-                    'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                    // 'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                    // 'q_audio' => $audio.$this->removeSpace($value).".mp3",
                     'q_image' => $images .$this->removeSpace($value) . ".png",
                 ]
 
@@ -954,7 +954,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
     ];
 
     $ans = [
-        'whale','pig', 'turtle', 'cheetah' ,'giraffes','elephant'
+        'whale','pig', 'turtle', 'cheetah' ,'giraffe','elephant'
     ];
 
 
@@ -994,13 +994,15 @@ class PSNAnsNQuesG4Seeder extends Seeder
     // Unit 6 Speaking Practice <speaking_and_recording>
 
     $contents = [
-        "giraffe","turtle","whale","cheetah",
+        "leopard","giraffe","turtle","whale",
      ];
 
-    //  $Question_contents = [
-    //     "What is it? \n It is ___. \n It is a land animal or sea animal? \n It is a ___.
-    //      \n It is a big or small? \n It is ___ \n It is fast or slow \n It is ___.",
-    //  ];
+     $a_contents = [
+        "Example \n A leopard has four legs. \n It has yellow fur with black spots. \n It can run very fast. \n It is big. \n It lives on land.",
+        null,
+        null,
+        null,
+     ];
 
 
 
@@ -1010,15 +1012,14 @@ class PSNAnsNQuesG4Seeder extends Seeder
      foreach ($contents as $key => $value) {
 
          DB::table('ans_n_ques')->insert([
-
-             [
+            [
                  'game_id' => 825,
                  'round' => $key + 1,
                 //  'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
-                //  'q_content' => $Question_contents[0],
-                 'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                 'a_content' => $a_contents[$key],
+                //  'q_audio' => $audio.$this->removeSpace($value).".mp3",
                  'q_image' => $images .$this->removeSpace($value) . ".png",
-             ]
+            ]
 
          ]);
      }
@@ -1038,7 +1039,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         [
             'game_id' => 826,
             'q_conver' => $images."question-list.png",
-            'q_audio' => $audio."which-animal-do-you-see.mp3",
+            'q_audio' => $audios."What-is-your-favorite-animal.mp3",
             'q_image' => $images . "orange-starfish.png",
         ]
 
@@ -1073,7 +1074,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
     $contents = [
-        'cloudy','cold','foggy','hail','hot','icy','lighting','rainbow','rainy','snow','snowy','stormy','sunny','thunder','windy',
+        'Cloudy','Cold','Foggy','Hail','Hot','Icy','Lighting','Rainbow','Rainy','Snow','Snowy','Stormy','Sunny','Thunder','Windy',
     ];
 
 
@@ -1116,8 +1117,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
         ['Y','O','U','D','C','L'],
     ];
 
-    $img = $ImageDomain . "Grade_4/Lesson_8/Spelling/";
-    $audio = $AudioDomain . "Grade_4/Lesson_8/Spelling/";
+    $img = $ImageDomain . "Grade_4/Lesson_9/Spelling/";
+    $audio = $AudioDomain . "Grade_4/Lesson_9/Spelling/";
 
     $answers = [
         'THUNDER', 'WINDY', 'SNOWY', 'RAINBOW', 'RAINY','STORMY','HOT','COLD','FOGGY','HAIL','ICY','LIGHTNING','SNOW','SUNNY','CLOUDY'
@@ -1368,23 +1369,24 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
     // next rounds for conversations
         $chars = [
-            ['boy'],
-            ['boy'],
-            ['boy'],
-            ['boy']
+            ['boy','teacher'],
+            ['boy','girl-1'],
+            ['boy','girl-2'],
+            ['boy','girl-3']
         ];
 
-        $convers = [
-            ["It's hot today. So, she's wearing a blouse, and pants"],
-            ["It's hot today. So, she's wearing a blouse, a skirt, and sunglasses."],
-            ["It's cold today. So, she's wearing a hat, a jacket, pants and trainers."],
-            ["It's cold today. So, he's wearing a sweater, pants and trainers."],
-        ];
+
         $convers_audio = [
-            "hot-1",
-            "hot-2",
-            "cold-1",
-            "cold-2",
+            ["hot-1.mp3",null],
+            ["hot-2.mp3",null],
+            ["cold-1.mp3",null],
+            ["cold-2.mp3",null],
+        ];
+        $convers_gif = [
+            ["hot-1.png",null],
+            ["hot-2.png",null],
+            ["cold-1.png",null],
+            ["cold-2.png",null],
         ];
 
         $audio = $AudioDomain."Grade_4/Lesson_26/Listen_and_Repeat_2/";
@@ -1398,10 +1400,10 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     DB::table('ans_n_ques')->insert([
                         [
                         'game_id' => 963,
-                        'round' => $key + 2,
-                        'a_image' => $img.$v.".png",
-                        'a_audio' => str_replace(' ','-',$audio.$convers_audio[$key]).".mp3",
-                        'a_conver' => $convers[$key][$k],
+                        'round' => $key + 1,
+                        'a_image' => $img.$v.".gif",
+                        'a_audio' => $convers_audio[$key][$k] ? $audio.$convers_audio[$key][$k] : null,
+                        'a_conver' => $convers_gif[$key][$k] ? $img.$convers_gif[$key][$k] : null ,
                         "background" => $img."bg".$key + 1 .".png"
                         ]
                     ]);
@@ -1669,7 +1671,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         $contents = [
-            'A cup','A hat', 'A raincoat', 'A scarf', 'A sweater', 'Boots', 'Gloves', 'Socks', 'Suit'
+            'A cap','A hat', 'A raincoat', 'A scarf', 'A sweater', 'Boots', 'Gloves', 'Socks', 'Suit'
         ];
 
 
@@ -1730,16 +1732,16 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         $convers = [
-            ['What do you like to wear in the rainy season?',"I like to wear a raincoat, and flipflops."],
-            ["What do you like to wear in the rainy season?","I like to wear a scarf, a winter coat, pants,gloves and boots."],
-            ['What do you like to wear in the rainy season?',"I like to wear a T-shirt and jeans."],
-            ["I like to wear a T-shirt, jeans and trainers.What about you?", "I like to wear a blouse and skirt."]
+            ['boy.png',"yellow-girl.png"],
+            ["boy.png","green-girl.png"],
+            ['boy.png',"purple-girl.png"],
+            ["man.png", "woman.png"]
         ];
         $convers_audio = [
-            ['What do you like wear rainy reason', "raincoat and flipflops"],
-            ["What do you like wear rainy reason", "scarf winter coat pants gloves boots"],
-            ['What do you like wear rainy reason',"T-shirt jeans"],
-            ["T-shirt jeans trainers", "blouse skirt"]
+            ['rainy-season.mp3', "raincoat-flipflops.mp3"],
+            ["cold-season.mp3", "gloves-boots.mp3"],
+            ['hot-season.mp3',"T-shirt-jeans-girl.mp3"],
+            ["T-shirt-jeans-boy.mp3", "blouse-skirt.mp3"]
         ];
 
         $audio = $AudioDomain."Grade_4/Lesson_27/Listen_and_Repeat_2/";
@@ -1754,9 +1756,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
                         [
                         'game_id' => 971,
                         'round' => $key + 2,
-                        'a_image' => $img.$v.".png",
-                        'a_audio' => str_replace(' ','-',$audio.$convers_audio[$key][$k]).".mp3",
-                        'a_conver' => $convers[$key][$k],
+                        'a_image' => $img.$v.".gif",
+                        'a_audio' => $convers_audio[$key][$k] ? $audio.$convers_audio[$key][$k] : null,
+                        'a_conver' => $convers[$key][$k] ?  $img.$convers[$key][$k] : null ,
                         "background" => $img."bg".$key + 1 .".png"
                         ]
                     ]);
@@ -1803,6 +1805,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     'game_id' => 972,
                     'round' => $key + 1,
                     'q_image' => $img.$this->removeSpace($content).".png",
+                    'q_conver' => $questions[$key],
                     'q_content' => $given_ans[0],
                     'a_content' => $given_ans[0] == $ans[$key] ? true : false
                 ]
@@ -1843,10 +1846,10 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 [
                     'game_id' => 973,
                     'round' => $key + 1,
-                    'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                    'round_instruction' => $audios.$this->removeSpace($value).".mp3",
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
-                    'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
+                    'q_audio' => $audios.str_replace('?','',$this->removeSpace($value)).".mp3",
+                    'q_image' => $images."green-starfish".".png",
                 ]
 
             ]);
@@ -1913,7 +1916,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
     // Unit - 2 Listen and Repeat , Sub - 1 (Reading_carousel)
 
         $contents = [
-            "he-like", "I-like", "she-likes", "they-like"
+            "he-likes", "I-like", "she-likes", "they-like", "you-like"
         ];
 
 
@@ -2066,9 +2069,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 980,
                 'round' => $key + 1,
-                'round_instruction' => $audio.$this->removeSpace($Question_contents[$key])."_round_ins".".mp3",
+                // 'round_instruction' => $audio.$this->removeSpace($Question_contents[$key])."_round_ins".".mp3",
                 'q_content' => $Question_contents[$key],
-                'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
+                // 'q_audio' => $audios.str_replace('?','',$this->removeSpace($value)).".mp3",
                 'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
             ]
 
@@ -2147,7 +2150,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             "ben-emma.mp3",
         ];
 
-        $paraName = "jack-and-animal.mp3";
+        $paraName = "Ben-and-Emma.mp3";
 
         $given_answer = [
             ['A T-shirt and pants', 'A suit','A polka dot shirt and pants'],
@@ -2169,7 +2172,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     [
                         'round' => $i + 1,
                         'game_id' => 982,
-                        'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $given_q[$i][1] ? 1 : 0
                     ]
@@ -2220,9 +2223,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 983,
                 'round' => $key + 1,
-                'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                // 'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
                 'q_content' => $Question_contents[$key],
-                'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
+                // 'q_audio' => $audios.str_replace('?','',$this->removeSpace($value)).".mp3",
                 'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
             ]
         ]);
@@ -2242,6 +2245,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
              'game_id' => 984,
              'a_content' => $sample_content,
              'q_image' => $images.$sample_content.".png",
+             'q_content' => $images.$sample_content."_small.png",
          ],
      ]);
 
@@ -2297,17 +2301,17 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         $convers = [
-            ['I usually have hamburger for lunch.',"Oh, yes. I like hamburger, too."],
-            ["What do you usually have for lunch?","I usually have chicken rice for lunch. And you?"],
-            ["I usually have mont-hin-gah for breakfast.","Oh, yes. I like mont-hin-gah, too."],
-            ["What do you usually have for lunch?", "I usually have fried rice and coffee for breakfast. And you?"]
+            ['boy-con-1',"girl-con-1"],
+            ["boy-con-2","girl-con-2"],
+            ["boy-con-3","girl-con-3"],
+            ["boy-con-4", "girl-con-4"]
         ];
 
         $convers_audio = [
-            ['hamburger-for-lunch', "me-too-hamburger"],
-            ["what-ur-lunch", "chicken-rice-lunch"],
-            ['mont-hin-gah-for-breakfast',"me-too-mont-hin-gah"],
-            ["T-shirt jeans trainers", "fried-rice-coffee"]
+            ['hamburger-for-lunch.mp3', "me-too-hamburger.mp3"],
+            ["what-ur-lunch.mp3", "chicken-rice-lunch.mp3"],
+            ['mont-hin-gah-for-breakfast.mp3',"me-too-mont-hin-gah.mp3"],
+            ["usually-breakfast.mp3", "fried-rice-coffee.mp3"]
         ];
 
         $audio = $AudioDomain."Grade_4/Lesson_29/Listen_and_Repeat_2/";
@@ -2322,9 +2326,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     [
                     'game_id' => 987,
                     'round' => $key + 1,
-                    'a_image' => $img.$v.".png",
-                    'a_audio' => str_replace(' ','-',$audio.$convers_audio[$key][$k]).".mp3",
-                    'a_conver' => $convers[$key][$k],
+                    'a_image' => $img.$v.".gif",
+                    'a_audio' => $convers_audio[$key][$k] ? $audio.$convers_audio[$key][$k] : null,
+                    'a_conver' => $convers[$key][$k] ? $img.$convers[$key][$k]."png": null,
                     "background" => $img."bg".$key + 1 .".png"
                     ]
                 ]);
@@ -2402,7 +2406,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
     ];
 
     $q_instruction = [
-        'breakfast-fried-rice','breakfast','breakfast','lunch','lunch','dinner','breakfast'
+        'breakfast-fried-rice','breakfast-coconut-noodle','breakfast-mont-hin-gah',
+        'lunch-sandwich','lunch-hamburger','dinner-salad','breakfast-steam-sticky-rice'
     ];
 
 
@@ -2416,9 +2421,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 989,
                 'round' => $key + 1,
-                'round_instruction' => $audio.$this->removeSpace($q_instruction[$key])."_round_ins".".mp3",
+                // 'round_instruction' => $audios.$this->removeSpace($q_instruction[$key]).".mp3",
                 'q_content' => $Question_contents[$key],
-                'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
+                // 'q_audio' => $audios.str_replace('?','',$this->removeSpace($value)).".mp3",
                 'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
             ]
 
@@ -2508,7 +2513,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 991,
                 'q_content' => $content,
-                'q_audio' => $audio."Talk-about-usually-eat.mp3",
+                'q_audio' => $audios."Talk-about-usually-eat.mp3",
                 'q_image' => $images . "girl-eating.png",
             ]
 
@@ -2528,6 +2533,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         [
             'game_id' => 992,
             'q_image' => $images.$sample_content.".png",
+            'q_content' => $images.$sample_content."_small.png",
             'a_content' => "I usually have fried rice and tea for breakfast.I have chicken rice, fried vegetables, and soup for lunch. I do not like eating sandwich for lunch. I usually have sandwich, salad, and juice for dinner.I do not like eating hamburgers for dinner. ",
         ],
     ]);
@@ -2579,8 +2585,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         $convers = [
-            ["What is your favorite food?","Noodle"],
-            ['Why',"They are good for energy."],
+            ["What-food","Noodle"],
+            ['Why',"good-energy."],
         ];
 
         $convers_audio = [
@@ -2600,9 +2606,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     [
                     'game_id' => 995,
                     'round' => $key + 1,
-                    'a_image' => $img.$v.".png",
-                    'a_audio' => str_replace(' ','-',$audio.$convers_audio[$key][$k]).".mp3",
-                    'a_conver' => $convers[$key][$k],
+                    'a_image' => $img.$v.".gif",
+                    'a_audio' => $convers_audio[$key][$k] ? $audio.$convers_audio[$key][$k].".mp3" : null,
+                    'a_conver' => $convers[$key][$k] ? $img.$convers[$key][$k].".png" : null,
                     "background" => $img."bg".$key + 1 .".png"
                     ]
                 ]);
@@ -2622,7 +2628,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         $contents = [
             ['Puri','BiBimbap','Noodle soup','Pizza','Sushi'],
-            ['Fish and chips','Sushi','Roast lamb','Pad Thai','Bacon and egg'],
+            ['Fish and chips','Sushi','Roast lamb','Phad Thai','Bacon and egg'],
         ];
 
 
@@ -2664,7 +2670,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
     $contents = [
-        'pizza','phat-thai','biBimbap','sushi','puri','noodle-soup','bacon-egg',
+        'pizza','phat-thai','bibimbap','sushi','puri','noodle-soup','bacon-egg',
     ];
 
     $Question_contents = [
@@ -2677,9 +2683,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         "What is your favorite food? \n __________.",
     ];
 
-    $q_instruction = [
-         'pizza','phat-thai','biBimbap','sushi','puri','noodle-soup','bacon-egg',
-    ];
+    $q_instruction = "What-is-your-favorite-food";
 
 
     $images = $ImageDomain . "Grade_4/Lesson_30/Speaking/";
@@ -2692,9 +2696,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 997,
                 'round' => $key + 1,
-                'round_instruction' => $audio.$this->removeSpace($q_instruction[$key])."_round_ins".".mp3",
+                // 'round_instruction' => $audios.$this->removeSpace($q_instruction).".mp3",
                 'q_content' => $Question_contents[$key],
-                // 'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
+                // 'q_audio' => $audios.str_replace('?','',$this->removeSpace($value)).".mp3",
                 'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
             ]
 
@@ -2762,7 +2766,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
         $images = $ImageDomain . "Grade_4/Lesson_30/Reading_passage/";
         $audios = $AudioDomain . "Grade_4/Lesson_30/Reading_passage/";
 
-         $para = "I am Jack. I love animals. There are 3 dogs and 2 cats in the house. I also have 3 golden fish and 1 white rabbit. They are my friends. My dogs are always barking. My cats are running in the house. The rabbit is eating carrots.";
+        $para = "Rekai loved to eat pancakes more than anything in the world. He loved pancakes so much. He simply refused to eat any other food! Rekai’s mom said, “Eat some good food. Have some veggies and fruit! And don’t forget water and juice.” But, Rekai shook his head and said, “No, I don’t want to! Only pancakes will do.” Then, his mom had an idea. “I know how to get Rekai to eat healthy food!” she said.
+        She mixed up a batch of some extra special pancakes with a surprise ingredient. Mom watched as he gobbled them up and she was very pleased. Softly, she giggled and thought, this is great. He has no clue what he has just eaten! \n Then, one day, Rekai caught mom adding butternuts to his pancakes and he was very surprised. “Your secret ingredient is a vegetable?” he cried \n To this day, he enjoys eating his pancakes, and every day mom adds many yummy surprises.
+        Sometimes, she adds spinach. Sometimes, she adds carrots. Sometimes, she adds strawberries, or even apples.";
 
         $given_q = [
             ["What did Rekai’s mom add to his pancake?", "A secret ingredient"],
@@ -2776,7 +2782,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         $given_audio = [
             "mom-pancake.mp3",
-            "love=secret.mp3",
+            "love-secret.mp3",
             "secret-ingredient.mp3",
             "veggies.mp3",
             "mom-say.mp3",
@@ -2804,7 +2810,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     [
                         'round' => $i + 1,
                         'game_id' => 999,
-                        'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $given_q[$i][1] ? 1 : 0
                     ]
@@ -2846,7 +2852,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 1000,
                 'q_content' => $content,
-                'q_audio' => $audio."What-is-your-favorite-food.mp3",
+                'q_audio' => $audios."Draw-your-favorite-food.mp3",
                 'q_image' => $images . "plate.png",
             ]
 
@@ -2864,7 +2870,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
     $contents = [
-        "meat-fish", "noodles", "potato", "prawns", "rice", "vegetables"
+        "meat-fish", "noodles", "potato", "prawns", "rice", "vegetables", "beans", "bread", "fruits", "eggs"
     ];
 
 
@@ -2906,6 +2912,10 @@ class PSNAnsNQuesG4Seeder extends Seeder
         "energy", "health", "health", "growth", "energy", "growth", "growth","growth","energy",
     ];
 
+    $contents = [
+        "fish", "fruit", "vegetable", "bread", "egg", "beef", "seed", "potato", "rice"
+    ];
+
     foreach ($given_ans as $key => $ga) {
 
 
@@ -2913,7 +2923,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 1003,
                 'round' => $key + 1,
-                'q_image' => $img.$this->removeSpace($ans[$key]).".png",
+                'q_image' => $img.$this->removeSpace($contents[$key]).".png",
                 'q_content' => "Food for ". $ga[0],
                 'a_content' => $ga[0] == $ans[$key] ? true : false
             ]
@@ -2970,7 +2980,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 1004,
                 'round' => $key + 1,
-                'round_instruction' => $audio.$this->removeSpace($q_instruction[$key])."_round_ins".".mp3",
+                'round_instruction' => $audios.$this->removeSpace($q_instruction[$key])."_round_ins".".mp3",
                 'q_content' => $Question_contents[$key],
                 // 'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
                 'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
@@ -3003,12 +3013,12 @@ class PSNAnsNQuesG4Seeder extends Seeder
     ];
 
 
-    $audio = $AudioDomain."Grade_4/Lesson_32/Listening/";
-    $img = $ImageDomain."Grade_4/Lesson_32/Listening/";
+    $audio = $AudioDomain."Grade_4/Lesson_31/Listening/";
+    $img = $ImageDomain."Grade_4/Lesson_31/Listening/";
 
     $story = "Anna-daily";
 
-        foreach ($questions as $key => $val) {
+    foreach ($questions as $key => $val) {
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 1005,
@@ -3056,7 +3066,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 1006,
                 'q_content' => $content,
-                'q_audio' => $audio."food-for-health.mp3",
+                'q_audio' => $audios."food-for-health.mp3",
                 'q_image' => $images . "girl-eat.png",
             ]
 
@@ -3163,7 +3173,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
     ];
 
     $ans = [
-        "Pumpkin", "Rice", "Egg", "Carrot","Banana", "watermelon"
+        "Pumpkin", "Rice", "Egg", "Carrot","Banana", "Watermelon"
     ];
 
     foreach ($given_ans as $key => $ga) {
@@ -3174,7 +3184,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 'game_id' => 1010,
                 'round' => $key + 1,
                 'q_image' => $img.$this->removeSpace($ans[$key]).".png",
-                'q_content' => "Food for ". $ga[0],
+                'q_content' =>  $ga[0],
                 'a_content' => $ga[0] == $ans[$key] ? true : false
             ]
         ]);
@@ -3182,7 +3192,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 1010,
                 'round' => $key + 1,
-                'q_content' => "Food for ". $ga[1],
+                'q_content' =>  $ga[1],
                 'a_content' => $ga[1] == $ans[$key] ? true : false
             ]
         ]);
@@ -3191,7 +3201,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 1010,
                 'round' => $key + 1,
-                'q_content' => "Food for ". $ga[2],
+                'q_content' =>  $ga[2],
                 'a_content' => $ga[2] == $ans[$key] ? true : false
             ]
         ]);
@@ -3221,18 +3231,20 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         foreach ($contents as $key => $value) {
 
-            DB::table('ans_n_ques')->insert([
 
-                [
-                    'game_id' => 1011,
-                    'round' => $key + 1,
-                    'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
-                    'q_content' => $Question_contents[$key],
-                    'q_audio' => $audio.$this->removeSpace($value).".mp3",
-                    'q_image' => $images .$this->removeSpace($value) . ".png",
-                ]
+            $data = [
+                'game_id' => 1011,
+                'round' => $key + 1,
+                // 'round_instruction' => $audio.$this->removeSpace($value).".mp3",
+                'q_content' => $Question_contents[$key],
+                // 'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                'q_image' => $images .$this->removeSpace($value) . ".png",
+            ];
+            if($key == 0){
+                $data['round_instruction'] = $audios."example-instruction.mp3";
+            }
 
-            ]);
+            DB::table('ans_n_ques')->insert($data);
         }
 
 
@@ -3270,8 +3282,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 1012,
                 'round' => $key + 1,
-                // 'q_audio' => $audio.$ans[$key].".mp3",
-                'q_audio' => $audio.$story.".mp3",
+                'q_audio' => $audio.$this->removeSpace($ans[$key]).".mp3",
+                // 'q_audio' => $audio.$story.".mp3",
                 'q_content' => $given_ques[$key][0],
                 'q_conver'  => $val."?",
                 'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
@@ -3352,7 +3364,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     [
                         'round' => $i + 1,
                         'game_id' => 1013,
-                        'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $given_q[$i][1] ? 1 : 0
                     ]
@@ -3383,8 +3395,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
     /// Lesson 32 Unit 8 Speaking Topic <speaking_and_recording>
 
-        $images = $ImageDomain . "Grade_4/Lesson_7/Speaking_Topic/";
-        $audios = $AudioDomain . "Grade_4/Lesson_7/Speaking_Topic/";
+        $images = $ImageDomain . "Grade_4/Lesson_32/Speaking_Topic/";
+        $audios = $AudioDomain . "Grade_4/Lesson_32/Speaking_Topic/";
 
         $content = "At my school canteen, I can buy ___, ___, and ___. \n ___ is good for ___. \n ___ is good for ___. \n ___ is good for ___. \n My favorite food is ___.";
 
@@ -3392,7 +3404,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 1014,
                 'q_content' => $content,
-                'q_audio' => $audio."At-my-school-canteen.mp3",
+                'round_instruction' => $audios."what-is-ur-school-canteen.mp3",
+                // 'q_audio' => $audio."At-my-school-canteen.mp3",
                 'q_image' => $images . "At-my-school-canteen.png",
             ]
 
@@ -3456,32 +3469,33 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
     // Lesson 33 Unit 2 Sub - 2 Listen and Repeat 2 <reading_conversation> (single)
 
-        $chars = [
+       $chars = [
+            ['dad'],
             ['boy'],
             ['boy'],
             ['boy'],
             ['boy'],
             ['boy'],
-            ['boy'],
+
         ];
 
 
         $convers = [
-            ["My father listened to traditional music last night."],
-            ["My brother played in school football team."],
-            ["My friend and I watch the fireworks during the Tha-Din-Gyut festival."],
-            ["My family and I enjoyed the music festival last weekend."],
-            ["My mother prepare special food for my 9th birthday party."],
-            ["We visited the art gallery in our town last Sunday."],
+            [ null,"boy.png"],
+            ["boy.png",null],
+            ["boy.png",null],
+            ['boy.png',null],
+            ["boy.png",null],
+            ["boy.png",null]
         ];
 
         $convers_audio = [
-            ["traditional"],
-            ["football"],
-            ["fireworks"],
-            ["festival"],
-            ["birthday-party"],
-            ["art-gallery"],
+            [null, 'listen.mp3'],
+            ['football.mp3', null],
+            ['firework.mp3', null],
+            ['festival.mp3', null],
+            ['birthday.mp3', null],
+            ['art-gallery.mp3', null],
         ];
 
         $audio = $AudioDomain."Grade_4/Lesson_33/Listen_and_Repeat_2/";
@@ -3490,20 +3504,20 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         foreach ($chars as $key => $char) {
 
-        foreach ($char as $k => $v) {
+            foreach ($char as $k => $v) {
 
-                DB::table('ans_n_ques')->insert([
-                    [
+                    DB::table('ans_n_ques')->insert([
+                        [
                         'game_id' => 1018,
-                        'round' => $key + 1,
-                        'a_image' => $img.$v.".png",
-                        'a_audio' => str_replace(' ','-',$audio.$convers_audio[$key][$k]).".mp3",
-                        'a_conver' => $convers[$key][$k],
+                        'round' => $key + 2,
+                        'a_image' => $img.$v.".gif",
+                        'a_audio' => $convers_audio[$key][$k] ? $audio.$convers_audio[$key][$k] : null,
+                        'a_conver' => $convers[$key][$k] ?  $img.$convers[$key][$k] : null ,
                         "background" => $img."bg".$key + 1 .".png"
-                    ]
-                ]);
+                        ]
+                    ]);
 
-        }
+            }
     }
 
 
@@ -3511,54 +3525,54 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
     // For round - 1 (without Image)
 
-        $audio = $AudioDomain."Grade_4/Lesson_33/Practice/";
-        $img = $ImageDomain."Grade_4/Lesson_33/Practice/";
+        // $audio = $AudioDomain."Grade_4/Lesson_33/Practice/";
+        // $img = $ImageDomain."Grade_4/Lesson_33/Practice/";
 
 
-        $contents = [
-            ['Phone','Watch','Help','Dust','Study'],
-            ['Play','Visit','Listen','Prepare','Enjoy'],
-        ];
+        // $contents = [
+        //     ['Phone','Watch','Help','Dust','Study'],
+        //     ['Play','Visit','Listen','Prepare','Enjoy'],
+        // ];
 
-        $rightContents = [
-            ['Phoned','Watched','Helped','Dusted','Studied'],
-            ['Played','Visited','Listened','Prepared','Enjoyed'],
-        ];
-
-
-
-        for ($i = 0; $i < count($contents); $i++) {
-
-            foreach ($contents[$i] as $q) {
-
-                DB::table('ans_n_ques')->insert([
-                    [
-                        'game_id' => 1019,
-                        'round' => $i + 1,
-                        'q_content' => $q,
-                        'q_image' => $q,
-                        'q_audio' => $audio . $this->removeSpace(strtolower($q)) . ".mp3",
-                    ]
-                ]);
-            }
+        // $rightContents = [
+        //     ['Phoned','Watched','Helped','Dusted','Studied'],
+        //     ['Played','Visited','Listened','Prepared','Enjoyed'],
+        // ];
 
 
-            foreach ($rightContents[$i] as $k => $q) {
-                DB::table('ans_n_ques')->insert([
-                    [
-                        'game_id' => 1019,
-                        'round' => $i + 1,
-                        'q_content' =>  $this->removeSpace(strtolower($contents[$i][$k])),
-                        // 'q_image' => $img . $this->removeSpace(strtolower($q)) . ".png",
-                        'q_image' =>$q ,
-                        'q_audio' => $audio .  $this->removeSpace(strtolower($q)) . ".mp3",
-                    ]
-                ]);
-            }
-        }
+
+        // for ($i = 0; $i < count($contents); $i++) {
+
+        //     foreach ($contents[$i] as $q) {
+
+        //         DB::table('ans_n_ques')->insert([
+        //             [
+        //                 'game_id' => 1019,
+        //                 'round' => $i + 1,
+        //                 'q_content' => $q,
+        //                 'q_image' => $q,
+        //                 'q_audio' => $audio . $this->removeSpace(strtolower($q)) . ".mp3",
+        //             ]
+        //         ]);
+        //     }
 
 
-     // For round - 1 (with Images) <matching>
+        //     foreach ($rightContents[$i] as $k => $q) {
+        //         DB::table('ans_n_ques')->insert([
+        //             [
+        //                 'game_id' => 1019,
+        //                 'round' => $i + 1,
+        //                 'q_content' =>  $this->removeSpace(strtolower($contents[$i][$k])),
+        //                 // 'q_image' => $img . $this->removeSpace(strtolower($q)) . ".png",
+        //                 'q_image' =>$q ,
+        //                 'q_audio' => $audio .  $this->removeSpace(strtolower($q)) . ".mp3",
+        //             ]
+        //         ]);
+        //     }
+        // }
+
+
+     // For round - 2 (with Images) <matching>
 
 
         $audio = $AudioDomain."Grade_4/Lesson_33/Practice/";
@@ -3634,7 +3648,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 1020,
                 'round' => $key + 1,
-                'round_instruction' => $audio.$this->removeSpace($q_instruction[$key])."_round_ins".".mp3",
+                // 'round_instruction' => $audio.$this->removeSpace($q_instruction[$key])."_round_ins".".mp3",
                 'q_content' => $Question_contents[$key],
                 // 'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
                 'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
@@ -3719,14 +3733,14 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         $images = $ImageDomain . "Grade_4/Lesson_33/Speaking_Topic/";
-        $audios = $AudioDomain . "Grade_4/Lesson33/Speaking_Topic/";
+        $audios = $AudioDomain . "Grade_4/Lesson_33/Speaking_Topic/";
 
 
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 1022,
                 'q_content' => "What did you do yesterday? \n What did you do last week?\n Talk about it.",
-                'q_audio' => $audio."what-did-u-do-yesterday.mp3",
+                'q_audio' => $audios."what-did-u-do-yesterday.mp3",
                 'q_image' => $images . "green-starfish.png",
             ]
 
@@ -3744,8 +3758,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
             [
-                'game_id' => 1022,
-                'q_image' => "someImg"."png",
+                'game_id' => 1023,
+                'q_image' => $images."someImg".".png",
                 'a_content' => $sample_content
             ],
         ]);
@@ -3756,15 +3770,15 @@ class PSNAnsNQuesG4Seeder extends Seeder
 ////////////////////////////////////////// End of Lesson 33 ///////////////////////////////////////////////
 
 
+
+
+
+
 ////////////////////////////////////////// Lesson 34 /////////////////////////////////////////////
 
 
-    // Unit - 1 Video Lesson
-    // Game_id - 1023
 
-
-
-    // Lesson -34 Unit - 2 Listen and Repeat , Sub - 1 (Reading_carousel)
+    // Lesson -34 Unit - 1 Listen and Repeat , Sub - 1 (Reading_carousel)
 
 
 
@@ -3791,7 +3805,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
 
- // Lesson 34 Unit 3 Speaking Practice <Speaking_and_recording>
+ // Lesson 34 Unit 2 Speaking Practice <Speaking_and_recording>
 
     $contents = [
         'call-phone','watch-tv','football','paint','reading','cooking'
@@ -3833,7 +3847,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
 
-  // Lesson 34 Unit 4 Listen and Practice <listening_choosing_answer>
+  // Lesson 34 Unit 3 Listen and Practice <listening_choosing_answer>
 
     $questions = [
         "Where did Anna go last weekend",
@@ -3866,8 +3880,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 1026,
                 'round' => $key + 1,
-                'q_audio' => $audio.$this->removeSpace($ans[$key]).".mp3",
-                // 'q_audio' => $audio.$story.".mp3",
+                // 'q_audio' => $audio.$this->removeSpace($ans[$key]).".mp3",
+                'q_audio' => $audio.$story.".mp3",
                 'q_content' => $given_ques[$key][0],
                 'q_conver'  => $val."?",
                 'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
@@ -3900,11 +3914,6 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
     // Lesson 34 Unit 4 Reading Passage
-
-
-
-//Lesson 30 Unit 6 Reading Passage <Reading_passage>
-
 
 
         $images = $ImageDomain . "Grade_4/Lesson_34/Reading_passage/";
@@ -3952,7 +3961,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     [
                         'round' => $i + 1,
                         'game_id' => 1027,
-                        'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $given_q[$i][1] ? 1 : 0
                     ]
@@ -3994,8 +4003,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 1028,
                 'round' => 1,
-                'a_conver' => "image.png",
-                'q_audio' => $audio."complete-following-sentence.mp3",
+                'a_conver' => $images ."image.png",
+                'q_audio' => $audios."complete-following-sentence.mp3",
                 'q_image' => $images . "red-starfish.png",
             ]
 
@@ -4004,8 +4013,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 1028,
                 'round' => 2,
-                'q_content' => "What did you do on Monday? \n What did you do on Tuesday? \n What did you do on Wednesday? \n
-                 What did you do on Thursday? \n  What did you do on Friday? \n What did you do on Saturday \n What did you do on Sunday",
+                'q_content' => "What did you do on Monday? \n What did you do on Tuesday? \n What did you do on Wednesday? \n What did you do on Thursday? \n  What did you do on Friday? \n What did you do on Saturday \n What did you do on Sunday",
                 'q_audio' => $audio."what-do-u-do-this-week.mp3",
                 'q_image' => $images . "green-starfish.png",
             ]
@@ -4071,7 +4079,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         $audio = $AudioDomain . "Grade_4/Lesson_35/Spelling_Game/";
 
         $answers = [
-            'DINNING TABLE','SHOPPING MALL', 'FAST FOOD', 'PENCIL CASE', 'TEXT MESSAGE', 'ORANGE JUICE'
+            'DINNING TABLE','SHOPPING CENTER', 'FAST FOOD', 'PENCIL CASE', 'TEXT MESSAGE', 'ORANGE JUICE'
         ];
 
 
@@ -4091,9 +4099,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 [
                     'game_id' => 1030,
                     'round' => $i + 1,
-                    'q_image' => $img . ucfirst(strtolower($answers[$i])) . ".png",
+                    'q_image' => $img . ucfirst(strtolower($this->removeSpace($answers[$i]))) . ".png",
                     // 'q_content' => $questions[$i],
-                    'a_audio' => $audio . ucfirst(strtolower($answers[$i])) . ".mp3",
+                    'a_audio' => $audio . ucfirst(strtolower($this->removeSpace($answers[$i]))) . ".mp3",
                     'a_content' => $answers[$i],
                 ]
             ]);
@@ -4131,7 +4139,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                         // 'round' => $i + 1,
                         'q_content' => $q,
                         'q_image' => $q,
-                        'q_audio' => $audio . $this->removeSpace(strtolower($q)) . ".mp3",
+                        // 'q_audio' => $audio . $this->removeSpace(strtolower($q)) . ".mp3",
                     ]
                 ]);
             }
@@ -4142,10 +4150,10 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     [
                         'game_id' => 1031,
                         // 'round' => $i + 1,
-                        'q_content' =>  $this->removeSpace(strtolower($contents[$i][$k])),
+                        'q_content' =>  $this->removeSpace(ucfirst($contents[$i][$k])),
                         // 'q_image' => $img . $this->removeSpace(strtolower($q)) . ".png",
                         'q_image' =>$q ,
-                        'q_audio' => $audio .  $this->removeSpace(strtolower($q)) . ".mp3",
+                        // 'q_audio' => $audio .  $this->removeSpace(strtolower($q)) . ".mp3",
                     ]
                 ]);
             }
@@ -4180,8 +4188,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
     ];
 
 
-    $audio = $AudioDomain."Grade_4/Lesson_35/Listening_Practice/";
-    $img = $ImageDomain."Grade_4/Lesson_35/Listening_Practice/";
+    $audio = $AudioDomain."Grade_4/Lesson_35/Practice/";
+    $img = $ImageDomain."Grade_4/Lesson_35/Practice/";
 
     $ques_audio = [
         'sue','jack','he','anna','i-cream','shopping'
@@ -4337,7 +4345,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 1035,
                 'q_content' => "Take notes on the table.\n Talk about what you did last week.",
-                'q_audio' => $audio."take-notes-on-the-table.mp3",
+                'q_audio' => $audios."take-notes-on-the-table.mp3",
                 'q_image' => $images . "green-starfish.png",
             ]
 
@@ -4356,7 +4364,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 1036,
-                'q_image' => "someImg"."png",
+                'q_image' =>   $images."someImg".".png",
                 'a_content' => $sample_content
             ],
         ]);
@@ -4365,6 +4373,310 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
 
+
+
+/////////////////////////////////////////// Lesson 36 /////////////////////////////////////////
+    // Unit 1 Listen and Practice <Reading_carousel>
+    $contents = [
+        "ice-cream", "book", "bill", "bicycle", "sent-letter", "shopping-market", "wrote-letter"
+    ];
+    $audio = $AudioDomain."Grade_4/Lesson_36/Listen_and_Repeat/";
+    $img = $ImageDomain."Grade_4/Lesson_36/Listen_and_Repeat/";
+    foreach ($contents as $val) {
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1037,
+                'a_content' => $val,
+                'a_image' => $img.$this->removeSpace($val).".png",
+                'a_audio' => $audio.$this->removeSpace($val).".mp3"
+            ],
+        ]);
+    }
+    // Unit - 2  Practice <look_and_choose>
+    $audio = $AudioDomain."Grade_4/Lesson_36/Practice/";
+    $img = $ImageDomain."Grade_4/Lesson_36/Practice/";
+    $given_ans = [
+        ['go to the market', 'Went to the market'],
+        ['Write the letter','Wrote the letter'],
+        ['Sent a letter','Send a letter'],
+        ['Drink Milk','Drank Milk'],
+        ['Bought book','Buy book'],
+        ['Clean the room','Cleaned the room'],
+        ['Watch TV','Watched TV'],
+    ];
+    $ques_convers = [
+        'What did you do last week?',
+    ];
+    $q_contents = [
+        'market','write-letter','sent-letter','drink','book','clean','watch'
+    ];
+    $ans = [
+       'Went to the market','Wrote the letter','Sent a letter','Drank Milk','Bought book','Cleaned the room','Watched TV'
+    ];
+    foreach ($given_ans as $key => $ga) {
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1038,
+                'round' => $key + 1,
+                'q_image' => $img.$q_contents[$key].".png",
+                'q_conver' => $ques_convers[0] ,
+                'q_content' => $ga[0],
+                'a_content' => $ga[0] == $ans[$key] ? true : false
+            ]
+        ]);
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1038,
+                'round' => $key + 1,
+                'q_content' => $ga[1],
+                'a_content' => $ga[1] == $ans[$key] ? true : false
+            ]
+        ]);
+    }
+    // Lesson 36 Unit 3 Speaking Practice <Speaking_and_recording>
+    $contents = [
+        'thadingyut','christmas-shopping','christmas-wrote-letter','christmas-library',
+        'water-festival','thadingyut-badminton'
+    ];
+    $Question_contents = [
+        "Where did you go last Thadingyut holidays? \n ____ . \n What did you do there? \n ___.",
+        "Where did you go last Christmas holidays? \n ____ . \n What did you do there? \n ___.",
+        "Where did you go last Christmas holidays? \n ____ . \n What did you do there? \n ___.",
+        "Where did you go last Christmas holidays? \n ____ . \n What did you do there? \n ___.",
+        "Where did you go last water festival holidays? \n ____ . \n What did you do there? \n ___.",
+        "Where did you go last Thadingyut holidays? \n ____ . \n What did you do there? \n ___.",
+    ];
+    $images = $ImageDomain . "Grade_4/Lesson_36/Speaking/";
+    $audios = $AudioDomain . "Grade_4/Lesson_36/Speaking/";
+    foreach ($contents as $key => $value) {
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1039,
+                'round' => $key + 1,
+                'round_instruction' => $audio.$this->removeSpace($contents[$key])."_round_ins".".mp3",
+                'q_content' => $Question_contents[$key],
+                // 'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
+                'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
+            ]
+        ]);
+    }
+    // Lesson 36  Unit 4 Reading passage <reading_passage>
+    $images = $ImageDomain . "Grade_4/Lesson_36/Reading_passage/";
+    $audios = $AudioDomain . "Grade_4/Lesson_36/Reading_passage/";
+     $para = "Christmas falls in December. It is the time of the year. I love Christmas time a lot! I went carol singing with my friends during Christmas. My mother cooked a special Christmas dinner for us as well. And we exchanged gifts. My mom and dad gave me a special Christmas gift which Santa sent me. I was so much happy. Guess what he sent me! It was a toy robot. I love it so much. ";
+    $given_q = [
+        ["What did his parents give him?", "Special gift"],
+        ["What did he feel?", "Happy"],
+        ["What was the gift?", "A toy robot"],
+        ["Who sent it to him?", "Santa"],
+        ["What did his mother do last Christmas?", "Cooked special meal"],
+        ["What did he do during christmas?", "Went carol singing"],
+    ];
+    $given_audio = [
+        "parents-give.mp3",
+        "he-feel.mp3",
+        "gift.mp3",
+        "who-sent.mp3",
+        "mother.mp3",
+        "carol-singing.mp3",
+    ];
+    $paraName = "My-Last-Christmas-Holidays.mp3";
+    $given_answer = [
+        ['Chocolate', 'Special gift','A cake'],
+        ['Happy', 'Excited', 'Sad'],
+        ['A Barbie', 'A toy robot', 'A toy car'],
+        ['Santa', 'My mother', 'Grandpa'],
+        ['Went carol singing', 'Cooked special meal', "Went to friends'homes"],
+        ['Went carol singing', 'Cool Special meal', "Went to friends'homes"],
+    ];
+    for ($i = 0; $i < count($given_answer); $i++) {
+        foreach ($given_answer[$i] as $k => $value) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'game_id' => 1040,
+                    // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                    'q_content' => $value,
+                    'a_content' => $value == $given_q[$i][1] ? 1 : 0
+                ]
+            ]);
+        }
+        DB::table('ans_n_ques')->insert([
+            [
+                'round' => $i + 1,
+                'game_id' => 1040,
+                'q_audio' => $audios . $given_audio[$i],
+                'q_conver' => $given_q[$i][0],    //giver Q
+            ]
+        ]);
+        DB::table('ans_n_ques')->insert([
+            [
+                'round' => $i + 1,
+                'game_id' => 1040,
+                'q_audio' => $audios . $paraName,
+                'q_content' => "My Last Christmas Holidays",
+                'q_conver' => $para,
+                'background' => $images . "bg.png"
+            ]
+        ]);
+    }
+    // Lesson 36 Unit 5 Speaking Topic <speaking_and_recording>
+    $images = $ImageDomain . "Grade_4/Lesson_36/Speaking_Topic/";
+    $audios = $AudioDomain . "Grade_4/Lesson_36/Speaking_Topic/";
+    DB::table('ans_n_ques')->insert([
+        [
+            'game_id' => 1041,
+            'q_content' => "Talk about your last holiday. \n What did you do during your last Thadingyut holiday?",
+            'q_audio' => $audios."talk-about-last-holiday.mp3",
+            'q_image' => $images . "green-starfish.png",
+        ]
+    ]);
+ ////////////////////////////////////////////// end of Lesson 36 /////////////////////////////////////////
+
+
+
+
+//////////////////////////////////////////////// Lesson 37 ////////////////////////////////////////////////////
+// Unit 1 Listen and Practice <Reading_carousel>
+    $contents = [
+        "grand-mon", "library", "festival", "shopping-centre", "sport-center", "swimming-pool", "park"
+    ];
+    $audio = $AudioDomain."Grade_4/Lesson_37/Listen_and_Repeat/";
+    $img = $ImageDomain."Grade_4/Lesson_37/Listen_and_Repeat/";
+    foreach ($contents as $val) {
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1042,
+                'a_content' => $val,
+                'a_image' => $img.$this->removeSpace($val).".png",
+                'a_audio' => $audio.$this->removeSpace($val).".mp3"
+            ],
+        ]);
+    }
+
+
+// Lesson 37 Unit 2 Speaking <Speaking_and_practice>
+        $contents = [
+            'music-festival','library','grandmother','pool','family','gym','market'
+        ];
+        $Question_contents = [
+            "Tomorrow is sunday. What will you do tomorrow?  \n I will go to the music festival.",
+            "Tomorrow is sunday. What will you do tomorrow?",
+            "Tomorrow is sunday. What will you do tomorrow?",
+            "Tomorrow is sunday. What will you do tomorrow?",
+            "Tomorrow is sunday. What will you do tomorrow?",
+            "Tomorrow is sunday. What will you do tomorrow?",
+            "Tomorrow is sunday. What will you do tomorrow?",
+        ];
+        $images = $ImageDomain . "Grade_4/Lesson_37/Speaking/";
+        $audios = $AudioDomain . "Grade_4/Lesson_37/Speaking/";
+        foreach ($contents as $key => $value) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 1043,
+                    'round' => $key + 1,
+                    'round_instruction' => $audio.$this->removeSpace($contents[$key])."_round_ins".".mp3",
+                    'q_content' => $Question_contents[$key],
+                    // 'q_audio' => $audio.str_replace('?','',$this->removeSpace($value)).".mp3",
+                    'q_image' => $images.str_replace('?','',$this->removeSpace($value)).".png",
+                ]
+            ]);
+        }
+
+
+
+
+    //Lesson 29 Unit 5 Listen Practice <listening_choosing_answer>
+
+
+     $questions = [
+        "What will he do after that",
+        "What will he do after lunch",
+        "Where will he go in the evening?",
+        "Does he like swimming",
+        "What will he eat for lunch",
+        "Where will Max go tomorrow morning"
+    ];
+    $given_ques = [
+        ['Will swim in the pool', 'Will help his mother','Will ride on the bicycle'],
+        ['Go shopping', 'Go swimming','Go tot the music festival'],
+        ['The shopping mall', 'The swimming pool','The sport center'],
+        ["Yes,he does", "No,he doesn't"],
+        ['Chicken rice', 'Noodle','Hamburger'],
+        ['The shopping mall', 'The swimming pool','The sport center'],
+    ];
+
+
+    $ans = [
+        "Will help his mother",
+        "Go shopping",
+        "The swimming pool",
+        "Yes,he does",
+        "Noodle",
+        "The sport center"
+    ];
+    $audio = $AudioDomain."Grade_4/Lesson_37/Listening/";
+    $img = $ImageDomain."Grade_4/Lesson_37/Listening/";
+    $story = "Anna-daily";
+        foreach ($questions as $key => $val) {
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1044,
+                'round' => $key + 1,
+                'q_audio' => $audio. $this->removeSpace($ans[$key]) .".mp3",
+                // 'q_audio' => $audio.$story.".mp3",
+                'q_content' => $given_ques[$key][0],
+                'q_conver'  => $val."?",
+                'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
+            ]
+        ]);
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 1044,
+                'round'  => $key +  1,
+                'q_content' => $given_ques[$key][1],
+                'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
+            ]
+        ]);
+        if(isset($given_ques[$key][2])){
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 1044,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][2],
+                    'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
+                ]
+            ]);
+        }
+    }
+
+
+
+    /// Lesson 37 Unit - 4 Speaking Topic <speaking_and_recording>
+    $images = $ImageDomain . "Grade_4/Lesson37/Speaking_Topic/";
+    $audios = $AudioDomain . "Grade_4/Lesson_37/Speaking_Topic/";
+    DB::table('ans_n_ques')->insert([
+        [
+            'game_id' => 1045,
+            'q_content' => "What will you do tomorrow? Talk about your plan.",
+            'q_audio' => $audios."What-will-you-do-tomorrow.mp3",
+            'q_image' => $images . "green-starfish.png",
+        ]
+    ]);
+
+
+
+// Lesson 37 Unit - 5 Writing Topic <writing_topic>
+    $images = $ImageDomain . "Grade_4/Lesson_37/Writing_Topic/";
+    $audios = $AudioDomain . "Grade_4/Lesson_37/Writing_Topic/";
+    $sample_content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet arcu fermentum, posuere velit quis, ultricies nibh. Phasellus dictum quam quis tortor viverra, ac feugiat lectus rhoncus. Nam eleifend velit est, a rhoncus magna ultricies a. Sed accumsan lorem erat, a rhoncus nisi posuere vel. ";
+    DB::table('ans_n_ques')->insert([
+        [
+            'game_id' => 1046,
+            'q_image' => $images."someImg".".png",
+            'a_content' => $sample_content
+        ],
+    ]);
 
 
 
