@@ -994,13 +994,15 @@ class PSNAnsNQuesG4Seeder extends Seeder
     // Unit 6 Speaking Practice <speaking_and_recording>
 
     $contents = [
-        "giraffe","turtle","whale","cheetah",
+        "leopard","giraffe","turtle","whale",
      ];
 
-    //  $Question_contents = [
-    //     "What is it? \n It is ___. \n It is a land animal or sea animal? \n It is a ___.
-    //      \n It is a big or small? \n It is ___ \n It is fast or slow \n It is ___.",
-    //  ];
+     $a_contents = [
+        "Example \n A leopard has four legs. \n It has yellow fur with black spots. \n It can run very fast. \n It is big. \n It lives on land.",
+        null,
+        null,
+        null,
+     ];
 
 
 
@@ -1010,15 +1012,14 @@ class PSNAnsNQuesG4Seeder extends Seeder
      foreach ($contents as $key => $value) {
 
          DB::table('ans_n_ques')->insert([
-
-             [
+            [
                  'game_id' => 825,
                  'round' => $key + 1,
                 //  'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
-                //  'q_content' => $Question_contents[0],
-                 'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                 'a_content' => $a_contents[$key],
+                //  'q_audio' => $audio.$this->removeSpace($value).".mp3",
                  'q_image' => $images .$this->removeSpace($value) . ".png",
-             ]
+            ]
 
          ]);
      }
@@ -1368,23 +1369,24 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
     // next rounds for conversations
         $chars = [
-            ['boy'],
-            ['boy'],
-            ['boy'],
-            ['boy']
+            ['boy','teacher'],
+            ['boy','girl-1'],
+            ['boy','girl-2'],
+            ['boy','girl-3']
         ];
 
-        $convers = [
-            ["It's hot today. So, she's wearing a blouse, and pants"],
-            ["It's hot today. So, she's wearing a blouse, a skirt, and sunglasses."],
-            ["It's cold today. So, she's wearing a hat, a jacket, pants and trainers."],
-            ["It's cold today. So, he's wearing a sweater, pants and trainers."],
-        ];
+
         $convers_audio = [
-            "hot-1",
-            "hot-2",
-            "cold-1",
-            "cold-2",
+            ["hot-1.mp3",null],
+            ["hot-2.mp3",null],
+            ["cold-1.mp3",null],
+            ["cold-2.mp3",null],
+        ];
+        $convers_gif = [
+            ["hot-1.png",null],
+            ["hot-2.png",null],
+            ["cold-1.png",null],
+            ["cold-2.png",null],
         ];
 
         $audio = $AudioDomain."Grade_4/Lesson_26/Listen_and_Repeat_2/";
@@ -1398,11 +1400,10 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     DB::table('ans_n_ques')->insert([
                         [
                         'game_id' => 963,
-                        'round' => $key + 2,
-                        'a_image' => $img.$v.".png",
-                        'a_audio' => str_replace(' ','-',$audio.$convers_audio[$key]).".mp3",
-                        // 'a_conver' => $convers[$key][$k],
-                        'a_conver' => $img.$convers_audio[$key].".png",
+                        'round' => $key + 1,
+                        'a_image' => $img.$v.".gif",
+                        'a_audio' => $convers_audio[$key][$k] ? $audio.$convers_audio[$key][$k] : null,
+                        'a_conver' => $convers_gif[$key][$k] ? $img.$convers_gif[$key][$k] : null ,
                         "background" => $img."bg".$key + 1 .".png"
                         ]
                     ]);
@@ -1731,16 +1732,16 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         $convers = [
-            ['What do you like to wear in the rainy season?',"I like to wear a raincoat, and flipflops."],
-            ["What do you like to wear in the rainy season?","I like to wear a scarf, a winter coat, pants,gloves and boots."],
-            ['What do you like to wear in the rainy season?',"I like to wear a T-shirt and jeans."],
-            ["I like to wear a T-shirt, jeans and trainers.What about you?", "I like to wear a blouse and skirt."]
+            ['boy.gif',"yellow-girl.gif"],
+            ["boy.gif","green-girl.gif"],
+            ['boy.gif',"purple-girl.gir"],
+            ["man.gif", "woman.gif"]
         ];
         $convers_audio = [
-            ['What do you like wear rainy reason', "raincoat and flipflops"],
-            ["What do you like wear rainy reason", "scarf winter coat pants gloves boots"],
-            ['What do you like wear rainy reason',"T-shirt jeans"],
-            ["T-shirt jeans trainers", "blouse skirt"]
+            ['rainy-season.mp3', "raincoat-flipflops.mp3"],
+            ["cold-season.mp3", "gloves-boots.mp3"],
+            ['hot-season.mp3',"T-shirt-jeans-girl.mp3"],
+            ["T-shirt-jeans-boy.mp3", "blouse-skirt.mp3"]
         ];
 
         $audio = $AudioDomain."Grade_4/Lesson_27/Listen_and_Repeat_2/";
@@ -1755,9 +1756,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
                         [
                         'game_id' => 971,
                         'round' => $key + 2,
-                        'a_image' => $img.$v.".png",
-                        'a_audio' => str_replace(' ','-',$audio.$convers_audio[$key][$k]).".mp3",
-                        'a_conver' => $convers[$key][$k],
+                        'a_image' => $img.$v.".gif",
+                        'a_audio' => $convers_audio[$key][$k] ? $audio.$convers_audio[$key][$k] : null,
+                        'a_conver' => $convers[$key][$k] ?  $img.$convers[$key][$k] : null ,
                         "background" => $img."bg".$key + 1 .".png"
                         ]
                     ]);
@@ -2300,17 +2301,17 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         $convers = [
-            ['I usually have hamburger for lunch.',"Oh, yes. I like hamburger, too."],
-            ["What do you usually have for lunch?","I usually have chicken rice for lunch. And you?"],
-            ["I usually have mont-hin-gah for breakfast.","Oh, yes. I like mont-hin-gah, too."],
-            ["What do you usually have for lunch?", "I usually have fried rice and coffee for breakfast. And you?"]
+            ['boy-con-1',"girl-con-1"],
+            ["boy-con-2","girl-con-2"],
+            ["boy-con-3","girl-con-3"],
+            ["boy-con-4", "girl-con-4"]
         ];
 
         $convers_audio = [
-            ['hamburger-for-lunch', "me-too-hamburger"],
-            ["what-ur-lunch", "chicken-rice-lunch"],
-            ['mont-hin-gah-for-breakfast',"me-too-mont-hin-gah"],
-            ["T-shirt jeans trainers", "fried-rice-coffee"]
+            ['hamburger-for-lunch.mp3', "me-too-hamburger.mp3"],
+            ["what-ur-lunch.mp3", "chicken-rice-lunch.mp3"],
+            ['mont-hin-gah-for-breakfast.mp3',"me-too-mont-hin-gah.mp3"],
+            ["usually-breakfast.mp3", "fried-rice-coffee.mp3"]
         ];
 
         $audio = $AudioDomain."Grade_4/Lesson_29/Listen_and_Repeat_2/";
@@ -2325,9 +2326,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     [
                     'game_id' => 987,
                     'round' => $key + 1,
-                    'a_image' => $img.$v.".png",
-                    'a_audio' => str_replace(' ','-',$audio.$convers_audio[$key][$k]).".mp3",
-                    'a_conver' => $convers[$key][$k],
+                    'a_image' => $img.$v.".gif",
+                    'a_audio' => $convers_audio[$key][$k] ? $audio.$convers_audio[$key][$k] : null,
+                    'a_conver' => $convers[$key][$k] ? $img.$convers[$key][$k]."png": null,
                     "background" => $img."bg".$key + 1 .".png"
                     ]
                 ]);
@@ -2584,8 +2585,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         $convers = [
-            ["What is your favorite food?","Noodle"],
-            ['Why',"They are good for energy."],
+            ["What-food","Noodle"],
+            ['Why',"good-energy."],
         ];
 
         $convers_audio = [
@@ -2605,9 +2606,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     [
                     'game_id' => 995,
                     'round' => $key + 1,
-                    'a_image' => $img.$v.".png",
-                    'a_audio' => str_replace(' ','-',$audio.$convers_audio[$key][$k]).".mp3",
-                    'a_conver' => $convers[$key][$k],
+                    'a_image' => $img.$v.".gif",
+                    'a_audio' => $convers_audio[$key][$k] ? $audio.$convers_audio[$key][$k].".mp3" : null,
+                    'a_conver' => $convers[$key][$k] ? $img.$convers[$key][$k].".png" : null,
                     "background" => $img."bg".$key + 1 .".png"
                     ]
                 ]);
@@ -4148,7 +4149,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     [
                         'game_id' => 1031,
                         // 'round' => $i + 1,
-                        'q_content' =>  $this->removeSpace(strtolower($contents[$i][$k])),
+                        'q_content' =>  $this->removeSpace(ucfirst($contents[$i][$k])),
                         // 'q_image' => $img . $this->removeSpace(strtolower($q)) . ".png",
                         'q_image' =>$q ,
                         // 'q_audio' => $audio .  $this->removeSpace(strtolower($q)) . ".mp3",

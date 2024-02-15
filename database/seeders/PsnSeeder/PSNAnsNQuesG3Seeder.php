@@ -3510,8 +3510,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
             'It is sunny', 'It is stormy', 'It is windy',
         ];
 
-        $audio = $AudioDomain."Grade_3/Lesson_24/Vocabulary/";
-        $img = $ImageDomain."Grade_3/Lesson_24/Vocabulary/";
+        $audio = $AudioDomain."Grade_3/Lesson_34/Vocabulary/";
+        $img = $ImageDomain."Grade_3/Lesson_34/Vocabulary/";
 
         foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
