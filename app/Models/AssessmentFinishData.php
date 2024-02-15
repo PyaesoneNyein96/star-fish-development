@@ -12,6 +12,7 @@ class AssessmentFinishData extends Model
 
     protected $fillable = [
         'student_id',
+        'grade_id',
         'assess_name',
         "game_1",
         "game_2",

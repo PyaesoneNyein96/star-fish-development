@@ -166,5 +166,5 @@ Field ( header ) = id
 
 ### End Match
 
-(Method: POST) [https://star-fish.myanmargateway.net/api/assessment/game/end_match](https://star-fish.myanmargateway.net/api/assessment/game/end_match)
+(Method: POST) [https://star-fish.myanmargateway.net/api/assessment/end_match](https://star-fish.myanmargateway.net/api/assessment/end_match)
 Field ( header ) = student_id , lesson_id , grade_id , assess_game_id , point

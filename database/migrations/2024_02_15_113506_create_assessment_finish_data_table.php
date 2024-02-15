@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->integer("student_id");
+            $table->integer("grade_id");
             $table->integer("assess_name");
 
             $table->integer("game_1")->default(0);

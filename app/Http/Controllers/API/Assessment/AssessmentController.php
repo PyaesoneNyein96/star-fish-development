@@ -24,35 +24,43 @@ class AssessmentController extends Controller
         if ($lessonId >= 1 && $lessonId <= 8) {
             $data = Assessment::where("grade_id", $gradeId)->where("name", 1)->get();
             $checkStatus = AssessmentFinishData::where("student_id", $studentId)
+                ->where("grade_id", $gradeId)
                 ->where("assess_name", 1)->first();
         } elseif ($lessonId >= 9 && $lessonId <= 16) {
             $data = Assessment::where("grade_id", $gradeId)->where("name", 2)->get();
             $checkStatus = AssessmentFinishData::where("student_id", $studentId)
+                ->where("grade_id", $gradeId)
                 ->where("assess_name", 2)->first();
         } elseif ($lessonId >= 17 && $lessonId <= 24) {
             $data = Assessment::where("grade_id", $gradeId)->where("name", 3)->get();
             $checkStatus = AssessmentFinishData::where("student_id", $studentId)
+                ->where("grade_id", $gradeId)
                 ->where("assess_name", 3)->first();
         } elseif ($lessonId >= 25 && $lessonId <= 32) {
             $data = Assessment::where("grade_id", $gradeId)->where("name", 4)->get();
             $checkStatus = AssessmentFinishData::where("student_id", $studentId)
+                ->where("grade_id", $gradeId)
                 ->where("assess_name", 4)->first();
         } elseif ($lessonId >= 33 && $lessonId <= 40) {
             $data = Assessment::where("grade_id", $gradeId)->where("name", 5)->get();
             $checkStatus = AssessmentFinishData::where("student_id", $studentId)
+                ->where("grade_id", $gradeId)
                 ->where("assess_name", 5)->first();
         }
 
-        foreach ($data as $key => $d) {
-            if ($checkStatus) {
-                $d['disable'] = 1;
-                if ($d->name == $checkStatus->assess_name && $checkStatus["game_" . $key + 1] != 0) $data[$key]['disable'] = 0;
-            } else {
-                $d['disable'] = 1;
-                $data[0]['disable'] = 0;
-            }
+        foreach ($data as $key => $value) {
         }
 
+        foreach ($data as $key => $d) {
+
+            $d['disable'] = 1;
+            $data[0]['disable'] = 0;
+
+            if ($checkStatus) {
+                $key + 1;
+                if ($d->name == $checkStatus->assess_name && $checkStatus["game_" . $key] != 0 && $key < count($data)) $data[$key]['disable'] = 0;
+            }
+        }
         return response()->json(["assessment" => $data]);
     }
 
@@ -116,7 +124,7 @@ class AssessmentController extends Controller
         }
 
         $checkStatus = AssessmentFinishData::where("student_id", $studentId)
-            ->where("assess_name", $data[0]->name)->first();
+            ->where("assess_name", $data[0]->name)->where("grade_id", $gradeId)->first();
 
 
         if ($checkStatus) {
@@ -129,6 +137,7 @@ class AssessmentController extends Controller
         } else {
             $addData = [
                 "student_id" => $studentId,
+                "grade_id" => $gradeId,
                 "assess_name" => $data[0]->name,
                 "game_" . $index => 1,
             ];
