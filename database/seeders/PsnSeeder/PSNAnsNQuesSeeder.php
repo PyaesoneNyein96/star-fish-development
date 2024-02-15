@@ -29,6 +29,7 @@ class PSNAnsNQuesSeeder extends Seeder
         $AtoZUpdate = $domain . "/storage/audios/A_to_Z_update/";
 
         $traceSuccess = $ImageDomain."TraceSuccessAZ/";
+        $traceDotted = $ImageDomain."AtoZTrace/";
 
         $AZUpdate = [
             'A-for-apple', 'B-for-ball', 'C-for-Cat', 'D-for-Dog', 'E-for-Elephant', 'F-for-Fish', 'G-for-Grapes', 'H-for-Hat', 'I-for-Ice-cream', 'J-for-Jug',
@@ -416,12 +417,21 @@ class PSNAnsNQuesSeeder extends Seeder
 
         foreach ($g1_l7_u6_trace_n_write as $i => $trace) {
             DB::table('ans_n_ques')->insert([
+                // [
+                //     'round' => $i + 1, 'game_id' => 39,
+                //     'q_audio' => $AtoZAudio . $prefix . strtoupper($trace) . ".mp3",
+                //     'a_content' => $trace,
+                //     'q_content' => ctype_lower($trace) ?  $imgDomain . "dotted_small_" . $trace . ".png" : $imgDomain . "dotted_" . $trace . ".png",
+                //     'q_image' => ctype_lower($trace) ?  $imgDomain . "small_" . $trace . ".png" : $imgDomain . $trace . ".png",
+                //     'a_image' => $traceSuccess.$trace.".png",
+                //     'a_extra' => $trace_counts[$i],
+                // ],
                 [
                     'round' => $i + 1, 'game_id' => 39,
                     'q_audio' => $AtoZAudio . $prefix . strtoupper($trace) . ".mp3",
-                    'a_content' => $trace,
-                    'q_content' => ctype_lower($trace) ?  $imgDomain . "dotted_small_" . $trace . ".png" : $imgDomain . "dotted_" . $trace . ".png",
                     'q_image' => ctype_lower($trace) ?  $imgDomain . "small_" . $trace . ".png" : $imgDomain . $trace . ".png",
+                    'a_content' => $trace,
+                    'q_content' => $traceDotted.$trace.".png",
                     'a_image' => $traceSuccess.$trace.".png",
                     'a_extra' => $trace_counts[$i],
                 ],
@@ -635,7 +645,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'round' => $i + 1, 'game_id' => 71,
                     'q_audio' => $AtoZAudio . $prefix . strtoupper($trace) . ".mp3",
                     'a_content' => $trace,
-                    'q_content' => ctype_lower($trace) ?  $imgDomain . "dotted_small_" . $trace . ".png" : $imgDomain . "dotted_" . $trace . ".png",
+                    'q_content' => $traceDotted.$trace. ".png",
                     'q_image' => ctype_lower($trace) ?  $imgDomain . "small_" . $trace . ".png" : $imgDomain . $trace . ".png",
                     'a_image' => $traceSuccess.$trace.".png",
                     'a_extra' => $trace_counts[$i]
@@ -1127,6 +1137,7 @@ class PSNAnsNQuesSeeder extends Seeder
         //// Lesson 31 Unit 6 subunit -1 writing 1 (letter_tracing)
 
         $imgDomain = $ImageDomain . "Grade_1/Lesson_31/Writing_1/";
+        $trace = $ImageDomain . "AtoZTrace/";
 
         $g1_l7_u6_trace_n_write = [
             't', 's', 'T', 'S'
@@ -1142,7 +1153,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'round' => $i + 1, 'game_id' => 197,
                     'q_audio' => $AtoZAudio . $prefix . strtoupper($trace) . ".mp3",
                     'a_content' => $trace,
-                    'q_content' => ctype_lower($trace) ?  $imgDomain . "dotted_small_" . $trace . ".png" : $imgDomain . "dotted_" . $trace . ".png",
+                    'q_content' => $traceDotted.$trace. ".png",
                     'q_image' => ctype_lower($trace) ?  $imgDomain . "small_" . $trace . ".png" : $imgDomain . $trace . ".png",
                     'a_image' => $traceSuccess.$trace.".png",
                     'a_extra' => $trace_counts[$i]
@@ -2067,11 +2078,6 @@ class PSNAnsNQuesSeeder extends Seeder
         ////    Grade 1  Lesson 36 Games 6 (Writing) <letter_tracing>
 
 
-        $content = [
-            'X-ray', 'xylophone', 'yacht', 'yellow', 'yogurt', 'yolk', 'zebra', 'zero', 'zigzag', 'zip', 'zoo', 'zoom',
-        ];
-
-
         $imgDomain = $ImageDomain . "Grade_1/Lesson_36/Writing/Writing_1/";
 
         $content = [
@@ -2086,7 +2092,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'round' => $i + 1, 'game_id' => 227,
                     'q_audio' => $AtoZAudio . $prefix . strtoupper($trace) . ".mp3",
                     'a_content' => $trace,
-                    'q_content' => ctype_lower($trace) ?  $imgDomain . "dotted_small_" . $trace . ".png" : $imgDomain . "dotted_" . $trace . ".png",
+                    'q_content' => $traceDotted.$trace. ".png",
                     'q_image' => ctype_lower($trace) ?  $imgDomain . "small_" . $trace . ".png" : $imgDomain . $trace . ".png",
                     'a_image' => $traceSuccess.$trace.".png",
                     'a_extra' => $trace_counts[$i]
