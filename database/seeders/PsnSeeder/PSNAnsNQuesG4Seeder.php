@@ -3018,7 +3018,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
     $story = "Anna-daily";
 
-        foreach ($questions as $key => $val) {
+    foreach ($questions as $key => $val) {
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 1005,

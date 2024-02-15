@@ -3558,7 +3558,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'game_id' => 705,
                     'round' => $key + 1,
                     'q_image' => $images.$contents[$key].".png",
-                    'q_audio' => $audios.$contents[$key].".mp3",
+                    // 'q_audio' => $audios.$contents[$key].".mp3",
                     'q_content' => $q,
                     'a_content' => $ans[$key],
                 ]
@@ -3575,9 +3575,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $questions = [
             "How is the weather in New York.",
-            "How is the weather in New Rome.",
-            "How is the weather in New Miami.",
-            "How is the weather in New Mexico.",
+            "How is the weather in Rome.",
+            "How is the weather in Miami.",
+            "How is the weather in Mexico.",
         ];
 
         $ans = [
@@ -3614,7 +3614,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         $images = $ImageDomain . "Grade_3/Lesson_34/Listen/";
         $audios = $AudioDomain . "Grade_3/Lesson_34/Listen/";
 
-        $contents = [
+        $given_ques = [
             ['Cold', 'Cloudy','Cool'],
             ['Sunny', 'Raining','Snowing'],
             ['Warm', 'Foggy','Snowing'],
@@ -3631,28 +3631,61 @@ class PSNAnsNQuesG3Seeder extends Seeder
             'Cold',
         ];
 
-        foreach ($ans as $key => $value) {
+        // foreach ($ans as $key => $value) {
 
-            foreach ($contents[$key] as $j => $val) {
-                DB::table('ans_n_ques')->insert([
-                    [
-                        'game_id' => 707,
-                        'round' => $key + 1,
-                        'q_image' => $images.$val.".png",
-                        'a_content' => $val == $value ? true : false
-                    ]
-                ]);
-            }
+        //     foreach ($contents[$key] as $j => $val) {
+        //         DB::table('ans_n_ques')->insert([
+        //             [
+        //                 'game_id' => 707,
+        //                 'round' => $key + 1,
+        //                 'q_image' => $images.$val.".png",
+        //                 'a_content' => $val == $value ? true : false
+        //             ]
+        //         ]);
+        //     }
 
+        //     DB::table('ans_n_ques')->insert([
+        //         [
+        //             'game_id' => 707,
+        //             'round' => $key + 1,
+        //             'q_audio' => $audios.$value.".mp3"
+        //         ]
+        //     ]);
+
+
+        // }
+
+        foreach ($ans as $key => $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 707,
                     'round' => $key + 1,
-                    'q_audio' => $audios.$value.".mp3"
+                    // 'q_audio' => $audio.$ans[$key].".mp3",
+                    'q_audio' => $audios.$val.".mp3",
+                    'q_content' => $given_ques[$key][0],
+                    // 'q_conver'  => $val."?",
+                    'a_content' => $given_ques[$key][0] == $val ? true : false
                 ]
             ]);
 
 
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 707,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][1],
+                    'a_content' => $given_ques[$key][1] == $val ? true : false
+                ]
+            ]);
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 707,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][2],
+                    'a_content' => $given_ques[$key][2] == $val ? true : false
+                ]
+            ]);
         }
 
 
@@ -3680,9 +3713,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 [
                     'game_id' => 708,
                     'round' => $key + 1,
-                    'round_instruction' => $audio.$this->removeSpace("How is the weather today")."_round_ins".".mp3",
-                    'q_content' => $Question_contents[$key],
-                    'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                    'round_instruction' => $audio.$this->removeSpace("How is the weather today").".mp3",
+                    'q_content' => $Question_contents,
                     'q_image' => $images .$this->removeSpace($value) . ".png",
                 ]
 
@@ -3713,7 +3745,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "hotel-old.mp3",
             "raining-now.mp3",
             "food-good.mp3",
-            "cheap",
+            "cheap.mp3",
             "weather-beautiful.mp3"
         ];
         $paraName = "Abby-vacation.mp3";
@@ -3730,7 +3762,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     [
                         'round' => $i + 1,
                         'game_id' => 709,
-                        'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $given_q[$i][1] ? 1 : 0
                     ]
@@ -3780,16 +3812,16 @@ class PSNAnsNQuesG3Seeder extends Seeder
     //// Unit 9 FreePractice <speaking_and_recording>
 
 
-    $images = $ImageDomain . "Grade_3/Lesson_33/FreePractice/";
-    $audios = $AudioDomain . "Grade_3/Lesson_33/FreePractice/";
+    $images = $ImageDomain . "Grade_3/Lesson_34/FreePractice/";
+    $audios = $AudioDomain . "Grade_3/Lesson_34/FreePractice/";
 
 
     DB::table('ans_n_ques')->insert([
         [
             'game_id' => 711,
             'q_content' =>  "Talk about your favorite weather? \n Why do you like if? \n What don't you like? \n Why not? ",
-            'q_audio' => $audio."Talk-about-your-favorite-weather.mp3",
-            'q_image' => $images . "green_animal",
+            'q_audio' => $audios."Talk-about-your-favorite-weather.mp3",
+            'q_image' => $images . "green_starfish.png",
         ]
 
     ]);
