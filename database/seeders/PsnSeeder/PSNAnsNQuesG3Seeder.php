@@ -3841,9 +3841,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
         // Unit 2 Vocabulary  <Reading_carousel>
 
         $contents = [
-            "airport", "cinema", 'concert', 'flower shop', 'hospital', 'ice cream',
-            'library', 'museum', 'pet shop', 'playground', 'police station', 'restaurant',
-            'shoe shop','sport center','toy shop','university'
+            "Airport", "Cinema", 'Concert', 'Flower-shop', 'Hospital', 'Ice cream',
+            'Library', 'Museum', 'Pet shop', 'Playground', 'Police station', 'Restaurant',
+            'Shoe shop','Sport center','Toy shop','University'
         ];
 
         $audio = $AudioDomain."Grade_3/Lesson_35/Vocabulary/";
@@ -3855,7 +3855,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'game_id' => 713,
                     'a_content' => $val,
                     'a_image' => $img.$this->removeSpace($val).".png",
-                    'a_audio' => $audio.$this->removeSpace($val).".mp3"
+                    'a_audio' => $audio.$this->removeSpace(strtolower($val)).".mp3"
                 ],
             ]);
         }
@@ -3895,8 +3895,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 [
                     'game_id' => 714,
                     'round' => $key + 1,
-                    'q_image' => $images.$contents[$key].".png",
-                    'q_audio' => $audios.$contents[$key].".mp3",
+                    'q_image' => $images.$this->removeSpace($contents[$key]).".png",
+                    'q_audio' => $audios.$this->removeSpace($contents[$key]).".mp3",
                     'q_content' => $q,
                     'a_content' => $ans[$key],
                 ]
@@ -4079,9 +4079,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
     DB::table('ans_n_ques')->insert([
         [
             'game_id' => 718,
-            'q_content' => "What can you do at these place? \n Airport, Pet shop \n University, Ice-cream-shop",
-            'q_audio' => $audio."what-can-u-do-at-place.mp3",
-            'q_image' => $images . "green_animal",
+            'q_content' => "What can you do at these place? \n Airport, Pet shop \n University, Ice-cream shop",
+            'q_audio' => $audios."what-can-u-do-at-place.mp3",
+            'q_image' => $images . "green_starfish.png",
         ]
 
     ]);
@@ -4195,7 +4195,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             ['bank', 'fire-clinic'],
             ['bus-station', 'fire-clinic'],
             ['fire-clinic', 'hospital'],
-            ['the-park', 'bank-school'],
+            ['the-park', 'bank'],
             ['video-bakery', 'restaurant'],
         ];
 
@@ -4236,15 +4236,16 @@ class PSNAnsNQuesG3Seeder extends Seeder
     // Unit 6 Speaking <speaking_and_recording>
 
         $contents = [
-            "clinic","supermarket","drugstore","station","bank",
+            "clinic","supermarket","drug-store","gas-station","bank", "barber"
         ];
 
         $Question_contents = [
             "Where is the clinic?",
             "Where is the supermarket?",
-            "Where is the drugstore?",
+            "Where is the drug store?",
             "Where is the gas station?",
-            "Where is the gas bank?",
+            "Where is the bank?",
+            "Where is the barber shop?",
         ];
 
 
@@ -4259,9 +4260,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 [
                     'game_id' => 724,
                     'round' => $key + 1,
-                    'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                    'round_instruction' => $audios.$this->removeSpace($value).".mp3",
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                    // 'q_audio' => $audios.$this->removeSpace($value).".mp3",
                     'q_image' => $images .$this->removeSpace($value) . ".png",
                 ]
 
@@ -4336,7 +4337,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'game_id' => 725,
                     'q_audio' => $audios . $paraName,
                     'q_content' => null,
-                    'q_conver' => $para,
+                    // 'q_conver' => $para,
                     'background' => $images . "bg.png"
                 ]
             ]);
@@ -4356,8 +4357,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         [
             'game_id' => 726,
             'q_content' => "Is there a shopping mall in your town or city? \n Are there small stores in your town or city? \n Tell about stores where you live.",
-            'q_audio' => $audio."Is-there-a-shopping-mall.mp3",
-            'q_image' => $images . "green_animal",
+            'q_audio' => $audios."Is-there-a-shopping-mall.mp3",
+            'q_image' => $images . "green_starfish.png",
         ]
 
     ]);

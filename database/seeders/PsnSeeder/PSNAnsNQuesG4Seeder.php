@@ -1732,10 +1732,10 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         $convers = [
-            ['boy.gif',"yellow-girl.gif"],
-            ["boy.gif","green-girl.gif"],
-            ['boy.gif',"purple-girl.gir"],
-            ["man.gif", "woman.gif"]
+            ['boy.png',"yellow-girl.png"],
+            ["boy.png","green-girl.png"],
+            ['boy.png',"purple-girl.png"],
+            ["man.png", "woman.png"]
         ];
         $convers_audio = [
             ['rainy-season.mp3', "raincoat-flipflops.mp3"],
@@ -3469,32 +3469,33 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
     // Lesson 33 Unit 2 Sub - 2 Listen and Repeat 2 <reading_conversation> (single)
 
-        $chars = [
+       $chars = [
+            ['dad'],
             ['boy'],
             ['boy'],
             ['boy'],
             ['boy'],
             ['boy'],
-            ['boy'],
+
         ];
 
 
         $convers = [
-            ["My father listened to traditional music last night."],
-            ["My brother played in school football team."],
-            ["My friend and I watch the fireworks during the Tha-Din-Gyut festival."],
-            ["My family and I enjoyed the music festival last weekend."],
-            ["My mother prepare special food for my 9th birthday party."],
-            ["We visited the art gallery in our town last Sunday."],
+            [ null,"boy.png"],
+            ["boy.png",null],
+            ["boy.png",null],
+            ['boy.png',null],
+            ["boy.png",null],
+            ["boy.png",null]
         ];
 
         $convers_audio = [
-            ["traditional"],
-            ["football"],
-            ["fireworks"],
-            ["festival"],
-            ["birthday-party"],
-            ["art-gallery"],
+            [null, 'listen.mp3'],
+            ['football.mp3', null],
+            ['firework.mp3', null],
+            ['festival.mp3', null],
+            ['birthday.mp3', null],
+            ['art-gallery.mp3', null],
         ];
 
         $audio = $AudioDomain."Grade_4/Lesson_33/Listen_and_Repeat_2/";
@@ -3503,20 +3504,20 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         foreach ($chars as $key => $char) {
 
-        foreach ($char as $k => $v) {
+            foreach ($char as $k => $v) {
 
-                DB::table('ans_n_ques')->insert([
-                    [
+                    DB::table('ans_n_ques')->insert([
+                        [
                         'game_id' => 1018,
-                        'round' => $key + 1,
-                        'a_image' => $img.$v.".png",
-                        'a_audio' => str_replace(' ','-',$audio.$convers_audio[$key][$k]).".mp3",
-                        'a_conver' => $convers[$key][$k],
+                        'round' => $key + 2,
+                        'a_image' => $img.$v.".gif",
+                        'a_audio' => $convers_audio[$key][$k] ? $audio.$convers_audio[$key][$k] : null,
+                        'a_conver' => $convers[$key][$k] ?  $img.$convers[$key][$k] : null ,
                         "background" => $img."bg".$key + 1 .".png"
-                    ]
-                ]);
+                        ]
+                    ]);
 
-        }
+            }
     }
 
 

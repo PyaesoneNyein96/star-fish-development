@@ -11,6 +11,12 @@ class PSNAnsNQuesSeeder extends Seeder
     /**
      * Run the database seeds.
      */
+
+    private function removeSpace($val){
+        return str_replace(' ','-',$val);
+    }
+
+
     public function run(): void
     {
 
@@ -852,12 +858,12 @@ class PSNAnsNQuesSeeder extends Seeder
 
         $G1L17U4 = [
             ['Hair', 'Chin', 'Nose', 'Face', 'Lips'],
-            ['Mouth', 'Nose', 'Teeth', 'Eyes', 'Ears'],
+            ['Mouth', 'Nose', 'Teeth', 'Eyes', 'Ear'],
         ];
 
         $G1L17U4_rand = [
             ['Nose', 'Chin', 'Lips', 'Hair', 'Face'],
-            ['Eyes', 'Ears', 'Nose', 'Mouth', 'Teeth'],
+            ['Eyes', 'Ear', 'Nose', 'Mouth', 'Teeth'],
         ];
         $L17U4Img = $ImageDomain . "Grade_1/Lesson_17/Matching/";
         $L17U4Audio = $AudioDomain . "Grade_1/Lesson_17/Matching/";
@@ -1322,7 +1328,7 @@ class PSNAnsNQuesSeeder extends Seeder
         $audios = $AudioDomain . "Grade_1/Lesson_32/Reading/";
         // $L32U5_content = ['umbrella','violin','vase'];
 
-        $L32U5_para = "This is my room. My room is pink.There are stars and a rainbow on the wall.Chairs and table are pink too. I like unicorn.So,I have a unicorn doll.I have unicorn watch and a pink unicorn raincoat. I also have a unicorn umbrella. My uniform is white and blue. I don't like my uniform ";
+        $L32U5_para = "This is my room. My room is pink.There are stars and a rainbow on the wall.Chairs and table are pink too. I like unicorn.So,I have a unicorn doll.I have unicorn watch and a pink unicorn raincoat. I also have a unicorn umbrella. My uniform is white and blue. I don't like my uniform.";
 
         $L32U5_given_q = [
             ["I don't like ----.", "uniform"],
@@ -2319,7 +2325,7 @@ class PSNAnsNQuesSeeder extends Seeder
                 [
                     'game_id' => 233,
                     'round' => $key + 1,
-                    'q_content' => "This is my $value." . $likes[$key],
+                    'q_content' => "This is my $value." . $likes[$key].".",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_37/Speaking/" . str_replace(' ', '-', $content[$key]) . ".png",
                     'a_content' => $value,
                     'q_audio' => $AudioDomain."Grade_1/Lesson_37/Speaking/"."This-is-my-$value." . str_replace(' ','-',$likes[$key]).".mp3",
@@ -2380,8 +2386,8 @@ class PSNAnsNQuesSeeder extends Seeder
             ],
             [
                 'Hello, my name is Susan', 'This is my aunt.Her name is Mary',
-                'This is my grandfather.His name is James', 'This is my grandmother Her name is Alice',
-                'This is my uncle His name is John'
+                'This is my grandfather.His name is James', 'This is my grandmother.Her name is Alice',
+                'This is my uncle.His name is John'
             ],
 
         ];
@@ -2400,10 +2406,11 @@ class PSNAnsNQuesSeeder extends Seeder
             foreach ($content as $j => $v) {
                 DB::table('ans_n_ques')->insert([
                     [
+                        'round' => $k + 1,
                         'game_id' => 236, 'a_content' => $v,
                         'q_image' => $img . str_replace(' ', '-', $v) . ".png",
                         'a_audio' => $audio . str_replace(' ', '-', $v) . ".mp3",
-                        'a_content' => $v, 'round' => $k + 1,
+                        'a_content' => $v.".",
                         'round_instruction' =>$audio.$roundInstructions[$k].".mp3",
                         'background' => $ImageDomain . "/Grade_1/Lesson_38/Listen_and_Practice_Game/bg.png"
                     ],
@@ -2480,7 +2487,7 @@ class PSNAnsNQuesSeeder extends Seeder
                 [
                     'game_id' => 238,
                     'round' => $key + 1,
-                    'q_content' => "This is my $value." . $names[$key],
+                    'q_content' => "This is my $value." . $names[$key].".",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_38/Speaking/" . str_replace(' ', '-', $content[$key]) . ".png",
                     'a_content' => $value,
                     'q_audio' => $AudioDomain."Grade_1/Lesson_38/Speaking/"."This-is-my-".str_replace(' ','-',$value)."-".str_replace(' ','-',$names[$key]).".mp3",
@@ -2654,15 +2661,15 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         //////////////////////////////////////////////////////////////////
-        //   Lesson 39  game 5 (Writing (Arranging order)) <rearrange_with_audio>
+        //   Lesson 39  game 5 (Writing (Arranging order) <rearrange_with_audio>
 
         $Questions = [
-            ['name', 'is', 'Her', 'Alice'],
-            ['my', 'is', 'This', 'father'],
-            ['two', 'i', 'grandfathers', 'have'],
-            ['my', 'is', 'This', 'mother'],
-            ['is', 'my', 'grandfathers', 'This'],
-            ['name', 'is', 'His', 'James'],
+            ['name', 'is', 'Her', 'Alice.'],
+            ['my', 'is', 'This', 'father.'],
+            ['two', 'i', 'grandfathers.', 'have'],
+            ['my', 'is', 'This', 'mother.'],
+            ['is', 'my', 'grandfathers.', 'This'],
+            ['name', 'is', 'His', 'James.'],
         ];
 
         $answers = [
@@ -2678,7 +2685,11 @@ class PSNAnsNQuesSeeder extends Seeder
 
             foreach ($Questions[$i]  as  $innerVal) {
                 DB::table('ans_n_ques')->insert([
-                    ['game_id' => 244, 'round' => $i + 1, 'q_content' => $innerVal]
+                    [
+                        'round' => $i + 1,
+                        'game_id' => 244,
+                        'q_content' => $innerVal
+                    ]
                 ]);
             }
 
@@ -2687,11 +2698,11 @@ class PSNAnsNQuesSeeder extends Seeder
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 244,
                     'round' => $i + 1,
+                    'game_id' => 244,
                     // 'q_image' => $img . str_replace(' ', '-', $answers[$i]) . ".png",
                     'a_audio' => $audio . str_replace(' ', '-', $answers[$i]) . ".mp3",
-                    'a_content' => $answers[$i],
+                    'a_content' => $answers[$i] .".",
                 ]
             ]);
         }
