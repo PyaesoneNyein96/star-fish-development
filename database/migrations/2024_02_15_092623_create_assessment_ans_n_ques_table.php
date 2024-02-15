@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('accessment_ans_n_ques', function (Blueprint $table) {
+        Schema::create('assessment_ans_n_ques', function (Blueprint $table) {
             $table->id();
+            $table->integer('assess_id')->nullable();
             $table->integer('round')->nullable();
-            $table->integer('access_id')->nullable();
 
             $table->longText('q_image')->nullable();
             $table->longText('q_audio')->nullable();
@@ -37,6 +37,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('accessment_ans_n_ques');
+        Schema::dropIfExists('assessment_ans_n_ques');
     }
 };

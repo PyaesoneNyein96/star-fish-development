@@ -40,6 +40,11 @@ use Database\Seeders\AnsNQueSeed2\Grade2\AnsNQueSeeder as Grade2AnsNQueSeeder;
 use Database\Seeders\AnsNQueSeed2\Grade3\AnsNQueSeeder as Grade3AnsNQueSeeder;
 use Database\Seeders\AnsNQueSeed2\Grade4\AnsNQueSeeder as Grade4AnsNQueSeeder;
 
+use Database\Seeders\Assessment\AssessmentCategorySeeder;
+use Database\Seeders\Assessment\AssessmentSeeder;
+
+use Database\Seeders\Assessment\Grade1\AssessmentSeeder as Grade1AssessmentSeeder;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -209,5 +214,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call(PSNAnsNQuesG3Seeder::class);
         $this->call(PSNAnsNQuesG4Seeder::class);
+
+        // Assessment
+        $this->call(AssessmentSeeder::class);
+        $this->call(AssessmentCategorySeeder::class);
+        $this->call(Grade1AssessmentSeeder::class);
     }
 }

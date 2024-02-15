@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\Assessment\AssessmentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkshopController;
@@ -92,6 +93,13 @@ Route::prefix('subscription')->group(function () {
     Route::get('plans', [SubscriptionController::class, 'plans']);
     Route::post('purchase', [SubscriptionController::class, 'purchase']);
     Route::post('removePlan', [SubscriptionController::class, 'removePlan']);
+});
+
+
+Route::prefix('assessment')->group(function () {
+    Route::get('/', [AssessmentController::class, 'getAllAssess']);
+    Route::post('game', [AssessmentController::class, 'enterGame']);
+    Route::post('end_match', [AssessmentController::class, 'endGame']);
 });
 
 

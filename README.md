@@ -142,10 +142,29 @@ Field ( header ) = token
 
 ### Chatting
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/chat](https://star-fish.myanmargateway.net/api/chat)
+(Method: POST) [https://star-fish.myanmargateway.net/api/chat](https://star-fish.myanmargateway.net/api/chat)
 Field ( body ) = student_id , message
 
 ### Set NickName
 
-(Method: POST) [https://star-fish.myanmargateway.net/api/chat](https://star-fish.myanmargateway.net/api/chat/nick)
+(Method: POST) [https://star-fish.myanmargateway.net/api/chat/nick](https://star-fish.myanmargateway.net/api/chat/nick)
 Field ( body ) = student_id , nickName
+
+### ==============================================================
+
+# Assessments
+
+### Get All Assessments
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/assessment](https://star-fish.myanmargateway.net/api/assessment)
+Field ( header ) = student_id , lesson_id , grade_id
+
+### Enter into Game
+
+(Method: POST) [https://star-fish.myanmargateway.net/api/assessment/game](https://star-fish.myanmargateway.net/api/assessment/game)
+Field ( header ) = id
+
+### End Match
+
+(Method: POST) [https://star-fish.myanmargateway.net/api/assessment/game/end_match](https://star-fish.myanmargateway.net/api/assessment/game/end_match)
+Field ( header ) = student_id , lesson_id , grade_id , assess_game_id , point

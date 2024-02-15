@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('accessment_categories', function (Blueprint $table) {
+        Schema::create('assessments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->integer('grade_id');
+            $table->string('name')->nullable();
+            $table->string('assess_game_name')->nullable();
+            $table->integer('assess_category_id')->nullable();
             $table->timestamps();
         });
     }
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('accessment_categories');
+        Schema::dropIfExists('assessments');
     }
 };
