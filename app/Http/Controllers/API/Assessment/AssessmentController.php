@@ -51,9 +51,12 @@ class AssessmentController extends Controller
         foreach ($data as $key => $d) {
 
             $d['disable'] = 1;
+            $d['finish'] = 0;
+            $data[0]['disable'] = 0;
             $data[0]['disable'] = 0;
 
             if ($checkStatus) {
+                if ($d->name == $checkStatus->assess_name && $checkStatus["game_" . $key] != 0) $data[$key]['finish'] = 1;
                 $key + 1;
                 if ($d->name == $checkStatus->assess_name && $checkStatus["game_" . $key] != 0 && $key < count($data)) $data[$key]['disable'] = 0;
             }

@@ -2265,7 +2265,7 @@ class AnsNQueSeeder extends Seeder
                     [
                         'game_id' => 74,
                         'a_content' =>  $ansl13Content[$i][$j],
-                        'a_image' => $l13G74image . $key . ".png",
+                        'a_image' => $l13G74image . $ansl13Image[$i][$j] . ".png",
                         'a_audio' => $AudioDomain . $G1_L13_reading . strtolower($ansl13Audio[$i][$j]) . ".mp3",
                         'q_content' => $i,
                     ],
