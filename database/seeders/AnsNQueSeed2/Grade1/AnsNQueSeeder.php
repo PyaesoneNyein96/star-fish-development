@@ -2667,10 +2667,10 @@ class AnsNQueSeeder extends Seeder
 
             // game 85
             ['round' => 1, 'game_id' => 85, 'a_image' => $l15G85image . "girl.gif", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "yellow_cat.mp3", "a_conver" =>  $l15G85image . "yellowcat-yellowcat.png", 'q_image' => null, "background" => $l15G85image . "bg.png"],
-            ['round' => 1, 'game_id' => 85, 'a_image' => $l15G85image . "cat.gif", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "dog_dog.mp3", "a_conver" =>  $l15G85image . "dog-dog.png", 'q_image' => $l15G85image . "dog.png", "background" => $l15G85image . "bg.png"],
+            ['round' => 1, 'game_id' => 85, 'a_image' => $l15G85image . "cat.gif", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "dog_dog.mp3", "a_conver" =>  $l15G85image . "dog-dog.png", 'q_image' => $l15G85image . "dog.gif", "background" => $l15G85image . "bg.png"],
 
             ['round' => 2, 'game_id' => 85, 'a_image' => $l15G85image . "cat.gif", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "black_dog.mp3", "a_conver" =>  $l15G85image . "black-dog.png", 'q_image' => null, "background" => $l15G85image . "bg.png"],
-            ['round' => 2, 'game_id' => 85, 'a_image' => $l15G85image . "dog.gif", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "cock_cock.mp3", "a_conver" =>  $l15G85image . "cock-cock.png", 'q_image' => $l15G85image . "cock.png", "background" => $l15G85image . "bg.png"],
+            ['round' => 2, 'game_id' => 85, 'a_image' => $l15G85image . "dog.gif", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "cock_cock.mp3", "a_conver" =>  $l15G85image . "cock-cock.png", 'q_image' => $l15G85image . "cock.gif", "background" => $l15G85image . "bg.png"],
 
 
             // game 86
@@ -2681,7 +2681,7 @@ class AnsNQueSeeder extends Seeder
             ['round' => 2, 'game_id' => 86, 'a_image' => $l15G85image . "ant.gif", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "im_great.mp3", "a_conver" =>  $l15G85image . "great-great.png", 'q_image' => null, "background" => $l15G85image . "bg.png"],
 
             ['round' => 3, 'game_id' => 86, 'a_image' => $l15G85image . "dog.gif", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "tom_tom.mp3", "a_conver" =>  $l15G85image . "tom-what.png", 'q_image' => null, "background" => $l15G85image . "bg3.jpg"],
-            ['round' => 3, 'game_id' => 86, 'a_image' => $l15G85image . "cat.gif", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "mouse_mouse.mp3",  "a_conver" =>  $l15G85image . "mouse-mouse.png", 'q_image' => $l15G85image . "mousemiddle.png", "background" => $l15G85image . "bg3.jpg"],
+            ['round' => 3, 'game_id' => 86, 'a_image' => $l15G85image . "cat.gif", "a_audio" => $AudioDomain . $G1_L15_Read_Listen_n_Repeat_path . "mouse_mouse.mp3",  "a_conver" =>  $l15G85image . "mouse-mouse.png", 'q_image' => $l15G85image . "mouse.gif", "background" => $l15G85image . "bg3.jpg"],
 
         ]);
 
@@ -4451,7 +4451,7 @@ class AnsNQueSeeder extends Seeder
             ['round' => 1, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "milk.mp3", 'q_content' => "milk", "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 1, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "The-boy-likes-fruits-juice-mil.mp3", "q_conver" => "The boy likes ____.", 'q_content' => null, 'a_content' => null, "background" => null],
             ['round' => 1, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "I-like-juice-I-drink-orange-j.mp3", "q_conver" => "I like juice. I drink orange juice. I eat eggs and vegetables. I don't like fruits.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 1, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "I-like-milk-I-drink-milk-I-d.mp3", "q_content" => "We talk about food.", 'q_conver' => "I like milk. I drink milk. I don't like vegetables. I like fruits. I eat bananas.", 'a_content' => null, "background" => $l23G145image . "bg.png"],
+            ['round' => 1, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "I-like-milk-I-drink-milk-I-d.mp3", "q_content" => "We talk about food.", 'q_conver' => "I like milk. I drink milk. I don't like vegetables. I like fruits. I eat bananas.", 'a_content' => null, "background" => $l23G145image . "bg.jpg"],
 
 
             ['round' => 2, 'game_id' => 145, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L23_reading_passage_path . "chicken.mp3", 'q_content' => "chicken", "q_conver" => null, 'a_content' => 0, "background" => null],
@@ -4459,7 +4459,7 @@ class AnsNQueSeeder extends Seeder
             ['round' => 2, 'game_id' => 145, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L23_reading_passage_path . "noodles.mp3", 'q_content' => "noodles", "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 2, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "The-boy-eats-chicken-eggs-nood.mp3", "q_conver" =>  "The boy eats ____.", 'q_content' => null, 'a_content' => null, "background" => null],
             ['round' => 2, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "I-like-juice-I-drink-orange-j.mp3", "q_conver" =>  "I like juice. I drink orange juice. I eat eggs and vegetables. I don't like fruits.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 2, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "I-like-milk-I-drink-milk-I-d.mp3", "q_content" => "We talk about food.", 'q_conver' => "I like milk. I drink milk. I don't like vegetables. I like fruits. I eat bananas.", 'a_content' => null, "background" => $l23G145image . "bg.png"],
+            ['round' => 2, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "I-like-milk-I-drink-milk-I-d.mp3", "q_content" => "We talk about food.", 'q_conver' => "I like milk. I drink milk. I don't like vegetables. I like fruits. I eat bananas.", 'a_content' => null, "background" => $l23G145image . "bg.jpg"],
 
 
             ['round' => 3, 'game_id' => 145, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L23_reading_passage_path . "fruits.mp3", 'q_content' => "fruits", "q_conver" => null, 'a_content' => 1, "background" => null],
@@ -4467,7 +4467,7 @@ class AnsNQueSeeder extends Seeder
             ['round' => 3, 'game_id' => 145, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L23_reading_passage_path . "banana.mp3", 'q_content' => "bananas", "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 3, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "The-boy-says-I-dont-like-frui.mp3", "q_conver" => "The boy says I don't like ____.", 'q_content' => null, 'a_content' => null, "background" => null],
             ['round' => 3, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "I-like-juice-I-drink-orange-j.mp3", "q_conver" => "I like juice. I drink orange juice. I eat eggs and vegetables. I don't like fruits.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 3, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "I-like-milk-I-drink-milk-I-d.mp3", "q_content" => "We talk about food.", 'q_conver' => "I like milk. I drink milk. I don't like vegetables. I like fruits. I eat bananas.", 'a_content' => null, "background" => $l23G145image . "bg.png"],
+            ['round' => 3, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "I-like-milk-I-drink-milk-I-d.mp3", "q_content" => "We talk about food.", 'q_conver' => "I like milk. I drink milk. I don't like vegetables. I like fruits. I eat bananas.", 'a_content' => null, "background" => $l23G145image . "bg.jpg"],
 
 
             ['round' => 4, 'game_id' => 145, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L23_reading_passage_path . "fruits.mp3", 'q_content' => "fruits", "q_conver" => null, 'a_content' => 0, "background" => null],
@@ -4475,7 +4475,7 @@ class AnsNQueSeeder extends Seeder
             ['round' => 4, 'game_id' => 145, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L23_reading_passage_path . "banana.mp3", 'q_content' => "bananas", "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 4, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "The-girl-says-I-dont-like-fru.mp3", "q_conver" => "The girl says I don't like ____.", 'q_content' => null, 'a_content' => null, "background" => null],
             ['round' => 4, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "I-like-juice-I-drink-orange-j.mp3", "q_conver" => "I like juice. I drink orange juice. I eat eggs and vegetables. I don't like fruits..", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 4, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "I-like-milk-I-drink-milk-I-d.mp3", "q_content" => "We talk about food.", 'q_conver' => "I like milk. I drink milk. I don't like vegetables. I like fruits. I eat bananas.", 'a_content' => null, "background" => $l23G145image . "bg.png"],
+            ['round' => 4, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "I-like-milk-I-drink-milk-I-d.mp3", "q_content" => "We talk about food.", 'q_conver' => "I like milk. I drink milk. I don't like vegetables. I like fruits. I eat bananas.", 'a_content' => null, "background" => $l23G145image . "bg.jpg"],
 
 
             ['round' => 5, 'game_id' => 145, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L23_reading_passage_path . "fruits.mp3", 'q_content' => "fruits", "q_conver" => null, 'a_content' => 0, "background" => null],
@@ -4483,7 +4483,7 @@ class AnsNQueSeeder extends Seeder
             ['round' => 5, 'game_id' => 145, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L23_reading_passage_path . "milk.mp3", 'q_content' => "Milk", "q_conver" => null, 'a_content' => 1, "background" => null],
             ['round' => 5, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "The-girl-drinks-fruits-juice-m.mp3", "q_conver" => "The girl drinks ____.", 'q_content' => null, 'a_content' => null, "background" => null],
             ['round' => 5, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "I-like-juice-I-drink-orange-j.mp3", "q_conver" => "I like juice. I drink orange juice. I eat eggs and vegetables. I don't like fruits.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 5, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "I-like-milk-I-drink-milk-I-d.mp3", "q_content" => "We talk about food.", 'q_conver' => "I like milk. I drink milk. I don't like vegetables. I like fruits. I eat bananas.", 'a_content' => null, "background" => $l23G145image . "bg.png"],
+            ['round' => 5, 'game_id' => 145, "q_image" => null, "q_audio" => $AudioDomain . $G1_L23_reading_passage_path . "I-like-milk-I-drink-milk-I-d.mp3", "q_content" => "We talk about food.", 'q_conver' => "I like milk. I drink milk. I don't like vegetables. I like fruits. I eat bananas.", 'a_content' => null, "background" => $l23G145image . "bg.jpg"],
 
 
 
@@ -4564,45 +4564,45 @@ class AnsNQueSeeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'round' => 1, 'game_id' => 149, 'a_content' => "egg", 'q_image' => $l24G149image . "egg" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "egg" . ".mp3", "background" => $l24G149image . "bg.png"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "egg" . ".mp3", "background" => $l24G149image . "bg.jpg"
             ],
             [
                 'round' => 1, 'game_id' => 149, 'a_content' => "meat", 'q_image' => $l24G149image . "meat" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "meat" . ".mp3", "background" => $l24G149image . "bg.png"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "meat" . ".mp3", "background" => $l24G149image . "bg.jpg"
             ],
             [
                 'round' => 1, 'game_id' => 149, 'a_content' => "cheese", 'q_image' => $l24G149image . "cheese" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "cheese" . ".mp3", "background" => $l24G149image . "bg.png"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "cheese" . ".mp3", "background" => $l24G149image . "bg.jpg"
             ],
             [
                 'round' => 1, 'game_id' => 149, 'a_content' => "soda", 'q_image' => $l24G149image . "soda" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "soda" . ".mp3", "background" => $l24G149image . "bg.png"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "soda" . ".mp3", "background" => $l24G149image . "bg.jpg"
             ],
             [
                 'round' => 1, 'game_id' => 149, 'a_content' => "cookie", 'q_image' => $l24G149image . "cookies" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "cookies" . ".mp3", "background" => $l24G149image . "bg.png"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "cookies" . ".mp3", "background" => $l24G149image . "bg.jpg"
             ],
 
 
             [
                 'round' => 2, 'game_id' => 149, 'a_content' => "coke", 'q_image' => $l24G149image . "coke" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "coke" . ".mp3", "background" => $l24G149image . "bg.png"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "coke" . ".mp3", "background" => $l24G149image . "bg.jpg"
             ],
             [
                 'round' => 2, 'game_id' => 149, 'a_content' => "bread", 'q_image' => $l24G149image . "bread" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "bread" . ".mp3", "background" => $l24G149image . "bg.png"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "bread" . ".mp3", "background" => $l24G149image . "bg.jpg"
             ],
             [
                 'round' => 2, 'game_id' => 149, 'a_content' => "milk", 'q_image' => $l24G149image . "milk" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "milk" . ".mp3", "background" => $l24G149image . "bg.png"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "milk" . ".mp3", "background" => $l24G149image . "bg.jpg"
             ],
             [
                 'round' => 2, 'game_id' => 149, 'a_content' => "cake", 'q_image' => $l24G149image . "cake" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "cake" . ".mp3", "background" => $l24G149image . "bg.png"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "cake" . ".mp3", "background" => $l24G149image . "bg.jpg"
             ],
             [
                 'round' => 2, 'game_id' => 149, 'a_content' => "bag", 'q_image' => $l24G149image . "bag" . ".png",
-                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "bag" . ".mp3", "background" => $l24G149image . "bg.png"
+                'a_audio' => $AudioDomain . $G1_L24_listen_n_practice . "bag" . ".mp3", "background" => $l24G149image . "bg.jpg"
             ],
         ]);
 
