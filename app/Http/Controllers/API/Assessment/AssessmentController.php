@@ -48,9 +48,6 @@ class AssessmentController extends Controller
                 ->where("assess_name", 5)->first();
         }
 
-        foreach ($data as $key => $value) {
-        }
-
         foreach ($data as $key => $d) {
 
             $d['disable'] = 1;
