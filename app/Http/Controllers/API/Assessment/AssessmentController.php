@@ -19,7 +19,7 @@ class AssessmentController extends Controller
         $gradeId = $request->header('grade_id');
         $studentId = $request->header('student_id');
 
-        if (!$lessonId || !$gradeId) return response()->json(['message' => 'Lesson ID or Grade ID is required'], 403);
+        if (!$lessonId || !$gradeId) return response()->json(['message' => 'Lesson ID or Grade ID is required.'], 403);
 
         if ($lessonId >= 1 && $lessonId <= 8) {
             $data = Assessment::where("grade_id", $gradeId)->where("name", 1)->get();
@@ -48,15 +48,17 @@ class AssessmentController extends Controller
                 ->where("assess_name", 5)->first();
         }
 
+        if (!$data) return response()->json(['message' => 'Grade Id and Lesson Id not match.'], 403);
+
         foreach ($data as $key => $d) {
 
             $d['disable'] = 1;
             $d['finish'] = 0;
-            $data[0]['disable'] = 0;
+
             $data[0]['disable'] = 0;
 
             if ($checkStatus) {
-                if ($d->name == $checkStatus->assess_name && $checkStatus["game_" . $key] != 0) $data[$key]['finish'] = 1;
+                if ($d->name == $checkStatus->assess_name && $checkStatus["game_" . $key] != 0) $data[$key - 1]['finish'] = 1;
                 $key + 1;
                 if ($d->name == $checkStatus->assess_name && $checkStatus["game_" . $key] != 0 && $key < count($data)) $data[$key]['disable'] = 0;
             }
@@ -69,17 +71,21 @@ class AssessmentController extends Controller
     public function enterGame(Request $request)
     {
         $id = $request->header("id");
-        if (!$id) return response()->json(['message' => 'Game ID is required'], 403);
+        if (!$id) return response()->json(['message' => 'Game ID is required.'], 403);
 
         $assess = Assessment::where("id", $id)->first();
         $game = AssessmentAnsNQues::where("assess_id", $id)->get();
+        $cate = AssessmentCategory::where("id", $assess->assess_category_id)->first();
+
+        if (!$assess && !$game) return response()->json(['message' => 'Assessments not Found'], 404);
+        if (!$cate) return response()->json(['message' => 'Category not Found'], 404);
 
         $roundExist = array_key_exists('round', $game[0]->toArray());
 
         $data = [
             'assess_id' => $id,
             'assess_name' => $assess->name,
-            'category' => $assess->assess_category_id
+            'category' => $cate->name
         ];
 
         if ($roundExist) {
@@ -114,6 +120,8 @@ class AssessmentController extends Controller
         } elseif ($lessonId >= 33 && $lessonId <= 40) {
             $data = Assessment::where("grade_id", $gradeId)->where("name", 5)->get();
         }
+
+        if (!$data) return response()->json(['message' => 'Grade Id and Lesson Id not match.'], 403);
 
         foreach ($data as $key => $value) {
             $index = null;
