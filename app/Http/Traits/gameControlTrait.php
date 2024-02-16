@@ -2,6 +2,8 @@
 namespace App\Http\Traits;
 
 use App\Models\Game;
+use App\Models\Unit;
+use App\Models\Lesson;
 use Illuminate\Http\Request;
 
 trait gameControlTrait
@@ -10,18 +12,22 @@ trait gameControlTrait
 
     public function lockAndUnlock(Request $request){
 
-    if(!$request->games) return "Games list is empty!";
 
-    $games = explode(",", $request->games);
-    $status = $request->status == "lock" ? 0 : 1 ;
+        // return $request;
 
-    if($request->games == "all") {
-        Game::query()->update(['status' => $status]);
-        return Game::where('status', $status)->get();
-    }
+        if(!$request->games) return "Games list is empty!";
 
-    Game::whereIn('id', $games)->update(['status' => $status]);
-    return Game::whereIn('id', $games)->get();
+        $games = explode(",", $request->games);
+        $status = $request->status == "lock" ? 0 : 1 ;
+
+
+        if($request->games == "all") {
+            Game::query()->update(['status' => $status]);
+            return Game::where('status', $status)->get();
+        }
+
+        Game::whereIn('id', $games)->update(['status' => $status]);
+        return Game::whereIn('id', $games)->get();
 
     }
 
@@ -36,13 +42,12 @@ trait gameControlTrait
 
         return $games;
 
-
     }
-
 
 
     public function LessonLock(Request $request) {
 
+        $status = $request->status == "lock" ? 0 : 1;
 
         if($request->grade_id){
             $lesson = Lesson::where('name',$request->lesson_name)->where('grade_id',$request->grade_id)->first();
@@ -50,29 +55,29 @@ trait gameControlTrait
             $lesson = Lesson::where('id',$request->lesson_id)->first();
         }
 
-        $games = $lesson->games;
+        $games = $lesson->games->pluck('id');
 
-        $LockCount = $games->filter(function ($game){
-            return $game->status == 0 ;
+        Game::whereIn('id', $games)->update(['status' => $status]);
+        return Game::whereIn('id', $games)->get();
+
+
+    }
+
+
+    public function lessonLockCheck(Request $request){
+
+        $status = $request->status == "lock" ? 0 : 1;
+
+        $games = Game::where('status',$status)->with('unit')->get();
+
+
+        $units = $games->map(function ($g) {
+            return $g->unit['id'];
         });
 
-        if($LockCount){
-            $games->map(function ($game){
-                $game->query()->update([
-                    'status' => 1
-                ]);
-            });
-        }else{
-            $games->map(function ($game){
-                $game->query()->update([
-                    'status' => 0
-                ]);
-            });
-        }
+        $lessonsId = Unit::whereIn('id',$units)->pluck('lesson_id');
 
-
-
-        return "success";
+        return $units;
 
 
     }
