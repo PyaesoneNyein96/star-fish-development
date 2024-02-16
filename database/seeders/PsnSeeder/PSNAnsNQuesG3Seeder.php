@@ -4712,6 +4712,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
        "along","left","movie theater","right", "opposite"
     ];
 
+    $story = "asked-place.mp3";
+
 
     $audio = $AudioDomain."Grade_3/Lesson_38/Listening/";
     $img = $ImageDomain."Grade_3/Lesson_38/Listening/";
@@ -4723,7 +4725,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 737,
                 'round' => $key + 1,
-                'q_audio' => $audio.$ans[$key].".mp3",
+                'q_audio' => $audio.$story,
                 'q_content' => $given_ques[$key][0],
                 'q_conver'  => $val,
                 'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
@@ -4779,9 +4781,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 [
                     'game_id' => 738,
                     'round' => $key + 1,
-                    'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                    'round_instruction' => $audios.$this->removeSpace($value).".mp3",
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                    // 'q_audio' => $audios.$this->removeSpace($value).".mp3",
                     'q_image' => $images .$this->removeSpace($value) . ".png",
                 ]
 
@@ -4827,7 +4829,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     [
                         'round' => $i + 1,
                         'game_id' => 739,
-                        'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $given_q[$i][1] ? 1 : 0
                     ]
@@ -4867,6 +4869,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 740,
+                'a_audio' => $audios."invite-fris.mp3",
+                'q_image' => $images."map.png",
                 'a_content' => $sample_content
             ],
         ]);
@@ -4885,8 +4889,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 741,
                 'q_content' => "Give directions from your home to \n (stores, restaurants, shopping mall.. etc.) .",
-                'q_audio' => $audio."Prepare-to-speak.mp3",
-                'q_image' => $images . "Map-img",
+                'q_audio' => $audios."give-direction-from-home.mp3",
+                'q_image' => $images . "green_starFish.png",
             ]
 
         ]);
@@ -4912,7 +4916,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $contents = [
             'belt', 'blouse', 'coat', 'dress', 'jacket', 'jeans', 'pajamas', 'pants',
-            'jumper','shirt','shoes','skirt','socks','suit','sweater','tie',
+            'shirt','shoes','skirt','socks','suit','sweater','tie',
         ];
 
         $audio = $AudioDomain."Grade_3/Lesson_39/Vocabulary/";
@@ -4951,7 +4955,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'game_id' => 744,
                     'round' => $key + 1,
                     'q_image' => $images.$this->removeSpace($val).".png",
-                    'q_audio' => $audio.$this->removeSpace($val).".mp3",
+                    // 'q_audio' => $audio.$this->removeSpace($val).".mp3",
                     'a_content' => $ans[$key],
                 ]
             ]);
@@ -4971,16 +4975,16 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ['this','Do','hat','like','you','?'],
     ];
 
-    $img = $ImageDomain . "Grade_3/Lesson_39/practice/";
-    $audio = $AudioDomain . "Grade_3/Lesson_39/practice/";
+    $img = $ImageDomain . "Grade_3/Lesson_39/Practice/";
+    $audio = $AudioDomain . "Grade_3/Lesson_39/Practice/";
 
     $answers = [
-        'Do you like these jeans?',
-        'Do you like these shorts?',
-        'Do you like this t-shirt?',
-        'Do you like these jeans?',
-        'Do you like these shoe?',
-        'Do you like these hat?',
+        'Do you like these jacket',
+        'Do you like these short',
+        'Do you like this t-shirt',
+        'Do you like these jean',
+        'Do you like these shoe',
+        'Do you like these hat',
 
     ];
 
@@ -5001,10 +5005,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 745,
                 'round' => $i + 1,
-                'q_image' => $img . ucfirst(strtolower($answers[$i])) . ".png",
+                'q_image' => $img . $this->removeSpace(strtolower($answers[$i])) . ".png",
                 // 'q_content' => $questions[$i],
-                'a_audio' => $audio . ucfirst(strtolower($answers[$i])) . ".mp3",
-                'a_content' => $answers[$i],
+                'a_audio' => $audio . $this->removeSpace(strtolower($answers[$i])) . ".mp3",
+                'a_content' => $answers[$i]."?",
             ]
         ]);
     }
@@ -5018,7 +5022,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                ['this dress', 'these dresses'],
                ['this tie', 'these ties'],
                ['belt', 'belts'],
-               ['this', 'these'],
+               ['this shoe', 'these shoes'],
                ['along','left'],
             ];
 
@@ -5026,7 +5030,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'these dresses',
                 'this tie',
                 'belt',
-                'these',
+                'these shoes',
                 'along',
             ];
 
@@ -5067,23 +5071,24 @@ class PSNAnsNQuesG3Seeder extends Seeder
     // Unit 5 Speaking <speaking_and_recording>
 
         $contents = [
-           "computer","sweater","shoe","dress","socks","t-shirt","belt"
+           "sweater","shoe","dress","socks","t-shirt","belt","jacket"
         ];
 
         $Question_contents = [
-            "Tell me about your computer. \n it is new",
+            // "Tell me about your computer. \n it is new",
             "Do you like this sweater?",
             "Do you like this shoe?",
             "Do you like this dress?",
             "Do you like this socks?",
             "Do you like this t-shirt?",
             "Do you like this belt?",
+            "Do you like this jacket?",
         ];
 
 
 
         $images = $ImageDomain . "Grade_3/Lesson_39/Speaking/";
-        $audios = $AudioDomain . "Grade_3/Lesson_39 /Speaking/";
+        $audios = $AudioDomain . "Grade_3/Lesson_39/Speaking/";
 
         foreach ($contents as $key => $value) {
 
@@ -5092,9 +5097,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 [
                     'game_id' => 747,
                     'round' => $key + 1,
-                    'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                    'round_instruction' => $audios.$this->removeSpace($value).".mp3",
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                    // 'q_audio' => $audios.$this->removeSpace($value).".mp3",
                     'q_image' => $images .$this->removeSpace($value) . ".png",
                 ]
 
@@ -5115,8 +5120,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 748,
                 'q_content' => "What are you wearing today? \n What are your friends in the class wearing today?.",
-                'q_audio' => $audio."what-r-today.mp3",
-                'q_image' => $images . "Map-img",
+                'q_audio' => $audios."what-r-today.mp3",
+                'q_image' => $images . "green_starfish.png",
             ]
 
         ]);
@@ -5142,7 +5147,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         // Unit 2 Vocabulary  <Reading_carousel>
 
         $contents = [
-            'boots', 'bracelet', 'briefcase', 'coat', 'earrings', 'classes', 'gloves', 'hat',
+            'boots', 'bracelet', 'briefcase', 'coat', 'earrings', 'glasses', 'gloves', 'hat',
             'mitten','necklace','purse','raincoat','stocking','trousers','umbrella','watch',
         ];
 
@@ -5226,8 +5231,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 [
                     'game_id' => 751,
                     'round' => $k + 1,
-                    'q_audio' => $audio.$this->removeSpace($val).".mp3",
-                    'q_image' => $audio.$this->removeSpace($val).".png",
+                    // 'q_audio' => $audio.$this->removeSpace($val).".mp3",
+                    'q_image' => $img.$this->removeSpace($val).".png",
                     'q_content' => $ques[$k],
                     'a_content' => $full_ans[$k],
                 ],
@@ -5302,7 +5307,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
       ];
 
         $ans = [
-        "Gloves","hat","coat","Earrings",""
+        "Gloves","Hat","Coat","Earrings","Blouse"
         ];
 
 
@@ -5379,9 +5384,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
              [
                  'game_id' => 754,
                  'round' => $key + 1,
-                 'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                //  'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
                  'q_content' => $Question_contents[$key],
-                 'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                //  'q_audio' => $audios.$this->removeSpace($value).".mp3",
                  'q_image' => $images .$this->removeSpace($value) . ".png",
              ]
 
@@ -5438,7 +5443,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 [
                     'round' => $i + 1,
                     'game_id' => 755,
-                    'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                    // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
                     'q_content' => $value,
                     'a_content' => $value == $given_q[$i][1] ? 1 : 0
                 ]
@@ -5479,8 +5484,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 756,
                 'q_content' => "What do you usually wear \n when it is raining? \n  when it is sunny? \n  when it is cold? \n  when it is hot?.",
-                'q_audio' => $audio."what-do-usually-wear.mp3",
-                'q_image' => $images . "green-star-fish",
+                // 'q_audio' => $audios."what-do-usually-wear.mp3",
+                'q_image' => $images . "green_starfish.png",
             ]
 
         ]);
