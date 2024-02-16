@@ -165,7 +165,7 @@ class GameSeeder extends Seeder
         DB::table('games')->insert([
 
             ['name' => 'Target Language & Grammar Explanation', 'unit_id' => 71,  'category_id' => 1, 'instructionGIF' => null],
-            ['name' => 'Reading, Listen and Repeat', 'unit_id' => 72,  'category_id' => 2, 'instructionGIF' => null],
+            ['name' => 'Reading, Listen and Repeat', 'unit_id' => 72,  'category_id' => 33, 'instructionGIF' => null],
             ['name' => 'Drag and Drop', 'unit_id' => 73,  'category_id' => 19, 'instructionGIF' => $Gif_path . "Putting.gif"],
             ['name' => 'Listen and Practice', 'unit_id' => 74,  'category_id' => 20, 'instructionGIF' => $Gif_path . "Listen-and-choose-correct.gif"],
             ['name' => 'Speaking Practice', 'unit_id' => 75, 'category_id' => 11, 'instructionGIF' => $Gif_path . "Speaking.gif"],
