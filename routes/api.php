@@ -86,6 +86,8 @@ Route::middleware('GameAuth')->group(function () {
 Route::prefix('control')->group(function () {
     Route::post('/', [GameController::class, 'lockAndUnlock']);
     Route::post('/check', [GameController::class, 'showLockAndUnlock']);
+    Route::post('/lesson', [GameController::class, 'LessonLock']);
+    Route::post('/lesson/check', [GameController::class, 'lessonLockCheck']);
 });
 
 
