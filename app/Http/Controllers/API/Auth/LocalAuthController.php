@@ -177,8 +177,8 @@ class LocalAuthController extends Controller
         // Prepare data for POST request
         $data = [
             "to"        =>      $number,
-            "message"   =>      "Starfish App: Do Not Share with Anyone. Your Registration OTP is ".$otp ,
-            "sender"    =>      "Starfish App"
+            "message"   =>      "StarfishApp: Do Not Share with Anyone. Your Registration OTP is ".$otp ,
+            "sender"    =>      "StarfishApp"
         ];
 
 

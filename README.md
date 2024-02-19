@@ -86,6 +86,18 @@ Field (Body) (games eg - "1,2,3" or "all" , status eg - "lock" or "unlock")
 Method(POST) [https://star-fish.myanmargateway.net/api/control/check](https://star-fish.myanmargateway.net/api/control/check)  
 Field (Body) (status eg - "lock" & "unlock" )
 
+### Check games (lock/unlock Lesson)
+
+Method(POST) [https://star-fish.myanmargateway.net/api/control/lesson](https://star-fish.myanmargateway.net/api/control/lesson)  
+Field (Body) (lesson_id ,status eg - "lock" & "unlock" )
+
+
+
+
+
+
+
+
 > # Subscription Plans
 
 ### Plan List

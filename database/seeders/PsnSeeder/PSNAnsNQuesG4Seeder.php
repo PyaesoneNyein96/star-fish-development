@@ -1732,9 +1732,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         $convers = [
-            ['boy.png',"yellow-girl.png"],
-            ["boy.png","green-girl.png"],
-            ['boy.png',"purple-girl.png"],
+            ['boy-1.png',"yellow-girl.png"],
+            ["boy-2.png","green-girl.png"],
+            ['boy-3.png',"purple-girl.png"],
             ["man.png", "woman.png"]
         ];
         $convers_audio = [
@@ -1759,7 +1759,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                         'a_image' => $img.$v.".gif",
                         'a_audio' => $convers_audio[$key][$k] ? $audio.$convers_audio[$key][$k] : null,
                         'a_conver' => $convers[$key][$k] ?  $img.$convers[$key][$k] : null ,
-                        "background" => $img."bg".$key + 1 .".png"
+                        "background" => $img."bg.png"
                         ]
                     ]);
 
@@ -2328,8 +2328,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     'round' => $key + 1,
                     'a_image' => $img.$v.".gif",
                     'a_audio' => $convers_audio[$key][$k] ? $audio.$convers_audio[$key][$k] : null,
-                    'a_conver' => $convers[$key][$k] ? $img.$convers[$key][$k]."png": null,
-                    "background" => $img."bg".$key + 1 .".png"
+                    'a_conver' => $convers[$key][$k] ? $img.$convers[$key][$k].".png": null,
+                    "background" => $img."bg.png"
                     ]
                 ]);
 
@@ -2392,7 +2392,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
     $contents = [
-        'fried-rice','coconut-noodle','mont-hin-gah','sandwich','hamburger','salad','steam-sticky-rice'
+        'fried-rice','coconut-noodle','mont-hin-gah','sandwich','hamburger','salad'
     ];
 
     $Question_contents = [
@@ -2402,12 +2402,12 @@ class PSNAnsNQuesG4Seeder extends Seeder
         "What do you usually have for lunch? \n -------------.",
         "What do you usually have for lunch? \n -------------.",
         "What do you usually have for dinner? \n -------------.",
-        "What do you usually have for breakfast? \n -------------.",
+        // "What do you usually have for breakfast? \n -------------.",
     ];
 
     $q_instruction = [
         'breakfast-fried-rice','breakfast-coconut-noodle','breakfast-mont-hin-gah',
-        'lunch-sandwich','lunch-hamburger','dinner-salad','breakfast-steam-sticky-rice'
+        'lunch-sandwich','lunch-hamburger','dinner-salad',
     ];
 
 
@@ -2585,8 +2585,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         $convers = [
-            ["What-food","Noodle"],
-            ['Why',"good-energy."],
+            ["What-food","pizza"],
+            ['puri', null],
         ];
 
         $convers_audio = [
@@ -2604,12 +2604,12 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
                 DB::table('ans_n_ques')->insert([
                     [
-                    'game_id' => 995,
-                    'round' => $key + 1,
-                    'a_image' => $img.$v.".gif",
-                    'a_audio' => $convers_audio[$key][$k] ? $audio.$convers_audio[$key][$k].".mp3" : null,
-                    'a_conver' => $convers[$key][$k] ? $img.$convers[$key][$k].".png" : null,
-                    "background" => $img."bg".$key + 1 .".png"
+                        'game_id' => 995,
+                        'round' => $key + 1,
+                        'a_image' => $img.$v.".gif",
+                        'a_audio' => $convers_audio[$key][$k] ? $audio.$convers_audio[$key][$k].".mp3" : null,
+                        'a_conver' => $convers[$key][$k] ? $img.$convers[$key][$k].".png" : null,
+                        "background" => $img."bg.png"
                     ]
                 ]);
 
@@ -4586,7 +4586,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
 
-    //Lesson 29 Unit 5 Listen Practice <listening_choosing_answer>
+    //Lesson 27 Unit 5 Listen Practice <listening_choosing_answer>
 
 
      $questions = [
