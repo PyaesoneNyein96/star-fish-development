@@ -4059,7 +4059,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'round' => $key + 1,
                     'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                    'q_audio' => $audios.$this->removeSpace($value).".mp3",
                     'q_image' => $images .$this->removeSpace($value) . ".png",
                 ]
 
