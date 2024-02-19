@@ -156,7 +156,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'game_id' => 610,
                     'round' => $key + 1,
                     'q_image' => $images.$contents[$key].".png",
-                    'q_audio' => $audios.$contents[$key].".mp3",
+                    // 'q_audio' => $audios.$contents[$key].".mp3",
                     'q_content' => $q,
                     'a_content' => $ans[$key],
                 ]
@@ -2604,9 +2604,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 676,
                 'round' => $key + 1,
-                'round_instruction' => $audio.$this->removeSpace($round_instructions[$key]).".mp3",
+                'round_instruction' => $audios.$this->removeSpace($round_instructions[$key]).".mp3",
                 'q_content' => $Question_contents[$key],
-                // 'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                // 'q_audio' => $audios.$this->removeSpace($value).".mp3",
                 'q_image' => $images .$this->removeSpace($value) . ".png",
             ]
 
@@ -3275,7 +3275,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $contents = [
             ['Tall','Short'],
-            ['Young','Old'],
+            ['Young','Old-man'],
             ['Fat','Thin'],
             ['Married','Single'],
             ['New','Old'],
