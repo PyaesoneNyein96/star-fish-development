@@ -14,9 +14,17 @@ class AssessmentCategorySeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            "arranging_letter",
-            "fill_in_the_blank",
-            "multiple_choice"
+            "rearrange_with_audio",
+            "fill_in_the_blanks",
+            "listening_choosing_answer",
+            "drag_and_drop_one",
+            "reading_passage",
+            "mcq_tf_instruction_two",
+            "choose_right_sentence",
+            "look_and_choose",
+            "drag_and_drop_two",
+            "drag_and_drop_three",
+            "listen_and_act_two"
         ];
 
 

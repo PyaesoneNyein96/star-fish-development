@@ -103,7 +103,7 @@ Field (token, grade_id, subscription_id (Header))
 <!-- Method (POST) [https://star-fish.myanmargateway.net/api/subscription/removePlan](https://star-fish.myanmargateway.net/api/subscription/removePlan)
 (Delete Subscription Grade and games (Header)) -->
 
-### ==============================================================
+### ====================================================
 
 # Point
 
@@ -131,7 +131,7 @@ Field = student_id , point
 (Method: POST) [https://star-fish.myanmargateway.net/api/reward](https://star-fish.myanmargateway.net/api/reward)  
 Field = student_id , reward_id , reward_point
 
-### ==============================================================
+### ====================================================
 
 # Chat
 
@@ -150,7 +150,7 @@ Field ( body ) = student_id , message
 (Method: POST) [https://star-fish.myanmargateway.net/api/chat/nick](https://star-fish.myanmargateway.net/api/chat/nick)
 Field ( body ) = student_id , nickName
 
-### ==============================================================
+### ====================================================
 
 # Assessments
 
@@ -162,7 +162,7 @@ Field ( header ) = student_id , lesson_id , grade_id
 ### Enter into Game
 
 (Method: POST) [https://star-fish.myanmargateway.net/api/assessment/game](https://star-fish.myanmargateway.net/api/assessment/game)
-Field ( header ) = id
+Field ( header ) = id , disable
 
 ### End Match
 
