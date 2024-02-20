@@ -2113,25 +2113,20 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 538, "q_image" => null, "q_audio" =>  null, 'q_content' => "Yes", "q_conver" => null, 'a_content' => 1],
+            ['round' => 1, 'game_id' => 538, "q_image" => $l11_G538_image . "jerry.png", "q_audio" => $AudioDomain . $G3_L11_listening_path . "jerry-has-dog.mp3", "q_content" => "Yes", 'q_conver' => "Jerry has a dog.", 'a_content' => 1],
             ['round' => 1, 'game_id' => 538, "q_image" => null, "q_audio" =>  null, 'q_content' => "No", "q_conver" => null, 'a_content' => 0],
-            ['round' => 1, 'game_id' => 538, "q_image" => $l11_G538_image . "jerry.png", "q_audio" => $AudioDomain . $G3_L11_listening_path . "jerry-has-dog.mp3", "q_content" => null, 'q_conver' => "Jerry has a dog.", 'a_content' => null],
 
-            ['round' => 2, 'game_id' => 538, "q_image" => null, "q_audio" =>  null, 'q_content' => "Yes", "q_conver" => null, 'a_content' => 1],
+            ['round' => 2, 'game_id' => 538, "q_image" => $l11_G538_image . "jerry.png", "q_audio" => $AudioDomain . $G3_L11_listening_path . "jerry-doesnt-have-cat.mp3", "q_content" => "Yes", 'q_conver' => "Jerry doesn't have a cat.", 'a_content' => 1],
             ['round' => 2, 'game_id' => 538, "q_image" => null, "q_audio" =>  null, 'q_content' => "No", "q_conver" => null, 'a_content' => 0],
-            ['round' => 2, 'game_id' => 538, "q_image" => $l11_G538_image . "jerry.png", "q_audio" => $AudioDomain . $G3_L11_listening_path . "jerry-doesnt-have-cat.mp3", "q_content" => null, 'q_conver' => "Jerry doesn't have a cat.", 'a_content' => null],
 
-            ['round' => 3, 'game_id' => 538, "q_image" => null, "q_audio" =>  null, 'q_content' => "Yes", "q_conver" => null, 'a_content' => 1],
+            ['round' => 3, 'game_id' => 538, "q_image" => $l11_G538_image . "jerry.png", "q_audio" => $AudioDomain . $G3_L11_listening_path . "jerry-has-spider.mp3", "q_content" => "Yes", 'q_conver' => "Jerry has a spider.",  'a_content' => 1],
             ['round' => 3, 'game_id' => 538, "q_image" => null, "q_audio" =>  null, 'q_content' => "No", "q_conver" => null, 'a_content' => 0],
-            ['round' => 3, 'game_id' => 538, "q_image" => $l11_G538_image . "jerry.png", "q_audio" => $AudioDomain . $G3_L11_listening_path . "jerry-has-spider.mp3", "q_content" => null, 'q_conver' => "Jerry has a spider.", 'a_content' => null],
 
-            ['round' => 4, 'game_id' => 538, "q_image" => null, "q_audio" =>  null, 'q_content' => "Yes", "q_conver" => null, 'a_content' => 0],
+            ['round' => 4, 'game_id' => 538, "q_image" => $l11_G538_image . "jerry.png", "q_audio" => $AudioDomain . $G3_L11_listening_path . "jerry-doesnt-have-rabbit.mp3", "q_content" => "Yes", 'q_conver' => "Jerry doesn't have a rabbit.", 'a_content' => 0],
             ['round' => 4, 'game_id' => 538, "q_image" => null, "q_audio" =>  null, 'q_content' => "No", "q_conver" => null, 'a_content' => 1],
-            ['round' => 4, 'game_id' => 538, "q_image" => $l11_G538_image . "jerry.png", "q_audio" => $AudioDomain . $G3_L11_listening_path . "jerry-doesnt-have-rabbit.mp3", "q_content" => null, 'q_conver' => "Jerry doesn't have a rabbit.", 'a_content' => null],
 
-            ['round' => 5, 'game_id' => 538, "q_image" => null, "q_audio" =>  null, 'q_content' => "Yes", "q_conver" => null, 'a_content' => 1],
+            ['round' => 5, 'game_id' => 538, "q_image" => $l11_G538_image . "jerry.png", "q_audio" => $AudioDomain . $G3_L11_listening_path . "jerry-has-goldfish.mp3", "q_content" => "Yes", 'q_conver' => "Jerry has a goldfish.", 'a_content' => 1],
             ['round' => 5, 'game_id' => 538, "q_image" => null, "q_audio" =>  null, 'q_content' => "No", "q_conver" => null, 'a_content' => 0],
-            ['round' => 5, 'game_id' => 538, "q_image" => $l11_G538_image . "jerry.png", "q_audio" => $AudioDomain . $G3_L11_listening_path . "jerry-has-goldfish.mp3", "q_content" => null, 'q_conver' => "Jerry has a goldfish.", 'a_content' => null],
 
         ]);
 
@@ -2517,25 +2512,21 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 553, "q_image" => null, 'q_content' => "on", "q_conver" => null, 'a_content' => 1],
+            ['round' => 1, 'game_id' => 553, "q_image" => $l13_G553_image . "lamp.png", "q_content" => "on", 'q_conver' => "Where is the lamp?",  'a_content' => 1],
             ['round' => 1, 'game_id' => 553, "q_image" => null, 'q_content' => "next to", "q_conver" => null, 'a_content' => 0],
             ['round' => 1, 'game_id' => 553, "q_image" => null, 'q_content' => "under", "q_conver" => null, 'a_content' => 0],
-            ['round' => 1, 'game_id' => 553, "q_image" => $l13_G553_image . "lamp.png", "q_content" => null, 'q_conver' => "Where is the lamp?", 'a_content' => null],
 
-            ['round' => 2, 'game_id' => 553, "q_image" => null, 'q_content' => "on", "q_conver" => null, 'a_content' => 0],
+            ['round' => 2, 'game_id' => 553, "q_image" => $l13_G553_image . "duck.png", "q_content" => "on", 'q_conver' => "Where is the duck?", 'a_content' => 0],
             ['round' => 2, 'game_id' => 553, "q_image" => null, 'q_content' => "next to", "q_conver" => null, 'a_content' => 0],
             ['round' => 2, 'game_id' => 553, "q_image" => null, 'q_content' => "in", "q_conver" => null, 'a_content' => 1],
-            ['round' => 2, 'game_id' => 553, "q_image" => $l13_G553_image . "duck.png", "q_content" => null, 'q_conver' => "Where is the duck?", 'a_content' => null],
 
-            ['round' => 3, 'game_id' => 553, "q_image" => null, 'q_content' => "under", "q_conver" => null, 'a_content' => 1],
+            ['round' => 3, 'game_id' => 553, "q_image" => $l13_G553_image . "cat.png", "q_content" => "under", 'q_conver' => "Where is the cat?", 'a_content' => 1],
             ['round' => 3, 'game_id' => 553, "q_image" => null, 'q_content' => "on", "q_conver" => null, 'a_content' => 0],
             ['round' => 3, 'game_id' => 553, "q_image" => null, 'q_content' => "in", "q_conver" => null, 'a_content' => 0],
-            ['round' => 3, 'game_id' => 553, "q_image" => $l13_G553_image . "cat.png", "q_content" => null, 'q_conver' => "Where is the cat?", 'a_content' => null],
 
-            ['round' => 4, 'game_id' => 553, "q_image" => null, 'q_content' => "in front of", "q_conver" => null, 'a_content' => 0],
+            ['round' => 4, 'game_id' => 553, "q_image" => $l13_G553_image . "sofa.png", "q_content" => "in front fo", 'q_conver' => "Where is the sofa?", 'a_content' => 0],
             ['round' => 4, 'game_id' => 553, "q_image" => null, 'q_content' => "behind", "q_conver" => null, 'a_content' => 0],
             ['round' => 4, 'game_id' => 553, "q_image" => null, 'q_content' => "next to", "q_conver" => null, 'a_content' => 1],
-            ['round' => 4, 'game_id' => 553, "q_image" => $l13_G553_image . "sofa.png", "q_content" => null, 'q_conver' => "Where is the sofa?", 'a_content' => null],
 
         ]);
 

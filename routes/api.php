@@ -98,8 +98,8 @@ Route::prefix('subscription')->group(function () {
 
 Route::prefix('assessment')->group(function () {
     Route::get('/', [AssessmentController::class, 'getAllAssess']);
-    Route::post('game', [AssessmentController::class, 'enterGame']);
-    Route::post('end_match', [AssessmentController::class, 'endGame']);
+    Route::get('game', [AssessmentController::class, 'enterGame']);
+    Route::get('end_match', [AssessmentController::class, 'endGame']);
 });
 
 

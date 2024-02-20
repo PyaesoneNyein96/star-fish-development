@@ -24,7 +24,8 @@ class AssessmentCategorySeeder extends Seeder
             "look_and_choose",
             "drag_and_drop_two",
             "drag_and_drop_three",
-            "listen_and_act_two"
+            "drag_and_drop_four",
+            "listen_and_act"
         ];
 
 

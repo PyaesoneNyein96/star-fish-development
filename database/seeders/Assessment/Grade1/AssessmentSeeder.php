@@ -745,5 +745,68 @@ class AssessmentSeeder extends Seeder
             ['round' => 5, 'assess_id' => 11, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 1],
 
         ]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Assessment 4 ID 23 ( Grammar )
+        ////////////////////////////////////////////////////////
+
+        $G1_A4_grammar = "Grade_1/" . "Assessments/" . "Assessment_4/" . "grammar/";
+        $A4_ID23_image = $domain . "/storage/images/Grade_1/Assessments/Assessment_4/grammar/";
+
+
+        DB::table('assessment_ans_n_ques')->insert([
+
+            ['round' => 1, 'assess_id' => 23, "q_image" => $G1_A4_grammar . "pineapple.png", "q_conver" => "It's ____ pineapple.", 'q_content' => "an", 'a_content' => 0],
+            ['round' => 1, 'assess_id' => 23, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 1],
+
+            ['round' => 2, 'assess_id' => 23, "q_image" => $G1_A4_grammar . "guava.png", "q_conver" => "It's ____ guava.", 'q_content' => "an", 'a_content' => 0],
+            ['round' => 2, 'assess_id' => 23, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 1],
+
+            ['round' => 3, 'assess_id' => 23, "q_image" => $G1_A4_grammar . "coconut.png", "q_conver" => "It's ____ coconut.", 'q_content' => "an", 'a_content' => 0],
+            ['round' => 3, 'assess_id' => 23, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 1],
+
+            ['round' => 4, 'assess_id' => 23, "q_image" => $G1_A4_grammar . "orange.png", "q_conver" => "It's ____ orange.", 'q_content' => "an", 'a_content' => 1],
+            ['round' => 4, 'assess_id' => 23, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 0],
+
+            ['round' => 5, 'assess_id' => 23, "q_image" => $G1_A4_grammar . "avocado.png", "q_conver" => "It's ____ avocado.", 'q_content' => "an", 'a_content' => 1],
+            ['round' => 5, 'assess_id' => 23, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 0],
+
+        ]);
+
+
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Assessment 3 ID 15 ( Listening (multlple choice) )
+        ////////////////////////////////////////////////////////
+
+        $G1_A3_listening_mc = "Grade_1/" . "Assessments/" . "Assessment_3/" . "listening_mc/";
+        $A3_ID15_image = $domain . "/storage/images/Grade_1/Assessments/Assessment_3/listening_mc/";
+
+        DB::table('assessment_ans_n_ques')->insert([
+
+            ['round' => 1, 'assess_id' => 15, 'q_image' => $A3_ID15_image . "nose.png", "q_content" => "Nose", "a_content" => 1],
+            ['round' => 1, 'assess_id' => 15, 'q_image' => null, "q_content" => "Mouth", "a_content" => 0],
+            ['round' => 1, 'assess_id' => 15, 'q_image' => null, "q_content" => "Cheek", "a_content" => 0],
+
+            ['round' => 2, 'assess_id' => 15, 'q_image' => $A3_ID15_image . "back.png", "q_content" => "Chest", "a_content" => 0],
+            ['round' => 2, 'assess_id' => 15, 'q_image' => null, "q_content" => "Stomach", "a_content" => 0],
+            ['round' => 2, 'assess_id' => 15, 'q_image' => null, "q_content" => "Waist", "a_content" => 1],
+
+            ['round' => 3, 'assess_id' => 15, 'q_image' => $A3_ID15_image . "leg.png", "q_content" => "Hand", "a_content" => 0],
+            ['round' => 3, 'assess_id' => 15, 'q_image' => null, "q_content" => "Body", "a_content" => 0],
+            ['round' => 3, 'assess_id' => 15, 'q_image' => null, "q_content" => "Leg", "a_content" => 1],
+
+            ['round' => 4, 'assess_id' => 15, 'q_image' => $A3_ID15_image . "shoulder.png", "q_content" => "Shoulder", "a_content" => 1],
+            ['round' => 4, 'assess_id' => 15, 'q_image' => null, "q_content" => "Back", "a_content" => 0],
+            ['round' => 4, 'assess_id' => 15, 'q_image' => null, "q_content" => "Neck", "a_content" => 0],
+
+            ['round' => 5, 'assess_id' => 15, 'q_image' => $A3_ID15_image . "face.png", "q_content" => "Head", "a_content" => 1],
+            ['round' => 5, 'assess_id' => 15, 'q_image' => null, "q_content" => "Knee", "a_content" => 0],
+            ['round' => 5, 'assess_id' => 15, 'q_image' => null, "q_content" => "Toes", "a_content" => 0],
+
+        ]);
     }
 }

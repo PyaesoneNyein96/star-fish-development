@@ -24,6 +24,7 @@ class AssessmentFinishData extends Model
         "game_8",
         "game_9",
         "game_10",
+        "finish",
     ];
 
 
