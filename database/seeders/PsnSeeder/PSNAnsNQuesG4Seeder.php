@@ -1755,7 +1755,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     DB::table('ans_n_ques')->insert([
                         [
                         'game_id' => 971,
-                        'round' => $key + 2,
+                        'round' => $key + 1,
                         'a_image' => $img.$v.".gif",
                         'a_audio' => $convers_audio[$key][$k] ? $audio.$convers_audio[$key][$k] : null,
                         'a_conver' => $convers[$key][$k] ?  $img.$convers[$key][$k] : null ,
