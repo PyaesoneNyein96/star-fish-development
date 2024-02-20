@@ -4407,12 +4407,12 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $given_ans = [
             ['Walk down', 'Turn left'],
-            ['on the left', 'On the right'],
-            ['on the left', 'On the right'],
+            ['On the left', 'On the right'],
+            ['On the left', 'On the right'],
             ['Walk up', 'Walk down'],
             ['Walk along', 'Walk down'],
-            ['Turn Right', 'Turn Left'],
-            ['Go straight', 'Turn Left'],
+            ['Turn right', 'Turn left'],
+            ['Go straight', 'Turn left'],
         ];
 
         $ans = [
