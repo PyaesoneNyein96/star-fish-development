@@ -125,15 +125,17 @@ class GameController extends Controller
                 'complete' => $studentLessons->contains('id', $lesson->id),
                 'allowed' => $index == 0 || $studentLessons->contains('id', $lesson->id),
             ];
+
+
         });
-
-    //   array_slice($lessons, function ($l) {
-
-    //   });
 
         return $lessons;
 
-        //    'allowed' => $index + 1 == 3 ||  $studentLessons->contains('id', $lesson->id)
+
+
+
+
+
     }
 
 
