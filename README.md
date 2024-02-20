@@ -91,13 +91,6 @@ Field (Body) (status eg - "lock" & "unlock" )
 Method(POST) [https://star-fish.myanmargateway.net/api/control/lesson](https://star-fish.myanmargateway.net/api/control/lesson)  
 Field (Body) (lesson_id ,status eg - "lock" & "unlock" )
 
-
-
-
-
-
-
-
 > # Subscription Plans
 
 ### Plan List
@@ -169,7 +162,7 @@ Field ( body ) = student_id , nickName
 ### Get All Assessments
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/assessment](https://star-fish.myanmargateway.net/api/assessment)
-Field ( header ) = student_id , lesson_id , grade_id
+Field ( header ) = student_id , grade_id
 
 ### Enter into Game
 
@@ -179,4 +172,4 @@ Field ( header ) = id , disable
 ### End Match
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/assessment/end_match](https://star-fish.myanmargateway.net/api/assessment/end_match)
-Field ( header ) = student_id , lesson_id , grade_id , assess_game_id , point
+Field ( header ) = student_id , grade_id , assess_game_id , point
