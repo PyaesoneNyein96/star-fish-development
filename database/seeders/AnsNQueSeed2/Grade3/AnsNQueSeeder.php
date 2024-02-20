@@ -2540,20 +2540,14 @@ class AnsNQueSeeder extends Seeder
         $G3_L13_listening_path = "Grade_3/" . "Lesson_13/" . "listening/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 554, "q_audio" => $AudioDomain . $G3_L13_listening_path . "tom_anna" . ".mp3", "q_image" => null, "q_content" => "Living-room Kitchen", "a_content" => null],
+            ['round' => 1, 'game_id' => 554, "q_audio" => $AudioDomain . $G3_L13_listening_path . "tom_anna" . ".mp3", "q_image" => null, "q_content" => "Anna Tom", "a_content" => null],
 
-            ['round' => 1, 'game_id' => 554, "q_audio" => null, "q_image" => "Mirror", "q_content" => "Living-room Kitchen", "a_content" => "Living-room"],
-            ['round' => 1, 'game_id' => 554, "q_audio" => null, "q_image" => "Bookshelves", "q_content" => "Living-room Kitchen", "a_content" => "Living-room"],
-            ['round' => 1, 'game_id' => 554, "q_audio" => null, "q_image" => "Cooker", "q_content" => "Living-room Kitchen", "a_content" => "Kitchen"],
-            ['round' => 1, 'game_id' => 554, "q_audio" => null, "q_image" => "Fridge", "q_content" => "Living-room Kitchen", "a_content" => "Kitchen"],
-            ['round' => 1, 'game_id' => 554, "q_audio" => null, "q_image" => "Armchair", "q_content" => "Living-room Kitchen", "a_content" => "Living-room"],
-
-            ['round' => 1, 'game_id' => 554, "q_audio" => null, "q_image" => "TV", "q_content" => "Living-room Kitchen", "a_content" => "Living-room"],
-            ['round' => 1, 'game_id' => 554, "q_audio" => null, "q_image" => "Washing Machine", "q_content" => "Living-room Kitchen", "a_content" => "Kitchen"],
-            ['round' => 1, 'game_id' => 554, "q_audio" => null, "q_image" => "Oven", "q_content" => "Living-room Kitchen", "a_content" => "Kitchen"],
-            ['round' => 1, 'game_id' => 554, "q_audio" => null, "q_image" => "Table", "q_content" => "Living-room Kitchen", "a_content" => "Living-room"],
-            ['round' => 1, 'game_id' => 554, "q_audio" => null, "q_image" => "Sofa", "q_content" => "Living-room Kitchen", "a_content" => "Living-room"],
-
+            ['round' => 1, 'game_id' => 554, "q_audio" => null, "q_image" => "refrigerator", "q_content" => "Anna Tom", "a_content" => "Anna"],
+            ['round' => 1, 'game_id' => 554, "q_audio" => null, "q_image" => "bookshelf", "q_content" => "Anna Tom", "a_content" => "Tom"],
+            ['round' => 1, 'game_id' => 554, "q_audio" => null, "q_image" => "sofa", "q_content" => "Anna Tom", "a_content" => "Anna"],
+            ['round' => 1, 'game_id' => 554, "q_audio" => null, "q_image" => "refrigerator", "q_content" => "Anna Tom", "a_content" => "Tom"],
+            ['round' => 1, 'game_id' => 554, "q_audio" => null, "q_image" => "lamp", "q_content" => "Anna Tom", "a_content" => "Tom"],
+            ['round' => 1, 'game_id' => 554, "q_audio" => null, "q_image" => "TV", "q_content" => "Anna Tom", "a_content" => "Tom"],
         ]);
 
 
