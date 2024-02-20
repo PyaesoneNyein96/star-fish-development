@@ -22,8 +22,11 @@ class AssessmentController extends Controller
         if (!$studentId || !$gradeId) return response()->json(['message' => 'Lesson ID or Grade ID is required.'], 403);
         $lessonId = StudentLesson::where("student_id", $studentId)->get();
 
+
         $assesLessArray = [8, 16, 24, 32, 40];
         foreach ($lessonId as $lesId) {
+
+            return $lessonId;
             if (in_array($lesId->lesson_id, $assesLessArray)) {
                 $data = Assessment::where("grade_id", $gradeId)->where("name", $lesId->lesson_id / 8)->get();
                 $checkStatus = AssessmentFinishData::where("student_id", $studentId)

@@ -129,7 +129,27 @@ class GameController extends Controller
 
         });
 
-        return $lessons;
+        $divided_lessons = array_chunk($lessons->toArray(), ceil(count($lessons) / 5));
+
+        $data = [
+            "complete"  => [],
+            "in_complete" => [],
+        ];
+
+        foreach ($divided_lessons as $part) {
+
+            // $in_completes = collect($part)->pluck('complete')->contains(false);
+
+            // $data[$in_completes ? "in_complete" : "complete" ][] = $part;
+
+            if (collect($part)->pluck('complete')->contains(false)) {
+                $data['in_complete'][] = $part;
+            } else {
+                $data['complete'][] = $part;
+            }
+        }
+
+        return $data;
 
 
 
