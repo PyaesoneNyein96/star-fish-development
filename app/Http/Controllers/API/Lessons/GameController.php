@@ -23,6 +23,7 @@ use App\Http\Traits\gameTraits2;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\GameResource;
+use App\Models\AssessmentFinishData;
 use App\Http\Traits\gameControlTrait;
 use Illuminate\Support\Facades\Cache;
 
@@ -33,8 +34,6 @@ class GameController extends Controller
 
     use gameTraits, gameTraits2, gameControlTrait;
 
-
-    private $messages = [];
 
     public function grades(Request $request)
     {
@@ -116,20 +115,24 @@ class GameController extends Controller
 
         $studentLessons = $student->lessons; // ဆော့ပီးတဲ့ lessons
 
-        $lessons = $allLessons->map(function ($lesson, $index) use ($studentLessons, $grade) {
+        $assessments = AssessmentFinishData::where('student_id',$student->id)
+        ->where('grade_id',$grade)->select('student_id','grade_id','assess_name','finish')->get();
+
+
+        $lessons = $allLessons->map(function ($lesson, $index) use ($studentLessons, $grade, $assessments) {
 
             return [
                 'id' => $lesson->id,
                 'grade_id' => $lesson->grade_id,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
-                // 'allowed' => $index == 0 || $studentLessons->contains('id', $lesson->id),
+                'allowed' =>  $index > $assessments->count() * 8 - 1  ? false : true ,
             ];
 
 
         });
 
-        // // $divided_lessons = array_chunk($lessons->toArray(), ceil(count($lessons) / 5));
+        // $divided_lessons = array_chunk($lessons->toArray(), ceil(count($lessons) / 5));
         // $divided_lessons = array_chunk($lessons->toArray(), 8);
 
         // $data = [
@@ -149,6 +152,8 @@ class GameController extends Controller
         //         $data['complete'][] = $part;
         //     }
         // }
+
+
 
         return $lessons;
 
@@ -409,11 +414,17 @@ class GameController extends Controller
         //  $this->addPointFunction($student, $request->header('point'),$request->header('question_answer'));
         // }
 
+
         $this->addPointFunction($student, $point, $question_answer);
+
+
+        // $assessment_records = AssessmentFinishData::where('student_id',$student->id)
+        // ->where('grade_id',$grade)->select('student_id','grade_id','assess_name','finish')->get();
 
 
         return response()->json([
             'status' => 'success and recorded',
+            // 'assessment_status' => $data,
             'fixed_point' => Student::where('id', $student->id)->pluck('fixed_point')->first(),
         ], 200);
     }
