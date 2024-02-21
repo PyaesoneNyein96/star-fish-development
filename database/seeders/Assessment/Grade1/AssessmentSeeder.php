@@ -837,5 +837,33 @@ class AssessmentSeeder extends Seeder
             ['round' => 5, 'assess_id' => 76, 'q_audio' => null, 'q_content' => "false", "q_conver" => null, 'a_content' => 0, "round_instruction" => null, 'q_image' => null],
 
         ]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Assessment 3 ID 17 ( True or False )
+        ////////////////////////////////////////////////////////
+
+        $G1_A3_true_false = "Grade_1/" . "Assessments/" . "Assessment_3/" . "true_false/";
+        $A3_ID17_image = $domain . "/storage/images/Grade_1/Assessments/Assessment_3/true_false/";
+
+
+        DB::table('assessment_ans_n_ques')->insert([
+
+            ['round' => 1, 'assess_id' => 17, 'q_audio' => $AudioDomain . $G1_A3_true_false . "SubBlock_My-names-susan.mp3", 'q_content' => "true", "q_conver" => $A3_ID17_image .  "susan.png", 'a_content' => 0, "round_instruction" => $AudioDomain . $G1_A3_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A3_ID17_image . "star.png"],
+            ['round' => 1, 'assess_id' => 17, 'q_audio' => null, 'q_content' => "false", "q_conver" => null, 'a_content' => 1, "round_instruction" => null, 'q_image' => null],
+
+            ['round' => 2, 'assess_id' => 17, 'q_audio' => $AudioDomain . $G1_A3_true_false . "SubBlock_Im-mary.mp3", 'q_content' => "true", "q_conver" => $A3_ID17_image . "mary.png", 'a_content' => 1, "round_instruction" => $AudioDomain . $G1_A3_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A3_ID17_image . "star.png"],
+            ['round' => 2, 'assess_id' => 17, 'q_audio' => null, 'q_content' => "false", "q_conver" => null, 'a_content' => 0, "round_instruction" => null, 'q_image' => null],
+
+            ['round' => 3, 'assess_id' => 17, 'q_audio' => $AudioDomain . $G1_A3_true_false . "SubBlock_Its-a-mat.mp3", 'q_content' => "true", "q_conver" => $A3_ID17_image . "mat.png", 'a_content' => 1, "round_instruction" => $AudioDomain . $G1_A3_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A3_ID17_image . "star.png"],
+            ['round' => 3, 'assess_id' => 17, 'q_audio' => null, 'q_content' => "false", "q_conver" => null, 'a_content' => 0, "round_instruction" => null, 'q_image' => null],
+
+            ['round' => 4, 'assess_id' => 17, 'q_audio' => $AudioDomain . $G1_A3_true_false . "SubBlock_its-one-bag.mp3", 'q_content' => "true", "q_conver" => $A3_ID17_image . "bag.png", 'a_content' => 0, "round_instruction" => $AudioDomain . $G1_A3_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A3_ID17_image . "star.png"],
+            ['round' => 4, 'assess_id' => 17, 'q_audio' => null, 'q_content' => "false", "q_conver" => null, 'a_content' => 1, "round_instruction" => null, 'q_image' => null],
+
+            ['round' => 5, 'assess_id' => 17, 'q_audio' => $AudioDomain . $G1_A3_true_false . "SubBlock_Whats-this.mp3", 'q_content' => "true", "q_conver" => $A3_ID17_image . "what.png", 'a_content' => 1, "round_instruction" => $AudioDomain . $G1_A3_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A3_ID17_image . "star.png"],
+            ['round' => 5, 'assess_id' => 17, 'q_audio' => null, 'q_content' => "false", "q_conver" => null, 'a_content' => 0, "round_instruction" => null, 'q_image' => null],
+
+        ]);
     }
 }

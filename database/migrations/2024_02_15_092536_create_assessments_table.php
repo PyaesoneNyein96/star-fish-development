@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('assess_game_name')->nullable();
             $table->integer('assess_category_id')->nullable();
+
+            $table->integer('total_game_ques')->nullable();
+            $table->integer('total_assess_ques')->nullable();
             $table->timestamps();
         });
     }
