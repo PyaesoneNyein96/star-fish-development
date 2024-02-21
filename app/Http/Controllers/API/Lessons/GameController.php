@@ -125,15 +125,36 @@ class GameController extends Controller
                 'complete' => $studentLessons->contains('id', $lesson->id),
                 'allowed' => $index == 0 || $studentLessons->contains('id', $lesson->id),
             ];
+
+
         });
 
-    //   array_slice($lessons, function ($l) {
+        // $divided_lessons = array_chunk($lessons->toArray(), ceil(count($lessons) / 5));
+        $divided_lessons = array_chunk($lessons->toArray(), 8);
 
-    //   });
+        $data = [
+            "complete"  => [],
+            "in_complete" => [],
+        ];
 
-        return $lessons;
+        foreach ($divided_lessons as $part) {
 
-        //    'allowed' => $index + 1 == 3 ||  $studentLessons->contains('id', $lesson->id)
+            // $in_completes = collect($part)->pluck('complete')->contains(false);
+
+            // $data[$in_completes ? "in_complete" : "complete" ][] = $part;
+
+            if (collect($part)->pluck('complete')->contains(false)) {
+                $data['in_complete'][] = $part;
+            } else {
+                $data['complete'][] = $part;
+            }
+        }
+
+        return $data;
+
+
+
+
     }
 
 
