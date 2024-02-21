@@ -123,34 +123,34 @@ class GameController extends Controller
                 'grade_id' => $lesson->grade_id,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
-                'allowed' => $index == 0 || $studentLessons->contains('id', $lesson->id),
+                // 'allowed' => $index == 0 || $studentLessons->contains('id', $lesson->id),
             ];
 
 
         });
 
-        // $divided_lessons = array_chunk($lessons->toArray(), ceil(count($lessons) / 5));
-        $divided_lessons = array_chunk($lessons->toArray(), 8);
+        // // $divided_lessons = array_chunk($lessons->toArray(), ceil(count($lessons) / 5));
+        // $divided_lessons = array_chunk($lessons->toArray(), 8);
 
-        $data = [
-            "complete"  => [],
-            "in_complete" => [],
-        ];
+        // $data = [
+        //     "complete"  => [],
+        //     "in_complete" => [],
+        // ];
 
-        foreach ($divided_lessons as $part) {
+        // foreach ($divided_lessons as $part) {
 
-            // $in_completes = collect($part)->pluck('complete')->contains(false);
+        //     // $in_completes = collect($part)->pluck('complete')->contains(false);
 
-            // $data[$in_completes ? "in_complete" : "complete" ][] = $part;
+        //     // $data[$in_completes ? "in_complete" : "complete" ][] = $part;
 
-            if (collect($part)->pluck('complete')->contains(false)) {
-                $data['in_complete'][] = $part;
-            } else {
-                $data['complete'][] = $part;
-            }
-        }
+        //     if (collect($part)->pluck('complete')->contains(false)) {
+        //         $data['in_complete'][] = $part;
+        //     } else {
+        //         $data['complete'][] = $part;
+        //     }
+        // }
 
-        return $data;
+        return $lessons;
 
 
 
@@ -388,6 +388,8 @@ class GameController extends Controller
                 200
             );
 
+
+
             StudentGrade::where('student_id', $student->id)
                 ->where('grade_id', $grade_id)
                 ->update(['isDone' => 1,]);
@@ -415,6 +417,151 @@ class GameController extends Controller
             'fixed_point' => Student::where('id', $student->id)->pluck('fixed_point')->first(),
         ], 200);
     }
+
+
+
+
+
+    private function lessonCheck($student, $lessonUnit)
+    {
+
+
+
+        $unitDone = StudentUnit::where('student_id', $student->id)->get();
+
+
+        return $filter = $lessonUnit->reject(function ($u) use ($unitDone) {
+            return $unitDone->contains('unit_id', $u->id);
+        });
+    }
+
+
+
+    private function gradeCheck($student, $lesson_id)
+    {
+
+        $grade = Lesson::find($lesson_id)->grade;
+
+        $lessons = Lesson::where('grade_id', $grade->id)->get();
+        $lessonDone = studentLesson::where('student_id', $student->id)->get();
+
+        logger($lessons->toArray());
+        logger($lesson_id);
+        logger($lessonDone->toArray());
+
+        $result = $lessons->filter(function ($i) use ($lessonDone) {
+            return !$lessonDone->contains('lesson_id', $i->id);
+        });
+
+        logger($result->toArray());
+        return $result;
+    }
+
+
+    // =========***
+    // add point
+    // =========***
+
+    private function addPointFunction($student, $point, $question_answer)
+    {
+
+        // return 'cc';
+        $student_id = $student->id;
+
+        $oldPoint = Student::where('id', $student_id)->first();
+        $newPoint = $oldPoint->point + (int)$point;
+        $newFixPoint = $oldPoint->fixed_point + (int)$point;
+
+        if ($oldPoint->level >= 1 && $oldPoint->level <= 50) {
+            $board = 'silver';
+        }
+
+        if ($oldPoint->level >= 51 && $oldPoint->level <= 100) {
+            $board = 'platinum';
+        }
+        if ($oldPoint->level >= 101 && $oldPoint->level <= 200) {
+            $board = 'gold';
+        }
+        if ($oldPoint->level >= 201 && $oldPoint->level <= 300) {
+            $board = 'diamond';
+        }
+
+        if ($newFixPoint >= 0 && $newFixPoint <= 3000) {
+            $level = ceil($newFixPoint / 10);
+            Student::where('id', $student_id)->update([
+                'point' => $newPoint,
+                'fixed_point' => $newFixPoint,
+                'level' => $level,
+                'board' => $board
+            ]);
+        } else {
+            Student::where('id', $student_id)->update([
+                'point' => $newPoint,
+                'fixed_point' => $newFixPoint,
+                'board' => $board
+            ]);
+        }
+
+        // Total - ans_ques
+
+
+        Student::where('id', $student_id)->update([
+            'question_answer' => (int)$question_answer + Student::find($student_id)->question_answer
+        ]);
+    }
+
+
+
+
+
+    // ==========================================
+    // ================= db-test =================
+    // ==========================================
+
+    // public function test(Request $request)
+    // {
+    //     $studentID = $request->header('student_id');
+    //     $gradeID = $request->header('grade_id');
+    //     $unitID = $request->header('unit_id');
+    //     $gameId = $request->header('game_id');
+    //     $lessonId = $request->header('lesson_id');
+
+    //     $result = DB::connection('secondary_mysql')->table('end_matches')->insert([
+    //         'student_id' => $studentID,
+    //         'unit_id' => $unitID,
+    //         'game_id' => $gameId,
+    //         'lesson_id' => $lessonId,
+    //         'grade_id' => $gradeID
+    //     ]);
+
+    //     return response()->json($result);
+    // }
+
+
+
+
+
+
+    // For Common Function
+
+    private function funExist($method)
+    {
+        $traits = class_uses_recursive(static::class);
+
+        foreach ($traits as $trait) {
+            if (method_exists($trait, $method)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+
+
+}
+
 
 
 
@@ -553,135 +700,3 @@ class GameController extends Controller
     //         'fixed_point' => Student::where('id', $student->id)->pluck('fixed_point')->first(),
     //     ], 200);
     // }
-
-
-
-    private function lessonCheck($student, $lessonUnit)
-    {
-
-        $unitDone = StudentUnit::where('student_id', $student->id)->get();
-
-        return $filter = $lessonUnit->reject(function ($u) use ($unitDone) {
-            return $unitDone->contains('unit_id', $u->id);
-        });
-    }
-
-
-
-    private function gradeCheck($student, $lesson_id)
-    {
-
-        $grade = Lesson::find($lesson_id)->grade;
-
-        $lessons = Lesson::where('grade_id', $grade->id)->get();
-        $lessonDone = studentLesson::where('student_id', $student->id)->get();
-
-        return $result = $lessons->filter(function ($i) use ($lessonDone) {
-            return !$lessonDone->contains('lesson_id', $i->id);
-        });
-    }
-
-
-    // =========***
-    // add point
-    // =========***
-
-    private function addPointFunction($student, $point, $question_answer)
-    {
-
-        // return 'cc';
-        $student_id = $student->id;
-
-        $oldPoint = Student::where('id', $student_id)->first();
-        $newPoint = $oldPoint->point + (int)$point;
-        $newFixPoint = $oldPoint->fixed_point + (int)$point;
-
-        if ($oldPoint->level >= 1 && $oldPoint->level <= 50) {
-            $board = 'silver';
-        }
-
-        if ($oldPoint->level >= 51 && $oldPoint->level <= 100) {
-            $board = 'platinum';
-        }
-        if ($oldPoint->level >= 101 && $oldPoint->level <= 200) {
-            $board = 'gold';
-        }
-        if ($oldPoint->level >= 201 && $oldPoint->level <= 300) {
-            $board = 'diamond';
-        }
-
-        if ($newFixPoint >= 0 && $newFixPoint <= 3000) {
-            $level = ceil($newFixPoint / 10);
-            Student::where('id', $student_id)->update([
-                'point' => $newPoint,
-                'fixed_point' => $newFixPoint,
-                'level' => $level,
-                'board' => $board
-            ]);
-        } else {
-            Student::where('id', $student_id)->update([
-                'point' => $newPoint,
-                'fixed_point' => $newFixPoint,
-                'board' => $board
-            ]);
-        }
-
-        // Total - ans_ques
-
-
-        Student::where('id', $student_id)->update([
-            'question_answer' => (int)$question_answer + Student::find($student_id)->question_answer
-        ]);
-    }
-
-
-
-
-
-    // ==========================================
-    // ================= db-test =================
-    // ==========================================
-
-    // public function test(Request $request)
-    // {
-    //     $studentID = $request->header('student_id');
-    //     $gradeID = $request->header('grade_id');
-    //     $unitID = $request->header('unit_id');
-    //     $gameId = $request->header('game_id');
-    //     $lessonId = $request->header('lesson_id');
-
-    //     $result = DB::connection('secondary_mysql')->table('end_matches')->insert([
-    //         'student_id' => $studentID,
-    //         'unit_id' => $unitID,
-    //         'game_id' => $gameId,
-    //         'lesson_id' => $lessonId,
-    //         'grade_id' => $gradeID
-    //     ]);
-
-    //     return response()->json($result);
-    // }
-
-
-
-
-
-
-    // For Common Function
-
-    private function funExist($method)
-    {
-        $traits = class_uses_recursive(static::class);
-
-        foreach ($traits as $trait) {
-            if (method_exists($trait, $method)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-
-
-
-}
