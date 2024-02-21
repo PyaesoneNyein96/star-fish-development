@@ -129,7 +129,8 @@ class GameController extends Controller
 
         });
 
-        $divided_lessons = array_chunk($lessons->toArray(), ceil(count($lessons) / 5));
+        // $divided_lessons = array_chunk($lessons->toArray(), ceil(count($lessons) / 5));
+        $divided_lessons = array_chunk($lessons->toArray(), 8);
 
         $data = [
             "complete"  => [],
@@ -150,8 +151,6 @@ class GameController extends Controller
         }
 
         return $data;
-
-
 
 
 
