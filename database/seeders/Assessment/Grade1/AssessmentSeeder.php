@@ -849,20 +849,77 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 17, 'q_audio' => $AudioDomain . $G1_A3_true_false . "SubBlock_My-names-susan.mp3", 'q_content' => "true", "q_conver" => $A3_ID17_image .  "susan.png", 'a_content' => 0, "round_instruction" => $AudioDomain . $G1_A3_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A3_ID17_image . "star.png"],
+            ['round' => 1, 'assess_id' => 17, 'q_audio' => $AudioDomain . $G1_A3_true_false . "SubBlock_I-drink-cake.mp3", 'q_content' => "true", "q_conver" => $A3_ID17_image .  "cake.png", 'a_content' => 0, "round_instruction" => $AudioDomain . $G1_A3_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A3_ID17_image . "star.png"],
             ['round' => 1, 'assess_id' => 17, 'q_audio' => null, 'q_content' => "false", "q_conver" => null, 'a_content' => 1, "round_instruction" => null, 'q_image' => null],
 
-            ['round' => 2, 'assess_id' => 17, 'q_audio' => $AudioDomain . $G1_A3_true_false . "SubBlock_Im-mary.mp3", 'q_content' => "true", "q_conver" => $A3_ID17_image . "mary.png", 'a_content' => 1, "round_instruction" => $AudioDomain . $G1_A3_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A3_ID17_image . "star.png"],
+            ['round' => 2, 'assess_id' => 17, 'q_audio' => $AudioDomain . $G1_A3_true_false . "SubBlock_I-eat-bread.mp3", 'q_content' => "true", "q_conver" => $A3_ID17_image . "bread.png", 'a_content' => 1, "round_instruction" => $AudioDomain . $G1_A3_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A3_ID17_image . "star.png"],
             ['round' => 2, 'assess_id' => 17, 'q_audio' => null, 'q_content' => "false", "q_conver" => null, 'a_content' => 0, "round_instruction" => null, 'q_image' => null],
 
-            ['round' => 3, 'assess_id' => 17, 'q_audio' => $AudioDomain . $G1_A3_true_false . "SubBlock_Its-a-mat.mp3", 'q_content' => "true", "q_conver" => $A3_ID17_image . "mat.png", 'a_content' => 1, "round_instruction" => $AudioDomain . $G1_A3_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A3_ID17_image . "star.png"],
+            ['round' => 3, 'assess_id' => 17, 'q_audio' => $AudioDomain . $G1_A3_true_false . "icecreamIdo.mp3", 'q_content' => "true", "q_conver" => $A3_ID17_image . "icecreamIdo.png", 'a_content' => 1, "round_instruction" => $AudioDomain . $G1_A3_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A3_ID17_image . "star.png"],
             ['round' => 3, 'assess_id' => 17, 'q_audio' => null, 'q_content' => "false", "q_conver" => null, 'a_content' => 0, "round_instruction" => null, 'q_image' => null],
 
-            ['round' => 4, 'assess_id' => 17, 'q_audio' => $AudioDomain . $G1_A3_true_false . "SubBlock_its-one-bag.mp3", 'q_content' => "true", "q_conver" => $A3_ID17_image . "bag.png", 'a_content' => 0, "round_instruction" => $AudioDomain . $G1_A3_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A3_ID17_image . "star.png"],
+            ['round' => 4, 'assess_id' => 17, 'q_audio' => $AudioDomain . $G1_A3_true_false . "apple-juice.mp3", 'q_content' => "true", "q_conver" => $A3_ID17_image . "apple-juice.png", 'a_content' => 0, "round_instruction" => $AudioDomain . $G1_A3_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A3_ID17_image . "star.png"],
             ['round' => 4, 'assess_id' => 17, 'q_audio' => null, 'q_content' => "false", "q_conver" => null, 'a_content' => 1, "round_instruction" => null, 'q_image' => null],
 
-            ['round' => 5, 'assess_id' => 17, 'q_audio' => $AudioDomain . $G1_A3_true_false . "SubBlock_Whats-this.mp3", 'q_content' => "true", "q_conver" => $A3_ID17_image . "what.png", 'a_content' => 1, "round_instruction" => $AudioDomain . $G1_A3_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A3_ID17_image . "star.png"],
+            ['round' => 5, 'assess_id' => 17, 'q_audio' => $AudioDomain . $G1_A3_true_false . "coffee.mp3", 'q_content' => "true", "q_conver" => $A3_ID17_image . "coffee.png", 'a_content' => 1, "round_instruction" => $AudioDomain . $G1_A3_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A3_ID17_image . "star.png"],
             ['round' => 5, 'assess_id' => 17, 'q_audio' => null, 'q_content' => "false", "q_conver" => null, 'a_content' => 0, "round_instruction" => null, 'q_image' => null],
+
+        ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Assessment 5 ID 29 ( True or False )
+        ////////////////////////////////////////////////////////
+
+        $G1_A5_true_false = "Grade_1/" . "Assessments/" . "Assessment_5/" . "true_false/";
+        $A5_ID29_image = $domain . "/storage/images/Grade_1/Assessments/Assessment_5/true_false/";
+
+
+        DB::table('assessment_ans_n_ques')->insert([
+
+            ['round' => 1, 'assess_id' => 29, 'q_audio' => $AudioDomain . $G1_A5_true_false . "SubBlock_This-is-my-mother-His-name-is.mp3", 'q_content' => "true", "q_conver" => $A5_ID29_image .  "emma.png", 'a_content' => 0, "round_instruction" => $AudioDomain . $G1_A5_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A5_ID29_image . "girl.png"],
+            ['round' => 1, 'assess_id' => 29, 'q_audio' => null, 'q_content' => "false", "q_conver" => null, 'a_content' => 1, "round_instruction" => null, 'q_image' => null],
+
+            ['round' => 2, 'assess_id' => 29, 'q_audio' => $AudioDomain . $G1_A5_true_false . "SubBlock_I-have-a-aunt.mp3", 'q_content' => "true", "q_conver" => $A5_ID29_image . "aunt.png", 'a_content' => 0, "round_instruction" => $AudioDomain . $G1_A5_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A5_ID29_image . "girl.png"],
+            ['round' => 2, 'assess_id' => 29, 'q_audio' => null, 'q_content' => "false", "q_conver" => null, 'a_content' => 1, "round_instruction" => null, 'q_image' => null],
+
+            ['round' => 3, 'assess_id' => 29, 'q_audio' => $AudioDomain . $G1_A5_true_false . "SubBlock_This-is-my-aunt-Her-name-is-M.mp3", 'q_content' => "true", "q_conver" => $A5_ID29_image . "mary.png", 'a_content' => 1, "round_instruction" => $AudioDomain . $G1_A5_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A5_ID29_image . "girl.png"],
+            ['round' => 3, 'assess_id' => 29, 'q_audio' => null, 'q_content' => "false", "q_conver" => null, 'a_content' => 0, "round_instruction" => null, 'q_image' => null],
+
+            ['round' => 4, 'assess_id' => 29, 'q_audio' => $AudioDomain . $G1_A5_true_false . "SubBlock_I-have-an-uncle.mp3", 'q_content' => "true", "q_conver" => $A5_ID29_image . "uncle.png", 'a_content' => 1, "round_instruction" => $AudioDomain . $G1_A5_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A5_ID29_image . "girl.png"],
+            ['round' => 4, 'assess_id' => 29, 'q_audio' => null, 'q_content' => "false", "q_conver" => null, 'a_content' => 0, "round_instruction" => null, 'q_image' => null],
+
+            ['round' => 5, 'assess_id' => 29, 'q_audio' => $AudioDomain . $G1_A5_true_false . "SubBlock_5-m-7-years-old.mp3", 'q_content' => "true", "q_conver" => $A5_ID29_image . "7-yrs.png", 'a_content' => 1, "round_instruction" => $AudioDomain . $G1_A5_true_false . "SubBlock_Are-the-sentences-true-or-fals.mp3", 'q_image' => $A5_ID29_image . "girl.png"],
+            ['round' => 5, 'assess_id' => 29, 'q_audio' => null, 'q_content' => "false", "q_conver" => null, 'a_content' => 0, "round_instruction" => null, 'q_image' => null],
+
+        ]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Assessment 5 ID 27 ( Multiple Choice )
+        ////////////////////////////////////////////////////////
+
+        $G1_A5_multiply_choice = "Grade_1/" . "Assessments/" . "Assessment_5/" . "multiply_choice/";
+        $A5_ID27_image = $domain . "/storage/images/Grade_1/Assessments/Assessment_5/multiply_choice/";
+
+
+        DB::table('assessment_ans_n_ques')->insert([
+
+            ['round' => 1, 'assess_id' => 27, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_This-is-my-father.mp3", 'q_content' => $A5_ID27_image .  "father.png", "q_conver" => $A5_ID27_image .  "father-text.png", 'a_content' => 1, 'q_image' => $A5_ID27_image . "girl.png"],
+            ['round' => 1, 'assess_id' => 27, 'q_audio' => null, 'q_content' => $A5_ID27_image . "mother.png", "q_conver" => null, 'a_content' => 0, 'q_image' => null],
+
+            ['round' => 2, 'assess_id' => 27, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_She-is-my-mother.mp3", 'q_content' => $A5_ID27_image .  "father.png", "q_conver" => $A5_ID27_image . "mother-text.png", 'a_content' => 0, 'q_image' => $A5_ID27_image . "girl.png"],
+            ['round' => 2, 'assess_id' => 27, 'q_audio' => null, 'q_content' => $A5_ID27_image . "mother.png", "q_conver" => null, 'a_content' => 1, 'q_image' => null],
+
+            ['round' => 3, 'assess_id' => 27, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_He-is-my-brother.mp3", 'q_content' => $A5_ID27_image .  "brother.png", "q_conver" => $A5_ID27_image . "brother-text.png", 'a_content' => 1, 'q_image' => $A5_ID27_image . "girl.png"],
+            ['round' => 3, 'assess_id' => 27, 'q_audio' => null, 'q_content' => $A5_ID27_image . "old.png", "q_conver" => null, 'a_content' => 0, 'q_image' => null],
+
+            ['round' => 4, 'assess_id' => 27, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_She-is-my-older-sister.mp3", 'q_content' => $A5_ID27_image .  "brother.png", "q_conver" => $A5_ID27_image . "older-sister-text.png", 'a_content' => 0, 'q_image' => $A5_ID27_image . "girl.png"],
+            ['round' => 4, 'assess_id' => 27, 'q_audio' => null, 'q_content' => $A5_ID27_image . "sister.png", "q_conver" => null, 'a_content' => 1, 'q_image' => null],
+
+            ['round' => 5, 'assess_id' => 27, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_This-is-my-grandmother.mp3", 'q_content' => $A5_ID27_image .  "grandpa.png", "q_conver" => $A5_ID27_image . "grandma-text.png", 'a_content' => 0, 'q_image' => $A5_ID27_image . "girl.png"],
+            ['round' => 5, 'assess_id' => 27, 'q_audio' => null, 'q_content' => $A5_ID27_image . "grandma.png", "q_conver" => null, 'a_content' => 1, 'q_image' => null],
 
         ]);
     }
