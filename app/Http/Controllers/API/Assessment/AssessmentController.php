@@ -24,21 +24,17 @@ class AssessmentController extends Controller
         if (!$studentId) return response()->json(['message' => 'Student Not Found.'], 404);
         $lessonId = StudentLesson::where("student_id", $studentId->id)->get();
 
-
         $assesLessArray = [8, 16, 24, 32, 40];
         foreach ($lessonId as $lesId) {
-
-            return $lessonId;
             if (in_array($lesId->lesson_id, $assesLessArray)) {
                 $gradeId = StudentLesson::where("student_id", $studentId->id)->where("lesson_id", $lesId->lesson_id)->first();
                 $data = Assessment::where("grade_id", $gradeId->grade_id)->where("name", $lesId->lesson_id / 8)->get();
 
                 if (!$data->toArray()) return response()->json(['message' => 'Assessment not found.'], 404);
                 return response()->json(["assessment" => $data]);
-            } else {
-                return response()->json(["message" => "didn't complete lessons"], 403);
             }
         }
+        return response()->json(["message" => "didn't complete lessons"], 403);
     }
 
 
