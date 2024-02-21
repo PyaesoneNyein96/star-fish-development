@@ -97,6 +97,7 @@ class AssessmentController extends Controller
         $assessGameId = $request->header('assess_game_id');
         $point = $request->header('point');
 
+
         if (!$studentId  || !$gradeId || !$assessGameId) return response()->json(['message' => 'Some Fields are required. Please check!!'], 403);
         $lessonId = StudentLesson::where("student_id", $studentId)->get();
 
