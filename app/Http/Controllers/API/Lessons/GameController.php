@@ -118,15 +118,17 @@ class GameController extends Controller
         $assessments = AssessmentFinishData::where('student_id',$student->id)
         ->where('grade_id',$grade)->select('student_id','grade_id','assess_name','finish')->get();
 
+        $count = $assessments->count() + 1;
 
-        $lessons = $allLessons->map(function ($lesson, $index) use ($studentLessons, $grade, $assessments) {
+
+        $lessons = $allLessons->map(function ($lesson, $index) use ($studentLessons, $grade, $count) {
 
             return [
                 'id' => $lesson->id,
                 'grade_id' => $lesson->grade_id,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
-                'allowed' =>  $index > $assessments->count() * 8 - 1  ? false : true ,
+                'assessment_lock' => $index < 8 || ($index > $count * 8 - 1  ? false : true),
             ];
 
 
