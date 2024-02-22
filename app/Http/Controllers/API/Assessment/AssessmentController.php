@@ -99,7 +99,19 @@ class AssessmentController extends Controller
         $studentId = $studentId->id;
         $lessonId = StudentLesson::where("student_id", $studentId)->get();
 
-        $assesLessArray = [8, 16, 24, 32, 40];
+        $assesLessArray = [
+            // Grade 1
+            8, 16, 24, 32, 40,
+
+            // Grade 2
+            48, 56, 64, 72, 80,
+
+            // Grade 3
+            88, 96, 104, 112, 120,
+
+            // Grade 4
+            128, 136, 144, 152, 160
+        ];
         foreach ($lessonId as $lesId) {
             if (in_array($lesId->lesson_id, $assesLessArray)) {
 
