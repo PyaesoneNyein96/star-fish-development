@@ -153,7 +153,7 @@ class AnsNQueSeeder extends Seeder
         $l1_G464image = $domain . "/storage/images/Grade_3/lesson_1/speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 464,  "q_audio" => $AudioDomain . $G3_L1_speaking . "Describe-your-family-members-H" . ".mp3",  'background' => $l1_G464image . "teacher.jpg", "q_conver" => "Describe your family members \nHow many family members do you have? \nWhat are they? \nWhat do they do everyday?"],
+            ['round' => 1, 'game_id' => 464,  "q_audio" => $AudioDomain . $G3_L1_speaking . "Describe-your-family-members-H" . ".mp3",  'background' => $l1_G464image . "teacher.jpg", "q_conver" => $l1_G464image . "text.png"],
         ]);
 
 
