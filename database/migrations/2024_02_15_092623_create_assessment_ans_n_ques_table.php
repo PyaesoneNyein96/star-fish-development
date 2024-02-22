@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('assessment_ans_n_ques', function (Blueprint $table) {
             $table->id();
             $table->integer('assess_id')->nullable();
-            $table->integer('round')->nullable();
+            //   $table->foreignId('assess_id')->constrained()->onDelete('cascade');
 
+            $table->integer('round')->nullable();
             $table->longText('q_image')->nullable();
             $table->longText('q_audio')->nullable();
             $table->longText('q_content')->nullable();

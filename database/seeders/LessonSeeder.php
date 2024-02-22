@@ -57,16 +57,16 @@ class LessonSeeder extends Seeder
         }
 
 
-            // $lessons =  range(1,39);
-            // foreach ($lessons as $l) {
-            //     DB::table('student_lessons')->insert([
-            //         [
-            //             'student_id' => 1,
-            //             'grade_id' => 1,
-            //             'lesson_id' => $l,
-            //         ]
-            //     ]);
-            // }
+            $lessons =  range(1,40);
+            foreach ($lessons as $l) {
+                DB::table('student_lessons')->insert([
+                    [
+                        'student_id' => 1,
+                        'grade_id' => 1,
+                        'lesson_id' => $l,
+                    ]
+                ]);
+            }
 
 
 

@@ -17,9 +17,13 @@ class AssessmentSeeder extends Seeder
         $game = [
             // Grade 1
             ["Arranging Letters", "Fill in the blank", "Listening (Multiple Choice)", "Listening (Drag and Drop)", "Reading Passages (1)", "Reading Passages (2)", "True or False"],
+
             ["Arranging Letters", "Fill in the blank", "Multiple Choice", "Drag and Drop", "Grammar", "True or False (1)", "True or False (2)"],
+
             ["Arranging Letters", "Fill in the blank", "Listening (Multiple Choice)", "Drag and Drop", "True or False", "Reading Passages (1)", "Reading Passages (2)"],
+
             ["Arranging Letters", "Fill in the blank", "Multiple Choice", "Drag and Drop", "Grammar", "Reading Passages"],
+
             ["Arranging Letters", "Fill in the blank", "Multiple Choice", "Drag and Drop", "True or False", "Reading Passages"],
 
             // // Grade 2

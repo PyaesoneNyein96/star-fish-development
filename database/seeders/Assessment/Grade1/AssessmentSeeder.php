@@ -16,6 +16,7 @@ class AssessmentSeeder extends Seeder
 
         $domain = app('domain');
         $AudioDomain = $domain . "/storage/audios/";
+        $ImageDomain = $domain . "/storage/images/";
 
 
         ////////////////////////////////////////////////////////
@@ -1077,5 +1078,653 @@ class AssessmentSeeder extends Seeder
             ['round' => 1, 'assess_id' => 11, "q_conver" =>  "clean", "q_content" => "Pencil Jacket Turtle", "a_content" => "Jacket"],
 
         ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Assessment 1 ID 5 ( Reading Passages )
+        ////////////////////////////////////////////////////////
+
+
+
+        $images = $ImageDomain . "Grade_1/Assessments/Assessment_1/Reading_passage_1/";
+        $audios = $AudioDomain . "Grade_1/Assessments/Assessment_1/Reading_passage_1/";
+
+         $para = "Hi, my name is Dan. I'm 5 years old. In the afternoon, I say 'Good Afternoon. \n Hello and how are you?' They say 'I'm fine.And you?' I say 'I'm great.' \n It's going to be wonderful day.";
+
+        $given_q = [
+            ["What is my name ?", "Dan"],
+            ["In the afternoon, I say ___.", "Good Afternoon"],
+            ["I say '___'. \n They say 'I'm fine'.", "How are you?"],
+            ["They say 'and you' \n I say '___'.", "I'm great"],
+            ["I'm ___ years old.' \n I say '___'.", "5"],
+
+        ];
+
+        $given_audio = [
+            "what-name.mp3",
+            "In-afternoon.mp3",
+            "I-say.mp3",
+            "they-say.mp3",
+            "5-yrs-old.mp3",
+        ];
+
+        $paraName = "Dan.mp3";
+
+        $given_answer = [
+            ['Dat', 'Dam','Dan'],
+            ['Good morning', "Good Afternoon", "Good evening"],
+            ["What's your name?", 'How are you?', 'Who are you?'],
+            ['Good bye', "And you", "I'm great"],
+            ['5', '6','7'],
+        ];
+
+
+        for ($i = 0; $i < count($given_answer); $i++) {
+
+
+            foreach ($given_answer[$i] as $k => $value) {
+
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1,
+                        'assess_id' => 5,
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        'q_content' => $value,
+                        'a_content' => $value == $given_q[$i][1] ? 1 : 0
+                    ]
+                ]);
+            }
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 5,
+                    'q_audio' => $audios . $given_audio[$i],
+                    'q_conver' => $given_q[$i][0],    //giver Q
+                ]
+            ]);
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 5,
+                    'q_audio' => $audios . $paraName,
+                    'q_content' => "Dan",
+                    'q_conver' => $para,
+                    'background' => $images . "bg.png"
+                ]
+            ]);
+        }
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Assessment 1 ID 6 ( Reading Passages )
+        ////////////////////////////////////////////////////////
+
+
+
+        $images = $ImageDomain . "Grade_1/Assessments/Assessment_1/Reading_passage_2/";
+        $audios = $AudioDomain . "Grade_1/Assessments/Assessment_1/Reading_passage_2/";
+
+         $para = "Hi,I'm Dan. This is my room. I love coloring. \n My color pencils, crayons, a sharpener \n
+         and  eraser are on the table. I love playing with toys. A ball in under my chair.";
+
+        $given_q = [
+            ["Select the things Dan has in his room.", "Color Pencils"],
+            ["Select the things Dan has in his room.", "ball"],
+            ["Select the things Dan has in his room.", "table"],
+            ["Select the things Dan has in his room.", "eraser"],
+            ["Select the things Dan has in his room.", "crayon"],
+            ["Select the things Dan has in his room.", "Color pencils"],
+
+        ];
+
+        $given_audio = [
+            "Select-thing-dan-room.mp3",
+            "Select-thing-dan-room.mp3",
+            "Select-thing-dan-room.mp3",
+            "Select-thing-dan-room.mp3",
+            "Select-thing-dan-room.mp3",
+            "Select-thing-dan-room.mp3",
+        ];
+
+        $paraName = "Dan's-room.mp3";
+
+        $given_answer = [
+            ['Pen', "Color Pencils", "Ruler"],
+            ['ball', "dolls", "dog"],
+            ['table', 'mat', 'fan'],
+            ['duster', "eraser", "clock"],
+            ['crayon', 'duster','pen'],
+            ['Pen', 'Color pencils', 'Ruler'],
+        ];
+
+
+        for ($i = 0; $i < count($given_answer); $i++) {
+
+
+            foreach ($given_answer[$i] as $k => $value) {
+
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1,
+                        'assess_id' => 6,
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        'q_content' => $value,
+                        'a_content' => $value == $given_q[$i][1] ? 1 : 0
+                    ]
+                ]);
+            }
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 6,
+                    'q_audio' => $audios . $given_audio[$i],
+                    'q_conver' => $given_q[$i][0],    //giver Q
+                ]
+            ]);
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 6,
+                    'q_audio' => $audios . $paraName,
+                    'q_content' => "Dan's room",
+                    'q_conver' => $para,
+                    'background' => $images . "bg.png"
+                ]
+            ]);
+        }
+
+
+
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Assessment 2 ID 13 ( Reading Passages )
+    ////////////////////////////////////////////////////////
+
+
+
+        $images = $ImageDomain . "Grade_1/Assessments/Assessment_2/True_or_False_1/";
+        $audios = $AudioDomain . "Grade_1/Assessments/Assessment_2/True_or_False_1/";
+
+        $para = "Anna has big farm. She has a cow, a pig and a sheep. \n The cow is black and withe. \n
+        Cow: Moooo     Anna:Quite Please. \n
+        The pig is pink. \n
+        Pig: Oink Oink,  Anna: Quite Please. \n
+        The sheep is white. \n
+        Sheep: Baaaaaa      Anna: Be quite.
+        ";
+
+        $given_q = [
+            ["The sheep is noisy. Anna say 'Be quite.'", "True"],
+            ["I pig is black.", "False"],
+            ["The cow says Baaaa.", "False"],
+            ["She has a white sheep.", "True"],
+            ["Anna has a small farm.", "False"],
+        ];
+
+        $given_audio = [
+            "noisy-sheep.mp3",
+            "black-pig.mp3",
+            "cow-say.mp3",
+            "white-sheep.mp3",
+            "small-farm.mp3",
+        ];
+
+        $paraName = "Anna-farm.mp3";
+
+        $given_answer = [
+            ['True','False'],
+            ['True','False'],
+            ['True','False'],
+            ['True','False'],
+            ['True','False'],
+        ];
+
+
+        for ($i = 0; $i < count($given_answer); $i++) {
+
+
+            foreach ($given_answer[$i] as $k => $value) {
+
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1,
+                        'assess_id' => 13,
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        'q_content' => $value,
+                        'a_content' => $value == $given_q[$i][1] ? 1 : 0
+                    ]
+                ]);
+            }
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 13,
+                    'q_audio' => $audios . $given_audio[$i],
+                    'q_conver' => $given_q[$i][0],    //giver Q
+                ]
+            ]);
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 13,
+                    'q_audio' => $audios . $paraName,
+                    'q_content' => "Anna's Farm",
+                    'q_conver' => $para,
+                    'background' => $images . "bg.png"
+                ]
+            ]);
+        }
+
+
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Assessment 2 ID 14 ( Reading Passages )
+    ////////////////////////////////////////////////////////
+
+
+
+        $images = $ImageDomain . "Grade_1/Assessments/Assessment_2/True_or_False_2/";
+        $audios = $AudioDomain . "Grade_1/Assessments/Assessment_2/True_or_False_2/";
+
+        $para = "I went to the farm. Flowers, grass and small house are in the farm. \n
+        I see a dog and pig. They are playing. The dog is dirty. The pig is dirty too.";
+
+        $given_q = [
+            ["The pig is dirty.", "True"],
+            ["I sea a dog and cat.", "False"],
+            ["The dog is clean.", "False"],
+            ["A small house is in the farm.", "True"],
+            ["This is a house. It's big.", "False"],
+        ];
+
+        $given_audio = [
+            "dirty-pig.mp3",
+            "dog-cat.mp3",
+            "clean-dog.mp3",
+            "small-house.mp3",
+            "big-house.mp3",
+        ];
+
+        $paraName = "Anna-farm.mp3";
+
+        $given_answer = [
+            ['True','False'],
+            ['True','False'],
+            ['True','False'],
+            ['True','False'],
+            ['True','False'],
+        ];
+
+
+        for ($i = 0; $i < count($given_answer); $i++) {
+
+
+            foreach ($given_answer[$i] as $k => $value) {
+
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1,
+                        'assess_id' => 14,
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        'q_content' => $value,
+                        'a_content' => $value == $given_q[$i][1] ? 1 : 0
+                    ]
+                ]);
+            }
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 14,
+                    'q_audio' => $audios . $given_audio[$i],
+                    'q_conver' => $given_q[$i][0],    //giver Q
+                ]
+            ]);
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 14,
+                    'q_audio' => $audios . $paraName,
+                    'q_content' => "Anna's Farm",
+                    'q_conver' => $para,
+                    'background' => $images . "bg.png"
+                ]
+            ]);
+        }
+
+
+
+
+
+
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Assessment 3 ID 20 ( Reading Passages )
+    ////////////////////////////////////////////////////////
+
+
+
+        $images = $ImageDomain . "Grade_1/Assessments/Assessment_3/Reading_passage_1/";
+        $audios = $AudioDomain . "Grade_1/Assessments/Assessment_3/Reading_passage_1/";
+
+         $para = "This is yellow mango. She has a big face. She has green hair. She has two brown eyes. \n
+         Her lips are red. She has no ears.";
+
+        $given_q = [
+            ["Her ___ are red.", "lips"],
+            ["She has a big ___.", "face"],
+            ["She has brown ___.", "eyes"],
+            ["She has ___ hair.", "green"],
+            ["This is yellow ___ .", "mango"],
+
+        ];
+
+        $given_audio = [
+            "red-lips.mp3",
+            "big-face.mp3",
+            "brown-eyes.mp3",
+            "green-hair.mp3",
+            "yellow-mango.mp3",
+        ];
+
+        $paraName = "mango-girl.mp3";
+
+        $given_answer = [
+            ['hair', "arm", "lips"],
+            ['fingers', "face", "feet"],
+            ['legs', "ears", "eyes"],
+            ['yellow', "red", "green"],
+            ['apple', "mango", "orange"],
+
+        ];
+
+
+        for ($i = 0; $i < count($given_answer); $i++) {
+
+
+            foreach ($given_answer[$i] as $k => $value) {
+
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1,
+                        'assess_id' => 20,
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        'q_content' => $value,
+                        'a_content' => $value == $given_q[$i][1] ? 1 : 0
+                    ]
+                ]);
+            }
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 20,
+                    'q_audio' => $audios . $given_audio[$i],
+                    'q_conver' => $given_q[$i][0],    //giver Q
+                ]
+            ]);
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 20,
+                    'q_audio' => $audios . $paraName,
+                    'q_content' => "Mango girl",
+                    'q_conver' => $para,
+                    'background' => $images . "bg.png"
+                ]
+            ]);
+        }
+
+
+
+
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Assessment 3 ID 21 ( Reading Passages )
+    ////////////////////////////////////////////////////////
+
+
+
+        $images = $ImageDomain . "Grade_1/Assessments/Assessment_3/Reading_passage_2/";
+        $audios = $AudioDomain . "Grade_1/Assessments/Assessment_3/Reading_passage_2/";
+
+         $para = "The boy: I like chicken. I eat chicken and egg. \n I drink water. I don't like fruits. I don't like juice. \n
+         The girl: I like meat. I eat meat. I don't like  vegetables. \n I don't like milk. I drink water. I like fruits.
+         ";
+
+        $given_q = [
+            ["The girl say 'I like ___'.", "fruits"],
+            ["The boy say 'I don't like ___'.", "fruits"],
+            ["The girl eat ___.", "meat"],
+            ["The boy eat ___.", "chicken"],
+            ["The boy and the girl drink ___.", "water"],
+
+        ];
+
+        $given_audio = [
+            "girl-like.mp3",
+            "boy-do-not-like.mp3",
+            "girl-eat.mp3",
+            "boy-eat.mp3",
+            "both-drink.mp3",
+        ];
+
+        $paraName = "We-talk-about-food.mp3";
+
+        $given_answer = [
+            ['fruits', "vegetables", "milk"],
+            ['fruits', "vegetables", "milk"],
+            ['meat', "fish", "chicken"],
+            ['meat', "fish", "chicken"],
+            ['juice', "milk", "water"],
+        ];
+
+
+        for ($i = 0; $i < count($given_answer); $i++) {
+
+
+            foreach ($given_answer[$i] as $k => $value) {
+
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1,
+                        'assess_id' => 21,
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        'q_content' => $value,
+                        'a_content' => $value == $given_q[$i][1] ? 1 : 0
+                    ]
+                ]);
+            }
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 21,
+                    'q_audio' => $audios . $given_audio[$i],
+                    'q_conver' => $given_q[$i][0],    //giver Q
+                ]
+            ]);
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 21,
+                    'q_audio' => $audios . $paraName,
+                    'q_content' => "We talk about food.",
+                    'q_conver' => $para,
+                    'background' => $images . "bg.png"
+                ]
+            ]);
+        }
+
+
+
+
+
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Assessment 4 ID 27 ( Reading Passages )
+    ////////////////////////////////////////////////////////
+
+
+
+        $images = $ImageDomain . "Grade_1/Assessments/Assessment_4/Reading_passage/";
+        $audios = $AudioDomain . "Grade_1/Assessments/Assessment_4/Reading_passage/";
+
+        $para = "I like fruits. I have strawberries, lychees and grapes. \n I like grapes but I don't like green grapes. \n There are two apples, an orange, a pineapple and a coconut. \n I also eat bananas but I don't like banana juice.";
+
+        $given_q = [
+            ["I don't like banana juice.", "True"],
+            ["I have strawberries and lychees.", "True"],
+            ["There are 5 apples.", "False"],
+            ["There are 3 coconuts.", "False"],
+            ["I like green grapes.", "False"],
+        ];
+
+        $given_audio = [
+            "do-not-like-banana-juice.mp3",
+            "strawberries-lychees.mp3",
+            "5-apples.mp3",
+            "3-coconuts.mp3",
+            "like-green-grapes.mp3",
+        ];
+
+        $paraName = "I-like-fruits.mp3";
+
+        $given_answer = [
+            ['True','False'],
+            ['True','False'],
+            ['True','False'],
+            ['True','False'],
+            ['True','False'],
+        ];
+
+
+        for ($i = 0; $i < count($given_answer); $i++) {
+
+
+            foreach ($given_answer[$i] as $k => $value) {
+
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1,
+                        'assess_id' => 27,
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        'q_content' => $value,
+                        'a_content' => $value == $given_q[$i][1] ? 1 : 0
+                    ]
+                ]);
+            }
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 27,
+                    'q_audio' => $audios . $given_audio[$i],
+                    'q_conver' => $given_q[$i][0],    //giver Q
+                ]
+            ]);
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 27,
+                    'q_audio' => $audios . $paraName,
+                    'q_content' => "I like fruits",
+                    'q_conver' => $para,
+                    'background' => $images . "bg.png"
+                ]
+            ]);
+        }
+
+
+
+
+
+
+
+    ////////////////////////////////////////////////////////
+    ////    Grade 1  Assessment 5 ID 33 ( Reading Passages )
+    ////////////////////////////////////////////////////////
+
+
+
+        $images = $ImageDomain . "Grade_1/Assessments/Assessment_5/Reading_passage/";
+        $audios = $AudioDomain . "Grade_1/Assessments/Assessment_5/Reading_passage/";
+
+         $para = "The teacher asks us to sing the ABC songs.\n We raise hands and answer. We sing and dance. \n  Our friends stand up and clap hands. The teacher asks us to draw a picture. \n Our friends raise hands and answer. They draw a ball. \n They draw a car. They draw a airplane. I stand up and clap hands.";
+
+        $given_q = [
+            ["They drew an ___'.", "airplane"],
+            ["We ___'.", "sing and dance"],
+            ["Our friends ___.", "clap hands"],
+            ["We ___ and answer.", "raise hands"],
+            ["Our teacher asks us to", "sing the ABC songs"],
+
+        ];
+
+        $given_audio = [
+            "they-drew-airplane.mp3",
+            "we-sing-dance.mp3",
+            "our-friends.mp3",
+            "we-raise-answer.mp3",
+            "teacher-asks.mp3",
+        ];
+
+        $paraName = "We-are-in-classroom.mp3";
+
+        $given_answer = [
+            ['house', "car", "airplane"],
+            ['sit down and stand up', "sing and dance", "open and close the door"],
+            ['raise hands', "clap hands", "touch hands"],
+            ['raise hands', "clap hands", "touch hands"],
+            ['Walk to the door', "sing the ABC songs", "bring a pencil"],
+        ];
+
+
+        for ($i = 0; $i < count($given_answer); $i++) {
+
+
+            foreach ($given_answer[$i] as $k => $value) {
+
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1,
+                        'assess_id' => 33,
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        'q_content' => $value,
+                        'a_content' => $value == $given_q[$i][1] ? 1 : 0
+                    ]
+                ]);
+            }
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 33,
+                    'q_audio' => $audios . $given_audio[$i],
+                    'q_conver' => $given_q[$i][0],    //giver Q
+                ]
+            ]);
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 33,
+                    'q_audio' => $audios . $paraName,
+                    'q_content' => "We are in the classroom",
+                    'q_conver' => $para,
+                    'background' => $images . "bg.png"
+                ]
+            ]);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
