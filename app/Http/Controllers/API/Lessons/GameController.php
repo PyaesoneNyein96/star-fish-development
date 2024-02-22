@@ -120,6 +120,7 @@ class GameController extends Controller
 
         $count = $assessments->count() + 1;
 
+
         $lessons = $allLessons->map(function ($lesson, $index) use ($studentLessons, $grade, $count) {
 
             return [
@@ -127,7 +128,7 @@ class GameController extends Controller
                 'grade_id' => $lesson->grade_id,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
-                'allowed' =>  $index < 8 ||  ( $index > $count * 8 - 1  ? false : true),
+                'allowed' => $index < 8 || ($index > $count * 8 - 1  ? false : true),
             ];
 
 
