@@ -16,38 +16,36 @@ class AssessmentController extends Controller
     // get all games from assessmemt
     public function getAllAssess(Request $request)
     {
-        $gradeId = $request->header('grade_id');
-        $studentId = $request->header('student_id');
+
+        $token =  $request->header('token');
+        $lessonId =  $request->header('finished_lesson');
+        $studentId = Student::where("token", $token)->first();
 
         if (!$token) return response()->json(['message' => 'Token is required.'], 403);
         if (!$studentId) return response()->json(['message' => 'Student Not Found.'], 404);
-        $lessonId = StudentLesson::where("student_id", $studentId->id)->get();
 
-        $assesLessArray = [8, 16, 24, 32, 40];
-        foreach ($lessonId as $lesId) {
-            if (in_array($lesId->lesson_id, $assesLessArray)) {
-                $data = Assessment::where("grade_id", $gradeId)->where("name", $lesId->lesson_id / 8)->get();
-                $checkStatus = AssessmentFinishData::where("student_id", $studentId)
-                    ->where("grade_id", $gradeId)
-                    ->where("assess_name", $lesId->lesson_id / 8)->first();
+        $assesLessArray = [
+            // Grade 1
+            8, 16, 24, 32, 40,
 
-                if (!$data->toArray()) return response()->json(['message' => 'Assessment not found.'], 404);
+            // Grade 2
+            48, 56, 64, 72, 80,
 
-                foreach ($data as $key => $d) {
-                    $d['disable'] = 1;
-                    $d['finish'] = 0;
+            // Grade 3
+            88, 96, 104, 112, 120,
 
-                    $data[0]['disable'] = 0;
+            // Grade 4
+            128, 136, 144, 152, 160
+        ];
 
-                    if ($checkStatus) {
-                        if ($d->name == $checkStatus->assess_name && $checkStatus["game_" . $key] != 0) $data[$key - 1]['finish'] = 1;
-                        if ($d->name == $checkStatus->assess_name && $checkStatus["game_" . $key] != 0 && $key < count($data)) $data[$key]['disable'] = 0;
-                        if ($d->name == $checkStatus->assess_name && $checkStatus["game_" . count($data)] != 0) $data[count($data) - 1]['finish'] = 1;
-                    }
-                }
+        if (in_array($lessonId, $assesLessArray)) {
+            $gradeId = StudentLesson::where("student_id", $studentId->id)->where("lesson_id", $lessonId)->first();
+            if (!$gradeId) return response()->json(["message" => "didn't complete lessons"], 403);
 
-                return response()->json(["assessment" => $data]);
-            }
+            $data = Assessment::where("grade_id", $gradeId->grade_id)->where("name", $lessonId / 8)->get();
+
+            if (!$data->toArray()) return response()->json(['message' => 'Assessment not found.'], 404);
+            return response()->json(["assessment" => $data]);
         }
         return response()->json(["message" => "didn't complete lessons"], 403);
     }
@@ -59,10 +57,8 @@ class AssessmentController extends Controller
     public function enterGame(Request $request)
     {
         $id = $request->header("id");
-        $disable = $request->header("disable");
 
-        if (!$id || $disable == null) return response()->json(['message' => 'Game ID or Other fields are required.'], 403);
-        if ($disable == 1) return response()->json(['message' => 'Can not play yet.'], 403);
+        if (!$id) return response()->json(['message' => 'Game ID or Other fields are required.'], 403);
 
         $assess = Assessment::where("id", $id)->first();
         $game = AssessmentAnsNQues::where("assess_id", $id)->get();
@@ -92,65 +88,68 @@ class AssessmentController extends Controller
     // finish game
     public function endGame(Request $request)
     {
-        $studentId = $request->header('student_id');
-        $gradeId = $request->header('grade_id');
+        $token =  $request->header('token');
         $assessGameId = $request->header('assess_game_id');
         $point = $request->header('point');
+        $studentId = Student::where("token", $token)->first();
 
+        if (!$studentId) return response()->json(['message' => 'Stduent Not Found.'], 404);
+        if (!$token  ||  !$assessGameId) return response()->json(['message' => 'Token or Assessment id is required.'], 403);
 
-        if (!$studentId  || !$gradeId || !$assessGameId) return response()->json(['message' => 'Some Fields are required. Please check!!'], 403);
+        $studentId = $studentId->id;
         $lessonId = StudentLesson::where("student_id", $studentId)->get();
 
-        $assesLessArray = [8, 16, 24, 32, 40];
+        $assesLessArray = [
+            // Grade 1
+            8, 16, 24, 32, 40,
+
+            // Grade 2
+            48, 56, 64, 72, 80,
+
+            // Grade 3
+            88, 96, 104, 112, 120,
+
+            // Grade 4
+            128, 136, 144, 152, 160
+        ];
         foreach ($lessonId as $lesId) {
             if (in_array($lesId->lesson_id, $assesLessArray)) {
-                $data = Assessment::where("grade_id", $gradeId)->where("name", $lesId->lesson_id / 8)->get();
+
+                $assessment = Assessment::where("id", $assessGameId)->first();
+                $data = Assessment::where("grade_id", $assessment->grade_id)->where("name", $assessment->name)->get();
 
                 if (!$data->toArray()) return response()->json(['message' => 'Grade Id and Lesson Id not match.'], 403);
 
                 foreach ($data as $key => $value) {
-                    $index = null;
                     if ($value['id'] == $assessGameId) {
-                        $index = $key + 1;
-                        break;
+                        if (count($data) != $key + 1) return response()->json(['message' => "didn't complete lessons"], 403);
                     }
                 }
 
-                $checkStatus = AssessmentFinishData::where("student_id", $studentId)
-                    ->where("assess_name", $data[0]->name)->where("grade_id", $gradeId)->first();
+                // $checkStatus = AssessmentFinishData::where("student_id", $studentId)
+                //     ->where("assess_name", $data[0]->name)->where("grade_id", $assessment->grade_id)->first();
 
 
-                if ($checkStatus) {
-                    $addData = [
-                        "game_" . $index => (int)$checkStatus["game_" . $index] + 1
-                    ];
+                // if ($checkStatus) {
+                //     $addData = [
+                //         "game_" . $index => (int)$checkStatus["game_" . $index] + 1
+                //     ];
 
-                    AssessmentFinishData::where("student_id", $studentId)
-                        ->where("assess_name", $data[0]->name)->update($addData);
+                //     AssessmentFinishData::where("student_id", $studentId)
+                //         ->where("assess_name", $data[0]->name)->update($addData);
 
-                    $recorded = $addData;
-                    if (count($data) == $index && $checkStatus["game_" . count($data)] == 0) $recorded["certificate"] = "Assessment Completed";
-                } else {
-                    $addData = [
-                        "student_id" => $studentId,
-                        "grade_id" => $gradeId,
-                        "assess_name" => $data[0]->name,
-                        "game_" . $index => 1,
-                    ];
-                    $recorded = AssessmentFinishData::create($addData);
-                }
+                //     $recorded = $addData;
+                // } else {
+                //     $addData = [
+                //         "student_id" => $studentId,
+                //         "grade_id" => $assessment->grade_id,
+                //         "assess_name" => $data[0]->name,
+                //         "game_" . $index => 1,
+                //     ];
+                //     $recorded = AssessmentFinishData::create($addData);
+                // }
 
                 if ($point != null) {
-
-                    if ($point < 5) {
-                        AssessmentFinishData::where("student_id", $studentId)
-                            ->where("assess_name", $data[0]->name)->delete();
-                        return response()->json(['message' => 'Lose. Try Again.']);
-                    }
-
-
-
-
                     $oldPoint = Student::where('id', $studentId)->first();
                     $newPoint = $oldPoint->point + (int)$point;
                     $newFixPoint = $oldPoint->fixed_point + (int)$point;
@@ -185,13 +184,49 @@ class AssessmentController extends Controller
                         ]);
                     }
 
-                    AssessmentFinishData::where("student_id", $studentId)
-                        ->where("assess_name", $data[0]->name)->update(["finish" => 1]);
 
+                    // AssessmentFinishData::where("student_id", $studentId)
+                    //     ->where("assess_name", $data[0]->name)->update([
+                    //         "point"=> ,
+                    //         "finish" => 1
+                    //     ]);
+                    $addData = [
+                        "student_id" => $studentId,
+                        "grade_id" => $assessment->grade_id,
+                        "assess_name" => $data[0]->name,
+                        "point" => $point,
+                        "finish" => 1
+                    ];
+
+                    AssessmentFinishData::create($addData);
+
+                    $recorded = [
+                        "grade" => $assessment->grade_id,
+                        "assess_name" => $data[0]->name,
+                        "point" => $newPoint
+                    ];
                     $recorded["point"] = $newPoint;
+
+
+                    $assessGradeCheck = Assessment::select("name")->where("grade_id", $assessment->grade_id)->groupby("name")->get();
+                    $isfinish = AssessmentFinishData::where("student_id", $studentId)->where("grade_id", $assessment->grade_id)->where("assess_name", count($assessGradeCheck))->first();
+
+                    if ($isfinish != null) {
+                        $sum_point = 0;
+                        $total_point = AssessmentFinishData::where("student_id", $studentId)->where("grade_id", $assessment->grade_id)->get();
+                        foreach ($total_point as $tp) $sum_point += $tp->point;
+                        $certificate = [
+                            "grade" => $assessment->grade_id,
+                            "total_point" => $sum_point
+                        ];
+                        $recorded["certification"] = $certificate;
+                    };
                 }
+
+
                 return response()->json($recorded);
             }
         }
+        return response()->json(['message' => "didn't complete lessons"], 403);
     }
 }
