@@ -122,7 +122,7 @@ class AssessmentController extends Controller
 
                 foreach ($data as $key => $value) {
                     if ($value['id'] == $assessGameId) {
-                        if (count($data) != $key + 1) return response()->json(['message' => "didn't complete lessons"], 403);
+                        if (count($data) != $key + 1) return response()->json(['message' => "didn't complete assessment lessons"], 403);
                     }
                 }
 
