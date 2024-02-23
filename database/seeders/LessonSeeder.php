@@ -57,7 +57,7 @@ class LessonSeeder extends Seeder
         }
 
 
-            $lessons =  range(1,40);
+            $lessons =  range(1,16);
             foreach ($lessons as $l) {
                 DB::table('student_lessons')->insert([
                     [
