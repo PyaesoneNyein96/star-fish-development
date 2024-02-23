@@ -1562,6 +1562,15 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
       for ($i = 0; $i < count($given_q); $i++) {
 
+        // DB::table('ans_n_ques')->insert([
+        //     [
+        //         'round' => $i + 1,
+        //         'game_id' => 647,
+        //         'a_content' => $given_q[$i][1],    //ans
+        //     ]
+        // ]);
+
+
         DB::table('ans_n_ques')->insert([
             [
                 'round' => $i + 1,
