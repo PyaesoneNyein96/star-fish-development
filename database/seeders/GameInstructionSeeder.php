@@ -2350,12 +2350,52 @@ class GameInstructionSeeder extends Seeder
 
 
 
+            // Lesson -31
+
+            ['content' => "Listen and Repeat", 'game_id' => 1002, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // ['content' => "Look at the following pictures. Choose the right words", 'game_id' => 1003, 'audio' => $Instructions . "Look at the following-pictures-Choose-the-right-words.mp3"],
+
+            ['content' => "Listen and choose the correct answer", 'game_id' => 1005, 'audio' =>  $Instructions . "Listen-and-choose-the-correct" . ".mp3"],
+
+            ['content' => "Talk about the food from the following list. Answer the questions", 'game_id' => 1006, 'audio' => $Instructions . "Talk-about-the-food-from-the-following-list-Answer-the-questions.mp3"],
 
 
+            // Lesson -32
+
+            ['content' => "Listen and Repeat", 'game_id' => 1008, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Unscramble the following words.", 'game_id' => 1009, 'audio' => $Instructions . "SubBlock_Unscramble-the-following-words.mp3"],
+
+            ['content' => "Choose the right option for the following sentences", 'game_id' => 1010,
+            'audio' => $Instructions . "Choose-the-right-option-for-the-following-sentences.mp3"],
+
+            ['content' => "Listen to the audio and choose the right answers.", 'game_id' => 1012,
+            'audio' => $Instructions . "Listen-to-the-audio-and-choose-the-right-answers.mp3"],
+
+            // ['content' => "Read the story and answer the questions.", 'game_id' => 1013,
+            // 'audio' => $Instructions . "Read-the-story-and-answer-the-questions.mp3"],
+
+            ['content' => "What is your school canteen like? Talk about it. Use the prompts.", 'game_id' => 1014,
+            'audio' => $Instructions . "What-is-your-school-canteen-like-Talk-about-it-Use-the-prompts.mp3"],
+
+            ['content' => "Write about your school canteen. Use the prompts.", 'game_id' => 1015,
+            'audio' => $Instructions . "Write-about-your-school-canteen-Use-the-prompts.mp3"],
 
 
+            // Lesson -32
 
+            ['content' => "Listen and Repeat", 'game_id' => 1017, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
+            ['content' => "Listen and Repeat", 'game_id' => 1018, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Match the verbs and their past tenses.", 'game_id' => 1019, 'audio' => $Instructions . "Match-the-verbs-and-their-past-tenses.mp3"],
+
+            ['content' => "Listen to the audio. Anna will talk about her last week. Answer the questions.", 'game_id' => 1021, 'audio' => $Instructions . "Listen-to-the-audio-Anna-will-talk-about-her-last-week-Answer-the-questions.mp3"],
+
+            ['content' => "Answer the question", 'game_id' => 1022, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
+
+            ['content' => "Take notes. Write down what you usually eat in day. Use the prompts.", 'game_id' => 1023, 'audio' => $Instructions . "Take-notes-Write-down-what-you-usually-eat-in-day-Use-the-prompts.mp3"],
 
 
 
