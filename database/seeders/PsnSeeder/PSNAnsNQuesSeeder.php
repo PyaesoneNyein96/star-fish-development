@@ -1154,11 +1154,11 @@ class PSNAnsNQuesSeeder extends Seeder
         $trace = $ImageDomain . "AtoZTrace/";
 
         $g1_l7_u6_trace_n_write = [
-            'S', 's', 'T', 't','U','u','V','v','W','w'
+            'S', 's', 'T', 't', 'U', 'u', 'V', 'v', 'W', 'w'
         ];
 
         $trace_counts = [
-            1, 1, 2, 2,  2,2,2,2,4,4
+            1, 1, 2, 2,  2, 2, 2, 2, 4, 4
         ];
 
         foreach ($g1_l7_u6_trace_n_write as $i => $trace) {
@@ -1168,7 +1168,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_audio' => $AtoZAudio . $prefix . strtoupper($trace) . ".mp3",
                     'a_content' => $trace,
                     'q_content' => $traceDotted . $trace . ".png",
-                    'q_image' => ctype_lower($trace) ?  $imgDomain. $trace . ".png" : $imgDomain . $trace . ".png",
+                    'q_image' => ctype_lower($trace) ?  $imgDomain . $trace . ".png" : $imgDomain . $trace . ".png",
                     'a_image' => $traceSuccess . $trace . ".png",
                     'a_extra' => $trace_counts[$i]
                 ],
