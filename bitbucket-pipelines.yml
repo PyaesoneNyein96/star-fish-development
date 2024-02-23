@@ -12,7 +12,6 @@ pipelines:
             name: Test
             script:
               - composer install
-              - composer update
               - ./vendor/bin/phpunit test
             caches:
               - composer
@@ -20,7 +19,6 @@ pipelines:
             name: Lint
             script:
               - composer install
-              - composer update
               - ./vendor/bin/phplint . --exclude=vendor
             caches:
               - composer
