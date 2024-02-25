@@ -2331,7 +2331,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 'game_id' => 418,
                 'round' => $key + 1,
                 'round_instruction' => $AudioDomain."/Grade_2/Lesson_33/Speak/". "Look-at-the-pictures-and-speak.mp3",
-                'q_content' => "Look at this picture and speak.",
+                // 'q_content' => "Look at this picture and speak.",
                 'q_audio' => $AudioDomain."/Grade_2/Lesson_33/Speak/".$contents[$key].".mp3",
                 'q_image' => $ImageDomain . "Grade_2/Lesson_33/Speak/" . $value . ".png",
                 'a_content' => str_replace('-', ' ', $value)
@@ -2699,7 +2699,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 [
                     'game_id' => 429,
                     'round' => $key + 1,
-                    'round_instruction' => "Look at this picture and speak.",
+                    // 'round_instruction' => "Look at this picture and speak.",
                     'q_content' => $Question_contents[$key],
                     'q_audio' => $AudioDomain."/Grade_2/Lesson_35/Speak/".$contents[$key].".mp3",
                     'q_image' => $ImageDomain . "Grade_2/Lesson_35/Speak/" . $value . ".png",
