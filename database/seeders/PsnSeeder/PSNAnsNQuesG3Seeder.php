@@ -1559,6 +1559,16 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
     $paraName = "Hi-my-name-is-Toby.mp3";
 
+     DB::table('ans_n_ques')->insert([
+            [
+                'round' => 1,
+                'game_id' => 647,
+                'q_audio' => $audios . $paraName,
+                'q_content' => "My busy day",
+                'q_conver' => $para,
+                'background' => $images . "bg.png"
+            ]
+        ]);
 
       for ($i = 0; $i < count($given_q); $i++) {
 
@@ -1572,16 +1582,6 @@ class PSNAnsNQuesG3Seeder extends Seeder
             ]
         ]);
 
-        DB::table('ans_n_ques')->insert([
-            [
-                'round' => $i + 1,
-                'game_id' => 647,
-                'q_audio' => $audios . $paraName,
-                'q_content' => "My busy day",
-                'q_conver' => $para,
-                'background' => $images . "bg.png"
-            ]
-        ]);
     }
 
 
@@ -4941,7 +4941,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            'shirt','tie','jacket' ,'belt', 'pant','sock','shoe',
+            'shirt','tie','jacket' ,'belt', 'pants','socks','shoes',
         ];
 
 

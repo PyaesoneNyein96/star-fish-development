@@ -1068,6 +1068,8 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Talk about you. Say what you are wearing", 'game_id' => 397, 'audio' =>  $Instructions . "Talk-about-you-Say-what-you-are-wearing.mp3"],
 
+            // ['content' => "Students listen and repeat", 'game_id' => 398, 'audio' => $Instructions . "Students-listen-and-repeat.mp3"],
+
             ['content' => "Trace and write", "game_id" => 399, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
 
             ['content' => "Look at the pictures and match them with the words", 'game_id' => 400, 'audio' =>  $Instructions . "Look-at-the-pictures-and-match-them-with-the-words" . ".mp3"],
@@ -1142,7 +1144,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Arranging the letters", 'game_id' => 444, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
 
-            ['content' => "Match the pictures and the numbers", 'game_id' => 445, 'audio' =>  $Instructions . "Match-the-pictures-and-the-numbers" . ".mp3"],
+            // ['content' => "Match the pictures and the numbers", 'game_id' => 445, 'audio' =>  $Instructions . "Match-the-pictures-and-the-numbers" . ".mp3"],
 
             // ['content' => "Look at the pictures and speak", 'game_id' => 446, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
 
@@ -1150,7 +1152,9 @@ class GameInstructionSeeder extends Seeder
             // G-39
 
             ['content' => "Students Listen and repeat the phrases", 'game_id' => 448, 'audio' => $Instructions . "Students-listen-and-repeat-the-phrases.mp3"],
+
             ['content' => "Listen and repeat the sentences", 'game_id' => 449, 'audio' => $Instructions . "Listen-and-repeat-the-sentences.mp3"],
+
             ['content' => "Listen and write the time", 'game_id' => 450, 'audio' => $Instructions . "Listen-and-write-the-time.mp3"],
 
             // ['content' => "Look at the clocks and write the time", 'game_id' => 452, 'audio' => $Instructions . "Look-at-the-clocks-and-write-the-time.mp3"],
@@ -2205,6 +2209,272 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Read the passage and answer the following questions.", 'game_id' => 1061, 'audio' => $Instructions . "SubBlock_Read-the-passage-and-answer-th.mp3"],
 
             ['content' => "Write your plan for your birthday party. Use the notes.", 'game_id' => 1063, 'audio' => $Instructions . "SubBlock_Write-your-plan-for-your-birthgit .mp3"],
+
+
+
+
+            ////////////////// G-4 K-ps ////////////////////
+
+            // Lesson - 6
+
+            // ['content' => "Repeat the following sentences after the speaker.", 'game_id' => 805, 'audio' => $Instructions . "Repeat the following-sentences-after-the-speaker.mp3"],
+
+            ['content' => "Choose the right words for the given picture", 'game_id' => 806, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
+
+            ['content' => "Listen to the audio and choose the right answers for the following sentences", 'game_id' => 808, 'audio' => $Instructions . "Listen-to-the-audio-and-choose-the-right-answers-for-the-following-sentences.mp3"],
+
+            ['content' => "Read about Uncle Joe’s farm.", 'game_id' => 809, 'audio' => $Instructions . "Read-about-Uncle-Joes-farm.mp3"],
+
+            // Lesson - 7
+
+            ['content' => "Repeat the following words after the speaker", 'game_id' => 811, 'audio' => $Instructions . "Repeat-the-following-words-aft.mp3"],
+
+            // ['content' => "Listen and repeat the words after", 'game_id' => 812, 'audio' => $Instructions . "Listen-and-repeat-the-words-after.mp3"],
+
+            ['content' => "Put the given words to complete the correct words", 'game_id' => 813, 'audio' => $Instructions . "Put-the-given-words-to-complete-the-correct-words.mp3"],
+
+            ['content' => "Choose the right words for the given picture", 'game_id' => 814, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
+
+            // ['content' => "Please decide if the following pictures are the land animals or sea animals.", 'game_id' => 815, 'audio' => $Instructions . "Please-decide-if-the-following-pictures-are-the-land-animals-or-sea-animals.mp3"],
+
+            ['content' => "Listen and choose the right picture", 'game_id' => 817, 'audio' => $Instructions . "Listen-and-choose-the-right-picture.mp3"],
+
+            ['content' => "Choose the right word to fill in the blank.", 'game_id' => 818, 'audio' => $Instructions . "Choose-the-right-word-to-fill-in-the-blank.mp3"],
+
+
+
+            // Lesson - 8
+
+            ['content' => "Repeat the following words after the speaker", 'game_id' => 821, 'audio' => $Instructions . "Repeat-the-following-words-aft.mp3"],
+
+           ['content' => "Put the given words to complete the correct words", 'game_id' => 822, 'audio' => $Instructions . "Put-the-given-words-to-complete-the-correct-words.mp3"],
+
+            ['content' => "Choose the right words for the given picture", 'game_id' => 823, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
+
+            ['content' => "Listen to the description and choose the right animal from the list", 'game_id' => 824, 'audio' => $Instructions . "Listen-to-the-description-and-choose-the-right-animal-from-the-list.mp3"],
+
+            ['content' => "Write about your favorite animal", 'game_id' => 827, 'audio' => $Instructions . "Write-about-your-favorite-animal.mp3"],
+
+
+
+            // Lesson - 9
+
+            ['content' => "Repeat the following words after the speaker", 'game_id' => 829, 'audio' => $Instructions . "Repeat-the-following-words-aft.mp3"],
+
+            ['content' => "Unscramble the following words.", 'game_id' => 830, 'audio' => $Instructions . "SubBlock_Unscramble-the-following-words.mp3"],
+
+            ['content' => "Choose the right words for the given picture", 'game_id' => 831, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
+
+            // ['content' => "Listen and choose the picture", 'game_id' => 831, 'audio' => $Instructions . "Listen-and-choose-the-picture.mp3"],
+
+
+
+            // Lesson - 26
+
+            ['content' => "Listen and Repeat", 'game_id' => 962, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Listen and Repeat", 'game_id' => 963, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Look at the following pictures and choose the right answer for it", 'game_id' => 964, 'audio' => $Instructions . "Look-at-the-following-pictures-and-choose-the-right-answer-for-it.mp3"],
+
+            // ['content' => "Listen and choose correct the picture", 'game_id' => 965, 'audio' => $Instructions . "Listen-and-choose-correct-the-picture.mp3"],
+
+            // ['content' => "Read the passage.", 'game_id' => 965, 'audio' => $Instructions . "Read-the-passage.mp3"],
+
+            ['content' => "Look at the following family photo. What are they wearing?", 'game_id' => 968, 'audio' => $Instructions . "Look-at-the-following-family-photo-What-are-they-wearing.mp3"],
+
+
+
+            // Lesson -27
+
+
+            ['content' => "Listen and Repeat", 'game_id' => 970, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Listen and Repeat", 'game_id' => 971, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Look at the following pictures. What do you like to wear in each season?", 'game_id' => 972, 'audio' => $Instructions . "Look-at-the-following-pictures-What-do-you-like-to-wear-in-each-season.mp3"],
+
+            ['content' => "Listen and choose the correct person", 'game_id' => 974,
+            'audio' => $Instructions . "Listen-and-choose-the-correct-person.mp3"],
+
+
+
+            // Lesson -28
+
+            ['content' => "Listen and Repeat", 'game_id' => 976, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Listen and Repeat", 'game_id' => 977, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Listen and Repeat", 'game_id' => 978, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Look at the picture and choose the right words.", 'game_id' => 979, 'audio' => $Instructions . "SubBlock_Look-at-the-picture-and-choose.mp3"],
+
+            ['content' => "Match the outfits with correct descriptions.", 'game_id' => 981, 'audio' => $Instructions . "Match-the-outfits-with-correct-descriptions.mp3"],
+
+            // ['content' => "Read the passage and answer the questions.", 'game_id' => 982, 'audio' => $Instructions . "Read-the-passage-and-answer-the-questions.mp3"],
+
+            ['content' => "Look at the following pictures and talk about what you like to wear for each.", 'game_id' => 983, 'audio' => $Instructions . "Look-at-the-following-pictures-and-talk-about-what-you-like-to-wear-for-each.mp3"],
+
+            ['content' => "Look at the following pictures of Taylor. What does she like to wear?", 'game_id' => 984, 'audio' => $Instructions . "Look-at-the-following-pictures-of-Taylor-What-does-she-like-to-wear.mp3"],
+
+
+
+
+            // Lesson -29
+
+            ['content' => "Listen and Repeat", 'game_id' => 986, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Listen and Repeat", 'game_id' => 987, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Match the words and the pictures.", 'game_id' => 988, 'audio' => $Instructions . "SubBlock_Match-the-words-and-the-pictur.mp3"],
+
+            ['content' => "Listen to the audio. Anna will talk about her favorite food.", 'game_id' => 990, 'audio' => $Instructions . "Listen-to-the-audio-Anna-will-talk-about-her-favorite-food.mp3"],
+
+            ['content' => "Talk about what you usually eat in a day.For your breakfast, lunch, and dinner.) Use the prompts.", 'game_id' => 991, 'audio' => $Instructions . "Talk-about-what-you-usually-eat-in-a-day.mp3"],
+
+            ['content' => "Take notes. Write down what you usually eat in day. Use the prompts.", 'game_id' => 987, 'audio' => $Instructions . "Take-notes-Write-down-what-you-usually-eat-in-day-Use-the-prompts.mp3"],
+
+
+
+            // Lesson -30
+
+            ['content' => "Listen and Repeat", 'game_id' => 994, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Listen and Repeat", 'game_id' => 995, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Match the words and the pictures.", 'game_id' => 996, 'audio' => $Instructions . "SubBlock_Match-the-words-and-the-pictur.mp3"],
+
+            ['content' => "Listen and choose the correct option", 'game_id' => 998,
+            'audio' => $Instructions . "Listen-and-choose-the-correct-option.mp3"],
+
+            // ['content' => "Read the passage and answer the questions.", 'game_id' => 998, 'audio' => $Instructions . "Read-the-passage-and-answer-the-questions.mp3"],
+
+            ['content' => "Draw your favorite food on the plate. Talk about it", 'game_id' => 1000,
+            'audio' => $Instructions . "Draw-your-favorite-food-on-the-plate-Talk-about-it.mp3"],
+
+
+
+            // Lesson -31
+
+            ['content' => "Listen and Repeat", 'game_id' => 1002, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // ['content' => "Look at the following pictures. Choose the right words", 'game_id' => 1003, 'audio' => $Instructions . "Look at the following-pictures-Choose-the-right-words.mp3"],
+
+            ['content' => "Listen and choose the correct answer", 'game_id' => 1005, 'audio' =>  $Instructions . "Listen-and-choose-the-correct" . ".mp3"],
+
+            ['content' => "Talk about the food from the following list. Answer the questions", 'game_id' => 1006, 'audio' => $Instructions . "Talk-about-the-food-from-the-following-list-Answer-the-questions.mp3"],
+
+
+            // Lesson -32
+
+            ['content' => "Listen and Repeat", 'game_id' => 1008, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Unscramble the following words.", 'game_id' => 1009, 'audio' => $Instructions . "SubBlock_Unscramble-the-following-words.mp3"],
+
+            ['content' => "Choose the right option for the following sentences", 'game_id' => 1010,
+            'audio' => $Instructions . "Choose-the-right-option-for-the-following-sentences.mp3"],
+
+            ['content' => "Listen to the audio and choose the right answers.", 'game_id' => 1012,
+            'audio' => $Instructions . "Listen-to-the-audio-and-choose-the-right-answers.mp3"],
+
+            // ['content' => "Read the story and answer the questions.", 'game_id' => 1013,
+            // 'audio' => $Instructions . "Read-the-story-and-answer-the-questions.mp3"],
+
+            ['content' => "What is your school canteen like? Talk about it. Use the prompts.", 'game_id' => 1014,
+            'audio' => $Instructions . "What-is-your-school-canteen-like-Talk-about-it-Use-the-prompts.mp3"],
+
+            ['content' => "Write about your school canteen. Use the prompts.", 'game_id' => 1015,
+            'audio' => $Instructions . "Write-about-your-school-canteen-Use-the-prompts.mp3"],
+
+
+            // Lesson -33
+
+            ['content' => "Listen and Repeat", 'game_id' => 1017, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Listen and Repeat", 'game_id' => 1018, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Match the verbs and their past tenses.", 'game_id' => 1019, 'audio' => $Instructions . "Match-the-verbs-and-their-past-tenses.mp3"],
+
+            ['content' => "Listen to the audio. Anna will talk about her last week. Answer the questions.", 'game_id' => 1021, 'audio' => $Instructions . "Listen-to-the-audio-Anna-will-talk-about-her-last-week-Answer-the-questions.mp3"],
+
+            ['content' => "Answer the question", 'game_id' => 1022, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
+
+            ['content' => "Take notes. Write down what you usually eat in day. Use the prompts.", 'game_id' => 1023, 'audio' => $Instructions . "Take-notes-Write-down-what-you-usually-eat-in-day-Use-the-prompts.mp3"],
+
+
+
+            // Lesson -34
+
+            ['content' => "Listen and Repeat", 'game_id' => 1024, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Listen and choose the correct option", 'game_id' => 1026, 'audio' => $Instructions . "Listen-and-choose-the-correct-option.mp3"],
+
+            ['content' => "Look at the following letters and answer the questions", 'game_id' => 1027,
+            'audio' => $Instructions . "Look-at-the-following-letters-and-answer-the-questions.mp3"],
+
+            ['content' => "Complete the following sentences with past tense of the verbs. Talk about them",
+            'game_id' => 1028, 'audio' => $Instructions . "Complete-the-following-sentences-with-past-tense-of-the-verbs.mp3"],
+
+
+
+            // Lesson -35
+
+            ['content' => "Listen and Repeat", 'game_id' => 1029, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Unscramble the following words.", 'game_id' => 1030, 'audio' => $Instructions . "SubBlock_Unscramble-the-following-words.mp3"],
+
+            ['content' => "Match the verbs and their past tenses.", 'game_id' => 1031, 'audio' => $Instructions . "Match-the-verbs-and-their-past-tenses.mp3"],
+
+            ['content' => "Choose the right option for the following sentences", 'game_id' => 1032,
+            'audio' => $Instructions . "Choose-the-right-option-for-the-following-sentences.mp3"],
+
+            ['content' => "Listen to the audio and choose the right answers.", 'game_id' => 1033,
+            'audio' => $Instructions . "Listen-to-the-audio-and-choose-the-right-answers.mp3"],
+
+            ['content' => "Take notes on the table. Talk about what you did last week.", 'game_id' => 1035,
+            'audio' => $Instructions . "Take-notes-on-the-table-Talk-about-what-you-did-last-week.mp3"],
+
+            ['content' => "Write a letter to a friend. Tell him/her what you did last week. Use the prompts below.",
+             'game_id' => 1036, 'audio' => $Instructions . "Write-a-letter-to-a-friend-Tell-him-her-what-you-did-last-week.mp3"],
+
+
+
+            // Lesson -36
+
+            ['content' => "Listen and Repeat", 'game_id' => 1037, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            // ['content' => "Look at the pictures and choose the right words for the following.", 'game_id' => 1038,
+            // 'audio' => $Instructions . "Look-at-the-pictures-and-choose-the-right-words-for-the-following.mp3"],
+
+            // ['content' => "Read the passage and answer the questions.", 'game_id' => 1040, 'audio' => $Instructions . "Read-the-passage-and-answer-the-questions.mp3"],
+
+            ['content' => "Talk about your last holiday. What did you do during your last Thadingyut holiday?", 'game_id' => 1041,
+            'audio' => $Instructions . "Talk-about-your-last-holiday-What-did-you-do-Thadingyut-holiday.mp3"],
+
+
+
+            // Lesson -36
+
+            ['content' => "Listen and Repeat", 'game_id' => 1042, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
+            ['content' => "Listen to the audio. Max will talk about what he will do tomorrow. Answer the questions.", 'game_id' => 1044,
+            'audio' => $Instructions . "Listen-to-the-audio-Max-will-talk-about-what-he-will-do-tomorrow.mp3"],
+
+            ['content' => "What will you do tomorrow? Talk about your plan.", 'game_id' => 1045,
+            'audio' => $Instructions . "What-will-you-do-tomorrow-Talk-about-your-plan.mp3"],
+
+            ['content' => "Take notes. Write down what you will do tomorrow.", 'game_id' => 1046,
+             'audio' => $Instructions . "Take-notes-Write-down-what-you-will-do-tomorrow.mp3"],
+
+
+
+
+
+
+
+
+
+
 
         ]);
     }

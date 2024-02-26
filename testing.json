@@ -1,31 +1,79 @@
-[
-    {
-        "id": 1402,
-        "round": 1,
-        "game_id": 363,
-        "q_image": "https://star-fish-development.myanmargateway.net//storage/images/Grade_2/Lesson_23/Trace_words/Cow.png",
-        "q_audio": "https://star-fish-development.myanmargateway.net//storage/audios/Grade_2/Lesson_23/Trace_words/Cow.mp3",
-        "a_content": "Cow"
-    },
-    {
-        "id": 1403,
-        "round": 1,
-        "game_id": 363,
-        "q_content": "https://star-fish-development.myanmargateway.net//storage/images/Grade_2/Lesson_23/Trace_words/C.png",
-        "a_content": "C"
-    },
-    {
-        "id": 1404,
-        "round": 1,
-        "game_id": 363,
-        "q_content": "https://star-fish-development.myanmargateway.net//storage/images/Grade_2/Lesson_23/Trace_words/o.png",
-        "a_content": "o"
-    },
-    {
-        "id": 1405,
-        "round": 1,
-        "game_id": 363,
-        "q_content": "https://star-fish-development.myanmargateway.net//storage/images/Grade_2/Lesson_23/Trace_words/w.png",
-        "a_content": "w "
-    }
-]
+{
+    "game_id": 647,
+    "lesson_id": 106,
+    "game_name": "Reading",
+    "unit_name": "Reading",
+    "game_status": 1,
+    "sub_unit": false,
+    "category": "reading_passage_two",
+    "instructionGIF": "https://star-fish-development.myanmargateway.net//storage/InstructionGif/Listen-and-Practice-2.gif",
+    "instructions": [
+        {
+            "id": 523,
+            "audio": "https://star-fish-development.myanmargateway.net//storage/audios/Instructions/Read-and-answer-the-questions.mp3",
+            "content": "Read and answer the questions",
+            "game_id": 647
+        }
+    ],
+    "rounds": [
+        [
+            {
+                "id": 12126,
+                "round": 1,
+                "game_id": 647,
+                "q_audio": "https://star-fish-development.myanmargateway.net//storage/audios/Grade_3/Lesson_26/Reading/Hi-my-name-is-Toby.mp3",
+                "q_content": "My busy day",
+                "q_conver": "Hi, My name is Toby. I am 8 years old. I am a Grade 3 student. Today is very busy. In the morning I get up at 6:30. And I brush my teeth, take a bath and eat breakfast at 7:00. Then I get dressed, and I go to school. In the afternoon I eat my lunch at 12:30. And I play with my friends at school. I come back home at 3:00 in the afternoon. I do my homework at 5:00,and  I eat dinner at 6:00 in the evening. After dinner, I watch TV for a while. I go to bed at 8:00. I have a very busy day.",
+                "background": "https://star-fish-development.myanmargateway.net//storage/images/Grade_3/Lesson_26/Reading/bg.png"
+            },
+            {
+                "id": 12127,
+                "round": 1,
+                "game_id": 647,
+                "q_audio": "https://star-fish-development.myanmargateway.net//storage/audios/Grade_3/Lesson_26/Reading/toby-lunch.mp3",
+                "q_conver": "What does he do after lunch at school?",
+                "a_content": "I play with my friends at school"
+            }
+        ],
+        [
+            {
+                "id": 12128,
+                "round": 2,
+                "game_id": 647,
+                "q_audio": "https://star-fish-development.myanmargateway.net//storage/audios/Grade_3/Lesson_26/Reading/toby-dinner.mp3",
+                "q_conver": "What time does he eat dinner?",
+                "a_content": "I watch TV for a while"
+            }
+        ],
+        [
+            {
+                "id": 12129,
+                "round": 3,
+                "game_id": 647,
+                "q_audio": "https://star-fish-development.myanmargateway.net//storage/audios/Grade_3/Lesson_26/Reading/toby-bed.mp3",
+                "q_conver": "What time does he go to bed?",
+                "a_content": "8 o'clock"
+            }
+        ],
+        [
+            {
+                "id": 12130,
+                "round": 4,
+                "game_id": 647,
+                "q_audio": "https://star-fish-development.myanmargateway.net//storage/audios/Grade_3/Lesson_26/Reading/toby-breakfast.mp3",
+                "q_conver": "What time does he eat breakfast in the morning?",
+                "a_content": "7 o'clock"
+            }
+        ],
+        [
+            {
+                "id": 12131,
+                "round": 5,
+                "game_id": 647,
+                "q_audio": "https://star-fish-development.myanmargateway.net//storage/audios/Grade_3/Lesson_26/Reading/toby-get-up.mp3",
+                "q_conver": "What time does Toby get up in the morning?",
+                "a_content": "6:30"
+            }
+        ]
+    ]
+}
