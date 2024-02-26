@@ -658,17 +658,17 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
     $contents = [
         ['Tigers','Tiger'],
-        ['dolphin','dolphins'],
-        ['whales','whale'],
-        ['lobster','lobsters'],
-        ['giraffes','giraffe'],
-        ['turtles','turtles'],
-        ['seahorse','seahorse'],
-        ['octopus','octopus'],
+        ['Dolphin','Dolphins'],
+        ['Whales','Whale'],
+        ['Lobster','Lobsters'],
+        ['Giraffes','Giraffe'],
+        ['Turtle','Turtles'],
+        ['Seahorse','Seahorses'],
+        ['Octopus','Octopuses'],
     ];
 
     $ans = [
-        'Tigers','dolphin', 'whales', 'lobster' ,'giraffes','turtles','seahorse', 'octopus'
+        'Tigers','Dolphin', 'Whales', 'Lobster' ,'Giraffes','Turtles','Seahorse', 'Octopus'
     ];
 
 
@@ -682,8 +682,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 [
                     'game_id' => 817,
                     'round' => $key + 1,
-                    'a_image' => $img.$this->removeSpace($v).".png",
-                    'a_audio' => $audio.$this->removeSpace($v).".mp3",
+                    'a_image' => $img.ucfirst($this->removeSpace($v)).".png",
+                    // 'a_audio' => $audio.$this->removeSpace($v).".mp3",
                     'a_content' => $v == $ans[$key] ? true : false,
                 ],
             ]);
@@ -969,7 +969,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     'game_id' => 824,
                     'round' => $key + 1,
                     'a_image' => $img.$this->removeSpace($v).".png",
-                    'a_audio' => $audio.$this->removeSpace($v).".mp3",
+                    // 'a_audio' => $audio.$this->removeSpace($v).".mp3",
                     'a_content' => $v == $ans[$key] ? true : false,
                 ],
             ]);

@@ -4,14 +4,17 @@ namespace App\Http\Controllers\API\Auth;
 
 use App\Models\Country;
 use App\Models\Student;
+use Tzsk\Otp\Facades\Otp;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Traits\mailTraits;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
 
+    use mailTraits;
 
     public function logout(Request $request){
 
@@ -49,8 +52,6 @@ class AuthController extends Controller
 
         // $isEmail = Str::contains($request->emailOrPhone, '@');
         $isEmail = preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/", $request->emailOrPhone);
-
-        // return $isEmail;
 
 
         if($isEmail == 1) {
@@ -148,6 +149,80 @@ class AuthController extends Controller
         if(!$userData) return response()->json(["status" => "User Not found !!!"], 404);
         return $userData;
     }
+
+
+
+    ///////////////////////// Auth Setting ////////////////////////////
+
+
+    public function checkUser(Request $request){
+
+        $emailOrPhone = $request->emailOrPhone;
+        // return $emailOrPhone;
+
+        $student = Student::where('email',$emailOrPhone)
+        ->orWhere('phone',$emailOrPhone)
+        ->first();
+
+        if(!$student || $student->isAuth == 1) return response()->json(['message' => "something wrong"], 403);
+
+        $code = Otp::digits(6)->expiry(3)->create($student->phone);
+
+        if($student->isLocal == 1){
+            $this->sendConfirmationCodeByPhone($student->phone,$code);
+            return  [$student->phone,$code];
+        }else{
+            $this->sendConfirmationCodeByEmail($student->phone,$code,$student->name);
+            return  "email ok";
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ////////////////// Private and reusable functions /////////////////////
+
+
+      private function sendConfirmationCodeByPhone($number,$code){
+
+      $token = "2fgPBEjl53tg2FYT2XaoTe6t97XVtIwQW-lGnbVWA9duOb7P4zEcnc2Kt0z1Nerp";
+
+        // Prepare data for POST request
+        $data = [
+            "to"        =>      $number,
+            "message"   =>      "StarfishApp: Do Not Share with Anyone. Your Confirmation code is ".$code ,
+            "sender"    =>      "StarfishApp"
+        ];
+
+
+        $ch = curl_init("https://smspoh.com/api/v2/send");
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Authorization: Bearer ' . $token,
+                'Content-Type: application/json'
+            ]);
+
+        $result = curl_exec($ch);
+
+
+    }
+
+
+
 
 
 }
