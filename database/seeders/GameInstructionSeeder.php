@@ -1068,6 +1068,8 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Talk about you. Say what you are wearing", 'game_id' => 397, 'audio' =>  $Instructions . "Talk-about-you-Say-what-you-are-wearing.mp3"],
 
+            // ['content' => "Students listen and repeat", 'game_id' => 398, 'audio' => $Instructions . "Students-listen-and-repeat.mp3"],
+
             ['content' => "Trace and write", "game_id" => 399, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
 
             ['content' => "Look at the pictures and match them with the words", 'game_id' => 400, 'audio' =>  $Instructions . "Look-at-the-pictures-and-match-them-with-the-words" . ".mp3"],
@@ -1142,7 +1144,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Arranging the letters", 'game_id' => 444, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
 
-            ['content' => "Match the pictures and the numbers", 'game_id' => 445, 'audio' =>  $Instructions . "Match-the-pictures-and-the-numbers" . ".mp3"],
+            // ['content' => "Match the pictures and the numbers", 'game_id' => 445, 'audio' =>  $Instructions . "Match-the-pictures-and-the-numbers" . ".mp3"],
 
             // ['content' => "Look at the pictures and speak", 'game_id' => 446, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
 
@@ -1150,7 +1152,9 @@ class GameInstructionSeeder extends Seeder
             // G-39
 
             ['content' => "Students Listen and repeat the phrases", 'game_id' => 448, 'audio' => $Instructions . "Students-listen-and-repeat-the-phrases.mp3"],
+
             ['content' => "Listen and repeat the sentences", 'game_id' => 449, 'audio' => $Instructions . "Listen-and-repeat-the-sentences.mp3"],
+
             ['content' => "Listen and write the time", 'game_id' => 450, 'audio' => $Instructions . "Listen-and-write-the-time.mp3"],
 
             // ['content' => "Look at the clocks and write the time", 'game_id' => 452, 'audio' => $Instructions . "Look-at-the-clocks-and-write-the-time.mp3"],
