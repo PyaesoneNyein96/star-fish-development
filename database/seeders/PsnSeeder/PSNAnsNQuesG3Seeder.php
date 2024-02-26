@@ -4941,7 +4941,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            'shirt','tie','jacket' ,'belt', 'pant','sock','shoe',
+            'shirt','tie','jacket' ,'belt', 'pants','socks','shoes',
         ];
 
 
