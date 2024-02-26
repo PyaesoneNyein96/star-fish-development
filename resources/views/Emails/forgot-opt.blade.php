@@ -36,10 +36,10 @@
                 <hr style=" border:1px solid rgb(235, 231, 231)">
                 <div style="margin: 40px auto 40px">
                     <p class="font">Hi {{$name}},</p>
-                    <p class=" font" style=" margin-bottom: 35px">Your Register OTP code is :</p>
+                    <p class=" font" style=" margin-bottom: 35px">Your Confirmation code is :</p>
                     <code
                         style=" letter-spacing: 2px; background-color: rgb(233, 233, 233); border:1px solid rgb(255, 153, 0); padding: 15px 20px ; font-size: 35px; font-weight: bold;  border-radius:8px">
-                        {{ $otp }}
+                        {{ $code }}
                     </code>
                     <p class="font" style=" margin-top: 35px">Enter this verification code to continue your
                         account. This code will expire in

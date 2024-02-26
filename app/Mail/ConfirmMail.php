@@ -9,18 +9,18 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class OTPMail extends Mailable
+class ConfirmMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $otp;
+
+    public $code;
     public $name;
 
-    public function __construct($otp,$name)
+    public function __construct($code, $name)
     {
-        $this->otp = $otp;
+        $this->code = $code;
         $this->name = $name;
-        //
     }
 
     /**
@@ -29,7 +29,8 @@ class OTPMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Star Fish - Register Confirmation Code',
+            // subject: 'Confirm Mail',
+            subject: 'Star Fish - Email Confirmation Code',
         );
     }
 
@@ -39,7 +40,7 @@ class OTPMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'Emails.mail-tp',
+            view: 'Emails.forgot-opt',
         );
     }
 
