@@ -693,7 +693,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 817,
                 'round' => $key + 1,
-                'a_audio' => $audio.$this->removeSpace($ans[$key]).".mp3",
+                'q_audio' => $audio.$this->removeSpace($ans[$key]).".mp3",
                 'a_content' => $ans[$key],
             ],
         ]);
@@ -954,7 +954,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
     ];
 
     $ans = [
-        'whale','pig', 'turtle', 'cheetah' ,'giraffe','elephant'
+        'whale','pig', 'turtle', 'cheetah' ,'monkey','elephant'
     ];
 
 
@@ -979,7 +979,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 824,
                 'round' => $key + 1,
-                'a_audio' => $audio.$this->removeSpace($ans[$key]).".mp3",
+                'q_audio' => $audio.$this->removeSpace($ans[$key]).".mp3",
                 'a_content' => $ans[$key],
             ],
         ]);
@@ -4167,7 +4167,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
 
-// Lesson 35 Unit - 4 Practice <fill_in_the_blank_three>
+// Lesson 35 Unit - 4 Practice <fill_in_the_blanks_three>
 
 
     $questions = [
