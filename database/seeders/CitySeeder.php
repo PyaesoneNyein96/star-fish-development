@@ -13,6 +13,9 @@ class CitySeeder extends Seeder
      */
     public function run(): void
     {
+
+
+        // Myanmar
         DB::table('cities')->insert([
 
             ['name' => 'Yangon', 'country_id' => 1],
@@ -20,19 +23,46 @@ class CitySeeder extends Seeder
             ['name' => 'NayPyiTaw', 'country_id' => 1],
             ['name' => 'TaungGyi', 'country_id' => 1],
 
+        ]);
+
+
+        // Thailand
+        DB::table('cities')->insert([
+
             ['name' => 'Bangkok', 'country_id' => 2],
             ['name' => 'Chiang Mai', 'country_id' => 2],
             ['name' => 'Pattaya', 'country_id' => 2],
+            ['name' => 'Pak Kret', 'country_id' => 2],
+            ['name' => 'Mae Sot', 'country_id' => 2],
+
+
+        ]);
+
+
+
+        // Cambodia
+        DB::table('cities')->insert([
 
             ['name' => 'Phnom_Penh', 'country_id' => 3],
             ['name' => 'Krong Kampong Cham', 'country_id' => 3],
             ['name' => 'Krong Battambang', 'country_id' => 3],
+
+
+        ]);
+
+
+        // Laos
+        DB::table('cities')->insert([
 
             ['name' => 'Vientiane', 'country_id' => 4],
             ['name' => 'Luang Prabang', 'country_id' => 4],
             ['name' => 'Pakse', 'country_id' => 4],
 
         ]);
+
+
+
+
 
 
     }

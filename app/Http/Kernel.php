@@ -5,6 +5,8 @@ namespace App\Http;
 use Commands\MigrateInOrder;
 use App\Http\Middleware\Cors;
 use App\Http\Middleware\CanChat;
+use App\Http\Middleware\StudentExist;
+use App\Http\Middleware\VersionMiddleware;
 use App\Http\Middleware\GameAuthMiddleware;
 use App\Http\Middleware\delayMessageMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -75,6 +77,8 @@ class Kernel extends HttpKernel
         'canChat' => CanChat::class,
         'Cors' => Cors::class,
         'GameAuth' => GameAuthMiddleware::class,
+        'StudentExist' => StudentExist::class,
+        'Version' => VersionMiddleware::class
     ];
 
 

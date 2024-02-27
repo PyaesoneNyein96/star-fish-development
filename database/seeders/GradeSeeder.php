@@ -21,5 +21,31 @@ class GradeSeeder extends Seeder
             ]);
         }
 
+
+        // App versions
+
+        DB::table('versions')->insert([
+            [
+                'name' => "v1",
+                'version_code' => "1.0.0",
+                'tag' => "Beta",
+                'update_type' => "minor",
+                'changelog' => null,
+                'OS' => 0,
+                'url' => "www.google.com"
+            ],
+            [
+                'name' => "v1",
+                'version_code' => "1.0.0",
+                'tag' => "Beta",
+                'update_type' => "minor",
+                'changelog' => null,
+                'OS' => 1,
+                'url' => "www.youtube.com"
+            ]
+        ]);
+
+
+
     }
 }
