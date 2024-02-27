@@ -1021,10 +1021,6 @@ class AnsNQueSeeder extends Seeder
                 'round' => 1, 'game_id' => 43, 'a_content' => "mat", 'q_image' => $l8G43image . "mat" . ".png",
                 'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "mat" . ".mp3", "background" => $l8G43image . "bg1.png"
             ],
-            [
-                'round' => 1, 'game_id' => 43, 'a_content' => "dresser", 'q_image' => $l8G43image . "dresser" . ".png",
-                'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "dresser" . ".mp3", "background" => $l8G43image . "bg1.png"
-            ],
 
 
             [
@@ -1801,11 +1797,12 @@ class AnsNQueSeeder extends Seeder
 
         $G1_L10_Game57_Matching_audio = [
 
-            'cow', 'pig', 'dog', 'sheep',
-            'sheep', 'dog', 'cow', 'pig',
-
-            'duck', 'cock', 'cow', 'pig',
             'cow', 'duck', 'pig', 'cock',
+            'duck', 'cock', 'cow', 'pig',
+
+            'sheep', 'dog', 'cow', 'pig',
+            'cow', 'pig', 'dog', 'sheep',
+
         ];
 
         $G1_L10_Game57_index = 0;
@@ -3522,31 +3519,31 @@ class AnsNQueSeeder extends Seeder
             ['round' => 1, 'game_id' => 117, "q_image" => null, "q_audio" => null, 'q_content' => "True", "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 1, 'game_id' => 117, "q_image" => null, "q_audio" => null, 'q_content' => "False", "q_conver" => null, 'a_content' => 1, "background" => null],
             ['round' => 1, 'game_id' => 117, "q_image" => null, "q_audio" => $AudioDomain . $G1_L19_reading_passage_path . "SubBlock_She-has-a-small-face-True-Fal.mp3", "q_conver" => "She has a small face.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 1, 'game_id' => 117, "q_image" => null, "q_audio" => $AudioDomain . $G1_L19_reading_passage_path . "This-is-a-pink-apple-She-has.mp3", "q_content" => null, 'q_conver' => "This is a pink apple. She has a big face. She has two blue eyes. She has a nose. She has small lip. She has no ears. She has no hair.", 'a_content' => null, "background" => $l19G117image . "bg.png"],
+            ['round' => 1, 'game_id' => 117, "q_image" => null, "q_audio" => $AudioDomain . $G1_L19_reading_passage_path . "This-is-a-pink-apple-She-has.mp3", "q_content" => null, 'q_conver' => "This is a pink apple. She has a big face. She has two blue eyes. She has a nose. She has small lips. She has no ears. She has no hair.", 'a_content' => null, "background" => $l19G117image . "bg.png"],
 
 
             ['round' => 2, 'game_id' => 117, "q_image" => null, "q_audio" =>  null, 'q_content' => "True", "q_conver" => null, 'a_content' => 1, "background" => null],
             ['round' => 2, 'game_id' => 117, "q_image" => null, "q_audio" =>  null, 'q_content' => "False", "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 2, 'game_id' => 117, "q_image" => null, "q_audio" => $AudioDomain . $G1_L19_reading_passage_path . "SubBlock_She-has-small-lips-True-Fals.mp3", "q_conver" =>  "She has small lips.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 2, 'game_id' => 117, "q_image" => null, "q_audio" => $AudioDomain . $G1_L19_reading_passage_path . "This-is-a-pink-apple-She-has.mp3", "q_content" => null, 'q_conver' => "This is a pink apple. She has a big face. She has two blue eyes. She has a nose. She has small lip. She has no ears. She has no hair.", 'a_content' => null, "background" => $l19G117image . "bg.png"],
+            ['round' => 2, 'game_id' => 117, "q_image" => null, "q_audio" => $AudioDomain . $G1_L19_reading_passage_path . "This-is-a-pink-apple-She-has.mp3", "q_content" => null, 'q_conver' => "This is a pink apple. She has a big face. She has two blue eyes. She has a nose. She has small lips. She has no ears. She has no hair.", 'a_content' => null, "background" => $l19G117image . "bg.png"],
 
 
             ['round' => 3, 'game_id' => 117, "q_image" => null, "q_audio" =>  null, 'q_content' => "True", "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 3, 'game_id' => 117, "q_image" => null, "q_audio" =>  null, 'q_content' => "False", "q_conver" => null, 'a_content' => 1, "background" => null],
             ['round' => 3, 'game_id' => 117, "q_image" => null, "q_audio" => $AudioDomain . $G1_L19_reading_passage_path . "SubBlock_She-has-two-ears-True-False.mp3", "q_conver" => "She has two ears.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 3, 'game_id' => 117, "q_image" => null, "q_audio" => $AudioDomain . $G1_L19_reading_passage_path . "This-is-a-pink-apple-She-has.mp3", "q_content" => null, 'q_conver' => "This is a pink apple. She has a big face. She has two blue eyes. She has a nose. She has small lip. She has no ears. She has no hair.", 'a_content' => null, "background" => $l19G117image . "bg.png"],
+            ['round' => 3, 'game_id' => 117, "q_image" => null, "q_audio" => $AudioDomain . $G1_L19_reading_passage_path . "This-is-a-pink-apple-She-has.mp3", "q_content" => null, 'q_conver' => "This is a pink apple. She has a big face. She has two blue eyes. She has a nose. She has small lips. She has no ears. She has no hair.", 'a_content' => null, "background" => $l19G117image . "bg.png"],
 
 
             ['round' => 4, 'game_id' => 117, "q_image" => null, "q_audio" =>  null, 'q_content' => "True", "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 4, 'game_id' => 117, "q_image" => null, "q_audio" =>  null, 'q_content' => "False", "q_conver" => null, 'a_content' => 1, "background" => null],
             ['round' => 4, 'game_id' => 117, "q_image" => null, "q_audio" => $AudioDomain . $G1_L19_reading_passage_path . "SubBlock_It-is-yellow-True-False.mp3", "q_conver" => "It is yellow.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 4, 'game_id' => 117, "q_image" => null, "q_audio" => $AudioDomain . $G1_L19_reading_passage_path . "This-is-a-pink-apple-She-has.mp3", "q_content" => null, 'q_conver' => "This is a pink apple. She has a big face. She has two blue eyes. She has a nose. She has small lip. She has no ears. She has no hair.", 'a_content' => null, "background" => $l19G117image . "bg.png"],
+            ['round' => 4, 'game_id' => 117, "q_image" => null, "q_audio" => $AudioDomain . $G1_L19_reading_passage_path . "This-is-a-pink-apple-She-has.mp3", "q_content" => null, 'q_conver' => "This is a pink apple. She has a big face. She has two blue eyes. She has a nose. She has small lips. She has no ears. She has no hair.", 'a_content' => null, "background" => $l19G117image . "bg.png"],
 
 
             ['round' => 5, 'game_id' => 117, "q_image" => null, "q_audio" =>  null, 'q_content' => "True", "q_conver" => null, 'a_content' => 1, "background" => null],
             ['round' => 5, 'game_id' => 117, "q_image" => null, "q_audio" =>  null, 'q_content' => "False", "q_conver" => null, 'a_content' => 0, "background" => null],
             ['round' => 5, 'game_id' => 117, "q_image" => null, "q_audio" => $AudioDomain . $G1_L19_reading_passage_path . "SubBlock_This-is-an-apple-True-False.mp3", "q_conver" => "This is an apple.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 5, 'game_id' => 117, "q_image" => null, "q_audio" => $AudioDomain . $G1_L19_reading_passage_path . "This-is-a-pink-apple-She-has.mp3", "q_content" => null, 'q_conver' => "This is a pink apple. She has a big face. She has two blue eyes. She has a nose. She has small lip. She has no ears. She has no hair.", 'a_content' => null, "background" => $l19G117image . "bg.png"],
+            ['round' => 5, 'game_id' => 117, "q_image" => null, "q_audio" => $AudioDomain . $G1_L19_reading_passage_path . "This-is-a-pink-apple-She-has.mp3", "q_content" => null, 'q_conver' => "This is a pink apple. She has a big face. She has two blue eyes. She has a nose. She has small lips. She has no ears. She has no hair.", 'a_content' => null, "background" => $l19G117image . "bg.png"],
 
 
         ]);
@@ -4850,20 +4847,12 @@ class AnsNQueSeeder extends Seeder
                 'a_audio' => $AudioDomain . $G1_L25_listen_n_practice . "olives" . ".mp3", "background" => $l25G155image . "bg1.png"
             ],
             [
-                'round' => 1, 'game_id' => 155, 'a_content' => "durian", 'q_image' => $l25G155image . "durian" . ".png",
-                'a_audio' => $AudioDomain . $G1_L25_listen_n_practice . "durian" . ".mp3", "background" => $l25G155image . "bg1.png"
-            ],
-            [
                 'round' => 1, 'game_id' => 155, 'a_content' => "pineapple", 'q_image' => $l25G155image . "pineapple" . ".png",
                 'a_audio' => $AudioDomain . $G1_L25_listen_n_practice . "pineapple" . ".mp3", "background" => $l25G155image . "bg1.png"
             ],
             [
                 'round' => 1, 'game_id' => 155, 'a_content' => "meat", 'q_image' => $l25G155image . "meat" . ".png",
                 'a_audio' => $AudioDomain . $G1_L25_listen_n_practice . "meat" . ".mp3", "background" => $l25G155image . "bg1.png"
-            ],
-            [
-                'round' => 1, 'game_id' => 155, 'a_content' => "watermelon", 'q_image' => $l25G155image . "watermelon" . ".png",
-                'a_audio' => $AudioDomain . $G1_L25_listen_n_practice . "watermelon" . ".mp3", "background" => $l25G155image . "bg1.png"
             ],
             [
                 'round' => 1, 'game_id' => 155, 'a_content' => "papaya", 'q_image' => $l25G155image . "papaya" . ".png",
