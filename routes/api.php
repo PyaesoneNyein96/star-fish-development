@@ -35,10 +35,6 @@ Route::get('/countries', [AuthController::class, 'startUpData']);
 
 Route::prefix('auth')->group(function () {
 
-    Route::post('nameCheck', [AuthController::class, 'nameCheck']);
-    Route::post('login', [AuthController::class, 'login']);
-    Route::post('logout', [AuthController::class, 'logout']);
-    Route::get('userData', [AuthController::class, 'userData']);
 
     Route::prefix('local')->group(function () {
 
@@ -53,6 +49,20 @@ Route::prefix('auth')->group(function () {
         Route::post('requestOTP', [GlobalAuthController::class, 'Request_otp']);
         Route::post('submitOTP', [GlobalAuthController::class, 'Submit_otp']);
     });
+
+    // both
+    Route::post('nameCheck', [AuthController::class, 'nameCheck']);
+    Route::post('login', [AuthController::class, 'login']);
+    Route::post('logout', [AuthController::class, 'logout']);
+    Route::get('userData', [AuthController::class, 'userData']);
+
+    // setting
+    Route::prefix('setting')->group(function () {
+        Route::post('/check',[AuthController::class,'checkUser']);
+    });
+
+
+
 });
 
 Route::prefix('points')->group(function () {
@@ -110,3 +120,8 @@ Route::prefix('assessment')->group(function () {
 // ============ test =============
 // ===============================
 Route::get('/test', [GameController::class, 'test']);
+
+
+// Route::middleware(['auth', 'second'])->prefix('setting')->group(function () {
+//     Route::post('/email',[AuthController::class,'request_email']);
+// });

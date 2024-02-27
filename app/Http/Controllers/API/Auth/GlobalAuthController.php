@@ -63,7 +63,7 @@ class GlobalAuthController extends Controller
 
             logger('ready to send');
             // OTP Send from Traits
-            $this->sendOtp($request->email, $OTP);
+            $this->sendOtp($request->email, $OTP, $request->name);
 
             return response()->json([
                 'message' => 'success.',
