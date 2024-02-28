@@ -118,6 +118,8 @@ class GlobalAuthController extends Controller
 
         $isAuth = Otp::digits(6)->expiry(5)->check($request->otp, $request->email);
 
+        // return $request;
+
         if($isAuth && $student){
 
             $timezone = Country::where('id',$student->country_id)->pluck('timezone')->first();

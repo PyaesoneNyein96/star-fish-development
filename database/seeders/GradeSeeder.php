@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -26,22 +27,20 @@ class GradeSeeder extends Seeder
 
         DB::table('versions')->insert([
             [
-                'name' => "v1",
-                'version_code' => "1.0.0",
-                'tag' => "Beta",
-                'update_type' => "minor",
-                'changelog' => null,
+                'version' => "1.0.0",
+                'force_update' => 1,
+                'under_maintenance' => 0,
                 'OS' => 0,
-                'url' => "www.google.com"
+                'url' => "https://apps.apple.com/<country>/app/star/12345",
+                'created_at' => Carbon::now()
             ],
             [
-                'name' => "v1",
-                'version_code' => "1.0.0",
-                'tag' => "Beta",
-                'update_type' => "minor",
-                'changelog' => null,
-                'OS' => 1,
-                'url' => "www.youtube.com"
+                'version' => "1.0.0",
+                'force_update' => 1,
+                'under_maintenance' => 0,
+                'OS' => 0,
+                'url' => "http://play.google.com/store/apps/details?id=star123",
+                'created_at' => Carbon::now()
             ]
         ]);
 

@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('versions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('version_code');
-            $table->string('tag')->default('Beta');
-            $table->string('update_type')->default('minor');
-            $table->text('changelog')->nullable();
-            $table->integer('OS');
-            $table->text('url');
+            $table->string('version');
+            $table->string('force_update')->nullable();
+            $table->string('under_maintenance')->nullable();
+            $table->text('url')->nullable();
+            $table->integer('OS')->default(1);
             $table->timestamps();
         });
     }
