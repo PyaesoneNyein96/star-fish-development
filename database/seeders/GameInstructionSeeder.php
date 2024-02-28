@@ -1939,8 +1939,12 @@ class GameInstructionSeeder extends Seeder
             // G-4 lesson_3 U-740
             ['content' => "Choose the correct answer", 'game_id' => 783, 'audio' =>  $Instructions . "Choose-the-correct-answer" . ".mp3"],
 
-            // G-4 lesson_3 U-741
-            ['content' => "Listen and repeat. Match the pictures with the description", 'game_id' => 784, 'audio' =>  $Instructions . "Listen-and-repeat-Match-the-p" . ".mp3"],
+            // G-4 lesson_3 U-742
+            ['content' => "Listen and repeat. Match the pictures with the description", 'game_id' => 785, 'audio' =>  $Instructions . "Listen-and-repeat-Match-the-p" . ".mp3"],
+
+            // G-4 lesson_3 U-744
+            ['content' => "write a paragraph describing your teacher", 'game_id' => 787, 'audio' =>  $Instructions . "SubBlock_write-a-paragraph-describing-y" . ".mp3"],
+
 
 
             // G-4 lesson_4 U-746
@@ -1971,6 +1975,8 @@ class GameInstructionSeeder extends Seeder
             // G-4 lesson_5 U-756
             ['content' => "Listen and choose the correct picture", 'game_id' => 801, 'audio' => $Instructions . "Listen-and-choose-the-correct-pic.mp3"],
 
+            // G-4 lesson_5 U-758
+            ['content' => "Write the paragraph describing the following picture. Use the prompts.", 'game_id' => 803, 'audio' => $Instructions . "SubBlock_Write-a-paragraph-describing-t.mp3"],
 
 
 
@@ -2247,7 +2253,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Repeat the following words after the speaker", 'game_id' => 821, 'audio' => $Instructions . "Repeat-the-following-words-aft.mp3"],
 
-           ['content' => "Put the given words to complete the correct words", 'game_id' => 822, 'audio' => $Instructions . "Put-the-given-words-to-complete-the-correct-words.mp3"],
+            ['content' => "Put the given words to complete the correct words", 'game_id' => 822, 'audio' => $Instructions . "Put-the-given-words-to-complete-the-correct-words.mp3"],
 
             ['content' => "Choose the right words for the given picture", 'game_id' => 823, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
 
@@ -2294,8 +2300,10 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Look at the following pictures. What do you like to wear in each season?", 'game_id' => 972, 'audio' => $Instructions . "Look-at-the-following-pictures-What-do-you-like-to-wear-in-each-season.mp3"],
 
-            ['content' => "Listen and choose the correct person", 'game_id' => 974,
-            'audio' => $Instructions . "Listen-and-choose-the-correct-person.mp3"],
+            [
+                'content' => "Listen and choose the correct person", 'game_id' => 974,
+                'audio' => $Instructions . "Listen-and-choose-the-correct-person.mp3"
+            ],
 
 
 
@@ -2344,13 +2352,17 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Match the words and the pictures.", 'game_id' => 996, 'audio' => $Instructions . "SubBlock_Match-the-words-and-the-pictur.mp3"],
 
-            ['content' => "Listen and choose the correct option", 'game_id' => 998,
-            'audio' => $Instructions . "Listen-and-choose-the-correct-option.mp3"],
+            [
+                'content' => "Listen and choose the correct option", 'game_id' => 998,
+                'audio' => $Instructions . "Listen-and-choose-the-correct-option.mp3"
+            ],
 
             // ['content' => "Read the passage and answer the questions.", 'game_id' => 998, 'audio' => $Instructions . "Read-the-passage-and-answer-the-questions.mp3"],
 
-            ['content' => "Draw your favorite food on the plate. Talk about it", 'game_id' => 1000,
-            'audio' => $Instructions . "Draw-your-favorite-food-on-the-plate-Talk-about-it.mp3"],
+            [
+                'content' => "Draw your favorite food on the plate. Talk about it", 'game_id' => 1000,
+                'audio' => $Instructions . "Draw-your-favorite-food-on-the-plate-Talk-about-it.mp3"
+            ],
 
 
 
@@ -2371,20 +2383,28 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Unscramble the following words.", 'game_id' => 1009, 'audio' => $Instructions . "SubBlock_Unscramble-the-following-words.mp3"],
 
-            ['content' => "Choose the right option for the following sentences", 'game_id' => 1010,
-            'audio' => $Instructions . "Choose-the-right-option-for-the-following-sentences.mp3"],
+            [
+                'content' => "Choose the right option for the following sentences", 'game_id' => 1010,
+                'audio' => $Instructions . "Choose-the-right-option-for-the-following-sentences.mp3"
+            ],
 
-            ['content' => "Listen to the audio and choose the right answers.", 'game_id' => 1012,
-            'audio' => $Instructions . "Listen-to-the-audio-and-choose-the-right-answers.mp3"],
+            [
+                'content' => "Listen to the audio and choose the right answers.", 'game_id' => 1012,
+                'audio' => $Instructions . "Listen-to-the-audio-and-choose-the-right-answers.mp3"
+            ],
 
             // ['content' => "Read the story and answer the questions.", 'game_id' => 1013,
             // 'audio' => $Instructions . "Read-the-story-and-answer-the-questions.mp3"],
 
-            ['content' => "What is your school canteen like? Talk about it. Use the prompts.", 'game_id' => 1014,
-            'audio' => $Instructions . "What-is-your-school-canteen-like-Talk-about-it-Use-the-prompts.mp3"],
+            [
+                'content' => "What is your school canteen like? Talk about it. Use the prompts.", 'game_id' => 1014,
+                'audio' => $Instructions . "What-is-your-school-canteen-like-Talk-about-it-Use-the-prompts.mp3"
+            ],
 
-            ['content' => "Write about your school canteen. Use the prompts.", 'game_id' => 1015,
-            'audio' => $Instructions . "Write-about-your-school-canteen-Use-the-prompts.mp3"],
+            [
+                'content' => "Write about your school canteen. Use the prompts.", 'game_id' => 1015,
+                'audio' => $Instructions . "Write-about-your-school-canteen-Use-the-prompts.mp3"
+            ],
 
 
             // Lesson -33
@@ -2409,11 +2429,15 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Listen and choose the correct option", 'game_id' => 1026, 'audio' => $Instructions . "Listen-and-choose-the-correct-option.mp3"],
 
-            ['content' => "Look at the following letters and answer the questions", 'game_id' => 1027,
-            'audio' => $Instructions . "Look-at-the-following-letters-and-answer-the-questions.mp3"],
+            [
+                'content' => "Look at the following letters and answer the questions", 'game_id' => 1027,
+                'audio' => $Instructions . "Look-at-the-following-letters-and-answer-the-questions.mp3"
+            ],
 
-            ['content' => "Complete the following sentences with past tense of the verbs. Talk about them",
-            'game_id' => 1028, 'audio' => $Instructions . "Complete-the-following-sentences-with-past-tense-of-the-verbs.mp3"],
+            [
+                'content' => "Complete the following sentences with past tense of the verbs. Talk about them",
+                'game_id' => 1028, 'audio' => $Instructions . "Complete-the-following-sentences-with-past-tense-of-the-verbs.mp3"
+            ],
 
 
 
@@ -2425,17 +2449,25 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Match the verbs and their past tenses.", 'game_id' => 1031, 'audio' => $Instructions . "Match-the-verbs-and-their-past-tenses.mp3"],
 
-            ['content' => "Choose the right option for the following sentences", 'game_id' => 1032,
-            'audio' => $Instructions . "Choose-the-right-option-for-the-following-sentences.mp3"],
+            [
+                'content' => "Choose the right option for the following sentences", 'game_id' => 1032,
+                'audio' => $Instructions . "Choose-the-right-option-for-the-following-sentences.mp3"
+            ],
 
-            ['content' => "Listen to the audio and choose the right answers.", 'game_id' => 1033,
-            'audio' => $Instructions . "Listen-to-the-audio-and-choose-the-right-answers.mp3"],
+            [
+                'content' => "Listen to the audio and choose the right answers.", 'game_id' => 1033,
+                'audio' => $Instructions . "Listen-to-the-audio-and-choose-the-right-answers.mp3"
+            ],
 
-            ['content' => "Take notes on the table. Talk about what you did last week.", 'game_id' => 1035,
-            'audio' => $Instructions . "Take-notes-on-the-table-Talk-about-what-you-did-last-week.mp3"],
+            [
+                'content' => "Take notes on the table. Talk about what you did last week.", 'game_id' => 1035,
+                'audio' => $Instructions . "Take-notes-on-the-table-Talk-about-what-you-did-last-week.mp3"
+            ],
 
-            ['content' => "Write a letter to a friend. Tell him/her what you did last week. Use the prompts below.",
-             'game_id' => 1036, 'audio' => $Instructions . "Write-a-letter-to-a-friend-Tell-him-her-what-you-did-last-week.mp3"],
+            [
+                'content' => "Write a letter to a friend. Tell him/her what you did last week. Use the prompts below.",
+                'game_id' => 1036, 'audio' => $Instructions . "Write-a-letter-to-a-friend-Tell-him-her-what-you-did-last-week.mp3"
+            ],
 
 
 
@@ -2448,8 +2480,10 @@ class GameInstructionSeeder extends Seeder
 
             // ['content' => "Read the passage and answer the questions.", 'game_id' => 1040, 'audio' => $Instructions . "Read-the-passage-and-answer-the-questions.mp3"],
 
-            ['content' => "Talk about your last holiday. What did you do during your last Thadingyut holiday?", 'game_id' => 1041,
-            'audio' => $Instructions . "Talk-about-your-last-holiday-What-did-you-do-Thadingyut-holiday.mp3"],
+            [
+                'content' => "Talk about your last holiday. What did you do during your last Thadingyut holiday?", 'game_id' => 1041,
+                'audio' => $Instructions . "Talk-about-your-last-holiday-What-did-you-do-Thadingyut-holiday.mp3"
+            ],
 
 
 
@@ -2457,14 +2491,20 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Listen and Repeat", 'game_id' => 1042, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
-            ['content' => "Listen to the audio. Max will talk about what he will do tomorrow. Answer the questions.", 'game_id' => 1044,
-            'audio' => $Instructions . "Listen-to-the-audio-Max-will-talk-about-what-he-will-do-tomorrow.mp3"],
+            [
+                'content' => "Listen to the audio. Max will talk about what he will do tomorrow. Answer the questions.", 'game_id' => 1044,
+                'audio' => $Instructions . "Listen-to-the-audio-Max-will-talk-about-what-he-will-do-tomorrow.mp3"
+            ],
 
-            ['content' => "What will you do tomorrow? Talk about your plan.", 'game_id' => 1045,
-            'audio' => $Instructions . "What-will-you-do-tomorrow-Talk-about-your-plan.mp3"],
+            [
+                'content' => "What will you do tomorrow? Talk about your plan.", 'game_id' => 1045,
+                'audio' => $Instructions . "What-will-you-do-tomorrow-Talk-about-your-plan.mp3"
+            ],
 
-            ['content' => "Take notes. Write down what you will do tomorrow.", 'game_id' => 1046,
-             'audio' => $Instructions . "Take-notes-Write-down-what-you-will-do-tomorrow.mp3"],
+            [
+                'content' => "Take notes. Write down what you will do tomorrow.", 'game_id' => 1046,
+                'audio' => $Instructions . "Take-notes-Write-down-what-you-will-do-tomorrow.mp3"
+            ],
 
 
 

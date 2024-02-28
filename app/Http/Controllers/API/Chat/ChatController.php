@@ -15,6 +15,7 @@ class ChatController extends Controller
 
     public function changeNName(Request $request)
     {
+        if (!$request || !$request->student_id || !$request->nickName) return  response()->json(['message' => 'Some fields are required.']);
         Student::where('id', $request->student_id)->update([
             'nickName' => $request->nickName,
         ]);
@@ -29,6 +30,7 @@ class ChatController extends Controller
     {
         $token = $request->header('token');
         $stu = Student::where('token', $token)->first();
+        if (!$stu) return  response()->json(['message' => 'Wrong token!']);
 
         $silver = Chat::select('chats.*', 'students.name', 'students.nickName', 'students.profile_picture', 'students.board')
             ->leftJoin('students', 'chats.student_id', 'students.id')
@@ -73,6 +75,8 @@ class ChatController extends Controller
 
     public function sendChat(Request $request)
     {
+        if (!$request || !$request->student_id || !$request->message) return  response()->json(['message' => 'Some fields are required.']);
+
         $baned = $this->banedMessage($request);
         $warning = $this->warningMessage($request);
 

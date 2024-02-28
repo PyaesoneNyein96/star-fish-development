@@ -1001,21 +1001,19 @@ class AnsNQueSeeder extends Seeder
 
             foreach ($l4_G789_q_audio_ans[$i] as $key => $val) {
                 DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 789, "q_audio" => $AudioDomain . $G4_L4_reading_lesson_path . str_replace(' ', '-', strtolower($val)) . ".mp3", 'q_content' => $val, "q_conver" => null, 'a_content' => $l4_G789_q_audio_a_content[$i][$key], "background" => null],
-                ]);
-            }
-
-            foreach ($l4_G789_q_audio as $key => $val) {
-                DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 789, "q_audio" => $AudioDomain . $G4_L4_reading_lesson_path . $val . ".mp3", "q_conver" => $l4_G789_q_conver[$key], 'q_content' => null, 'a_content' => null, "background" => null],
+                    ['round' => $i + 1, 'game_id' => 789, "q_audio" => $AudioDomain . $G4_L4_reading_lesson_path . str_replace(' ', '-', strtolower($val)) . ".mp3", 'q_content' => $val, 'a_content' => $l4_G789_q_audio_a_content[$i][$key]],
                 ]);
             }
 
             DB::table('ans_n_ques')->insert([
+                ['round' => $i + 1, 'game_id' => 789, "q_audio" => $AudioDomain . $G4_L4_reading_lesson_path . $l4_G789_q_audio[$i] . ".mp3", "q_conver" => $l4_G789_q_conver[$i]],
+            ]);
+
+            DB::table('ans_n_ques')->insert([
                 [
-                    'round' => $i + 1, 'game_id' => 789, "q_audio" => $AudioDomain . $G4_L4_reading_lesson_path . "They-are-John-Max-and-Emma-M.mp3", "q_content" => null,
+                    'round' => $i + 1, 'game_id' => 789, "q_audio" => $AudioDomain . $G4_L4_reading_lesson_path . "They-are-John-Max-and-Emma-M.mp3",
                     'q_conver' => "They are John, Max and Emma. Max is in Grade 2, John is in Grade 3 and Emma is in Grade-3. John has short brown hair. He is playing with his cat, Ben. Max has short hair. He is digging the soil. Emma has shoulder length hair. She is wearing eyeglasses. Emma loves gardening. Max is helping Emma to plant. They are in the garden. It is a cloudy but beautiful day.",
-                    'a_content' => null, "background" => $l4_G789_image . "bg.png"
+                    "background" => $l4_G789_image . "bg.png"
                 ],
             ]);
         }
@@ -1062,13 +1060,13 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 4 Game 791 (  Speaking Practice )
         //////////////////////////////////////////////////////////////
 
-        $G4_L4_speaking_practice = "Grade_4/" . "Lesson_3/" . "speaking_practice/";
-        $l4_G791image = $domain . "/storage/images/Grade_4/lesson_3/speaking_practice/";
+        $G4_L4_speaking_practice = "Grade_4/" . "Lesson_4/" . "speaking_practice/";
+        $l4_G791image = $domain . "/storage/images/Grade_4/lesson_4/speaking_practice/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 791, "q_audio" => $AudioDomain . $G4_L4_speaking_practice . ".mp3", "q_conver" => $l4_G791image . "teacher.png"],
-            ['round' => 2, 'game_id' => 791, "q_audio" => $AudioDomain . $G4_L4_speaking_practice . ".mp3", "q_conver" => $l4_G791image . "friend.png"],
-            ['round' => 3, 'game_id' => 791, "q_audio" => $AudioDomain . $G4_L4_speaking_practice . ".mp3", "q_conver" => $l4_G791image . "bro.png"],
+            ['round' => 1, 'game_id' => 791, "q_audio" => $AudioDomain . $G4_L4_speaking_practice . "Block_My-teacher-is-Su-Su-She-is-ta.mp3", "q_conver" => $l4_G791image . "teacher.png"],
+            ['round' => 2, 'game_id' => 791, "q_audio" => $AudioDomain . $G4_L4_speaking_practice . "Block_My-friend-is-April-She-is-tal.mp3", "q_conver" => $l4_G791image . "friend.png"],
+            ['round' => 3, 'game_id' => 791, "q_audio" => $AudioDomain . $G4_L4_speaking_practice . "Block_My-brother-is-Zaw-Zaw-He-is-t.mp3", "q_conver" => $l4_G791image . "bro.png"],
         ]);
 
 
@@ -1367,7 +1365,7 @@ class AnsNQueSeeder extends Seeder
             ['round' => 5, 'game_id' => 800, "q_audio" => $AudioDomain . $G4_L5_practice_speaking . ".mp3", 'q_image' => $l5_G800image . "goose.png", "q_content" => "How many geese are are there?", "round_instruction" => $AudioDomain . $G4_L5_practice_speaking . "SubBlock_How-many-geese-are-there" . ".mp3"],
             ['round' => 6, 'game_id' => 800, "q_audio" => $AudioDomain . $G4_L5_practice_speaking . ".mp3", 'q_image' => $l5_G800image . "horse.png", "q_content" => "How many horses are are there?", "round_instruction" => $AudioDomain . $G4_L5_practice_speaking . "SubBlock_How-many-horses-are-there" . ".mp3"],
             ['round' => 7, 'game_id' => 800, "q_audio" => $AudioDomain . $G4_L5_practice_speaking . ".mp3", 'q_image' => $l5_G800image . "rabbit.png", "q_content" => "How many rabbit are are there?", "round_instruction" => $AudioDomain . $G4_L5_practice_speaking . "SubBlock_How-many-rabbits-are-there" . ".mp3"],
-            ['round' => 8, 'game_id' => 800, "q_audio" => $AudioDomain . $G4_L5_practice_speaking . ".mp3", 'q_image' => $l5_G800image . "elephant.png", "q_content" => "How many elephants are are there?", "round_instruction" => $AudioDomain . $G4_L5_practice_speaking . "how-many-elephants-are-there" . ".mp3"],
+            ['round' => 8, 'game_id' => 800, "q_audio" => $AudioDomain . $G4_L5_practice_speaking . ".mp3", 'q_image' => $l5_G800image . "elephant.png", "q_content" => "How many elephants are are there?", "round_instruction" => $AudioDomain . $G4_L5_practice_speaking . "SubBlock_how-many-elephants-are-there" . ".mp3"],
             ['round' => 9, 'game_id' => 800, "q_audio" => $AudioDomain . $G4_L5_practice_speaking . ".mp3", 'q_image' => $l5_G800image . "sheep.png", "q_content" => "How many sheep are are there?", "round_instruction" => $AudioDomain . $G4_L5_practice_speaking . "SubBlock_How-many-sheep-are-there" . ".mp3"],
             ['round' => 10, 'game_id' => 800, "q_audio" => $AudioDomain . $G4_L5_practice_speaking . ".mp3", 'q_image' => $l5_G800image . "goat.png", "q_content" => "How many goats are are there?", "round_instruction" => $AudioDomain . $G4_L5_practice_speaking . "SubBlock_How-many-goats-are-there" . ".mp3"],
         ]);
@@ -1680,11 +1678,9 @@ class AnsNQueSeeder extends Seeder
                 ]);
             }
 
-            foreach ($l10_G841_q_audio as $key => $val) {
-                DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 841, "q_audio" => $AudioDomain . $G4_L10_reading_passage_path . $val . ".mp3", "q_conver" => $l10_G841_q_conver[$key], 'q_content' => null, 'a_content' => null, "background" => null],
-                ]);
-            }
+            DB::table('ans_n_ques')->insert([
+                ['round' => $i + 1, 'game_id' => 841, "q_audio" => $AudioDomain . $G4_L10_reading_passage_path . $l10_G841_q_audio[$i] . ".mp3", "q_conver" => $l10_G841_q_conver[$i], 'q_content' => null, 'a_content' => null, "background" => null],
+            ]);
 
             DB::table('ans_n_ques')->insert([
                 [
@@ -2161,11 +2157,9 @@ class AnsNQueSeeder extends Seeder
                 ]);
             }
 
-            foreach ($l12_G857_q_audio as $key => $val) {
-                DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 857, "q_audio" => $AudioDomain . $G4_L12_reading_passage_path . $val . ".mp3", "q_conver" => $l12_G857_q_conver[$key], 'q_content' => null, 'a_content' => null, "background" => null],
-                ]);
-            }
+            DB::table('ans_n_ques')->insert([
+                ['round' => $i + 1, 'game_id' => 857, "q_audio" => $AudioDomain . $G4_L12_reading_passage_path . $l12_G857_q_audio[$i] . ".mp3", "q_conver" => $l12_G857_q_conver[$i], 'q_content' => null, 'a_content' => null, "background" => null],
+            ]);
 
             DB::table('ans_n_ques')->insert([
                 [
@@ -2355,11 +2349,9 @@ class AnsNQueSeeder extends Seeder
                 ]);
             }
 
-            foreach ($l13_G864_q_audio as $key => $val) {
-                DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 864, "q_audio" => $AudioDomain . $G4_L13_reading_passage_path . $val . ".mp3", "q_conver" => $l13_G864_q_conver[$key], 'q_content' => null, 'a_content' => null, "background" => null],
-                ]);
-            }
+            DB::table('ans_n_ques')->insert([
+                ['round' => $i + 1, 'game_id' => 864, "q_audio" => $AudioDomain . $G4_L13_reading_passage_path . $l13_G864_q_audio[$i] . ".mp3", "q_conver" => $l13_G864_q_conver[$i], 'q_content' => null, 'a_content' => null, "background" => null],
+            ]);
 
             DB::table('ans_n_ques')->insert([
                 [
@@ -2609,11 +2601,9 @@ class AnsNQueSeeder extends Seeder
                 ]);
             }
 
-            foreach ($l14_G871_q_audio as $key => $val) {
-                DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 871, "q_audio" => $AudioDomain . $G4_L14_reading_passage_path . $val . ".mp3", "q_conver" => $l14_G871_q_conver[$key], 'q_content' => null, 'a_content' => null, "background" => null],
-                ]);
-            }
+            DB::table('ans_n_ques')->insert([
+                ['round' => $i + 1, 'game_id' => 871, "q_audio" => $AudioDomain . $G4_L14_reading_passage_path . $l14_G871_q_audio[$i] . ".mp3", "q_conver" => $l14_G871_q_conver[$i]],
+            ]);
 
             DB::table('ans_n_ques')->insert([
                 [
@@ -2861,11 +2851,9 @@ class AnsNQueSeeder extends Seeder
                 ]);
             }
 
-            foreach ($l15_G879_q_audio as $key => $val) {
-                DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 879, "q_audio" => $AudioDomain . $G4_L15_reading_passage_path . $val . ".mp3", "q_conver" => $l15_G879_q_conver[$key], 'q_content' => null, 'a_content' => null, "background" => null],
-                ]);
-            }
+            DB::table('ans_n_ques')->insert([
+                ['round' => $i + 1, 'game_id' => 879, "q_audio" => $AudioDomain . $G4_L15_reading_passage_path . $l15_G879_q_audio[$i] . ".mp3", "q_conver" => $l15_G879_q_conver[$i], 'q_content' => null, 'a_content' => null, "background" => null],
+            ]);
 
             DB::table('ans_n_ques')->insert([
                 [
@@ -3453,11 +3441,9 @@ class AnsNQueSeeder extends Seeder
                 ]);
             }
 
-            foreach ($l18_G901_q_audio as $key => $val) {
-                DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 901, "q_audio" => $AudioDomain . $G4_L18_reading_passage_path . $val . ".mp3", "q_conver" => $l18_G901_q_conver[$key], 'q_content' => null, 'a_content' => null, "background" => null],
-                ]);
-            }
+            DB::table('ans_n_ques')->insert([
+                ['round' => $i + 1, 'game_id' => 901, "q_audio" => $AudioDomain . $G4_L18_reading_passage_path . $l18_G901_q_audio[$i] . ".mp3", "q_conver" => $l18_G901_q_conver[$i], 'q_content' => null, 'a_content' => null, "background" => null],
+            ]);
 
             DB::table('ans_n_ques')->insert([
                 [
@@ -3726,11 +3712,9 @@ class AnsNQueSeeder extends Seeder
                 ]);
             }
 
-            foreach ($l19_G911_q_audio as $key => $val) {
-                DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 911, "q_audio" => $AudioDomain . $G4_L19_reading_passage_path . $val . ".mp3", "q_conver" => $l19_G911_q_conver[$key], 'q_content' => null, 'a_content' => null, "background" => null],
-                ]);
-            }
+            DB::table('ans_n_ques')->insert([
+                ['round' => $i + 1, 'game_id' => 911, "q_audio" => $AudioDomain . $G4_L19_reading_passage_path . $l19_G911_q_audio[$i] . ".mp3", "q_conver" => $l19_G911_q_conver[$i], 'q_content' => null, 'a_content' => null, "background" => null],
+            ]);
 
             DB::table('ans_n_ques')->insert([
                 [
@@ -4388,11 +4372,9 @@ class AnsNQueSeeder extends Seeder
                 ]);
             }
 
-            foreach ($l22_G936_q_audio as $key => $val) {
-                DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 936, "q_audio" => $AudioDomain . $G4_L22_reading_passage_path . $val . ".mp3", "q_conver" => $l22_G936_q_conver[$key], 'q_content' => null, 'a_content' => null, "background" => null],
-                ]);
-            }
+            DB::table('ans_n_ques')->insert([
+                ['round' => $i + 1, 'game_id' => 936, "q_audio" => $AudioDomain . $G4_L22_reading_passage_path . $l22_G936_q_audio[$i] . ".mp3", "q_conver" => $l22_G936_q_conver[$i]],
+            ]);
 
             DB::table('ans_n_ques')->insert([
                 [
@@ -4775,11 +4757,9 @@ class AnsNQueSeeder extends Seeder
                 ]);
             }
 
-            foreach ($l24_G950_q_audio as $key => $val) {
-                DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 950, "q_audio" => $AudioDomain . $G4_L24_reading_passage_path . $val . ".mp3", "q_conver" => $l24_G950_q_conver[$key], 'q_content' => null, 'a_content' => null, "background" => null],
-                ]);
-            }
+            DB::table('ans_n_ques')->insert([
+                ['round' => $i + 1, 'game_id' => 950, "q_audio" => $AudioDomain . $G4_L24_reading_passage_path . $l24_G950_q_audio[$i] . ".mp3", "q_conver" => $l24_G950_q_conver[$i]],
+            ]);
 
             DB::table('ans_n_ques')->insert([
                 [
@@ -5143,11 +5123,9 @@ class AnsNQueSeeder extends Seeder
                 ]);
             }
 
-            foreach ($l38_G1050_q_audio as $key => $val) {
-                DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 1050, "q_audio" => $AudioDomain . $G4_L38_reading_passage_path . $val . ".mp3", "q_conver" => $l38_G1050_q_conver[$key]],
-                ]);
-            }
+            DB::table('ans_n_ques')->insert([
+                ['round' => $i + 1, 'game_id' => 1050, "q_audio" => $AudioDomain . $G4_L38_reading_passage_path . $l38_G1050_q_audio[$i] . ".mp3", "q_conver" => $l38_G1050_q_conver[$i]],
+            ]);
 
             DB::table('ans_n_ques')->insert([
                 [
@@ -5414,11 +5392,9 @@ class AnsNQueSeeder extends Seeder
                 ]);
             }
 
-            foreach ($l40_G1061_q_audio as $key => $val) {
-                DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 1061, "q_audio" => $AudioDomain . $G4_L40_reading_passage_path . $val . ".mp3", "q_conver" => $l40_G1061_q_conver[$key]],
-                ]);
-            }
+            DB::table('ans_n_ques')->insert([
+                ['round' => $i + 1, 'game_id' => 1061, "q_audio" => $AudioDomain . $G4_L40_reading_passage_path . $l40_G1061_q_audio[$i] . ".mp3", "q_conver" => $l40_G1061_q_conver[$i]],
+            ]);
 
             DB::table('ans_n_ques')->insert([
                 [
