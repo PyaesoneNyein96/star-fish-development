@@ -19,9 +19,11 @@ class AssessmentController extends Controller
 
         $token =  $request->header('token');
         $lessonId =  $request->header('finished_lesson');
-        $studentId = Student::where("token", $token)->first();
 
         if (!$token) return response()->json(['message' => 'Token is required.'], 403);
+        if (!$lessonId) return response()->json(['message' => 'finished_lesson field is required.'], 403);
+
+        $studentId = Student::where("token", $token)->first();
         if (!$studentId) return response()->json(['message' => 'Student Not Found.'], 404);
 
         $assesLessArray = [
