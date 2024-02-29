@@ -94,6 +94,11 @@ class GameController extends Controller
             ];
         });
 
+        // $data = [
+        //     'message' => "$request->message",
+        //     'data' => $studentGrade
+        // ];
+
 
         return $studentGrade;
     }

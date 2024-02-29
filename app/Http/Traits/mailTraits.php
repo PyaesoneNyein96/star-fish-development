@@ -8,15 +8,15 @@ use Illuminate\Support\Facades\Mail;
 
 trait mailTraits{
 
-    public function sendOtp($mail,$otp,$name){
 
+    // Register Confirmation Code send by Email
+    private function sendOtp($mail,$otp,$name){
         Mail::to($mail)->send(new OTPMail($otp, $name));
-
     }
 
-
-    public function sendConfirmationCodeByEmail($mail, $code, $name){
-        Mail::to($mail)->send(new ConfirmMail($otp, $name));
+    // Password Rest Confirmation Code send by Email
+    private function sendConfirmationCodeByEmail($mail, $code, $name){
+        Mail::to($mail)->send(new ConfirmMail($code, $name));
     }
 
 

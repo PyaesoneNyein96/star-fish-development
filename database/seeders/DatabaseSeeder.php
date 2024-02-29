@@ -57,6 +57,11 @@ class DatabaseSeeder extends Seeder
         // Student::factory(20)->create();
 
 
+
+        // App Versions
+
+
+
         $this->call(CountrySeeder::class);
         $this->call(CitySeeder::class);
         $this->call(SubscriptionPlanSeeder::class);

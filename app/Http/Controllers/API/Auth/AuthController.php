@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API\Auth;
 
 use App\Models\Country;
 use App\Models\Student;
+use App\Models\Version;
 use Tzsk\Otp\Facades\Otp;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ class AuthController extends Controller
 {
 
     use mailTraits;
+
 
     public function logout(Request $request){
 
@@ -152,33 +154,81 @@ class AuthController extends Controller
 
 
 
+
+    ///////////////////////////////////////////////////////////////////
     ///////////////////////// Auth Setting ////////////////////////////
+    ///////////////////////////////////////////////////////////////////
 
 
-    public function checkUser(Request $request){
+    public function sendConfirmCode(Request $request){
 
         $emailOrPhone = $request->emailOrPhone;
-        // return $emailOrPhone;
+        $student = $request->student; // student data from middleware
 
-        $student = Student::where('email',$emailOrPhone)
-        ->orWhere('phone',$emailOrPhone)
-        ->first();
+        if($student->isAuth == 1) return response()->json(['message' => "something wrong"], 403);
 
-        if(!$student || $student->isAuth == 1) return response()->json(['message' => "something wrong"], 403);
+        $code = Otp::digits(6)->expiry(3)->create($student->phone ? $student->phone : $student->email);
 
-        $code = Otp::digits(6)->expiry(3)->create($student->phone);
+        try {
 
-        if($student->isLocal == 1){
-            $this->sendConfirmationCodeByPhone($student->phone,$code);
-            return  [$student->phone,$code];
-        }else{
-            $this->sendConfirmationCodeByEmail($student->phone,$code,$student->name);
-            return  "email ok";
+            if($student->isLocal == 1){
+                $this->sendConfirmationCodeByPhone($student->phone,$code);
+            }else{
+                $this->sendConfirmationCodeByEmail($student->email,$code,$student->name);
+            }
+
+            return response()->json([
+                "message" => "Confirmation code is successfully delivered."
+            ], 200);
+
+        } catch (\Throwable $th) {
+             return response()->json(["message" => $th], 500);
         }
 
 
+    }
+
+
+
+    public function submitConfirmCode(Request $request){
+
+        $isAuth = Otp::digits(6)->expiry(3)->check($request->code, $request->emailOrPhone);
+
+        $data = [ 'message' => $isAuth == 1 ?  "success": "something wrong"];
+        if($isAuth) $data['userData'] = $request->student;
+
+        return response()->json($data, $isAuth == 1 ?  200 : 403);
 
     }
+
+
+    // set new-password for forgot password (isAuth == 0)
+
+    public function setNewPassword(Request $request){
+
+        $emailOrPhone = $request->emailOrPhone;
+        $new = $request->newPassword;
+        $confirm = $request->confirmPassword;
+
+        if($new !== $confirm) return response()->json(["message" => "Password do not match"], 403);
+
+        $update =  $request->student->update(['password' => Hash::make($confirm)]);
+
+        if($update) return response()->json(["message" => "successfully rest password"], 200);
+
+
+    }
+
+
+
+    public function enum(Request $request){
+
+        $vers =  Version::all();
+        return $vers;
+
+    }
+
+
 
 
 
@@ -198,11 +248,11 @@ class AuthController extends Controller
       private function sendConfirmationCodeByPhone($number,$code){
 
       $token = "2fgPBEjl53tg2FYT2XaoTe6t97XVtIwQW-lGnbVWA9duOb7P4zEcnc2Kt0z1Nerp";
-
         // Prepare data for POST request
         $data = [
             "to"        =>      $number,
-            "message"   =>      "StarfishApp: Do Not Share with Anyone. Your Confirmation code is ".$code ,
+            // "message"   =>      "StarfishApp: Do Not Share with Anyone. Your Confirmation code is ".$code ,
+            "message"   =>      "StarfishApp: Do Not Share with Anyone. Your password reset confirmation code is ".$code ,
             "sender"    =>      "StarfishApp"
         ];
 
@@ -218,8 +268,16 @@ class AuthController extends Controller
 
         $result = curl_exec($ch);
 
-
     }
+
+
+
+
+
+
+
+
+
 
 
 

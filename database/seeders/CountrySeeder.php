@@ -20,7 +20,7 @@ class CountrySeeder extends Seeder
             ['name' => 'Cambodia' ,'timezone' => 'Asia/Phnom_Penh'],
             ['name' => 'Laos' ,'timezone' => 'Asia/Vientiane'],
 
-            ['name' => 'Netherlands' ,'timezone' => 'Europe/Amsterdam'],
+            // ['name' => 'Netherlands' ,'timezone' => 'Europe/Amsterdam'],
         ]);
 
     }
