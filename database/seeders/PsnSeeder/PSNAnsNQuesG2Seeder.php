@@ -2956,7 +2956,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
            "10-bottles", "8-bottles", "1-bottle", "3-bottles", "4-bottles",
         ];
 
-        $Question_contents = "Look at the picture and speak.";
+        // $Question_contents = "Look at the picture and speak.";
+        $Question_contents = null;
 
         $audio = $AudioDomain."Grade_2/Lesson_37/Speak/";
         $img = $ImageDomain."Grade_2/Lesson_37/Speak/";
@@ -3389,11 +3390,16 @@ class PSNAnsNQuesG2Seeder extends Seeder
     ];
 
     $questions = [
-        "Look at the clock and speak the time, \n It is time to have breakfast",
-        "Look at the clock and speak the time",
-        "Look at the clock and speak the time",
-        "Look at the clock and speak the time",
-        "Look at the clock and speak the time",
+        // "Look at the clock and speak the time, \n It is time to have breakfast",
+        // "Look at the clock and speak the time",
+        // "Look at the clock and speak the time",
+        // "Look at the clock and speak the time",
+        // "Look at the clock and speak the time",
+        "It is time to have breakfast",
+        null,
+        null,
+        null,
+        null,
     ];
 
     $round_ins = "Look at the clock and speak the time";
