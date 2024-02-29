@@ -201,7 +201,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
         $questionContent = [
             "I can play hopscotch. Can you play it? Yes,I can.I Can play better than you.",
-            "I can play ___ . Can you play it? Yes,I can.I Can play jump rope --- than you.",
+            "I can play ___ . Can you play it? Yes,I can.I Can play jump rope ___ than you.",
             "I can  ___  English songs. Can you ___ ___ ___? Yes,I can.I Can sing English songs ___ ___ you.",
             "I can ___. Can you play it? Yes,I can. I can ___ ___ ___ than you.",
             "I can draw ___ . Can you ___ picture? Yes,I can. I can ___ ___ ___ than you."
@@ -336,7 +336,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 'q_image' => $img.$val.".png",
                 'q_audio' => $audio.$val.".mp3",
                 'q_content' => $ques[$key][0],
-                'q_conver'  =>  "What is it? \n Its a ___. ",
+                'q_conver'  =>  "What is it? \n It's a ___. ",
                 'a_content' => $ques[$key][0] == $val ? true : false
             ]
         ]);
@@ -554,12 +554,12 @@ class PSNAnsNQuesG2Seeder extends Seeder
             'What is it?',      // quail
             'What is your favorite food?', // Food
             'What is it?',          // rabbit
-            'Do you like rabbit',   // rabbit -like
-            'Can you draw a rocket?',
+            'Do you like rabbit ?',   // rabbit -like
+            'Can you draw a rocket ?',
 
-            'Can you draw ___? \n Yes,___ ___. No ___, ___.', //  Quail
-            'Do you like ___? \n Yes,______,No ___ ___.', // Raincoat
-            'Can you draw a rocket? \n Yes, I can.',  //rocket
+            "Can you draw ___? \n Yes,___ ___. No ___, ___.", //  Quail
+            "Do you like ___? \n Yes,______,No ___ ___.", // Raincoat
+            "Can you draw a rocket? \n Yes, I can.",  //rocket
         ];
 
 
@@ -698,8 +698,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
     $img = $ImageDomain."Grade_2/Lesson_25/Choose/";
 
     $second_q_contents = [
-        'The cat ___ the table.', 'The cow ___ the farm house.', 'The dog ___ the chair.',
-        'The rabbit ___ the bush.','The quail ___  the tree.','It is ___ the nest.',
+        'The cat is ___ the table.', 'The cow is ___ the farm house.', 'The dog is ___ the chair.',
+        'The rabbit is ___ the bush.','The quail ___  the tree.','It is ___ the nest.',
         'it is ___ the tree.'
     ];
 
@@ -1002,11 +1002,11 @@ class PSNAnsNQuesG2Seeder extends Seeder
     ];
 
     $Question_contents = [
-        "Look at the picture and speak. \n I live in   ___",
-        "Look at the picture and speak. \n My father is a  ___",
-        "Look at the picture and speak. \n He goes to school by ___",
-        "Look at the picture and speak. \n The school is ___ ths ___.",
-        "Look at the picture and speak. \n I have a  ___. It is white and fast.",
+        "I live in   ___",
+        "My father is a  ___",
+        "He goes to school by ___",
+        "The school is ___ ths ___.",
+        "I have a  ___. It is white and fast.",
         "Free practice, \n The rabbit is ___ the __now. \n I love it very much.",
     ];
 
@@ -1340,7 +1340,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     [
                         'round' => $i + 1,
                         'game_id' => 392,
-                        'q_audio' => $audios . str_replace(' ','-',strtolower($value)) . ".mp3",
+                        // 'q_audio' => $audios . str_replace(' ','-',strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $L32U5_given_q[$i][1] ? 1 : 0
                     ]
@@ -1928,7 +1928,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 'game_id' => 408,
                 'round' => $key + 1,
                 'round_instruction' => $audio."Look-at-this-picture-and-speak.mp3",
-                'q_content' => "Look at the picture and speak. \n " .$Question_contents[$key],
+                'q_content' => $Question_contents[$key], // updated
                 'q_audio' => $audio.$contents[$key].".mp3",
                 'q_image' => $img . $value . ".png",
             ]
@@ -2287,7 +2287,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
     ];
 
     $ans = [
-        "red  short", "black  cap", "friends"
+        "red short", "black cap", "friends"
     ];
 
 
