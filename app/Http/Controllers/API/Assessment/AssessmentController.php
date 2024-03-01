@@ -7,8 +7,10 @@ use App\Models\Assessment;
 use App\Models\AssessmentAnsNQues;
 use App\Models\AssessmentCategory;
 use App\Models\AssessmentFinishData;
+use App\Models\Certificate;
 use App\Models\Student;
 use App\Models\StudentLesson;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AssessmentController extends Controller
@@ -165,30 +167,7 @@ class AssessmentController extends Controller
                     }
                 }
 
-                // $checkStatus = AssessmentFinishData::where("student_id", $studentId)
-                //     ->where("assess_name", $data[0]->name)->where("grade_id", $assessment->grade_id)->first();
-
-
-                // if ($checkStatus) {
-                //     $addData = [
-                //         "game_" . $index => (int)$checkStatus["game_" . $index] + 1
-                //     ];
-
-                //     AssessmentFinishData::where("student_id", $studentId)
-                //         ->where("assess_name", $data[0]->name)->update($addData);
-
-                //     $recorded = $addData;
-                // } else {
-                //     $addData = [
-                //         "student_id" => $studentId,
-                //         "grade_id" => $assessment->grade_id,
-                //         "assess_name" => $data[0]->name,
-                //         "game_" . $index => 1,
-                //     ];
-                //     $recorded = AssessmentFinishData::create($addData);
-                // }
-
-                if ($point != null) {
+                if ($point) {
                     $oldPoint = Student::where('id', $studentId)->first();
                     $newPoint = $oldPoint->point + (int)$point;
                     $newFixPoint = $oldPoint->fixed_point + (int)$point;
@@ -242,10 +221,8 @@ class AssessmentController extends Controller
                     $recorded = [
                         "grade" => $assessment->grade_id,
                         "assess_name" => $data[0]->name,
-                        "point" => $newPoint
+                        "percentage" => $point
                     ];
-                    $recorded["point"] = $newPoint;
-
 
                     $assessGradeCheck = Assessment::select("name")->where("grade_id", $assessment->grade_id)->groupby("name")->get();
                     $isfinish = AssessmentFinishData::where("student_id", $studentId)->where("grade_id", $assessment->grade_id)->where("assess_name", count($assessGradeCheck))->first();
@@ -253,15 +230,23 @@ class AssessmentController extends Controller
                     if ($isfinish != null) {
                         $sum_point = 0;
                         $total_point = AssessmentFinishData::where("student_id", $studentId)->where("grade_id", $assessment->grade_id)->get();
-                        foreach ($total_point as $tp) $sum_point += $tp->point;
-                        $certificate = [
-                            "grade" => $assessment->grade_id,
-                            "total_point" => $sum_point
-                        ];
-                        $recorded["certification"] = $certificate;
-                    };
-                }
+                        foreach ($total_point as $tp) $sum_point += (int)$tp->point;
 
+                        $Stu = Student::find($studentId);
+                        $certi = [
+                            "student_id" => $Stu->id,
+                            "grade_id" => $assessment->grade_id,
+                            "total_percentage" => $sum_point,
+                        ];
+                        $certificate = Certificate::create($certi);
+
+                        $certificate["name"] = $Stu->name;
+                        $certificate["certificate_num"] =  str_pad($certificate->id, 7, '0', STR_PAD_LEFT);
+                        $certificate["date"] = Carbon::now()->format('d M Y');
+
+                        $recorded["certificate"] = $certificate;
+                    };
+                } else  return response()->json(['message' => 'Point field is required.'], 403);
 
                 return response()->json($recorded);
             }

@@ -10,10 +10,16 @@ class Certificate extends Model
     use HasFactory;
 
 
-    public function student(){
+    protected $fillable = [
+        'student_id',
+        'grade_id',
+        'total_percentage'
+    ];
+
+    protected $hidden = ['created_at', 'updated_at'];
+
+    public function student()
+    {
         return $this->belongsTo(Student::class);
     }
-
-
-
 }

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('percentage');
-            $table->integer('grade');
+            $table->integer('grade_id');
+            $table->integer('total_percentage');
             // $table->foreignId('grade_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
