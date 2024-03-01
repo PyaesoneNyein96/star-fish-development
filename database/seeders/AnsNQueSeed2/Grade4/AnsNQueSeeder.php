@@ -1992,15 +1992,15 @@ class AnsNQueSeeder extends Seeder
         // Game 853
         $G4_L12_Game853_Matching = [
 
+            'Fall', 'The hot season / Summer', "Rainy Season", 'Spring', 'The cold season / Winter',
             $l12_G853_image . 'fall.png', $l12_G853_image . 'spring.png', $l12_G853_image . 'winter.png', $l12_G853_image . 'rainy.png', $l12_G853_image . 'summer.png',
-            'Fall', 'The hot season / Summer', "Rainy Season", 'Spring', 'The cold season / Winter'
 
         ];
 
         $G4_L12_Game853_Matching_audio_ans = [
 
+            'fall-autumn', 'summer', 'the-rainy-season', 'spring', 'winter',
             'fall-autumn', 'spring', "winter", 'the-rainy-season', 'summer',
-            'fall-autumn', 'summer', 'the-rainy-season', 'spring', 'winter'
 
         ];
 
