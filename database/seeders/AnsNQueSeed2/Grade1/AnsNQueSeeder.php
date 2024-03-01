@@ -1011,15 +1011,15 @@ class AnsNQueSeeder extends Seeder
 
             [
                 'round' => 1, 'game_id' => 43, 'a_content' => "fan", 'q_image' => $l8G43image . "fan" . ".png",
-                'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "fan" . ".mp3", "background" => $l8G43image . "bg1.png"
+                'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "fan" . ".mp3", "background" => $l8G43image . "bg1.jpg"
             ],
             [
                 'round' => 1, 'game_id' => 43, 'a_content' => "air-con", 'q_image' => $l8G43image . "air-con" . ".png",
-                'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "air-con" . ".mp3", "background" => $l8G43image . "bg1.png"
+                'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "air-con" . ".mp3", "background" => $l8G43image . "bg1.jpg"
             ],
             [
                 'round' => 1, 'game_id' => 43, 'a_content' => "mat", 'q_image' => $l8G43image . "mat" . ".png",
-                'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "mat" . ".mp3", "background" => $l8G43image . "bg1.png"
+                'a_audio' => $AudioDomain . $G1_L8_listen_n_practice . "mat" . ".mp3", "background" => $l8G43image . "bg1.jpg"
             ],
 
 
