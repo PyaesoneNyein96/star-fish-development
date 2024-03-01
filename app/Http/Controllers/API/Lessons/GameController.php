@@ -127,33 +127,12 @@ class GameController extends Controller
                 'grade_id' => $lesson->grade_id,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
-                'allowed' => $index < 8 || ($index > $count * 8 - 1  ? false : true),
+                // 'allowed' => $index < 8 || ($index > $count * 8 - 1  ? false : true),
+                // 'complete' => $studentLessons->contains('id', $lesson->id) ? true : false,
             ];
 
 
         });
-
-        // $divided_lessons = array_chunk($lessons->toArray(), ceil(count($lessons) / 5));
-        // $divided_lessons = array_chunk($lessons->toArray(), 8);
-
-        // $data = [
-        //     "complete"  => [],
-        //     "in_complete" => [],
-        // ];
-
-        // foreach ($divided_lessons as $part) {
-
-        //     // $in_completes = collect($part)->pluck('complete')->contains(false);
-
-        //     // $data[$in_completes ? "in_complete" : "complete" ][] = $part;
-
-        //     if (collect($part)->pluck('complete')->contains(false)) {
-        //         $data['in_complete'][] = $part;
-        //     } else {
-        //         $data['complete'][] = $part;
-        //     }
-        // }
-
 
 
         return $lessons;

@@ -2237,34 +2237,73 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
     // Lesson -33 Unit -2 <Reading_conversation>
 
-    $chars = [
-      'Toe Toe','Moe Moe', 'Ni Ni', 'San San'
-    ];
+    // $chars = [
+    //   'Toe Toe','Moe Moe', 'Ni Ni', 'San San'
+    // ];
 
-    $main_conver = [
-        'Toe-Toe-conversation',
-        'Moe-Moe-conversation',
-        'Ni-Ni-conversation',
-        'San-San-conversation'
-    ];
+    // $main_conver = [
+    //     'Toe-Toe-conversation',
+    //     'Moe-Moe-conversation',
+    //     'Ni-Ni-conversation',
+    //     'San-San-conversation'
+    // ];
 
-    $images = $ImageDomain . "Grade_2/Lesson_33/Listen_and_Repeat/";
-    $audios = $AudioDomain . "Grade_2/Lesson_33/Listen_and_Repeat/";
+    // $images = $ImageDomain . "Grade_2/Lesson_33/Listen_and_Repeat/";
+    // $audios = $AudioDomain . "Grade_2/Lesson_33/Listen_and_Repeat/";
 
-    foreach ($chars as $key => $value) {
-        DB::table('ans_n_ques')->insert([
+    // foreach ($chars as $key => $value) {
+    //     DB::table('ans_n_ques')->insert([
 
-            [
-            'game_id' => 416,
-            'round' => $key + 1,
-            'a_image' =>  $images.str_replace(' ','-',$value).".gif",
-            'a_audio' => $audios.str_replace(' ','-',$value).".mp3",
-            'a_conver' => $images.$main_conver[$key].".png",
-            'background' => $images."bg".$key + 1 .".png",
-            ]
+    //         [
+    //         'game_id' => 416,
+    //         'round' => $key + 1,
+    //         'a_image' =>  $images.str_replace(' ','-',$value).".gif",
+    //         'a_audio' => $audios.str_replace(' ','-',$value).".mp3",
+    //         'a_conver' => $images.$main_conver[$key].".png",
+    //         'background' => $images."bg".$key + 1 .".png",
+    //         ]
 
-        ]);
+    //     ]);
 
+    // }
+///////////////////////////////
+
+
+        $chars = [
+            ['Toe-Toe','Moe-Moe','Ni-Ni'],
+            ['Moe-Moe','Toe-Toe','Ni-Ni'],
+            ['Ni-Ni','Moe-Moe','Toe-Toe'],
+            ['San-San','Toe-Toe','Moe-Moe','Ni-Ni'],
+        ];
+
+
+        $convers = [ // စာ-ပုံ
+            ['Toe-Toe-conversation',null,null],
+            ['Moe-Moe-conversation',null,null],
+            ['Ni-Ni-conversation',null,null],
+            ['San-San-conversation','Toe-Toe','Moe-Moe','Ni-Ni'],
+        ];
+
+        $images = $ImageDomain . "Grade_2/Lesson_33/Listen_and_Repeat/";
+        $audios = $AudioDomain . "Grade_2/Lesson_33/Listen_and_Repeat/";
+
+
+        foreach ($chars as $key => $char) {
+
+        foreach ($char as $k => $v) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 416,
+                        'round' => $key + 1,
+                        'a_image' => $images.$v.".gif",
+                        'a_audio' => $convers[$key][$k] ? $audios.$convers[$key][$k].".mp3" : null,
+                        'a_conver' => $convers[$key][$k] ? $images.$convers[$key][$k].".png" : null,
+                        "background" => $images."bg.png"
+                    ]
+                ]);
+
+        }
     }
 
 
@@ -3336,7 +3375,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
     /////////////////
 
-         $chars = [
+        $chars = [
             ['teacher','boy','girl'],
             ['teacher','boy','girl'],
             ['boy','girl'],

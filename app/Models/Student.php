@@ -86,6 +86,10 @@ class Student extends Model
         return $this->belongsToMany(Game::class, 'student_games', 'student_id', 'game_id');
     }
 
+    public function certificates(){
+        return $this->hasMany(Certificate::class);
+    }
+
 
 
 

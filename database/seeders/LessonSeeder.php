@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -57,16 +58,30 @@ class LessonSeeder extends Seeder
         }
 
 
-            $lessons =  range(1,16);
-            foreach ($lessons as $l) {
-                DB::table('student_lessons')->insert([
-                    [
-                        'student_id' => 1,
-                        'grade_id' => 1,
-                        'lesson_id' => $l,
-                    ]
-                ]);
-            }
+
+
+        /////////////////
+
+        $lessons =  range(2,40);
+        foreach ($lessons as $l) {
+            DB::table('student_lessons')->insert([
+                [
+                    'student_id' => 1,
+                    'grade_id' => 1,
+                    'lesson_id' => $l,
+                ]
+            ]);
+        }
+
+        //  DB::table('student_grades')->insert([
+        //         [
+        //             'student_id' => 1,
+        //             'grade_id' => 1,
+        //             'subscription_id' => 1,
+        //             'subscription_id' => Carbon::now()->addYears(1),
+        //             'isDone' => 0,
+        //         ]
+        //     ]);
 
 
 
