@@ -117,18 +117,28 @@ class GameController extends Controller
         $assessments = AssessmentFinishData::where('student_id',$student->id)
         ->where('grade_id',$grade)->select('student_id','grade_id','assess_name','finish')->get();
 
-        $count = $assessments->count() + 1;
+        $count = $assessments->count();
 
+        $ls_count = StudentLesson::where('student_id', $student->id)->where('grade_id',$grade)->get();
 
-        $lessons = $allLessons->map(function ($lesson, $index) use ($studentLessons, $grade, $count) {
+        $lessons = $allLessons->map(function ($lesson, $index) use ($studentLessons, $grade, $count, $ls_count) {
+
+            $complete = $studentLessons->contains('id', $lesson->id) || $index  == $ls_count->count()  ? true : false;
+            $cond = $count;
 
             return [
                 'id' => $lesson->id,
                 'grade_id' => $lesson->grade_id,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
-                // 'allowed' => $index < 8 || ($index > $count * 8 - 1  ? false : true),
-                // 'complete' => $studentLessons->contains('id', $lesson->id) ? true : false,
+                'allowed' => $complete || ($index > $count * 8 - 1  ? false : true),
+
+                // 'complete_and_pre' => $complete,
+                // 'assessment' =>  floor(($ls_count->count())/ 8 ),
+                // 'assessment_1' =>  $ls_count->count(),
+                // 'count' =>  $ls_count->count(),
+                // 'status' => floor(($count)/ 8 ) !== $count && $complete
+
             ];
 
 
