@@ -1475,7 +1475,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
 
-    // Unit - 3 Speaking <Speaking_and_recording>
+    // Unit - 4 Speaking <Speaking_and_recording>
 
         $contents = [
             "pink-coat", "jeans", "black-coat", "yellow-skirt", "blue-shirt", "white-shirt",
@@ -1512,7 +1512,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
 
-    // Unit - 4 Listening
+    // Unit - 5 Listening
 
 
     $images = $ImageDomain . "Grade_4/Lesson_26/Listen/";
@@ -1558,7 +1558,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
 
-        ////  Unit 5 (Reading) < reading_passage >
+        ////  Unit 6 (Reading) < reading_passage >
 
 
         $images = $ImageDomain . "Grade_4/Lesson_26/Reading/";
@@ -1631,7 +1631,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
 
-        /// Unit 7 Speaking Topic <speaking_and_recording>
+        /// Unit 6 Speaking Topic <speaking_and_recording>
 
 
         $images = $ImageDomain . "Grade_4/Lesson_26/Speaking_Topic/";
@@ -2397,11 +2397,11 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
     $Question_contents = [
         "What do you usually have for breakfast? \n I usually have fried rice and coffee.",
-        "What do you usually have for breakfast? \n -------------.",
-        "What do you usually have for breakfast? \n -------------.",
-        "What do you usually have for lunch? \n -------------.",
-        "What do you usually have for lunch? \n -------------.",
-        "What do you usually have for dinner? \n -------------.",
+        "What do you usually have for breakfast? \n ________.",
+        "What do you usually have for breakfast? \n ________.",
+        "What do you usually have for lunch? \n ________.",
+        "What do you usually have for lunch? \n ________.",
+        "What do you usually have for dinner? \n ________.",
         // "What do you usually have for breakfast? \n -------------.",
     ];
 
@@ -2797,9 +2797,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         $given_answer = [
             ['Milk', 'A secret ingredient','An extra ingredient'],
-            ['Yes,he does', "No,he doesn't"],
+            ['Yes, he does', "No, he doesn't"],
             ['Broccoli', 'Carrot', 'Butternut'],
-            ['Yes,he does', "No, he does'nt"],
+            ['Yes, he does', "No, he doesn't"],
             ['To eat more pancake', 'To eat more veggies','To eat chocolate more'],
             ['chocolate', 'Carrot', 'Pancakes'],
         ];
@@ -3121,7 +3121,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             ['S','E','A','P','N','U','T'],
             ['U','P','D','I','N','G','D'],
             ['K','I','N','P','M','U','P'],
-            ['L','O','N','E','R','W','A','M','T'],
+            ['L','O','N','E','E','R','W','A','M','T'],
             ['E','C','E','A','R','L'],
             ['A','N','A','A','A','B','N'],
         ];
