@@ -4065,7 +4065,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
     // Lesson 35 Unit - 2 Spelling Game <rearrange_with_audio>
 
         $v = [
-            ['INDGINBETALN'],
+            ['INDGINBETAL'],
             ['NGOPHSIPCRENTE'],
             ['TASFDOOF'],
             ['CNIEAPISEC'],
@@ -4085,7 +4085,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         $audio = $AudioDomain . "Grade_4/Lesson_35/Spelling_Game/";
 
         $answers = [
-            'DINNING TABLE','SHOPPING CENTER', 'FAST FOOD', 'PENCIL CASE', 'TEXT MESSAGE', 'ORANGE JUICE'
+            'DINING TABLE','SHOPPING CENTER', 'FAST FOOD', 'PENCIL CASE', 'TEXT MESSAGE', 'ORANGE JUICE'
         ];
 
 
