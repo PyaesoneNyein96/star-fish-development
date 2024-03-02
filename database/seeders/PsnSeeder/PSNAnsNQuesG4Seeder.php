@@ -3123,7 +3123,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             ['K','I','N','P','M','U','P'],
             ['L','O','N','E','E','R','W','A','M','T'],
             ['E','C','E','A','R','L'],
-            ['A','N','A','A','A','B','N'],
+            ['A','N','A','A','B','N'],
         ];
 
         $img = $ImageDomain . "Grade_4/Lesson_32/Spelling_Game/";
