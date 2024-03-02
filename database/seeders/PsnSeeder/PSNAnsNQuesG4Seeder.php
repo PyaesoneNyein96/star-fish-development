@@ -4108,7 +4108,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     'q_image' => $img . ucfirst(strtolower($this->removeSpace($answers[$i]))) . ".png",
                     // 'q_content' => $questions[$i],
                     'a_audio' => $audio . ucfirst(strtolower($this->removeSpace($answers[$i]))) . ".mp3",
-                    'a_content' => $answers[$i],
+                    'a_content' =>str_replace(' ','', $answers[$i]),
                 ]
             ]);
         }
