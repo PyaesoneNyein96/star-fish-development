@@ -4065,7 +4065,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
     // Lesson 35 Unit - 2 Spelling Game <rearrange_with_audio>
 
         $v = [
-            ['INDGINBETAL'],
+            ['INDGINBETALN'],
             ['NGOPHSIPCRENTE'],
             ['TASFDOOF'],
             ['CNIEAPISEC'],
