@@ -4068,7 +4068,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             ['INDGINBETAL'],
             ['NGOPHSIPCRENTE'],
             ['TASFDOOF'],
-            ['CNIEAPISEC'],
+            ['CNIEAPLSEC'],
             ['TTXESEMEGAS'],
             ['AGNEROICUEJ'],
         ];
