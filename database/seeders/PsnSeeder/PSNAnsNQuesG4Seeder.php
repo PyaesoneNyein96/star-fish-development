@@ -3475,12 +3475,12 @@ class PSNAnsNQuesG4Seeder extends Seeder
     // Lesson 33 Unit 2 Sub - 2 Listen and Repeat 2 <reading_conversation> (single)
 
        $chars = [
-            ['dad'],
+            ['dad','boy'],
             ['boy'],
             ['boy'],
             ['boy'],
             ['boy'],
-            ['boy'],
+            ['boy','girl'],
 
         ];
 
@@ -3524,6 +3524,47 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
             }
     }
+
+    //////////////////////////888888888888888888888/////////////////////////
+
+//     $chars = [
+//         ['boy','girl'],
+//         ['boy','girl'],
+//     ];
+
+
+//     $convers = [
+//         ["What-food","pizza"],
+//         ['puri', null],
+//     ];
+
+//     $convers_audio = [
+//         ["what-ur-favorite-food", "noodle"],
+//         ['Why', "good-for-energy"],
+//     ];
+
+//     $audio = $AudioDomain."Grade_4/Lesson_30/Listen_and_Repeat_2/";
+//     $img = $ImageDomain."Grade_4/Lesson_30/Listen_and_Repeat_2/";
+
+
+//     foreach ($chars as $key => $char) {
+
+//     foreach ($char as $k => $v) {
+
+//             DB::table('ans_n_ques')->insert([
+//                 [
+//                     'game_id' => 995,
+//                     'round' => $key + 1,
+//                     'a_image' => $img.$v.".gif",
+//                     'a_audio' => $convers_audio[$key][$k] ? $audio.$convers_audio[$key][$k].".mp3" : null,
+//                     'a_conver' => $convers[$key][$k] ? $img.$convers[$key][$k].".png" : null,
+//                     "background" => $img."bg.png"
+//                 ]
+//             ]);
+
+//     }
+// }
+    //////////////////////////888888888888888888888/////////////////////////
 
 
     // Lesson 33  Unit - 3 Practice <Matching_column>
