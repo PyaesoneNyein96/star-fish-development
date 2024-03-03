@@ -583,7 +583,7 @@ class AnsNQueSeeder extends Seeder
         $l4_G483image = $domain . "/storage/images/Grade_3/lesson_4/Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 483, "q_image" => $l4_G483image . "green-star.png", "q_audio" => $AudioDomain . $G3_L3_speaking . "SubBlock_Describe-your-family-members" . ".mp3", "round_instruction" => $AudioDomain . $G3_L3_speaking . "SubBlock_Describe-your-family-members" . ".mp3", "q_content" => "Describe your family members? \nWhat are they? \nWhat are they like? What do they look like?"],
+            ['round' => 1, 'game_id' => 483, "q_image" => $l4_G483image . "green-star.png", "q_audio" => $AudioDomain . $G3_L4_speaking . "SubBlock_Describe-your-family-members" . ".mp3", "round_instruction" => $AudioDomain . $G3_L4_speaking . "SubBlock_Describe-your-family-members" . ".mp3", "q_content" => "Describe your family members? \nWhat are they? \nWhat are they like? What do they look like?"],
         ]);
 
 
@@ -680,7 +680,7 @@ class AnsNQueSeeder extends Seeder
             ["E", "P", "G", "G", "T", "N", "A", "L"],
             ["P", "Y", "A", "A", "A", "P"],
             ["A", "G", "E", "B", "B", "C", "A"],
-            ["O", "O", "T", "A", "P", "O"],
+            ["O", "O", "T", "A", "P", "T"],
 
 
         ];
@@ -788,8 +788,8 @@ class AnsNQueSeeder extends Seeder
             ['round' => 3, 'game_id' => 490,  'q_audio' =>  null, "q_content" => "mango", "a_content" => 0],
             ['round' => 3, 'game_id' => 490,  'q_audio' =>  null, "q_content" => "potato", "a_content" => 1],
 
-            ['round' => 4, 'game_id' => 490,  'q_audio' =>  $AudioDomain . $G3_L5_listening . "asporagus" . ".mp3", "q_content" => "asporagus", "a_content" => 0],
-            ['round' => 4, 'game_id' => 490,  'q_audio' =>  null, "q_content" => "mango", "a_content" => 1],
+            ['round' => 4, 'game_id' => 490,  'q_audio' =>  $AudioDomain . $G3_L5_listening . "asporagus" . ".mp3", "q_content" => "asporagus", "a_content" => 1],
+            ['round' => 4, 'game_id' => 490,  'q_audio' =>  null, "q_content" => "mango", "a_content" => 0],
             ['round' => 4, 'game_id' => 490,  'q_audio' =>  null, "q_content" => "strawberry", "a_content" => 0],
             ['round' => 4, 'game_id' => 490,  'q_audio' =>  null, "q_content" => "tomato", "a_content" => 0],
 
@@ -1118,7 +1118,7 @@ class AnsNQueSeeder extends Seeder
             ["P", "E", "N", "H", "A", "S", "R", "E", "R"],
             ["O", "B", "E", "G", "L"],
             ["K", "E", "S", "D"],
-            ["S", "E", "B", "O", "O", "G", "C", "A"],
+            ["S", "E", "B", "O", "O",  "C", "A", "K"],
             ["S", "E", "C", "A", "C", "I", "L", "P", "E", "N"],
             ["R", "E", "E", "A", "S", "R"],
             ["N", "E", "S", "H", "L", "G", "I"],
@@ -1236,7 +1236,7 @@ class AnsNQueSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 507, 'round' => 1, 'q_content' => $G3_L7_Game507_Matching_ans[$key],
-                    'q_image' => strtolower($value), 'q_audio' => $AudioDomain . $G3_L7_Matching .  strtolower($G3_L7_Game507_Matching_audio[$key]) . ".mp3",
+                    'q_image' => $value, 'q_audio' => $AudioDomain . $G3_L7_Matching .  strtolower($G3_L7_Game507_Matching_audio[$key]) . ".mp3",
                 ]
             ]);
         }
@@ -1250,7 +1250,7 @@ class AnsNQueSeeder extends Seeder
         $l7_G508image = $domain . "/storage/images/Grade_3/lesson_7/speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 508, 'q_image' => $l7_G508image . "green-star.png", "q_content" => "What is your favorite subjects? \nWhat subjects don't you like?", "round_instruction" => $AudioDomain . $G3_L7_practice_speaking . "SubBlock_what-is-your-favourite-subject.mp3", "q_audio" => $AudioDomain . $G3_L7_practice_speaking . "SubBlock_what-is-your-favourite-subject.mp3"],
+            ['round' => 1, 'game_id' => 508, 'q_image' => $l7_G508image . "green-star.png", "q_content" => "What is your favorite subjects? \nWhat subjects don't you like?", "round_instruction" => $AudioDomain . $G3_L7_speaking . "SubBlock_what-is-your-favourite-subject.mp3", "q_audio" => $AudioDomain . $G3_L7_speaking . "SubBlock_what-is-your-favourite-subject.mp3"],
         ]);
 
 
@@ -2029,7 +2029,7 @@ class AnsNQueSeeder extends Seeder
         $q536 = [
 
             ["C", "T", "A"],
-            ["S", "R", "U", "I", "R", "Q", "E", "N"],
+            ["S", "R", "U", "I", "R", "Q", "E", "L"],
             ["I", "F", "G", "D", "H", "O", "S", "L"],
             ["P", "T", "A", "R", "O",  "R"],
             ["T", "R", "O", "T", "O", "E", "S", "I"],
@@ -2207,7 +2207,7 @@ class AnsNQueSeeder extends Seeder
         $q_G543 = [
 
             ["A", "E", "S", "L"],
-            ["L", "O", "F", "F", "B", "U", "A", "C"],
+            ["L", "O", "F", "F", "B", "U", "A"],
             ["E", "E", "C", "H", "T", "A", "H"],
             ["N", "I", "L",  "O"],
             ["A", "N", "P", "D", "A"],
@@ -2257,7 +2257,7 @@ class AnsNQueSeeder extends Seeder
 
             ["monkeys", "Do", "bananas", "like", "?"],
             ["the zebra", "Does", "fruit", "eat", "?"],
-            ["Hippos", "a sleep", "do", "like", "after lunch", "?"],
+            ["hippos", "a sleep", "do", "like", "after lunch", "?"],
             ["the seal", "swimming", "does", "?", "like"],
             ["cats", "a lot", "sleeping", "Do", "like", "?"],
             ["bamboo", "the panda", "like", "Does", "?"],
@@ -2267,7 +2267,7 @@ class AnsNQueSeeder extends Seeder
         ];
 
         $a_G544 = [
-            "Do monkeys like babanas ?",
+            "Do monkeys like bananas ?",
             "Does the zebra eat fruit ?",
             "Do hippos like a sleep after lunch ?",
             "Does the seal like swimming ?",
@@ -2461,8 +2461,8 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 3  Lesson 13 Game 552  (  Practice  )
         ////////////////////////////////////////////////////////
 
-        $G3_L13_learning_practice = "Grade_3/" . "Lesson_12/" . "learning_practice/";
-        $l13_G552_image = $domain . "/storage/images/Grade_3/lesson_12/learning_practice/";
+        $G3_L13_learning_practice = "Grade_3/" . "Lesson_13/" . "learning_practice/";
+        $l13_G552_image = $domain . "/storage/images/Grade_3/lesson_13/learning_practice/";
 
 
         $q_G552 = [
@@ -2470,15 +2470,15 @@ class AnsNQueSeeder extends Seeder
             ["the", "Where's", "book?", "under", "table.", "It's",  "the"],
             ["the", "Where's", "cat?", "sofa.",   "It's", "the", "on"],
             ["Where", "the", "is", "lamp?", "on", "desk", "It's", "the", "table."],
-            ["sofa?", "Where's", "the", "next", "to", "It's", "table.", "the            "],
+            ["sofa?", "Where's", "the", "next", "to", "It's", "table.", "the"],
 
         ];
 
         $a_G552 = [
-            "Where is the book? It's under the table.",
-            "Where is the cat? It's on the sofa.",
+            "Where's the book? It's under the table.",
+            "Where's the cat? It's on the sofa.",
             "where is the lamp? It's on the table.",
-            "Where is the sofa? It's next to the table.",
+            "Where's the sofa? It's next to the table.",
         ];
 
         $audio_img_G552 = [
@@ -2490,7 +2490,7 @@ class AnsNQueSeeder extends Seeder
         for ($i = 0; $i < count($q_G552); $i++) {
             foreach ($q_G552[$i] as $j) {
                 DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 552, 'q_content' => $j, 'q_audio' => $AudioDomain . $G3_L13_learning_practice . strtoupper($j) . ".mp3"],
+                    ['round' => $i + 1, 'game_id' => 552, 'q_content' => $j],
                 ]);
             }
             DB::table('ans_n_ques')->insert([
@@ -2638,7 +2638,7 @@ class AnsNQueSeeder extends Seeder
             ["E", "S", "D", "F", "O", "O", "A"],
             ["T", "E", "K", "A", "S"],
             ["M", "U", "R", "G", "E", "A", "B", "H", "R"],
-            ["D", "E", "I", "F", "R", "C", "K", "C", "I", "E", "N"],
+            ["D", "E", "I", "F", "R", "C", "K", "C", "I", "E", "N", "H"],
             ["A", "E", "R", "E", "D"],
             ["T", "E", "S",  "W"],
             ["G", "O", "R", "H", "U", "Y", "T"],
@@ -2959,14 +2959,14 @@ class AnsNQueSeeder extends Seeder
         for ($i = 0; $i < count($q_G567); $i++) {
             foreach ($q_G567[$i] as $j) {
                 DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 567, 'q_content' => $j, 'q_audio' => $AudioDomain . $G3_L15_learning_practice . strtoupper($j) . ".mp3"],
+                    ['round' => $i + 1, 'game_id' => 567, 'q_content' => $j],
                 ]);
             }
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1, 'game_id' => 567,
                     'q_image' => $l15_G567_image . str_replace(' ', '', strtolower($audio_img_G567[$G567_Index])) . ".png",
-                    'a_audio' => $AudioDomain . $G3_L9_language_n_practice . strtolower($audio_img_G567[$G567_Index]) . ".mp3",
+                    'a_audio' => $AudioDomain . $G3_L15_learning_practice . strtolower($audio_img_G567[$G567_Index]) . ".mp3",
                     'a_content' => $a_G567[$G567_Index],
                 ],
             ]);
@@ -3363,7 +3363,7 @@ class AnsNQueSeeder extends Seeder
                 [
                     'round' => $i + 1, 'game_id' => 581,
                     "q_image" => $l17_G581_image . $g3_l17_Game581_fill_audio_img[$i] . ".png",
-                    'q_audio' => $AudioDomain . $G3_L17_write_color . "balloon.mp3",
+                    // 'q_audio' => $AudioDomain . $G3_L17_write_color . "balloon.mp3",
                     'q_content' => $g3_l17_Game581_fill_q2[$i],
                     'a_content' => $g3_l17_Game581_fill_a[$i]
                 ],
@@ -3998,7 +3998,7 @@ class AnsNQueSeeder extends Seeder
             ["r", "u", "d", "g", "t", "s", "r", "e", "o"],
             ["f", "a", "c", "e", "r", "i", "a", "t", "e"],
             ["b", "o", "k", "o", "t", "s", "r", "e", "o"],
-            ["a", "r", "b",  "e", "r", "o", "p", "s", "h"],
+            ["a", "r", "b",  "e", "r", "o", "p", "b", "s", "h"],
             ["b", "e", "k", "a", "y", "r"],
             ["t", "d", "l", "u", "n", "d", "r", "o", "a", "m"],
             ["o", "o", "s", "c", "h", "l"],

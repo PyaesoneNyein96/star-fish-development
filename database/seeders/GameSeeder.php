@@ -1162,7 +1162,7 @@ class GameSeeder extends Seeder
 
             ['name' => 'Video', 'unit_id' => 559, 'category_id' => 1, "instructionGIF" => null],
             ['name' => 'Listen and Repeat', 'unit_id' => 560, 'category_id' => 2, "instructionGIF" => null],
-            ['name' => 'Listen and Repeat', 'unit_id' => 560, 'category_id' => 14, "instructionGIF" => $Gif_path . "Re-arrange-in-order.gif"],
+            ['name' => 'Listen and Repeat', 'unit_id' => 560, 'category_id' => 10, "instructionGIF" => $Gif_path . "Re-arrange-in-order.gif"],
             ['name' => 'practice', 'unit_id' => 561, 'category_id' => 40, "instructionGIF" => null],
             ['name' => 'Listen', 'unit_id' => 562, 'category_id' => 39, "instructionGIF" => $Gif_path .  "Listen-and-choose-correct.gif"],
             ['name' => 'Speaking', 'unit_id' => 563, 'category_id' => 11, "instructionGIF" =>  $Gif_path . "Speaking.gif"],
@@ -1428,7 +1428,7 @@ class GameSeeder extends Seeder
 
             ['name' => 'Video', 'unit_id' => 716, 'category_id' => 1, "instructionGIF" => null],
             ['name' => 'Listen and Repeat', 'unit_id' => 717, 'category_id' => 2, "instructionGIF" => null],
-            ['name' => 'Spelling Game', 'unit_id' => 718, 'category_id' => 50, "instructionGIF" => $Gif_path . "Re-arrange-in-order.gif"],
+            ['name' => 'Spelling Game', 'unit_id' => 718, 'category_id' => 14, "instructionGIF" => $Gif_path . "Re-arrange-in-order.gif"],
             ['name' => 'Practice', 'unit_id' => 719, 'category_id' => 51, "instructionGIF" => null],
             ['name' => 'Listen and Repeat', 'unit_id' => 720, 'category_id' => 8, "instructionGIF" => $Gif_path . "Conversation.gif"],
             ['name' => 'Speaking Practice ( A )', 'unit_id' => 721, 'category_id' => 11, "instructionGIF" =>  $Gif_path . "Speaking.gif"],
@@ -1556,7 +1556,7 @@ class GameSeeder extends Seeder
             // // G4 lesson 12
             ['name' => 'Video', 'unit_id' => 802, 'category_id' => 1, "instructionGIF" => null],
             ['name' => 'Listen and Repeat', 'unit_id' => 803, 'category_id' => 2, "instructionGIF" => null],
-            ['name' => 'Matching ( 1 )', 'unit_id' => 804, 'category_id' => 7, "instructionGIF" => $Gif_path . "Matching.gif"],
+            ['name' => 'Matching ( 1 )', 'unit_id' => 804, 'category_id' => 37, "instructionGIF" => $Gif_path . "Matching.gif"],
             ['name' => 'Matching ( 2 )', 'unit_id' => 804, 'category_id' => 59, "instructionGIF" => $Gif_path . "Matching.gif"],
             ['name' => 'Speaking Practice', 'unit_id' => 805, 'category_id' => 11, "instructionGIF" => $Gif_path . "Speaking.gif"],
             ['name' => 'Listening', 'unit_id' => 806, 'category_id' => 39, "instructionGIF" =>  $Gif_path .  "Listen-and-choose-correct.gif"],
