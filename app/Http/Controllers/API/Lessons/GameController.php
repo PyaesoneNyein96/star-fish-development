@@ -120,24 +120,24 @@ class GameController extends Controller
         $count = $assessments->count();
 
         $ls_count = StudentLesson::where('student_id', $student->id)->where('grade_id',$grade)->get();
+        $ls_count = $ls_count->count();
 
         $lessons = $allLessons->map(function ($lesson, $index) use ($studentLessons, $grade, $count, $ls_count) {
 
-            $complete = $studentLessons->contains('id', $lesson->id) || $index  == $ls_count->count()  ? true : false;
-            $cond = $count;
+            $complete = $studentLessons->contains('id', $lesson->id) || $index  == $ls_count ? true : false;
 
             return [
                 'id' => $lesson->id,
                 'grade_id' => $lesson->grade_id,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
-                'allowed' => $complete || ($index > $count * 8 - 1  ? false : true),
+                // 'allowed' => $complete || ($index > $count * 8 - 1  ? false : true),
+                // 'index_cutter' => ($index + 1) == $count * 8 ||  ($complete || ($index > $count * 8 - 1  ? false : true)),
+                // 'index' => floor($index / 8),
+                // 'ls' => floor($ls_count / 8 ),
+                // 'status' => floor($ls_count / 8 ) ==  floor($count / 8) ? $complete || ($index > $count * 8 - 1  ? false : true) : ($index + 1) == $count * 8 ||  ($complete || ($index > $count * 8 - 1  ? false : true)),
 
-                // 'complete_and_pre' => $complete,
-                // 'assessment' =>  floor(($ls_count->count())/ 8 ),
-                // 'assessment_1' =>  $ls_count->count(),
-                // 'count' =>  $ls_count->count(),
-                // 'status' => floor(($count)/ 8 ) !== $count && $complete
+
 
             ];
 
@@ -151,6 +151,48 @@ class GameController extends Controller
 
 
     }
+
+
+    //======================================================================================//
+    // public function lessons(Request $request)
+    // {
+    //     $token = $request->header('token');
+    //     $gradeId = $request->header('grade_id');
+
+    //     $student = Student::where('token', $token)->first();
+
+    //     if (!$student || !$student->grades) {
+    //         return response()->json(['error' => 'Student not found or missing grades'], 404);
+    //     }
+
+    //     $allLessons = Lesson::where('grade_id', $gradeId)->get();
+    //     $studentLessons = $student->lessons;
+
+    //     $assessments = AssessmentFinishData::where('student_id', $student->id)
+    //         ->where('grade_id', $gradeId)
+    //         ->select('student_id', 'grade_id', 'assess_name', 'finish')
+    //         ->get();
+
+    //     $completedAssessmentCount = $assessments->count();
+
+    //     $lessons = $allLessons->map(function ($lesson, $index) use ($studentLessons, $completedAssessmentCount) {
+    //         $isLessonCompleted = $studentLessons->contains('id', $lesson->id);
+    //         $isAllowed = $index === 0 || $isLessonCompleted || $completedAssessmentCount >= $index;
+
+    //         return [
+    //             'id' => $lesson->id,
+    //             'grade_id' => $lesson->grade_id,
+    //             'name' => $lesson->name,
+    //             'complete' => $isLessonCompleted,
+    //             'allowed' => $isAllowed,
+    //         ];
+    //     });
+
+    //     return response()->json(['lessons' => $lessons]);
+    // }
+
+
+    //======================================================================================//
 
 
     public function games(Request $request) // Units

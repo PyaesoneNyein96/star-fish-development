@@ -61,7 +61,7 @@ class LessonSeeder extends Seeder
 
         /////////////////
 
-        $lessons =  range(3,40);
+        $lessons =  range(1,16);
         foreach ($lessons as $l) {
             DB::table('student_lessons')->insert([
                 [
@@ -72,15 +72,15 @@ class LessonSeeder extends Seeder
             ]);
         }
 
-        //  DB::table('student_grades')->insert([
-        //         [
-        //             'student_id' => 1,
-        //             'grade_id' => 1,
-        //             'subscription_id' => 1,
-        //             'subscription_id' => Carbon::now()->addYears(1),
-        //             'isDone' => 0,
-        //         ]
-        //     ]);
+         DB::table('assessment_finish_data')->insert([
+                [
+                    'student_id' => 1,
+                    'grade_id' => 1,
+                    'assess_name' => 1,
+                    'point' => 1,
+                    'finish' => 1,
+                ]
+            ]);
 
 
 
