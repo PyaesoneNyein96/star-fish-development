@@ -3446,7 +3446,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         // Lesson 33 Unit 2 Sub - 2 Listen and Repeat 2 <reading_conversation> (single)
 
        $chars = [
-            ['dad','boy'],
+            ['boy','dad'],
             ['boy'],
             ['boy'],
             ['boy'],
@@ -3457,16 +3457,16 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         $convers = [
-            [null, "boy.png"],
-            ["boy.png", null],
-            ["boy.png", null],
-            ['boy.png', null],
-            ["boy.png", null],
-            ["boy.png", null]
+            ["boy-dad.png", null],
+            ["boy-bro.png", null],
+            ["boy-fire.png", null],
+            ['boy-festival.png', null],
+            ["boy-birthday.png", null],
+            ["boy-art.png", null]
         ];
 
         $convers_audio = [
-            [null, 'listen.mp3'],
+            ['listen.mp3', null],
             ['football.mp3', null],
             ['firework.mp3', null],
             ['festival.mp3', null],
@@ -4256,8 +4256,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     'game_id' => 1032,
                     'round' => $key + 1,
                     'q_audio' => $audio . $this->removeSpace($ques_audio[$key]) . ".mp3",
-                    'q_content' => $given_ques[$key][0],
-                    'q_conver'  => $val . "?",
+                    // 'q_content' => $given_ques[$key][0],
+                    'q_content'  => $val . "?",
                     'a_content' => $full_ans[$key]
                 ]
             ]);

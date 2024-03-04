@@ -28,7 +28,7 @@ class StudentSeeder extends Seeder
                 'city_id' => 2,
                 'agreeToPolicy' => 1,
                 'deviceId' => null,
-                'isAuth' => 1,
+                'isAuth' => 0,
                 'isLocal' => 1,
                 'level' => 1,
                 'profile_picture' => null,
@@ -47,7 +47,7 @@ class StudentSeeder extends Seeder
                 'city_id' => 2,
                 'agreeToPolicy' => 1,
                 'deviceId' => null,
-                'isAuth' => 1,
+                'isAuth' => 0,
                 'isLocal' => 1,
                 'level' => 1,
                 'profile_picture' => null,
@@ -96,6 +96,26 @@ class StudentSeeder extends Seeder
                 'status' => 0,
                 'grade_chosen' => 0,
                 'token' => "3|BCINRxFsCDA40TOMhpwIlm9VDooXI5P3P0djYWHw3f38eb38",
+                'isSubscriber' => 0
+            ],
+
+                 [
+                'name' => 'zwe',
+                'phone' => "+959258773560",
+                'email' => null,
+                'password' => Hash::make('admin123'),
+                'age' => 7,
+                'country_id' => 1,
+                'city_id' => 1,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 1,
+                'level' => 1,
+                'profile_picture' => null,
+                'status' => 0,
+                'grade_chosen' => 3,
+                'token' => "1|xX0ZvemvpMedgbhDOCcOqICgKg0YTjpfv2KnV1Traa776425",
                 'isSubscriber' => 0
             ]
 
