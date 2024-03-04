@@ -1838,7 +1838,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             'round' => 1,
             'q_content' =>  "Talk about What do you do at home everyday?",
             'q_audio' => $audio."Talk-about-your-do-at-home.mp3",
-            'q_image' => $images . "green_animal",
+            'q_image' => $images . "green_animal.png",
         ]
 
     ]);
@@ -2107,7 +2107,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             'round' => 1,
             'q_content' =>  "Talk about your family members. \n Where are they now? What are they doing? ",
             'q_audio' => $audios."Talk-about-your-do-at-home.mp3",
-            'q_image' => $images . "green_animal",
+            'q_image' => $images . "green_animal.png",
         ]
 
     ]);
@@ -2401,7 +2401,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         [
             'game_id' => 670,
             'round' => 1,
-            'q_content' =>  "Talk about friends. Where are they \n now? What are they doing? ",
+            // 'q_content' =>  "Talk about friends. Where are they \n now? What are they doing? ",
+            'q_conver' =>  $images."text-box.png",
             'q_audio' => $audios."Talk-about-friends.mp3",
             'q_image' => $images . "girl.png",
         ]
@@ -2720,7 +2721,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 679,
                 'round' => 1,
-                'q_content' =>  "Write about your birthday \n What do you usually do on birthday?",
+                // 'q_content' =>  "Write about your birthday \n What do you usually do on birthday?",
+                'q_conver' =>  $images."text-box.png",
                 'q_audio' => $audios."What-do-u-usually.mp3",
                 'q_image' => $images . "girl" . ".png",
             ]
@@ -2931,7 +2933,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => 1,
                 'q_content' =>  "What are you hobbies?, What do you like \n doing in your free time? \n What don't you like doing?",
                 'q_audio' => $audios."What-are-ur-hobbies.mp3",
-                'q_image' => $images . "girl" . ".png",
+                'q_image' => $images . "green_animal" . ".png",
             ]
 
         ]);
@@ -3263,7 +3265,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => 1,
                 'q_content' =>  "Talk about your busy day. \n How do you feel on that day?",
                 'q_audio' => $audios."busy-day.mp3",
-                'q_image' => $images . "green_cowboy_starfish" . ".png",
+                'q_image' => $images . "green_animal" . ".png",
             ]
 
         ]);
