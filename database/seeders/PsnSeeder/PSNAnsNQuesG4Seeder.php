@@ -2748,9 +2748,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         $given_q = [
             ["What did Rekai’s mom add to his pancake?", "A secret ingredient"],
-            ["Did Rekai love the pancake with a secret ingredient?", "Yes,he does"],
+            ["Did Rekai love the pancake with a secret ingredient?", "Yes, he does"],
             ["What was the secret ingredient?", "Butternut"],
-            ["Does Rekai love eating veggies now?", "Yes,he does"],
+            ["Does Rekai love eating veggies now?", "Yes, he does"],
             ["What did Rekai’s mom say?", "To eat more veggies"],
             ["What did Rekai love eating?", "Pancakes"],
 
