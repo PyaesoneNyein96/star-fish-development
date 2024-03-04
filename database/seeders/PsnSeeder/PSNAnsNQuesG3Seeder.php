@@ -5027,9 +5027,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
     $answers = [
         'Do you like these jacket',
-        'Do you like these short',
+        'Do you like these shorts',
         'Do you like this t-shirt',
-        'Do you like these jean',
+        'Do you like these jeans',
         'Do you like these shoe',
         'Do you like this hat',
 
