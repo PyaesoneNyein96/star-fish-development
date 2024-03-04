@@ -3099,23 +3099,33 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         foreach ($ans as $key => $value) {
 
-            foreach ($contents[$key] as $j => $val) {
-                DB::table('ans_n_ques')->insert([
-                    [
-                        'game_id' => 691,
-                        'round' => $key + 1,
-                        // 'q_image' => $images.$val.".png",
-                        'q_content' => $val,
-                        'a_content' => $val == $value ? true : false
-                    ]
-                ]);
-            }
 
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 691,
                     'round' => $key + 1,
-                    'q_audio' => $audios.$value.".mp3"
+                    'q_audio' => $audios.$value.".mp3",
+                    'q_content' => $contents[$key][0],
+                    'a_content' => $value == $contents[$key][0]
+                ]
+            ]);
+
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 691,
+                    'round' => $key + 1,
+                    'q_content' => $contents[$key][1],
+                    'a_content' => $value == $contents[$key][1]
+                ]
+            ]);
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 691,
+                    'round' => $key + 1,
+                    'q_content' => $contents[$key][2],
+                    'a_content' => $value == $contents[$key][2]
                 ]
             ]);
 

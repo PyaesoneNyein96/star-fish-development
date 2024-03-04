@@ -2283,12 +2283,18 @@ class PSNAnsNQuesG2Seeder extends Seeder
             ['Ni-Ni-conversation',null,null],
             ['San-San-conversation','Toe-Toe','Moe-Moe','Ni-Ni'],
         ];
+        $aud = [ // စာ-ပုံ
+            ['Toe-Toe-conversation',null,null],
+            ['Moe-Moe-conversation',null,null],
+            ['Ni-Ni-conversation',null,null],
+            ['San-San-conversation',null,null,null],
+        ];
 
         $images = $ImageDomain . "Grade_2/Lesson_33/Listen_and_Repeat/";
         $audios = $AudioDomain . "Grade_2/Lesson_33/Listen_and_Repeat/";
 
 
-        foreach ($chars as $key => $char) {
+    foreach ($chars as $key => $char) {
 
         foreach ($char as $k => $v) {
 
@@ -2297,7 +2303,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                         'game_id' => 416,
                         'round' => $key + 1,
                         'a_image' => $images.$v.".gif",
-                        'a_audio' => $convers[$key][$k] ? $audios.$convers[$key][$k].".mp3" : null,
+                        'a_audio' => $convers[$key][$k] ? $audios.$aud[$key][$k].".mp3" : null,
                         'a_conver' => $convers[$key][$k] ? $images.$convers[$key][$k].".png" : null,
                         "background" => $images."bg.png"
                     ]
@@ -3394,7 +3400,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         $img = $ImageDomain."Grade_2/Lesson_39/Speak/Speak-1/";
 
 
-        foreach ($chars as $key => $char) {
+    foreach ($chars as $key => $char) {
 
         foreach ($char as $k => $v) {
 
