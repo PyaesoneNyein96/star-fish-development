@@ -614,7 +614,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'q_content' => $given_ans[$i][0],
                     'q_conver' => $questions[$i],
                     // 'a_audio' => $audio . $this->removeSpace(ucfirst(strtolower($answers[$i]))) . ".mp3",
-                    'a_content' => $given_ans[$i][1] == $answers[$i],
+                    'a_content' => $given_ans[$i][0] == $answers[$i],
                 ]
             ]);
 
