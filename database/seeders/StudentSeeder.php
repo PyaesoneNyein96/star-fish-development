@@ -19,25 +19,6 @@ class StudentSeeder extends Seeder
         DB::table('students')->insert([
 
             [
-                'name' => 'phone user',
-                'phone' => "09795686097",
-                'email' => null,
-                'password' => Hash::make('admin123'),
-                'age' => 5,
-                'country_id' => 2,
-                'city_id' => 2,
-                'agreeToPolicy' => 1,
-                'deviceId' => null,
-                'isAuth' => 1,
-                'isLocal' => 1,
-                'level' => 1,
-                'profile_picture' => null,
-                'status' => 1,
-                'grade_chosen' => 0,
-                'token' => "10|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
-                'isSubscriber' => 0
-            ],
-            [
                 'name' => 'psn',
                 'phone' => null,
                 'email' => 'pyaesonenyein1996@gmail.com',
@@ -56,6 +37,26 @@ class StudentSeeder extends Seeder
                 'token' => "1|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
                 'isSubscriber' => 0
             ],
+            [
+                'name' => 'phone user',
+                'phone' => "09795686097",
+                'email' => null,
+                'password' => Hash::make('admin123'),
+                'age' => 5,
+                'country_id' => 2,
+                'city_id' => 2,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 1,
+                'isLocal' => 1,
+                'level' => 1,
+                'profile_picture' => null,
+                'status' => 1,
+                'grade_chosen' => 0,
+                'token' => "10|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+                'isSubscriber' => 0
+            ],
+
 
             [
                 'name' => 'soe soe lay',
