@@ -61,7 +61,7 @@ class AnsNQueSeeder extends Seeder
         $q_G759 = [
 
             ["U", "B", "E", "A", "T", "F", "I", "U", "L"],
-            ["A", "N", "H", "A", "D", "S", "O", "M", "E"],
+            ["A", "N", "H",  "D", "S", "O", "M", "E"],
             ["M", "E", "I", "U", "M", "D", "H", "E", "G", "I", "H", "T"],
             ["M", "I", "L", "E", "D", "D", "A", "G", "E", "D"],
             ["L", "O", "D"],
@@ -374,7 +374,7 @@ class AnsNQueSeeder extends Seeder
             ["M", "D", "U", "I", "M", "L", "E", "N", "E", "G", "H", "T"],
             ["E", "D", "R"],
             ["S", "O", "H", "R", "T"],
-            ["S", "R", "A", "T", "I", "G", "H"],
+            ["S", "R", "A", "T", "T", "I", "G", "H"],
 
         ];
 
@@ -636,7 +636,7 @@ class AnsNQueSeeder extends Seeder
             ["L", "P", "F", "U", "L", "E", "H"],
             ["A", "Z", "L", "Y"],
             ["Q", "I", "T", "E", "U"],
-            ["A", "T", "K", "L", "I", "T", "E", "V"],
+            ["A", "T", "K", "A", "L", "I", "T", "E", "V"],
 
         ];
 

@@ -162,12 +162,12 @@ Field ( body ) = student_id , nickName
 ### Get All Assessments
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/assessment](https://star-fish.myanmargateway.net/api/assessment)
-Field ( header ) = token , finished_lesson
+Field ( header ) = token
 
 ### Enter into Game
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/assessment/game](https://star-fish.myanmargateway.net/api/assessment/game)
-Field ( header ) = id
+Field ( header ) = assess_game_id
 
 ### End Match
 
