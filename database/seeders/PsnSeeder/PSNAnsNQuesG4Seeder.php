@@ -4199,6 +4199,15 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         ];
 
+        $full_ans = [
+            "Sue Wrote a letter to her grandmother last night.",
+            "Jack Rode a horse with his dad last weekend.",
+            "He Wore a shirt and pants yesterday.",
+            "Anna Read a lot of books last night.",
+            "I Ate a lot of ice-creams yesterday.",
+            "I Went to the shopping mall yesterday.",
+        ];
+
         $ans = [
             "Wrote", "Rode", "Wore", "Read", "Ate", "Went"
         ];
@@ -4212,17 +4221,6 @@ class PSNAnsNQuesG4Seeder extends Seeder
         ];
 
         foreach ($questions as $key => $val) {
-            DB::table('ans_n_ques')->insert([
-                [
-                    'game_id' => 1032,
-                    'round' => $key + 1,
-                    'q_audio' => $audio . $this->removeSpace($ques_audio[$key]) . ".mp3",
-                    // 'q_audio' => $audio.$story.".mp3",
-                    'q_content' => $given_ques[$key][0],
-                    'q_conver'  => $val . "?",
-                    'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
-                ]
-            ]);
 
 
 
@@ -4230,24 +4228,113 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 [
                     'game_id' => 1032,
                     'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][0],
+                    'a_content' => $ans[$key]
+                ]
+            ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 1032,
+                    'round'  => $key +  1,
                     'q_content' => $given_ques[$key][1],
-                    'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
+                    'a_content' => $ans[$key]
+                ]
+            ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 1032,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][2],
+                    'a_content' => $ans[$key]
                 ]
             ]);
 
-            if (isset($given_ques[$key][2])) {
-                DB::table('ans_n_ques')->insert([
-                    [
-                        'game_id' => 1032,
-                        'round'  => $key +  1,
-                        'q_content' => $given_ques[$key][2],
-                        'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
-                    ]
-                ]);
-            }
+
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 1032,
+                    'round' => $key + 1,
+                    'q_audio' => $audio . $this->removeSpace($ques_audio[$key]) . ".mp3",
+                    'q_content' => $given_ques[$key][0],
+                    'q_conver'  => $val . "?",
+                    'a_content' => $full_ans[$key]
+                ]
+            ]);
+
+
+
+
+
         }
 
+        ///---------------------------------------------------------------------------//
 
+        // $contents = round(1,6);
+
+        // $ques = [
+        //     "Sue _________ a letter to her grandmother last night.",
+        //     "Jack _________ a horse with his dad last weekend.",
+        //     "He ___________ a shirt and pants yesterday.",
+        //     "Anna ____________ a lot of books last night.",
+        //     "I __________ a lot of ice-creams yesterday.",
+        //     "I ___________ to the shopping mall yesterday.",
+        // ];
+
+        // $given_ans = [
+        //     ['Rode', 'Spoke', 'Wrote'],
+        //     ['Rode', 'Wore', 'Spoke'],
+        //     ['Wore', 'Spoke', 'Wrote'],
+        //     ['Wore', 'Read', 'Spoke',],
+        //     ['Ate', 'Rode', 'Wrote',],
+        //     ['Went', 'Read', 'Rode',],
+        // ];
+
+        // $ans = [
+        //     "Wrote", "Rode", "Wore", "Read", "Ate", "Went"
+        // ];
+
+        // $full_ans = [
+        //     "Sue Wrote a letter to her grandmother last night.",
+        //     "Jack Rode a horse with his dad last weekend.",
+        //     "He Wore a shirt and pants yesterday.",
+        //     "Anna Read a lot of books last night.",
+        //     "I Ate a lot of ice-creams yesterday.",
+        //     "I Went to the shopping mall yesterday.",
+        // ];
+
+        //  $audio = $AudioDomain . "Grade_4/Lesson_35/Practice/";
+        // $img = $ImageDomain . "Grade_4/Lesson_35/Practice/";
+
+        // foreach ($ques as $k => $val) {
+
+        //     foreach ($given_ans as $j => $g_a) {
+        //         DB::table('ans_n_ques')->insert([
+        //             [
+        //                 'round' => $k + 1,
+        //                 'game_id' => 1032,
+        //                 'q_content' => $g_a,
+        //                 // 'a_content' => $ans[$k][$j],
+        //             ],
+        //         ]);
+        //     }
+
+
+
+        //     DB::table('ans_n_ques')->insert([
+        //         [
+        //             'game_id' => 1032,
+        //             'round' => $k + 1,
+        //             // 'q_audio' => $audio.$this->removeSpace($val).".mp3",
+        //             // 'q_image' => $img.$this->removeSpace($val).".png",
+        //             'q_content' => $ques[$k],
+        //             'a_content' => $full_ans[$k],
+        //         ],
+        //     ]);
+
+        // }
+
+        ///---------------------------------------------------------------------------//
 
 
 
