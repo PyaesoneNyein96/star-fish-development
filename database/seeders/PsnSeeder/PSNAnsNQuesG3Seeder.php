@@ -579,7 +579,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
 
-    // Sub -2 Vocabulary <rearrange_with_audio>
+    // Sub -2 Vocabulary <choose_right_sentence>
 
         $given_ans = [
            ["listening","swimming","teaching"],
@@ -604,26 +604,39 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         for ($i = 0; $i < count($given_ans); $i++) {
 
-            foreach ($given_ans[$i]  as  $innerVal) {
-                DB::table('ans_n_ques')->insert([
-                    [
-                        'game_id' => 623,
-                        'round' => $i + 1,
-                        'q_content' => $innerVal
-                    ]
-                ]);
-            }
+
 
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 623,
                     'round' => $i + 1,
                     'q_image' => $img . $this->removeSpace(ucfirst(strtolower($answers[$i]))) . ".png",
-                    'q_content' => $questions[$i],
-                    'a_audio' => $audio . $this->removeSpace(ucfirst(strtolower($answers[$i]))) . ".mp3",
-                    'a_content' => $answers[$i],
+                    'q_content' => $given_ans[$i][0],
+                    'q_conver' => $questions[$i],
+                    // 'a_audio' => $audio . $this->removeSpace(ucfirst(strtolower($answers[$i]))) . ".mp3",
+                    'a_content' => $given_ans[$i][1] == $answers[$i],
                 ]
             ]);
+
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 623,
+                        'round' => $i + 1,
+                        'q_content' => $given_ans[$i][1],
+                        'a_content' => $given_ans[$i][1] == $answers[$i],
+                    ]
+                ]);
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 623,
+                        'round' => $i + 1,
+                        'q_content' => $given_ans[$i][2],
+                        'a_content' => $given_ans[$i][2] == $answers[$i],
+                    ]
+                ]);
+
+
         }
 
 
@@ -883,7 +896,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
 
-    // Sub -2 Vocabulary <rearrange_with_audio>
+    // Sub -2 Vocabulary <choose_right_sentence>
 
         $img = $ImageDomain . "Grade_3/Lesson_24/Practice-2/";
         $audio = $AudioDomain . "Grade_3/Lesson_24/Practice-2/";
@@ -924,26 +937,28 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         for ($i = 0; $i < count($given_answer); $i++) {
 
-            foreach ($given_answer[$i]  as  $innerVal) {
-                DB::table('ans_n_ques')->insert([
-                    [
-                        'game_id' => 630,
-                        'round' => $i + 1,
-                        'q_content' => $innerVal
-                    ]
-                ]);
-            }
 
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 630,
                     'round' => $i + 1,
-                    'q_content' => $questions[$i],
+                    'q_conver' => $questions[$i],
                     'q_image' => $img . strtolower($ques_img[$i]) . ".png",
-                    'a_audio' => $audio . strtolower($ques_img[$i]) . ".mp3",
-                    'a_content' => $answers[$i],
+                    'q_content' => $given_answer[$i][0],
+                    'a_content' => $answers[$i] == $given_answer[$i][0],
                 ]
             ]);
+
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 630,
+                    'round' => $i + 1,
+                    'q_content' => $given_answer[$i][1],
+                    'a_content' => $answers[$i] == $given_answer[$i][1],
+                ]
+            ]);
+
         }
 
 
@@ -3355,18 +3370,18 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $given_ans = [
             ['Are','they','married','?'],
-            ['difficult','English','is','?'],
-            ['new','car','is','there','?'],
-            ['noisy','he','is','or','quiet','?'],
-            ['dog','your','large','?','is'],
-            ['busy','you','are','?']
+            ['difficult','English','Is','?'],
+            ['new','car','Is','there','?'],
+            ['noisy','he','Is','or','quiet','?'],
+            ['dog','your','large','?','Is'],
+            ['busy','you','Are','?']
         ];
 
         $img = $ImageDomain . "Grade_3/Lesson_33/Writing/";
         $audio = $AudioDomain . "Grade_3/Lesson_33/Writing/";
 
         $answers = [
-            'Are they married', 'is English difficult', 'is there new car',
+            'Are they married', 'Is English difficult', 'Is there new car',
             'Is he noisy or quiet', 'Is your dog large','Are you busy'
         ];
 
@@ -4989,11 +5004,11 @@ class PSNAnsNQuesG3Seeder extends Seeder
     // Unit -3 Practice (Arranging) <rearrange_with_audio>
 
     $given_ans = [
-        ['like','jacket','you','?','Do'],
+        ['like','jacket','you','?','Do','these'],
         ['?','you','shorts','like','these','Do'],
         ['t-shirt','Do','?','you','like','this'],
         ['you','?','like', 'jeans','these','Do'],
-        ['this','you','shoe','Do','like','?'],
+        ['these','you','shoe','Do','like','?'],
         ['this','Do','hat','like','you','?'],
     ];
 
@@ -5006,7 +5021,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         'Do you like this t-shirt',
         'Do you like these jean',
         'Do you like these shoe',
-        'Do you like these hat',
+        'Do you like this hat',
 
     ];
 
