@@ -1049,6 +1049,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 827,
+                'q_content' => $images . "text.png",
                 'a_content' => $sample_content
             ],
         ]);

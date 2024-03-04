@@ -37,17 +37,17 @@ class AnsNQueSeeder extends Seeder
 
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 253, 'a_image' => $l1G253image . "jane.gif", "a_audio" => $AudioDomain . $G2_L1_pronoun . "Whats-your-name-girl.mp3", "a_conver" => $l1G253image . "what-name.png", "background" =>  $l1G253image . "bg.png"],
-            ['round' => 1, 'game_id' => 253, 'a_image' => $l1G253image . "jack.gif", "a_audio" => $AudioDomain . $G2_L1_pronoun . "My-names-Jack.mp3", "a_conver" => $l1G253image . "jack-text.png", "background" =>  $l1G253image . "bg.png"],
+            ['round' => 1, 'game_id' => 253, 'a_image' => $l1G253image . "jane.gif", "a_audio" => $AudioDomain . $G2_L1_pronoun . "Whats-your-name-girl.mp3", "a_conver" => $l1G253image . "what-name.png", "background" =>  $l1G253image . "bg.jpg"],
+            ['round' => 1, 'game_id' => 253, 'a_image' => $l1G253image . "jack.gif", "a_audio" => $AudioDomain . $G2_L1_pronoun . "My-names-Jack.mp3", "a_conver" => $l1G253image . "jack-text.png", "background" =>  $l1G253image . "bg.jpg"],
 
-            ['round' => 1, 'game_id' => 253, 'a_image' => $l1G253image . "rosy.gif", "a_audio" => $AudioDomain . $G2_L1_pronoun . "Whats-your-name-girl.mp3", "a_conver" => $l1G253image . "what-name.png", "background" =>  $l1G253image . "bg.png"],
-            ['round' => 1, 'game_id' => 253, 'a_image' => $l1G253image . "chris.gif", "a_audio" => $AudioDomain . $G2_L1_pronoun . "My-names-Chris.mp3", "a_conver" => $l1G253image . "chris-text.png", "background" =>  $l1G253image . "bg.png"],
+            ['round' => 1, 'game_id' => 253, 'a_image' => $l1G253image . "rosy.gif", "a_audio" => $AudioDomain . $G2_L1_pronoun . "Whats-your-name-girl.mp3", "a_conver" => $l1G253image . "what-name.png", "background" =>  $l1G253image . "bg.jpg"],
+            ['round' => 1, 'game_id' => 253, 'a_image' => $l1G253image . "chris.gif", "a_audio" => $AudioDomain . $G2_L1_pronoun . "My-names-Chris.mp3", "a_conver" => $l1G253image . "chris-text.png", "background" =>  $l1G253image . "bg.jpg"],
 
-            ['round' => 2, 'game_id' => 253, 'a_image' => $l1G253image . "jack.gif", "a_audio" => $AudioDomain . $G2_L1_pronoun . "Whats-your-name.mp3", "a_conver" => $l1G253image . "what-name.png", "background" =>  $l1G253image . "bg.png"],
-            ['round' => 2, 'game_id' => 253, 'a_image' => $l1G253image . "jane.gif", "a_audio" => $AudioDomain . $G2_L1_pronoun . "My-names-Jane.mp3", "a_conver" => $l1G253image . "jane-text.png", "background" =>  $l1G253image . "bg.png"],
+            ['round' => 2, 'game_id' => 253, 'a_image' => $l1G253image . "jack.gif", "a_audio" => $AudioDomain . $G2_L1_pronoun . "Whats-your-name.mp3", "a_conver" => $l1G253image . "what-name.png", "background" =>  $l1G253image . "bg.jpg"],
+            ['round' => 2, 'game_id' => 253, 'a_image' => $l1G253image . "jane.gif", "a_audio" => $AudioDomain . $G2_L1_pronoun . "My-names-Jane.mp3", "a_conver" => $l1G253image . "jane-text.png", "background" =>  $l1G253image . "bg.jpg"],
 
-            ['round' => 2, 'game_id' => 253, 'a_image' => $l1G253image . "chris.gif", "a_audio" => $AudioDomain . $G2_L1_pronoun . "Whats-your-name.mp3", "a_conver" => $l1G253image . "what-name.png", "background" =>  $l1G253image . "bg.png"],
-            ['round' => 2, 'game_id' => 253, 'a_image' => $l1G253image . "rosy.gif", "a_audio" => $AudioDomain . $G2_L1_pronoun . "My-names-Rosy.mp3", "a_conver" => $l1G253image . "rosy-text.png", "background" =>  $l1G253image . "bg.png"],
+            ['round' => 2, 'game_id' => 253, 'a_image' => $l1G253image . "chris.gif", "a_audio" => $AudioDomain . $G2_L1_pronoun . "Whats-your-name.mp3", "a_conver" => $l1G253image . "what-name.png", "background" =>  $l1G253image . "bg.jpg"],
+            ['round' => 2, 'game_id' => 253, 'a_image' => $l1G253image . "rosy.gif", "a_audio" => $AudioDomain . $G2_L1_pronoun . "My-names-Rosy.mp3", "a_conver" => $l1G253image . "rosy-text.png", "background" =>  $l1G253image . "bg.jpg"],
 
         ]);
 
