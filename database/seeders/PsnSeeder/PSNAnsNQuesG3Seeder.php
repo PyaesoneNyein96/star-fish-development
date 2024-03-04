@@ -207,14 +207,14 @@ class PSNAnsNQuesG3Seeder extends Seeder
     ];
 
     $Question_contents = [
-        "what do you do in the morning?",
-        "what do you do in the evening?",
-        "what do you do in the evening?",
-        "what do you do in the afternoon?",
-        "what do you do in the morning?",
-        "what do you do in the morning?",
-        "what do you do in the afternoon?",
-        "what do you do in the afternoon?",
+        "What do you do in the morning?",
+        "What do you do in the evening?",
+        "What do you do in the evening?",
+        "What do you do in the afternoon?",
+        "What do you do in the morning?",
+        "What do you do in the morning?",
+        "What do you do in the afternoon?",
+        "What do you do in the afternoon?",
     ];
 
     $aud = [
@@ -426,14 +426,14 @@ class PSNAnsNQuesG3Seeder extends Seeder
     ];
 
     $Question_contents = [
-        "what do you often do in your class?",
-        "what do you usually do at school?",
-        "what do you alway do at school?",
-        "what do you usually do at school?",
-        "what do you sometime do in your class?",
-        "what do you often do in your class?",
-        "what do you sometime do in your class?",
-        "what do you alway do at school?",
+        "What do you often do in your class?",
+        "What do you usually do at school?",
+        "What do you alway do at school?",
+        "What do you usually do at school?",
+        "What do you sometime do in your class?",
+        "What do you often do in your class?",
+        "What do you sometime do in your class?",
+        "What do you alway do at school?",
     ];
 
     $images = $ImageDomain . "Grade_3/Lesson_22/Speaking/";
@@ -534,6 +534,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 620,
+                'round' => 1,
+                'q_image' => $images."sample.png",
                 'a_content' => $sample_content
             ],
         ]);
@@ -1612,6 +1614,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 649,
+                'round' => 1,
                 'q_content' =>  "Talk about your daily activities. \n What time do you do these activities?",
                 'q_audio' => $audio."Talk-about-your-daily-activities.mp3",
                 'q_image' => $images . "green_animal" . ".png",
@@ -1832,6 +1835,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
     DB::table('ans_n_ques')->insert([
         [
             'game_id' => 655,
+            'round' => 1,
             'q_content' =>  "Talk about What do you do at home everyday?",
             'q_audio' => $audio."Talk-about-your-do-at-home.mp3",
             'q_image' => $images . "green_animal",
@@ -2100,6 +2104,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
     DB::table('ans_n_ques')->insert([
         [
             'game_id' => 663,
+            'round' => 1,
             'q_content' =>  "Talk about your family members. \n Where are they now? What are they doing? ",
             'q_audio' => $audios."Talk-about-your-do-at-home.mp3",
             'q_image' => $images . "green_animal",
@@ -2395,6 +2400,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
     DB::table('ans_n_ques')->insert([
         [
             'game_id' => 670,
+            'round' => 1,
             'q_content' =>  "Talk about friends. Where are they \n now? What are they doing? ",
             'q_audio' => $audios."Talk-about-friends.mp3",
             'q_image' => $images . "girl.png",
@@ -2713,6 +2719,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 679,
+                'round' => 1,
                 'q_content' =>  "Write about your birthday \n What do you usually do on birthday?",
                 'q_audio' => $audios."What-do-u-usually.mp3",
                 'q_image' => $images . "girl" . ".png",
@@ -2921,6 +2928,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 686,
+                'round' => 1,
                 'q_content' =>  "What are you hobbies?, What do you like \n doing in your free time? \n What don't you like doing?",
                 'q_audio' => $audios."What-are-ur-hobbies.mp3",
                 'q_image' => $images . "girl" . ".png",
@@ -3252,6 +3260,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 695,
+                'round' => 1,
                 'q_content' =>  "Talk about your busy day. \n How do you feel on that day?",
                 'q_audio' => $audios."busy-day.mp3",
                 'q_image' => $images . "green_cowboy_starfish" . ".png",
@@ -3487,6 +3496,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
     DB::table('ans_n_ques')->insert([
         [
             'game_id' => 702,
+            'round' => 1,
             'q_content' =>  "Use adjectives to talk about your family member. \n your house, your neighbors and your pets? ",
             'q_audio' => $audios."Talk-about-your-family-member-use-adjectives.mp3",
             'q_image' => $images . "green_animal.png",
@@ -3822,6 +3832,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
     DB::table('ans_n_ques')->insert([
         [
             'game_id' => 711,
+            'round' => 1,
             'q_content' =>  "Talk about your favorite weather? \n Why do you like if? \n What don't you like? \n Why not? ",
             'q_audio' => $audios."Talk-about-your-favorite-weather.mp3",
             'q_image' => $images . "green_starfish.png",
@@ -4082,6 +4093,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
     DB::table('ans_n_ques')->insert([
         [
             'game_id' => 718,
+            'round' => 1,
             'q_content' => "What can you do at these place? \n Airport, Pet shop \n University, Ice-cream shop",
             'q_audio' => $audios."what-can-u-do-at-place.mp3",
             'q_image' => $images . "green_starfish.png",
@@ -4360,6 +4372,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
     DB::table('ans_n_ques')->insert([
         [
             'game_id' => 726,
+            'round' => 1,
             'q_content' => "Is there a shopping mall in your town or city? \n Are there small stores in your town or city? \n Tell about stores where you live.",
             'q_audio' => $audios."Is-there-a-shopping-mall.mp3",
             'q_image' => $images . "green_starfish.png",
@@ -4604,6 +4617,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
     DB::table('ans_n_ques')->insert([
         [
             'game_id' => 733,
+            'round' => 1,
             'q_content' => "Prepare to speak.\n Look at the map of your town and describe it",
             'round_instruction' => $audios."Look-at-map.mp3",
             'q_image' => $images . "Map-img.png",
@@ -4892,6 +4906,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 741,
+                'round' => 1,
                 'q_content' => "Give directions from your home to \n (stores, restaurants, shopping mall.. etc.) .",
                 'q_audio' => $audios."give-direction-from-home.mp3",
                 'q_image' => $images . "green_starFish.png",
@@ -5123,6 +5138,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 748,
+                'round' => 1,
                 'q_content' => "What are you wearing today? \n What are your friends in the class wearing today?.",
                 'q_audio' => $audios."what-r-today.mp3",
                 'q_image' => $images . "green_starfish.png",
@@ -5487,6 +5503,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 756,
+                'round' => 1,
                 'q_content' => "What do you usually wear \n when it is raining? \n  when it is sunny? \n  when it is cold? \n  when it is hot?.",
                 // 'q_audio' => $audios."what-do-usually-wear.mp3",
                 'q_image' => $images . "green_starfish.png",

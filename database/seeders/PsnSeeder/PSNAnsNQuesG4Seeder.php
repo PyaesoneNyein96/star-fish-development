@@ -4140,7 +4140,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         ];
 
         $rightContents = [
-            ['Wrote', 'Read', 'Rode', 'Wrote', 'Went'],
+            ['Wrote', 'Read', 'Rode', 'Wore', 'Went'],
         ];
 
 
@@ -4223,21 +4223,25 @@ class PSNAnsNQuesG4Seeder extends Seeder
         foreach ($questions as $key => $val) {
 
 
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 1032,
+                    'round' => $key + 1,
+                    'q_audio' => $audio . $this->removeSpace($ques_audio[$key]) . ".mp3",
+                    'q_content' => $given_ques[$key][0] ,
+                    'q_conver'  => $val . "?",
+                    'a_content' => $given_ques[$key][0] == $ans[$key],
+                    'a_conver' => $full_ans[$key]
+                ]
+            ]);
+
 
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 1032,
                     'round'  => $key +  1,
-                    'q_content' => $given_ques[$key][0],
-                    'a_content' => $ans[$key]
-                ]
-            ]);
-            DB::table('ans_n_ques')->insert([
-                [
-                    'game_id' => 1032,
-                    'round'  => $key +  1,
                     'q_content' => $given_ques[$key][1],
-                    'a_content' => $ans[$key]
+                    'a_content' => $given_ques[$key][1] == $ans[$key]
                 ]
             ]);
             DB::table('ans_n_ques')->insert([
@@ -4245,22 +4249,21 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     'game_id' => 1032,
                     'round'  => $key +  1,
                     'q_content' => $given_ques[$key][2],
-                    'a_content' => $ans[$key]
+                    'a_content' => $given_ques[$key][2]  == $ans[$key]
                 ]
             ]);
+            // DB::table('ans_n_ques')->insert([
+            //     [
+            //         'game_id' => 1032,
+            //         'round'  => $key +  1,
+            //         'q_content' => $given_ques[$key][2],
+            //         'a_content' => $ans[$key]
+            //     ]
+            // ]);
 
 
 
-            DB::table('ans_n_ques')->insert([
-                [
-                    'game_id' => 1032,
-                    'round' => $key + 1,
-                    'q_audio' => $audio . $this->removeSpace($ques_audio[$key]) . ".mp3",
-                    // 'q_content' => $given_ques[$key][0],
-                    'q_content'  => $val . "?",
-                    'a_content' => $full_ans[$key]
-                ]
-            ]);
+
 
 
 
