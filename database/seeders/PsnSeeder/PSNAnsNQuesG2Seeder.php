@@ -3379,7 +3379,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
             ['teacher','boy','girl'],
             ['teacher','boy','girl'],
             ['boy','girl'],
-            ['boy'],
+            ['boy','girl'],
         ];
 
 

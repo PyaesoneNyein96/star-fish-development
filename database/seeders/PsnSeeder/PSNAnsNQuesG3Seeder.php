@@ -254,7 +254,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
     // Unit 2 sub 1 Reading  <Reading_carousel>
 
         $contents = [
-            'do physical exercise','clean the board','Raise your hand',
+            'do physical exercise','clean the board','raise your hand',
             'listen to songs','cross your arms','listen to the teacher','draw pictures',
             'play with friends', 'water the plants', 'help each other','work in groups',
             'clean the classroom', 'work alone', 'play games',
