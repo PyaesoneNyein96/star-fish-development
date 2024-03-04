@@ -2381,7 +2381,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'game_id' => 669,
                 'round' => $key + 1,
                 'round_instruction' => $audios.$this->removeSpace($answers[$key]).".mp3",
-                'q_content' => $Question_contents[$key]." ?",
+                'q_content' => $Question_contents[$key],
                 'q_image' => $images .$this->removeSpace($value) . ".png",
             ]
 
@@ -2401,8 +2401,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         [
             'game_id' => 670,
             'round' => 1,
-            // 'q_content' =>  "Talk about friends. Where are they \n now? What are they doing? ",
-            'q_conver' =>  $images."text-box.png",
+            'q_conver' =>  "Talk about friends. Where are they \n now? What are they doing? ",
+            // 'q_conver' =>  $images."text-box.png",
             'q_audio' => $audios."Talk-about-friends.mp3",
             'q_image' => $images . "girl.png",
         ]
@@ -2704,6 +2704,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 678,
+                'q_image' => $images."sample.png",
                 'a_content' => $sample_content
             ],
         ]);
@@ -2721,8 +2722,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 679,
                 'round' => 1,
-                // 'q_content' =>  "Write about your birthday \n What do you usually do on birthday?",
-                'q_conver' =>  $images."text-box.png",
+                'q_conver' =>  "What do you usually do on birthday?",
+                // 'q_conver' =>  $images."text-box.png",
                 'q_audio' => $audios."What-do-u-usually.mp3",
                 'q_image' => $images . "girl" . ".png",
             ]
@@ -3816,7 +3817,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 710,
-                'q_image' => $images."sample_txt.png",
+                'q_image' => $images."sample.png",
                 'a_content' => $sample_content
             ],
         ]);
@@ -4334,7 +4335,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     [
                         'round' => $i + 1,
                         'game_id' => 725,
-                        'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                        // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $given_q[$i][1] ? 1 : 0
                     ]
@@ -4990,7 +4991,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
     $given_ans = [
         ['like','jacket','you','?','Do'],
         ['?','you','shorts','like','these','Do'],
-        ['t-shirt','do','?','you','like','this'],
+        ['t-shirt','Do','?','you','like','this'],
         ['you','?','like', 'jeans','these','Do'],
         ['this','you','shoe','Do','like','?'],
         ['this','Do','hat','like','you','?'],
@@ -5029,7 +5030,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'q_image' => $img . $this->removeSpace(strtolower($answers[$i])) . ".png",
                 // 'q_content' => $questions[$i],
                 'a_audio' => $audio . $this->removeSpace(strtolower($answers[$i])) . ".mp3",
-                'a_content' => $answers[$i]."?",
+                'a_content' => $answers[$i]." ?",
             ]
         ]);
     }
