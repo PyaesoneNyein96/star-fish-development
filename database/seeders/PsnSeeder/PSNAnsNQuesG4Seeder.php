@@ -1423,7 +1423,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         ];
 
         $ans = [
-            'Scarf', 'Hat', 'Socks', 'tracksuit', 'flipflops', 'Winter Coat', 'Skirt', 'Shorts', 'Jacket'
+            'Scarf', 'Hat', 'Socks', 'Tracksuit', 'Flipflops', 'Winter Coat', 'Skirt', 'Shorts', 'Jacket'
         ];
 
         foreach ($given_ans as $key => $ga) {
@@ -1626,6 +1626,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 968,
+                'round' => 1,
                 'q_content' => $contents,
                 // 'q_audio' => $audios."father-wearing-mother-wearing.mp3",
                 'q_image' => $images . "father-wearing-mother-wearing.png",
@@ -1641,7 +1642,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
 
-        ///////////////////////////////////////////// Lesson 27 //////////////////////////////////////////////////////
+        ///////////////////////////////////////////// Lesson 27 ///////////////////////////////////////
 
 
 
@@ -1787,6 +1788,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     'game_id' => 972,
                     'round' => $key + 1,
                     'q_image' => $img . $this->removeSpace($content) . ".png",
+                    'q_audio' => $audio . $this->removeSpace($content) . ".mp3",
                     'q_conver' => $questions[$key],
                     'q_content' => $given_ans[0],
                     'a_content' => $given_ans[0] == $ans[$key] ? true : false
@@ -2278,17 +2280,17 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         $convers = [
-            ['boy-con-1', "girl-con-1"],
             ["boy-con-2", "girl-con-2"],
+            ['boy-con-1', "girl-con-1"],
+            ["boy-con-4", "girl-con-4"],
             ["boy-con-3", "girl-con-3"],
-            ["boy-con-4", "girl-con-4"]
         ];
 
         $convers_audio = [
-            ['hamburger-for-lunch.mp3', "me-too-hamburger.mp3"],
             ["what-ur-lunch.mp3", "chicken-rice-lunch.mp3"],
+            ['hamburger-for-lunch.mp3', "me-too-hamburger.mp3"],
+            ["usually-breakfast.mp3", "fried-rice-coffee.mp3"],
             ['mont-hin-gah-for-breakfast.mp3', "me-too-mont-hin-gah.mp3"],
-            ["usually-breakfast.mp3", "fried-rice-coffee.mp3"]
         ];
 
         $audio = $AudioDomain . "Grade_4/Lesson_29/Listen_and_Repeat_2/";

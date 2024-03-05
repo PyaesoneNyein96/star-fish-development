@@ -289,7 +289,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            'do exercise','throw','feed','do','wash','paint bedroom', 'wash', 'clean',
+            'listen to songs','help each other','water the plants','draw the pictures','work alone',
+            'play with friends', 'study in library', 'listen to the teacher',
         ];
 
 
@@ -328,7 +329,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            "Listen to songs.",
+            "Listen to songs",
             "do physical exercise",
             "water the plants",
             "work in pair",
@@ -850,10 +851,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "swimming",
             "computer_game",
             "reading",
-            "watch_TV",
-            "ride_bike",
-            "piano",
-            "football",
+            "watch TV",
+            "ride bike",
+            "play piano",
+            "play football",
         ];
 
         $questions = [
@@ -868,9 +869,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $ans = [
             "swimming",
-            "computer_game",
+            "play computer game",
             "reading",
-            "watch_TV",
+            "watch TV",
             "ride_bike",
             "piano",
             "football",
@@ -918,7 +919,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "I ___ my bike on Wednesdays.",
             "I ___ a musical instrument on Thursdays.",
             "Do you ___ piano on Saturdays?",
-            "I ___ play football on Sundays.",
+            "I ___ football on Sundays.",
         ];
 
         $ques_img = [
@@ -975,7 +976,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
     ];
 
     $randContents = [
-        ['sundays','saturdays','friday','tuesdays']
+        ['sundays','saturdays','fridays','tuesdays']
     ];
 
         $audio = $AudioDomain . "Grade_3/Lesson_24/Matching/";
@@ -1060,7 +1061,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
          $para = "It’s a busy week for me. On Monday I play tennis for one hour and on Tuesday I go swimming for one hour. On Wednesday and Friday I watch TV and read a book. On Thursday I ride my bike with my friend. We ride our bikes for two hours.  Saturday is my favorite day.  I go to the park and play with friends. We play football. On Sunday I watch TV and play computer games. What do you do at the weekend?";
 
         $given_q = [
-            ["On Friday ----.", "Watch TV and read a book"],
+            ["On Friday ___.", "Watch TV and read a book"],
             ["On Tuesday ___.", "Go swimming"],
             ["On Monday ___ .", 'Play Tennis'],
             ["On Thursday ___ .", 'Ride my bike'],
@@ -1142,6 +1143,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 634,
+                'q_image' => $images."sample.png",
                 'a_content' => $sample_content
             ],
         ]);
