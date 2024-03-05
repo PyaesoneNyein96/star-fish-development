@@ -4807,7 +4807,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         $images = $ImageDomain . "Grade_4/Lesson_37/Writing_Topic/";
         $audios = $AudioDomain . "Grade_4/Lesson_37/Writing_Topic/";
-        $sample_content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet arcu fermentum, posuere velit quis, ultricies nibh. Phasellus dictum quam quis tortor viverra, ac feugiat lectus rhoncus. Nam eleifend velit est, a rhoncus magna ultricies a. Sed accumsan lorem erat, a rhoncus nisi posuere vel. ";
+        $sample_content = "Tomorrow, I will get up at 6 in the morning. I will have a yummy breakfast. Then, I will brush my teeth.I will go to school tomorrow, and study English. I will play football with my friends in the evening. I will read books after that";
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 1046,
