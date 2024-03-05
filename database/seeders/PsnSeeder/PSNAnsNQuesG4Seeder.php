@@ -2136,7 +2136,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             ['School uniforms', 'Pyjamas', 'Swimsuits '],
             ['School uniforms', 'Pyjamas', 'Swimsuits'],
             ['True', 'False'],
-            ['Older', 'Younger ', 'The same age'],
+            ['Older', 'Younger', 'The same age'],
             ['Friends', 'Brother and sister', 'Neighbours'],
 
         ];
