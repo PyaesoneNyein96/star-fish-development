@@ -777,6 +777,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 819,
+                'round' => 1,
                 'q_content' => "Which animal do you see? \n How many animals are there? \n  Are they land animals or sea animals? \n  Are they big or small? \n  when it is hot?.",
                 'q_audio' => $audio . "which-animal-do-you-see.mp3",
                 'q_image' => $images . "animals-in-ocean.png",
@@ -1029,6 +1030,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 826,
+                'round' => 1,
                 'q_conver' => $images . "question-list.png",
                 'q_audio' => $audios . "What-is-your-favorite-animal.mp3",
                 'q_image' => $images . "orange-starfish.png",
@@ -1049,6 +1051,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 827,
+                'round' => 1,
                 'q_content' => $images . "text.png",
                 'a_content' => $sample_content
             ],
@@ -1307,6 +1310,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 834,
+                'round' => 1,
                 'q_conver' => $images . "question-list.png",
                 'q_audio' => $audios . "Weather-look-like.mp3",
                 'q_image' => $images . "orange-starfish.png",
@@ -2136,7 +2140,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             ['School uniforms', 'Pyjamas', 'Swimsuits '],
             ['School uniforms', 'Pyjamas', 'Swimsuits'],
             ['True', 'False'],
-            ['Older', 'Younger ', 'The same age'],
+            ['Older', 'Younger', 'The same age'],
             ['Friends', 'Brother and sister', 'Neighbours'],
 
         ];
@@ -2217,14 +2221,14 @@ class PSNAnsNQuesG4Seeder extends Seeder
         $images = $ImageDomain . "Grade_4/Lesson_28/Writing_Topic/";
         $audios = $AudioDomain . "Grade_4/Lesson_28/Writing_Topic/";
 
-        $sample_content = "Three-girls";
+        $sample_content = "Three girls";
 
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 984,
                 'a_content' => $sample_content,
-                'q_image' => $images . $sample_content . ".png",
-                'q_content' => $images . $sample_content . "_small.png",
+                'q_content' => $images . $sample_content . ".png",
+                'q_conver' => $images . $sample_content . "_small.png",
             ],
         ]);
 
@@ -2494,6 +2498,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 991,
+                'round' => 1,
                 'q_content' => $content,
                 'q_audio' => $audios . "Talk-about-usually-eat.mp3",
                 'q_image' => $images . "girl-eating.png",
@@ -2503,7 +2508,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
 
-        // Lesson 28 Unit 8  Writing Topic <writing_topic>
+        // Lesson 29 Unit 8  Writing Topic <writing_topic>
 
 
         $images = $ImageDomain . "Grade_4/Lesson_29/Writing_Topic/";
@@ -2514,8 +2519,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 992,
-                'q_image' => $images . $sample_content . ".png",
-                'q_content' => $images . $sample_content . "_small.png",
+                'q_content' => $images . $sample_content . ".png",
+                'q_conver' => $images . $sample_content . "_small.png",
                 'a_content' => "I usually have fried rice and tea for breakfast.I have chicken rice, fried vegetables, and soup for lunch. I do not like eating sandwich for lunch. I usually have sandwich, salad, and juice for dinner.I do not like eating hamburgers for dinner. ",
             ],
         ]);
@@ -2830,6 +2835,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 1000,
+                'round' => 1,
                 'q_content' => $content,
                 'q_audio' => $audios . "Draw-your-favorite-food.mp3",
                 'q_image' => $images . "plate.png",
@@ -3044,6 +3050,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 1006,
+                'round' => 1,
                 'q_content' => $content,
                 'q_audio' => $audios . "food-for-health.mp3",
                 'q_image' => $images . "girl-eat.png",
@@ -3381,6 +3388,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 1014,
+                'round' => 1,
                 'q_content' => $content,
                 'round_instruction' => $audios . "what-is-ur-school-canteen.mp3",
                 // 'q_audio' => $audio."At-my-school-canteen.mp3",
@@ -3404,7 +3412,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 1015,
                 'a_content' => $sample_content,
-                'q_image' => $images . "School-canteen" . ".png",
+                'q_content' => $images . "School-canteen" . ".png",
             ],
         ]);
 
@@ -3758,9 +3766,10 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 1022,
+                'round' => 1,
                 'q_content' => "What did you do yesterday? \n What did you do last week?\n Talk about it.",
                 'q_audio' => $audios . "what-did-u-do-yesterday.mp3",
-                'q_image' => $images . "green-starfish.png",
+                'q_content' => $images . "green-starfish.png",
             ]
 
         ]);
@@ -3778,7 +3787,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 1023,
-                'q_image' => $images . "someImg" . ".png",
+                'q_content' => $images . "someImg" . ".png",
                 'a_content' => $sample_content
             ],
         ]);
@@ -4023,7 +4032,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 'round' => 1,
                 'a_conver' => $images . "image.png",
                 'q_audio' => $audios . "complete-following-sentence.mp3",
-                'q_image' => $images . "red-starfish.png",
+                'q_image' => $images . "red_starfish.png",
             ]
 
         ]);
@@ -4033,7 +4042,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 'round' => 2,
                 'q_content' => "What did you do on Monday? \n What did you do on Tuesday? \n What did you do on Wednesday? \n What did you do on Thursday? \n  What did you do on Friday? \n What did you do on Saturday \n What did you do on Sunday",
                 // 'q_audio' => $audio."what-do-u-do-this-week.mp3",
-                'q_image' => $images . "green-starfish.png",
+                'q_image' => $images . "green_starfish.png",
             ]
 
         ]);
@@ -4451,9 +4460,10 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 1035,
+                'round' =>1,
                 'q_content' => "Take notes on the table.\n Talk about what you did last week.",
                 'q_audio' => $audios . "take-notes-on-the-table.mp3",
-                'q_image' => $images . "green-starfish.png",
+                'q_image' => $images . "green_starfish.png",
             ]
 
         ]);
@@ -4471,7 +4481,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 1036,
-                'q_image' =>   $images . "someImg" . ".png",
+                'q_content' =>   $images . "someImg" . ".png",
                 'a_content' => $sample_content
             ],
         ]);
@@ -4631,17 +4641,22 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 ]
             ]);
         }
+
+
         // Lesson 36 Unit 5 Speaking Topic <speaking_and_recording>
+
         $images = $ImageDomain . "Grade_4/Lesson_36/Speaking_Topic/";
         $audios = $AudioDomain . "Grade_4/Lesson_36/Speaking_Topic/";
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 1041,
+                'round' => 1,
                 'q_content' => "Talk about your last holiday. \n What did you do during your last Thadingyut holiday?",
                 'q_audio' => $audios . "talk-about-last-holiday.mp3",
-                'q_image' => $images . "green-starfish.png",
+                'q_image' => $images . "green_starfish.png",
             ]
         ]);
+
         ////////////////////////////////////////////// end of Lesson 36 /////////////////////////////////////////
 
 
@@ -4764,27 +4779,30 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
 
         /// Lesson 37 Unit - 4 Speaking Topic <speaking_and_recording>
+
         $images = $ImageDomain . "Grade_4/Lesson37/Speaking_Topic/";
         $audios = $AudioDomain . "Grade_4/Lesson_37/Speaking_Topic/";
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 1045,
+                'round' => 1,
                 'q_content' => "What will you do tomorrow? Talk about your plan.",
                 'q_audio' => $audios . "What-will-you-do-tomorrow.mp3",
-                'q_image' => $images . "green-starfish.png",
+                'q_image' => $images . "green_starfish.png",
             ]
         ]);
 
 
 
         // Lesson 37 Unit - 5 Writing Topic <writing_topic>
+
         $images = $ImageDomain . "Grade_4/Lesson_37/Writing_Topic/";
         $audios = $AudioDomain . "Grade_4/Lesson_37/Writing_Topic/";
         $sample_content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet arcu fermentum, posuere velit quis, ultricies nibh. Phasellus dictum quam quis tortor viverra, ac feugiat lectus rhoncus. Nam eleifend velit est, a rhoncus magna ultricies a. Sed accumsan lorem erat, a rhoncus nisi posuere vel. ";
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 1046,
-                'q_image' => $images . "someImg" . ".png",
+                'q_content' => $images . "someImg" . ".png",
                 'a_content' => $sample_content
             ],
         ]);
