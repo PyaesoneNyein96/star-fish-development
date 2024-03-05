@@ -536,7 +536,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 620,
                 'round' => 1,
-                'q_image' => $images."sample.png",
+                'q_content' => $images."sample.png",
                 'a_content' => $sample_content
             ],
         ]);
@@ -1143,7 +1143,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 634,
-                'q_image' => $images."sample.png",
+                'q_content' => $images."sample.png",
                 'a_content' => $sample_content
             ],
         ]);
@@ -1543,7 +1543,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'game_id' => 646,
                     'round' => $key + 1,
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                    // 'q_audio' => $audio.$this->removeSpace($value).".mp3",
                     'q_image' => $images . $this->removeSpace($value) . ".png",
                     'a_content' => $value
                 ]
@@ -1615,6 +1615,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
             'game_id' => 648,
+            'q_content' => $images."sample.png",
             'a_content' => $sample_content
             ],
         ]);
@@ -1702,7 +1703,6 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "I usually go to bed at 9:00", "I often have a bath at 6:15",
             "I usually get up at 6:00",
         ];
-
 
 
 
@@ -1924,6 +1924,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'q_image' => $images.$this->removeSpace($contents[$key]).".png",
                     'q_audio' => $audios.$this->removeSpace(str_replace('?','',$q)).".mp3",
                     'q_content' => $q,
+                    'a_content' => $contents[$key],
                 ]
             ]);
         }
@@ -2102,7 +2103,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 662,
-                'q_image' => $images."sample.png",
+                'q_content' => $images."sample.png",
                 'a_content' => $sample_content
             ],
         ]);
@@ -2721,7 +2722,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 678,
-                'q_image' => $images."sample.png",
+                'q_content' => $images."sample.png",
                 'a_content' => $sample_content
             ],
         ]);
@@ -3844,7 +3845,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 710,
-                'q_image' => $images."sample.png",
+                'q_content' => $images."sample.png",
                 'a_content' => $sample_content
             ],
         ]);
@@ -4223,7 +4224,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 722,
-                'q_image' => $images."sample.png",
+                'q_content' => $images."sample.png",
                 'a_content' => $sample_content
             ],
         ]);
@@ -4918,7 +4919,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 740,
                 'a_audio' => $audios."invite-fris.mp3",
-                'q_image' => $images."map.png",
+                'q_content' => $images."map.png",
                 'a_content' => $sample_content
             ],
         ]);
