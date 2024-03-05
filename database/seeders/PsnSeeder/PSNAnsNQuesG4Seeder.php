@@ -2233,8 +2233,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 984,
                 'a_content' => $loream,
-                'q_content' => $images . $sample_content . ".png",
-                'q_conver' => $images . $sample_content . "_small.png",
+                'q_image' => $images . $sample_content . ".png",
+                'q_content' => $images . $sample_content . "_small.png",
             ],
         ]);
 
@@ -2525,8 +2525,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 992,
-                'q_content' => $images . $sample_content . ".png",
-                'q_conver' => $images . $sample_content . "_small.png",
+                'q_image' => $images . $sample_content . ".png",
+                'q_content' => $images . $sample_content . "_small.png",
                 'a_content' => "I usually have fried rice and tea for breakfast.I have chicken rice, fried vegetables, and soup for lunch. I do not like eating sandwich for lunch. I usually have sandwich, salad, and juice for dinner.I do not like eating hamburgers for dinner. ",
             ],
         ]);
@@ -4031,7 +4031,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         $images = $ImageDomain . "Grade_4/Lesson_34/Speaking_Topic/";
         $audios = $AudioDomain . "Grade_4/Lesson_34/Speaking_Topic/";
 
-        $question = "Complete the following sentences with \n past tense of the verbs. Talk about them. \n \n I ___(phone) my grandmother.  I ___(play) badminton with Thant Zin. \n I ___ (walk) to school with Yar Zar.   I ___ (watch) TV at night. \n I ___ (dust) my bedroom.   I ___ (visit) the zoo \n   I ___ (study) English at night.";
+        $question = "Complete the following sentences with \n past tense of the verbs. Talk about them. \n \n I ___(phone) my grandmother.  I ___(play) badminton with Thant Zin. \n I ___ (walk) to school with Yar Zar.   I ___ (watch) TV at night. \n I ___ (dust) my bedroom.   I ___ (visit) the zoo \n I ___ (study) English at night.";
 
 
         DB::table('ans_n_ques')->insert([
@@ -4049,7 +4049,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             [
                 'game_id' => 1028,
                 'round' => 2,
-                'q_content' => "What did you do on Monday? \n What did you do on Tuesday? \n What did you do on Wednesday? \n What did you do on Thursday? \n  What did you do on Friday? \n What did you do on Saturday \n What did you do on Sunday",
+                'q_content' => "What did you do on Monday?\n What did you do on Tuesday?\n What did you do on Wednesday?\n What did you do on Thursday?\n  What did you do on Friday?\n What did you do on Saturday\n What did you do on Sunday",
                 // 'q_audio' => $audio."what-do-u-do-this-week.mp3",
                 'q_image' => $images . "green_starfish.png",
             ]
