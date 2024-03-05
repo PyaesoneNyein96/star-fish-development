@@ -2833,7 +2833,7 @@ class AnsNQueSeeder extends Seeder
             ["Lamps", "Flowers", "Candles"],
             ["Praysto goddess Lakshmi", "Sharing food", "Going to relatives"],
             ["Decoration with lamps", "Giving gifts", "Visiting temples"],
-            ["Praying", "Visting Temples", "Cleaning workspaces"]
+            ["Praying", "Visiting Temples", "Cleaning workspaces"]
         ];
         $l15_G879_q_audio_a_content = [
             [0, 1, 0],
@@ -2849,12 +2849,12 @@ class AnsNQueSeeder extends Seeder
 
             foreach ($l15_G879_q_audio_ans[$i] as $key => $val) {
                 DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 879, "q_audio" => $AudioDomain . $G4_L15_reading_passage_path . str_replace(' ', '-', strtolower($val)) . ".mp3", 'q_content' => $val, "q_conver" => null, 'a_content' => $l15_G879_q_audio_a_content[$i][$key], "background" => null],
+                    ['round' => $i + 1, 'game_id' => 879, "q_audio" => $AudioDomain . $G4_L15_reading_passage_path . str_replace(' ', '-', strtolower($val)) . ".mp3", 'q_content' => $val,  'a_content' => $l15_G879_q_audio_a_content[$i][$key]],
                 ]);
             }
 
             DB::table('ans_n_ques')->insert([
-                ['round' => $i + 1, 'game_id' => 879, "q_audio" => $AudioDomain . $G4_L15_reading_passage_path . $l15_G879_q_audio[$i] . ".mp3", "q_conver" => $l15_G879_q_conver[$i], 'q_content' => null, 'a_content' => null, "background" => null],
+                ['round' => $i + 1, 'game_id' => 879, "q_audio" => $AudioDomain . $G4_L15_reading_passage_path . $l15_G879_q_audio[$i] . ".mp3", "q_conver" => $l15_G879_q_conver[$i]],
             ]);
 
             DB::table('ans_n_ques')->insert([
