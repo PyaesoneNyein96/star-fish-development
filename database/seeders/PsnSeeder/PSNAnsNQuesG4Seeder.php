@@ -111,7 +111,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         ];
 
         $ans = [
-            'are', 'Playing', 'are', 'Swimming', 'Eating', 'Sleeping', 'Singing', 'Running', 'Singing', 'Eading'
+            'are', 'Playing', 'are', 'Swimming', 'Eating', 'Sleeping', 'Singing', 'Running', 'Singing', 'Eating'
         ];
 
         foreach ($given_ans as $key => $ga) {
@@ -2572,8 +2572,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
         ];
 
         $convers_audio = [
-            ["what-ur-favorite-food", "noodle"],
-            ['Why', "good-for-energy"],
+            ["what-ur-favorite-food", "pizza"],
+            ['puri', null],
         ];
 
         $audio = $AudioDomain . "Grade_4/Lesson_30/Listen_and_Repeat_2/";
@@ -3412,7 +3412,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         //////////////////////////////////////////// End of Lesson 32 /////////////////////////////////////////////////
 
 
-        ///////////////////////////////////////////// Lesson 33 //////////////////////////////////////////////////////
+        /////////////////////////////////// Lesson 33 /////////////////////////////////////
 
 
 
