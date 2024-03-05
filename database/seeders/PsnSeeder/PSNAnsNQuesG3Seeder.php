@@ -2998,7 +2998,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             ['U','H','Y','G','R','N'],
             ['A','N','Y','G','R'],
             ['S','D','A','R','C','E'],
-            ['T','R','E','I','R'],
+            ['T','R','E','I','D'],
             ['B','M','E','A','R','R','S','A','S','D','E'],
             ['L','C','O','D'],
             ['A','S','D'],
@@ -3009,7 +3009,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         $audio = $AudioDomain . "Grade_3/Lesson_32/Arrange/";
 
         $answers = [
-            'HUNGRY', 'ANGRY', 'SCARED', 'TIRED', 'EMBARRASSED','COLD','SAD','PROUD'
+            'HUNGRY', 'ANGRY', 'SCARED', 'TIRED', 'EMBARRASSED','COLD','SAD'
         ];
 
 
