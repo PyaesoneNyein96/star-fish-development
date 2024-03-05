@@ -44,6 +44,8 @@ class PSNAnsNQuesG4Seeder extends Seeder
         $AtoZ = range('A', 'Z');
 
 
+        $loream = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi imperdiet blandit elit a blandit. Fusce euismod iaculis aliquet. Sed in lectus ipsum. Nam eu ipsum nec nibh sollicitudin commodo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam metus nunc, efficitur id risus sed, ullamcorper fringilla justo. Nullam a lacus lectus. Sed et purus non ex tristique vestibulum. Ut sed tincidunt ante. Cras augue velit, commodo ac placerat quis, eleifend sed orci.";
+
 
 
         //////////////////////////////////////////// Lesson 6 /////////////////////////////////////////
@@ -1026,12 +1028,14 @@ class PSNAnsNQuesG4Seeder extends Seeder
         $images = $ImageDomain . "Grade_4/Lesson_8/Speaking_Topic/";
         $audios = $AudioDomain . "Grade_4/Lesson_8/Speaking_Topic/";
 
+        $question = "- What is your favorite animal? \n - Is it big or small? \n - What color is it? \n - Is it slow or fast? \n - Where does it live?";
 
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 826,
                 'round' => 1,
-                'q_conver' => $images . "question-list.png",
+                // 'q_conver' => $images . "question-list.png",
+                'q_content' => $question,
                 'q_audio' => $audios . "What-is-your-favorite-animal.mp3",
                 'q_image' => $images . "orange-starfish.png",
             ]
@@ -1306,12 +1310,14 @@ class PSNAnsNQuesG4Seeder extends Seeder
         $images = $ImageDomain . "Grade_4/Lesson_9/Speaking_Topic/";
         $audios = $AudioDomain . "Grade_4/Lesson_9/Speaking_Topic/";
 
+        $question = "Look outside. What is the weather like today? \n Use the prompts below \n \n It is (cloudy/sunny/rainy/windy/snowy/foggy). \n It is (hot/cold)";
 
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 834,
                 'round' => 1,
-                'q_conver' => $images . "question-list.png",
+                // 'q_conver' => $images . "question-list.png",
+                'q_content' => $question,
                 'q_audio' => $audios . "Weather-look-like.mp3",
                 'q_image' => $images . "orange-starfish.png",
             ]
@@ -2221,12 +2227,12 @@ class PSNAnsNQuesG4Seeder extends Seeder
         $images = $ImageDomain . "Grade_4/Lesson_28/Writing_Topic/";
         $audios = $AudioDomain . "Grade_4/Lesson_28/Writing_Topic/";
 
-        $sample_content = "Three girls";
+        $sample_content = "Three_girls";
 
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 984,
-                'a_content' => $sample_content,
+                'a_content' => $loream,
                 'q_content' => $images . $sample_content . ".png",
                 'q_conver' => $images . $sample_content . "_small.png",
             ],
@@ -3769,7 +3775,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 'round' => 1,
                 'q_content' => "What did you do yesterday? \n What did you do last week?\n Talk about it.",
                 'q_audio' => $audios . "what-did-u-do-yesterday.mp3",
-                'q_content' => $images . "green-starfish.png",
+                'q_image' => $images . "green-starfish.png",
             ]
 
         ]);
@@ -4025,12 +4031,15 @@ class PSNAnsNQuesG4Seeder extends Seeder
         $images = $ImageDomain . "Grade_4/Lesson_34/Speaking_Topic/";
         $audios = $AudioDomain . "Grade_4/Lesson_34/Speaking_Topic/";
 
+        $question = "Complete the following sentences with \n past tense of the verbs. Talk about them. \n \n I ___(phone) my grandmother.  I ___(play) badminton with Thant Zin. \n I ___ (walk) to school with Yar Zar.   I ___ (watch) TV at night. \n I ___ (dust) my bedroom.   I ___ (visit) the zoo \n   I ___ (study) English at night.";
+
 
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 1028,
                 'round' => 1,
-                'a_conver' => $images . "image.png",
+                // 'a_conver' => $images . "image.png",
+                'q_content' => $question,
                 'q_audio' => $audios . "complete-following-sentence.mp3",
                 'q_image' => $images . "red_starfish.png",
             ]
@@ -4453,7 +4462,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         /// Lesson 35 Unit - 7 Speaking Topic <speaking_and_recording>
 
 
-        $images = $ImageDomain . "Grade_4/Lesson35/Speaking_Topic/";
+        $images = $ImageDomain . "Grade_4/Lesson_35/Speaking_Topic/";
         $audios = $AudioDomain . "Grade_4/Lesson_35/Speaking_Topic/";
 
 
@@ -4476,7 +4485,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         $images = $ImageDomain . "Grade_4/Lesson_35/Writing_Topic/";
         $audios = $AudioDomain . "Grade_4/Lesson_35/Writing_Topic/";
 
-        $sample_content = "Dear Max, \n Last Monday, I phoned my grandmother. On Tueday, I helped my mother. \n On Wednesday, I went to the cinema with my sisters. On Thursday, I went shopping with my parents. \n  On Friday, I studied English in the evening. What about you? \n What did you do last week? \n \n Anna";
+        $sample_content = "Dear Max, \n Last Monday, I phoned my grandmother. On Tuesday, I helped my mother. \n On Wednesday, I went to the cinema with my sisters. On Thursday, I went shopping with my parents. \n  On Friday, I studied English in the evening. What about you? \n What did you do last week? \n \n Anna";
 
         DB::table('ans_n_ques')->insert([
             [
@@ -4780,7 +4789,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         /// Lesson 37 Unit - 4 Speaking Topic <speaking_and_recording>
 
-        $images = $ImageDomain . "Grade_4/Lesson37/Speaking_Topic/";
+        $images = $ImageDomain . "Grade_4/Lesson_37/Speaking_Topic/";
         $audios = $AudioDomain . "Grade_4/Lesson_37/Speaking_Topic/";
         DB::table('ans_n_ques')->insert([
             [
