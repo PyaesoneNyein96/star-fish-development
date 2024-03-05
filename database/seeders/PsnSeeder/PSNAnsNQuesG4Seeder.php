@@ -319,7 +319,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             ['True', 'False'],
             ['1', '3', '5'],
             ['Eating', 'Sleeping', 'Swimming'],
-            ['Cows', 'Pigs', 'DUcks'],
+            ['Cows', 'Pigs', 'Ducks'],
             ['Eating', 'Sleeping', 'Swimming'],
             ['Charlie', 'Joe', 'Rosy'],
         ];
