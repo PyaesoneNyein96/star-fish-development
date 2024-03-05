@@ -25,13 +25,15 @@ class AssessmentController extends Controller
         if (!$studentId) return response()->json(['message' => 'Student Not Found.'], 404);
 
         $lessonId = StudentLesson::where("student_id", $studentId->id)->orderBy('lesson_id', 'desc')->first();
-        if (!$lessonId) return Assessment::where("grade_id", 1)->where("name", 1)->get();
+        if (!$lessonId) return response()->json(["message" => "didn't complete any lessons"], 403);
+
+        $gradeId = $lessonId->grade_id;
         $lessonId = $lessonId->lesson_id;
 
-        $gradeId = StudentLesson::where("student_id", $studentId->id)->where("lesson_id", $lessonId)->first();
-        if (!$gradeId) return response()->json(["message" => "didn't complete lessons"], 403);
+        // $gradeId = StudentLesson::where("student_id", $studentId->id)->where("lesson_id", $lessonId)->first();
+        // if (!$gradeId) return response()->json(["message" => "didn't complete lessons"], 403);
 
-        $isfinishassess = AssessmentFinishData::where("student_id", $studentId->id)->where("grade_id", $gradeId->grade_id)->where("assess_name", 5)->first();
+        $isfinishassess = AssessmentFinishData::where("student_id", $studentId->id)->where("grade_id", $gradeId)->where("assess_name", 5)->first();
 
         $assesLessArray = [
             // Grade 1
@@ -49,46 +51,51 @@ class AssessmentController extends Controller
 
         if (in_array($lessonId, $assesLessArray) && !$isfinishassess) {
 
-            $data = Assessment::where("grade_id", $gradeId->grade_id)->where("name", $lessonId / 8)->get();
+            $data = Assessment::where("grade_id", $gradeId)->where("name", $lessonId / 8)->get();
 
             if (!$data->toArray()) return response()->json(['message' => 'Assessment not found.'], 404);
             return response()->json(["assessment" => $data]);
-        } else {
-
-            $grades = [
-                // Grade 1
-                [
-                    [0, 8], [8, 16], [16, 24], [24, 32], [32, 40]
-                ],
-
-                // Grade 2
-                [
-                    [40, 48], [48, 56], [56, 64], [64, 72], [72, 80]
-                ],
-
-                // Grade 3
-                [
-                    [80, 88], [88, 96], [96, 104], [104, 112], [112, 120],
-                ],
-
-                // Grade 4
-                [
-                    [120, 128], [128, 136], [136, 144], [144, 152], [152, 160]
-                ]
-            ];
-
-            foreach ($grades as $grade => $ranges) {
-                foreach ($ranges as $index => $range) {
-                    if ($lessonId >= $range[0] && $lessonId < $range[1]) {
-                        $data = Assessment::where("grade_id", $grade + 1)->where("name", $index + 1)->get();
-                        foreach ($data as $d) {
-                            $d["disable"] = 1;
-                        }
-                        return response()->json(["assessment" => $data]);
-                    }
-                }
-            }
+        } else if ($isfinishassess) {
+            return response()->json(["message" => "assessment game completed"], 403);
         }
+        // else {
+
+        //     $grades = [
+        //         // Grade 1
+        //         [
+        //             [0, 8], [8, 16], [16, 24], [24, 32], [32, 40]
+        //         ],
+
+        //         // Grade 2
+        //         [
+        //             [40, 48], [48, 56], [56, 64], [64, 72], [72, 80]
+        //         ],
+
+        //         // Grade 3
+        //         [
+        //             [80, 88], [88, 96], [96, 104], [104, 112], [112, 120],
+        //         ],
+
+        //         // Grade 4
+        //         [
+        //             [120, 128], [128, 136], [136, 144], [144, 152], [152, 160]
+        //         ]
+        //     ];
+
+        //     foreach ($grades as $grade => $ranges) {
+        //         foreach ($ranges as $index => $range) {
+        //             if ($lessonId >= $range[0] && $lessonId < $range[1]) {
+        //                 $data = Assessment::where("grade_id", $grade + 1)->where("name", $index + 1)->get();
+        //                 foreach ($data as $d) {
+        //                     $d["disable"] = 1;
+        //                 }
+        //                 return response()->json(["assessment" => $data]);
+        //             }
+        //         }
+        //     }
+        // }
+
+        return response()->json(["message" => "please finish lessons"], 403);
     }
 
 
@@ -97,7 +104,7 @@ class AssessmentController extends Controller
     // enter game
     public function enterGame(Request $request)
     {
-        $id = $request->header("id");
+        $id = $request->header("assess_game_id");
 
         if (!$id) return response()->json(['message' => 'Game ID or Other fields are required.'], 403);
 
@@ -139,6 +146,7 @@ class AssessmentController extends Controller
 
         $studentId = $studentId->id;
         $lessonId = StudentLesson::where("student_id", $studentId)->get();
+        if (!$lessonId[0]) return response()->json(['message' => "didn't complete any lessons"], 403);
 
         $assesLessArray = [
             // Grade 1
@@ -153,6 +161,7 @@ class AssessmentController extends Controller
             // Grade 4
             128, 136, 144, 152, 160
         ];
+
         foreach ($lessonId as $lesId) {
             if (in_array($lesId->lesson_id, $assesLessArray)) {
 
@@ -251,6 +260,6 @@ class AssessmentController extends Controller
                 return response()->json($recorded);
             }
         }
-        return response()->json(['message' => "didn't complete lessons"], 403);
+        return response()->json(['message' => "please finish lessons"], 403);
     }
 }

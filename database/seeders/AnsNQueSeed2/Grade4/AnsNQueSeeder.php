@@ -61,7 +61,7 @@ class AnsNQueSeeder extends Seeder
         $q_G759 = [
 
             ["U", "B", "E", "A", "T", "F", "I", "U", "L"],
-            ["A", "N", "H", "A", "D", "S", "O", "M", "E"],
+            ["A", "N", "H",  "D", "S", "O", "M", "E"],
             ["M", "E", "I", "U", "M", "D", "H", "E", "G", "I", "H", "T"],
             ["M", "I", "L", "E", "D", "D", "A", "G", "E", "D"],
             ["L", "O", "D"],
@@ -374,7 +374,7 @@ class AnsNQueSeeder extends Seeder
             ["M", "D", "U", "I", "M", "L", "E", "N", "E", "G", "H", "T"],
             ["E", "D", "R"],
             ["S", "O", "H", "R", "T"],
-            ["S", "R", "A", "T", "I", "G", "H"],
+            ["S", "R", "A", "T", "T", "I", "G", "H"],
 
         ];
 
@@ -636,7 +636,7 @@ class AnsNQueSeeder extends Seeder
             ["L", "P", "F", "U", "L", "E", "H"],
             ["A", "Z", "L", "Y"],
             ["Q", "I", "T", "E", "U"],
-            ["A", "T", "K", "L", "I", "T", "E", "V"],
+            ["A", "T", "K", "A", "L", "I", "T", "E", "V"],
 
         ];
 
@@ -2789,17 +2789,17 @@ class AnsNQueSeeder extends Seeder
         $l15_G878image = $domain . "/storage/images/Grade_4/lesson_15/speaking_practice/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 878,  'q_image' => $l15_G878image . "christmas.png", "a_content" => "It is in December.\nWhat do you do?\nI sing and exchange gifts.", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3",   "q_content" => "When is Christmas?"],
+            ['round' => 1, 'game_id' => 878,  'q_image' => $l15_G878image . "christmas.png", "a_content" => "It is in December.\nWhat do you do?\nI sing and exchange gifts.", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "SubBlock_It-is-in-December" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "SubBlock_When-is-Christmas" . ".mp3",   "q_content" => "When is Christmas?"],
         ]);
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 2, 'game_id' => 878,  'q_image' => $l15_G878image . "valentine.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3",  "q_content" => "When is Christmas?"],
-            ['round' => 3, 'game_id' => 878,  'q_image' => $l15_G878image . "water.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3",  "q_content" => "When is the water festival?"],
-            ['round' => 4, 'game_id' => 878,  'q_image' => $l15_G878image . "thading.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3",  "q_content" => "When is Thadingyut?"],
-            ['round' => 5, 'game_id' => 878,  'q_image' => $l15_G878image . "chinese.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3",  "q_content" => "When is the Chinese New Year?"],
-            ['round' => 6, 'game_id' => 878,  'q_image' => $l15_G878image . "thanks.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3",  "q_content" => " When is thanksgiving?"],
-            ['round' => 7, 'game_id' => 878,  'q_image' => $l15_G878image . "halloween.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3",  "q_content" => "When is Halloween?"],
-            ['round' => 8, 'game_id' => 878,  'q_image' => $l15_G878image . "diwali.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "" . ".mp3",  "q_content" => "When is Diwali?"],
+            ['round' => 2, 'game_id' => 878,  'q_image' => $l15_G878image . "valentine.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "SubBlock_It-is-in-February" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "SubBlock_When-is-Valentines-Day" . ".mp3",  "q_content" => "When is Valentine's Day?"],
+            ['round' => 3, 'game_id' => 878,  'q_image' => $l15_G878image . "water.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "SubBlock_It-is-in-April" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "SubBlock_When-is-the-water-festival" . ".mp3",  "q_content" => "When is the water festival?"],
+            ['round' => 4, 'game_id' => 878,  'q_image' => $l15_G878image . "thading.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "SubBlock_It-is-in-October" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "SubBlock_When-is-Thadingyut" . ".mp3",  "q_content" => "When is Thadingyut?"],
+            ['round' => 5, 'game_id' => 878,  'q_image' => $l15_G878image . "chinese.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "SubBlock_It-is-in-February" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "SubBlock_When-is-the-Chinese-New-Year" . ".mp3",  "q_content" => "When is the Chinese New Year?"],
+            ['round' => 6, 'game_id' => 878,  'q_image' => $l15_G878image . "thanks.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "SubBlock_It-is-in-November" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "SubBlock_When-is-thanksgiving" . ".mp3",  "q_content" => " When is thanksgiving?"],
+            ['round' => 7, 'game_id' => 878,  'q_image' => $l15_G878image . "halloween.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "SubBlock_It-is-in-October" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "SubBlock_When-is-Halloween" . ".mp3",  "q_content" => "When is Halloween?"],
+            ['round' => 8, 'game_id' => 878,  'q_image' => $l15_G878image . "diwali.png", "q_audio" => $AudioDomain . $G4_L15_practice_speaking . "SubBlock_It-is-in-November" . ".mp3", "round_instruction" => $AudioDomain . $G4_L15_practice_speaking . "SubBlock_When-is-Diwali" . ".mp3",  "q_content" => "When is Diwali?"],
         ]);
 
 
@@ -2833,7 +2833,7 @@ class AnsNQueSeeder extends Seeder
             ["Lamps", "Flowers", "Candles"],
             ["Praysto goddess Lakshmi", "Sharing food", "Going to relatives"],
             ["Decoration with lamps", "Giving gifts", "Visiting temples"],
-            ["Praying", "Visting Temples", "Cleaning workspaces"]
+            ["Praying", "Visiting Temples", "Cleaning workspaces"]
         ];
         $l15_G879_q_audio_a_content = [
             [0, 1, 0],
@@ -2849,12 +2849,12 @@ class AnsNQueSeeder extends Seeder
 
             foreach ($l15_G879_q_audio_ans[$i] as $key => $val) {
                 DB::table('ans_n_ques')->insert([
-                    ['round' => $i + 1, 'game_id' => 879, "q_audio" => $AudioDomain . $G4_L15_reading_passage_path . str_replace(' ', '-', strtolower($val)) . ".mp3", 'q_content' => $val, "q_conver" => null, 'a_content' => $l15_G879_q_audio_a_content[$i][$key], "background" => null],
+                    ['round' => $i + 1, 'game_id' => 879, "q_audio" => $AudioDomain . $G4_L15_reading_passage_path . str_replace(' ', '-', strtolower($val)) . ".mp3", 'q_content' => $val,  'a_content' => $l15_G879_q_audio_a_content[$i][$key]],
                 ]);
             }
 
             DB::table('ans_n_ques')->insert([
-                ['round' => $i + 1, 'game_id' => 879, "q_audio" => $AudioDomain . $G4_L15_reading_passage_path . $l15_G879_q_audio[$i] . ".mp3", "q_conver" => $l15_G879_q_conver[$i], 'q_content' => null, 'a_content' => null, "background" => null],
+                ['round' => $i + 1, 'game_id' => 879, "q_audio" => $AudioDomain . $G4_L15_reading_passage_path . $l15_G879_q_audio[$i] . ".mp3", "q_conver" => $l15_G879_q_conver[$i]],
             ]);
 
             DB::table('ans_n_ques')->insert([
