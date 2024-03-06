@@ -1713,7 +1713,7 @@ class GameSeeder extends Seeder
             ['name' => 'Listen and Repeat (2)', 'unit_id' => 902, 'category_id' => 8, "instructionGIF" => $Gif_path . "Conversation.gif"],
             ['name' => 'Practice', 'unit_id' => 903, 'category_id' => 45, "instructionGIF" => null],
             ['name' => 'Speaking Practice', 'unit_id' => 904, 'category_id' => 11, "instructionGIF" => $Gif_path . "Speaking.gif"],
-            ['name' => 'Listening Practice', 'unit_id' => 905, 'category_id' => 39, "instructionGIF" =>  $Gif_path . "Listen-and-Practice-2.gif"],
+            ['name' => 'Listening Practice', 'unit_id' => 905, 'category_id' => 15, "instructionGIF" =>  $Gif_path . "Listen-and-Practice-2.gif"],
             ['name' => 'Reading', 'unit_id' => 906, 'category_id' => 16, "instructionGIF" => $Gif_path . "Read-the-passage.gif"],
             ['name' => 'Speaking Topic', 'unit_id' => 907, 'category_id' => 11, "instructionGIF" => $Gif_path . "Speaking.gif"],
 
