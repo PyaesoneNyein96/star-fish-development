@@ -890,11 +890,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
             ['Yellow', 'Green', 'orange'],
             ['Orange', 'Red', 'Pink'],
             ['White', 'Black', 'Grey'],
-            ['Orange', 'Brow', 'Pink'],
+            ['Orange', 'Brown', 'Pink'],
             ['First', 'Big', 'Slow'],
             ['First', 'Big', 'Slow'],
-
-
         ];
 
         $ans = [
@@ -1010,7 +1008,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     'game_id' => 825,
                     'round' => $key + 1,
                     //  'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
-                    'a_content' => $a_contents[$key],
+                    'q_content' => $a_contents[$key],
                     //  'q_audio' => $audio.$this->removeSpace($value).".mp3",
                     'q_image' => $images . $this->removeSpace($value) . ".png",
                 ]
