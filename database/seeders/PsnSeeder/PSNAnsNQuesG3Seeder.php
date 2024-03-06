@@ -3927,7 +3927,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $ans = [
           'play basketball', 'see doctor', 'eat food', 'get help',
-          'buy toys','buy flowers', 'watch films','red books'
+          'buy toys','buy flowers', 'watch films','read books'
         ];
 
 
@@ -4384,7 +4384,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'game_id' => 725,
                     'q_audio' => $audios . $paraName,
                     'q_content' => null,
-                    // 'q_conver' => $para,
+                    'q_conver' => $para,
                     'background' => $images . "bg.png"
                 ]
             ]);
