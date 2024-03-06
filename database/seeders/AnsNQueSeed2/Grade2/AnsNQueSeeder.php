@@ -2362,8 +2362,8 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
             [
-                'round' => 1, 'game_id' => 329, 'a_content' => "Tuesday", 'q_image' => "Tuesday",
-                'a_audio' => $AudioDomain . $G2_L16_listen_n_learn . "Tuesday" . ".mp3", "background" => $l16_G329_image . "bg.jpg"
+                'round' => 1, 'game_id' => 329, 'a_content' => "Sunday", 'q_image' => "Sunday",
+                'a_audio' => $AudioDomain . $G2_L16_listen_n_learn . "Sunday" . ".mp3", "background" => $l16_G329_image . "bg.jpg"
             ],
             [
                 'round' => 1, 'game_id' => 329, 'a_content' => "Thursday", 'q_image' => "Thursday",
