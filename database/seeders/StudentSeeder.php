@@ -130,7 +130,7 @@ class StudentSeeder extends Seeder
                 'name' => 'Dana',
                 'phone' => '+959974373370',
                 'email' => null,
-                'password' => '$2y$10$WxFVcp4UqnCn/UjNVlQqveaCQ2bWTWqMR9PpQYHBfAV/400NJitbO',
+                'password' => '$2y$10$Nidhx.cznJLXiFIuI5OyS.ug5sez05w42mcrUI7WJUP6wANmHcWr.',
                 'age' => 25,
                 'country_id' => 1,
                 'city_id' => 1,
