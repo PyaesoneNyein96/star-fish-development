@@ -1555,54 +1555,117 @@ class PSNAnsNQuesG3Seeder extends Seeder
     // Unit 6 Reading  <reading_passage_two>
 
 
-    $images = $ImageDomain . "Grade_3/Lesson_26/Reading/";
-    $audios = $AudioDomain . "Grade_3/Lesson_26/Reading/";
+    // $images = $ImageDomain . "Grade_3/Lesson_26/Reading/";
+    // $audios = $AudioDomain . "Grade_3/Lesson_26/Reading/";
 
-    $para = "Hi, My name is Toby. I am 8 years old. I am a Grade 3 student. Today is very busy. In the morning I get up at 6:30. And I brush my teeth, take a bath and eat breakfast at 7:00. Then I get dressed, and I go to school. In the afternoon I eat my lunch at 12:30. And I play with my friends at school. I come back home at 3:00 in the afternoon. I do my homework at 5:00,and  I eat dinner at 6:00 in the evening. After dinner, I watch TV for a while. I go to bed at 8:00. I have a very busy day.";
+    // $para = "Hi, My name is Toby. I am 8 years old. I am a Grade 3 student. Today is very busy. In the morning I get up at 6:30. And I brush my teeth, take a bath and eat breakfast at 7:00. Then I get dressed, and I go to school. In the afternoon I eat my lunch at 12:30. And I play with my friends at school. I come back home at 3:00 in the afternoon. I do my homework at 5:00,and  I eat dinner at 6:00 in the evening. After dinner, I watch TV for a while. I go to bed at 8:00. I have a very busy day.";
 
-    $given_q = [
-        ["What does he do after lunch at school?", "I play with my friends at school"],
-        ["What time does he eat dinner?", "I watch TV for a while"],
-        ["What time does he go to bed?", "8 o'clock"],
-        ["What time does he eat breakfast in the morning?", "7 o'clock"],
-        ["What time does Toby get up in the morning?", "6:30"],
-    ];
+    // $given_q = [
+    //     ["What does he do after lunch at school?", "I play with my friends at school"],
+    //     ["What time does he eat dinner?", "I watch TV for a while"],
+    //     ["What time does he go to bed?", "8 o'clock"],
+    //     ["What time does he eat breakfast in the morning?", "7 o'clock"],
+    //     ["What time does Toby get up in the morning?", "6:30"],
+    // ];
 
-    $given_audio = [
-        "toby-lunch.mp3",
-        "toby-dinner.mp3",
-        "toby-bed.mp3",
-        "toby-breakfast.mp3",
-        "toby-get-up.mp3",
-    ];
+    // $given_audio = [
+    //     "toby-lunch.mp3",
+    //     "toby-dinner.mp3",
+    //     "toby-bed.mp3",
+    //     "toby-breakfast.mp3",
+    //     "toby-get-up.mp3",
+    // ];
 
-    $paraName = "Hi-my-name-is-Toby.mp3";
+    // $paraName = "Hi-my-name-is-Toby.mp3";
 
-     DB::table('ans_n_ques')->insert([
-            [
-                'round' => 1,
-                'game_id' => 647,
-                'q_audio' => $audios . $paraName,
-                'q_content' => "My busy day",
-                'q_conver' => $para,
-                'background' => $images . "bg.png"
-            ]
-        ]);
+    //  DB::table('ans_n_ques')->insert([
+    //         [
+    //             'round' => 1,
+    //             'game_id' => 647,
+    //             'q_audio' => $audios . $paraName,
+    //             'q_content' => "My busy day",
+    //             'q_conver' => $para,
+    //             'background' => $images . "bg.png"
+    //         ]
+    //     ]);
 
-      for ($i = 0; $i < count($given_q); $i++) {
+    //   for ($i = 0; $i < count($given_q); $i++) {
 
-        DB::table('ans_n_ques')->insert([
-            [
-                'round' => $i + 1,
-                'game_id' => 647,
-                'q_audio' => $audios . $given_audio[$i],
-                'q_conver' => $given_q[$i][0],    //giver Q
-                'a_content' => $given_q[$i][1],    //ans
-            ]
-        ]);
+    //     DB::table('ans_n_ques')->insert([
+    //         [
+    //             'round' => $i + 1,
+    //             'game_id' => 647,
+    //             'q_audio' => $audios . $given_audio[$i],
+    //             'q_conver' => $given_q[$i][0],    //giver Q
+    //             'a_content' => $given_q[$i][1],    //ans
+    //         ]
+    //     ]);
 
-    }
+    // }
 
+
+///////////////////////////////////////////////////////////////////
+
+   $images = $ImageDomain . "Grade_3/Lesson_26/Reading/";
+        $audios = $AudioDomain . "Grade_3/Lesson_26/Reading/";
+
+         $para = "Hi, My name is Toby. I am 8 years old. I am a Grade 3 student. Today is very busy. In the morning I get up at 6:30. And I brush my teeth, take a bath and eat breakfast at 7:00. Then I get dressed, and I go to school. In the afternoon I eat my lunch at 12:30. And I play with my friends at school. I come back home at 3:00 in the afternoon. I do my homework at 5:00,and  I eat dinner at 6:00 in the evening. After dinner, I watch TV for a while. I go to bed at 8:00. I have a very busy day.";
+
+        $given_q = [
+            ["What does he do after lunch at school?", "I play with my friends at school"],
+            ["What time does he eat dinner?", "I watch TV for a while"],
+            ["What time does he go to bed?", "8 o'clock"],
+            ["What time does he eat breakfast in the morning?", "7 o'clock"],
+            ["What time does Toby get up in the morning?", "6:30"],
+        ];
+
+        $given_audio = [
+            "toby-lunch.mp3",
+            "toby-dinner.mp3",
+            "toby-bed.mp3",
+            "toby-breakfast.mp3",
+            "toby-get-up.mp3",
+        ];
+
+        $paraName = "Hi-my-name-is-Toby.mp3";
+
+
+        for ($i = 0; $i < count($given_q); $i++) {
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'game_id' => 647,
+                    // 'q_audio' => $audios . $this->removeSpace(strtolower($value)) . ".mp3",
+                    // 'q_content' => $value,
+                    'a_content' =>  $given_q[$i][1]
+                ]
+            ]);
+
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'game_id' => 647,
+                    'q_audio' => $audios . $given_audio[$i],
+                    'q_conver' => $given_q[$i][0],    //giver Q
+                ]
+            ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'game_id' => 647,
+                    'q_audio' => $audios . $paraName,
+                    'q_content' => "My busy day",
+                    'q_conver' => $para,
+                    'background' => $images . "bg.png"
+                ]
+            ]);
+
+        }
+
+
+///////////////////////////////////////////////////////////////////
 
     // Unit 7 Writing <writing_topic>
 
