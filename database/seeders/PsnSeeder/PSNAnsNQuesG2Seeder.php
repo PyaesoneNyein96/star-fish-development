@@ -890,7 +890,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
     }
 
 
-    // Unit -2 Trace Word <Sentence Tracing>
+    // Unit -2 Trace Word <Sentence_Tracing>
 
     $words = [
         'Shoe','Taxi','Ship','Tree',
@@ -3149,6 +3149,14 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ['T','e','n'],
         ['T','w','o'],
         ['O','n','e'],
+    ];
+
+    $counts = [
+        [1,2,4],
+        [3,2,2,2],
+        [2,2,2],
+        [2,4,1],
+        [1,2,2]
     ];
 
 
