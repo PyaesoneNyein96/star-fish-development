@@ -19,8 +19,8 @@ class AnsNQueSeeder extends Seeder
         $a_z_traceword = $domain . "/storage/images/AtoZTrace/small_dotted/";
         $A_Z_traceword = $domain . "/storage/images/AtoZTrace/capital_dotted/";
 
-        $a_z_success = $domain . "/storage/images/AtoZTrace/small_success/";
-        $A_Z_success = $domain . "/storage/images/AtoZTrace/capital_success/";
+        $a_z_success = $domain . "/storage/images/TraceSuccessAZ/small_success/";
+        $A_Z_success = $domain . "/storage/images/TraceSuccessAZ/capital_success/";
 
 
 
