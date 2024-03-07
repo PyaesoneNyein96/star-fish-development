@@ -33,6 +33,13 @@ class PSNAnsNQuesG2Seeder extends Seeder
         $AtoZUpdate = $domain."/storage/audios/A_to_Z_update/";
 
 
+        $cap_traceSuccess = $ImageDomain . "TraceSuccessAZ/capital_success/";
+        $sm_traceSuccess = $ImageDomain . "TraceSuccessAZ/small_success/";
+
+        $cap_traceDotted = $ImageDomain . "AtoZTrace/capital_dotted/";
+        $sm_traceDotted = $ImageDomain . "AtoZTrace/small_dotted/";
+
+
         $prefix = "SubBlock_";
         $AtoZ = range('A', 'Z');
 
@@ -275,6 +282,14 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ['B','i','r','d'],
     ];
 
+
+    $counts = [
+        [1,1,4],
+        [2,1,2],
+        [1,2,2],
+        [3,2,2,2]
+    ];
+
     $audio = $AudioDomain."Grade_2/Lesson_23/Trace_words/";
     $img = $ImageDomain."Grade_2/Lesson_23/Trace_words/";
 
@@ -292,12 +307,15 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ]);
 
 
-        foreach ($letters[$key] as $value) {
+        foreach ($letters[$key] as $k => $value) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 363,
                     'round' => $key + 1,
-                    'q_content' => $img.$value.".png",
+                    'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value.".png",
+                    'a_content' => $value,
+                    'a_image' => ctype_lower($value) ? $sm_traceSuccess. $value . ".png" : $cap_traceSuccess. $value.".png",
+                    'a_extra' => $counts[$key][$k]
 
                 ]
             ]);
@@ -425,6 +443,13 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ['Q','u','a','i','l'],
     ];
 
+    $counts = [
+        [3,1,2,2],
+        [3,2,2,2],
+        [2,1,2,3],
+        [2,1,2,2,1]
+    ];
+
     $audio = $AudioDomain."Grade_2/Lesson_24/Trace_words/";
     $img = $ImageDomain."Grade_2/Lesson_24/Trace_words/";
 
@@ -447,7 +472,10 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 [
                     'game_id' => 368,
                     'round' => $key + 1,
-                    'q_content' => $img.$value.".png",
+                    'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value.".png",
+                    'a_content' => $value,
+                    'a_image' => ctype_lower($value) ? $sm_traceSuccess. $value . ".png" : $cap_traceSuccess. $value.".png",
+                    'a_extra' => $counts[$key][$k]
 
                 ]
             ]);
