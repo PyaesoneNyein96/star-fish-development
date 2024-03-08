@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\API\Dashboard\DashboardController;
-use App\Http\Controllers\WorkshopController;
+use Inertia\Inertia;
+use App\Models\Student;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Http\Controllers\WorkshopController;
+use App\Http\Controllers\API\Dashboard\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,5 +108,11 @@ Route::get('/link', function () {
     return back();
 });
 
+
+
+Route::get('userList', function () {
+
+    return Student::all();
+});
 
 Route::get('gameAudio', [WorkshopController::class, 'gameAudio']);

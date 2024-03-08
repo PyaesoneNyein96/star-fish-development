@@ -18,6 +18,13 @@ class AuthController extends Controller
     use mailTraits;
 
 
+    public function userList(Request $request){
+
+        return Student::all();
+
+    }
+
+
     public function logout(Request $request){
 
         $user = Student::where('deviceId', $request->deviceId)->first();
