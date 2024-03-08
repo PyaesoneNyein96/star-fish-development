@@ -33,6 +33,13 @@ class PSNAnsNQuesG2Seeder extends Seeder
         $AtoZUpdate = $domain."/storage/audios/A_to_Z_update/";
 
 
+        $cap_traceSuccess = $ImageDomain . "TraceSuccessAZ/capital_success/";
+        $sm_traceSuccess = $ImageDomain . "TraceSuccessAZ/small_success/";
+
+        $cap_traceDotted = $ImageDomain . "AtoZTrace/capital_dotted/";
+        $sm_traceDotted = $ImageDomain . "AtoZTrace/small_dotted/";
+
+
         $prefix = "SubBlock_";
         $AtoZ = range('A', 'Z');
 
@@ -275,6 +282,14 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ['B','i','r','d'],
     ];
 
+
+    $counts = [
+        [1,1,4],
+        [2,1,2],
+        [1,2,2],
+        [3,2,2,2]
+    ];
+
     $audio = $AudioDomain."Grade_2/Lesson_23/Trace_words/";
     $img = $ImageDomain."Grade_2/Lesson_23/Trace_words/";
 
@@ -292,12 +307,15 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ]);
 
 
-        foreach ($letters[$key] as $value) {
+        foreach ($letters[$key] as $k => $value) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 363,
                     'round' => $key + 1,
-                    'q_content' => $img.$value.".png",
+                    'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value.".png",
+                    'a_content' => $value,
+                    'a_image' => ctype_lower($value) ? $sm_traceSuccess. $value . ".png" : $cap_traceSuccess. $value.".png",
+                    'a_extra' => $counts[$key][$k]
 
                 ]
             ]);
@@ -425,6 +443,13 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ['Q','u','a','i','l'],
     ];
 
+    $counts = [
+        [3,1,2,2],
+        [3,2,2,2],
+        [2,1,2,3],
+        [2,1,2,2,1]
+    ];
+
     $audio = $AudioDomain."Grade_2/Lesson_24/Trace_words/";
     $img = $ImageDomain."Grade_2/Lesson_24/Trace_words/";
 
@@ -442,12 +467,15 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ]);
 
 
-        foreach ($letters[$key] as $value) {
+        foreach ($letters[$key]  as $k => $value) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 368,
                     'round' => $key + 1,
-                    'q_content' => $img.$value.".png",
+                    'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value.".png",
+                    'a_content' => $value,
+                    'a_image' => ctype_lower($value) ? $sm_traceSuccess. $value . ".png" : $cap_traceSuccess. $value.".png",
+                    'a_extra' => $counts[$key][$k]
 
                 ]
             ]);
@@ -862,7 +890,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
     }
 
 
-    // Unit -2 Trace Word <Sentence Tracing>
+    // Unit -2 Trace Word <Sentence_Tracing>
 
     $words = [
         'Shoe','Taxi','Ship','Tree',
@@ -873,6 +901,13 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ['T','a','x','i'],
         ['S','h','i','p'],
         ['T','r','e','e'],
+    ];
+
+    $counts = [
+        [1,2,1,2],
+        [2,2,2,2],
+        [1,2,2,2],
+        [2,2,2,2]
     ];
 
     $audio = $AudioDomain."Grade_2/Lesson_26/Trace_words/";
@@ -892,12 +927,15 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ]);
 
 
-        foreach ($letters[$key] as $value) {
+        foreach ($letters[$key] as $k => $value) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 379,
                     'round' => $key + 1,
-                    'q_content' => $img.$value.".png",
+                    'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value.".png",
+                    'a_content' => $value,
+                    'a_image' => ctype_lower($value) ? $sm_traceSuccess. $value . ".png" : $cap_traceSuccess. $value.".png",
+                    'a_extra' => $counts[$key][$k]
 
                 ]
             ]);
@@ -1571,6 +1609,12 @@ class PSNAnsNQuesG2Seeder extends Seeder
             ['V','a','n'],
         ];
 
+        $counts = [
+            [2,2,1,2],
+            [2,2,1,2],
+            [2,2,2],
+        ];
+
         $audio = $AudioDomain."Grade_2/Lesson_30/Trace_words/";
         $img = $ImageDomain."Grade_2/Lesson_30/Trace_words/";
 
@@ -1588,12 +1632,15 @@ class PSNAnsNQuesG2Seeder extends Seeder
             ]);
 
 
-            foreach ($letters[$key] as $value) {
+            foreach ($letters[$key] as $k => $value) {
                 DB::table('ans_n_ques')->insert([
                     [
                         'game_id' => 399,
                         'round' => $key + 1,
-                        'q_content' => $img.$value.".png",
+                        'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value.".png",
+                        'a_content' => $value,
+                        'a_image' => ctype_lower($value) ? $sm_traceSuccess. $value . ".png" : $cap_traceSuccess. $value.".png",
+                        'a_extra' => $counts[$key][$k]
 
                     ]
                 ]);
@@ -1974,6 +2021,11 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ['W','a','l','l'],
     ];
 
+    $counts = [
+        [4,1,1,2],
+        [4,2,1,1]
+    ];
+
     $audio = $AudioDomain."Grade_2/Lesson_32/Trace/";
     $img = $ImageDomain."Grade_2/Lesson_32/Trace/";
 
@@ -1991,12 +2043,15 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ]);
 
 
-        foreach ($letters[$key] as $value) {
+        foreach ($letters[$key] as $k => $value) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 411,
                     'round' => $key + 1,
-                    'q_content' => $img.$value.".png",
+                    'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value.".png",
+                    'a_content' => $value,
+                    'a_image' => ctype_lower($value) ? $sm_traceSuccess. $value . ".png" : $cap_traceSuccess. $value.".png",
+                    'a_extra' => $counts[$key][$k]
 
                 ]
             ]);
@@ -2427,6 +2482,14 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ['Z','i','p'],
     ];
 
+    $counts = [
+        [3,2,4,2],
+        [3,1,1,3],
+        [3,1,3,1],
+        [3,2,2,1],
+        [3,2,2]
+    ];
+
     $audio = $AudioDomain."Grade_2/Lesson_34/Trace_words/";
     $img = $ImageDomain."Grade_2/Lesson_34/Trace_words/";
 
@@ -2444,12 +2507,15 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ]);
 
 
-        foreach ($letters[$key] as $value) {
+        foreach ($letters[$key] as $k => $value) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 420,
                     'round' => $key + 1,
-                    'q_content' => $img.$value.".png",
+                    'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value.".png",
+                    'a_content' => $value,
+                    'a_image' => ctype_lower($value) ? $sm_traceSuccess. $value . ".png" : $cap_traceSuccess. $value.".png",
+                    'a_extra' => $counts[$key][$k]
 
                 ]
             ]);
@@ -3085,6 +3151,14 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ['O','n','e'],
     ];
 
+    $counts = [
+        [1,2,4],
+        [3,2,2,2],
+        [2,2,2],
+        [2,4,1],
+        [1,2,2]
+    ];
+
 
     $audio = $AudioDomain."Grade_2/Lesson_38/Tracing/";
     $img = $ImageDomain."Grade_2/Lesson_38/Tracing/";
@@ -3103,12 +3177,15 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ]);
 
 
-        foreach ($letters[$key] as $value) {
+        foreach ($letters[$key] as $k => $value) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 443,
                     'round' => $key + 1,
-                    'q_content' => $img.$value.".png",
+                    'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value.".png",
+                    'a_content' => $value,
+                    'a_image' => ctype_lower($value) ? $sm_traceSuccess. $value . ".png" : $cap_traceSuccess. $value.".png",
+                    'a_extra' => $counts[$key][$k]
 
                 ]
             ]);
