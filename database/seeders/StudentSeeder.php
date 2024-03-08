@@ -99,7 +99,7 @@ class StudentSeeder extends Seeder
                 'isSubscriber' => 0
             ],
 
-                 [
+            [
                 'name' => 'zwe',
                 'phone' => "+959258773560",
                 'email' => null,
@@ -120,6 +120,50 @@ class StudentSeeder extends Seeder
             ]
 
 
+
+        ]);
+
+
+        DB::table('students')->insert([
+
+            [
+                'name' => 'Dana',
+                'phone' => '+959974373370',
+                'email' => null,
+                'password' => '$2y$10$Nidhx.cznJLXiFIuI5OyS.ug5sez05w42mcrUI7WJUP6wANmHcWr.',
+                'age' => 25,
+                'country_id' => 1,
+                'city_id' => 1,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 1,
+                'level' => 1,
+                'profile_picture' => null,
+                'status' => 1,
+                'grade_chosen' => 3,
+                'token' => "1|4YsGl3rYqeZa7QCtRWijHzMbJ3V53stqpXoZRQ8d0c9baf79",
+                'isSubscriber' => 0
+            ],
+            [
+                'name' => 'Tpo',
+                'phone' => "+959973659244",
+                'email' => null,
+                'password' => '$2y$10$WxFVcp4UqnCn/UjNVlQqveaCQ2bWTWqMR9PpQYHBfAV/400NJitbO',
+                'age' => 27,
+                'country_id' => 1,
+                'city_id' => 1,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 1,
+                'level' => 1,
+                'profile_picture' => null,
+                'status' => 1,
+                'grade_chosen' => 4,
+                'token' => "2|4gOjWmThLCiMfZNCAkv9V4drEz5yghQ9z6HUzKfi33c91233",
+                'isSubscriber' => 0
+            ],
 
         ]);
     }
