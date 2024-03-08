@@ -2482,8 +2482,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         [
             'game_id' => 670,
             'round' => 1,
-            'q_conver' =>  "Talk about friends. Where are they \n now? What are they doing? ",
-            // 'q_conver' =>  $images."text-box.png",
+            // 'q_conver' =>  "Talk about friends. Where are they \n now? What are they doing? ",
+            'q_conver' =>  $images."text-box.png",
             'q_audio' => $audios."Talk-about-friends.mp3",
             'q_image' => $images . "girl.png",
         ]
@@ -2785,7 +2785,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 678,
-                'q_content' => $images."sample.png",
+                // 'q_content' => $images."sample.png",
                 'a_content' => $sample_content
             ],
         ]);
@@ -2803,8 +2803,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 679,
                 'round' => 1,
-                'q_conver' =>  "What do you usually do on birthday?",
-                // 'q_conver' =>  $images."text-box.png",
+                // 'q_conver' =>  "What do you usually do on birthday?",
+                'q_conver' =>  $images."text-box.png",
                 'q_audio' => $audios."What-do-u-usually.mp3",
                 'q_image' => $images . "girl" . ".png",
             ]
