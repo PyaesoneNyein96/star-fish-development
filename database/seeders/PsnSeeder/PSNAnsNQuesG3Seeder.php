@@ -140,9 +140,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "I sweep the floor in the afternoon.",
             "I wash the clothes in the afternoon.",
             "I make the bed in the morning.",
-            "I paint the bedroom in the afternoon",
-            "I brush my teeth in the morning",
-            "I wash the car in the morning",
+            "I paint the bedroom in the afternoon.",
+            "I brush my teeth in the morning.",
+            "I wash the car in the morning.",
         ];
 
 
@@ -329,13 +329,13 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            "I sometimes listen to songs in my class",
-            "We always do physical exercise at school",
-            "I usually water the plants",
-            "I often work in pair",
-            "I sometimes draw pictures in my class",
-            "I always study in the library",
-            "We often work in group in our class",
+            "I sometimes listen to songs in my class.",
+            "We always do physical exercise at school.",
+            "I usually water the plants.",
+            "I often work in pair.",
+            "I sometimes draw pictures in my class.",
+            "I always study in the library.",
+            "We often work in group in our class.",
         ];
 
         $q_audio = [
@@ -667,13 +667,13 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            "I am reading",
-            "He is eating",
-            "She is planting",
-            "I am playing the piano",
-            "They are sleeping",
-            "They are studying",
-            "He is playing baseball",
+            "I am reading.",
+            "He is eating.",
+            "She is planting.",
+            "I am playing the piano.",
+            "They are sleeping.",
+            "They are studying.",
+            "He is playing baseball.",
         ];
 
         $ques_aud = ['you','he','she','you','they','they','he'];
@@ -1203,14 +1203,14 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            "No, I can’t",
-            "Yes, she can",
-            "Yes, they can",
-            "Yes, he can",
-            "Yes, he can",
-            "No, they can’t",
-            "No, I can’t",
-            "No, he can’t"
+            "No, I can’t.",
+            "Yes, she can.",
+            "Yes, they can.",
+            "Yes, he can.",
+            "Yes, he can.",
+            "No, they can’t.",
+            "No, I can’t.",
+            "No, he can’t."
         ];
 
 
@@ -2016,7 +2016,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "She is throwing a ball.",
             "She is washing the car.",
             "she is fishing.",
-            "I am sleeping",
+            "I am sleeping.",
             "She is acting in a play.",
             "he is planting flowers."
         ];
