@@ -15,6 +15,7 @@ use App\Models\StudentLesson;
 use App\Models\SubscriptionPlan;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
 
 class SubscriptionController extends Controller
 {
@@ -32,6 +33,7 @@ class SubscriptionController extends Controller
 
     }
 
+    ////////////////////////////////////////////////////////////////
 
     public function plans(Request $request){
 
@@ -43,6 +45,8 @@ class SubscriptionController extends Controller
 
     public function purchase(Request $request){
 
+
+
         $student = Student::where('token', $this->token)->where('status',1)->first();
 
         if(!$student){
@@ -52,12 +56,13 @@ class SubscriptionController extends Controller
         }
 
 
+
         DB::beginTransaction();
         try {
 
-            $purchasing = $this->purchasing($student, $this->grade_id, $this->subscription_id);
+            return $purchasing = $this->purchasing($student, $this->grade_id, $this->subscription_id);
 
-            if($purchasing){
+            if($purchasing == 1){
 
                 $now = Carbon::now(strval($student->country['timezone']));
 
@@ -159,11 +164,60 @@ class SubscriptionController extends Controller
     }
 
 
-    public function purchasing($student, $grade_id, $subscription_id) {
+    private function purchasing($student, $grade_id, $subscription_id) {
 
-        return !$student->grades->contains('id', $grade_id) ? true : false;
+        $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
+
+        $order_id = rand(1,999).chr(rand(65, 90));
+        $time = Carbon::now();
+        $data = [
+            "Request" => [
+                "timestamp" => $time,
+                "method" => "kbz.payment.precreate",
+                "notify_url" => "https://star-fish-development.myanmargateway.net/payment/notify",
+                "nonce_str" => "8264ILTKCH16CQ2502SI8ZNMTM67VS_3",
+                "sign_type" => "SHA256",
+                "sign" => strtoupper($this->convert_SHA256($order_id, $time)),
+                "version" => "1.0",
+                "biz_content" => [
+                    "merch_order_id" => "$order_id",
+                    "merch_code" => "70050901",
+                    "appid" => "kp0480c579f02f48ae8c37ce82260511",
+                    "trade_type" => "APP",
+                    "total_amount" => "1000",
+                    "trans_currency" => "MMK",
+
+                ]
+            ]
+        ];
+
+
+        // return $data;
+
+
+        $responseFromKBZServer = Http::post($kbzRequestURL,json_encode($data, JSON_PRETTY_PRINT));
+
+        return $responseFromKBZServer;
 
     }
+
+
+
+    private function convert_SHA256($order_id, $time){
+
+        // $stringA = "appid=kp123456789987654321abcdefghijkl&merch_code=100001&merch_order_id=201811212009001&method=kbz.payment.precreate&nonce_str=845255910308564481&notify_url=http://test.com/payment/notify&timestamp=1536637503&total_amount=1000&trade_type=APPH5&trans_currency=MMK&version=1.0";
+
+        $raw = "appid=kp0480c579f02f48ae8c37ce82260511"."&merch_code=70050901". "&merch_order_id=".$order_id."&method=kbz.payment.precreate"."&nonce_str=8264ILTKCH16CQ2502SI8ZNMTM67VS_3"."&notify_url=https://star-fish-development.myanmargateway.net/payment/notify"."&timestamp=".$time."&total_amount=1000&trade_type=APPH5&trans_currency=MMK&version=1.0";
+
+        $combine = $raw."&key=starfish@123";
+
+        $hashed = hash('sha256', $combine);
+
+
+        return $hashed;
+
+    }
+
 
 
     /////////////////////////////////////////////////////
