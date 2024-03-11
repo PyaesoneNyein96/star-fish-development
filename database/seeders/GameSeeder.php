@@ -1054,7 +1054,7 @@ class GameSeeder extends Seeder
             ['name' => 'write the words', 'unit_id' => 488, 'category_id' => 19, "instructionGIF" => $Gif_path . "Putting.gif"],
             ['name' => 'Language and Practice ( 1 )', 'unit_id' => 489, 'category_id' => 30, "instructionGIF" => null],
             ['name' => 'Language and Practice ( 2 )', 'unit_id' => 489, 'category_id' => 14, "instructionGIF" => $Gif_path . "Re-arrange-in-order.gif"],
-            ['name' => 'Listening', 'unit_id' => 490, 'category_id' => 15, "instructionGIF" => $Gif_path . "Listen-and-Practice-2.gif"],
+            ['name' => 'Listening', 'unit_id' => 490, 'category_id' => 28, "instructionGIF" => $Gif_path . "Listen-and-Practice-2.gif"],
             ['name' => 'Speaking', 'unit_id' => 491, 'category_id' => 11, "instructionGIF" =>  $Gif_path . "Speaking.gif"],
             ['name' => 'Free Practice', 'unit_id' => 492, 'category_id' => 11, "instructionGIF" =>  $Gif_path . "Speaking.gif"],
 
@@ -1221,7 +1221,7 @@ class GameSeeder extends Seeder
             ['name' => 'Vocabulary 1', 'unit_id' => 590, 'category_id' => 2, "instructionGIF" => null],
             ['name' => 'Practice 1', 'unit_id' => 591, 'category_id' => 34, "instructionGIF" => $Gif_path .  "Writing-Preview.gif"],
             ['name' => 'Practice 2', 'unit_id' => 591, 'category_id' => 40, "instructionGIF" => null],
-            ['name' => 'Listen', 'unit_id' => 592, 'category_id' => 7, "instructionGIF" => $Gif_path . "Matching.gif"],
+            ['name' => 'Listen', 'unit_id' => 592, 'category_id' => 37, "instructionGIF" => $Gif_path . "Matching.gif"],
             ['name' => 'Speaking', 'unit_id' => 593, 'category_id' => 11, "instructionGIF" =>  $Gif_path . "Speaking.gif"],
             ['name' => 'Reading', 'unit_id' => 594, 'category_id' => 16, "instructionGIF" =>  $Gif_path . "Read-the-passage.gif"],
             ['name' => 'Writing', 'unit_id' => 595, 'category_id' => 26, "instructionGIF" =>  $Gif_path . "Writing.gif"],
@@ -1316,7 +1316,7 @@ class GameSeeder extends Seeder
             ['name' => 'Listen', 'unit_id' => 651, 'category_id' => 39, "instructionGIF" =>  $Gif_path . "Listen-and-choose-correct.gif"],
             ['name' => 'Speaking', 'unit_id' => 652, 'category_id' => 11, "instructionGIF" =>  $Gif_path . "Speaking.gif"],
             ['name' => 'Reading', 'unit_id' => 653, 'category_id' => 16, "instructionGIF" =>  $Gif_path . "Read-the-passage.gif"],
-            ['name' => 'Writing', 'unit_id' => 654, 'category_id' => 48, "instructionGIF" =>  $Gif_path . "Writing-Preview.gif"],
+            ['name' => 'Writing', 'unit_id' => 654, 'category_id' => 34, "instructionGIF" =>  $Gif_path . "Writing-Preview.gif"],
             ['name' => 'Free Practice', 'unit_id' => 655, 'category_id' => 11, "instructionGIF" =>  $Gif_path . "Speaking.gif"],
 
 
