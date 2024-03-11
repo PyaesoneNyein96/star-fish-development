@@ -380,7 +380,7 @@ class GameController extends Controller
 
 
         // TEMPORARY BLOCK THIS FEATURE (POINT FILTER)
-        // if ($student->grades->count() == 0)  return response()->json(["status" => "Plz subscribe the plan."], 200);
+        if ($student->grades->count() == 0)  return response()->json(["status" => "Plz subscribe the plan."], 200);
 
         if(!$alreadyDone) {
             StudentGame::insert([
