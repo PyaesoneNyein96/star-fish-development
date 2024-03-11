@@ -180,7 +180,7 @@ class GameController extends Controller
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
                 // 'i' => $index <  $i,
-                'ls' => $index < ($ls == 0 ? 1 : $ls)
+                'allowed' => $index < ($ls == 0 ? 1 : $ls)
             ];
 
 
@@ -538,7 +538,7 @@ class GameController extends Controller
             return !$lessonDone->contains('lesson_id', $i->id);
         });
 
-        logger($result->toArray());
+        // logger($result->toArray());
         return $result;
     }
 
