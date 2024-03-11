@@ -1174,7 +1174,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_audio' => $AtoZAudio . $prefix . strtoupper($trace) . ".mp3",
                     'q_image' => ctype_lower($trace) ?  $imgDomain . "small_" . $trace . ".png" : $imgDomain . $trace . ".png",
                     'a_content' => $trace,
-                    'q_content' => ctype_lower($trace) ? $sm_traceDotted. $trace . ".png" : $cap_traceDotted. $trace ."png" ,
+                    'q_content' => ctype_lower($trace) ? $sm_traceDotted. $trace . ".png" : $cap_traceDotted. $trace .".png" ,
                     'a_image' =>ctype_lower($trace) ? $sm_traceSuccess. $trace . ".png" : $cap_traceSuccess. $trace.".png",
                     'a_extra' => $trace_counts[$i]
                 ],
@@ -2117,7 +2117,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_audio' => $AtoZAudio . $prefix . strtoupper($trace) . ".mp3",
                     'a_content' => $trace,
                     'q_image' => ctype_lower($trace) ?  $imgDomain . "small_" . $trace . ".png" : $imgDomain . $trace . ".png",
-                    'q_content' => ctype_lower($trace) ? $sm_traceDotted. $trace . ".png" : $cap_traceDotted. $trace ."png" ,
+                    'q_content' => ctype_lower($trace) ? $sm_traceDotted. $trace . ".png" : $cap_traceDotted. $trace .".png" ,
                     'a_image' =>ctype_lower($trace) ? $sm_traceSuccess. $trace . ".png" : $cap_traceSuccess. $trace.".png",
                     'a_extra' => $trace_counts[$i]
                 ],
