@@ -5014,7 +5014,7 @@ class AnsNQueSeeder extends Seeder
                     'round' => $i + 1,
                     'game_id' => 158,
                     'q_audio' =>  $AudioDomain . $G1_L25_writing . strtoupper($trace) . ".mp3",
-                    'q_content' => ctype_lower($trace) ?   $l25_G158_G159_image . "dotted_small_" . $trace . ".png" :  $l25_G158_G159_image . "dotted_" . $trace . ".png",
+                    'q_content' => ctype_lower($trace) ?   $a_z_traceword .  $trace . ".png" :  $A_Z_traceword .  $trace . ".png",
                     'q_image' => ctype_lower($trace) ?   $l25_G158_G159_image . "small_" . $trace . ".png" :  $l25_G158_G159_image . $trace . ".png",
                     "a_image" =>  ctype_lower($trace) ?   $a_z_success .  $trace . ".png" :  $A_Z_success . $trace . ".png",
                     'a_content' => $trace,
