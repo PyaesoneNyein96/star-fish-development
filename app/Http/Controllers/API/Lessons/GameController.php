@@ -530,9 +530,9 @@ class GameController extends Controller
         $lessons = Lesson::where('grade_id', $grade->id)->get();
         $lessonDone = studentLesson::where('student_id', $student->id)->get();
 
-        logger($lessons->toArray());
-        logger($lesson_id);
-        logger($lessonDone->toArray());
+        // logger($lessons->toArray());
+        // logger($lesson_id);
+        // logger($lessonDone->toArray());
 
         $result = $lessons->filter(function ($i) use ($lessonDone) {
             return !$lessonDone->contains('lesson_id', $i->id);
