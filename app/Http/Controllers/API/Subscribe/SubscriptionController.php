@@ -66,6 +66,8 @@ class SubscriptionController extends Controller
 
             $result = $purchasing['Response']['result'] == "SUCCESS";
 
+            logger($purchasing);
+
             if($result){
 
                 $now = Carbon::now(strval($student->country['timezone']));
