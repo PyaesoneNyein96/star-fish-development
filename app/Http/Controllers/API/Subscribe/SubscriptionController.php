@@ -46,7 +46,7 @@ class SubscriptionController extends Controller
 
     public function purchase(Request $request){
 
-        return $this->grade_id;
+        // return $this->grade_id;
 
         $student = Student::where('token', $this->token)->where('status',1)->first();
 
