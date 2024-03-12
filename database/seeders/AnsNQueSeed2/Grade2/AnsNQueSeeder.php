@@ -280,9 +280,9 @@ class AnsNQueSeeder extends Seeder
 
             ['round' => 4, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "boat" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "boat" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "boat"],
             ['round' => 4, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "B" . ".png", 'q_image' => null, "a_image" => $A_Z_success . "B.png", "a_extra" => 3, 'a_content' => "B"],
-            ['round' => 4, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png", 'q_image' => null, "a_image" => $a_z_success . "o.png", "a_extra" => 1, 'a_content' => "a"],
-            ['round' => 4, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "a" . ".png", 'q_image' => null, "a_image" => $a_z_success . "a.png", "a_extra" => 2, 'a_content' => "l"],
-            ['round' => 4, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "t" . ".png", 'q_image' => null, "a_image" => $a_z_success . "t.png", "a_extra" => 2, 'a_content' => "l"],
+            ['round' => 4, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png", 'q_image' => null, "a_image" => $a_z_success . "o.png", "a_extra" => 1, 'a_content' => "o"],
+            ['round' => 4, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "a" . ".png", 'q_image' => null, "a_image" => $a_z_success . "a.png", "a_extra" => 2, 'a_content' => "a"],
+            ['round' => 4, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "t" . ".png", 'q_image' => null, "a_image" => $a_z_success . "t.png", "a_extra" => 2, 'a_content' => "t"],
 
 
             ['round' => 5, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "boy" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "boy" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "boy"],

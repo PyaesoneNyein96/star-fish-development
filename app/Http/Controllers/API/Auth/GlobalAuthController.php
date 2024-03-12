@@ -61,7 +61,7 @@ class GlobalAuthController extends Controller
 
             DB::commit();
 
-            logger('ready to send');
+            // logger('ready to send');
             // OTP Send from Traits
             $this->sendOtp($request->email, $OTP, $request->name);
 

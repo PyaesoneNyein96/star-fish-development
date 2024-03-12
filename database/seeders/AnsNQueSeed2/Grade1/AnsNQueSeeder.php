@@ -18,6 +18,14 @@ class AnsNQueSeeder extends Seeder
         $AudioDomain = $domain . "/storage/audios/";
 
 
+        $a_z_traceword = $domain . "/storage/images/AtoZTrace/small_dotted/";
+        $A_Z_traceword = $domain . "/storage/images/AtoZTrace/capital_dotted/";
+
+        $a_z_success = $domain . "/storage/images/TraceSuccessAZ/small_success/";
+        $A_Z_success = $domain . "/storage/images/TraceSuccessAZ/capital_success/";
+
+
+
 
         //////////////////////////////////////////////////////////////
         ////    Grade 1  Lesson 3 Game 12 ( video )
@@ -3102,15 +3110,22 @@ class AnsNQueSeeder extends Seeder
         $G98tracing = [
             'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l'
         ];
+
+        $G98tracing_count = [
+            3,2,2,2,3,3,2,1
+        ];
+
         foreach ($G98tracing as $i => $trace) {
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1,
                     'game_id' => 98,
                     'q_audio' =>  $AudioDomain . $G1_L16_writing . strtoupper($trace) . ".mp3",
-                    'q_content' => ctype_lower($trace) ?   $l16_G98_G99_image . "dotted_small_" . $trace . ".png" :  $l16_G98_G99_image . "dotted_" . $trace . ".png",
+                    'q_content' => ctype_lower($trace) ?   $a_z_traceword . $trace . ".png" :  $A_Z_traceword . $trace . ".png",
                     'q_image' => ctype_lower($trace) ?   $l16_G98_G99_image . "small_" . $trace . ".png" :  $l16_G98_G99_image . $trace . ".png",
+                    "a_image" =>  ctype_lower($trace) ?   $a_z_success .  $trace . ".png" :  $A_Z_success . $trace . ".png",
                     'a_content' => $trace,
+                    "a_extra" =>  $G98tracing_count[$i]
                 ],
             ]);
         }
@@ -3746,15 +3761,22 @@ class AnsNQueSeeder extends Seeder
         $G125tracing = [
             'M', 'm', 'N', 'n'
         ];
+
+        $G125tracing_count =[
+            4,3,3,2
+        ];
+
         foreach ($G125tracing as $i => $trace) {
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1,
                     'game_id' => 125,
                     'q_audio' =>  $AudioDomain . $G1_L20_writing . strtoupper($trace) . ".mp3",
-                    'q_content' => ctype_lower($trace) ?    $l20_G125_G126_image . "dotted_small_" . $trace . ".png" :   $l20_G125_G126_image . "dotted_" . $trace . ".png",
+                    'q_content' => ctype_lower($trace) ?   $a_z_traceword . $trace . ".png" :  $A_Z_traceword . $trace . ".png",
                     'q_image' => ctype_lower($trace) ?    $l20_G125_G126_image . "small_" . $trace . ".png" :   $l20_G125_G126_image . $trace . ".png",
+                    'a_image' =>  ctype_lower($trace) ?   $a_z_success .  $trace . ".png" :  $A_Z_success . $trace . ".png",
                     'a_content' => $trace,
+                    "a_extra"=> $G125tracing_count[$i]
                 ],
             ]);
         }
@@ -4981,15 +5003,22 @@ class AnsNQueSeeder extends Seeder
         $G158tracing = [
             'O', 'o', 'P', 'p'
         ];
+
+        $G158tracing_count = [
+            1,1, 2, 2
+        ];
+
         foreach ($G158tracing as $i => $trace) {
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1,
                     'game_id' => 158,
                     'q_audio' =>  $AudioDomain . $G1_L25_writing . strtoupper($trace) . ".mp3",
-                    'q_content' => ctype_lower($trace) ?   $l25_G158_G159_image . "dotted_small_" . $trace . ".png" :  $l25_G158_G159_image . "dotted_" . $trace . ".png",
+                    'q_content' => ctype_lower($trace) ?   $a_z_traceword .  $trace . ".png" :  $A_Z_traceword .  $trace . ".png",
                     'q_image' => ctype_lower($trace) ?   $l25_G158_G159_image . "small_" . $trace . ".png" :  $l25_G158_G159_image . $trace . ".png",
+                    "a_image" =>  ctype_lower($trace) ?   $a_z_success .  $trace . ".png" :  $A_Z_success . $trace . ".png",
                     'a_content' => $trace,
+                    'a_extra' => $G158tracing_count[$i]
                 ],
             ]);
         }
@@ -6065,15 +6094,22 @@ class AnsNQueSeeder extends Seeder
         $G189tracing = [
             'Q', 'q', 'R', 'r'
         ];
+
+        $G189tracing_count = [
+            2,2,3,2
+        ];
+
         foreach ($G189tracing as $i => $trace) {
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1,
                     'game_id' => 189,
                     'q_audio' =>  $AudioDomain . $G1_L30_writing . strtoupper($trace) . ".mp3",
-                    'q_content' => ctype_lower($trace) ?   $l30_G189_G190_image . "dotted_small_" . $trace . ".png" :  $l30_G189_G190_image . "dotted_" . $trace . ".png",
+                    'q_content' => ctype_lower($trace) ?   $a_z_traceword . $trace . ".png" :  $A_Z_traceword . $trace . ".png",
                     'q_image' => ctype_lower($trace) ?   $l30_G189_G190_image . "small_" . $trace . ".png" :  $l30_G189_G190_image . $trace . ".png",
+                    "a_image" =>  ctype_lower($trace) ?   $a_z_success .  $trace . ".png" :  $A_Z_success . $trace . ".png",
                     'a_content' => $trace,
+                    "a_extra" => $G189tracing_count[$i]
                 ],
             ]);
         }

@@ -119,26 +119,68 @@ class GameController extends Controller
 
         $count = $assessments->count();
 
-        $ls_count = StudentLesson::where('student_id', $student->id)->where('grade_id',$grade)->get();
-        $ls_count = $ls_count->count();
+        $ls_count = StudentLesson::where('student_id', $student->id)->where('grade_id',$grade)->get()->count();
 
         $lessons = $allLessons->map(function ($lesson, $index) use ($studentLessons, $grade, $count, $ls_count) {
 
             $complete = $studentLessons->contains('id', $lesson->id) || $index  == $ls_count ? true : false;
+
+            // $i = 1;
+
+            // if
+            // ($count == 0 && $ls_count <= 8){
+            //     $i = $ls_count;
+            // }
+            // else if
+            // ($count == 1 && $ls_count == 8){
+            //     $i = $ls_count + 1;
+            // }
+            // else if
+            // ($count == 1 && $ls_count <= 16){
+            //     $i = $ls_count;
+            // }
+            // else if
+            // ($count == 2 && $ls_count == 16){
+            //     $i = $ls_count + 1;
+            // }
+            // else if
+            // ($count == 2 && $ls_count <= 24){
+            //     $i = $ls_count;
+            // }
+            // else if
+            // ($count == 3 && $ls_count == 24){
+            //     $i = $ls_count + 1;
+            // }
+            // else if
+            // ($count == 3 && $ls_count <= 32){
+            //     $i = $ls_count;
+            // }
+            // else if
+            // ($count == 4 && $ls_count == 32){
+            //     $i = $ls_count + 1;
+            // }
+            // else if
+            // ($count == 4 && $ls_count <= 40){
+            //     $i = $ls_count;
+            // }
+
+            ///////////////
+
+
+            $ls = $ls_count % 8 == 0  ?  $ls_count : $ls_count + 1;
+
+            if($count !== 0 && $count * 8 == $ls ){
+                $ls ++;
+            }
+
 
             return [
                 'id' => $lesson->id,
                 'grade_id' => $lesson->grade_id,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
-                // 'allowed' => $complete || ($index > $count * 8 - 1  ? false : true),
-                // 'index_cutter' => ($index + 1) == $count * 8 ||  ($complete || ($index > $count * 8 - 1  ? false : true)),
-                // 'index' => floor($index / 8),
-                // 'ls' => floor($ls_count / 8 ),
-                // 'status' => floor($ls_count / 8 ) ==  floor($count / 8) ? $complete || ($index > $count * 8 - 1  ? false : true) : ($index + 1) == $count * 8 ||  ($complete || ($index > $count * 8 - 1  ? false : true)),
-
-
-
+                // 'i' => $index <  $i,
+                'allowed' => $index < ($ls == 0 ? 1 : $ls)
             ];
 
 
@@ -488,15 +530,15 @@ class GameController extends Controller
         $lessons = Lesson::where('grade_id', $grade->id)->get();
         $lessonDone = studentLesson::where('student_id', $student->id)->get();
 
-        logger($lessons->toArray());
-        logger($lesson_id);
-        logger($lessonDone->toArray());
+        // logger($lessons->toArray());
+        // logger($lesson_id);
+        // logger($lessonDone->toArray());
 
         $result = $lessons->filter(function ($i) use ($lessonDone) {
             return !$lessonDone->contains('lesson_id', $i->id);
         });
 
-        logger($result->toArray());
+        // logger($result->toArray());
         return $result;
     }
 

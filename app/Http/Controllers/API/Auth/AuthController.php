@@ -96,12 +96,13 @@ class AuthController extends Controller
 
         }
 
-        if($student->isAuth == 1 && $student->deviceId == null) {
+        // if($student->isAuth == 1 && $student->deviceId == null) {
+        if($student->isAuth == 1) {
 
             return response()->json([
                 'message' => "One Account per device allowed!",
                 'auth' => 0
-            ], 200);
+            ], 409);
 
         }
 

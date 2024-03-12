@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2024-03-07 22:33:02] local.ERROR: Undefined array key 3 {"exception":"[object] (ErrorException(code: 0): Undefined array key 3 at C:\\Users\\LENOVO\\Desktop\\star-fish-clone\\star_fish_api\\database\\seeders\\PsnSeeder\\PSNAnsNQuesG2Seeder.php:1643)
 [stacktrace]
 #0 C:\\Users\\LENOVO\\Desktop\\star-fish-clone\\star_fish_api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(254): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Undefined array...', 'C:\\\\Users\\\\LENOVO...', 1643)
@@ -804,3 +805,5 @@
 #37 C:\\Users\\SEOMyanmar\\Desktop\\Main\\Star Fish\\star_fish_api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\SEOMya...')
 #38 {main}
 "} 
+=======
+>>>>>>> 84b95b7d7944e4a293afbe5dca515d63a33f07b2
