@@ -61,9 +61,9 @@ class SubscriptionController extends Controller
         DB::beginTransaction();
         try {
 
-            return $purchasing = $this->purchasing($student, $this->grade_id, $this->subscription_id);
+            $purchasing = $this->purchasing($student, $this->grade_id, $this->subscription_id);
 
-            if($purchasing == 1){
+            if($purchasing){
 
                 $now = Carbon::now(strval($student->country['timezone']));
 
