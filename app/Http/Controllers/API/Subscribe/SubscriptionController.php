@@ -8,6 +8,7 @@ use App\Models\Grade;
 use App\Models\Country;
 use App\Models\Student;
 use App\Models\StudentGame;
+use Illuminate\Support\Str;
 use App\Models\StudentGrade;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
@@ -166,21 +167,25 @@ class SubscriptionController extends Controller
 
     private function purchasing($student, $grade_id, $subscription_id) {
 
+
+
         $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
 
-        $order_id = rand(1,999).chr(rand(65, 90));
         $time = Carbon::now();
+        $orderId =  rand(1,999)."_ABZ";
+        $nonce_str =  strtoupper(str_replace('-', '', Str::uuid()));
+
         $data = [
             "Request" => [
-                "timestamp" => $time,
+                "timestamp" => strtotime($time),
                 "method" => "kbz.payment.precreate",
                 "notify_url" => "https://star-fish-development.myanmargateway.net/payment/notify",
-                "nonce_str" => "8264ILTKCH16CQ2502SI8ZNMTM67VS_3",
+                "nonce_str" => $nonce_str,
                 "sign_type" => "SHA256",
-                "sign" => strtoupper($this->convert_SHA256($order_id, $time)),
+                "sign" => "92A8488EB3D2DB9900E66F43D7B6C8B99A2AFBF5DD8A19298D4B67CEA13723FE",
                 "version" => "1.0",
                 "biz_content" => [
-                    "merch_order_id" => "$order_id",
+                    "merch_order_id" => $orderId,
                     "merch_code" => "70050901",
                     "appid" => "kp0480c579f02f48ae8c37ce82260511",
                     "trade_type" => "APP",
@@ -195,7 +200,8 @@ class SubscriptionController extends Controller
         // return $data;
 
 
-        $responseFromKBZServer = Http::post($kbzRequestURL,json_encode($data, JSON_PRETTY_PRINT));
+        // $responseFromKBZServer = Http::post($kbzRequestURL,json_encode($data, JSON_PRETTY_PRINT));
+        $responseFromKBZServer = Http::post($kbzRequestURL,json_encode($data));
 
         return $responseFromKBZServer;
 
@@ -205,9 +211,8 @@ class SubscriptionController extends Controller
 
     private function convert_SHA256($order_id, $time){
 
-        // $stringA = "appid=kp123456789987654321abcdefghijkl&merch_code=100001&merch_order_id=201811212009001&method=kbz.payment.precreate&nonce_str=845255910308564481&notify_url=http://test.com/payment/notify&timestamp=1536637503&total_amount=1000&trade_type=APPH5&trans_currency=MMK&version=1.0";
 
-        $raw = "appid=kp0480c579f02f48ae8c37ce82260511"."&merch_code=70050901". "&merch_order_id=".$order_id."&method=kbz.payment.precreate"."&nonce_str=8264ILTKCH16CQ2502SI8ZNMTM67VS_3"."&notify_url=https://star-fish-development.myanmargateway.net/payment/notify"."&timestamp=".$time."&total_amount=1000&trade_type=APPH5&trans_currency=MMK&version=1.0";
+        $raw = "appid=kp0480c579f02f48ae8c37ce82260511"."&merch_code=70050901". "&merch_order_id=".$order_id."&method=kbz.payment.precreate"."&nonce_str=8264ILTKCH16CQ2502SI8ZNMTM67VS3"."&notify_url=https://star-fish-development.myanmargateway.net/payment/notify"."&timestamp=".$time."&total_amount=1000&trade_type=APPH5&trans_currency=MMK&version=1.0";
 
         $combine = $raw."&key=starfish@123";
 
