@@ -18,15 +18,17 @@ class VersionAndUpdateController extends Controller
     public function __construct(Request $request) {
 
         $this->client_version = $request->header('client_version');
-        $this->os = $request->header('os');
+        // $this->os = $request->header('os');
     }
 
 
-    public function userDataAndroid(Request $request){
+    public function userDataAndroid(Request $request) {
 
         $userData =  $request->student;
 
         $version = Version::where('os',0)->latest()->first();
+
+        // return $version;
 
         $data = [
                 'version' => $version->version,
@@ -46,12 +48,13 @@ class VersionAndUpdateController extends Controller
 
 
 
-
     public function userDataIOS(Request $request){
 
         $userData =  $request->student;
 
         $version = Version::where('os',1)->latest()->first();
+
+        // return $version;
 
          $data = [
             'version' => $version->version,

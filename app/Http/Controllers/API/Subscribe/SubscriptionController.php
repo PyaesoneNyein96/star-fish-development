@@ -182,7 +182,8 @@ class SubscriptionController extends Controller
                 "notify_url" => "https://star-fish-development.myanmargateway.net/payment/notify",
                 "nonce_str" => $nonce_str,
                 "sign_type" => "SHA256",
-                "sign" => "92A8488EB3D2DB9900E66F43D7B6C8B99A2AFBF5DD8A19298D4B67CEA13723FE",
+                "sign" => $this->convert_SHA256($orderId,$time),
+                // "sign" => "67F20AAC7EC754F155EDD015C820A747F7004D7A0C4C4191448F5C3C1EECCD36",
                 "version" => "1.0",
                 "biz_content" => [
                     "merch_order_id" => $orderId,
@@ -191,17 +192,17 @@ class SubscriptionController extends Controller
                     "trade_type" => "APP",
                     "total_amount" => "1000",
                     "trans_currency" => "MMK",
-
                 ]
             ]
         ];
 
 
+        // return json_encode($data);
         // return $data;
 
 
-        // $responseFromKBZServer = Http::post($kbzRequestURL,json_encode($data, JSON_PRETTY_PRINT));
-        $responseFromKBZServer = Http::post($kbzRequestURL,json_encode($data));
+        $responseFromKBZServer = Http::post($kbzRequestURL,json_encode($data, JSON_PRETTY_PRINT));
+        // $responseFromKBZServer = Http::post($kbzRequestURL,$data);
 
         return $responseFromKBZServer;
 
@@ -219,7 +220,7 @@ class SubscriptionController extends Controller
         $hashed = hash('sha256', $combine);
 
 
-        return $hashed;
+        return strtoupper($hashed);
 
     }
 
