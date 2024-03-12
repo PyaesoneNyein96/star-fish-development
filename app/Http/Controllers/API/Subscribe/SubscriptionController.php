@@ -66,6 +66,7 @@ class SubscriptionController extends Controller
 
             $result = $purchasing['Response']['result'] == "SUCCESS";
 
+            logger("hello testing 123");
             logger($purchasing);
 
             if($result){
