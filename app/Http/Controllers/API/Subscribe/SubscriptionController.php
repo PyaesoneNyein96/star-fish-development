@@ -166,6 +166,46 @@ class SubscriptionController extends Controller
     }
 
 
+
+    public function notify(Request $request){
+
+        return $this->algorithm($request);
+
+    }
+
+    public function algorithm($request){
+
+        $par = $request->Request;
+
+
+        // return $par['biz_content']['merch_order_id'];
+
+        $result = "appid=".$par['biz_content']['appid']."&".
+        "march_code=".$par['biz_content']['merch_code']."&".
+        "merch_order_id=".$par['biz_content']['merch_order_id']."&".
+        "method=".$par['method']."&".
+        "nonce_str=".$par['nonce_str']."&".
+        "notify_url=".$par['notify_url']."&".
+        "timestamp=".$par['timestamp']."&".
+        "total_amount".$par['biz_content']['total_amount']."&".
+        "trade_type".$par['biz_content']['trade_type']."&".
+        "trans_currency".$par['biz_content']['trans_currency']."&".
+        "version=".$par['version'];
+
+
+        $stringToSign = $result."&key=starfish@123";
+        $sign = strtoupper("8a78203a902f25124f95f6ec1582fe6b00f471a3114b264b2bf0c9a6f7be2518");
+
+        $par['sign'] = $sign;
+
+        return $par;
+
+    }
+
+
+
+
+
     /////////////////////////////////////////////////////
     /////////////      Private Functions     ////////////
     /////////////////////////////////////////////////////
@@ -182,6 +222,14 @@ class SubscriptionController extends Controller
         });
 
     }
+
+
+
+
+
+
+
+
 
 
 
