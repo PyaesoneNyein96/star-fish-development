@@ -61,9 +61,12 @@ class SubscriptionController extends Controller
         DB::beginTransaction();
         try {
 
+
             $purchasing = $this->purchasing($student, $this->grade_id, $this->subscription_id);
 
-            if($purchasing){
+            $result = $purchasing['Response']['result'] == "SUCCESS";
+
+            if($result){
 
                 $now = Carbon::now(strval($student->country['timezone']));
 
@@ -94,6 +97,8 @@ class SubscriptionController extends Controller
                     'status' => "successfully purchased.",
                 ], 200);
 
+            }else{
+                return response()->json(["message" => "Payment request fail"], 401);
             }
 
 
@@ -175,6 +180,10 @@ class SubscriptionController extends Controller
         $orderId =  rand(1,999)."_ABZ";
         $nonce_str =  strtoupper(str_replace('-', '', Str::uuid()));
 
+
+        $sign = $this->convert_SHA256($orderId,$time);
+
+
         $data = [
             "Request" => [
                 "timestamp" => strtotime($time),
@@ -182,7 +191,7 @@ class SubscriptionController extends Controller
                 "notify_url" => "https://star-fish-development.myanmargateway.net/payment/notify",
                 "nonce_str" => $nonce_str,
                 "sign_type" => "SHA256",
-                "sign" => $this->convert_SHA256($orderId,$time),
+                "sign" => $sign,
                 // "sign" => "67F20AAC7EC754F155EDD015C820A747F7004D7A0C4C4191448F5C3C1EECCD36",
                 "version" => "1.0",
                 "biz_content" => [
@@ -197,14 +206,14 @@ class SubscriptionController extends Controller
         ];
 
 
-        // return json_encode($data);
-        // return $data;
+        if($sign){
+
+            $responseFromKBZServer = Http::post($kbzRequestURL,json_encode($data, JSON_PRETTY_PRINT));
+
+            return $responseFromKBZServer;
+        }
 
 
-        $responseFromKBZServer = Http::post($kbzRequestURL,json_encode($data, JSON_PRETTY_PRINT));
-        // $responseFromKBZServer = Http::post($kbzRequestURL,$data);
-
-        return $responseFromKBZServer;
 
     }
 
