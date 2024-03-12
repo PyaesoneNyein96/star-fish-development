@@ -46,7 +46,7 @@ class SubscriptionController extends Controller
 
     public function purchase(Request $request){
 
-
+        return $this->grade_id;
 
         $student = Student::where('token', $this->token)->where('status',1)->first();
 
@@ -62,12 +62,12 @@ class SubscriptionController extends Controller
         try {
 
 
-            $purchasing = $this->purchasing($student, $this->grade_id, $this->subscription_id);
+            $purchasing = $this->purchasing();
 
             $result = $purchasing['Response']['result'] == "SUCCESS";
 
-            logger("hello testing 123");
             logger($purchasing);
+            logger("hello");
 
             if($result){
 
@@ -173,7 +173,7 @@ class SubscriptionController extends Controller
     }
 
 
-    private function purchasing($student, $grade_id, $subscription_id) {
+    private function purchasing() {
 
 
 
