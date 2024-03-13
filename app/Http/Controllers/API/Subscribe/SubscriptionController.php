@@ -56,53 +56,73 @@ class SubscriptionController extends Controller
             ], 403);
         }
 
+        $time = strtotime(Carbon::now());
+        $orderId =  $time . "_" . "123_ABZ";
+        $nonce_str =  strtoupper(str_replace('-', '', Str::uuid()));
+
+        $purchasing = $this->purchasing($time, $orderId, $nonce_str);
+
+        $result = $purchasing['Response']['result'] == "SUCCESS";
 
 
-        DB::beginTransaction();
-        try {
+        if (!$result) return response()->json(["message" => "something wrong."], 500);
 
 
-            $purchasing = $this->purchasing();
+        $data = ['timestamp' => $time, 'appid' => "kp0480c579f02f48ae8c37ce82260511"];
+        $response =  array_merge($data, $purchasing['Response']);
 
-            $result = $purchasing['Response']['result'] == "SUCCESS";
-
-            if ($result) {
-
-                $now = Carbon::now(strval($student->country['timezone']));
-
-                StudentGrade::create([
-                    'student_id' => $student->id,
-                    'grade_id' => $this->grade_id,
-                    'subscription_id' => $this->subscription_id,
-                    'created_at' => Carbon::now(strval($student->country['timezone'])),
-                    'expire_date' => $now->addYear(),
-                ]);
-
-                $student->update([
-                    'isSubscriber' => 1,
-                    'grade_chosen' => null,
-                    'created_at' => Carbon::now(strval($student->country['timezone'])),
-                    'updated_at' => Carbon::now(strval($student->country['timezone']))
-                ]);
-
-                $latest_date = StudentGrade::where('grade_id', $this->grade_id)
-                    ->pluck('expire_date');
-
-                $this->addedSubscriptionDate($latest_date);
+        return $response;
 
 
-                DB::commit();
 
-                return response()->json([
-                    'status' => "successfully purchased.",
-                ], 200);
-            } else {
-                return response()->json(["message" => "Payment request fail"], 401);
-            }
-        } catch (\Throwable $th) {
-            DB::rollback();
-            return $th;
-        }
+
+
+
+        // DB::beginTransaction();
+
+        // try {
+
+        //     if($result){
+
+        //         $now = Carbon::now(strval($student->country['timezone']));
+
+        //         StudentGrade::create([
+        //             'student_id' => $student->id,
+        //             'grade_id' => $this->grade_id,
+        //             'subscription_id' => $this->subscription_id,
+        //             'created_at' => Carbon::now(strval($student->country['timezone'])),
+        //             'expire_date' => $now->addYear(),
+        //         ]);
+
+        //         $student->update([
+        //             'isSubscriber' => 1,
+        //             'grade_chosen' => null,
+        //             'created_at' => Carbon::now(strval($student->country['timezone'])),
+        //             'updated_at' => Carbon::now(strval($student->country['timezone']))
+        //         ]);
+
+        //         $latest_date = StudentGrade::where('grade_id',$this->grade_id)
+        //         ->pluck('expire_date');
+
+        //         $this->addedSubscriptionDate($latest_date);
+
+
+        //         DB::commit();
+
+        //         return response()->json([
+        //             'status' => "successfully purchased.",
+        //         ], 200);
+
+        //     }else{
+        //         return response()->json(["message" => "Payment request fail"], 401);
+        //     }
+
+
+        // } catch (\Throwable $th) {
+        //     DB::rollback();
+        //     return $th;
+
+        // }
 
         return "already purchased";
     }
@@ -160,23 +180,12 @@ class SubscriptionController extends Controller
     }
 
 
-    private function purchasing()
+    private function purchasing($time, $orderId, $nonce_str)
     {
-
-
 
         $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
 
-        // $time = 1536637500;
-        // $nonce_str =  "ABC123";
-        $time = strtotime(Carbon::now());
-        $orderId =  $time . "_" . "123_ABZ";
-        $nonce_str =  strtoupper(str_replace('-', '', Str::uuid()));
-
-
         $sign = $this->convert_SHA256($orderId, $time, $nonce_str);
-
-        logger($sign);
 
         $data = [
             "Request" => [
