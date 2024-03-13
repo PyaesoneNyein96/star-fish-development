@@ -63,7 +63,7 @@ class SubscriptionController extends Controller
         try {
 
 
-            $purchasing = $this->purchasing();
+            return $purchasing = $this->purchasing();
 
             $result = $purchasing['Response']['result'] == "SUCCESS";
 
@@ -173,11 +173,12 @@ class SubscriptionController extends Controller
 
         $time = Carbon::now();
         $orderId =  rand(1, 999) . "_ABZ";
+        // $orderId =  random_int(abs((int)pow(10, 31)), abs((int)pow(10, 32)) - 1);
         $nonce_str =  strtoupper(str_replace('-', '', Str::uuid()));
 
 
         $sign = $this->convert_SHA256($orderId, $time);
-
+        // return $sign;
 
         $data = [
             "Request" => [
@@ -194,16 +195,17 @@ class SubscriptionController extends Controller
                     "merch_code" => "70050901",
                     "appid" => "kp0480c579f02f48ae8c37ce82260511",
                     "trade_type" => "PWAAPP",
-                    "total_amount" => "20000",
+                    "total_amount" => "1000",
                     "trans_currency" => "MMK",
                 ]
             ]
         ];
 
 
+        // return $data;
         if ($sign) {
 
-            $responseFromKBZServer = Http::post($kbzRequestURL, json_encode($data, JSON_PRETTY_PRINT));
+            $responseFromKBZServer = Http::post($kbzRequestURL, json_encode($data));
 
             return $responseFromKBZServer;
         }
@@ -215,10 +217,10 @@ class SubscriptionController extends Controller
     {
 
 
-        $raw = "appid=kp0480c579f02f48ae8c37ce82260511" . "&merch_code=70050901" . "&merch_order_id=" . $order_id . "&method=kbz.payment.precreate" . "&nonce_str=8264ILTKCH16CQ2502SI8ZNMTM67VS3" . "&notify_url=https://star-fish-development.myanmargateway.net/payment/notify" . "&timestamp=" . $time . "&total_amount=1000&trade_type=APPH5&trans_currency=MMK&version=1.0";
+        $raw = "appid=kp0480c579f02f48ae8c37ce82260511" . "&merch_code=70050901" . "&merch_order_id=$order_id&method=kbz.payment.precreate" . "&nonce_str=8264ILTKCH16CQ2502SI8ZNMTM67VS3" . "&notify_url=https://star-fish-development.myanmargateway.net/payment/notify" . "&timestamp=" . $time . "&total_amount=1000&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
 
-        $combine = $raw . "&key=starfish@123";
-
+        $combine = $raw . "&key=" . hash('sha256', "starfish@123");
+        // return $combine;
         $hashed = hash('sha256', $combine);
 
 
@@ -242,5 +244,11 @@ class SubscriptionController extends Controller
                 $g->update(['expire_date' => Carbon::now()->addYear()]);
             }
         });
+    }
+
+
+    public function notify(Request $request)
+    {
+        logger($request);
     }
 }

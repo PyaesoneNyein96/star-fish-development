@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\Dashboard\DashboardController;
+use App\Http\Controllers\API\Subscribe\SubscriptionController;
 use App\Http\Controllers\WorkshopController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
@@ -52,6 +53,7 @@ Route::middleware([
         Route::get('/axios/chats', [DashboardController::class, 'axiosChat']);
     });
 });
+Route::post('payment/notify', [SubscriptionController::class, 'notify']);
 
 
 Route::get('/test', function () {
