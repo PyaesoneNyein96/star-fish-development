@@ -63,10 +63,10 @@ class SubscriptionController extends Controller
 
             $purchasing = $this->purchasing();
 
+            return $purchasing;
             $result = $purchasing['Response']['result'] == "SUCCESS";
 
-            // logger($purchasing);
-            // logger("hello");
+
 
             if($result){
 
@@ -179,7 +179,7 @@ class SubscriptionController extends Controller
         $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
 
         // $time = 1536637500;
-        // $nonce_str =  "AsBCabc123";
+        // $nonce_str =  "ABC123";
         $time = strtotime(Carbon::now());
         $orderId =  $time."_"."123_ABZ";
         $nonce_str =  strtoupper(str_replace('-', '', Str::uuid()));
@@ -202,7 +202,7 @@ class SubscriptionController extends Controller
                     "merch_order_id" => $orderId,
                     "merch_code" => "70050901",
                     "appid" => "kp0480c579f02f48ae8c37ce82260511",
-                    "trade_type" => "APP",
+                    "trade_type" => "PWAAPP",
                     "total_amount" => "1000",
                     "trans_currency" => "MMK",
                 ]
@@ -212,10 +212,7 @@ class SubscriptionController extends Controller
 
 
         if($sign){
-            // logger(json_encode($data));
-
-            $responseFromKBZServer = Http::post($kbzRequestURL,json_encode($data));
-
+            $responseFromKBZServer = Http::post($kbzRequestURL,$data);
             return $responseFromKBZServer;
         }
 
@@ -228,13 +225,11 @@ class SubscriptionController extends Controller
     private function convert_SHA256($order_id, $time,$nonce_str){
 
 
-        $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=https://star-fish.myanmargateway.net/payment/notify&timestamp=$time&total_amount=1000&trade_type=APP&trans_currency=MMK&version=1.0";
+        $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=https://star-fish.myanmargateway.net/payment/notify&timestamp=$time&total_amount=1000&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
 
-
-        // logger($stringA);
-        // logger(" - ");
 
         $combine = $stringA."&key=starfish@123";
+
 
         $hashed = hash('sha256',$combine);
 
@@ -242,6 +237,16 @@ class SubscriptionController extends Controller
         return strtoupper($hashed);
 
     }
+
+
+
+    public function notify(Request $request){
+        logger([
+            'notify' => $request
+        ]);
+    }
+
+
 
 
 

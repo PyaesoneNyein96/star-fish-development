@@ -54,6 +54,8 @@ Route::middleware([
 });
 
 
+Route::post('/payment/notify', [SubscriptionController::class, 'notify']);
+
 Route::get('/test', function () {
     return view('testing');
 });
