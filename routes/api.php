@@ -114,10 +114,9 @@ Route::prefix('auth')->group(function () {
         Route::post('purchase', [SubscriptionController::class, 'purchase']);
         Route::post('removePlan', [SubscriptionController::class, 'removePlan']);
 
-        // Route::post('signature_algorithm', [SubscriptionController::class, 'algorithm']);
-        Route::post('notify', [SubscriptionController::class, 'notify']);
-
+        // Route::post('signature_algorithm', [SubscriptionController::class, 'notify']);
     });
+    // Route::post('notify', [SubscriptionController::class, 'notify']);
 
 
     Route::prefix('assessment')->group(function () {
