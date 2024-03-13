@@ -8,6 +8,7 @@ use App\Models\Grade;
 use App\Models\Country;
 use App\Models\Student;
 use App\Models\StudentGame;
+use Illuminate\Support\Str;
 use App\Models\StudentGrade;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
@@ -46,7 +47,7 @@ class SubscriptionController extends Controller
     public function purchase(Request $request)
     {
 
-
+        // return $this->grade_id;
 
         $student = Student::where('token', $this->token)->where('status', 1)->first();
 
@@ -61,9 +62,15 @@ class SubscriptionController extends Controller
         DB::beginTransaction();
         try {
 
-            return $purchasing = $this->purchasing($student, $this->grade_id, $this->subscription_id);
 
-            if ($purchasing == 1) {
+            $purchasing = $this->purchasing();
+
+            $result = $purchasing['Response']['result'] == "SUCCESS";
+
+            logger($purchasing);
+            logger("hello");
+
+            if ($result) {
 
                 $now = Carbon::now(strval($student->country['timezone']));
 
@@ -93,6 +100,8 @@ class SubscriptionController extends Controller
                 return response()->json([
                     'status' => "successfully purchased.",
                 ], 200);
+            } else {
+                return response()->json(["message" => "Payment request fail"], 401);
             }
         } catch (\Throwable $th) {
             DB::rollback();
@@ -155,27 +164,33 @@ class SubscriptionController extends Controller
     }
 
 
-    private function purchasing($student, $grade_id, $subscription_id)
+    private function purchasing()
     {
+
+
 
         $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
 
-        // $order_id = rand(1, 999) . chr(rand(65, 90));
-        $order_id = rand(1, 999);
-        $time = Carbon::now()->timestamp;
+        $time = Carbon::now();
+        $orderId =  rand(1, 999) . "_ABZ";
+        $nonce_str =  strtoupper(str_replace('-', '', Str::uuid()));
+
+
+        $sign = $this->convert_SHA256($orderId, $time);
+
 
         $data = [
             "Request" => [
-                "timestamp" => (string)$time,
-                "notify_url" => "https://star-fish-development.myanmargateway.net/payment/notify",
-                "nonce_str" => "8264ILTKCH16CQ2502SI8ZNMTM67VS_3",
-                "sign_type" => "SHA256",
+                "timestamp" => strtotime($time),
                 "method" => "kbz.payment.precreate",
-                "sign" => strtoupper($this->convert_SHA256($order_id, $time)),
+                "notify_url" => "https://star-fish-development.myanmargateway.net/payment/notify",
+                "nonce_str" => $nonce_str,
+                "sign_type" => "SHA256",
+                "sign" => $sign,
+                // "sign" => "67F20AAC7EC754F155EDD015C820A747F7004D7A0C4C4191448F5C3C1EECCD36",
                 "version" => "1.0",
                 "biz_content" => [
-                    // "merch_order_id" => "$order_id",
-                    "merch_order_id" => str_pad($order_id, 9, '0', STR_PAD_LEFT),
+                    "merch_order_id" => $orderId,
                     "merch_code" => "70050901",
                     "appid" => "kp0480c579f02f48ae8c37ce82260511",
                     "trade_type" => "PWAAPP",
@@ -185,13 +200,13 @@ class SubscriptionController extends Controller
             ]
         ];
 
-        // return $data;
 
+        if ($sign) {
 
-        // $responseFromKBZServer = Http::post($kbzRequestURL, json_encode($data, JSON_PRETTY_PRINT));
-        $responseFromKBZServer = Http::post($kbzRequestURL, json_encode($data, JSON_PRETTY_PRINT));
+            $responseFromKBZServer = Http::post($kbzRequestURL, json_encode($data, JSON_PRETTY_PRINT));
 
-        return $responseFromKBZServer;
+            return $responseFromKBZServer;
+        }
     }
 
 
@@ -199,16 +214,15 @@ class SubscriptionController extends Controller
     private function convert_SHA256($order_id, $time)
     {
 
-        // $stringA = "appid=kp123456789987654321abcdefghijkl&merch_code=100001&merch_order_id=201811212009001&method=kbz.payment.precreate&nonce_str=845255910308564481&notify_url=http://test.com/payment/notify&timestamp=1536637503&total_amount=1000&trade_type=APPH5&trans_currency=MMK&version=1.0";
 
-        $raw = "appid=kp0480c579f02f48ae8c37ce82260511" . "&merch_code=70050901" . "&merch_order_id=" . $order_id . "&method=kbz.payment.precreate" . "&nonce_str=8264ILTKCH16CQ2502SI8ZNMTM67VS_3" . "&notify_url=https://star-fish-development.myanmargateway.net/payment/notify" . "&timestamp=" . $time . "&total_amount=1000&trade_type=APPH5&trans_currency=MMK&version=1.0";
+        $raw = "appid=kp0480c579f02f48ae8c37ce82260511" . "&merch_code=70050901" . "&merch_order_id=" . $order_id . "&method=kbz.payment.precreate" . "&nonce_str=8264ILTKCH16CQ2502SI8ZNMTM67VS3" . "&notify_url=https://star-fish-development.myanmargateway.net/payment/notify" . "&timestamp=" . $time . "&total_amount=1000&trade_type=APPH5&trans_currency=MMK&version=1.0";
 
         $combine = $raw . "&key=starfish@123";
 
         $hashed = hash('sha256', $combine);
 
 
-        return $hashed;
+        return strtoupper($hashed);
     }
 
 
