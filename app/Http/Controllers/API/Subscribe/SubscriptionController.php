@@ -62,12 +62,9 @@ class SubscriptionController extends Controller
         try {
 
 
-            return $purchasing = $this->purchasing();
+            $purchasing = $this->purchasing();
 
-            return $purchasing;
             $result = $purchasing['Response']['result'] == "SUCCESS";
-
-
 
             if ($result) {
 
@@ -255,11 +252,5 @@ class SubscriptionController extends Controller
                 $g->update(['expire_date' => Carbon::now()->addYear()]);
             }
         });
-    }
-
-
-    public function notify(Request $request)
-    {
-        logger($request);
     }
 }
