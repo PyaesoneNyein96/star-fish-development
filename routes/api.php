@@ -116,7 +116,7 @@ Route::prefix('auth')->group(function () {
     Route::prefix('payment')->group(function (){
         Route::post('request_prepay_id', [SubscriptionController::class, 'getPrepay_id']);
         Route::post('check/result', [SubscriptionController::class, 'checkPaymentResult']);
-        Route::post('payment/notify', [SubscriptionController::class, 'notify']);
+        // Route::post('signature_algorithm', [SubscriptionController::class, 'notify']);
     });
 
 

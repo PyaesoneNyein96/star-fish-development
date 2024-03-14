@@ -4,7 +4,6 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\API\Dashboard\DashboardController;
 use App\Http\Controllers\API\Subscribe\SubscriptionController;
 
@@ -55,7 +54,8 @@ Route::middleware([
 });
 
 
-Route::get('/payment/notify', [SubscriptionController::class, 'notify']);
+Route::post('/payment/notify', [SubscriptionController::class, 'notify']);
+Route::post('/payment/kpay/referer', [SubscriptionController::class, 'referer']);
 
 Route::get('/test', function () {
     return view('testing');
@@ -111,4 +111,3 @@ Route::get('/link', function () {
 });
 
 
-Route::get('gameAudio', [WorkshopController::class, 'gameAudio']);

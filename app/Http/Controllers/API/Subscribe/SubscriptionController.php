@@ -165,7 +165,12 @@ class SubscriptionController extends Controller
 
         $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
 
-        $sign = $this->convert_SHA256($orderId,$time,$nonce_str);
+        $price = Grade::find($this->grade_id)->price;
+        $sign = $this->convert_SHA256($orderId,$time,$nonce_str,$price);
+
+        // logger($this->grade_id);
+
+
 
         $data = [
             "Request" => [
@@ -181,13 +186,12 @@ class SubscriptionController extends Controller
                     "merch_code" => "70050901",
                     "appid" => "kp0480c579f02f48ae8c37ce82260511",
                     "trade_type" => "PWAAPP",
-                    "total_amount" => "1000",
+                    "total_amount" => $price,
                     "trans_currency" => "MMK",
                 ]
             ]
         ];
 
-        // logger($data);
         if($sign){
            return Http::post($kbzRequestURL,$data);
         }
@@ -197,9 +201,9 @@ class SubscriptionController extends Controller
     }
 
 
-    private function convert_SHA256($order_id, $time, $nonce_str){
+    private function convert_SHA256($order_id, $time, $nonce_str, $price){
 
-        $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=https://star-fish.myanmargateway.net/payment/notify&timestamp=$time&total_amount=1000&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
+        $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=https://star-fish.myanmargateway.net/payment/notify&timestamp=$time&total_amount=$price&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
 
         return strtoupper(hash('sha256',$stringA."&key=starfish@123"));
 
@@ -216,7 +220,8 @@ class SubscriptionController extends Controller
 
     public function notify(Request $request){
 
-            return  $request;
+        logger($request);
+        return "success";
     }
 
 
