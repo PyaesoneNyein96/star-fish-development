@@ -22,7 +22,9 @@ class SubscriptionController extends Controller
 {
 
 
-    public $token, $grade_id, $subscription_id, $student;
+    // public $token, $grade_id, $subscription_id, $student ;
+
+    private $token, $grade_id, $subscription_id, $student, $time, $orderId, $nonce_str, $domain;
 
     public function __construct(Request $request) {
         $this->token = $request->header('token');
@@ -31,6 +33,10 @@ class SubscriptionController extends Controller
 
         $this->student = Student::where('token',$request->header('token'))->first();
 
+        $this->time = strtotime(Carbon::now());
+        $this->orderId =  $this->time."_".strtoupper(substr(Str::uuid(),0,10));
+        $this->nonce_str =  strtoupper(str_replace('-', '', Str::uuid()));
+        $this->domain = app('domain');
 
     }
 
@@ -44,73 +50,24 @@ class SubscriptionController extends Controller
     }
 
 
-    public function purchase(Request $request){
+    /////////////////////// Get Prepay ID ///////////////////////
 
+    public function getPrepay_id(Request $request){
 
         $student = Student::where('token', $this->token)->where('status',1)->first();
 
-        if(!$student){
-            return response()->json([
-                "status" => "you are not allowed for this process."
-            ], 403);
-        }
+        if(!$student) return response()->json(["status" => "you are not allowed for this process."], 403);
 
 
+        $response = $this->request_prepay_id($this->time, $this->orderId, $this->nonce_str);
 
-        DB::beginTransaction();
-        try {
+        $result = $response['Response']['result'] == "SUCCESS";
+        if(!$result) return response()->json(["message" => $response['Response']], 402);
 
+        $data = ['timestamp' => $this->time, 'appid' => "kp0480c579f02f48ae8c37ce82260511",'merch_code' => "70050901"];
 
-            $purchasing = $this->purchasing();
+        return  array_merge($data,$response['Response']);
 
-            $result = $purchasing['Response']['result'] == "SUCCESS";
-
-            // logger($purchasing);
-            // logger("hello");
-
-            if($result){
-
-                $now = Carbon::now(strval($student->country['timezone']));
-
-                StudentGrade::create([
-                    'student_id' => $student->id,
-                    'grade_id' => $this->grade_id,
-                    'subscription_id' => $this->subscription_id,
-                    'created_at' => Carbon::now(strval($student->country['timezone'])),
-                    'expire_date' => $now->addYear(),
-                ]);
-
-                $student->update([
-                    'isSubscriber' => 1,
-                    'grade_chosen' => null,
-                    'created_at' => Carbon::now(strval($student->country['timezone'])),
-                    'updated_at' => Carbon::now(strval($student->country['timezone']))
-                ]);
-
-                $latest_date = StudentGrade::where('grade_id',$this->grade_id)
-                ->pluck('expire_date');
-
-                $this->addedSubscriptionDate($latest_date);
-
-
-                DB::commit();
-
-                return response()->json([
-                    'status' => "successfully purchased.",
-                ], 200);
-
-            }else{
-                return response()->json(["message" => "Payment request fail"], 401);
-            }
-
-
-        } catch (\Throwable $th) {
-            DB::rollback();
-            return $th;
-
-        }
-
-        return "already purchased";
 
     }
 
@@ -172,51 +129,71 @@ class SubscriptionController extends Controller
     }
 
 
-    private function purchasing() {
+
+    public function checkPaymentResult(Request $request){
+
+        $kbzCheckURL = "http://api.kbzpay.com/payment/gateway/uat/queryorder";
+        $orderId = $request->header('order_id');
+
+        $data = [
+            "Request" => [
+                "timestamp" => $this->time,
+                "nonce_str" => $this->nonce_str,
+                "method" => "kbz.payment.queryorder",
+                "sign_type" => "SHA256" ,
+                "sign" => $this->convert_SHA256_query_result($this->nonce_str, $orderId, $this->time),
+                "version" => "3.0",
+                "biz_content" => [
+                    "appid" => "kp0480c579f02f48ae8c37ce82260511",
+                    "merch_code" => "70050901",
+                    "merch_order_id" => $orderId,
+                ]
+            ]
+        ];
+
+        return Http::post($kbzCheckURL,$data);
 
 
+    }
+
+
+    /////////////////////////////////////////////////////////////
+    /////////////////// KBZ Private functions ///////////////////
+    /////////////////////////////////////////////////////////////
+
+    private function request_prepay_id($time, $orderId, $nonce_str) {
 
         $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
 
-        $time = strtotime(Carbon::now());
-        $orderId =  $time."_"."123_ABZ";
-        $nonce_str =  strtoupper(str_replace('-', '', Str::uuid()));
-        $nonce_str =  "ABCabc123";
+        $price = Grade::find($this->grade_id)->price;
+        $sign = $this->convert_SHA256($orderId,$time,$nonce_str,$price);
+
+        // logger($this->grade_id);
 
 
-        $sign = $this->convert_SHA256($orderId,$time,$nonce_str);
-
-
-        logger($sign);
 
         $data = [
             "Request" => [
                 "timestamp" => $time,
-                "notify_url" => "https://star-fish-development.myanmargateway.net/payment/notify",
+                "method" => "kbz.payment.precreate",
+                "notify_url" => $this->domain."/payment/notify",
                 "nonce_str" => $nonce_str,
                 "sign_type" => "SHA256",
-                "method" => "kbz.payment.precreate",
                 "sign" => $sign,
                 "version" => "1.0",
                 "biz_content" => [
                     "merch_order_id" => $orderId,
                     "merch_code" => "70050901",
                     "appid" => "kp0480c579f02f48ae8c37ce82260511",
-                    "trade_type" => "APP",
-                    "total_amount" => "1000",
+                    "trade_type" => "PWAAPP",
+                    "total_amount" => $price,
                     "trans_currency" => "MMK",
                 ]
             ]
         ];
 
-
-
         if($sign){
-            logger(json_encode($data));
-            logger("  ");
-
-            return Http::post($kbzRequestURL,json_encode($data, JSON_PRETTY_PRINT));
-
+           return Http::post($kbzRequestURL,$data);
         }
 
 
@@ -224,24 +201,30 @@ class SubscriptionController extends Controller
     }
 
 
+    private function convert_SHA256($order_id, $time, $nonce_str, $price){
 
-    private function convert_SHA256($order_id, $time,$nonce_str){
+        $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=https://star-fish.myanmargateway.net/payment/notify&timestamp=$time&total_amount=$price&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
 
-
-        $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=https://star-fish-development.myanmargateway.net/payment/notify&timestamp=$time&total_amount=1000&trade_type=APP&trans_currency=MMK&version=1.0";
-
-
-        logger($stringA);
-        logger(" - ");
-
-        $combine = $stringA."&key=starfish@123";
-
-        $hashed = hash('sha256', $combine);
-
-
-        return strtoupper($hashed);
+        return strtoupper(hash('sha256',$stringA."&key=starfish@123"));
 
     }
+
+
+    private function convert_SHA256_query_result($nonce_str, $orderId, $time){
+
+        $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$orderId&method=kbz.payment.queryorder&nonce_str=$nonce_str&timestamp=$time&version=3.0";
+
+        return strtoupper(hash('sha256',$stringA."&key=starfish@123"));
+
+    }
+
+    public function notify(Request $request){
+
+        logger($request);
+        return "success";
+    }
+
+
 
 
 
@@ -263,6 +246,49 @@ class SubscriptionController extends Controller
     }
 
 
+    private function addGradeToStudent(){
+
+        DB::beginTransaction();
+
+        try {
+
+            $now = Carbon::now(strval($student->country['timezone']));
+
+            StudentGrade::create([
+                'student_id' => $this->student->id,
+                'grade_id' => $this->grade_id,
+                'subscription_id' => $this->subscription_id,
+                'created_at' => Carbon::now(strval($student->country['timezone'])),
+                'expire_date' => $now->addYear(),
+            ]);
+
+            $student->update([
+                'isSubscriber' => 1,
+                'grade_chosen' => null,
+                'created_at' => Carbon::now(strval($student->country['timezone'])),
+                'updated_at' => Carbon::now(strval($student->country['timezone']))
+            ]);
+
+            $latest_date = StudentGrade::where('grade_id',$this->grade_id)
+            ->pluck('expire_date');
+
+            $this->addedSubscriptionDate($latest_date);
+
+
+            DB::commit();
+
+            return response()->json([
+                'status' => "successfully purchased.",
+            ], 200);
+
+
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return $th;
+
+        }
+
+    }
 
 
 
