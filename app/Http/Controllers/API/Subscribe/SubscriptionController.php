@@ -60,7 +60,7 @@ class SubscriptionController extends Controller
         $orderId =  $time . "_" . "123_ABZ";
         $nonce_str =  strtoupper(str_replace('-', '', Str::uuid()));
 
-        $purchasing = $this->purchasing($time, $orderId, $nonce_str);
+        return $purchasing = $this->purchasing($time, $orderId, $nonce_str);
 
         $result = $purchasing['Response']['result'] == "SUCCESS";
 
@@ -208,8 +208,8 @@ class SubscriptionController extends Controller
         ];
 
 
-
         if ($sign) {
+            return  $data;
             $responseFromKBZServer = Http::post($kbzRequestURL, $data);
             return $responseFromKBZServer;
         }
