@@ -17,6 +17,7 @@ use App\Models\SubscriptionPlan;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Redirect;
 
 class SubscriptionController extends Controller
 {
@@ -24,7 +25,7 @@ class SubscriptionController extends Controller
 
     // public $token, $grade_id, $subscription_id, $student ;
 
-    private $token, $grade_id, $subscription_id, $student, $time, $orderId, $nonce_str, $domain;
+    private $token, $grade_id, $subscription_id, $student, $time, $orderId, $nonce_str, $domain, $prepay_id;
 
     public function __construct(Request $request) {
         $this->token = $request->header('token');
@@ -37,6 +38,7 @@ class SubscriptionController extends Controller
         $this->orderId =  $this->time."_".strtoupper(substr(Str::uuid(),0,10));
         $this->nonce_str =  strtoupper(str_replace('-', '', Str::uuid()));
         $this->domain = app('domain');
+        $this->prepay_id;
 
     }
 
@@ -48,6 +50,63 @@ class SubscriptionController extends Controller
         return Subscription::all();
 
     }
+
+    // public function removePlan(Request $request) {
+
+    //     $student = Student::where('token', $this->token)->where('status',1)->first();
+
+    //     $gradeLessons = Grade::find($this->grade_id)->lessons;
+
+    //     $gradeUnit = Grade::find($this->grade_id)->units->pluck('id');
+
+    //     $gradeGames = Game::whereIn('unit_id', $gradeUnit)->get();
+
+
+    //     DB::beginTransaction();
+
+    //     try {
+
+    //         $del_lessons = $gradeLessons->filter(function($l) use($student) {
+    //             return $student->lessons->contains('id', $l->id);
+    //         })->pluck('id');
+
+    //         $res1= StudentLesson::where('student_id', $student->id)->whereIn('id', $del_lessons)->delete();
+
+    //     //////////////////////////////
+
+    //         $del_units = $gradeUnit->filter(function($l) use($student){
+    //             return $student->units->contains('id', $l->id);
+    //         })->pluck('id');
+
+    //         $res2 = StudentUnit::where('student_id', $student->id)->whereIn('id', $del_units)->delete();
+
+    //     //////////////////////////////
+
+    //         $del_games = $gradeGames->filter(function($g) use($student) {
+    //             return $student->games->contains('id', $g->id);
+    //         })->pluck('id');
+
+    //         $res3 = StudentGame::where('student_id',$student->id)->whereIn('id',$del_games)->delete();
+
+    //         if($res1 && $res3){
+    //             StudentGrade::where('grade_id',$this->grade_id)->delete();
+    //         }
+
+    //         DB::commit();
+
+    //         return true;
+
+
+    //    } catch (\Throwable $th) {
+    //         DB::rollback();
+    //         return $th;
+    //    }
+
+
+
+
+    // }
+
 
 
     /////////////////////// Get Prepay ID ///////////////////////
@@ -72,61 +131,6 @@ class SubscriptionController extends Controller
     }
 
 
-    public function removePlan(Request $request) {
-
-            $student = Student::where('token', $this->token)->where('status',1)->first();
-
-            $gradeLessons = Grade::find($this->grade_id)->lessons;
-
-            $gradeUnit = Grade::find($this->grade_id)->units->pluck('id');
-
-            $gradeGames = Game::whereIn('unit_id', $gradeUnit)->get();
-
-
-            DB::beginTransaction();
-
-            try {
-
-                $del_lessons = $gradeLessons->filter(function($l) use($student) {
-                    return $student->lessons->contains('id', $l->id);
-                })->pluck('id');
-
-                $res1= StudentLesson::where('student_id', $student->id)->whereIn('id', $del_lessons)->delete();
-
-            //////////////////////////////
-
-                $del_units = $gradeUnit->filter(function($l) use($student){
-                    return $student->units->contains('id', $l->id);
-                })->pluck('id');
-
-                $res2 = StudentUnit::where('student_id', $student->id)->whereIn('id', $del_units)->delete();
-
-            //////////////////////////////
-
-                $del_games = $gradeGames->filter(function($g) use($student) {
-                    return $student->games->contains('id', $g->id);
-                })->pluck('id');
-
-                $res3 = StudentGame::where('student_id',$student->id)->whereIn('id',$del_games)->delete();
-
-                if($res1 && $res3){
-                    StudentGrade::where('grade_id',$this->grade_id)->delete();
-                }
-
-                DB::commit();
-
-                return true;
-
-
-           } catch (\Throwable $th) {
-                DB::rollback();
-                return $th;
-           }
-
-
-
-
-    }
 
 
 
@@ -217,6 +221,21 @@ class SubscriptionController extends Controller
         return strtoupper(hash('sha256',$stringA."&key=starfish@123"));
 
     }
+
+
+    public function referer(Request $request){
+
+        $sign = $request->header('sign');
+        $prepay_id = $request->header('prepay_id');
+
+        $redirectURL = "https://static.kbzpay.com/pgw/uat/pwa/#/?appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&nonce_str=".$this->nonce_str.
+        "&prepay_id=$prepay_id&timestamp=".$this->time."&$sign=sign";
+
+        return Redirect::away($redirectURL);
+
+    }
+
+
 
     public function notify(Request $request){
 
