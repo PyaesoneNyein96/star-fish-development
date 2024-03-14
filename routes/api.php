@@ -109,14 +109,15 @@ Route::prefix('auth')->group(function () {
 
 
     Route::prefix('subscription')->group(function () {
-
         Route::get('plans', [SubscriptionController::class, 'plans']);
-        Route::post('purchase', [SubscriptionController::class, 'purchase']);
         Route::post('removePlan', [SubscriptionController::class, 'removePlan']);
+    });
 
+    Route::prefix('payment')->group(function (){
+        Route::post('purchase', [SubscriptionController::class, 'purchase']);
+        Route::post('check/result', [SubscriptionController::class, 'checkPaymentResult']);
         // Route::post('signature_algorithm', [SubscriptionController::class, 'notify']);
     });
-    // Route::post('notify', [SubscriptionController::class, 'notify']);
 
 
     Route::prefix('assessment')->group(function () {
