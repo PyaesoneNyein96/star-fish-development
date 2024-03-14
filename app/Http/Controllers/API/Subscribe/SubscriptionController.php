@@ -22,7 +22,9 @@ class SubscriptionController extends Controller
 {
 
 
-    public $token, $grade_id, $subscription_id, $student;
+    // public $token, $grade_id, $subscription_id, $student ;
+
+    private $token, $grade_id, $subscription_id, $student, $time, $orderId, $nonce_str, $domain;
 
     public function __construct(Request $request) {
         $this->token = $request->header('token');
@@ -31,6 +33,10 @@ class SubscriptionController extends Controller
 
         $this->student = Student::where('token',$request->header('token'))->first();
 
+        $this->time = strtotime(Carbon::now());
+        $this->orderId =  $this->time."_".strtoupper(substr(Str::uuid(),0,10));
+        $this->nonce_str =  strtoupper(str_replace('-', '', Str::uuid()));
+        $this->domain = app('domain');
 
     }
 
@@ -44,31 +50,24 @@ class SubscriptionController extends Controller
     }
 
 
-    public function purchase(Request $request){
+    /////////////////////// Get Prepay ID ///////////////////////
+
+    public function getPrepay_id(Request $request){
 
         $student = Student::where('token', $this->token)->where('status',1)->first();
 
-        if(!$student){
-            return response()->json([
-                "status" => "you are not allowed for this process."
-            ], 403);
-        }
-
-        $time = strtotime(Carbon::now());
-        $orderId =  $time."_"."123_ABZ";
-        $nonce_str =  strtoupper(str_replace('-', '', Str::uuid()));
-
-        $purchasing = $this->purchasing($time, $orderId, $nonce_str);
-
-        $result = $purchasing['Response']['result'] == "SUCCESS";
+        if(!$student) return response()->json(["status" => "you are not allowed for this process."], 403);
 
 
-        if(!$result) return response()->json(["message" => "something wrong."], 402);
+        $response = $this->request_prepay_id($this->time, $this->orderId, $this->nonce_str);
 
-        $data = ['timestamp' => $time, 'appid' => "kp0480c579f02f48ae8c37ce82260511"];
-        $response =  array_merge($data,$purchasing['Response']);
+        $result = $response['Response']['result'] == "SUCCESS";
+        if(!$result) return response()->json(["message" => $response['Response']], 402);
 
-        return $response;
+        $data = ['timestamp' => $this->time, 'appid' => "kp0480c579f02f48ae8c37ce82260511",'merch_code' => "70050901"];
+
+        return  array_merge($data,$response['Response']);
+
 
     }
 
@@ -133,43 +132,27 @@ class SubscriptionController extends Controller
 
     public function checkPaymentResult(Request $request){
 
-        // $sign = $this->convert_SHA256_query_result($nonce_str, $prepay_id, $orderId, $time);
         $kbzCheckURL = "http://api.kbzpay.com/payment/gateway/uat/queryorder";
-
         $orderId = $request->header('order_id');
-
-        $nonce_str = strtoupper(str_replace('-', '', Str::uuid()));
-        $time = strtotime(Carbon::now());
-
-
-        $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=https://star-fish.myanmargateway.net/payment/notify&timestamp=$time&total_amount=1000&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
-
-        $sign = strtoupper(hash('sha256',$stringA."&key=starfish@123"));
 
         $data = [
             "Request" => [
-                "timestamp" => $time,
-                "nonce_str" => $nonce_str,
+                "timestamp" => $this->time,
+                "nonce_str" => $this->nonce_str,
                 "method" => "kbz.payment.queryorder",
                 "sign_type" => "SHA256" ,
-                "sign" => $sign,
+                "sign" => $this->convert_SHA256_query_result($this->nonce_str, $orderId, $this->time),
                 "version" => "3.0",
                 "biz_content" => [
                     "appid" => "kp0480c579f02f48ae8c37ce82260511",
                     "merch_code" => "70050901",
-                    "merch_code_id" => $orderId,
+                    "merch_order_id" => $orderId,
                 ]
             ]
-
-
         ];
 
-        logger(json_encode($data));
+        return Http::post($kbzCheckURL,$data);
 
-        if($sign){
-            $checkResult_KBZ_Server = Http::post($kbzCheckURL,$data);
-            return $checkResult_KBZ_Server;
-        }
 
     }
 
@@ -178,7 +161,7 @@ class SubscriptionController extends Controller
     /////////////////// KBZ Private functions ///////////////////
     /////////////////////////////////////////////////////////////
 
-    private function purchasing($time, $orderId, $nonce_str) {
+    private function request_prepay_id($time, $orderId, $nonce_str) {
 
         $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
 
@@ -188,7 +171,7 @@ class SubscriptionController extends Controller
             "Request" => [
                 "timestamp" => $time,
                 "method" => "kbz.payment.precreate",
-                "notify_url" => "https://star-fish.myanmargateway.net/payment/notify",
+                "notify_url" => $this->domain."/payment/notify",
                 "nonce_str" => $nonce_str,
                 "sign_type" => "SHA256",
                 "sign" => $sign,
@@ -204,11 +187,9 @@ class SubscriptionController extends Controller
             ]
         ];
 
-        // return $responseFromKBZServer
-
+        // logger($data);
         if($sign){
-            $responseFromKBZServer = Http::post($kbzRequestURL,$data);
-            return $responseFromKBZServer;
+           return Http::post($kbzRequestURL,$data);
         }
 
 
@@ -216,31 +197,26 @@ class SubscriptionController extends Controller
     }
 
 
-    // private function convert_SHA256($order_id, $time, $nonce_str){
+    private function convert_SHA256($order_id, $time, $nonce_str){
 
-    //     $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=https://star-fish.myanmargateway.net/payment/notify&timestamp=$time&total_amount=1000&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
+        $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=https://star-fish.myanmargateway.net/payment/notify&timestamp=$time&total_amount=1000&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
 
-    //     return strtoupper(hash('sha256',$stringA."&key=starfish@123"));
+        return strtoupper(hash('sha256',$stringA."&key=starfish@123"));
 
-    // }
+    }
 
 
-    private function convert_SHA256_query_result($nonce_str, $prepay_id, $orderId, $time){
+    private function convert_SHA256_query_result($nonce_str, $orderId, $time){
 
-        $queryOrderCheck = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$orderId&method=kbz.payment.queryorder&nonce_str=$nonce_str&timestamp=$time&version=3.0";
+        $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$orderId&method=kbz.payment.queryorder&nonce_str=$nonce_str&timestamp=$time&version=3.0";
 
-        logger($queryOrderCheck);
+        return strtoupper(hash('sha256',$stringA."&key=starfish@123"));
 
-        $hashed = strtoupper(hash('sha256',$queryOrderCheck."&key=starfish@123"));
-
-        logger($hashed);
-        return $hashed;
     }
 
     public function notify(Request $request){
-        logger([
-            'notify' => $request
-        ]);
+
+            return  $request;
     }
 
 
@@ -306,8 +282,6 @@ class SubscriptionController extends Controller
             return $th;
 
         }
-
-        return "already purchased";
 
     }
 
