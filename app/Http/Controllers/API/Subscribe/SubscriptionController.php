@@ -120,7 +120,7 @@ class SubscriptionController extends Controller
         if (!$student) return response()->json(["status" => "you are not allowed for this process."], 403);
 
 
-        $response = $this->request_prepay_id($this->time, $this->orderId, $this->nonce_str);
+        return $response = $this->request_prepay_id($this->time, $this->orderId, $this->nonce_str);
 
         $result = $response['Response']['result'] == "SUCCESS";
         if (!$result) return response()->json(["message" => $response['Response']], 402);
@@ -207,7 +207,7 @@ class SubscriptionController extends Controller
 
 
 
-        $data = [
+        return $data = [
             "Request" => [
                 "timestamp" => $time,
                 "method" => "kbz.payment.precreate",
@@ -257,6 +257,12 @@ class SubscriptionController extends Controller
 
 
     public function notify(Request $request)
+    {
+
+        logger($request);
+        return "success";
+    }
+    public function return_url(Request $request)
     {
 
         logger($request);
