@@ -125,7 +125,15 @@ class SubscriptionController extends Controller
         $result = $response['Response']['result'] == "SUCCESS";
         if (!$result) return response()->json(["message" => $response['Response']], 402);
 
+
         $data = ['timestamp' => $this->time, 'appid' => "kp0480c579f02f48ae8c37ce82260511", 'merch_code' => "70050901"];
+
+
+        $params = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&nonce_str=" . $this->nonce_str . "&prepay_id=" . $response['Response']['prepay_id'] . "&timestamp=" . $this->time;
+
+        $result = hash('sha256', $params);
+
+        $data["orderinfo"] = $params . "&sign=$result";
 
         return  array_merge($data, $response['Response']);
     }
@@ -168,12 +176,12 @@ class SubscriptionController extends Controller
         $nonce_str = $request->query("nonce_str");
         $prepay_id = $request->query("prepay_id");
         $timestamp = $request->query("timestamp");
-        // $sign = $request->query("sign");
+        $sign = $request->query("sign");
 
-        $params = "appid=$appid&merch_code=$merch_code&nonce_str=$nonce_str&prepay_id=$prepay_id&timestamp=$timestamp";
-        $sign = hash('sha256', $params);
+        $params = "appid=$appid&merch_code=$merch_code&nonce_str=$nonce_str&prepay_id=$prepay_id&timestamp=$timestamp&sign=$sign";
+        // $sign = hash('sha256', $params);
 
-        return redirect("https://static.kbzpay.com/pgw/uat/pwa/#/?$params&sign=$sign");
+        return redirect("https://static.kbzpay.com/pgw/uat/pwa/#/?$params");
     }
 
 
