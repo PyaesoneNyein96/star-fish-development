@@ -4,7 +4,6 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\API\Dashboard\DashboardController;
 use App\Http\Controllers\API\Subscribe\SubscriptionController;
 
@@ -55,14 +54,15 @@ Route::middleware([
 });
 
 
-Route::prefix('/payment')->group(function () {
+/////////////////////// Payment Integration /////////////////////////
+
+Route::prefix('payment')->group(function () {
     Route::post('/notify', [SubscriptionController::class, 'notify']);
-
-    Route::get('/notify', [SubscriptionController::class, 'notify']);
-
     Route::post('/kpay/referer', [SubscriptionController::class, 'referer']);
     Route::get('/kpay/referer', [SubscriptionController::class, 'referer']);
 });
+
+
 
 Route::get('/test', function () {
     return view('testing');
@@ -116,6 +116,3 @@ Route::get('/link', function () {
     Artisan::call('storage:link');
     return back();
 });
-
-
-Route::get('gameAudio', [WorkshopController::class, 'gameAudio']);
