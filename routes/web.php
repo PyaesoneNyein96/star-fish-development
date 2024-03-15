@@ -53,10 +53,16 @@ Route::middleware([
         Route::get('/axios/chats', [DashboardController::class, 'axiosChat']);
     });
 });
-Route::post('payment/notify', [SubscriptionController::class, 'notify']);
 
 
-Route::get('/payment/notify', [SubscriptionController::class, 'notify']);
+Route::prefix('/payment')->group(function () {
+    Route::post('/notify', [SubscriptionController::class, 'notify']);
+
+    Route::get('/notify', [SubscriptionController::class, 'notify']);
+
+    Route::post('/kpay/referer', [SubscriptionController::class, 'referer']);
+    Route::get('/kpay/referer', [SubscriptionController::class, 'referer']);
+});
 
 Route::get('/test', function () {
     return view('testing');
