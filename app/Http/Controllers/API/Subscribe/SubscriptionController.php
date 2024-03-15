@@ -178,8 +178,8 @@ class SubscriptionController extends Controller
 
 
 
-        $sign = $request->header('sign');
-        $prepay_id = $request->header('prepay_id');
+        $prepay_id = $request->query('prepay_id');
+        $sign = $request->query('sign');
 
         $redirectURL = "https://static.kbzpay.com/pgw/uat/pwa/#/?appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&nonce_str=".$this->nonce_str."&prepay_id=$prepay_id&timestamp=".$this->time."&$sign=sign";
 
