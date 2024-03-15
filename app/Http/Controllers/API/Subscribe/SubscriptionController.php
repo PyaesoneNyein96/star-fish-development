@@ -225,6 +225,10 @@ class SubscriptionController extends Controller
 
     public function referer(Request $request){
 
+
+
+
+
         $sign = $request->header('sign');
         $prepay_id = $request->header('prepay_id');
 
