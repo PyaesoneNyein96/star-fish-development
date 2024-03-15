@@ -180,11 +180,11 @@ class SubscriptionController extends Controller
         $params = "appid=$appid&merch_code=$merch_code&nonce_str=$nonce_str&prepay_id=$prepay_id&timestamp=$timestamp&sign=$sign";
         // $sign = hash('sha256', $params);
 
-        $headers = [
-            'referer' => 'https://star-fish-development.myanmargateway.net/payment/kpay/referer',
-        ];
+        // $headers = [
+        //     'referer' => 'https://star-fish-development.myanmargateway.net/payment/kpay/referer',
+        // ];
 
-        return redirect("https://static.kbzpay.com/pgw/uat/pwa/#/?$params")->withHeaders($headers);
+        return redirect("https://static.kbzpay.com/pgw/uat/pwa/#/?$params")->header('referer', 'https://star-fish-development.myanmargateway.net/payment/kpay/referer');
     }
 
 
