@@ -159,11 +159,12 @@ class SubscriptionController extends Controller
         $nonce_str = $request->query("nonce_str");
         $prepay_id = $request->query("prepay_id");
         $timestamp = $request->query("timestamp");
-        $sign = $request->query("sign");
+        // $sign = $request->query("sign");
 
-        $params = "appid=$appid&merch_code=$merch_code&nonce_str=$nonce_str&prepay_id=$prepay_id&timestamp=$timestamp&sign=$sign";
+        $params = "appid=$appid&merch_code=$merch_code&nonce_str=$nonce_str&prepay_id=$prepay_id&timestamp=$timestamp";
+        $sign = hash('sha256', $params);
 
-        return redirect("https://static.kbzpay.com/pgw/uat/pwa/#/?$params");
+        return redirect("https://static.kbzpay.com/pgw/uat/pwa/#/?$params&sign=$sign");
     }
 
 
