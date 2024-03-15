@@ -134,7 +134,6 @@ class SubscriptionController extends Controller
 
         $data["orderinfo"] = $params . "&sign=$result";
 
-        // return $data;
 
         return  array_merge($data, $response['Response']);
     }
@@ -180,14 +179,9 @@ class SubscriptionController extends Controller
         $sign = $request->query("sign");
 
         $params = "appid=$appid&merch_code=$merch_code&nonce_str=$nonce_str&prepay_id=$prepay_id&timestamp=$timestamp&sign=$sign";
-        // $sign = hash('sha256', $params);
-
-        // $headers = [
-        //     'referer' => 'https://star-fish-development.myanmargateway.net/payment/kpay/referer',
-        // ];
 
         return view('referer', compact("params"));
-        // return redirect("https://static.kbzpay.com/pgw/uat/pwa/#/?$params")->header('referer', 'https://star-fish-development.myanmargateway.net/payment/kpay/referer');
+
     }
 
 
@@ -202,9 +196,6 @@ class SubscriptionController extends Controller
 
         $price = Grade::find($this->grade_id)->price;
         $sign = $this->convert_SHA256($orderId, $time, $nonce_str, $price);
-
-        // logger($this->grade_id);
-
 
 
         $data = [
@@ -249,16 +240,19 @@ class SubscriptionController extends Controller
         $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$orderId&method=kbz.payment.queryorder&nonce_str=$nonce_str&timestamp=$time&version=3.0";
 
         return strtoupper(hash('sha256', $stringA . "&key=starfish@123"));
+
     }
-
-
-
-
 
 
     public function notify(Request $request)
     {
+        logger($request);
+        return "success";
+    }
 
+
+    public function return(Request $request)
+    {
         logger($request);
         return "success";
     }
