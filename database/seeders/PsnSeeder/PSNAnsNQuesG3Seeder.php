@@ -135,14 +135,14 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            "throw the rubbish out.",
-            "do homework",
-            "sweep the floor",
-            "wash the clothes",
-            "make the bed",
-            "paint the bedroom",
-            "brush my teeth",
-            "wash the car",
+            "I throw the rubbish out.",
+            "I do my homework in the evening.",
+            "I sweep the floor in the afternoon.",
+            "I wash the clothes in the afternoon.",
+            "I make the bed in the morning.",
+            "I paint the bedroom in the afternoon.",
+            "I brush my teeth in the morning.",
+            "I wash the car in the morning.",
         ];
 
 
@@ -289,8 +289,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            'listen to songs','help each other','water the plants','draw the pictures','work alone',
-            'play with friends', 'study in library', 'listen to the teacher',
+            'Yes, Listen to songs','yes, help each other','Yes, water the plants',
+            'Yes, draw pictures','Yes, work alone', 'Yes, play games', 'Yes, study in library', 'Yes, listen to the teacher',
         ];
 
 
@@ -304,7 +304,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'game_id' => 615,
                     'round' => $key + 1,
                     'q_image' => $images.$this->removeSpace($val).".png",
-                    'q_audio' => $audio.$this->removeSpace($val).".mp3",
+                    'q_audio' => $audios.$this->removeSpace($val).".mp3",
                     'a_content' => $ans[$key],
                 ]
             ]);
@@ -329,13 +329,13 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            "Listen to songs",
-            "do physical exercise",
-            "water the plants",
-            "work in pair",
-            "draw the pictures",
-            "stay in library",
-            "listen to the teacher",
+            "I sometimes listen to songs in my class.",
+            "We always do physical exercise at school.",
+            "I usually water the plants.",
+            "I often work in pair.",
+            "I sometimes draw pictures in my class.",
+            "I always study in the library.",
+            "We often work in group in our class.",
         ];
 
         $q_audio = [
@@ -667,13 +667,13 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            "reading",
-            "eating",
-            "planting",
-            "playing piano",
-            "sleeping",
-            "studying",
-            "playing baseball",
+            "I am reading.",
+            "He is eating.",
+            "She is planting.",
+            "I am playing the piano.",
+            "They are sleeping.",
+            "They are studying.",
+            "He is playing baseball.",
         ];
 
         $ques_aud = ['you','he','she','you','they','they','he'];
@@ -858,7 +858,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $questions = [
-                "What do you do on Saturdays? \n on Sunday I ___.",
+                "What do you do on Saturdays? \n on Saturdays I ___.",
                 "What do you do on Tuesday? \n on Tuesday I ___.",
                 "What do you do on Thursdays? \n on Thursdays I ___.",
                 "What do you do on Wednesdays? \n on Wednesdays I ___.",
@@ -868,13 +868,13 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            "swimming",
-            "play computer game",
-            "reading",
-            "watch TV",
-            "ride_bike",
-            "piano",
-            "football",
+            "go swimming",
+            "play game",
+            "read a book",
+            "watch TV and sleep",
+            "ride a bike",
+            "play a musical instrument",
+            "play football",
         ];
 
 
@@ -1192,17 +1192,26 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $questions = [
-                "Can He skate?",
-                "Can she teach?",
-                "Can they swim?",
-                "Can he ride a bike?",
-                "Can he bake cakes?",
-                "Can they ski?",
-                "Can you drive a bus?",
-                "Can he cook?",
+            "Can He skate?",
+            "Can she teach?",
+            "Can they swim?",
+            "Can he ride a bike?",
+            "Can he bake cakes?",
+            "Can they ski?",
+            "Can you drive a bus?",
+            "Can he cook?",
         ];
 
-        $ans = ["No","not sure","Yes","not sure","Yes","No","No","No",];
+        $ans = [
+            "No, I can’t.",
+            "Yes, she can.",
+            "Yes, they can.",
+            "Yes, he can.",
+            "Yes, he can.",
+            "No, they can’t.",
+            "No, I can’t.",
+            "No, he can’t."
+        ];
 
 
         $images = $ImageDomain . "Grade_3/Lesson_25/Practice/";
@@ -1448,6 +1457,18 @@ class PSNAnsNQuesG3Seeder extends Seeder
         $questions = "What time is it?";
 
 
+        $ans = [
+            "It’s 2:45",
+            "It’s 11:15",
+            "It is 1:30",
+            "It’s 2:10",
+            "It’s 9:45",
+            "It’s 10:20",
+            "It’s 6:30",
+            "It’s 7:00"
+        ];
+
+
         $images = $ImageDomain . "Grade_3/Lesson_26/Practice/";
         $audios = $AudioDomain . "Grade_3/Lesson_26/Practice/";
 
@@ -1460,7 +1481,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'q_image' => $images.$this->removeSpace($q).".png",
                     'q_audio' => $audios.$this->removeSpace($q).".mp3",
                     'q_content' => "What time is it?",
-                    'a_content' => "It's ". str_replace('-',':', $q),
+                    'a_content' => $ans[$key],
                 ]
             ]);
         }
@@ -1670,8 +1691,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
     // Unit 7 Writing <writing_topic>
 
 
-        $images = $ImageDomain . "Grade_3/Lesson_22/Writing/";
-        $audios = $AudioDomain . "Grade_3/Lesson_22/Writing/";
+        $images = $ImageDomain . "Grade_3/Lesson_27/Writing/";
+        $audios = $AudioDomain . "Grade_3/Lesson_27/Writing/";
 
         $sample_content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum ";
 
@@ -1756,17 +1777,32 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
 
-    // Unit 3 Practice <look and write> -- without question (with Answer)
+    // Unit 3 Practice <look_and_write> -- without question (with Answer)
 
 
         $contents = [
-            'I alway go to school at 8:25','I usually have breakfast at 7:30',
-            "I often do the housework at 4:30", "I usually go home at 3:45",
-            "I sometime watch TV at 8:30", "I usually study my lesson at 7:30",
-            "I usually go to bed at 9:00", "I often have a bath at 6:15",
+            'I alway go to school at 8:25',
+            'I usually have breakfast at 7:30',
+            "I often do the housework at 4:30",
+            "I usually go home at 3:45",
+            "I sometime watch TV at 8:30",
+            "I usually study my lesson at 7:30",
+            "I usually go to bed at 9:00",
+            "I often have a bath at 6:15",
             "I usually get up at 6:00",
         ];
 
+        $ans = [
+            "What time do you always go to school?",
+            "What time do you usually have breakfast?",
+            "What time do you often do the housework?",
+            "What time do you usually go home?",
+            "What time do you sometimes watch TV?",
+            "What time do you often study your lessons?",
+            "What time do you usually go to bed?",
+            "What time do you often have a bath?",
+            "What time do you usually get up?"
+        ];
 
 
         $images = $ImageDomain . "Grade_3/Lesson_27/Practice/";
@@ -1779,9 +1815,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'game_id' => 652,
                     'round' => $key + 1,
                     'q_image' => $images.$this->removeSpace($val).".png",
-                    'q_content' => $val,
                     'q_audio' => $audio.$this->removeSpace($val).".mp3",
-
+                    'q_content' => $val,
+                    'a_content' => $ans[$key],
                 ]
             ]);
         }
@@ -1964,14 +2000,25 @@ class PSNAnsNQuesG3Seeder extends Seeder
             'playing guitar','throw a ball','wash her car','fishing','sleeping','acting', 'planting',
         ];
 
+
         $questions = [
-                "what is he doing?",
-                "what is she doing?",
-                "what is she doing?",
-                "what is she doing?",
-                "what are you doing?",
-                "what is he doing?",
-                "what is she doing?",
+            "What is he doing?",
+            "What is she doing?",
+            "What is she doing?",
+            "What is she doing?",
+            "What are you doing?",
+            "What is he doing?",
+            "What is she doing?",
+        ];
+
+        $ans = [
+            "He is playing the guitar.",
+            "She is throwing a ball.",
+            "She is washing the car.",
+            "she is fishing.",
+            "I am sleeping.",
+            "She is acting in a play.",
+            "he is planting flowers."
         ];
 
 
@@ -1987,7 +2034,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'q_image' => $images.$this->removeSpace($contents[$key]).".png",
                     'q_audio' => $audios.$this->removeSpace(str_replace('?','',$q)).".mp3",
                     'q_content' => $q,
-                    'a_content' => $contents[$key],
+                    'a_content' => $ans[$key],
                 ]
             ]);
         }
@@ -2537,7 +2584,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
          $ans = [
-            'badminton','hide and seek','painting','camping','gardening','traveling', 'exercise', 'picnic',
+            'playing badminton','playing hide and seek','painting','camping',
+            'gardening','traveling', 'exercise', 'having a picnic',
             'cycling','grocery shopping',
         ];
 
@@ -2577,7 +2625,16 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 "Is she cycling?",
         ];
 
-        $ans = ["No","No","Yes","Yes","Yes","Yes","Yes",];
+        // $ans = ["No","No","Yes","Yes","Yes","Yes","Yes",];
+        $ans = [
+            "No, he isn’t. He isn’t traveling.",
+            "No, I’m not. I’m not gardening.",
+            "Yes, he is. He is flying a kite.",
+            "Yes, they are. They are playing hide and seek.",
+            "yes, I am. I am taking photos.",
+            "Yes, they are. They are having a picnic.",
+            "Yes, she is. She is cycling."
+        ];
 
 
         $images = $ImageDomain . "Grade_3/Lesson_30/Answer_Question/";
@@ -2893,7 +2950,13 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 "Do you like traveling?",
         ];
 
-        $ans = ["No","Yes","Yes","No","Yes"];
+        $ans = [
+            "Yes, they do. They like seeing a movie.",
+            "No, he doesn't. He don't like swimming.",
+            "No, he doesn’t. He doesn’t like listening to music.",
+            "No, I don’t. I don’t like writing stories.",
+            "Yes, I do. I like traveling.",
+        ];
 
 
         $images = $ImageDomain . "Grade_3/Lesson_31/Practice/";
@@ -3314,14 +3377,14 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
          $ans = [
-            'I always smile when I am happy',
-            'I always shout when I am angry',
-            'I always yawn when I am tired',
-            'I always bite my nail when I am bored',
-            'I always is covering my eyes when I am scare',
-            'I always cover my eyes when I am embarrassed',
-            'I always blush  when I am embarrassed',
-            'I cry when I am sad',
+            'I always smile when I am happy.',
+            'I always shout when I am angry.',
+            'I always yawn when I am tired.',
+            'I always bite my nail when I am bored.',
+            'I always is covering my eyes when I am scare.',
+            'I always cover my eyes when I am nervous.',
+            'I always blush  when I am embarrassed.',
+            'I cry when I am sad.',
         ];
 
 
@@ -3989,8 +4052,14 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-          'play basketball', 'see doctor', 'eat food', 'get help',
-          'buy toys','buy flowers', 'watch films','read books'
+            'You can play basketball at a sports center.',
+            'You can see doctors at a hospital.',
+            'You can eat food at a restaurant.',
+            'You can get help at a police station.',
+            'You can buy toys at a toy store.',
+            'you can buy flowers at a flower shop.',
+            'You can watch films at a cinema.',
+            'You can read books at a library.'
         ];
 
 
@@ -4253,7 +4322,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
           "It’s next to the bus station.",
           "It’s between the video store and barber shop.",
           "It’s opposite the park.",
-          "It’s next to the school"
+          "It’s next to the school."
         ];
 
 
@@ -4575,7 +4644,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         $ans = [
             "Walk down. It is on the right.",
             "Walk up and turn left. It is on the right.",
-            "Go straight . It is on the right",
+            "Go straight. It is on the right.",
             "Go straight and  turn left. It is on the right.",
             "Go straight and turn left. It is on the left."
 
@@ -4777,7 +4846,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
           "Walk up South Street. It’s on the right, next to the bank.",
           "Walk down South Street. It’s on the left, opposite the hospital.",
           "Go straight and turn right. It’s on the left.",
-          "Go straight and turn left. It is on the right"
+          "Go straight and turn left. It is on the right."
 
         ];
 
