@@ -165,16 +165,27 @@ class SubscriptionController extends Controller
     // referer kpay
     public function referer(Request $request)
     {
-        $appid = $request->query("appid");
-        $merch_code = $request->query("merch_code");
-        $nonce_str = $request->query("nonce_str");
-        $prepay_id = $request->query("prepay_id");
-        $timestamp = $request->query("timestamp");
-        $sign = $request->query("sign");
+        // $appid = $request->query("appid");
+        // $merch_code = $request->query("merch_code");
+        // $nonce_str = $request->query("nonce_str");
+        // $prepay_id = $request->query("prepay_id");
+        // $timestamp = $request->query("timestamp");
+        // $sign = $request->query("sign");
 
-        $params = "appid=$appid&merch_code=$merch_code&nonce_str=$nonce_str&prepay_id=$prepay_id&timestamp=$timestamp&sign=$sign";
+        // $params = "appid=$appid&merch_code=$merch_code&nonce_str=$nonce_str&prepay_id=$prepay_id&timestamp=$timestamp&sign=$sign";
 
-        return redirect("https://static.kbzpay.com/pgw/uat/pwa/#/?$params");
+        // return redirect("https://static.kbzpay.com/pgw/uat/pwa/#/?$params");
+
+
+
+        $sign = $request->header('sign');
+        $prepay_id = $request->header('prepay_id');
+
+        $redirectURL = "https://static.kbzpay.com/pgw/uat/pwa/#/?appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&nonce_str=".$this->nonce_str."&prepay_id=$prepay_id&timestamp=".$this->time."&$sign=sign";
+
+        return Redirect::away($redirectURL);
+
+
     }
 
 
@@ -238,21 +249,7 @@ class SubscriptionController extends Controller
     }
 
 
-    public function referer(Request $request){
 
-
-
-
-
-        $sign = $request->header('sign');
-        $prepay_id = $request->header('prepay_id');
-
-        $redirectURL = "https://static.kbzpay.com/pgw/uat/pwa/#/?appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&nonce_str=".$this->nonce_str.
-        "&prepay_id=$prepay_id&timestamp=".$this->time."&$sign=sign";
-
-        return Redirect::away($redirectURL);
-
-    }
 
 
 
