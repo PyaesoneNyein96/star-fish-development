@@ -134,6 +134,8 @@ class SubscriptionController extends Controller
 
         $data["orderinfo"] = $params . "&sign=$result";
 
+        // return $data;
+
         return  array_merge($data, $response['Response']);
     }
 
@@ -184,7 +186,8 @@ class SubscriptionController extends Controller
         //     'referer' => 'https://star-fish-development.myanmargateway.net/payment/kpay/referer',
         // ];
 
-        return redirect("https://static.kbzpay.com/pgw/uat/pwa/#/?$params")->header('referer', 'https://star-fish-development.myanmargateway.net/payment/kpay/referer');
+        return view('referer', compact("params"));
+        // return redirect("https://static.kbzpay.com/pgw/uat/pwa/#/?$params")->header('referer', 'https://star-fish-development.myanmargateway.net/payment/kpay/referer');
     }
 
 
