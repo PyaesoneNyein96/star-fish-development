@@ -130,7 +130,7 @@ class SubscriptionController extends Controller
 
         $params = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&nonce_str=" . $this->nonce_str . "&prepay_id=" . $response['Response']['prepay_id'] . "&timestamp=" . $this->time;
 
-        $result = strtoupper(hash('sha256', $params));
+        $result = strtoupper(hash('sha256', $params . "&key=starfish@123"));
 
         $data["orderinfo"] = $params . "&sign=$result";
 
