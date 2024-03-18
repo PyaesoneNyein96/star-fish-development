@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 [2024-03-18 13:50:43] local.ERROR: Class "App\Http\Controllers\API\Subscribe\OrderTransaction" not found {"exception":"[object] (Error(code: 0): Class \"App\\Http\\Controllers\\API\\Subscribe\\OrderTransaction\" not found at C:\\Users\\SEOMyanmar\\Desktop\\Main\\Star Fish\\star_fish_api\\app\\Http\\Controllers\\API\\Subscribe\\SubscriptionController.php:304)
 [stacktrace]
 #0 C:\\Users\\SEOMyanmar\\Desktop\\Main\\Star Fish\\star_fish_api\\app\\Http\\Controllers\\API\\Subscribe\\SubscriptionController.php(123): App\\Http\\Controllers\\API\\Subscribe\\SubscriptionController->order_generator(Object(App\\Models\\Student))
@@ -183,3 +185,4 @@ Stack trace:
 #38 C:\\Users\\SEOMyanmar\\Desktop\\Main\\Star Fish\\star_fish_api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\SEOMya...')
 #39 {main}
 "} 
+>>>>>>> d784003efccb0b537786af22178cee8a24e31904
