@@ -14,19 +14,21 @@ class OrderTransaction extends Model
         'student_id',
         'subscription_id',
         'grade_id',
+        "prepay_id",
+        "merch_order_id",
+        "success_string",
         'status'
     ];
 
     protected $keyType = 'string';
     public $incrementing = false;
 
-    public static function boot() {
+    public static function boot()
+    {
         parent::boot();
 
         static::creating(function ($model) {
             $model->id = Str::uuid();
         });
     }
-
-
 }

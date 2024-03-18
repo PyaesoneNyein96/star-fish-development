@@ -144,8 +144,6 @@ class SubscriptionController extends Controller
             DB::commit();
 
             return  array_merge($data, $response['Response']);
-
-
         } catch (\Throwable $th) {
             DB::rollback();
             logger($th);
@@ -197,6 +195,11 @@ class SubscriptionController extends Controller
 
         $params = "appid=$appid&merch_code=$merch_code&nonce_str=$nonce_str&prepay_id=$prepay_id&timestamp=$timestamp&sign=$sign";
 
+        OrderTransaction::where("student_id", $this->student->id)
+            ->where("grade_id", $this->grade_id)
+            ->where("subscription_id", $this->subscription_id)
+            ->update(["prepay_id" => $prepay_id]);
+
         return view('referer', compact("redirectUrl", "params"));
     }
 
@@ -205,38 +208,43 @@ class SubscriptionController extends Controller
     // notify
     public function notify(Request $request)
     {
-        // $payInfo = ["merch_code" => "", "merch_order_id" => "", "appid" => ""];
+        $payInfo = OrderTransaction::where("student_id", $this->student->id)->first();
 
-        // if ($request["Request"]) {
-        //     if (
-        //         $payInfo->merch_code == $request["Request"]["merch_code"] &&
-        //         $payInfo->merch_order_id == $request["Request"]["merch_order_id"] &&
-        //         $payInfo->appid == $request["Request"]["appid"] &&
-        //         $request["Request"]["trade_status"] == "PAY_SUCCESS"
-        //     ) {
-        return "success";
-        //     }
-        // }
+        if ($request["Request"]) {
+            if (
+                $payInfo->merch_order_id == $request["Request"]["merch_order_id"] &&
+                $request["Request"]["merch_code"] == 70050901 &&
+                $request["Request"]["appid"] == "kp0480c579f02f48ae8c37ce82260511" &&
+                $request["Request"]["trade_status"] == "PAY_SUCCESS"
+            ) {
+                return "success";
+            }
+        }
     }
 
     // return url ( success )
     public function return_url(Request $request)
     {
-        // $payInfo = ["prepay_id" => "", "merch_order_id" => ""];
-        // if (
-        //     $payInfo->prepay_id == $request->prepay_id &&
-        //     $payInfo->merch_order_id == $request->merch_order_id
-        // ) {
-        //     $successString = $this->time . "_" . strtoupper(substr(Str::uuid(), 0, 10));
+        $payInfo = OrderTransaction::where("student_id", $this->student->id)->first();
+        if ($request["Request"]) {
+            if (
+                $payInfo->prepay_id == $request->prepay_id &&
+                $payInfo->merch_order_id == $request->merch_order_id
+            ) {
+                $successString = $this->time . "_" . strtoupper(substr(Str::uuid(), 0, 10));
 
-        //     $payInfo = "";
+                $payInfo = OrderTransaction::where("student_id", $this->student->id)
+                    ->where("merch_order_id", $request->merch_order_id)
+                    ->update([
+                        "success_string" => $successString,
+                        "status" => "success"
+                    ]);
 
+                return "success";
+            }
+        }
 
-
-        return "success";
-        // }
-
-        // return "wrong order";
+        return "wrong order";
     }
 
 
@@ -299,10 +307,10 @@ class SubscriptionController extends Controller
         $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$orderId&method=kbz.payment.queryorder&nonce_str=$nonce_str&timestamp=$time&version=3.0";
 
         return strtoupper(hash('sha256', $stringA . "&key=starfish@123"));
-
     }
 
-    private function order_generator(){
+    private function order_generator()
+    {
 
         $order_transaction = OrderTransaction::create([
             'student_id' => $this->student->id,
@@ -310,12 +318,11 @@ class SubscriptionController extends Controller
             'grade_id' => $this->grade_id,
         ]);
 
-        if($order_transaction){
-             return OrderTransaction::where('student_id', $this->student->id)
-             ->where('subscription_id', $this->subscription_id)
-             ->where('grade_id', $this->grade_id)->first();
+        if ($order_transaction) {
+            return OrderTransaction::where('student_id', $this->student->id)
+                ->where('subscription_id', $this->subscription_id)
+                ->where('grade_id', $this->grade_id)->first();
         }
-
     }
 
 
