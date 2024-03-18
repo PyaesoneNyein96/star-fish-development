@@ -172,6 +172,8 @@ class SubscriptionController extends Controller
     // referer kpay
     public function referer(Request $request)
     {
+        $redirectUrl = "https://static.kbzpay.com/pgw/uat/pwa/#/";
+
         $appid = $request->query("appid");
         $merch_code = $request->query("merch_code");
         $nonce_str = $request->query("nonce_str");
@@ -180,15 +182,50 @@ class SubscriptionController extends Controller
         $sign = $request->query("sign");
 
         $params = "appid=$appid&merch_code=$merch_code&nonce_str=$nonce_str&prepay_id=$prepay_id&timestamp=$timestamp&sign=$sign";
-        // $sign = hash('sha256', $params);
 
-        // $headers = [
-        //     'referer' => 'https://star-fish-development.myanmargateway.net/payment/kpay/referer',
-        // ];
-
-        return view('referer', compact("params"));
-        // return redirect("https://static.kbzpay.com/pgw/uat/pwa/#/?$params")->header('referer', 'https://star-fish-development.myanmargateway.net/payment/kpay/referer');
+        return view('referer', compact("redirectUrl", "params"));
     }
+
+
+
+    // notify
+    public function notify(Request $request)
+    {
+        // $payInfo = ["merch_code" => "", "merch_order_id" => "", "appid" => ""];
+
+        // if ($request["Request"]) {
+        //     if (
+        //         $payInfo->merch_code == $request["Request"]["merch_code"] &&
+        //         $payInfo->merch_order_id == $request["Request"]["merch_order_id"] &&
+        //         $payInfo->appid == $request["Request"]["appid"] &&
+        //         $request["Request"]["trade_status"] == "PAY_SUCCESS"
+        //     ) {
+        return "success";
+        //     }
+        // }
+    }
+
+    // return url ( success )
+    public function return_url(Request $request)
+    {
+        // $payInfo = ["prepay_id" => "", "merch_order_id" => ""];
+        // if (
+        //     $payInfo->prepay_id == $request->prepay_id &&
+        //     $payInfo->merch_order_id == $request->merch_order_id
+        // ) {
+        //     $successString = $this->time . "_" . strtoupper(substr(Str::uuid(), 0, 10));
+
+        //     $payInfo = "";
+
+
+
+        return "success";
+        // }
+
+        // return "wrong order";
+    }
+
+
 
 
     /////////////////////////////////////////////////////////////
@@ -251,23 +288,6 @@ class SubscriptionController extends Controller
         return strtoupper(hash('sha256', $stringA . "&key=starfish@123"));
     }
 
-
-
-
-
-
-    public function notify(Request $request)
-    {
-
-        logger($request);
-        return "success";
-    }
-    public function return_url(Request $request)
-    {
-
-        logger($request);
-        return "success";
-    }
 
 
 
