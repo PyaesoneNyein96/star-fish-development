@@ -33,7 +33,7 @@ class StudentSeeder extends Seeder
                 'level' => 1,
                 'profile_picture' => null,
                 'status' => 1,
-                'grade_chosen' => 0,
+                'grade_chosen' => null,
                 'token' => "1|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
                 'isSubscriber' => 0
             ],
@@ -52,7 +52,7 @@ class StudentSeeder extends Seeder
                 'level' => 1,
                 'profile_picture' => null,
                 'status' => 1,
-                'grade_chosen' => 0,
+                'grade_chosen' => null,
                 'token' => "10|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
                 'isSubscriber' => 0
             ],
@@ -73,7 +73,7 @@ class StudentSeeder extends Seeder
                 'level' => 1,
                 'profile_picture' => $domain . "/storage/images/profile_pic/avatar-green.png",
                 'status' => 1,
-                'grade_chosen' => 1,
+                'grade_chosen' => null,
                 'token' => "2|iJEYWEC6FcDsppSIfpu0jaH9EIbD83Hd3hV8XooYa2d7f183",
                 'isSubscriber' => 0
             ],
@@ -93,8 +93,8 @@ class StudentSeeder extends Seeder
                 'isLocal' => 0,
                 'level' => 1,
                 'profile_picture' => null,
-                'status' => 0,
-                'grade_chosen' => 0,
+                'status' => 1,
+                'grade_chosen' => null,
                 'token' => "3|BCINRxFsCDA40TOMhpwIlm9VDooXI5P3P0djYWHw3f38eb38",
                 'isSubscriber' => 0
             ],
@@ -113,9 +113,29 @@ class StudentSeeder extends Seeder
                 'isLocal' => 1,
                 'level' => 1,
                 'profile_picture' => null,
-                'status' => 0,
-                'grade_chosen' => 3,
+                'status' => 1,
+                'grade_chosen' => null,
                 'token' => "1|xX0ZvemvpMedgbhDOCcOqICgKg0YTjpfv2KnV1Traa776425",
+                'isSubscriber' => 0
+            ],
+
+             [
+                'name' => 'yma',
+                'phone' => "+959777241550",
+                'email' => null,
+                'password' => Hash::make('admin123'),
+                'age' => 7,
+                'country_id' => 1,
+                'city_id' => 1,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 1,
+                'level' => 1,
+                'profile_picture' => null,
+                'status' => 1,
+                'grade_chosen' => null,
+                'token' => "1|5LD1Q8NKmh8Ldnqg5048FybCWlnxLFQGWlixfwNxcf197166",
                 'isSubscriber' => 0
             ]
 
