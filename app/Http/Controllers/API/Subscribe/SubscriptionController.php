@@ -257,6 +257,12 @@ class SubscriptionController extends Controller
         logger($request);
         return "success";
     }
+    public function return_url(Request $request)
+    {
+
+        logger($request);
+        return "success";
+    }
 
 
 
