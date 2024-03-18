@@ -222,12 +222,12 @@ class AuthController extends Controller
 
 
 
-    public function enum(Request $request){
+    // public function enum(Request $request){
 
-        $vers =  Version::all();
-        return $vers;
+    //     $vers =  Version::all();
+    //     return $vers;
 
-    }
+    // }
 
 
 

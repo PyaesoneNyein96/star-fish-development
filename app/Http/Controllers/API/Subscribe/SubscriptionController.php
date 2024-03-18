@@ -244,14 +244,15 @@ class SubscriptionController extends Controller
     }
 
 
-    public function notify(Request $request)
+
+    public function return(Request $request)
     {
         logger($request);
         return "success";
     }
 
 
-    public function return(Request $request)
+    public function notify(Request $request)
     {
         logger($request);
         return "success";
