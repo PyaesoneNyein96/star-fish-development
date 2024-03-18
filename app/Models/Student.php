@@ -91,7 +91,11 @@ class Student extends Model
     }
 
 
+/////////////////// Order Transaction //////////////////
 
+    public function orderTransaction(){
+        return $this->hasMany(OrderTransaction::class);
+    }
 
 
 

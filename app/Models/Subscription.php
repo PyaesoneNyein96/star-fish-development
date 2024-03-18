@@ -20,6 +20,15 @@ class Subscription extends Model
         return $this->hasMany(Student::class);
     }
 
+
+
+    /////////////////// Order Transaction //////////////////
+
+    public function orderTransaction(){
+        return $this->hasMany(OrderTransaction::class);
+    }
+
+
     // public function grades(){
     //     return $this->belongsTo(StudentGrade::class,'subscription_id','grade_id');
     // }
