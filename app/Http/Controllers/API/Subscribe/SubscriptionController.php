@@ -143,7 +143,7 @@ class SubscriptionController extends Controller
 
             DB::commit();
 
-            return  array_merge($data, $response['Response']);
+            return array_merge($data, $response['Response']);
 
 
         } catch (\Throwable $th) {
@@ -152,7 +152,6 @@ class SubscriptionController extends Controller
             throw $th;
         }
     }
-
 
 
 
