@@ -8,15 +8,16 @@ use App\Models\Grade;
 use App\Models\Country;
 use App\Models\Student;
 use App\Models\StudentGame;
+use App\Models\StudentUnit;
 use Illuminate\Support\Str;
 use App\Models\StudentGrade;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
 use App\Models\StudentLesson;
+use App\Models\OrderTransaction;
 use App\Models\SubscriptionPlan;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\StudentUnit;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
@@ -37,7 +38,7 @@ class SubscriptionController extends Controller
         $this->student = Student::where('token', $request->header('token'))->first();
 
         $this->time = strtotime(Carbon::now());
-        $this->orderId =  $this->time . "_" . strtoupper(substr(Str::uuid(), 0, 10));
+        // $this->orderId =  $this->time . "_" . strtoupper(substr(Str::uuid(), 0, 10));
         $this->nonce_str =  strtoupper(str_replace('-', '', Str::uuid()));
         $this->domain = app('domain');
         $this->prepay_id;
@@ -120,22 +121,36 @@ class SubscriptionController extends Controller
         if (!$student) return response()->json(["status" => "you are not allowed for this process."], 403);
 
 
-        $response = $this->request_prepay_id($this->time, $this->orderId, $this->nonce_str);
+        DB::beginTransaction();
+        try {
 
-        $result = $response['Response']['result'] == "SUCCESS";
-        if (!$result) return response()->json(["message" => $response['Response']], 402);
+            $order_id = $this->order_generator()->id;
 
+            // $response = $this->request_prepay_id($this->time, $this->orderId, $this->nonce_str);
+            $response = $this->request_prepay_id($this->time, $order_id, $this->nonce_str);
 
-        $data = ['timestamp' => $this->time, 'appid' => "kp0480c579f02f48ae8c37ce82260511", 'merch_code' => "70050901"];
-
-        $params = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&nonce_str=" . $this->nonce_str . "&prepay_id=" . $response['Response']['prepay_id'] . "&timestamp=" . $this->time;
-
-        $result = strtoupper(hash('sha256', $params . "&key=starfish@123"));
-
-        $data["orderinfo"] = $params . "&sign=$result";
+            $result = $response['Response']['result'] == "SUCCESS";
+            if (!$result) return response()->json(["message" => $response['Response']], 402);
 
 
-        return  array_merge($data, $response['Response']);
+            $data = ['timestamp' => $this->time, 'appid' => "kp0480c579f02f48ae8c37ce82260511", 'merch_code' => "70050901"];
+
+            $params = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&nonce_str=" . $this->nonce_str . "&prepay_id=" . $response['Response']['prepay_id'] . "&timestamp=" . $this->time;
+
+            $result = strtoupper(hash('sha256', $params . "&key=starfish@123"));
+
+            $data["orderinfo"] = $params . "&sign=$result";
+
+            DB::commit();
+
+            return  array_merge($data, $response['Response']);
+
+
+        } catch (\Throwable $th) {
+            DB::rollback();
+            logger($th);
+            throw $th;
+        }
     }
 
 
@@ -287,6 +302,21 @@ class SubscriptionController extends Controller
 
     }
 
+    private function order_generator(){
+
+        $order_transaction = OrderTransaction::create([
+            'student_id' => $this->student->id,
+            'subscription_id' => $this->subscription_id,
+            'grade_id' => $this->grade_id,
+        ]);
+
+        if($order_transaction){
+             return OrderTransaction::where('student_id', $this->student->id)
+             ->where('subscription_id', $this->subscription_id)
+             ->where('grade_id', $this->grade_id)->first();
+        }
+
+    }
 
 
 

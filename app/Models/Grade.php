@@ -34,4 +34,12 @@ class Grade extends Model
         return $this->hasManyThrough(Game::class,Unit::class);
     }
 
+
+    /////////////////// Order Transaction //////////////////
+
+    public function orderTransaction(){
+        return $this->hasMany(OrderTransaction::class);
+    }
+
+
 }
