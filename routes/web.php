@@ -57,11 +57,9 @@ Route::middleware([
 /////////////////////// Payment Integration /////////////////////////
 
 Route::prefix('payment')->group(function () {
-    Route::get('/kpay/referer', [SubscriptionController::class, 'referer']);
     Route::post('/notify', [SubscriptionController::class, 'notify']);
-    // Route::post('/kpay/result', [SubscriptionController::class, 'return']);
-    Route::get('/kpay/result', [SubscriptionController::class, 'return']);
-
+    Route::get('/kpay/referer', [SubscriptionController::class, 'referer']);
+    Route::get('/kpay/result', [SubscriptionController::class, 'return_url']);
 });
 
 

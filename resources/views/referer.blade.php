@@ -9,9 +9,8 @@
 </head>
 
 <body>
-    <h1>hello</h1>
-    <input type="hidden" name="reurl" id="reurl"
-        value="https://static.kbzpay.com/pgw/uat/pwa/#/?{{ $params }}">
+    {{-- <h1>hello</h1> --}}
+    <input type="hidden" name="reurl" id="reurl" value="{{ $redirectUrl }}?{{ $params }}">
 
     <script type="text/javascript">
         const reurl = document.getElementById('reurl').value;
