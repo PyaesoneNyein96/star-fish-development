@@ -119,6 +119,19 @@ class SubscriptionController extends Controller
         $student = Student::where('token', $this->token)->where('status', 1)->first();
 
         if (!$student) return response()->json(["status" => "you are not allowed for this process."], 403);
+        $alreadyBought = StudentGrade::where('student_id', $student->id)->where('grade_id', $request->header('grade_id'))->first();
+
+
+        $renew = Carbon::now()->diff($alreadyBought->expire_date);
+        $type = $renew->invert ? '-' : '';
+        $day_count = $type . $renew->days;
+
+        if((int)$day_count > 0 ) {
+            return response()->json([
+                "message" => "You are already purchased the plan."
+            ], 402);
+        }
+
 
 
         DB::beginTransaction();
@@ -216,6 +229,7 @@ class SubscriptionController extends Controller
                 $request["Request"]["trade_status"] == "PAY_SUCCESS"
             ) {
                 logger("notify !!");
+
                 return "success notify";
             }
         }
@@ -235,11 +249,12 @@ class SubscriptionController extends Controller
                     "status" => "success"
                 ]);
 
+
             $student_id = $payInfo->student_id;
 
             $student = Student::find($student_id);
 
-            $this->getGradeAsset($student);
+            $this->getGradeAsset($student, $payInfo->grade_id, $payInfo->subscription_id);
 
             return "success from url";
         }
@@ -362,10 +377,10 @@ class SubscriptionController extends Controller
     /////////////////////////////////////////////////////
 
 
-    private function addedSubscriptionDate($latest_date)
+    private function addedSubscriptionDate($latest_date, $student)
     {
 
-        $grades = StudentGrade::where('student_id', $this->student->id)->get();
+        $grades = StudentGrade::where('student_id', $student->id)->get();
 
         $grades->filter(function ($g) use ($latest_date) {
             if ($g->expire_date !== $latest_date) {
@@ -375,7 +390,7 @@ class SubscriptionController extends Controller
     }
 
 
-    private function getGradeAsset($student)
+    private function getGradeAsset($student, $grade_id, $subscription_id)
     {
 
         DB::beginTransaction();
@@ -386,8 +401,8 @@ class SubscriptionController extends Controller
 
             StudentGrade::create([
                 'student_id' => $student->id,
-                'grade_id' => $this->grade_id,
-                'subscription_id' => $this->subscription_id,
+                'grade_id' => $grade_id,
+                'subscription_id' => $subscription_id,
                 'created_at' => Carbon::now(strval($student->country['timezone'])),
                 'expire_date' => $now->addYear(),
             ]);
@@ -399,10 +414,10 @@ class SubscriptionController extends Controller
                 'updated_at' => Carbon::now(strval($student->country['timezone']))
             ]);
 
-            $latest_date = StudentGrade::where('grade_id', $this->grade_id)
+            $latest_date = StudentGrade::where('grade_id', $grade_id)
                 ->pluck('expire_date');
 
-            $this->addedSubscriptionDate($latest_date);
+            $this->addedSubscriptionDate($latest_date, $student);
 
 
             DB::commit();
