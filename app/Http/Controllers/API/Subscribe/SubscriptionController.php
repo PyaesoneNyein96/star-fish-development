@@ -224,6 +224,7 @@ class SubscriptionController extends Controller
     {
         // if ($request["Request"]) {
         $payInfo = OrderTransaction::where("id", $request->merch_order_id)->first();
+
         if ($payInfo) {
             $successString = $this->time . "_" . strtoupper(substr(Str::uuid(), 0, 10));
 
@@ -232,6 +233,8 @@ class SubscriptionController extends Controller
                     "success_string" => $successString,
                     "status" => "success"
                 ]);
+
+            $this->getGradeAsset($this->student);
 
             return "success";
         }
@@ -286,7 +289,6 @@ class SubscriptionController extends Controller
 
     private function convert_SHA256($order_id, $time, $nonce_str, $price)
     {
-        // appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=1710475151_DDFEDE94-E&method=kbz.payment.precreate&nonce_str=AF892143E8DB4FFCB77B26148A56661D&notify_url=https://star-fish-development.myanmargateway.net//payment/notify&timestamp=1710475151&total_amount=12500.00&trade_type=PWAAPP&trans_currency=MMK&version=1.0&key=starfish@123
 
         $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=https://star-fish-development.myanmargateway.net/payment/notify&timestamp=$time&total_amount=$price&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
 
@@ -349,7 +351,7 @@ class SubscriptionController extends Controller
     /////////////      Private Functions     ////////////
     /////////////////////////////////////////////////////
 
-
+    // အသစ်ဝယ်ရင် နှစ် ထပ်တိုး
     private function addedSubscriptionDate($latest_date)
     {
 
@@ -363,7 +365,7 @@ class SubscriptionController extends Controller
     }
 
 
-    private function getGradeAssets($student)
+    private function getGradeAsset($student)
     {
 
         DB::beginTransaction();
