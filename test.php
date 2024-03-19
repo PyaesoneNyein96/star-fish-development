@@ -126,11 +126,8 @@ class SubscriptionController extends Controller
 
             $order_id = $this->order_generator()->id;
 
-
             // $response = $this->request_prepay_id($this->time, $this->orderId, $this->nonce_str);
             $response = $this->request_prepay_id($this->time, $order_id, $this->nonce_str);
-
-            return $response;
 
             $result = $response['Response']['result'] == "SUCCESS";
             if (!$result) return response()->json(["message" => $response['Response']], 402);
@@ -282,8 +279,6 @@ class SubscriptionController extends Controller
             ]
         ];
 
-        return $data;
-
         if ($sign) {
             return Http::post($kbzRequestURL, $data);
         }
@@ -294,10 +289,6 @@ class SubscriptionController extends Controller
     {
 
         $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=https://star-fish-development.myanmargateway.net/payment/notify&timestamp=$time&total_amount=$price&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
-
-
-            logger($stringA);
-        logger(strtoupper(hash('sha256', $stringA . "&key=starfish@123"))) ;
 
         return strtoupper(hash('sha256', $stringA . "&key=starfish@123"));
     }

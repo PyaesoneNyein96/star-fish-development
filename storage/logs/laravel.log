@@ -1,0 +1,2 @@
+[2024-03-19 11:38:10] local.DEBUG: appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=c73b24cb-bfa2-450b-b378-206a7ed33991&method=kbz.payment.precreate&nonce_str=1CC947DBFD354C72B62733813E66195A&notify_url=https://star-fish-development.myanmargateway.net/payment/notify&timestamp=1710824890&total_amount=&trade_type=PWAAPP&trans_currency=MMK&version=1.0  
+[2024-03-19 11:38:10] local.DEBUG: 815A6ABA3DF3F9325813B46A3298F410A93FD973EE0B217F137B4949E1989A8E  
