@@ -235,7 +235,11 @@ class SubscriptionController extends Controller
                     "status" => "success"
                 ]);
 
-            $this->getGradeAsset($this->student);
+            $student_id = $payInfo->student_id;
+
+            $student = Student::find($student_id);
+
+            $this->getGradeAsset($student);
 
             return "success from url";
         }
