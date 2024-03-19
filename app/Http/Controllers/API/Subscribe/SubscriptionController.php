@@ -130,7 +130,6 @@ class SubscriptionController extends Controller
             // $response = $this->request_prepay_id($this->time, $this->orderId, $this->nonce_str);
             $response = $this->request_prepay_id($this->time, $order_id, $this->nonce_str);
 
-            return $response;
 
             $result = $response['Response']['result'] == "SUCCESS";
             if (!$result) return response()->json(["message" => $response['Response']], 402);
@@ -258,7 +257,10 @@ class SubscriptionController extends Controller
 
         $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
 
-        $price = Grade::find($this->grade_id)->price;
+        $isLocal = $this->student->isLocal;
+        $grade = Grade::find($this->grade_id);
+        $price = ($isLocal == 0) ? $grade->local_price : $grade->global_price;
+
         $sign = $this->convert_SHA256($orderId, $time, $nonce_str, $price);
 
 
