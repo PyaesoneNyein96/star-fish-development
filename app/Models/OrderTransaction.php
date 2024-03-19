@@ -14,7 +14,7 @@ class OrderTransaction extends Model
         'student_id',
         'subscription_id',
         'grade_id',
-        "prepay_id",
+        // "prepay_id",
         "success_string",
         'status'
     ];

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('student_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('subscription_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('grade_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
-            $table->integer('prepay_id')->nullable();
+            // $table->integer('prepay_id')->nullable();
             $table->longText('success_string')->nullable();
             $table->string('status')->default('pending');
             $table->timestamps();

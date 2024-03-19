@@ -195,8 +195,8 @@ class SubscriptionController extends Controller
 
         $params = "appid=$appid&merch_code=$merch_code&nonce_str=$nonce_str&prepay_id=$prepay_id&timestamp=$timestamp&sign=$sign";
 
-        OrderTransaction::where("id", $request["Request"]["merch_order_id"])
-            ->update(["prepay_id" => $prepay_id]);
+        // OrderTransaction::where("id", $request["Request"]["merch_order_id"])
+        //     ->update(["prepay_id" => $prepay_id]);
 
         return view('referer', compact("redirectUrl", "params"));
     }
