@@ -119,18 +119,23 @@ class SubscriptionController extends Controller
         $student = Student::where('token', $this->token)->where('status', 1)->first();
 
         if (!$student) return response()->json(["status" => "you are not allowed for this process."], 403);
+
+
         $alreadyBought = StudentGrade::where('student_id', $student->id)->where('grade_id', $request->header('grade_id'))->first();
 
-
+        if($alreadyBought){
         $renew = Carbon::now()->diff($alreadyBought->expire_date);
-        $type = $renew->invert ? '-' : '';
-        $day_count = $type . $renew->days;
+            $type = $renew->invert ? '-' : '';
+            $day_count = $type . $renew->days;
 
-        if((int)$day_count > 0 ) {
-            return response()->json([
-                "message" => "You are already purchased the plan."
-            ], 402);
+            if((int)$day_count > 0 ) {
+                return response()->json([
+                    "message" => "You are already purchased the plan."
+                ], 402);
+            }
         }
+
+
 
 
 
