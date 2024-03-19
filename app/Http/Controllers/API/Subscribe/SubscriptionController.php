@@ -195,9 +195,7 @@ class SubscriptionController extends Controller
 
         $params = "appid=$appid&merch_code=$merch_code&nonce_str=$nonce_str&prepay_id=$prepay_id&timestamp=$timestamp&sign=$sign";
 
-        OrderTransaction::where("student_id", $this->student->id)
-            ->where("grade_id", $this->grade_id)
-            ->where("subscription_id", $this->subscription_id)
+        OrderTransaction::where("id", $request["Request"]["merch_order_id"])
             ->update(["prepay_id" => $prepay_id]);
 
         return view('referer', compact("redirectUrl", "params"));
@@ -208,11 +206,10 @@ class SubscriptionController extends Controller
     // notify
     public function notify(Request $request)
     {
-        $payInfo = OrderTransaction::where("student_id", $this->student->id)->first();
-
         if ($request["Request"]) {
+            $payInfo = OrderTransaction::where("id", $request["Request"]["merch_order_id"])->first();
             if (
-                $payInfo->merch_order_id == $request["Request"]["merch_order_id"] &&
+                $payInfo &&
                 $request["Request"]["merch_code"] == 70050901 &&
                 $request["Request"]["appid"] == "kp0480c579f02f48ae8c37ce82260511" &&
                 $request["Request"]["trade_status"] == "PAY_SUCCESS"
@@ -225,16 +222,13 @@ class SubscriptionController extends Controller
     // return url ( success )
     public function return_url(Request $request)
     {
-        $payInfo = OrderTransaction::where("student_id", $this->student->id)->first();
         if ($request["Request"]) {
-            if (
-                $payInfo->prepay_id == $request->prepay_id &&
-                $payInfo->merch_order_id == $request->merch_order_id
-            ) {
+            $payInfo = OrderTransaction::where("id", $request["Request"]["merch_order_id"])
+                ->where("prepay_id", $request->prepay_id)->first();
+            if ($payInfo) {
                 $successString = $this->time . "_" . strtoupper(substr(Str::uuid(), 0, 10));
 
-                $payInfo = OrderTransaction::where("student_id", $this->student->id)
-                    ->where("merch_order_id", $request->merch_order_id)
+                OrderTransaction::where("id", $request["Request"]["merch_order_id"])
                     ->update([
                         "success_string" => $successString,
                         "status" => "success"
@@ -318,11 +312,7 @@ class SubscriptionController extends Controller
             'grade_id' => $this->grade_id,
         ]);
 
-        if ($order_transaction) {
-            return OrderTransaction::where('student_id', $this->student->id)
-                ->where('subscription_id', $this->subscription_id)
-                ->where('grade_id', $this->grade_id)->first();
-        }
+        if ($order_transaction) return $order_transaction;
     }
 
 

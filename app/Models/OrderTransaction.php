@@ -15,7 +15,6 @@ class OrderTransaction extends Model
         'subscription_id',
         'grade_id',
         "prepay_id",
-        "merch_order_id",
         "success_string",
         'status'
     ];
