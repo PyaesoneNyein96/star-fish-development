@@ -326,7 +326,7 @@ class SubscriptionController extends Controller
                         "biz_content" => [
                             "merch_order_id" => $isOrdered->id,
                             "merch_code" => "70050901",
-                            "appid" => "kp0480c579f02f48ae8c37ce82260511 "
+                            "appid" => "kp0480c579f02f48ae8c37ce82260511"
                         ]
                     ]
                 ]
