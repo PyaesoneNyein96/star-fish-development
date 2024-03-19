@@ -236,6 +236,8 @@ class SubscriptionController extends Controller
                     "status" => "success"
                 ]);
 
+            $this->getGradeAsset($this->student);
+
             return "success";
         }
         // }
@@ -258,8 +260,8 @@ class SubscriptionController extends Controller
         $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
 
         $isLocal = $this->student->isLocal;
-        $grade = Grade::find($this->grade_id);
-        $price = ($isLocal == 0) ? $grade->local_price : $grade->global_price;
+        $price = Grade::find($this->grade_id)->local_price;
+        // $price = ($isLocal == 0) ? $grade->local_price : $grade->global_price;
 
         $sign = $this->convert_SHA256($orderId, $time, $nonce_str, $price);
 
@@ -370,44 +372,44 @@ class SubscriptionController extends Controller
     }
 
 
-    // private function addGradeToStudent()
-    // {
+    private function getGradeAsset($student)
+    {
 
-    //     DB::beginTransaction();
+        DB::beginTransaction();
 
-    //     try {
+        try {
 
-    //         $now = Carbon::now(strval($student->country['timezone']));
+            $now = Carbon::now(strval($student->country['timezone']));
 
-    //         StudentGrade::create([
-    //             'student_id' => $this->student->id,
-    //             'grade_id' => $this->grade_id,
-    //             'subscription_id' => $this->subscription_id,
-    //             'created_at' => Carbon::now(strval($student->country['timezone'])),
-    //             'expire_date' => $now->addYear(),
-    //         ]);
+            StudentGrade::create([
+                'student_id' => $student->id,
+                'grade_id' => $this->grade_id,
+                'subscription_id' => $this->subscription_id,
+                'created_at' => Carbon::now(strval($student->country['timezone'])),
+                'expire_date' => $now->addYear(),
+            ]);
 
-    //         $student->update([
-    //             'isSubscriber' => 1,
-    //             'grade_chosen' => null,
-    //             'created_at' => Carbon::now(strval($student->country['timezone'])),
-    //             'updated_at' => Carbon::now(strval($student->country['timezone']))
-    //         ]);
+            $student->update([
+                'isSubscriber' => 1,
+                'grade_chosen' => null,
+                'created_at' => Carbon::now(strval($student->country['timezone'])),
+                'updated_at' => Carbon::now(strval($student->country['timezone']))
+            ]);
 
-    //         $latest_date = StudentGrade::where('grade_id', $this->grade_id)
-    //             ->pluck('expire_date');
+            $latest_date = StudentGrade::where('grade_id', $this->grade_id)
+                ->pluck('expire_date');
 
-    //         $this->addedSubscriptionDate($latest_date);
+            $this->addedSubscriptionDate($latest_date);
 
 
-    //         DB::commit();
+            DB::commit();
 
-    //         return response()->json([
-    //             'status' => "successfully purchased.",
-    //         ], 200);
-    //     } catch (\Throwable $th) {
-    //         DB::rollback();
-    //         return $th;
-    //     }
-    // }
+            return response()->json([
+                'status' => "successfully purchased.",
+            ], 200);
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return $th;
+        }
+    }
 }
