@@ -102,9 +102,9 @@ Route::get('/migrate', function () {
     return back();
 });
 
-Route::get('/fresh', function () {
-    Artisan::call('migrate:fresh');
-    return back();
+Route::get('/fresh', function (){
+        Artisan::call('migrate:fresh');
+        return back();
 });
 
 Route::get('/seed', function () {

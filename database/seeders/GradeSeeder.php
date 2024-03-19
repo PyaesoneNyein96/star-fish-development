@@ -16,9 +16,14 @@ class GradeSeeder extends Seeder
     {
         $grades = range(1, 12);
 
-        foreach ($grades as $g) {
+        foreach ($grades as $key => $g) {
             DB::table('grades')->insert([
-                ['name' => $g, 'price' => 100 + 100 * (int)$g / 4],
+                [
+                    'name' => $g,
+                    'local_price' => 10000 + 1000 * (int)$g / 4,
+                    'global_price' => 20 + 4 * (int)$g / 4,
+                    'status' => $key  <= 4 ? 1 : 0
+                ],
             ]);
         }
 
