@@ -214,6 +214,7 @@ class SubscriptionController extends Controller
                 $request["Request"]["appid"] == "kp0480c579f02f48ae8c37ce82260511" &&
                 $request["Request"]["trade_status"] == "PAY_SUCCESS"
             ) {
+                logger("notify !!");
                 return "success";
             }
         }
@@ -223,12 +224,11 @@ class SubscriptionController extends Controller
     public function return_url(Request $request)
     {
         if ($request["Request"]) {
-            $payInfo = OrderTransaction::where("id", $request["Request"]["merch_order_id"])
-                ->where("prepay_id", $request->prepay_id)->first();
+            $payInfo = OrderTransaction::where("id", $request->merch_order_id)->first();
             if ($payInfo) {
                 $successString = $this->time . "_" . strtoupper(substr(Str::uuid(), 0, 10));
 
-                OrderTransaction::where("id", $request["Request"]["merch_order_id"])
+                OrderTransaction::where("id", $request->merch_order_id)
                     ->update([
                         "success_string" => $successString,
                         "status" => "success"
