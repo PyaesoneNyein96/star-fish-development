@@ -314,25 +314,23 @@ class SubscriptionController extends Controller
         if ($isOrdered) {
             $closeUrl = "https://api.kbzpay.com/payment/gateway/uat/closeorder";
             $signString = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$isOrdered->id&method=kbz.payment.closeorder&nonce_str=" . $this->nonce_str . "&timestamp=" . $this->time . "&version=3.0&key=starfish@123";
-            $data = [
-                [
-                    "Request" => [
-                        "timestamp" => $this->time,
-                        "method" => "kbz.payment.closeorder",
-                        "nonce_str" => $this->nonce_str,
-                        "sign_type" => "SHA256",
-                        "sign" => strtoupper(hash('sha256', $signString)),
-                        "version" => "3.0",
-                        "biz_content" => [
-                            "merch_order_id" => $isOrdered->id,
-                            "merch_code" => "70050901",
-                            "appid" => "kp0480c579f02f48ae8c37ce82260511"
-                        ]
+            $dataBody = [
+                "Request" => [
+                    "timestamp" => $this->time,
+                    "method" => "kbz.payment.closeorder",
+                    "nonce_str" => $this->nonce_str,
+                    "sign_type" => "SHA256",
+                    "sign" => strtoupper(hash('sha256', $signString)),
+                    "version" => "3.0",
+                    "biz_content" => [
+                        "merch_order_id" => $isOrdered->id,
+                        "merch_code" => "70050901",
+                        "appid" => "kp0480c579f02f48ae8c37ce82260511"
                     ]
                 ]
             ];
-            Http::post($closeUrl, $data);
-            $isOrdered->delete();
+            $closeOrder = Http::post($closeUrl, $dataBody);
+            if ($closeOrder["Response"]["result"] == "SUCCESS") $isOrdered->delete();
         }
 
         $order_transaction = OrderTransaction::create([
