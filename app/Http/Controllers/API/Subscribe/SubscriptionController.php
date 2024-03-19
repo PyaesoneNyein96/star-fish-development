@@ -313,7 +313,7 @@ class SubscriptionController extends Controller
 
         if ($isOrdered) {
             $closeUrl = "https://api.kbzpay.com/payment/gateway/uat/closeorder";
-            $signString = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$isOrdered->id&method=kbz.payment.closeorder&nonce_str=$this->nonce_str&timestamp=$this->time&version=3.0&key=starfish@123";
+            $signString = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$isOrdered->id&method=kbz.payment.closeorder&nonce_str=" . $this->nonce_str . "&timestamp=" . $this->time . "&version=3.0&key=starfish@123";
             $data = [
                 [
                     "Request" => [
