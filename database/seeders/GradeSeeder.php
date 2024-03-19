@@ -20,7 +20,7 @@ class GradeSeeder extends Seeder
             DB::table('grades')->insert([
                 [
                     'name' => $g,
-                    'local_price' => 10000 + 1000 * (int)$g / 4,
+                    'local_price' => 100 + 10 * (int)$g / 4,
                     'global_price' => 20 + 4 * (int)$g / 4,
                     'status' => $key  <= 4 ? 1 : 0
                 ],

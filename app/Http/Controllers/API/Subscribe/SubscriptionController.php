@@ -126,7 +126,6 @@ class SubscriptionController extends Controller
 
             $order_id = $this->order_generator()->id;
 
-
             // $response = $this->request_prepay_id($this->time, $this->orderId, $this->nonce_str);
             $response = $this->request_prepay_id($this->time, $order_id, $this->nonce_str);
 
@@ -217,7 +216,7 @@ class SubscriptionController extends Controller
                 $request["Request"]["trade_status"] == "PAY_SUCCESS"
             ) {
                 logger("notify !!");
-                return "success";
+                return "success notify";
             }
         }
     }
@@ -238,7 +237,7 @@ class SubscriptionController extends Controller
 
             $this->getGradeAsset($this->student);
 
-            return "success";
+            return "success from url";
         }
         // }
 
