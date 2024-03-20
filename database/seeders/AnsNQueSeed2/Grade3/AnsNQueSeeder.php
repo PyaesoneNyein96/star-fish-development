@@ -1439,16 +1439,16 @@ class AnsNQueSeeder extends Seeder
             ['round' => 3, 'game_id' => 515, "q_audio" => $AudioDomain . $G3_L8_reading_passage_path . "my-cat-is-called-bobb-he-is-black.mp3", "q_content" => null, 'q_conver' => "My cat is called Bobb. He is black. He is two years old. He can jump and dance. He can sing,too. I have got a dog ,too. His name is Bobby. He can swim. And he can play football. We play football in the garden. But My horse can't sing. But He can jump high. Her name is Izzy.", 'a_content' => null, "background" => $l8_G515_image . "bg.png"],
 
 
-            ['round' => 3, 'game_id' => 515, "q_audio" => null, 'q_content' => "Yes", "q_conver" => null, 'a_content' => 1, "background" => null],
-            ['round' => 3, 'game_id' => 515, "q_audio" => null, 'q_content' => "No", "q_conver" => null, 'a_content' => 0, "background" => null],
-            ['round' => 3, 'game_id' => 515, "q_audio" => $AudioDomain . $G3_L8_reading_passage_path . "bobb-can-football.mp3", "q_conver" => "Bobby can play football.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 3, 'game_id' => 515, "q_audio" => $AudioDomain . $G3_L8_reading_passage_path . "my-cat-is-called-bobb-he-is-black.mp3", "q_content" => null, 'q_conver' => "My cat is called Bobb. He is black. He is two years old. He can jump and dance. He can sing,too. I have got a dog ,too. His name is Bobby. He can swim. And he can play football. We play football in the garden. But My horse can't sing. But He can jump high. Her name is Izzy.", 'a_content' => null, "background" => $l8_G515_image . "bg.png"],
+            ['round' => 4, 'game_id' => 515, "q_audio" => null, 'q_content' => "Yes", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 4, 'game_id' => 515, "q_audio" => null, 'q_content' => "No", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 4, 'game_id' => 515, "q_audio" => $AudioDomain . $G3_L8_reading_passage_path . "bobb-can-football.mp3", "q_conver" => "Bobby can play football.", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 4, 'game_id' => 515, "q_audio" => $AudioDomain . $G3_L8_reading_passage_path . "my-cat-is-called-bobb-he-is-black.mp3", "q_content" => null, 'q_conver' => "My cat is called Bobb. He is black. He is two years old. He can jump and dance. He can sing,too. I have got a dog ,too. His name is Bobby. He can swim. And he can play football. We play football in the garden. But My horse can't sing. But He can jump high. Her name is Izzy.", 'a_content' => null, "background" => $l8_G515_image . "bg.png"],
 
 
-            ['round' => 3, 'game_id' => 515, "q_audio" => null, 'q_content' => "Yes", "q_conver" => null, 'a_content' => 1, "background" => null],
-            ['round' => 3, 'game_id' => 515, "q_audio" => null, 'q_content' => "No", "q_conver" => null, 'a_content' => 0, "background" => null],
-            ['round' => 3, 'game_id' => 515, "q_audio" => $AudioDomain . $G3_L8_reading_passage_path . "izzy-cant-sing.mp3", "q_conver" => "Izzy can't sing.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 3, 'game_id' => 515, "q_audio" => $AudioDomain . $G3_L8_reading_passage_path . "my-cat-is-called-bobb-he-is-black.mp3", "q_content" => null, 'q_conver' => "My cat is called Bobb. He is black. He is two years old. He can jump and dance. He can sing,too. I have got a dog ,too. His name is Bobby. He can swim. And he can play football. We play football in the garden. But My horse can't sing. But He can jump high. Her name is Izzy.", 'a_content' => null, "background" => $l8_G515_image . "bg.png"],
+            ['round' => 5, 'game_id' => 515, "q_audio" => null, 'q_content' => "Yes", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 5, 'game_id' => 515, "q_audio" => null, 'q_content' => "No", "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 5, 'game_id' => 515, "q_audio" => $AudioDomain . $G3_L8_reading_passage_path . "izzy-cant-sing.mp3", "q_conver" => "Izzy can't sing.", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 5, 'game_id' => 515, "q_audio" => $AudioDomain . $G3_L8_reading_passage_path . "my-cat-is-called-bobb-he-is-black.mp3", "q_content" => null, 'q_conver' => "My cat is called Bobb. He is black. He is two years old. He can jump and dance. He can sing,too. I have got a dog ,too. His name is Bobby. He can swim. And he can play football. We play football in the garden. But My horse can't sing. But He can jump high. Her name is Izzy.", 'a_content' => null, "background" => $l8_G515_image . "bg.png"],
 
         ]);
 
@@ -1981,7 +1981,7 @@ class AnsNQueSeeder extends Seeder
         $l10_G533image = $domain . "/storage/images/Grade_3/lesson_10/Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['game_id' => 533, "q_image" => $l10_G533image . "green-star.png", "q_content" => "Talk about your house?", "round_instruction" => $AudioDomain . $G3_L10_speaking . "SubBlock_talk-about-your-house" . ".mp3", "q_audio" => $AudioDomain . $G3_L10_speaking . "SubBlock_talk-about-your-house" . ".mp3"],
+            ['round' => 1, 'game_id' => 533, "q_image" => $l10_G533image . "green-star.png", "q_content" => "Talk about your house?", "round_instruction" => $AudioDomain . $G3_L10_speaking . "SubBlock_talk-about-your-house" . ".mp3", "q_audio" => $AudioDomain . $G3_L10_speaking . "SubBlock_talk-about-your-house" . ".mp3"],
         ]);
 
 
@@ -2312,17 +2312,17 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 545,  'q_audio' =>  $AudioDomain . $G3_L12_listening . "james" . ".mp3", "q_content" => "Panda", "a_content" => 1],
-            ['round' => 1, 'game_id' => 545,  'q_audio' =>  null, "q_content" => "Elephant", "a_content" => 0],
-            ['round' => 1, 'game_id' => 545,  'q_audio' =>  null, "q_content" => "Monkey", "a_content" => 0],
+            ['round' => 1, 'game_id' => 545,  'q_audio' =>  $AudioDomain . $G3_L12_listening . "james" . ".mp3", "q_conver" => "James", "q_content" => "Panda", "a_content" => 1],
+            ['round' => 1, 'game_id' => 545,  'q_audio' =>  null, "q_conver" => null, "q_content" => "Elephant", "a_content" => 0],
+            ['round' => 1, 'game_id' => 545,  'q_audio' =>  null, "q_conver" => null, "q_content" => "Monkey", "a_content" => 0],
 
-            ['round' => 2, 'game_id' => 545,  'q_audio' =>  $AudioDomain . $G3_L12_listening . "jerry" . ".mp3", "q_content" => "Lions", "a_content" => 0],
-            ['round' => 2, 'game_id' => 545,  'q_audio' =>  null, "q_content" => "Elephants", "a_content" => 0],
-            ['round' => 2, 'game_id' => 545,  'q_audio' =>  null, "q_content" => "Tigers", "a_content" => 1],
+            ['round' => 2, 'game_id' => 545,  'q_audio' =>  $AudioDomain . $G3_L12_listening . "jerry" . ".mp3", "q_conver" => "Jerry", "q_content" => "Lions", "a_content" => 0],
+            ['round' => 2, 'game_id' => 545,  'q_audio' =>  null, "q_conver" => null, "q_content" => "Elephants", "a_content" => 0],
+            ['round' => 2, 'game_id' => 545,  'q_audio' =>  null, "q_conver" => null, "q_content" => "Tigers", "a_content" => 1],
 
-            ['round' => 3, 'game_id' => 545,  'q_audio' =>  $AudioDomain . $G3_L12_listening . "peter" . ".mp3", "q_content" => "Goats", "a_content" => 0],
-            ['round' => 3, 'game_id' => 545,  'q_audio' =>  null, "q_content" => "Elephants", "a_content" => 1],
-            ['round' => 3, 'game_id' => 545,  'q_audio' =>  null, "q_content" => "Sheeps", "a_content" => 0],
+            ['round' => 3, 'game_id' => 545,  'q_audio' =>  $AudioDomain . $G3_L12_listening . "peter" . ".mp3", "q_conver" => "Peter", "q_content" => "Goats", "a_content" => 0],
+            ['round' => 3, 'game_id' => 545,  'q_audio' =>  null, "q_conver" => null, "q_content" => "Elephants", "a_content" => 1],
+            ['round' => 3, 'game_id' => 545,  'q_audio' =>  null, "q_conver" => null, "q_content" => "Sheeps", "a_content" => 0],
 
         ]);
 
@@ -3685,16 +3685,16 @@ class AnsNQueSeeder extends Seeder
             ['round' => 3, 'game_id' => 591, "q_audio" => $AudioDomain . $G3_L18_reading_passage_path . "this-is-our-school-it-is-beautiful.mp3", "q_content" => "Our school", 'q_conver' => "This is our school. It is a beautiful school. In our school, There are eighty students, fifteen teachers and thirteen classrooms. The teachers are very kind. And all the classrooms are very big. In my classroom, there are twenty-five students. There are fifteen girls and ten boys. We have six windows and two big doors in our classroom. There is a playground in front of our school. We play there when we have a break.", 'a_content' => null, "background" => $l18_G591_image . "bg.png"],
 
 
-            ['round' => 3, 'game_id' => 591, "q_audio" =>  null, 'q_content' => "True",  "q_conver" => null, 'a_content' => 0, "background" => null],
-            ['round' => 3, 'game_id' => 591, "q_audio" => null, 'q_content' => "False",  "q_conver" => null, 'a_content' => 1, "background" => null],
-            ['round' => 3, 'game_id' => 591, "q_audio" => $AudioDomain . $G3_L18_reading_passage_path . "they-play-behind.mp3", "q_conver" => "They play behind the school.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 3, 'game_id' => 591, "q_audio" => $AudioDomain . $G3_L18_reading_passage_path . "this-is-our-school-it-is-beautiful.mp3", "q_content" => "Our school", 'q_conver' => "This is our school. It is a beautiful school. In our school, There are eighty students, fifteen teachers and thirteen classrooms. The teachers are very kind. And all the classrooms are very big. In my classroom, there are twenty-five students. There are fifteen girls and ten boys. We have six windows and two big doors in our classroom. There is a playground in front of our school. We play there when we have a break.", 'a_content' => null, "background" => $l18_G591_image . "bg.png"],
+            ['round' => 4, 'game_id' => 591, "q_audio" =>  null, 'q_content' => "True",  "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 4, 'game_id' => 591, "q_audio" => null, 'q_content' => "False",  "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 4, 'game_id' => 591, "q_audio" => $AudioDomain . $G3_L18_reading_passage_path . "they-play-behind.mp3", "q_conver" => "They play behind the school.", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 4, 'game_id' => 591, "q_audio" => $AudioDomain . $G3_L18_reading_passage_path . "this-is-our-school-it-is-beautiful.mp3", "q_content" => "Our school", 'q_conver' => "This is our school. It is a beautiful school. In our school, There are eighty students, fifteen teachers and thirteen classrooms. The teachers are very kind. And all the classrooms are very big. In my classroom, there are twenty-five students. There are fifteen girls and ten boys. We have six windows and two big doors in our classroom. There is a playground in front of our school. We play there when we have a break.", 'a_content' => null, "background" => $l18_G591_image . "bg.png"],
 
 
-            ['round' => 3, 'game_id' => 591, "q_audio" =>  null, 'q_content' => "True",  "q_conver" => null, 'a_content' => 1, "background" => null],
-            ['round' => 3, 'game_id' => 591, "q_audio" => null, 'q_content' => "False",  "q_conver" => null, 'a_content' => 0, "background" => null],
-            ['round' => 3, 'game_id' => 591, "q_audio" => $AudioDomain . $G3_L18_reading_passage_path . "there-are-twenty-five-students.mp3", "q_conver" => "There are twenty-five students in the classroom.", 'q_content' => null, 'a_content' => null, "background" => null],
-            ['round' => 3, 'game_id' => 591, "q_audio" => $AudioDomain . $G3_L18_reading_passage_path . "this-is-our-school-it-is-beautiful.mp3", "q_content" => "Our school", 'q_conver' => "This is our school. It is a beautiful school. In our school, There are eighty students, fifteen teachers and thirteen classrooms. The teachers are very kind. And all the classrooms are very big. In my classroom, there are twenty-five students. There are fifteen girls and ten boys. We have six windows and two big doors in our classroom. There is a playground in front of our school. We play there when we have a break.", 'a_content' => null, "background" => $l18_G591_image . "bg.png"],
+            ['round' => 5, 'game_id' => 591, "q_audio" =>  null, 'q_content' => "True",  "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 5, 'game_id' => 591, "q_audio" => null, 'q_content' => "False",  "q_conver" => null, 'a_content' => 0, "background" => null],
+            ['round' => 5, 'game_id' => 591, "q_audio" => $AudioDomain . $G3_L18_reading_passage_path . "there-are-twenty-five-students.mp3", "q_conver" => "There are twenty-five students in the classroom.", 'q_content' => null, 'a_content' => null, "background" => null],
+            ['round' => 5, 'game_id' => 591, "q_audio" => $AudioDomain . $G3_L18_reading_passage_path . "this-is-our-school-it-is-beautiful.mp3", "q_content" => "Our school", 'q_conver' => "This is our school. It is a beautiful school. In our school, There are eighty students, fifteen teachers and thirteen classrooms. The teachers are very kind. And all the classrooms are very big. In my classroom, there are twenty-five students. There are fifteen girls and ten boys. We have six windows and two big doors in our classroom. There is a playground in front of our school. We play there when we have a break.", 'a_content' => null, "background" => $l18_G591_image . "bg.png"],
 
         ]);
 

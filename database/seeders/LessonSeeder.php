@@ -59,9 +59,9 @@ class LessonSeeder extends Seeder
 
 
 
-        /////////////////
+        ///////////////// testing ////////////////
 
-        $lessons =  range(1,16);
+        $lessons =  range(2,40);
         foreach ($lessons as $l) {
             DB::table('student_lessons')->insert([
                 [
@@ -72,10 +72,10 @@ class LessonSeeder extends Seeder
             ]);
         }
 
-         DB::table('assessment_finish_data')->insert([
+            DB::table('assessment_finish_data')->insert([
                 [
                     'student_id' => 1,
-                    'grade_id' => 1,
+                    'grade_id' => 2,
                     'assess_name' => 1,
                     'point' => 1,
                     'finish' => 1,

@@ -63,70 +63,73 @@ Route::prefix('auth')->group(function () {
 
     //Account Setting
     Route::middleware('StudentExist')->prefix('account')->group(function () {
-        Route::post('/forgot/confirmation',[AuthController::class,'sendConfirmCode']);
-        Route::post('/forgot/submit',[AuthController::class,'submitConfirmCode']);
-        Route::post('/setPassword',[AuthController::class,'setNewPassword']);
+        Route::post('/forgot/confirmation', [AuthController::class, 'sendConfirmCode']);
+        Route::post('/forgot/submit', [AuthController::class, 'submitConfirmCode']);
+        Route::post('/setPassword', [AuthController::class, 'setNewPassword']);
     });
-
-
 });
 
 
 
-    Route::prefix('points')->group(function () {
-        Route::get('/{id}', [RewardController::class, 'getPoint']);
-        Route::post('/', [RewardController::class, 'addPoint']);
-    });
+Route::prefix('points')->group(function () {
+    Route::get('/{id}', [RewardController::class, 'getPoint']);
+    Route::post('/', [RewardController::class, 'addPoint']);
+});
 
-    Route::prefix('reward')->group(function () {
-        Route::get('/', [RewardController::class, 'displayReward']);
-        Route::get('/{id}', [RewardController::class, 'getReward']);
-        Route::post('/', [RewardController::class, 'buyReward']);
-    });
+Route::prefix('reward')->group(function () {
+    Route::get('/', [RewardController::class, 'displayReward']);
+    Route::get('/{id}', [RewardController::class, 'getReward']);
+    Route::post('/', [RewardController::class, 'buyReward']);
+});
 
-    Route::prefix('chat')->group(function () {
-        Route::get('/', [ChatController::class, 'getChat']);
-        Route::post('/nick', [ChatController::class, 'changeNName'])->middleware('canChat');
-        Route::post('/', [ChatController::class, 'sendChat'])->middleware('delaySendMessage');
-    });
-
-
-    Route::middleware('GameAuth')->group(function () {
-        Route::get('grades', [GameController::class, 'grades']);
-        Route::get('lessons', [GameController::class, 'lessons']);
-        Route::get('units', [GameController::class, 'games']);
-        Route::get('game', [GameController::class, 'specificGame']);
-        Route::get('end_match', [GameController::class, 'end_match']);
-    });
+Route::prefix('chat')->group(function () {
+    Route::get('/', [ChatController::class, 'getChat']);
+    Route::post('/nick', [ChatController::class, 'changeNName'])->middleware('canChat');
+    Route::post('/', [ChatController::class, 'sendChat'])->middleware('delaySendMessage');
+});
 
 
-
-    Route::prefix('control')->group(function () {
-        Route::post('/', [GameController::class, 'lockAndUnlock']);
-        Route::post('/check', [GameController::class, 'showLockAndUnlock']);
-        Route::post('/lesson', [GameController::class, 'LessonLock']);
-    });
-
-
-    Route::prefix('subscription')->group(function () {
-        Route::get('plans', [SubscriptionController::class, 'plans']);
-        Route::post('purchase', [SubscriptionController::class, 'purchase']);
-        Route::post('removePlan', [SubscriptionController::class, 'removePlan']);
-    });
-
-
-    Route::prefix('assessment')->group(function () {
-        Route::get('/', [AssessmentController::class, 'getAllAssess']);
-        Route::get('game', [AssessmentController::class, 'enterGame']);
-        Route::get('end_match', [AssessmentController::class, 'endGame']);
-    });
+Route::middleware('GameAuth')->group(function () {
+    Route::get('grades', [GameController::class, 'grades']);
+    Route::get('lessons', [GameController::class, 'lessons']);
+    Route::get('units', [GameController::class, 'games']);
+    Route::get('game', [GameController::class, 'specificGame']);
+    Route::get('end_match', [GameController::class, 'end_match']);
+});
 
 
 
-    // ===============================
-    // ============ test =============
-    // ===============================
-    Route::get('/test', [GameController::class, 'test']);
+Route::prefix('control')->group(function () {
+    Route::post('/', [GameController::class, 'lockAndUnlock']);
+    Route::post('/check', [GameController::class, 'showLockAndUnlock']);
+    Route::post('/lesson', [GameController::class, 'LessonLock']);
+});
+
+
+Route::prefix('subscription')->group(function () {
+    Route::get('plans', [SubscriptionController::class, 'plans']);
+    Route::post('removePlan', [SubscriptionController::class, 'removePlan']);
+});
+
+Route::prefix('payment')->group(function () {
+    Route::post('request_prepay_id', [SubscriptionController::class, 'getPrepay_id']);
+    Route::post('check/result', [SubscriptionController::class, 'checkPaymentResult']);
+    // Route::post('signature_algorithm', [SubscriptionController::class, 'notify']);
+});
+
+
+Route::prefix('assessment')->group(function () {
+    Route::get('/', [AssessmentController::class, 'getAllAssess']);
+    Route::get('game', [AssessmentController::class, 'enterGame']);
+    Route::get('end_match', [AssessmentController::class, 'endGame']);
+});
+
+
+
+// ===============================
+// ============ test =============
+// ===============================
+Route::get('/test', [GameController::class, 'test']);
 
 
     // Route::middleware(['auth', 'second'])->prefix('setting')->group(function () {

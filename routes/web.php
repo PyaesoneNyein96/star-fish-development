@@ -1,12 +1,20 @@
 <?php
 
 use Inertia\Inertia;
+<<<<<<< HEAD
 use App\Models\Student;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\API\Dashboard\DashboardController;
+=======
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\API\Dashboard\DashboardController;
+use App\Http\Controllers\API\Subscribe\SubscriptionController;
+>>>>>>> api
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +63,16 @@ Route::middleware([
 });
 
 
+/////////////////////// Payment Integration /////////////////////////
+
+Route::prefix('payment')->group(function () {
+    Route::post('/notify', [SubscriptionController::class, 'notify']);
+    Route::get('/kpay/referer', [SubscriptionController::class, 'referer']);
+    Route::get('/kpay/result', [SubscriptionController::class, 'return_url']);
+});
+
+
+
 Route::get('/test', function () {
     return view('testing');
 });
@@ -93,9 +111,9 @@ Route::get('/migrate', function () {
     return back();
 });
 
-Route::get('/fresh', function () {
-    Artisan::call('migrate:fresh');
-    return back();
+Route::get('/fresh', function (){
+        Artisan::call('migrate:fresh');
+        return back();
 });
 
 Route::get('/seed', function () {
@@ -107,6 +125,7 @@ Route::get('/link', function () {
     Artisan::call('storage:link');
     return back();
 });
+<<<<<<< HEAD
 
 
 
@@ -116,3 +135,5 @@ Route::get('userList', function () {
 });
 
 Route::get('gameAudio', [WorkshopController::class, 'gameAudio']);
+=======
+>>>>>>> api

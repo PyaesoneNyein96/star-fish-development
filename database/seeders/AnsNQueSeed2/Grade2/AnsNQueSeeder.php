@@ -16,6 +16,12 @@ class AnsNQueSeeder extends Seeder
         $domain = app('domain');
         $AudioDomain = $domain . "/storage/audios/";
 
+        $a_z_traceword = $domain . "/storage/images/AtoZTrace/small_dotted/";
+        $A_Z_traceword = $domain . "/storage/images/AtoZTrace/capital_dotted/";
+
+        $a_z_success = $domain . "/storage/images/TraceSuccessAZ/small_success/";
+        $A_Z_success = $domain . "/storage/images/TraceSuccessAZ/capital_success/";
+
 
 
         //////////////////////////////////////////////////////////////
@@ -251,58 +257,58 @@ class AnsNQueSeeder extends Seeder
         $G2_L2_trace_word = "Grade_2/" . "Lesson_2/" . "trace_word/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "angel" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "angel" . ".png", 'a_content' => "angel"],
-            ['round' => 1, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "n" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "g" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "e" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "l" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 1, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "angel" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "angel" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "angel"],
+            ['round' => 1, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "A" . ".png", 'q_image' => null, "a_image" => $A_Z_success . "A.png", "a_extra" => 3, 'a_content' => "A"],
+            ['round' => 1, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "n" . ".png", 'q_image' => null, "a_image" => $a_z_success . "n.png", "a_extra" => 2, 'a_content' => "n"],
+            ['round' => 1, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "g" . ".png", 'q_image' => null, "a_image" => $a_z_success . "g.png", "a_extra" => 2, 'a_content' => "g"],
+            ['round' => 1, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "e" . ".png", 'q_image' => null, "a_image" => $a_z_success . "e.png", "a_extra" => 2, 'a_content' => "e"],
+            ['round' => 1, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "l" . ".png", 'q_image' => null, "a_image" => $a_z_success . "l.png", "a_extra" => 1, 'a_content' => "l"],
 
 
-            ['round' => 2, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "arm" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "arm" . ".png", 'a_content' => "arm"],
-            ['round' => 2, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "r" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "m" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 2, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "arm" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "arm" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "arm"],
+            ['round' => 2, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "A" . ".png", 'q_image' => null, "a_image" => $A_Z_success . "A.png", "a_extra" => 3, 'a_content' => "A"],
+            ['round' => 2, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "r" . ".png", 'q_image' => null, "a_image" => $a_z_success . "r.png", "a_extra" => 2, 'a_content' => "r"],
+            ['round' => 2, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "m" . ".png", 'q_image' => null, "a_image" => $a_z_success . "m.png", "a_extra" => 3, 'a_content' => "m"],
 
 
-            ['round' => 3, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "ball" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "ball" . ".png", 'a_content' => "ball"],
-            ['round' => 3, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "b" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "small_a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "l" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "l" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 3, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "ball" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "ball" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "ball"],
+            ['round' => 3, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "B" . ".png", 'q_image' => null, "a_image" => $A_Z_success . "B.png", "a_extra" => 3, 'a_content' => "B"],
+            ['round' => 3, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "a" . ".png", 'q_image' => null, "a_image" => $a_z_success . "a.png", "a_extra" => 2, 'a_content' => "a"],
+            ['round' => 3, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "l" . ".png", 'q_image' => null, "a_image" => $a_z_success . "l.png", "a_extra" => 1, 'a_content' => "l"],
+            ['round' => 3, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "l" . ".png", 'q_image' => null, "a_image" => $a_z_success . "l.png", "a_extra" => 1, 'a_content' => "l"],
 
 
-            ['round' => 4, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "boat" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "boat" . ".png", 'a_content' => "boat"],
-            ['round' => 4, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "b" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "small_a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "t" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 4, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "boat" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "boat" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "boat"],
+            ['round' => 4, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "B" . ".png", 'q_image' => null, "a_image" => $A_Z_success . "B.png", "a_extra" => 3, 'a_content' => "B"],
+            ['round' => 4, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png", 'q_image' => null, "a_image" => $a_z_success . "o.png", "a_extra" => 1, 'a_content' => "o"],
+            ['round' => 4, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "a" . ".png", 'q_image' => null, "a_image" => $a_z_success . "a.png", "a_extra" => 2, 'a_content' => "a"],
+            ['round' => 4, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "t" . ".png", 'q_image' => null, "a_image" => $a_z_success . "t.png", "a_extra" => 2, 'a_content' => "t"],
 
 
-            ['round' => 5, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "boy" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "boy" . ".png", 'a_content' => "boy"],
-            ['round' => 5, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "b" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "y" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 5, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "boy" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "boy" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "boy"],
+            ['round' => 5, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "B" . ".png", 'q_image' => null, "a_image" => $A_Z_success . "B.png", "a_extra" => 3, 'a_content' => "B"],
+            ['round' => 5, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png", 'q_image' => null, "a_image" => $a_z_success . "o.png", "a_extra" => 1, 'a_content' => "o"],
+            ['round' => 5, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "y" . ".png", 'q_image' => null, "a_image" => $a_z_success . "y.png", "a_extra" => 2, 'a_content' => "y"],
 
 
-            ['round' => 6, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "bear" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "bear" . ".png", 'a_content' => "bear"],
-            ['round' => 6, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "b" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 6, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "e" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 6, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "small_a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 6, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "r" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 6, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "bear" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "bear" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "bear"],
+            ['round' => 6, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "B" . ".png", 'q_image' => null, "a_image" => $A_Z_success . "B.png", "a_extra" => 3, 'a_content' => "B"],
+            ['round' => 6, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "e" . ".png", 'q_image' => null, "a_image" => $a_z_success . "e.png", "a_extra" => 2, 'a_content' => "e"],
+            ['round' => 6, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "a" . ".png", 'q_image' => null, "a_image" => $a_z_success . "a.png", "a_extra" => 2, 'a_content' => "a"],
+            ['round' => 6, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "r" . ".png", 'q_image' => null, "a_image" => $a_z_success . "r.png", "a_extra" => 2, 'a_content' => "r"],
 
 
-            ['round' => 7, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "apple" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "apple" . ".png", 'a_content' => "apple"],
-            ['round' => 7, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 7, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "p" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 7, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "p" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 7, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "l" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 7, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "e" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 7, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "apple" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "apple" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "apple"],
+            ['round' => 7, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "A" . ".png", 'q_image' => null, "a_image" => $A_Z_success . "A.png", "a_extra" => 3, 'a_content' => "A"],
+            ['round' => 7, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "p" . ".png", 'q_image' => null, "a_image" => $a_z_success . "p.png", "a_extra" => 2, 'a_content' => "p"],
+            ['round' => 7, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "p" . ".png", 'q_image' => null, "a_image" => $a_z_success . "p.png", "a_extra" => 2, 'a_content' => "p"],
+            ['round' => 7, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "l" . ".png", 'q_image' => null, "a_image" => $a_z_success . "l.png", "a_extra" => 1, 'a_content' => "l"],
+            ['round' => 7, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "e" . ".png", 'q_image' => null, "a_image" => $a_z_success . "e.png", "a_extra" => 2, 'a_content' => "e"],
 
-            ['round' => 8, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "ant" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "ant" . ".png", 'a_content' => "ant"],
-            ['round' => 8, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 8, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "n" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 8, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $l2_G259_image . "t" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 8, 'game_id' => 259, 'q_audio' =>  $AudioDomain . $G2_L2_trace_word . "ant" . ".mp3", 'q_content' =>  null, 'q_image' => $l2_G259_image . "ant" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "ant"],
+            ['round' => 8, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "A" . ".png", 'q_image' => null, "a_image" => $A_Z_success . "A.png", "a_extra" => 3, 'a_content' => "A"],
+            ['round' => 8, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "n" . ".png", 'q_image' => null, "a_image" => $a_z_success . "n.png", "a_extra" => 2, 'a_content' => "n"],
+            ['round' => 8, 'game_id' => 259, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "t" . ".png", 'q_image' => null, "a_image" => $a_z_success . "t.png", "a_extra" => 2, 'a_content' => "t"],
 
         ]);
 
@@ -582,44 +588,44 @@ class AnsNQueSeeder extends Seeder
         $G2_L4_trace_word = "Grade_2/" . "Lesson_4/" . "trace_word/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 268, 'q_audio' =>  $AudioDomain . $G2_L4_trace_word . "cup" . ".mp3", 'q_content' =>  null, 'q_image' => $l4_G268_image . "cup" . ".png", 'a_content' => "cup"],
-            ['round' => 1, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "c" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "small_u" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "small_p" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 1, 'game_id' => 268, 'q_audio' =>  $AudioDomain . $G2_L4_trace_word . "cup" . ".mp3", 'q_content' =>  null, 'q_image' => $l4_G268_image . "cup" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "cup"],
+            ['round' => 1, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "C" . ".png", "a_image" => $A_Z_success . "C.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "C"],
+            ['round' => 1, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "u" . ".png", "a_image" => $a_z_success . "u.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "u"],
+            ['round' => 1, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "p" . ".png", "a_image" => $a_z_success . "p.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "p"],
 
 
-            ['round' => 2, 'game_id' => 268, 'q_audio' =>  $AudioDomain . $G2_L4_trace_word . "doll" . ".mp3", 'q_content' =>  null, 'q_image' => $l4_G268_image . "doll" . ".png", 'a_content' => "doll"],
-            ['round' => 2, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "d" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "small_o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "small_l" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "small_l" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 2, 'game_id' => 268, 'q_audio' =>  $AudioDomain . $G2_L4_trace_word . "doll" . ".mp3", 'q_content' =>  null, 'q_image' => $l4_G268_image . "doll" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "doll"],
+            ['round' => 2, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "D" . ".png", "a_image" => $A_Z_success . "D.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "D"],
+            ['round' => 2, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png", "a_image" => $a_z_success . "o.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "o"],
+            ['round' => 2, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "l" . ".png", "a_image" => $a_z_success . "l.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "l"],
+            ['round' => 2, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "l" . ".png", "a_image" => $a_z_success . "l.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "l"],
 
 
-            ['round' => 3, 'game_id' => 268, 'q_audio' =>  $AudioDomain . $G2_L4_trace_word . "deer" . ".mp3", 'q_content' =>  null, 'q_image' => $l4_G268_image . "deer" . ".png", 'a_content' => "deer"],
-            ['round' => 3, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "d" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "small_e" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "small_e" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "small_r" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 3, 'game_id' => 268, 'q_audio' =>  $AudioDomain . $G2_L4_trace_word . "deer" . ".mp3", 'q_content' =>  null, 'q_image' => $l4_G268_image . "deer" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "deer"],
+            ['round' => 3, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "D" . ".png", "a_image" => $A_Z_success . "D.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "D"],
+            ['round' => 3, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "e" . ".png", "a_image" => $a_z_success . "e.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "e"],
+            ['round' => 3, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "e" . ".png", "a_image" => $a_z_success . "e.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "e"],
+            ['round' => 3, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "r" . ".png", "a_image" => $a_z_success . "r.png", "a_extra" => 2, 'q_image' => null, 'a_content' => 'r'],
 
 
-            ['round' => 4, 'game_id' => 268, 'q_audio' =>  $AudioDomain . $G2_L4_trace_word . "door" . ".mp3", 'q_content' =>  null, 'q_image' => $l4_G268_image . "door" . ".png", 'a_content' => "door"],
-            ['round' => 4, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "d" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "small_o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "small_o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "small_r" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 4, 'game_id' => 268, 'q_audio' =>  $AudioDomain . $G2_L4_trace_word . "door" . ".mp3", 'q_content' =>  null, 'q_image' => $l4_G268_image . "door" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "door"],
+            ['round' => 4, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "D" . ".png", "a_image" => $A_Z_success . "D.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "D"],
+            ['round' => 4, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png", "a_image" => $a_z_success . "o.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "o"],
+            ['round' => 4, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png", "a_image" => $a_z_success . "o.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "o"],
+            ['round' => 4, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "r" . ".png", "a_image" => $a_z_success . "r.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "r"],
 
 
-            ['round' => 5, 'game_id' => 268, 'q_audio' =>  $AudioDomain . $G2_L4_trace_word . "cake" . ".mp3", 'q_content' =>  null, 'q_image' => $l4_G268_image . "cake" . ".png", 'a_content' => "cake"],
-            ['round' => 5, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "c" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "small_a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "small_k" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "small_e" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 5, 'game_id' => 268, 'q_audio' =>  $AudioDomain . $G2_L4_trace_word . "cake" . ".mp3", 'q_content' =>  null, 'q_image' => $l4_G268_image . "cake" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "cake"],
+            ['round' => 5, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "C" . ".png", "a_image" => $A_Z_success . "C.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "C"],
+            ['round' => 5, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "a" . ".png", "a_image" => $a_z_success . "a.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "a"],
+            ['round' => 5, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "k" . ".png", "a_image" => $a_z_success . "k.png", "a_extra" => 3, 'q_image' => null, 'a_content' => "k"],
+            ['round' => 5, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "e" . ".png", "a_image" => $a_z_success . "e.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "e"],
 
 
-            ['round' => 6, 'game_id' => 268, 'q_audio' =>  $AudioDomain . $G2_L4_trace_word . "cat" . ".mp3", 'q_content' =>  null, 'q_image' => $l4_G268_image . "cat" . ".png", 'a_content' => "cat"],
-            ['round' => 6, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "c" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 6, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "small_a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 6, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $l4_G268_image . "small_t" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 6, 'game_id' => 268, 'q_audio' =>  $AudioDomain . $G2_L4_trace_word . "cat" . ".mp3", 'q_content' =>  null, 'q_image' => $l4_G268_image . "cat" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "cat"],
+            ['round' => 6, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "C" . ".png", "a_image" => $A_Z_success . "C.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "C"],
+            ['round' => 6, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "a" . ".png", "a_image" => $a_z_success . "a.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "a"],
+            ['round' => 6, 'game_id' => 268, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "t" . ".png", "a_image" => $a_z_success . "t.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "t"],
 
 
         ]);
@@ -970,43 +976,43 @@ class AnsNQueSeeder extends Seeder
         $G2_L7_trace_word = "Grade_2/" . "Lesson_7/" . "trace/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 283, 'q_audio' =>  $AudioDomain . $G2_L7_trace_word . "egg" . ".mp3", 'q_content' =>  null, 'q_image' => $l7_G283_image . "egg" . ".png", 'a_content' => "egg"],
-            ['round' => 1, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "e" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "small_g" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "small_g" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 1, 'game_id' => 283, 'q_audio' =>  $AudioDomain . $G2_L7_trace_word . "egg" . ".mp3", 'q_content' =>  null, 'q_image' => $l7_G283_image . "egg" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "egg"],
+            ['round' => 1, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "E" . ".png", "a_image" => $A_Z_success . "E.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "E"],
+            ['round' => 1, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "g" . ".png", "a_image" => $a_z_success . "g.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "g"],
+            ['round' => 1, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "g" . ".png", "a_image" => $a_z_success . "g.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "g"],
 
 
-            ['round' => 2, 'game_id' => 283, 'q_audio' =>  $AudioDomain . $G2_L7_trace_word . "fish" . ".mp3", 'q_content' =>  null, 'q_image' => $l7_G283_image . "fish" . ".png", 'a_content' => "fish"],
-            ['round' => 2, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "f" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "small_i" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "small_s" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "small_h" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 2, 'game_id' => 283, 'q_audio' =>  $AudioDomain . $G2_L7_trace_word . "fish" . ".mp3", 'q_content' =>  null, 'q_image' => $l7_G283_image . "fish" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "fish"],
+            ['round' => 2, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "F" . ".png", "a_image" => $A_Z_success . "F.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "F"],
+            ['round' => 2, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "i" . ".png", "a_image" => $a_z_success . "i.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "i"],
+            ['round' => 2, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "s" . ".png", "a_image" => $a_z_success . "s.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "s"],
+            ['round' => 2, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "h" . ".png", "a_image" => $a_z_success . "h.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "h"],
 
 
-            ['round' => 3, 'game_id' => 283, 'q_audio' =>  $AudioDomain . $G2_L7_trace_word . "fan" . ".mp3", 'q_content' =>  null, 'q_image' => $l7_G283_image . "fan" . ".png", 'a_content' => "fan"],
-            ['round' => 3, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "f" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "small_a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "small_n" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 3, 'game_id' => 283, 'q_audio' =>  $AudioDomain . $G2_L7_trace_word . "fan" . ".mp3", 'q_content' =>  null, 'q_image' => $l7_G283_image . "fan" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "fan"],
+            ['round' => 3, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "F" . ".png", "a_image" => $A_Z_success . "F.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "F"],
+            ['round' => 3, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "a" . ".png", "a_image" => $a_z_success . "a.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "a"],
+            ['round' => 3, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "n" . ".png", "a_image" => $a_z_success . "n.png", "a_extra" => 2, 'q_image' => null, 'a_content' => 'n'],
 
 
-            ['round' => 4, 'game_id' => 283, 'q_audio' =>  $AudioDomain . $G2_L7_trace_word . "ear" . ".mp3", 'q_content' =>  null, 'q_image' => $l7_G283_image . "ear" . ".png", 'a_content' => "ear"],
-            ['round' => 4, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "e" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "small_a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "small_r" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 4, 'game_id' => 283, 'q_audio' =>  $AudioDomain . $G2_L7_trace_word . "ear" . ".mp3", 'q_content' =>  null, 'q_image' => $l7_G283_image . "ear" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "ear"],
+            ['round' => 4, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "E" . ".png", "a_image" => $A_Z_success . "E.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "E"],
+            ['round' => 4, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "a" . ".png", "a_image" => $a_z_success . "a.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "a"],
+            ['round' => 4, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "r" . ".png", "a_image" => $a_z_success . "r.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "r"],
 
 
-            ['round' => 5, 'game_id' => 283, 'q_audio' =>  $AudioDomain . $G2_L7_trace_word . "eagle" . ".mp3", 'q_content' =>  null, 'q_image' => $l7_G283_image . "eagle" . ".png", 'a_content' => "eagle"],
-            ['round' => 5, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "e" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "small_a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "small_g" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "small_l" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "small_e" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 5, 'game_id' => 283, 'q_audio' =>  $AudioDomain . $G2_L7_trace_word . "eagle" . ".mp3", 'q_content' =>  null, 'q_image' => $l7_G283_image . "eagle" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "eagle"],
+            ['round' => 5, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "E" . ".png", "a_image" => $A_Z_success . "E.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "E"],
+            ['round' => 5, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "a" . ".png", "a_image" => $a_z_success . "a.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "a"],
+            ['round' => 5, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "g" . ".png", "a_image" => $a_z_success . "g.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "g"],
+            ['round' => 5, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "l" . ".png", "a_image" => $a_z_success . "l.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "l"],
+            ['round' => 5, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "e" . ".png", "a_image" => $a_z_success . "e.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "e"],
 
 
-            ['round' => 6, 'game_id' => 283, 'q_audio' =>  $AudioDomain . $G2_L7_trace_word . "fox" . ".mp3", 'q_content' =>  null, 'q_image' => $l7_G283_image . "fox" . ".png", 'a_content' => "fox"],
-            ['round' => 6, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "f" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 6, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "small_o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 6, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $l7_G283_image . "small_x" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 6, 'game_id' => 283, 'q_audio' =>  $AudioDomain . $G2_L7_trace_word . "fox" . ".mp3", 'q_content' =>  null, 'q_image' => $l7_G283_image . "fox" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "fox"],
+            ['round' => 6, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "F" . ".png", "a_image" => $A_Z_success . "F.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "F"],
+            ['round' => 6, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png", "a_image" => $a_z_success . "o.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "o"],
+            ['round' => 6, 'game_id' => 283, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "x" . ".png", "a_image" => $a_z_success . "x.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "x"],
 
         ]);
 
@@ -1324,38 +1330,38 @@ class AnsNQueSeeder extends Seeder
         $G2_L9_trace_word = "Grade_2/" . "Lesson_9/" . "trace_word/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 294, 'q_audio' =>  $AudioDomain . $G2_L9_trace_word . "goose" . ".mp3", 'q_content' =>  null, 'q_image' => $l9_G294_image . "goose" . ".png", 'a_content' => "goose"],
-            ['round' => 1, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "g" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "small_o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "small_o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "small_s" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "small_e" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 1, 'game_id' => 294, 'q_audio' =>  $AudioDomain . $G2_L9_trace_word . "goose" . ".mp3", 'q_content' =>  null, 'q_image' => $l9_G294_image . "goose" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "goose"],
+            ['round' => 1, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "G" . ".png",  "a_image" => $A_Z_success . "G.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "G"],
+            ['round' => 1, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png",  "a_image" => $a_z_success . "o.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "o"],
+            ['round' => 1, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png",  "a_image" => $a_z_success . "o.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "o"],
+            ['round' => 1, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "s" . ".png",  "a_image" => $a_z_success . "s.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "s"],
+            ['round' => 1, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "e" . ".png",  "a_image" => $a_z_success . "e.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "e"],
 
 
-            ['round' => 2, 'game_id' => 294, 'q_audio' =>  $AudioDomain . $G2_L9_trace_word . "hat" . ".mp3", 'q_content' =>  null, 'q_image' => $l9_G294_image . "hat" . ".png", 'a_content' => "hat"],
-            ['round' => 2, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "h" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "small_a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "small_t" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 2, 'game_id' => 294, 'q_audio' =>  $AudioDomain . $G2_L9_trace_word . "hat" . ".mp3", 'q_content' =>  null, 'q_image' => $l9_G294_image . "hat" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "hat"],
+            ['round' => 2, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "H" . ".png",  "a_image" => $A_Z_success . "H.png", "a_extra" => 3, 'q_image' => null, 'a_content' => "H"],
+            ['round' => 2, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "a" . ".png",  "a_image" => $a_z_success . "a.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "a"],
+            ['round' => 2, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "t" . ".png",  "a_image" => $a_z_success . "t.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "t"],
 
 
-            ['round' => 3, 'game_id' => 294, 'q_audio' =>  $AudioDomain . $G2_L9_trace_word . "hand" . ".mp3", 'q_content' =>  null, 'q_image' => $l9_G294_image . "hand" . ".png", 'a_content' => "hand"],
-            ['round' => 3, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "h" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "small_a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "small_n" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "small_d" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 3, 'game_id' => 294, 'q_audio' =>  $AudioDomain . $G2_L9_trace_word . "hand" . ".mp3", 'q_content' =>  null, 'q_image' => $l9_G294_image . "hand" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "hand"],
+            ['round' => 3, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "H" . ".png",  "a_image" => $A_Z_success . "H.png", "a_extra" => 3, 'q_image' => null, 'a_content' => "H"],
+            ['round' => 3, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "a" . ".png",  "a_image" => $a_z_success . "a.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "a"],
+            ['round' => 3, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "n" . ".png",  "a_image" => $a_z_success . "n.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "n"],
+            ['round' => 3, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "d" . ".png",  "a_image" => $a_z_success . "d.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "d"],
 
 
-            ['round' => 4, 'game_id' => 294, 'q_audio' =>  $AudioDomain . $G2_L9_trace_word . "gym" . ".mp3", 'q_content' =>  null, 'q_image' => $l9_G294_image . "gym" . ".png", 'a_content' => "gym"],
-            ['round' => 4, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "g" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "small_y" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "small_m" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 4, 'game_id' => 294, 'q_audio' =>  $AudioDomain . $G2_L9_trace_word . "gym" . ".mp3", 'q_content' =>  null, 'q_image' => $l9_G294_image . "gym" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "gym"],
+            ['round' => 4, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "G" . ".png",  "a_image" => $A_Z_success . "G.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "G"],
+            ['round' => 4, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "y" . ".png",  "a_image" => $a_z_success . "y.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "y"],
+            ['round' => 4, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "m" . ".png",  "a_image" => $a_z_success . "m.png", "a_extra" => 3, 'q_image' => null, 'a_content' => "m"],
 
 
-            ['round' => 5, 'game_id' => 294, 'q_audio' =>  $AudioDomain . $G2_L9_trace_word . "girl" . ".mp3", 'q_content' =>  null, 'q_image' => $l9_G294_image . "girl" . ".png", 'a_content' => "girl"],
-            ['round' => 5, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "g" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "small_i" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "small_r" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $l9_G294_image . "small_l" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 5, 'game_id' => 294, 'q_audio' =>  $AudioDomain . $G2_L9_trace_word . "girl" . ".mp3", 'q_content' =>  null, 'q_image' => $l9_G294_image . "girl" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "girl"],
+            ['round' => 5, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "G" . ".png",  "a_image" => $A_Z_success . "G.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "G"],
+            ['round' => 5, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "i" . ".png",  "a_image" => $a_z_success . "i.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "i"],
+            ['round' => 5, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "r" . ".png",  "a_image" => $a_z_success . "r.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "r"],
+            ['round' => 5, 'game_id' => 294, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "l" . ".png",  "a_image" => $a_z_success . "l.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "l"],
 
         ]);
 
@@ -1836,36 +1842,36 @@ class AnsNQueSeeder extends Seeder
         $G2_L13_trace_word = "Grade_2/" . "Lesson_13/" . "trace_word/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 310, 'q_audio' =>  $AudioDomain . $G2_L13_trace_word . "jug" . ".mp3", 'q_content' =>  null, 'q_image' => $l13_G310_image . "jug" . ".png", 'a_content' => "jug"],
-            ['round' => 1, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "j" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "small_u" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "small_g" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 1, 'game_id' => 310, 'q_audio' =>  $AudioDomain . $G2_L13_trace_word . "jug" . ".mp3", 'q_content' =>  null, 'q_image' => $l13_G310_image . "jug" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "jug"],
+            ['round' => 1, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "J" . ".png", "a_image" => $A_Z_success . "J.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "J"],
+            ['round' => 1, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "u" . ".png", "a_image" => $a_z_success . "u.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "u"],
+            ['round' => 1, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "g" . ".png", "a_image" => $a_z_success . "g.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "g"],
 
 
-            ['round' => 2, 'game_id' => 310, 'q_audio' =>  $AudioDomain . $G2_L13_trace_word . "jam" . ".mp3", 'q_content' =>  null, 'q_image' => $l13_G310_image . "jam" . ".png", 'a_content' => "jam"],
-            ['round' => 2, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "j" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "small_a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "small_m" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 2, 'game_id' => 310, 'q_audio' =>  $AudioDomain . $G2_L13_trace_word . "jam" . ".mp3", 'q_content' =>  null, 'q_image' => $l13_G310_image . "jam" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "jam"],
+            ['round' => 2, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "J" . ".png", "a_image" => $A_Z_success . "J.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "J"],
+            ['round' => 2, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "a" . ".png", "a_image" => $a_z_success . "a.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "a"],
+            ['round' => 2, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "m" . ".png", "a_image" => $a_z_success . "m.png", "a_extra" => 3, 'q_image' => null, 'a_content' => "m"],
 
 
-            ['round' => 3, 'game_id' => 310, 'q_audio' =>  $AudioDomain . $G2_L13_trace_word . "ink" . ".mp3", 'q_content' =>  null, 'q_image' => $l13_G310_image . "ink" . ".png", 'a_content' => "ink"],
-            ['round' => 3, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "i" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "small_n" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "small_k" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 3, 'game_id' => 310, 'q_audio' =>  $AudioDomain . $G2_L13_trace_word . "ink" . ".mp3", 'q_content' =>  null, 'q_image' => $l13_G310_image . "ink" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "ink"],
+            ['round' => 3, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "I" . ".png", "a_image" => $A_Z_success . "I.png", "a_extra" => 3, 'q_image' => null, 'a_content' => "I"],
+            ['round' => 3, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "n" . ".png", "a_image" => $a_z_success . "n.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "n"],
+            ['round' => 3, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "k" . ".png", "a_image" => $a_z_success . "k.png", "a_extra" => 3, 'q_image' => null, 'a_content' => "k"],
 
 
-            ['round' => 4, 'game_id' => 310, 'q_audio' =>  $AudioDomain . $G2_L13_trace_word . "ice" . ".mp3", 'q_content' =>  null, 'q_image' => $l13_G310_image . "ice" . ".png", 'a_content' => "ice"],
-            ['round' => 4, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "i" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "small_c" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "small_e" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 4, 'game_id' => 310, 'q_audio' =>  $AudioDomain . $G2_L13_trace_word . "ice" . ".mp3", 'q_content' =>  null, 'q_image' => $l13_G310_image . "ice" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "ice"],
+            ['round' => 4, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "I" . ".png", "a_image" => $A_Z_success . "I.png", "a_extra" => 3, 'q_image' => null, 'a_content' => "I"],
+            ['round' => 4, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "c" . ".png", "a_image" => $a_z_success . "c.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "c"],
+            ['round' => 4, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "e" . ".png", "a_image" => $a_z_success . "e.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "e"],
 
 
-            ['round' => 5, 'game_id' => 310, 'q_audio' =>  $AudioDomain . $G2_L13_trace_word . "jelly" . ".mp3", 'q_content' =>  null, 'q_image' => $l13_G310_image . "jelly" . ".png", 'a_content' => "jelly"],
-            ['round' => 5, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "j" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "small_e" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "small_l" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "small_l" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $l13_G310_image . "small_y" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 5, 'game_id' => 310, 'q_audio' =>  $AudioDomain . $G2_L13_trace_word . "jelly" . ".mp3", 'q_content' =>  null, 'q_image' => $l13_G310_image . "jelly" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "jelly"],
+            ['round' => 5, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "J" . ".png", "a_image" => $A_Z_success . "J.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "J"],
+            ['round' => 5, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "e" . ".png", "a_image" => $a_z_success . "e.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "e"],
+            ['round' => 5, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "l" . ".png", "a_image" => $a_z_success . "l.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "l"],
+            ['round' => 5, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "l" . ".png", "a_image" => $a_z_success . "l.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "l"],
+            ['round' => 5, 'game_id' => 310, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "y" . ".png", "a_image" => $a_z_success . "y.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "y"],
 
         ]);
 
@@ -2134,39 +2140,39 @@ class AnsNQueSeeder extends Seeder
         $G2_L15_trace_word = "Grade_2/" . "Lesson_15/" . "trace_word/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 322, 'q_audio' =>  $AudioDomain . $G2_L15_trace_word . "king" . ".mp3", 'q_content' =>  null, 'q_image' => $l15_G322_image . "king" . ".png", 'a_content' => "king"],
-            ['round' => 1, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "k" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "small-i" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "small-n" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "small-g" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 1, 'game_id' => 322, 'q_audio' =>  $AudioDomain . $G2_L15_trace_word . "king" . ".mp3", 'q_content' =>  null, 'q_image' => $l15_G322_image . "king" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "king"],
+            ['round' => 1, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "K" . ".png", "a_image" => $A_Z_success . "K.png", "a_extra" => 3, 'q_image' => null, 'a_content' => "K"],
+            ['round' => 1, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "i" . ".png", "a_image" => $a_z_success . "i.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "i"],
+            ['round' => 1, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "n" . ".png", "a_image" => $a_z_success . "n.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "n"],
+            ['round' => 1, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "g" . ".png", "a_image" => $a_z_success . "g.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "g"],
 
 
-            ['round' => 2, 'game_id' => 322, 'q_audio' =>  $AudioDomain . $G2_L15_trace_word . "knee" . ".mp3", 'q_content' =>  null, 'q_image' => $l15_G322_image . "knee" . ".png", 'a_content' => "knee"],
-            ['round' => 2, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "k" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "small-n" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "small-e" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "small-e" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 2, 'game_id' => 322, 'q_audio' =>  $AudioDomain . $G2_L15_trace_word . "knee" . ".mp3", 'q_content' =>  null, 'q_image' => $l15_G322_image . "knee" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "knee"],
+            ['round' => 2, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "K" . ".png", "a_image" => $A_Z_success . "K.png", "a_extra" => 3, 'q_image' => null, 'a_content' => "K"],
+            ['round' => 2, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "n" . ".png", "a_image" => $a_z_success . "n.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "n"],
+            ['round' => 2, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "e" . ".png", "a_image" => $a_z_success . "e.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "e"],
+            ['round' => 2, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "e" . ".png", "a_image" => $a_z_success . "e.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "e"],
 
 
-            ['round' => 3, 'game_id' => 322, 'q_audio' =>  $AudioDomain . $G2_L15_trace_word . "lock" . ".mp3", 'q_content' =>  null, 'q_image' => $l15_G322_image . "lock" . ".png", 'a_content' => "lock"],
-            ['round' => 3, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "l" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "small-o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "small-c" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "small-k" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 3, 'game_id' => 322, 'q_audio' =>  $AudioDomain . $G2_L15_trace_word . "lock" . ".mp3", 'q_content' =>  null, 'q_image' => $l15_G322_image . "lock" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "lock"],
+            ['round' => 3, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "L" . ".png", "a_image" => $A_Z_success . "L.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "L"],
+            ['round' => 3, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png", "a_image" => $a_z_success . "o.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "o"],
+            ['round' => 3, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "c" . ".png", "a_image" => $a_z_success . "c.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "c"],
+            ['round' => 3, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "k" . ".png", "a_image" => $a_z_success . "k.png", "a_extra" => 3, 'q_image' => null, 'a_content' => "k"],
 
 
-            ['round' => 4, 'game_id' => 322, 'q_audio' =>  $AudioDomain . $G2_L15_trace_word . "leaf" . ".mp3", 'q_content' =>  null, 'q_image' => $l15_G322_image . "leaf" . ".png", 'a_content' => "leaf"],
-            ['round' => 4, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "l" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "small-e" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "small-a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "small-f" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 4, 'game_id' => 322, 'q_audio' =>  $AudioDomain . $G2_L15_trace_word . "leaf" . ".mp3", 'q_content' =>  null, 'q_image' => $l15_G322_image . "leaf" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "leaf"],
+            ['round' => 4, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "L" . ".png", "a_image" => $A_Z_success . "L.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "L"],
+            ['round' => 4, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "e" . ".png", "a_image" => $a_z_success . "e.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "e"],
+            ['round' => 4, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "a" . ".png", "a_image" => $a_z_success . "a.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "a"],
+            ['round' => 4, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "f" . ".png", "a_image" => $a_z_success . "f.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "f"],
 
 
-            ['round' => 5, 'game_id' => 322, 'q_audio' =>  $AudioDomain . $G2_L15_trace_word . "lion" . ".mp3", 'q_content' =>  null, 'q_image' => $l15_G322_image . "lion" . ".png", 'a_content' => "lion"],
-            ['round' => 5, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "l" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "small-i" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "small-o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $l15_G322_image . "small-n" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 5, 'game_id' => 322, 'q_audio' =>  $AudioDomain . $G2_L15_trace_word . "lion" . ".mp3", 'q_content' =>  null, 'q_image' => $l15_G322_image . "lion" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "lion"],
+            ['round' => 5, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "L" . ".png", "a_image" => $A_Z_success . "L.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "L"],
+            ['round' => 5, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "i" . ".png", "a_image" => $a_z_success . "i.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "i"],
+            ['round' => 5, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png", "a_image" => $a_z_success . "o.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "o"],
+            ['round' => 5, 'game_id' => 322, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "n" . ".png", "a_image" => $a_z_success . "n.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "n"],
 
 
         ]);
@@ -2635,44 +2641,44 @@ class AnsNQueSeeder extends Seeder
         $G2_L19_trace_word = "Grade_2/" . "Lesson_19/" . "trace_word/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 342, 'q_audio' =>  $AudioDomain . $G2_L19_trace_word . "moon" . ".mp3", 'q_content' =>  null, 'q_image' => $l19_G342_image . "moon" . ".png", 'a_content' => "moon"],
-            ['round' => 1, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "m" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "small-o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "small-o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "small-n" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 1, 'game_id' => 342, 'q_audio' =>  $AudioDomain . $G2_L19_trace_word . "moon" . ".mp3", 'q_content' =>  null, 'q_image' => $l19_G342_image . "moon" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "moon"],
+            ['round' => 1, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "M" . ".png", "a_image" => $A_Z_success . "M.png", "a_extra" => 3, 'q_image' => null, 'a_content' => "M"],
+            ['round' => 1, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png", "a_image" => $a_z_success . "o.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "o"],
+            ['round' => 1, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png", "a_image" => $a_z_success . "o.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "o"],
+            ['round' => 1, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "n" . ".png", "a_image" => $a_z_success . "n.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "n"],
 
 
-            ['round' => 2, 'game_id' => 342, 'q_audio' =>  $AudioDomain . $G2_L19_trace_word . "nest" . ".mp3", 'q_content' =>  null, 'q_image' => $l19_G342_image . "nest" . ".png", 'a_content' => "nest"],
-            ['round' => 2, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "n" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "small-e" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "small-s" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "small-t" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 2, 'game_id' => 342, 'q_audio' =>  $AudioDomain . $G2_L19_trace_word . "nest" . ".mp3", 'q_content' =>  null, 'q_image' => $l19_G342_image . "nest" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "nest"],
+            ['round' => 2, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "N" . ".png", "a_image" => $A_Z_success . "N.png", "a_extra" => 3, 'q_image' => null, 'a_content' => "N"],
+            ['round' => 2, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "e" . ".png", "a_image" => $a_z_success . "e.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "e"],
+            ['round' => 2, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "s" . ".png", "a_image" => $a_z_success . "s.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "s"],
+            ['round' => 2, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "t" . ".png", "a_image" => $a_z_success . "t.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "t"],
 
 
-            ['round' => 3, 'game_id' => 342, 'q_audio' =>  $AudioDomain . $G2_L19_trace_word . "nail" . ".mp3", 'q_content' =>  null, 'q_image' => $l19_G342_image . "nail" . ".png", 'a_content' => "nail"],
-            ['round' => 3, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "n" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "small-a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "small-i" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "small-l" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 3, 'game_id' => 342, 'q_audio' =>  $AudioDomain . $G2_L19_trace_word . "nail" . ".mp3", 'q_content' =>  null, 'q_image' => $l19_G342_image . "nail" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "nail"],
+            ['round' => 3, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "N" . ".png", "a_image" => $A_Z_success . "N.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "N"],
+            ['round' => 3, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "a" . ".png", "a_image" => $a_z_success . "a.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "a"],
+            ['round' => 3, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "i" . ".png", "a_image" => $a_z_success . "i.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "i"],
+            ['round' => 3, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "l" . ".png", "a_image" => $a_z_success . "l.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "l"],
 
 
-            ['round' => 4, 'game_id' => 342, 'q_audio' =>  $AudioDomain . $G2_L19_trace_word . "note" . ".mp3", 'q_content' =>  null, 'q_image' => $l19_G342_image . "note" . ".png", 'a_content' => "note"],
-            ['round' => 4, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "n" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "small-o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "small-t" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "small-e" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 4, 'game_id' => 342, 'q_audio' =>  $AudioDomain . $G2_L19_trace_word . "note" . ".mp3", 'q_content' =>  null, 'q_image' => $l19_G342_image . "note" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "note"],
+            ['round' => 4, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "N" . ".png", "a_image" => $A_Z_success . "N.png", "a_extra" => 3, 'q_image' => null, 'a_content' => "N"],
+            ['round' => 4, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png", "a_image" => $a_z_success . "o.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "o"],
+            ['round' => 4, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "t" . ".png", "a_image" => $a_z_success . "t.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "t"],
+            ['round' => 4, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "e" . ".png", "a_image" => $a_z_success . "e.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "e"],
 
 
-            ['round' => 5, 'game_id' => 342, 'q_audio' =>  $AudioDomain . $G2_L19_trace_word . "man" . ".mp3", 'q_content' =>  null, 'q_image' => $l19_G342_image . "man" . ".png", 'a_content' => "man"],
-            ['round' => 5, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "m" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "small-a" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "small-n" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 5, 'game_id' => 342, 'q_audio' =>  $AudioDomain . $G2_L19_trace_word . "man" . ".mp3", 'q_content' =>  null, 'q_image' => $l19_G342_image . "man" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "man"],
+            ['round' => 5, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "M" . ".png", "a_image" => $A_Z_success . "M.png", "a_extra" => 3, 'q_image' => null, 'a_content' => "M"],
+            ['round' => 5, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "a" . ".png", "a_image" => $a_z_success . "a.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "a"],
+            ['round' => 5, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "n" . ".png", "a_image" => $a_z_success . "n.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "n"],
 
 
-            ['round' => 6, 'game_id' => 342, 'q_audio' =>  $AudioDomain . $G2_L19_trace_word . "mug" . ".mp3", 'q_content' =>  null, 'q_image' => $l19_G342_image . "mug" . ".png", 'a_content' => "mug"],
-            ['round' => 6, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "m" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 6, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "small-u" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 6, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $l19_G342_image . "small-g" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 6, 'game_id' => 342, 'q_audio' =>  $AudioDomain . $G2_L19_trace_word . "mug" . ".mp3", 'q_content' =>  null, 'q_image' => $l19_G342_image . "mug" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "mug"],
+            ['round' => 6, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "M" . ".png", "a_image" => $A_Z_success . "M.png", "a_extra" => 3, 'q_image' => null, 'a_content' => "M"],
+            ['round' => 6, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "u" . ".png", "a_image" => $a_z_success . "u.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "u"],
+            ['round' => 6, 'game_id' => 342, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "g" . ".png", "a_image" => $a_z_success . "g.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "g"],
 
         ]);
 
@@ -2832,34 +2838,34 @@ class AnsNQueSeeder extends Seeder
         $G2_L20_trace_word = "Grade_2/" . "Lesson_20/" . "trace_word/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 348, 'q_audio' =>  $AudioDomain . $G2_L20_trace_word . "oil" . ".mp3", 'q_content' =>  null, 'q_image' => $l20_G348_image . "oil" . ".png", 'a_content' => "oil"],
-            ['round' => 1, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $l20_G348_image . "o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $l20_G348_image . "small-i" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 1, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $l20_G348_image . "small-l" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 1, 'game_id' => 348, 'q_audio' =>  $AudioDomain . $G2_L20_trace_word . "oil" . ".mp3", 'q_content' =>  null, 'q_image' => $l20_G348_image . "oil" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "oil"],
+            ['round' => 1, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "O" . ".png",  "a_image" => $A_Z_success . "O.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "O"],
+            ['round' => 1, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "i" . ".png",  "a_image" => $a_z_success . "i.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "i"],
+            ['round' => 1, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "l" . ".png",  "a_image" => $a_z_success . "l.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "l"],
 
 
-            ['round' => 2, 'game_id' => 348, 'q_audio' =>  $AudioDomain . $G2_L20_trace_word . "pig" . ".mp3", 'q_content' =>  null, 'q_image' => $l20_G348_image . "pig" . ".png", 'a_content' => "pig"],
-            ['round' => 2, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $l20_G348_image . "p" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $l20_G348_image . "small-i" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 2, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $l20_G348_image . "small-g" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 2, 'game_id' => 348, 'q_audio' =>  $AudioDomain . $G2_L20_trace_word . "pig" . ".mp3", 'q_content' =>  null, 'q_image' => $l20_G348_image . "pig" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "pig"],
+            ['round' => 2, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "P" . ".png",  "a_image" => $A_Z_success . "P.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "P"],
+            ['round' => 2, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "i" . ".png",  "a_image" => $a_z_success . "i.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "i"],
+            ['round' => 2, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "g" . ".png",  "a_image" => $a_z_success . "g.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "g"],
 
 
-            ['round' => 3, 'game_id' => 348, 'q_audio' =>  $AudioDomain . $G2_L20_trace_word . "pool" . ".mp3", 'q_content' =>  null, 'q_image' => $l20_G348_image . "pool" . ".png", 'a_content' => "pool"],
-            ['round' => 3, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $l20_G348_image . "p" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $l20_G348_image . "small-o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $l20_G348_image . "small-o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 3, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $l20_G348_image . "small-l" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 3, 'game_id' => 348, 'q_audio' =>  $AudioDomain . $G2_L20_trace_word . "pool" . ".mp3", 'q_content' =>  null, 'q_image' => $l20_G348_image . "pool" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "pool"],
+            ['round' => 3, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "P" . ".png",  "a_image" => $A_Z_success . "P.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "P"],
+            ['round' => 3, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png",  "a_image" => $a_z_success . "o.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "o"],
+            ['round' => 3, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "o" . ".png",  "a_image" => $a_z_success . "o.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "o"],
+            ['round' => 3, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "l" . ".png",  "a_image" => $a_z_success . "l.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "l"],
 
 
-            ['round' => 4, 'game_id' => 348, 'q_audio' =>  $AudioDomain . $G2_L20_trace_word . "owl" . ".mp3", 'q_content' =>  null, 'q_image' => $l20_G348_image . "owl" . ".png", 'a_content' => "owl"],
-            ['round' => 4, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $l20_G348_image . "o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $l20_G348_image . "small-w" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 4, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $l20_G348_image . "small-l" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 4, 'game_id' => 348, 'q_audio' =>  $AudioDomain . $G2_L20_trace_word . "owl" . ".mp3", 'q_content' =>  null, 'q_image' => $l20_G348_image . "owl" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "owl"],
+            ['round' => 4, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "O" . ".png",  "a_image" => $A_Z_success . "O.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "O"],
+            ['round' => 4, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "w" . ".png",  "a_image" => $a_z_success . "w.png", "a_extra" => 4, 'q_image' => null, 'a_content' => "w"],
+            ['round' => 4, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "l" . ".png",  "a_image" => $a_z_success . "l.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "l"],
 
 
-            ['round' => 5, 'game_id' => 348, 'q_audio' =>  $AudioDomain . $G2_L20_trace_word . "ox" . ".mp3", 'q_content' =>  null, 'q_image' => $l20_G348_image . "ox" . ".png", 'a_content' => "ox"],
-            ['round' => 5, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $l20_G348_image . "o" . ".png", 'q_image' => null, 'a_content' => null],
-            ['round' => 5, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $l20_G348_image . "small-x" . ".png", 'q_image' => null, 'a_content' => null],
+            ['round' => 5, 'game_id' => 348, 'q_audio' =>  $AudioDomain . $G2_L20_trace_word . "ox" . ".mp3", 'q_content' =>  null, 'q_image' => $l20_G348_image . "ox" . ".png", "a_image" => null, "a_extra" => null, 'a_content' => "ox"],
+            ['round' => 5, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $A_Z_traceword . "O" . ".png",  "a_image" => $A_Z_success . "O.png", "a_extra" => 1, 'q_image' => null, 'a_content' => "O"],
+            ['round' => 5, 'game_id' => 348, 'q_audio' => null, 'q_content' =>  $a_z_traceword . "x" . ".png",  "a_image" => $a_z_success . "x.png", "a_extra" => 2, 'q_image' => null, 'a_content' => "x"],
 
 
         ]);

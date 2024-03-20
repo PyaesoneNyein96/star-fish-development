@@ -100,7 +100,8 @@ Field (token (Header))
 
 ### Purchase Plan
 
-Method (POST) [https://star-fish.myanmargateway.net/api/subscription/purchase](https://star-fish.myanmargateway.net/api/subscription/purchase)  
+#### - Request Prepay_Id
+Method (POST) [https://star-fish.myanmargateway.net/api/payment/request_prepay_id](https://star-fish.myanmargateway.net/api/payment/request_prepay_id)  
 Field (token, grade_id, subscription_id (Header))
 
 ### Remove Grade

@@ -18,6 +18,14 @@ class AnsNQueSeeder extends Seeder
         $AudioDomain = $domain . "/storage/audios/";
 
 
+        $a_z_traceword = $domain . "/storage/images/AtoZTrace/small_dotted/";
+        $A_Z_traceword = $domain . "/storage/images/AtoZTrace/capital_dotted/";
+
+        $a_z_success = $domain . "/storage/images/TraceSuccessAZ/small_success/";
+        $A_Z_success = $domain . "/storage/images/TraceSuccessAZ/capital_success/";
+
+
+
 
         //////////////////////////////////////////////////////////////
         ////    Grade 1  Lesson 3 Game 12 ( video )
@@ -485,15 +493,17 @@ class AnsNQueSeeder extends Seeder
             ["round" => 5, "game_id" => 24, "a_image" => $l5G24image . "girl.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "i'm_ok.mp3", "a_conver" => $l5G24image . "ok.png", "background" => $l5G24image . "bg.png"],
 
 
-            ["round" => 6, "game_id" => 24, "a_image" => $l5G24image . "girl2.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "good_afternoon_susan.mp3", "a_conver" => $l5G24image . "afternoon-susan.png", "background" => $l5G24image . "bg.png"],
             ["round" => 6, "game_id" => 24, "a_image" => $l5G24image . "girl.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "good_afternoon_mary.mp3", "a_conver" => $l5G24image . "afternoon-mary.png", "background" => $l5G24image . "bg.png"],
+            ["round" => 6, "game_id" => 24, "a_image" => $l5G24image . "girl2.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "good_afternoon_susan.mp3", "a_conver" => $l5G24image . "afternoon-susan.png", "background" => $l5G24image . "bg.png"],
 
-            ["round" => 7, "game_id" => 24, "a_image" => $l5G24image . "girl2.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "how_are_you.mp3", "a_conver" => $l5G24image . "how-are-you.png", "background" => $l5G24image . "bg.png"],
             ["round" => 7, "game_id" => 24, "a_image" => $l5G24image . "girl.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "i'm_great_and_you.mp3", "a_conver" => $l5G24image . "great-you.png", "background" => $l5G24image . "bg.png"],
+            ["round" => 7, "game_id" => 24, "a_image" => $l5G24image . "girl2.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "how_are_you.mp3", "a_conver" => $l5G24image . "how-are-you.png", "background" => $l5G24image . "bg.png"],
+
             ["round" => 7, "game_id" => 24, "a_image" => $l5G24image . "girl2.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "i'm_ok_2.mp3", "a_conver" => $l5G24image . "ok.png", "background" => $l5G24image . "bg.png"],
 
-            ["round" => 8, "game_id" => 24, "a_image" => $l5G24image . "girl2.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "goodbye.mp3", "a_conver" => $l5G24image . "bye-left.png", "background" => $l5G24image . "bg.png"],
             ["round" => 8, "game_id" => 24, "a_image" => $l5G24image . "girl.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "goodbye_2.mp3", "a_conver" => $l5G24image . "bye-right.png", "background" => $l5G24image . "bg.png"],
+
+            ["round" => 8, "game_id" => 24, "a_image" => $l5G24image . "girl2.gif", "a_audio" => $AudioDomain . $G1_L5_G24_read_listen_n_repeat_path . "goodbye.mp3", "a_conver" => $l5G24image . "bye-left.png", "background" => $l5G24image . "bg.png"],
 
         ]);
 
@@ -2184,7 +2194,7 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
             ['round' => 1, 'game_id' => 65, "q_image" => null, "q_audio" => $AudioDomain . $G1_L11_reading_passage_path . "car_doll_airplane.mp3", 'q_content' => "car, doll, airplane", "q_conver" => null, 'a_content' => 0, "background" => null],
-            ['round' => 1, 'game_id' => 65, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L11_reading_passage_path . "ball_bear.mp3", 'q_content' => "ball, bear, doll", "q_conver" => null, 'a_content' => 1, "background" => null],
+            ['round' => 1, 'game_id' => 65, "q_image" => null, "q_audio" =>  $AudioDomain . $G1_L11_reading_passage_path . "ball_bear.mp3", 'q_content' => "ball, teddy bear", "q_conver" => null, 'a_content' => 1, "background" => null],
             ['round' => 1, 'game_id' => 65, "q_image" => null, "q_audio" => $AudioDomain . $G1_L11_reading_passage_path . "I-love-toys-My-toys-are-car-d.mp3", "q_conver" => "I love toys. My toys are ____.", 'q_content' => null, 'a_content' => null, "background" => null],
             ['round' => 1, 'game_id' => 65, "q_image" => null, "q_audio" => $AudioDomain . $G1_L11_reading_passage_path . "I-love-toys-I-play-with-them.mp3", "q_content" => "I love toys", 'q_conver' => "I love toys. I play with them after school. This is my teddy bear. It's brown and black. This is my doll. It's beautiful. Its dress is blue and purple. I also have a ball. I play with it everyday. It's yellow and blue.", 'a_content' => null, "background" => $l11G65image . "background.png"],
 
@@ -2360,11 +2370,12 @@ class AnsNQueSeeder extends Seeder
             ['round' => 1, 'game_id' => 77, "q_audio" => $AudioDomain . $G1_L13_Speaking . "small-Its-small.mp3", 'q_image' => $l13G77image . "dog.png", "round_instruction" => $AudioDomain . $G1_L13_Speaking . "Describe-the-pictures-Its.mp3", "q_content" => "Describe the picture. It's ____."],
             ['round' => 2, 'game_id' => 77, "q_audio" => $AudioDomain . $G1_L13_Speaking . "new-Its-new.mp3", 'q_image' => $l13G77image . "house.png", "round_instruction" => $AudioDomain . $G1_L13_Speaking . "Describe-the-pictures-Its.mp3", "q_content" => "Describe the picture. It's ____."],
             ['round' => 3, 'game_id' => 77, "q_audio" => $AudioDomain . $G1_L13_Speaking . "long---Its-long.mp3", 'q_image' => $l13G77image . "ruler.png", "round_instruction" => $AudioDomain . $G1_L13_Speaking . "Describe-the-pictures-Its.mp3", "q_content" => "Describe the picture. It's ____."],
-            ['round' => 4, 'game_id' => 77, "q_audio" => $AudioDomain . $G1_L13_Speaking . "slow-Its-slow.mp3", 'q_image' => $l13G77image . "turtle.png", "round_instruction" => $AudioDomain . $G1_L13_Speaking . "Describe-the-pictures-Its.mp3", "q_content" => "Describe the picture. It's ____."],
+            // ['round' => 4, 'game_id' => 77, "q_audio" => $AudioDomain . $G1_L13_Speaking . "slow-Its-slow.mp3", 'q_image' => $l13G77image . "turtle.png", "round_instruction" => $AudioDomain . $G1_L13_Speaking . "Describe-the-pictures-Its.mp3", "q_content" => "Describe the picture. It's ____."],
             ['round' => 5, 'game_id' => 77, "q_audio" => $AudioDomain . $G1_L13_Speaking . "soft-Its-soft.mp3", 'q_image' => $l13G77image . "cake.png", "round_instruction" => $AudioDomain . $G1_L13_Speaking . "Describe-the-pictures-Its.mp3", "q_content" => "Describe the picture. It's ____."],
             ['round' => 6, 'game_id' => 77, "q_audio" => $AudioDomain . $G1_L13_Speaking . "fast-Its-fast.mp3", 'q_image' => $l13G77image . "rabbit.png", "round_instruction" => $AudioDomain . $G1_L13_Speaking . "Describe-the-pictures-Its.mp3", "q_content" => "Describe the picture. It's ____."],
             ['round' => 7, 'game_id' => 77, "q_audio" => $AudioDomain . $G1_L13_Speaking . "dirty-Its-dirty.mp3", 'q_image' => $l13G77image . "dirty_girl.png", "round_instruction" => $AudioDomain . $G1_L13_Speaking . "Describe-the-pictures-Its.mp3", "q_content" => "Describe the picture. It's ____."],
             ['round' => 8, 'game_id' => 77, "q_audio" => $AudioDomain . $G1_L13_Speaking . "new-Its-new.mp3", 'q_image' => $l13G77image . "car.png", "round_instruction" => $AudioDomain . $G1_L13_Speaking . "Describe-the-pictures-Its.mp3", "q_content" => "Describe the picture. It's ____."],
+
             ['round' => 9, 'game_id' => 77, "q_audio" => $AudioDomain . $G1_L13_Speaking . "old-Its-old.mp3", 'q_image' => $l13G77image . "book.png", "round_instruction" => $AudioDomain . $G1_L13_Speaking . "Describe-the-pictures-Its.mp3", "q_content" => "Describe the picture. It's ____."],
         ]);
 
@@ -3102,15 +3113,22 @@ class AnsNQueSeeder extends Seeder
         $G98tracing = [
             'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l'
         ];
+
+        $G98tracing_count = [
+            3,2,2,2,3,3,2,1
+        ];
+
         foreach ($G98tracing as $i => $trace) {
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1,
                     'game_id' => 98,
                     'q_audio' =>  $AudioDomain . $G1_L16_writing . strtoupper($trace) . ".mp3",
-                    'q_content' => ctype_lower($trace) ?   $l16_G98_G99_image . "dotted_small_" . $trace . ".png" :  $l16_G98_G99_image . "dotted_" . $trace . ".png",
+                    'q_content' => ctype_lower($trace) ?   $a_z_traceword . $trace . ".png" :  $A_Z_traceword . $trace . ".png",
                     'q_image' => ctype_lower($trace) ?   $l16_G98_G99_image . "small_" . $trace . ".png" :  $l16_G98_G99_image . $trace . ".png",
+                    "a_image" =>  ctype_lower($trace) ?   $a_z_success .  $trace . ".png" :  $A_Z_success . $trace . ".png",
                     'a_content' => $trace,
+                    "a_extra" =>  $G98tracing_count[$i]
                 ],
             ]);
         }
@@ -3373,12 +3391,12 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 3, 'game_id' => 112, "q_audio" => $AudioDomain . $G1_L18_Speaking . "Touch-your-back.mp3", 'round_instruction' => $AudioDomain . $G1_L18_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l18G112image . "back.png", "q_content" => "Look at the picture say the sentence. \nDon't touch your ____."],
-            ['round' => 4, 'game_id' => 112, "q_audio" => $AudioDomain . $G1_L18_Speaking . "Touch-your-knee.mp3", 'round_instruction' => $AudioDomain . $G1_L18_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l18G112image . "knee.png", "q_content" => "Look at the picture say the sentence. \nTouch your ____."],
-            ['round' => 1, 'game_id' => 112, "q_audio" => $AudioDomain . $G1_L18_Speaking . "SubBlock_Touch-your-finger.mp3", 'round_instruction' => $AudioDomain . $G1_L18_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l18G112image . "finger.png", "q_content" => "Look at the picture say the sentence. \nTouch your ____."],
-            ['round' => 2, 'game_id' => 112, "q_audio" => $AudioDomain . $G1_L18_Speaking . "SubBlock_Touch-your-Shoulder.mp3", 'round_instruction' => $AudioDomain . $G1_L18_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l18G112image . "shoulder.png", "q_content" => "Look at the picture say the sentence. \nTouch your ____."],
-            ['round' => 5, 'game_id' => 112, "q_audio" => $AudioDomain . $G1_L18_Speaking . "Touch-your-arm.mp3", 'round_instruction' => $AudioDomain . $G1_L18_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l18G112image . "hand.png", "q_content" => "Look at the picture say the sentence. \nTouch your ____."],
-            ['round' => 6, 'game_id' => 112, "q_audio" => $AudioDomain . $G1_L18_Speaking . "Dont-touch-your-feet.mp3", 'round_instruction' => $AudioDomain . $G1_L18_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l18G112image . "feet.png", "q_content" => "Look at the picture say the sentence. \nDon't touch your ____."],
+            ['round' => 3, 'game_id' => 112, "q_audio" => $AudioDomain . $G1_L18_Speaking . "Touch-your-back.mp3", 'round_instruction' => $AudioDomain . $G1_L18_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l18G112image . "back.png", "q_content" => "Look at the picture and say the sentence. \nDon't touch your back."],
+            ['round' => 4, 'game_id' => 112, "q_audio" => $AudioDomain . $G1_L18_Speaking . "Touch-your-knee.mp3", 'round_instruction' => $AudioDomain . $G1_L18_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l18G112image . "knee.png", "q_content" => "Look at the picture and say the sentence. \nTouch your ____."],
+            ['round' => 1, 'game_id' => 112, "q_audio" => $AudioDomain . $G1_L18_Speaking . "SubBlock_Touch-your-finger.mp3", 'round_instruction' => $AudioDomain . $G1_L18_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l18G112image . "finger.png", "q_content" => "Look at the picture and say the sentence. \nTouch your ____."],
+            ['round' => 2, 'game_id' => 112, "q_audio" => $AudioDomain . $G1_L18_Speaking . "SubBlock_Touch-your-Shoulder.mp3", 'round_instruction' => $AudioDomain . $G1_L18_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l18G112image . "shoulder.png", "q_content" => "Look at the picture and say the sentence. \nTouch your ____."],
+            ['round' => 5, 'game_id' => 112, "q_audio" => $AudioDomain . $G1_L18_Speaking . "Touch-your-arm.mp3", 'round_instruction' => $AudioDomain . $G1_L18_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l18G112image . "hand.png", "q_content" => "Look at the picture and say the sentence. \nTouch your ____."],
+            ['round' => 6, 'game_id' => 112, "q_audio" => $AudioDomain . $G1_L18_Speaking . "Dont-touch-your-feet.mp3", 'round_instruction' => $AudioDomain . $G1_L18_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l18G112image . "feet.png", "q_content" => "Look at the picture and say the sentence. \nDon't touch your ____."],
 
         ]);
 
@@ -3560,7 +3578,7 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 118, "q_audio" =>  $AudioDomain . $G1_L19_Speaking . "SubBlock_Touch-your-legs.mp3", "round_instruction" =>  $AudioDomain . $G1_L19_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l19G118image . "leg.png", "q_content" => "Look at the picture say the sentence.\nTouch your ____."],
+            ['round' => 1, 'game_id' => 118, "q_audio" =>  $AudioDomain . $G1_L19_Speaking . "SubBlock_Touch-your-legs.mp3", "round_instruction" =>  $AudioDomain . $G1_L19_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l19G118image . "leg.png", "q_content" => "Look at the picture and say the sentence.\nTouch your ____."],
             ['round' => 2, 'game_id' => 118, "q_audio" =>  $AudioDomain . $G1_L19_Speaking . "Dont-touch-your-ankle.mp3", "round_instruction" =>  $AudioDomain . $G1_L19_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l19G118image . "ankle.png", "q_content" => "Look at the picture say the sentence.\nDon't touch your ____."],
             ['round' => 3, 'game_id' => 118, "q_audio" =>  $AudioDomain . $G1_L19_Speaking . "Dont-touch-your-feet.mp3", "round_instruction" =>  $AudioDomain . $G1_L19_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l19G118image . "feet.png", "q_content" => "Look at the picture say the sentence.\nDon't touch your ____."],
             ['round' => 4, 'game_id' => 118, "q_audio" =>  $AudioDomain . $G1_L19_Speaking . "Dont-touch-your-thigh.mp3", "round_instruction" =>  $AudioDomain . $G1_L19_Speaking . "Look-at-the-pictures-say-a-sen" . ".mp3", 'q_image' => $l19G118image . "thigh.png", "q_content" => "Look at the picture say the sentence. \nDon't touch your ____."],
@@ -3746,15 +3764,22 @@ class AnsNQueSeeder extends Seeder
         $G125tracing = [
             'M', 'm', 'N', 'n'
         ];
+
+        $G125tracing_count =[
+            4,3,3,2
+        ];
+
         foreach ($G125tracing as $i => $trace) {
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1,
                     'game_id' => 125,
                     'q_audio' =>  $AudioDomain . $G1_L20_writing . strtoupper($trace) . ".mp3",
-                    'q_content' => ctype_lower($trace) ?    $l20_G125_G126_image . "dotted_small_" . $trace . ".png" :   $l20_G125_G126_image . "dotted_" . $trace . ".png",
+                    'q_content' => ctype_lower($trace) ?   $a_z_traceword . $trace . ".png" :  $A_Z_traceword . $trace . ".png",
                     'q_image' => ctype_lower($trace) ?    $l20_G125_G126_image . "small_" . $trace . ".png" :   $l20_G125_G126_image . $trace . ".png",
+                    'a_image' =>  ctype_lower($trace) ?   $a_z_success .  $trace . ".png" :  $A_Z_success . $trace . ".png",
                     'a_content' => $trace,
+                    "a_extra"=> $G125tracing_count[$i]
                 ],
             ]);
         }
@@ -4981,15 +5006,22 @@ class AnsNQueSeeder extends Seeder
         $G158tracing = [
             'O', 'o', 'P', 'p'
         ];
+
+        $G158tracing_count = [
+            1,1, 2, 2
+        ];
+
         foreach ($G158tracing as $i => $trace) {
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1,
                     'game_id' => 158,
                     'q_audio' =>  $AudioDomain . $G1_L25_writing . strtoupper($trace) . ".mp3",
-                    'q_content' => ctype_lower($trace) ?   $l25_G158_G159_image . "dotted_small_" . $trace . ".png" :  $l25_G158_G159_image . "dotted_" . $trace . ".png",
+                    'q_content' => ctype_lower($trace) ?   $a_z_traceword .  $trace . ".png" :  $A_Z_traceword .  $trace . ".png",
                     'q_image' => ctype_lower($trace) ?   $l25_G158_G159_image . "small_" . $trace . ".png" :  $l25_G158_G159_image . $trace . ".png",
+                    "a_image" =>  ctype_lower($trace) ?   $a_z_success .  $trace . ".png" :  $A_Z_success . $trace . ".png",
                     'a_content' => $trace,
+                    'a_extra' => $G158tracing_count[$i]
                 ],
             ]);
         }
@@ -6065,15 +6097,22 @@ class AnsNQueSeeder extends Seeder
         $G189tracing = [
             'Q', 'q', 'R', 'r'
         ];
+
+        $G189tracing_count = [
+            2,2,3,2
+        ];
+
         foreach ($G189tracing as $i => $trace) {
             DB::table('ans_n_ques')->insert([
                 [
                     'round' => $i + 1,
                     'game_id' => 189,
                     'q_audio' =>  $AudioDomain . $G1_L30_writing . strtoupper($trace) . ".mp3",
-                    'q_content' => ctype_lower($trace) ?   $l30_G189_G190_image . "dotted_small_" . $trace . ".png" :  $l30_G189_G190_image . "dotted_" . $trace . ".png",
+                    'q_content' => ctype_lower($trace) ?   $a_z_traceword . $trace . ".png" :  $A_Z_traceword . $trace . ".png",
                     'q_image' => ctype_lower($trace) ?   $l30_G189_G190_image . "small_" . $trace . ".png" :  $l30_G189_G190_image . $trace . ".png",
+                    "a_image" =>  ctype_lower($trace) ?   $a_z_success .  $trace . ".png" :  $A_Z_success . $trace . ".png",
                     'a_content' => $trace,
+                    "a_extra" => $G189tracing_count[$i]
                 ],
             ]);
         }

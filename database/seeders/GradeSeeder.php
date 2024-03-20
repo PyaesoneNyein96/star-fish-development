@@ -14,11 +14,16 @@ class GradeSeeder extends Seeder
      */
     public function run(): void
     {
-        $grades = range(1,12);
+        $grades = range(1, 12);
 
-        foreach ($grades as $g) {
+        foreach ($grades as $key => $g) {
             DB::table('grades')->insert([
-                ['name' => $g,'price' => 10000 + 10000*(int)$g/4 ],
+                [
+                    'name' => $g,
+                    'local_price' => 100 + 10 * (int)$g / 4,
+                    'global_price' => 20 + 4 * (int)$g / 4,
+                    'status' => $key  <= 4 ? 1 : 0
+                ],
             ]);
         }
 
@@ -43,8 +48,5 @@ class GradeSeeder extends Seeder
                 'created_at' => Carbon::now()
             ]
         ]);
-
-
-
     }
 }
