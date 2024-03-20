@@ -40,16 +40,10 @@ class GlobalAuthController extends Controller
         if($validation->fails()){
 
                 $errs = $validation->errors()->toArray();
+                if(count($errs) == 2) return response()->json(['message' => "An account is already registered with your email and deviceId"], 403);
 
-                $email = in_array('email',array_keys($errs));
-                $deviceId = in_array('deviceId',array_keys($errs));
-
-                if($email && $deviceId) return response()->json(['message' => "An account is already registered with your email and deviceId"], 403);
-
-            return response()->json([
-                "message" => $validation->errors(),
-            ], 401);
-
+                $firstError = reset($errs);
+                return response()->json(['message' => $firstError[0]], 403);
         }
 
         DB::beginTransaction();
