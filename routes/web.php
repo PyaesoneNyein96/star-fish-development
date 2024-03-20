@@ -1,20 +1,11 @@
 <?php
 
 use Inertia\Inertia;
-<<<<<<< HEAD
-use App\Models\Student;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\WorkshopController;
-use App\Http\Controllers\API\Dashboard\DashboardController;
-=======
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\API\Dashboard\DashboardController;
 use App\Http\Controllers\API\Subscribe\SubscriptionController;
->>>>>>> api
 
 /*
 |--------------------------------------------------------------------------
@@ -125,15 +116,3 @@ Route::get('/link', function () {
     Artisan::call('storage:link');
     return back();
 });
-<<<<<<< HEAD
-
-
-
-Route::get('userList', function () {
-
-    return Student::all();
-});
-
-Route::get('gameAudio', [WorkshopController::class, 'gameAudio']);
-=======
->>>>>>> api
