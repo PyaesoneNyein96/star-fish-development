@@ -37,6 +37,15 @@ class LocalAuthController extends Controller
         ->where('isAuth',1)->exists();
 
         if($validation->fails()){
+
+
+            $errs = $validation->errors()->toArray();
+
+            $phone = in_array('phone',array_keys($errs));
+            $deviceId = in_array('deviceId',array_keys($errs));
+
+            if($phone && $deviceId) return response()->json(['message' => "An account is already registered with your phone number and deviceId"], 403);
+
             return response()->json([
                 "message" => $validation->errors(),
             ], 401);
@@ -214,7 +223,7 @@ class LocalAuthController extends Controller
             'city_id' => 'required|numeric',
             'deviceId' => 'required|unique:students,deviceId',
         ],[
-            'phone.unique' => "An account is already registered with your phone",
+            'phone.unique' => "An account is already registered with your phone.",
             'agreeToPolicy.same_one' => "You must agree to the policy by setting."
         ]);
 
@@ -229,5 +238,3 @@ class LocalAuthController extends Controller
 
 
 }
-
-
