@@ -87,11 +87,12 @@ class GameController extends Controller
                 'id' => $grade->id,
                 'name' => $grade->name,
                 'price' => $student->isLocal == 1 ? $grade->local_price : $grade->global_price,
-                'paid' => $paid,
-                'allowed' => $lock && $grade->status == 1,
-                'complete' => $isDone->contains('id', $grade->id),
+                'day_count' => (int)$day_count ? (int)$day_count : null,
                 'expire_date' => $expire_date,
-                'day_count' => (int)$day_count ? (int)$day_count : null ,
+                'paid' => $paid,
+                'complete' => $isDone->contains('id', $grade->id),
+                'allowed' => $lock && $grade->status == 1,
+                'status' =>  $grade->status == 1,
             ];
         });
 
@@ -108,10 +109,10 @@ class GameController extends Controller
         $grade = $request->header('grade_id');
 
         $student = Student::where('token', $token)->first();
-
         $allLessons = Lesson::where('grade_id', $grade)->get();
 
-        $studentGrade = $student->grades;
+        // $studentGrade = $student->grades;
+        $GradeChosen = $student->grade_chosen;
 
         $studentLessons = $student->lessons; // ဆော့ပီးတဲ့ lessons
 
@@ -122,7 +123,7 @@ class GameController extends Controller
 
         $ls_count = StudentLesson::where('student_id', $student->id)->where('grade_id',$grade)->get()->count();
 
-        $lessons = $allLessons->map(function ($lesson, $index) use ($studentLessons, $grade, $count, $ls_count) {
+        $lessons = $allLessons->map(function ($lesson, $index) use ($studentLessons, $grade, $count, $ls_count, $GradeChosen) {
 
         $complete = $studentLessons->contains('id', $lesson->id) || $index  == $ls_count ? true : false;
 
@@ -133,15 +134,17 @@ class GameController extends Controller
                 $ls ++;
             }
 
-
+            $gc = $GradeChosen;
             return [
                 'id' => $lesson->id,
                 'grade_id' => $lesson->grade_id,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
-                // 'allowed' => $index < ($ls == 0 ? 1 : $ls)
-                'allowed' => $complete || ($index > $count * 8 - 1  ? false : true),
-                // 'grade_done' => $student
+                // 'allowed' => $complete || ($index > $count * 8 - 1  ? false : true), // normal index +
+                // 'allowed' => $gc && ($complete || ($index > $ls_count - 1  ? false : true)), // normal index+
+                // 'allowed' =>  $index < ($ls == 0 ? 1 : $ls)  // ‌include Assessment
+                'allowed' => $gc ? $gc && ($complete || ($index > $ls_count - 1  ? false : true)) :  $index < ($ls == 0 ? 1 : $ls)  // ‌include Assessment
+
             ];
 
 

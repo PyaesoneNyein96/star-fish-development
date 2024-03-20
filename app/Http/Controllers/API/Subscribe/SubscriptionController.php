@@ -135,7 +135,9 @@ class SubscriptionController extends Controller
             }
         }
 
-
+        // skip payment process
+        $this->getGradeAsset($student, $this->grade_id, $this->subscription_id);
+        return "ok";
 
 
 

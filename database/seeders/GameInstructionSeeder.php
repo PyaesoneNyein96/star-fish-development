@@ -120,8 +120,8 @@ class GameInstructionSeeder extends Seeder
             // G-1 lesson_5 U-24
             ['content' => "Listen and Repeat", 'game_id' => 24, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
-            // G-1 lesson_5 U-25
-            ['content' => "Answer the question", 'game_id' => 25, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
+            // G-1 lesson_5 U-26
+            ['content' => "Answer the question", 'game_id' => 26, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
 
             // G-1 lesson_5 U-26
             // ['content' => "Tap the things in the room and answer the question", 'game_id' => 26, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
@@ -201,6 +201,7 @@ class GameInstructionSeeder extends Seeder
 
             // G-1 lesson_9 U-50
             ['content' => "Match the words you hear with the pictures", 'game_id' => 51, 'audio' =>  $Instructions . "Match-the-words-you-hear-with" . ".mp3"],
+            //  ['content' => "Matching things in class", 'game_id' => 51, 'audio' =>  $Instructions . "Matching-things-in-class" . ".mp3"],
 
             // G-1 lesson_9 U-51
             // ['content' => "Describe the pictures", 'game_id' => 52, 'audio' =>  $Instructions . "Describe-the-pictures" . ".mp3"],
