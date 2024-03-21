@@ -3192,7 +3192,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'q_image' => $images . $contents[$key] . ".png",
                     'q_audio' => $audios . $contents[$key] . ".mp3",
                     // 'q_content' => $q,
-                    'a_content' => $$ans690[$key],
+                    'a_content' => $ans690[$key],
                 ]
             ]);
         }
