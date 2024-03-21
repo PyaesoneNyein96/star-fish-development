@@ -23,8 +23,6 @@ use Illuminate\Support\Facades\Redirect;
 
 class SubscriptionController extends Controller
 {
-
-
     // public $token, $grade_id, $subscription_id, $student ;
 
     private $token, $grade_id, $subscription_id, $student, $time, $orderId, $nonce_str, $domain, $prepay_id;
@@ -195,9 +193,6 @@ class SubscriptionController extends Controller
 
         $params = "appid=$appid&merch_code=$merch_code&nonce_str=$nonce_str&prepay_id=$prepay_id&timestamp=$timestamp&sign=$sign";
 
-        // OrderTransaction::where("id", $request["Request"]["merch_order_id"])
-        //     ->update(["prepay_id" => $prepay_id]);
-
         return view('referer', compact("redirectUrl", "params"));
     }
 
@@ -214,16 +209,15 @@ class SubscriptionController extends Controller
                 $request["Request"]["appid"] == "kp0480c579f02f48ae8c37ce82260511" &&
                 $request["Request"]["trade_status"] == "PAY_SUCCESS"
             ) {
-                logger("notify !!");
                 return "success";
             }
+            return redirect($this->domain . "fail");
         }
     }
 
     // return url ( success )
     public function return_url(Request $request)
     {
-        // if ($request["Request"]) {
         $payInfo = OrderTransaction::where("id", $request->merch_order_id)->first();
         if ($payInfo) {
             $successString = $this->time . "_" . strtoupper(substr(Str::uuid(), 0, 10));
@@ -236,9 +230,8 @@ class SubscriptionController extends Controller
 
             return "success";
         }
-        // }
 
-        return "wrong order";
+        return redirect($this->domain . "fail");
     }
 
 

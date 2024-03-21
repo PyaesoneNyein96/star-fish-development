@@ -1360,8 +1360,8 @@ class UnitSeeder extends Seeder
             ['name' => 'Practice', 'lesson_id' => 133],
             ['name' => 'Speaking Practice', 'lesson_id' => 133],
             ['name' => 'Reading', 'lesson_id' => 133],
-            ['name' => 'Speaking Topic', 'lesson_id' => 133],
             ['name' => 'Writing Topic', 'lesson_id' => 133],
+            ['name' => 'Speaking Topic', 'lesson_id' => 133],
 
 
             // // G4 lesson 14
