@@ -16,9 +16,9 @@ class SubscriptionPlanSeeder extends Seeder
 
         DB::table('subscriptions')->insert([
 
-            ['name' => 'Google-Pay','currency' => 'dollar'],
             ['name' => 'KBZ-Pay', 'currency' => 'kyats'],
             ['name' => 'WaveMony', 'currency' => 'kyats'],
+            ['name' => 'Google-Pay','currency' => 'dollar'],
 
         ]);
 

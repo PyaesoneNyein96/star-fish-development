@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Redirect;
 
 class SubscriptionController extends Controller
 {
+
+
     // public $token, $grade_id, $subscription_id, $student ;
 
     private $token, $grade_id, $subscription_id, $student, $time, $orderId, $nonce_str, $domain, $prepay_id;
@@ -119,26 +121,6 @@ class SubscriptionController extends Controller
         if (!$student) return response()->json(["status" => "you are not allowed for this process."], 403);
 
 
-        $alreadyBought = StudentGrade::where('student_id', $student->id)->where('grade_id', $request->header('grade_id'))->first();
-
-        if($alreadyBought){
-        $renew = Carbon::now()->diff($alreadyBought->expire_date);
-            $type = $renew->invert ? '-' : '';
-            $day_count = $type . $renew->days;
-
-            if((int)$day_count > 0 ) {
-                return response()->json([
-                    "message" => "You are already purchased the plan."
-                ], 402);
-            }
-        }
-
-        // skip payment process
-        $this->getGradeAsset($student, $this->grade_id, $this->subscription_id);
-        return "ok";
-
-
-
         DB::beginTransaction();
         try {
 
@@ -146,7 +128,6 @@ class SubscriptionController extends Controller
 
             // $response = $this->request_prepay_id($this->time, $this->orderId, $this->nonce_str);
             $response = $this->request_prepay_id($this->time, $order_id, $this->nonce_str);
-
 
             $result = $response['Response']['result'] == "SUCCESS";
             if (!$result) return response()->json(["message" => $response['Response']], 402);
@@ -214,6 +195,9 @@ class SubscriptionController extends Controller
 
         $params = "appid=$appid&merch_code=$merch_code&nonce_str=$nonce_str&prepay_id=$prepay_id&timestamp=$timestamp&sign=$sign";
 
+        // OrderTransaction::where("id", $request["Request"]["merch_order_id"])
+        //     ->update(["prepay_id" => $prepay_id]);
+
         return view('referer', compact("redirectUrl", "params"));
     }
 
@@ -230,15 +214,16 @@ class SubscriptionController extends Controller
                 $request["Request"]["appid"] == "kp0480c579f02f48ae8c37ce82260511" &&
                 $request["Request"]["trade_status"] == "PAY_SUCCESS"
             ) {
+                logger("notify !!");
                 return "success";
             }
-            return redirect($this->domain . "fail");
         }
     }
 
     // return url ( success )
     public function return_url(Request $request)
     {
+        // if ($request["Request"]) {
         $payInfo = OrderTransaction::where("id", $request->merch_order_id)->first();
         if ($payInfo) {
             $successString = $this->time . "_" . strtoupper(substr(Str::uuid(), 0, 10));
@@ -249,17 +234,11 @@ class SubscriptionController extends Controller
                     "status" => "success"
                 ]);
 
-
-            $student_id = $payInfo->student_id;
-
-            $student = Student::find($student_id);
-
-            $this->getGradeAsset($student, $payInfo->grade_id, $payInfo->subscription_id);
-
-            return "success from url";
+            return "success";
         }
+        // }
 
-        return redirect($this->domain . "fail");
+        return "wrong order";
     }
 
 
@@ -276,10 +255,7 @@ class SubscriptionController extends Controller
 
         $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
 
-        $isLocal = $this->student->isLocal;
-        $price = Grade::find($this->grade_id)->local_price;
-        // $price = ($isLocal == 0) ? $grade->local_price : $grade->global_price;
-
+        $price = Grade::find($this->grade_id)->price;
         $sign = $this->convert_SHA256($orderId, $time, $nonce_str, $price);
 
 
@@ -302,8 +278,6 @@ class SubscriptionController extends Controller
                 ]
             ]
         ];
-
-
 
         if ($sign) {
             return Http::post($kbzRequestURL, $data);
@@ -376,10 +350,10 @@ class SubscriptionController extends Controller
     /////////////////////////////////////////////////////
 
 
-    private function addedSubscriptionDate($latest_date, $student)
+    private function addedSubscriptionDate($latest_date)
     {
 
-        $grades = StudentGrade::where('student_id', $student->id)->get();
+        $grades = StudentGrade::where('student_id', $this->student->id)->get();
 
         $grades->filter(function ($g) use ($latest_date) {
             if ($g->expire_date !== $latest_date) {
@@ -389,44 +363,44 @@ class SubscriptionController extends Controller
     }
 
 
-    private function getGradeAsset($student, $grade_id, $subscription_id)
-    {
+    // private function addGradeToStudent()
+    // {
 
-        DB::beginTransaction();
+    //     DB::beginTransaction();
 
-        try {
+    //     try {
 
-            $now = Carbon::now(strval($student->country['timezone']));
+    //         $now = Carbon::now(strval($student->country['timezone']));
 
-            StudentGrade::create([
-                'student_id' => $student->id,
-                'grade_id' => $grade_id,
-                'subscription_id' => $subscription_id,
-                'created_at' => Carbon::now(strval($student->country['timezone'])),
-                'expire_date' => $now->addYear(),
-            ]);
+    //         StudentGrade::create([
+    //             'student_id' => $this->student->id,
+    //             'grade_id' => $this->grade_id,
+    //             'subscription_id' => $this->subscription_id,
+    //             'created_at' => Carbon::now(strval($student->country['timezone'])),
+    //             'expire_date' => $now->addYear(),
+    //         ]);
 
-            $student->update([
-                'isSubscriber' => 1,
-                'grade_chosen' => null,
-                'created_at' => Carbon::now(strval($student->country['timezone'])),
-                'updated_at' => Carbon::now(strval($student->country['timezone']))
-            ]);
+    //         $student->update([
+    //             'isSubscriber' => 1,
+    //             'grade_chosen' => null,
+    //             'created_at' => Carbon::now(strval($student->country['timezone'])),
+    //             'updated_at' => Carbon::now(strval($student->country['timezone']))
+    //         ]);
 
-            $latest_date = StudentGrade::where('grade_id', $grade_id)
-                ->pluck('expire_date');
+    //         $latest_date = StudentGrade::where('grade_id', $this->grade_id)
+    //             ->pluck('expire_date');
 
-            $this->addedSubscriptionDate($latest_date, $student);
+    //         $this->addedSubscriptionDate($latest_date);
 
 
-            DB::commit();
+    //         DB::commit();
 
-            return response()->json([
-                'status' => "successfully purchased.",
-            ], 200);
-        } catch (\Throwable $th) {
-            DB::rollback();
-            return $th;
-        }
-    }
+    //         return response()->json([
+    //             'status' => "successfully purchased.",
+    //         ], 200);
+    //     } catch (\Throwable $th) {
+    //         DB::rollback();
+    //         return $th;
+    //     }
+    // }
 }

@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->decimal('price',10,2);
+            $table->decimal('local_price',10,2);
+            $table->decimal('global_price',5,2);
+            $table->integer('status')->default(1);
             $table->string('expiry')->default('365');
             $table->timestamps();
         });

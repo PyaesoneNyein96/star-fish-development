@@ -26,7 +26,11 @@ class GlobalAuthController extends Controller
 
     public function Register(Request $request){
 
-        $tryAgain = Student::where('deviceId', $request->deviceId)->where('status',0)->where('name',$request->name)->where('email', $request->email)->exists();
+        $tryAgain = Student::where('deviceId', $request->deviceId)
+        ->where('status',0)
+        ->where('name',$request->name)
+        ->where('email', $request->email)
+        ->exists();
 
         if($tryAgain  == 1 && $request->token !== null ){
            return $this->Request_otp($request);
@@ -34,10 +38,12 @@ class GlobalAuthController extends Controller
 
         $validation =  $this->RegisterValidation($request);
         if($validation->fails()){
-            return response()->json([
-                "message" => $validation->errors(),
-            ], 401);
 
+                $errs = $validation->errors()->toArray();
+                if(count($errs) == 2) return response()->json(['message' => "An account is already registered with your email and deviceId"], 403);
+
+                $firstError = reset($errs);
+                return response()->json(['message' => $firstError[0]], 403);
         }
 
         DB::beginTransaction();
