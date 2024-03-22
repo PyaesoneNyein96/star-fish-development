@@ -116,8 +116,6 @@ class GameController extends Controller
         // $studentGrade = $student->grades;
         $GradeChosen = $student->grade_chosen;
 
-        logger($allLessons);
-        return $GradeChosen;
 
         $studentLessons = $student->lessons; // ဆော့ပီးတဲ့ lessons
 
@@ -134,7 +132,7 @@ class GameController extends Controller
         $complete = $studentLessons->contains('id', $lesson->id) || $index  == $ls_count ? true : false;
 
 
-           return $ls = $ls_count % 8 == 0  ?  $ls_count : $ls_count + 1;
+            $ls = $ls_count % 8 == 0  ?  $ls_count : $ls_count + 1;
 
             if($count !== 0 && $count * 8 == $ls ){
                 $ls ++;

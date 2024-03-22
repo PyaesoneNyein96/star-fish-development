@@ -401,7 +401,7 @@ class SubscriptionController extends Controller
     {
 
 
-        logger($student, $grade_id, $subscription_id);
+        // logger($student, $grade_id, $subscription_id);
 
         DB::beginTransaction();
 
