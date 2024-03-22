@@ -119,7 +119,6 @@ class GameController extends Controller
         $studentLessons = $student->lessons; // ဆော့ပီးတဲ့ lessons
 
 
-
         $assessments = AssessmentFinishData::where('student_id',$student->id)
         ->where('grade_id',$grade)->select('student_id','grade_id','assess_name','finish')->get();
 
@@ -132,7 +131,7 @@ class GameController extends Controller
         $complete = $studentLessons->contains('id', $lesson->id) || $index  == $ls_count ? true : false;
 
 
-            $ls = $ls_count % 8 == 0  ?  $ls_count : $ls_count + 1;
+           return $ls = $ls_count % 8 == 0  ?  $ls_count : $ls_count + 1;
 
             if($count !== 0 && $count * 8 == $ls ){
                 $ls ++;

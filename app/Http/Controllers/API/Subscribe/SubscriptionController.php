@@ -400,6 +400,9 @@ class SubscriptionController extends Controller
     private function getGradeAsset($student, $grade_id, $subscription_id)
     {
 
+
+        logger($student, $grade_id, $subscription_id);
+
         DB::beginTransaction();
 
         try {
