@@ -105,7 +105,7 @@ class GameController extends Controller
     public function lessons(Request $request)
     {
 
-        try{
+
 
         $token = $request->header('token');
         $grade = $request->header('grade_id');
@@ -115,6 +115,9 @@ class GameController extends Controller
 
         // $studentGrade = $student->grades;
         $GradeChosen = $student->grade_chosen;
+
+        logger($allLessons);
+        return $GradeChosen;
 
         $studentLessons = $student->lessons; // ဆော့ပီးတဲ့ lessons
 
@@ -155,12 +158,6 @@ class GameController extends Controller
 
 
         return $lessons;
-
-        }catch(\Throwable $th){
-            return $th;
-        }
-
-
 
 
     }

@@ -33,7 +33,7 @@ class StudentSeeder extends Seeder
                 'level' => 1,
                 'profile_picture' => null,
                 'status' => 1,
-                'grade_chosen' => null,
+                'grade_chosen' => 3,
                 'token' => "1|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
                 'isSubscriber' => 0
             ],
