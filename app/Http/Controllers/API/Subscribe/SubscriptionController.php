@@ -32,8 +32,8 @@ class SubscriptionController extends Controller
     public function __construct(Request $request)
     {
         $this->token = $request->header('token');
-        $this->grade_id = $request->header('grade_id');
-        $this->subscription_id = $request->header('subscription_id');
+        $this->grade_id = $request->header('gradeId');
+        $this->subscription_id = $request->header('subscriptionId');
 
         $this->student = Student::where('token', $request->header('token'))->first();
 
@@ -121,7 +121,7 @@ class SubscriptionController extends Controller
         if (!$student) return response()->json(["status" => "you are not allowed for this process."], 403);
 
 
-        $alreadyBought = StudentGrade::where('student_id', $student->id)->where('grade_id', $request->header('grade_id'))->first();
+        $alreadyBought = StudentGrade::where('student_id', $student->id)->where('grade_id', $request->header('gradeId'))->first();
 
         if($alreadyBought){
         $renew = Carbon::now()->diff($alreadyBought->expire_date);
@@ -180,7 +180,7 @@ class SubscriptionController extends Controller
     {
 
         $kbzCheckURL = "http://api.kbzpay.com/payment/gateway/uat/queryorder";
-        $orderId = $request->header('order_id');
+        $orderId = $request->header('orderId');
 
         $data = [
             "Request" => [

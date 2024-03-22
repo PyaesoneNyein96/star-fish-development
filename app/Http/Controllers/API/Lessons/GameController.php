@@ -108,7 +108,7 @@ class GameController extends Controller
 
 
         $token = $request->header('token');
-        $grade = $request->header('grade_id');
+        $grade = $request->header('gradeId');
 
         $student = Student::where('token', $token)->first();
         $allLessons = Lesson::where('grade_id', $grade)->get();
@@ -170,8 +170,8 @@ class GameController extends Controller
     {
 
         $student = Student::where('token', $request->header('token'))->first();
-        $lesson = $request->header('lesson_id');
-        $gradeId = $request->header('grade_id');
+        $lesson = $request->header('lessonId');
+        $gradeId = $request->header('gradeId');
 
 
         ////////////////////////////////////////////////////////////////////////////
@@ -229,9 +229,9 @@ class GameController extends Controller
     {
 
         $student = Student::where('token', $request->header('token'))->first();
-        $unit_id = $request->header('unit_id');
-        $lesson_id = $request->header('lesson_id');
-        $game_id = $request->header('game_id');
+        $unit_id = $request->header('unitId');
+        $lesson_id = $request->header('lessonId');
+        $game_id = $request->header('gameId');
 
 
         $unit = Unit::where('id', $unit_id)->where('lesson_id', $lesson_id)->first();
@@ -278,9 +278,9 @@ class GameController extends Controller
 
 
         $token = $request->header('token');
-        $gameId = $request->header('game_id');
-        $lesson_id = $request->header('lesson_id');
-        $question_answer = $request->header('question_answer');
+        $gameId = $request->header('gameId');
+        $lesson_id = $request->header('lessonId');
+        $question_answer = $request->header('questionAnswer');
         $point = $request->header('point');
 
         // =================================
