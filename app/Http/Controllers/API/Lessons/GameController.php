@@ -105,6 +105,9 @@ class GameController extends Controller
     public function lessons(Request $request)
     {
 
+        return Lesson::all();
+
+
         $token = $request->header('token');
         $grade = $request->header('grade_id');
 
