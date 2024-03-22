@@ -433,6 +433,7 @@ class SubscriptionController extends Controller
                 'status' => "successfully purchased.",
             ], 200);
         } catch (\Throwable $th) {
+            logger($th);
             DB::rollback();
             return $th;
         }
