@@ -108,7 +108,7 @@ class GameController extends Controller
 
 
         $token = $request->header('token');
-        $grade = $request->header('gradeId');
+        $grade = $request->header('gradeid');
 
         $student = Student::where('token', $token)->first();
         $allLessons = Lesson::where('grade_id', $grade)->get();
@@ -170,8 +170,8 @@ class GameController extends Controller
     {
 
         $student = Student::where('token', $request->header('token'))->first();
-        $lesson = $request->header('lessonId');
-        $gradeId = $request->header('gradeId');
+        $lesson = $request->header('lessonid');
+        $gradeId = $request->header('gradeid');
 
 
         ////////////////////////////////////////////////////////////////////////////
@@ -229,9 +229,9 @@ class GameController extends Controller
     {
 
         $student = Student::where('token', $request->header('token'))->first();
-        $unit_id = $request->header('unitId');
-        $lesson_id = $request->header('lessonId');
-        $game_id = $request->header('gameId');
+        $unit_id = $request->header('unitid');
+        $lesson_id = $request->header('lessonid');
+        $game_id = $request->header('gameid');
 
 
         $unit = Unit::where('id', $unit_id)->where('lesson_id', $lesson_id)->first();
@@ -278,9 +278,9 @@ class GameController extends Controller
 
 
         $token = $request->header('token');
-        $gameId = $request->header('gameId');
-        $lesson_id = $request->header('lessonId');
-        $question_answer = $request->header('questionAnswer');
+        $gameId = $request->header('gameid');
+        $lesson_id = $request->header('lessonid');
+        $question_answer = $request->header('questionanswer');
         $point = $request->header('point');
 
         // =================================
@@ -419,7 +419,7 @@ class GameController extends Controller
 
         //ထူးထူး
         // if ($student->grade_chosen == null) {
-        //  $this->addPointFunction($student, $request->header('point'),$request->header('question_answer'));
+        //  $this->addPointFunction($student, $request->header('point'),$request->header('questionanswer'));
         // }
 
 

@@ -17,7 +17,7 @@ class VersionAndUpdateController extends Controller
 
     public function __construct(Request $request) {
 
-        $this->client_version = $request->header('clientVersion');
+        $this->client_version = $request->header('clientversion');
         // $this->os = $request->header('os');
     }
 
