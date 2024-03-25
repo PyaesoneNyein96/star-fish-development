@@ -1631,7 +1631,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'round' => $k + 1,
                     'q_image' => $img . str_replace(' ', '-', $value) . ".png",
                     'q_content' => $TF[0],
-                    // 'q_audio' => $audio.str_replace(' ', '-', $L34_U3_content[$k]).".mp3",
+                    'round_instruction' => $audio.str_replace(' ', '-', $L34_U3_content[$k]).".mp3",
                     'q_conver' => $L34_U3_content[$k],
                     'a_content' => ($L34_U3_q_img[$k] == $L34_U3_content[$k]) == $tf[0]  ? true : false
                 ],
@@ -1806,7 +1806,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_image' => $img . str_replace(' ', '-', $value) . ".png",
                     'q_content' => $TF[0],
                     'q_conver' => $L35_U3_content[$k],
-                    // 'q_audio' => $audio.str_replace(' ', '-', $L35_U3_content[$key]) . ".mp3",
+                    'round_instructions' => $audio.str_replace(' ', '-', $L35_U3_content[$key]) . ".mp3",
                     'a_content' => ($L35_U3_q_img[$k] == $L35_U3_content[$k]) == $tf[0]  ? true : false
                 ],
             ]);
@@ -2498,15 +2498,40 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
         $content = [
-            'older brother', 'grandfather', 'grandmother',
-            "Uncle", 'aunt', 'younger sister', 'father', 'mother'
+            'father',
+            'mother',
+            'older brother',
+            'grandfather',
+            'grandmother',
+            "uncle",
+            'aunt',
+            'older sister',
+            'me',
         ];
 
         $names = [
-            'His name is Mike', 'His name is James', 'Her name is Alice', 'His name is John',
-            'Her name is Mary', 'Her name is Jenny', 'His name is David', 'Her name is Emma',
+            "Who is he? \n This is my father. \n His name is David.",
+            "Who is she? \n This is my mother. \n Her name is Emma.",
+            "Who is he? \n This is my younger brother. \n His name is Kevin.",
+            "Who is he? \n This is my grandfather. \n His name is James.",
+            "Who is she? \n This is my grandmother. \n Her name is Alice.",
+            "Who is he? \n This is my uncle. \n His name is John.",
+            "Who is she? \n This is my aunt. \n Her name is Mary.",
+            "Who is she? \n This is my older sister. \n Her name is Jenny.",
+            "Who is he/she? \n This is me. \n My name is ___.",
         ];
 
+        $prefix_q = [
+            "Who-is-he",
+            "Who-is-she",
+            "Who-is-he",
+            "Who-is-he",
+            "Who-is-she",
+            "Who-is-he",
+            "Who-is-she",
+            "Who-is-she",
+            "Who-is-he-she",
+        ];
         foreach ($content as $key => $value) {
 
             DB::table('ans_n_ques')->insert([
@@ -2514,6 +2539,7 @@ class PSNAnsNQuesSeeder extends Seeder
                 [
                     'game_id' => 238,
                     'round' => $key + 1,
+                    'round_instruction' => $AudioDomain.$prefix_q.".mp3",
                     'q_content' => "This is my $value." . "\n" . $names[$key] . ".",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_38/Speaking/" . str_replace(' ', '-', $content[$key]) . ".png",
                     'a_content' => $value,
@@ -2558,7 +2584,7 @@ class PSNAnsNQuesSeeder extends Seeder
         // SubUnit -2 (Reading-2)
 
         $content = [
-            'I have an older sister', 'I have a Grandfather', 'I have two cousins'
+            'grandfather', '2-cousins','3-brother','aunt','old-brother','young-sister'
         ];
 
         $img = $ImageDomain . "Grade_1/Lesson_39/Reading-2/";
