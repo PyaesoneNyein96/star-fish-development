@@ -2500,7 +2500,7 @@ class PSNAnsNQuesSeeder extends Seeder
         $content = [
             'father',
             'mother',
-            'older brother',
+            'younger brother',
             'grandfather',
             'grandmother',
             "uncle",
@@ -2540,7 +2540,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'game_id' => 238,
                     'round' => $key + 1,
                     'round_instruction' => $AudioDomain . $prefix_q[$key] . ".mp3",
-                    'q_content' => "This is my $value." . "\n" . $names[$key] . ".",
+                    'q_content' =>  $names[$key] . ".",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_38/Speaking/" . str_replace(' ', '-', $content[$key]) . ".png",
                     'a_content' => $value,
                     'q_audio' => $AudioDomain . "Grade_1/Lesson_38/Speaking/" . "This-is-my-" . str_replace(' ', '-', $value) . "-" . str_replace(' ', '-', $names[$key]) . ".mp3",
