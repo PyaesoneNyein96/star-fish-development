@@ -28,7 +28,7 @@ class RewardController extends Controller
         $newPoint = $this->addPointFunction($request);
         if ($newPoint[1] >= 0 && $newPoint[1] <= 3000) {
             $level = ceil($newPoint[1] / 10);
-            Student::where('id', $request->studentid)->update([
+            Student::where('id', $request->student_id)->update([
                 'point' => $newPoint[0],
                 'fixed_point' => $newPoint[1],
                 'level' => $level,
@@ -71,40 +71,40 @@ class RewardController extends Controller
 
     public function buyReward(Request $request)
     {
-        $point = Student::where('id', $request->studentid)->first();
-        if ($point->point < (int)$request->rewardpoint) {
+        $point = Student::where('id', $request->student_id)->first();
+        if ($point->point < (int)$request->reward_point) {
             return response()->json([
                 'error' => 'not enough points'
             ], 403);
         } else {
-            $rewardConflict = Stud_reward::where('student_id', $request->studentid)->get();
-            $newPoint = $point->point - (int)$request->rewardpoint;
+            $rewardConflict = Stud_reward::where('student_id', $request->student_id)->get();
+            $newPoint = $point->point - (int)$request->reward_point;
 
             if ($rewardConflict->toArray() == []) {
-                Student::where('id', $request->studentid)->update([
+                Student::where('id', $request->student_id)->update([
                     'point' => $newPoint
                 ]);
 
-                $studReward = Stud_reward::where('student_id', $request->studentid)->create([
-                    'student_id' => $request->studentid,
-                    'reward_id' => $request->rewardid
+                $studReward = Stud_reward::where('student_id', $request->student_id)->create([
+                    'student_id' => $request->student_id,
+                    'reward_id' => $request->reward_id
                 ]);
 
                 return new RewardResource($studReward);
             } else {
                 foreach ($rewardConflict as $r) {
-                    if ($request->rewardid == $r->reward_id) {
+                    if ($request->reward_id == $r->reward_id) {
                         return response()->json([
                             'error' => 'reward already exist'
                         ], 403);
                     } else {
-                        Student::where('id', $request->studentid)->update([
+                        Student::where('id', $request->student_id)->update([
                             'point' => $newPoint
                         ]);
 
-                        $studReward = Stud_reward::where('student_id', $request->studentid)->create([
-                            'student_id' => $request->studentid,
-                            'reward_id' => $request->rewardid
+                        $studReward = Stud_reward::where('student_id', $request->student_id)->create([
+                            'student_id' => $request->student_id,
+                            'reward_id' => $request->reward_id
                         ]);
 
                         return new RewardResource($studReward);
@@ -116,7 +116,7 @@ class RewardController extends Controller
 
     private function addPointFunction($request)
     {
-        $oldPoint = Student::where('id', $request->studentid)->first();
+        $oldPoint = Student::where('id', $request->student_id)->first();
         $newPoint = $oldPoint->point + (int)$request->point;
         $newFixPoint = $oldPoint->fixed_point + (int)$request->point;
 

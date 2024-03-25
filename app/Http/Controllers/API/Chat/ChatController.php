@@ -15,9 +15,9 @@ class ChatController extends Controller
 
     public function changeNName(Request $request)
     {
-        if (!$request || !$request->studentid || !$request->nickname) return  response()->json(['message' => 'Some fields are required.']);
-        Student::where('id', $request->studentid)->update([
-            'nickName' => $request->nickname,
+        if (!$request || !$request->student_id || !$request->nick_name) return  response()->json(['message' => 'Some fields are required.']);
+        Student::where('id', $request->student_id)->update([
+            'nickName' => $request->nick_name,
         ]);
         return response()->json(['success' => 'created'], 201);
     }
@@ -75,7 +75,7 @@ class ChatController extends Controller
 
     public function sendChat(Request $request)
     {
-        if (!$request || !$request->studentid || !$request->message) return  response()->json(['message' => 'Some fields are required.']);
+        if (!$request || !$request->student_id || !$request->message) return  response()->json(['message' => 'Some fields are required.']);
 
         $baned = $this->banedMessage($request);
         $warning = $this->warningMessage($request);
@@ -91,7 +91,7 @@ class ChatController extends Controller
                 ]);
             } else {
                 $chat =  Chat::create([
-                    'student_id' => $request->studentid,
+                    'student_id' => $request->student_id,
                     'message' => $request->message
                 ]);
                 return response()->json([
@@ -105,7 +105,7 @@ class ChatController extends Controller
     {
         $ban = ['fuck', 'asshole', 'fck', 'fuk', 'mf', 'motherfucker'];
 
-        $student = Student::where('id', $request->studentid)->first();
+        $student = Student::where('id', $request->student_id)->first();
 
         if (strpos($request->message, ' ')) {
             $message = strtolower(str_replace(' ', '', $request->message));
@@ -115,11 +115,11 @@ class ChatController extends Controller
 
         if (in_array($message, $ban)) {
             if ($student->status == 0) {
-                Student::where('id', $request->studentid)->update([
+                Student::where('id', $request->student_id)->update([
                     'status' => 1
                 ]);
             } elseif ($student->status == 1) {
-                Student::where('id', $request->studentid)->update([
+                Student::where('id', $request->student_id)->update([
                     'status' => 2
                 ]);
             }

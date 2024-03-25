@@ -121,7 +121,7 @@ Field (token, grade_id, subscription_id (Header))
 ### Add Point
 
 (Method: POST) [https://star-fish.myanmargateway.net/api/points](https://star-fish.myanmargateway.net/api/points)  
-Field = studentid , point
+Field = student_id , point
 
 # Reward
 
@@ -136,7 +136,7 @@ Field = studentid , point
 ### Buy Reward
 
 (Method: POST) [https://star-fish.myanmargateway.net/api/reward](https://star-fish.myanmargateway.net/api/reward)  
-Field = studentid , rewardid , rewardpoint
+Field = student_id , reward_id , reward_point
 
 ### ====================================================
 
@@ -150,12 +150,12 @@ Field ( header ) = token
 ### Chatting
 
 (Method: POST) [https://star-fish.myanmargateway.net/api/chat](https://star-fish.myanmargateway.net/api/chat)
-Field ( body ) = studentid , message
+Field ( body ) = student_id , message
 
 ### Set NickName
 
 (Method: POST) [https://star-fish.myanmargateway.net/api/chat/nick](https://star-fish.myanmargateway.net/api/chat/nick)
-Field ( body ) = studentid , nickname
+Field ( body ) = student_id , nick_name
 
 ### ====================================================
 

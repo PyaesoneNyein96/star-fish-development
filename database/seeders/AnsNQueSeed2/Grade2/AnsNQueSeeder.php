@@ -186,7 +186,7 @@ class AnsNQueSeeder extends Seeder
                     [
                         'round' => $i + 1, 'game_id' => 256,
                         'q_content' => $word,
-                        'a_content' => implode(' ', $correct_G2_l1_Ans[$i]),
+                        'a_content' => implode('-', $correct_G2_l1_Ans[$i]),
                     ]
                 ]);
             }
