@@ -101,6 +101,7 @@ Field (token (Header))
 ### Purchase Plan
 
 #### - Request Prepay_Id
+
 Method (POST) [https://star-fish.myanmargateway.net/api/payment/request_prepay_id](https://star-fish.myanmargateway.net/api/payment/request_prepay_id)  
 Field (token, grade_id, subscription_id (Header))
 
@@ -154,7 +155,7 @@ Field ( body ) = student_id , message
 ### Set NickName
 
 (Method: POST) [https://star-fish.myanmargateway.net/api/chat/nick](https://star-fish.myanmargateway.net/api/chat/nick)
-Field ( body ) = student_id , nickName
+Field ( body ) = student_id , nick_name
 
 ### ====================================================
 
@@ -168,9 +169,9 @@ Field ( header ) = token
 ### Enter into Game
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/assessment/game](https://star-fish.myanmargateway.net/api/assessment/game)
-Field ( header ) = assess_game_id
+Field ( header ) = assessgameid
 
 ### End Match
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/assessment/end_match](https://star-fish.myanmargateway.net/api/assessment/end_match)
-Field ( header ) = token , assess_game_id , point
+Field ( header ) = token , assessgameid , point

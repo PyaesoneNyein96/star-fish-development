@@ -15,9 +15,9 @@ class ChatController extends Controller
 
     public function changeNName(Request $request)
     {
-        if (!$request || !$request->student_id || !$request->nickName) return  response()->json(['message' => 'Some fields are required.']);
+        if (!$request || !$request->student_id || !$request->nick_name) return  response()->json(['message' => 'Some fields are required.']);
         Student::where('id', $request->student_id)->update([
-            'nickName' => $request->nickName,
+            'nickName' => $request->nick_name,
         ]);
         return response()->json(['success' => 'created'], 201);
     }

@@ -121,11 +121,11 @@ class AnsNQueSeeder extends Seeder
         $l1_G462image = $domain . "/storage/images/Grade_3/lesson_1/practice_speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 462, 'q_image' => $l1_G462image . "teacher.png", "q_conver" => "What is your brother?", "q_audio" => $AudioDomain . $G3_L1_practice_speaking . "what-is-your-brother" . ".mp3", "round_instruction" => $AudioDomain . $G3_L1_practice_speaking . "what-is-your-brother" . ".mp3"],
-            ['round' => 2, 'game_id' => 462, 'q_image' => $l1_G462image . "teacher.png", "q_conver" => "What is your sister?", "q_audio" => $AudioDomain . $G3_L1_practice_speaking . "what-is-your-sister" . ".mp3", "round_instruction" => $AudioDomain . $G3_L1_practice_speaking . "what-is-your-sister" . ".mp3"],
-            ['round' => 3, 'game_id' => 462, 'q_image' => $l1_G462image . "teacher.png", "q_conver" => "What are you?", "q_audio" => $AudioDomain . $G3_L1_practice_speaking . "what-are-you" . ".mp3", "round_instruction" => $AudioDomain . $G3_L1_practice_speaking . "what-are-you" . ".mp3"],
-            ['round' => 4, 'game_id' => 462, 'q_image' => $l1_G462image . "teacher.png", "q_conver" => "What is your mother?", "q_audio" => $AudioDomain . $G3_L1_practice_speaking . "what-is-your-mother" . ".mp3", "round_instruction" => $AudioDomain . $G3_L1_practice_speaking . "what-is-your-mother" . ".mp3"],
-            ['round' => 5, 'game_id' => 462, 'q_image' => $l1_G462image . "teacher.png", "q_conver" => "What is your father?", "q_audio" => $AudioDomain . $G3_L1_practice_speaking . "what-is-your-father" . ".mp3", "round_instruction" => $AudioDomain . $G3_L1_practice_speaking . "what-is-your-father" . ".mp3"],
+            ['round' => 1, 'game_id' => 462, 'q_image' => $l1_G462image . "teacher.png", "q_conver" => $l1_G462image . "brother.png", "q_audio" => $AudioDomain . $G3_L1_practice_speaking . "what-is-your-brother" . ".mp3", "round_instruction" => $AudioDomain . $G3_L1_practice_speaking . "what-is-your-brother" . ".mp3"],
+            ['round' => 2, 'game_id' => 462, 'q_image' => $l1_G462image . "teacher.png", "q_conver" => $l1_G462image . "sister.png", "q_audio" => $AudioDomain . $G3_L1_practice_speaking . "what-is-your-sister" . ".mp3", "round_instruction" => $AudioDomain . $G3_L1_practice_speaking . "what-is-your-sister" . ".mp3"],
+            ['round' => 3, 'game_id' => 462, 'q_image' => $l1_G462image . "teacher.png", "q_conver" => $l1_G462image . "you.png", "q_audio" => $AudioDomain . $G3_L1_practice_speaking . "what-are-you" . ".mp3", "round_instruction" => $AudioDomain . $G3_L1_practice_speaking . "what-are-you" . ".mp3"],
+            ['round' => 4, 'game_id' => 462, 'q_image' => $l1_G462image . "teacher.png", "q_conver" => $l1_G462image . "mother.png", "q_audio" => $AudioDomain . $G3_L1_practice_speaking . "what-is-your-mother" . ".mp3", "round_instruction" => $AudioDomain . $G3_L1_practice_speaking . "what-is-your-mother" . ".mp3"],
+            ['round' => 5, 'game_id' => 462, 'q_image' => $l1_G462image . "teacher.png", "q_conver" => $l1_G462image . "father.png", "q_audio" => $AudioDomain . $G3_L1_practice_speaking . "what-is-your-father" . ".mp3", "round_instruction" => $AudioDomain . $G3_L1_practice_speaking . "what-is-your-father" . ".mp3"],
         ]);
 
 
@@ -317,11 +317,11 @@ class AnsNQueSeeder extends Seeder
 
         $G3_L2_Game470_ans = ["boys", "girl-cat", 'girl', "man", "old", "boy"];
         $l2_G401image = $domain . "/storage/images/Grade_3/lesson_2/writing_topic/";
-
+        $G3_L2_writing_topic = "Grade_3/" . "Lesson_2/" . "writing_topic/";
 
         foreach ($G3_L2_Game470_ans as $key => $value) {
             DB::table('ans_n_ques')->insert([
-                ["round" => $key + 1, 'game_id' => 470, 'q_content' => $l2_G401image . $value . ".png"],
+                ["round" => $key + 1, 'game_id' => 470, 'q_audio' => $AudioDomain . $G3_L2_writing_topic . $value . ".mp3", 'q_content' => $l2_G401image . $value . ".png"],
             ]);
         }
 
@@ -3235,7 +3235,7 @@ class AnsNQueSeeder extends Seeder
                     'game_id' => 577, 'round' => $key + 1,
                     'q_image' => $l16_G577_image . $value . ".jpg",
                     'q_audio' => $AudioDomain . $G3_L16_answer_the_question . $value . ".mp3",
-                    'a_content' => $a_content_G3_L16_Game577[$key],
+                    // 'a_content' => $a_content_G3_L16_Game577[$key],
                 ],
             ]);
         }
