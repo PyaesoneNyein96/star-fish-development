@@ -213,10 +213,7 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 257, 'round_instruction' => $AudioDomain . $G2_L1_Speaking . "3-listening" . ".mp3", 'q_image' => $l1_G257_image . "star.png", "q_content" => "Hello, my ___ Chris. What's your ___ ?\nHi, ___ Jane. What's your ___ ? \n ___ Jack."],
-            ['round' => 2, 'game_id' => 257, 'round_instruction' => $AudioDomain . $G2_L1_Speaking . "4-listening" . ".mp3", 'q_image' => $l1_G257_image . "star.png", "q_content" => "Hello, my ___ Jane. What's your ___ ?\nHi, ___ Rosy. Hello, Rosy. ___ Chris."],
-            ['round' => 3, 'game_id' => 257, 'round_instruction' => $AudioDomain . $G2_L1_Speaking . "2-Listening" . ".mp3", 'q_image' => $l1_G257_image . "star.png", "q_content" => "Hello, my ___ Jane. What's your ___ ?\nHi, ___ Chris. Hello, Chris. ___ Rosy."],
-            ['round' => 4, 'game_id' => 257, 'round_instruction' => $AudioDomain . $G2_L1_Speaking . "1-listening-edit" . ".mp3", 'q_image' => $l1_G257_image . "star.png", "q_content" => "Hello, my ___ Rosy. What's your ___ ?\nHi, ___ Jane. What's your ___ ? \n ___ Jack."],
+            ['round' => 1, 'game_id' => 257,  'round_instruction' => $AudioDomain . $l1_G257_image . "lets-introduce-yourself-friends.mp3",'q_audio' => $AudioDomain . $G2_L1_Speaking . "hello-i-am-rosy" . ".mp3", 'q_image' => $l1_G257_image . "rosy.png", "q_content" => "Lets introduce yourself and your friends. \n\n Hello, I am Rosy. What’s your name? Introduce me your friends, please. \n Hi, my name is _____________ . \n He is______________. \n  She is______________. \n Nice to meet you!"],
 
         ]);
 
@@ -231,7 +228,7 @@ class AnsNQueSeeder extends Seeder
 
 
         $ans_G258 = [
-            "Airplane", "Alligator", "Angel", "Animal",  "Ant", "Apple", "Arm", "Arrows", "Ball", "Banana", "Bicycle", "Boat", "Boy", "Bread"
+            "Airplane", "Alligator", "Angel", "Animal",  "Ant", "Apple", "Arm", "Arrow", "Ball", "Banana", "Bicycle", "Boat", "Boy", "Bread"
         ];
 
         $G2_L2_Game258_index = 0;
@@ -1146,25 +1143,57 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 2  Lesson 8 Game 288 (  Listen and write  )
         ////////////////////////////////////////////////////////
 
-        $l8_G288_image = $domain . "/storage/images/Grade_2/lesson_8/listen_n_write/";
-        $G2_L8_listen_n_write = "Grade_2/" . "Lesson_8/" . "listen_n_write/";
+        // $l8_G288_image = $domain . "/storage/images/Grade_2/lesson_8/listen_n_write/";
+        // $G2_L8_listen_n_write = "Grade_2/" . "Lesson_8/" . "listen_n_write/";
 
 
-        $ansL8_G288 = [
-            "beautiful-ugly", "big-small", "early-late", "early-late-2",  "fast-slow", "fat-thin", "short-tall"
+        // $ansL8_G288 = [
+        //     "beautiful-ugly", "big-small", "early-late", "early-late-2",  "fast-slow", "fat-thin", "short-tall"
+        // ];
+
+        // $G2_L8_Game288_index = 0;
+
+        // foreach ($ansL8_G288 as $key) {
+        //     DB::table('ans_n_ques')->insert([
+        //         [
+        //             'game_id' => 288, 'a_content' => $key, 'a_image' => $l8_G288_image . $ansL8_G288[$G2_L8_Game288_index] . ".png",
+        //             'a_audio' => $AudioDomain . $G2_L8_listen_n_write . strtolower($ansL8_G288[$G2_L8_Game288_index]) . ".mp3"
+        //         ],
+        //     ]);
+        //     $G2_L8_Game288_index++;
+        // }
+
+
+        // *****************************************
+          $contents = [
+            ['beautiful', 'ugly'],
+            ['big', 'small'],
+            ['early', 'late'],
+            ['fast', 'slow'],
+            ['fat', 'thin'],
+            ['short', 'tall'],
         ];
 
-        $G2_L8_Game288_index = 0;
+        $audio = $AudioDomain . "Grade_3/Lesson_8/listen_n_write/";
+        $img = $ImageDomain . "Grade_3/Lesson_8/listen_n_write/";
 
-        foreach ($ansL8_G288 as $key) {
-            DB::table('ans_n_ques')->insert([
-                [
-                    'game_id' => 288, 'a_content' => $key, 'a_image' => $l8_G288_image . $ansL8_G288[$G2_L8_Game288_index] . ".png",
-                    'a_audio' => $AudioDomain . $G2_L8_listen_n_write . strtolower($ansL8_G288[$G2_L8_Game288_index]) . ".mp3"
-                ],
-            ]);
-            $G2_L8_Game288_index++;
+        foreach ($contents as $key =>  $val) {
+
+            foreach ($val as $v) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 288,
+                        'a_content' => $v,
+                        'a_image' => $img . $this->removeSpace($v) . ".png",
+                        'a_audio' => $audio . $this->removeSpace($v) . ".mp3",
+                        'q_content' => $key
+                    ],
+                ]);
+            }
         }
+
+        // *****************************************
+
 
 
 
@@ -1468,12 +1497,24 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 297, "q_audio" => $AudioDomain . $G2_L9_Speaking . "thindag", 'q_image' => $l9_G297_image . "thin-dog.png", "round_instruction" => $AudioDomain . $G2_L9_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak."],
-            ['round' => 2, 'game_id' => 297, "q_audio" => $AudioDomain . $G2_L9_Speaking . "hat", 'q_image' => $l9_G297_image . "yellowhat.png", "round_instruction" => $AudioDomain . $G2_L9_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak."],
-            ['round' => 3, 'game_id' => 297, "q_audio" => $AudioDomain . $G2_L9_Speaking . "house", 'q_image' => $l9_G297_image . "house.png", "round_instruction" => $AudioDomain . $G2_L9_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak."],
-            ['round' => 4, 'game_id' => 297, "q_audio" => $AudioDomain . $G2_L9_Speaking . "girl", 'q_image' => $l9_G297_image . "blue-hat.png", "round_instruction" => $AudioDomain . $G2_L9_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak."],
-            ['round' => 5, 'game_id' => 297, "q_audio" => $AudioDomain . $G2_L9_Speaking . "fatdog", 'q_image' => $l9_G297_image . "fat-dog.png", "round_instruction" => $AudioDomain . $G2_L9_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak."],
-            ['round' => 6, 'game_id' => 297, "q_audio" => $AudioDomain . $G2_L9_Speaking . "glass", 'q_image' => $l9_G297_image . "drink.png", "round_instruction" => $AudioDomain . $G2_L9_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak."],
+            ['round' => 1, 'game_id' => 297, "q_audio" => $AudioDomain . $G2_L9_Speaking . "big-cup-girl.mp3", 'q_image' => $l9_G297_image . "big-cup-girl.png", "round_instruction" => $AudioDomain . $G2_L9_Speaking . "Look-at-the-pictures-and-speak.mp3",
+            "q_content" => "Example \n She has a big cup. I like it. \n What about you? Do you like it?"],
+
+            ['round' => 2, 'game_id' => 297, "q_audio" => $AudioDomain . $G2_L9_Speaking . "small-cup-boy.mp3", 'q_image' => $l9_G297_image . "small-cup-boy.png", "round_instruction" => $AudioDomain . $G2_L9_Speaking . "Look-at-the-pictures-and-speak.mp3",
+            "q_content" => "Example \n He has a small cup. I do not like it. \n What about you? Do you like it?"],
+
+
+            ['round' => 3, 'game_id' => 297, "q_audio" => $AudioDomain . $G2_L9_Speaking . "girl-dog.mp3", 'q_image' => $l9_G297_image . "girl-dog.png", "round_instruction" => $AudioDomain . $G2_L9_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak."],
+
+            ['round' => 4, 'game_id' => 297, "q_audio" => $AudioDomain . $G2_L9_Speaking . "boy-dog.mp3", 'q_image' => $l9_G297_image . "boy-dog.png", "round_instruction" => $AudioDomain . $G2_L9_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak."],
+
+            ['round' => 5, 'game_id' => 297, "q_audio" => $AudioDomain . $G2_L9_Speaking . "farm-girl.mp3", 'q_image' => $l9_G297_image . "farm-girl.png", "round_instruction" => $AudioDomain . $G2_L9_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak."],
+
+            ['round' => 6, 'game_id' => 297, "q_audio" => $AudioDomain . $G2_L9_Speaking . "hat-boy.mp3", 'q_image' => $l9_G297_image . "hat-boy.png", "round_instruction" => $AudioDomain . $G2_L9_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak."],
+
+            ['round' => 7, 'game_id' => 297, "q_audio" => $AudioDomain . $G2_L9_Speaking . "big-house.mp3", 'q_image' => $l9_G297_image . "big-house.png", "round_instruction" => $AudioDomain . $G2_L9_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak."],
+
+            ['round' => 8, 'game_id' => 297, "q_audio" => $AudioDomain . $G2_L9_Speaking . "small-house.mp3", 'q_image' => $l9_G297_image . "small-house.png", "round_instruction" => $AudioDomain . $G2_L9_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak."],
 
         ]);
 
