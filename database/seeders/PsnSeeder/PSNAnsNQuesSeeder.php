@@ -2454,16 +2454,16 @@ class PSNAnsNQuesSeeder extends Seeder
         /////////////////////------------------ sub-2 (rearrange)
 
         $Questions = [
+            ['T', 'H', 'F', 'A', 'E', 'R'],
+            ['A', 'G', 'R', 'N', 'D', 'T', 'H', 'F', 'A', 'E', 'R'],
             ['C', 'L', 'U', 'N', 'E'],
             ['R', 'O', 'T', 'B', 'E', 'R', 'H'],
             ['T', 'H', 'M', 'O', 'E', 'R'],
             ['T', 'E', 'R', 'I', 'S', 'S'],
-            ['A', 'G', 'R', 'N', 'D', 'T', 'H', 'F', 'A', 'E', 'R'],
-            ['T', 'H', 'F', 'A', 'E', 'R'],
         ];
 
         $answers = [
-            'UNCLE', 'BROTHER', 'MOTHER', 'SISTER', 'GRANDFATHER', 'FATHER'
+           'FATHER','GRANDFATHER','UNCLE', 'BROTHER', 'MOTHER', 'SISTER',
         ];
 
         for ($i = 0; $i < count($Questions); $i++) {
@@ -2978,7 +2978,7 @@ class PSNAnsNQuesSeeder extends Seeder
 
 
 
-        $contentImg = ['Mike', 'Chris', 'two', 'Kevin', 'emma', 'David'];
+        $contentImg = ['Mike', 'Chris', 'two', 'Kevin', 'Emma', 'David'];
 
         $contents = [
             'His', 'eight', 'twin', 'three', 'Her', 'His'
