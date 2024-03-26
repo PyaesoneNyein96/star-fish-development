@@ -11,10 +11,18 @@ class AnsNQueSeeder extends Seeder
     /**
      * Run the database seeds.
      */
+
+
+    private function removeSpace($val)
+    {
+        return str_replace(' ', '-', $val);
+    }
+
     public function run(): void
     {
         $domain = app('domain');
         $AudioDomain = $domain . "/storage/audios/";
+        $ImageDomain = $domain . "/storage/images/";
 
         $a_z_traceword = $domain . "/storage/images/AtoZTrace/small_dotted/";
         $A_Z_traceword = $domain . "/storage/images/AtoZTrace/capital_dotted/";
