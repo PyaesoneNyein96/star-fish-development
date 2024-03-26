@@ -169,9 +169,9 @@ Field ( header ) = token
 ### Enter into Game
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/assessment/game](https://star-fish.myanmargateway.net/api/assessment/game)
-Field ( header ) = assessgameid
+Field ( header ) = assess_game_id
 
 ### End Match
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/assessment/end_match](https://star-fish.myanmargateway.net/api/assessment/end_match)
-Field ( header ) = token , assessgameid , point
+Field ( header ) = token , assess_game_id , point

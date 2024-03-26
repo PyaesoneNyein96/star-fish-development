@@ -104,7 +104,7 @@ class AssessmentController extends Controller
     // enter game
     public function enterGame(Request $request)
     {
-        $id = $request->header("assessgameid");
+        $id = $request->header("assess_game_id");
 
         if (!$id) return response()->json(['message' => 'Game ID or Other fields are required.'], 403);
 
@@ -137,7 +137,7 @@ class AssessmentController extends Controller
     public function endGame(Request $request)
     {
         $token =  $request->header('token');
-        $assessGameId = $request->header('assessgameid');
+        $assessGameId = $request->header('assess_game_id');
         $point = $request->header('point');
         $studentId = Student::where("token", $token)->first();
 
