@@ -72,7 +72,7 @@ class CategorySeeder extends Seeder
             'speaking_and_recording_conversation',
             'listen_and_choose_three',
             'skimming_reading_passage',
-            'listening_and_chossing_pics_three',
+            'listening_and_choosing_pics_three',
             'look_writing_topic',
             'skimming_reading_conversation',
             'fill_in_the_blanks_three',
