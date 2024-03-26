@@ -1216,6 +1216,9 @@ class GameInstructionSeeder extends Seeder
             // G-3 lesson_2 U-438
             ['content' => "Look at the pictures and choose the right answer", 'game_id' => 468, 'audio' =>  $Instructions . "look-at-the-pictures-and-choos" . ".mp3"],
 
+            // G-3 lesson_2 U-440
+            ['content' => "Look at the pictures and write answers", 'game_id' => 470, 'audio' =>  $Instructions . "Look-at-the-pictures-and-write" . ".mp3"],
+
 
             // G-2 lesson_2 U-439
             // ['content' => "Listen and choose the right question", 'game_id' => 469, 'audio' =>  $Instructions . "Listen-and-choose-the-right-qu" . ".mp3"],

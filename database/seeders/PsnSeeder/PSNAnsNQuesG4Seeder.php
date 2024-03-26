@@ -1036,7 +1036,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 // 'q_conver' => $images . "question-list.png",
                 'q_content' => $question,
                 'q_audio' => $audios . "What-is-your-favorite-animal.mp3",
-                'q_image' => $images . "orange-starfish.png",
+                'q_image' => $images . "orange-starfish_round.png",
             ]
 
         ]);
@@ -1318,7 +1318,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 // 'q_conver' => $images . "question-list.png",
                 'q_content' => $question,
                 'q_audio' => $audios . "Weather-look-like.mp3",
-                'q_image' => $images . "orange-starfish.png",
+                'q_image' => $images . "orange-starfish_round.png",
             ]
 
         ]);
@@ -1843,7 +1843,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     'round_instruction' => $audios . $this->removeSpace($value) . ".mp3",
                     'q_content' => $Question_contents[$key],
                     // 'q_audio' => $audios.str_replace('?','',$this->removeSpace($value)).".mp3",
-                    'q_image' => $images . "green-starfish" . ".png",
+                    'q_image' => $images . "green-starfish_round" . ".png",
                 ]
 
             ]);
@@ -3827,7 +3827,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 'round' => 1,
                 'q_content' => "What did you do yesterday? \n What did you do last week?\n Talk about it.",
                 'q_audio' => $audios . "what-did-u-do-yesterday.mp3",
-                'q_image' => $images . "green-starfish.png",
+                'q_image' => $images . "green-starfish_round.png",
             ]
 
         ]);
@@ -4097,7 +4097,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 // 'a_conver' => $images . "image.png",
                 'q_content' => $question,
                 'q_audio' => $audios . "complete-following-sentence.mp3",
-                'q_image' => $images . "red_starfish.png",
+                'q_image' => $images . "red_starfish_round.png",
             ]
 
         ]);
@@ -4107,7 +4107,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 'round' => 2,
                 'q_content' => "What did you do on Monday?\n What did you do on Tuesday?\n What did you do on Wednesday?\n What did you do on Thursday?\n  What did you do on Friday?\n What did you do on Saturday\n What did you do on Sunday",
                 // 'q_audio' => $audio."what-do-u-do-this-week.mp3",
-                'q_image' => $images . "green_starfish.png",
+                'q_image' => $images . "green_starfish_round.png",
             ]
 
         ]);
@@ -4231,7 +4231,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                         // 'round' => $i + 1,
                         'q_content' => $q,
                         'q_image' => $q,
-                        // 'q_audio' => $audio . $this->removeSpace(strtolower($q)) . ".mp3",
+                        'q_audio' => $audio . $this->removeSpace(strtolower($q)) . ".mp3",
                     ]
                 ]);
             }
@@ -4245,7 +4245,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                         'q_content' =>  $this->removeSpace(ucfirst($contents[$i][$k])),
                         // 'q_image' => $img . $this->removeSpace(strtolower($q)) . ".png",
                         'q_image' => $q,
-                        // 'q_audio' => $audio .  $this->removeSpace(strtolower($q)) . ".mp3",
+                        'q_audio' => $audio .  $this->removeSpace(strtolower($q)) . ".mp3",
                     ]
                 ]);
             }
@@ -4531,7 +4531,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 'round' => 1,
                 'q_content' => "Take notes on the table.\n Talk about what you did last week.",
                 'q_audio' => $audios . "take-notes-on-the-table.mp3",
-                'q_image' => $images . "green_starfish.png",
+                'q_image' => $images . "green_starfish_round.png",
             ]
 
         ]);
@@ -4726,7 +4726,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 'round' => 1,
                 'q_content' => "Talk about your last holiday. \n What did you do during your last Thadingyut holiday?",
                 'q_audio' => $audios . "talk-about-last-holiday.mp3",
-                'q_image' => $images . "green_starfish.png",
+                'q_image' => $images . "green_starfish_round.png",
             ]
         ]);
 
@@ -4865,7 +4865,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 'round' => 1,
                 'q_content' => "What will you do tomorrow? Talk about your plan. \nI will _____ tomorrow morning.\nAnd then, I will _____ tomorrow afternoon.\nI will _____ in the evening.",
                 'q_audio' => $audios . "What-will-you-do-tomorrow.mp3",
-                'q_image' => $images . "green_starfish.png",
+                'q_image' => $images . "green_starfish_round.png",
             ]
         ]);
 

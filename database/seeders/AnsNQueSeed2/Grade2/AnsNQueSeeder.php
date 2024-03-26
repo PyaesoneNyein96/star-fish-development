@@ -66,7 +66,7 @@ class AnsNQueSeeder extends Seeder
         $l1_G254image = $domain . "/storage/images/Grade_2/lesson_1/practice_speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 254,  "q_audio" => $AudioDomain . $G2_L1_practice_speaking . "Whats-your-name-girl.mp3", 'q_image' => $l1_G254image . "teacher.png", "q_conver" => "What is your name?"],
+            ['round' => 1, 'game_id' => 254,  "q_audio" => $AudioDomain . $G2_L1_practice_speaking . "Whats-your-name-girl.mp3", 'q_image' => $l1_G254image . "teacher_chara.png", "q_conver" => "What is your name?"],
         ]);
 
 
@@ -213,10 +213,10 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 257, 'round_instruction' => $AudioDomain . $G2_L1_Speaking . "3-listening" . ".mp3", 'q_image' => $l1_G257_image . "star.png", "q_content" => "Hello, my ___ Chris. What's your ___ ?\nHi, ___ Jane. What's your ___ ? \n ___ Jack."],
-            ['round' => 2, 'game_id' => 257, 'round_instruction' => $AudioDomain . $G2_L1_Speaking . "4-listening" . ".mp3", 'q_image' => $l1_G257_image . "star.png", "q_content" => "Hello, my ___ Jane. What's your ___ ?\nHi, ___ Rosy. Hello, Rosy. ___ Chris."],
-            ['round' => 3, 'game_id' => 257, 'round_instruction' => $AudioDomain . $G2_L1_Speaking . "2-Listening" . ".mp3", 'q_image' => $l1_G257_image . "star.png", "q_content" => "Hello, my ___ Jane. What's your ___ ?\nHi, ___ Chris. Hello, Chris. ___ Rosy."],
-            ['round' => 4, 'game_id' => 257, 'round_instruction' => $AudioDomain . $G2_L1_Speaking . "1-listening-edit" . ".mp3", 'q_image' => $l1_G257_image . "star.png", "q_content" => "Hello, my ___ Rosy. What's your ___ ?\nHi, ___ Jane. What's your ___ ? \n ___ Jack."],
+            ['round' => 1, 'game_id' => 257, 'round_instruction' => $AudioDomain . $G2_L1_Speaking . "3-listening" . ".mp3", 'q_image' => $l1_G257_image . "star_round.png", "q_content" => "Hello, my ___ Chris. What's your ___ ?\nHi, ___ Jane. What's your ___ ? \n ___ Jack."],
+            ['round' => 2, 'game_id' => 257, 'round_instruction' => $AudioDomain . $G2_L1_Speaking . "4-listening" . ".mp3", 'q_image' => $l1_G257_image . "star_round.png", "q_content" => "Hello, my ___ Jane. What's your ___ ?\nHi, ___ Rosy. Hello, Rosy. ___ Chris."],
+            ['round' => 3, 'game_id' => 257, 'round_instruction' => $AudioDomain . $G2_L1_Speaking . "2-Listening" . ".mp3", 'q_image' => $l1_G257_image . "star_round.png", "q_content" => "Hello, my ___ Jane. What's your ___ ?\nHi, ___ Chris. Hello, Chris. ___ Rosy."],
+            ['round' => 4, 'game_id' => 257, 'round_instruction' => $AudioDomain . $G2_L1_Speaking . "1-listening-edit" . ".mp3", 'q_image' => $l1_G257_image . "star_round.png", "q_content" => "Hello, my ___ Rosy. What's your ___ ?\nHi, ___ Jane. What's your ___ ? \n ___ Jack."],
 
         ]);
 
@@ -501,7 +501,7 @@ class AnsNQueSeeder extends Seeder
         ]);
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 14, 'game_id' => 265,  'q_image' => $l3_G265_image . "teacher.png", "q_content" => null, "q_conver" => "Hello, what's your name?\nHow are you feeling today?", "round_instruction" => $AudioDomain . $G2_L3_Speaking . "SubBlock_hello-what-is-your-name-how" . ".mp3"],
+            ['round' => 14, 'game_id' => 265,  'q_image' => $l3_G265_image . "teacher_chara.png", "q_content" => null, "q_conver" => "Hello, what's your name?\nHow are you feeling today?", "round_instruction" => $AudioDomain . $G2_L3_Speaking . "SubBlock_hello-what-is-your-name-how" . ".mp3"],
         ]);
 
 

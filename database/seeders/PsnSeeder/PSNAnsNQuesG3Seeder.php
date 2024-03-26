@@ -1318,7 +1318,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         //// Unit 6 FreePractice <speaking_and_recording>
 
         $contents = [
-            "green_animal"
+            "green_animal_round"
         ];
 
         $Question_contents = [
@@ -1708,7 +1708,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => 1,
                 'q_content' =>  "Talk about your daily activities. \n What time do you do these activities?",
                 'q_audio' => $audio . "Talk-about-your-daily-activities.mp3",
-                'q_image' => $images . "green_animal" . ".png",
+                'q_image' => $images . "green_animal_round" . ".png",
             ]
 
         ]);
@@ -1941,7 +1941,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => 1,
                 'q_content' =>  "Talk about yourself. \n What do you do at home everyday?",
                 'q_audio' => $audio . "Talk-about-your-do-at-home.mp3",
-                'q_image' => $images . "green_animal.png",
+                'q_image' => $images . "green_animal_round.png",
             ]
 
         ]);
@@ -2220,7 +2220,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => 1,
                 'q_content' =>  "Talk about your family members. \n Where are they now? What are they doing? ",
                 'q_audio' => $audios . "Talk-about-your-do-at-home.mp3",
-                'q_image' => $images . "green_animal.png",
+                'q_image' => $images . "green_animal_round.png",
             ]
 
         ]);
@@ -2516,7 +2516,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 // 'q_conver' =>  "Talk about friends. Where are they \n now? What are they doing? ",
                 'q_conver' =>  $images . "text-box.png",
                 'q_audio' => $audios . "Talk-about-friends.mp3",
-                'q_image' => $images . "girl.png",
+                'q_image' => $images . "girl_chara2.png",
             ]
 
         ]);
@@ -2847,7 +2847,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 // 'q_conver' =>  "What do you usually do on birthday?",
                 'q_conver' =>  $images . "text-box.png",
                 'q_audio' => $audios . "What-do-u-usually.mp3",
-                'q_image' => $images . "girl" . ".png",
+                'q_image' => $images . "girl_chara2" . ".png",
             ]
 
         ]);
@@ -3019,7 +3019,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $Question_contents = [
-            "Do you like doing yoga? \n ",
+            "Do you like doing yoga?",
             "Does she like mountain climbing?",
             "Does he like making origami?",
             "Does he like writing stories?",
@@ -3065,7 +3065,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => 1,
                 'q_content' =>  "What are you hobbies? \n What do you like doing in your free time? \n What don't you like doing?",
                 'q_audio' => $audios . "What-are-ur-hobbies.mp3",
-                'q_image' => $images . "green_animal" . ".png",
+                'q_image' => $images . "green_animal_round" . ".png",
             ]
 
         ]);
@@ -3419,7 +3419,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => 1,
                 'q_content' =>  "Talk about your busy day. \n How do you feel on that day?",
                 'q_audio' => $audios . "busy-day.mp3",
-                'q_image' => $images . "green_animal" . ".png",
+                'q_image' => $images . "green_animal_round" . ".png",
             ]
 
         ]);
@@ -3518,7 +3518,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $answers = [
             'Are they married', 'Is English difficult', 'Is there new car',
-            'Is he noisy or quiet', 'Is your dog large', 'Are you busy'
+            'Is he quiet or noisy', 'Is your dog large', 'Are you busy'
         ];
 
 
@@ -3654,7 +3654,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => 1,
                 'q_content' =>  "Use adjectives to talk about your family members,\n your house, your neighbors and your pets.",
                 'q_audio' => $audios . "Talk-about-your-family-member-use-adjectives.mp3",
-                'q_image' => $images . "green_animal.png",
+                'q_image' => $images . "green_animal_round.png",
             ]
 
         ]);
@@ -3990,7 +3990,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => 1,
                 'q_content' =>  "Talk about your favourite weather. \n Why do you like it? \n What don't you like? \n Why not?",
                 'q_audio' => $audios . "Talk-about-your-favorite-weather.mp3",
-                'q_image' => $images . "green_starfish.png",
+                'q_image' => $images . "green_starfish_round.png",
             ]
 
         ]);
@@ -4255,7 +4255,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => 1,
                 'q_content' => "What can you do at these place? \n Airport, Pet shop \n University, Ice-cream shop",
                 'q_audio' => $audios . "what-can-u-do-at-place.mp3",
-                'q_image' => $images . "green_starfish.png",
+                'q_image' => $images . "green_starfish_round.png",
             ]
 
         ]);
@@ -4533,7 +4533,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => 1,
                 'q_content' => "Is there a shopping mall in your town or city? \n Are there small stores in your town or city? \n Tell about stores where you live.",
                 'q_audio' => $audios . "Is-there-a-shopping-mall.mp3",
-                'q_image' => $images . "green_starfish.png",
+                'q_image' => $images . "green_starfish_round.png",
             ]
 
         ]);
@@ -4673,7 +4673,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $given_ans = [
-            ['between the sports centers', 'opposite the sports center'],
+            ['between the sports center', 'opposite the sports center'],
             ['between the bakery and drug store', 'between the bakery and shoe store'],
             ['next to the police station', 'opposite the police station'],
             ['on the right', 'on the left'],
@@ -4684,8 +4684,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "Can you tell me how to get the library from here?",
             "Can you tell me how to get the clinic from here?",
             "Can you tell me how to get the hospital from here?",
-            "Can you tall me how to get the laundromat from here?",
-            "Can you tall me how to get the post office from here?",
+            "Can you tell me how to get the laundromat from here?",
+            "Can you tell me how to get the post office from here?",
         ];
 
         $ans = [
@@ -5066,7 +5066,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => 1,
                 'q_content' => "Give directions from your home to \n (stores, restaurants, shopping mall.. etc.) .",
                 'q_audio' => $audios . "give-direction-from-home.mp3",
-                'q_image' => $images . "green_starFish.png",
+                'q_image' => $images . "green_starFish_round.png",
             ]
 
         ]);
@@ -5297,7 +5297,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => 1,
                 'q_content' => "What are you wearing today? \n What are your friends in the class wearing today?",
                 'q_audio' => $audios . "what-r-today.mp3",
-                'q_image' => $images . "green_starfish.png",
+                'q_image' => $images . "green_starfish_round.png",
             ]
 
         ]);
@@ -5544,7 +5544,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "Excuse me. I think those are my glasses. \n I don't think so. I think ___.",
             "Excuse me. I think that is my coat. \n I don't think so. I think ___.",
             "Excuse me. I think those are my earrings. \n I don't think so. I think ___.",
-            "Excuse me. I think those are my necklace. \n I don't think so. I think ___.",
+            "Excuse me. I think that is my necklace. \n I don't think so. I think ___.",
         ];
 
 
@@ -5661,7 +5661,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 'round' => 1,
                 'q_content' => "What do you usually wear \n when it is raining? \n  when it is sunny? \n  when it is cold? \n  when it is hot?",
                 // 'q_audio' => $audios."what-do-usually-wear.mp3",
-                'q_image' => $images . "green_starfish.png",
+                'q_image' => $images . "green_starfish_round.png",
             ]
 
         ]);

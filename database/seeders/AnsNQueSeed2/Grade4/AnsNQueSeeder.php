@@ -559,9 +559,9 @@ class AnsNQueSeeder extends Seeder
         $l2_G775image = $domain . "/storage/images/Grade_4/lesson_2/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 775, "q_image" => $l2_G775image . "star.png", "q_audio" => $AudioDomain . $G4_L2_speaking_topic . "Who-is-your-teacher.mp3", "q_conver" => "Who is your teacher?"],
-            ['round' => 2, 'game_id' => 775, "q_image" => $l2_G775image . "star.png", "q_audio" => $AudioDomain . $G4_L2_speaking_topic . "Does-she-have-long-hair.mp3", "q_conver" => "Does she has long hair?"],
-            ['round' => 2, 'game_id' => 775, "q_image" => $l2_G775image . "star.png", "q_audio" => $AudioDomain . $G4_L2_speaking_topic . "Does-she-have-straight-hair.mp3", "q_conver" => "Does she have straight hair?"],
+            ['round' => 1, 'game_id' => 775, "q_image" => $l2_G775image . "star_round.png", "q_audio" => $AudioDomain . $G4_L2_speaking_topic . "Who-is-your-teacher.mp3", "q_conver" => "Who is your teacher?"],
+            ['round' => 2, 'game_id' => 775, "q_image" => $l2_G775image . "star_round.png", "q_audio" => $AudioDomain . $G4_L2_speaking_topic . "Does-she-have-long-hair.mp3", "q_conver" => "Does she has long hair?"],
+            ['round' => 2, 'game_id' => 775, "q_image" => $l2_G775image . "star_round.png", "q_audio" => $AudioDomain . $G4_L2_speaking_topic . "Does-she-have-straight-hair.mp3", "q_conver" => "Does she have straight hair?"],
         ]);
 
 
@@ -911,7 +911,7 @@ class AnsNQueSeeder extends Seeder
         $l3_G786image = $domain . "/storage/images/Grade_4/lesson_3/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 786, "q_image" => $l3_G786image . "star.png", "q_audio" => $AudioDomain . $G4_L3_speaking_topic . "Choose-three-words-to-describe.mp3", "q_conver" => $l3_G786image . "text.png", "round_instruction" => $AudioDomain . $G4_L3_speaking_topic . "Choose-three-words-to-describe" . ".mp3"],
+            ['round' => 1, 'game_id' => 786, "q_image" => $l3_G786image . "star_round.png", "q_audio" => $AudioDomain . $G4_L3_speaking_topic . "Choose-three-words-to-describe.mp3", "q_conver" => $l3_G786image . "text.png", "round_instruction" => $AudioDomain . $G4_L3_speaking_topic . "Choose-three-words-to-describe" . ".mp3"],
         ]);
 
 
@@ -1108,7 +1108,7 @@ class AnsNQueSeeder extends Seeder
         $l4_G793image = $domain . "/storage/images/Grade_4/lesson_4/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 793, 'q_image' => $l4_G793image . "1.png", "q_audio" => $AudioDomain . $G4_L4_speaking_topic . ".mp3", "q_conver" => "Describe this photo about Taylor. \nPrepare before you talk.", "round_instruction" => $AudioDomain . $G4_L4_speaking_topic . "Describe-this-photo-about-Tayl" . ".mp3"],
+            ['round' => 1, 'game_id' => 793, 'q_image' => $l4_G793image . "1_round.png", "q_audio" => $AudioDomain . $G4_L4_speaking_topic . ".mp3", "q_conver" => "Describe this photo about Taylor. \nPrepare before you talk.", "round_instruction" => $AudioDomain . $G4_L4_speaking_topic . "Describe-this-photo-about-Tayl" . ".mp3"],
         ]);
 
 
@@ -1952,7 +1952,7 @@ class AnsNQueSeeder extends Seeder
         $l11_G851image = $domain . "/storage/images/Grade_4/lesson_11/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 851, "q_audio" => $AudioDomain . $G4_L11_speaking_topic . "audio.mp3", "q_conver" => $l11_G851image . "text.png", "round_instruction" => $AudioDomain . $G4_L11_speaking_topic . "audio" . ".mp3"],
+            ['round' => 1, 'game_id' => 851, "q_image" => $G4_L11_speaking_topic . "star_round.png", "q_audio" => $AudioDomain . $G4_L11_speaking_topic . "audio.mp3", "q_conver" => $l11_G851image . "text.png", "round_instruction" => $AudioDomain . $G4_L11_speaking_topic . "audio" . ".mp3"],
         ]);
 
 
@@ -2188,7 +2188,7 @@ class AnsNQueSeeder extends Seeder
         $l12_G859image = $domain . "/storage/images/Grade_4/lesson_12/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 859, "q_conver" => $l12_G859image . "text.png", "round_instruction" => $AudioDomain . $G4_L12_speaking_topic . "SubBlock_Talk-about-your-favorite-seaso" . ".mp3"],
+            ['round' => 1, 'game_id' => 859, "q_image" => $G4_L12_speaking_topic . "star_round.png", "q_conver" => $l12_G859image . "text.png", "round_instruction" => $AudioDomain . $G4_L12_speaking_topic . "SubBlock_Talk-about-your-favorite-seaso" . ".mp3"],
         ]);
 
 
@@ -2894,7 +2894,7 @@ class AnsNQueSeeder extends Seeder
         $l15_G882image = $domain . "/storage/images/Grade_4/lesson_15/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 882, "round_instruction" => $AudioDomain . $G4_L15_speaking_topic . "SubBlock_What-is-your-favorite-festival" . ".mp3", 'q_image' => $l15_G882image . "green-star.png",  "q_content" => "What is your favorite festival? \nTalk about it and why do you like it."],
+            ['round' => 1, 'game_id' => 882, "round_instruction" => $AudioDomain . $G4_L15_speaking_topic . "SubBlock_What-is-your-favorite-festival" . ".mp3", 'q_image' => $l15_G882image . "green-star_round.png",  "q_content" => "What is your favorite festival? \nTalk about it and why do you like it."],
         ]);
 
 
@@ -3066,7 +3066,7 @@ class AnsNQueSeeder extends Seeder
         $l16_G888image = $domain . "/storage/images/Grade_4/lesson_16/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 888, "q_image" => $l16_G888image . "star.png", "q_conver" => $l16_G888image . "text.png", "round_instruction" => $AudioDomain . $G4_L16_speaking_topic . "SubBlock_Look-at-the-chart-below-and-ta" . ".mp3"],
+            ['round' => 1, 'game_id' => 888, "q_image" => $l16_G888image . "star_round.png", "q_conver" => $l16_G888image . "text.png", "round_instruction" => $AudioDomain . $G4_L16_speaking_topic . "SubBlock_Look-at-the-chart-below-and-ta" . ".mp3"],
         ]);
 
 
@@ -3235,7 +3235,7 @@ class AnsNQueSeeder extends Seeder
         $l17_G895image = $domain . "/storage/images/Grade_4/lesson_17/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 895, "q_conver" => $l17_G895image . "text.png", "round_instruction" => $AudioDomain . $G4_L17_speaking_topic . "SubBlock_Please-make-a-shopping-list-T" . ".mp3"],
+            ['round' => 1, 'game_id' => 895, "q_conver" => $l17_G895image . "text.png", "q_image" => $G4_L17_speaking_topic . "star_round.png", "round_instruction" => $AudioDomain . $G4_L17_speaking_topic . "SubBlock_Please-make-a-shopping-list-T" . ".mp3"],
         ]);
 
 
@@ -3472,7 +3472,7 @@ class AnsNQueSeeder extends Seeder
         $l18_G903image = $domain . "/storage/images/Grade_4/lesson_18/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 903, "q_image" =>  $l18_G903image . "green-star.png", "q_content" => "Talk about your favorite shop. \nWhere is it? What can you buy there?\nMy favorite shop is ______.\nIt is ______.\nI can buy ______.\nI like it because ______.", "round_instruction" => $AudioDomain . $G4_L18_speaking_topic . "SubBlock_Talk-about-your-favorite-shop" . ".mp3"],
+            ['round' => 1, 'game_id' => 903, "q_image" =>  $l18_G903image . "green-star_round.png", "q_content" => "Talk about your favorite shop. \nWhere is it? What can you buy there?\nMy favorite shop is ______.\nIt is ______.\nI can buy ______.\nI like it because ______.", "round_instruction" => $AudioDomain . $G4_L18_speaking_topic . "SubBlock_Talk-about-your-favorite-shop" . ".mp3"],
         ]);
 
 
@@ -3743,7 +3743,7 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
             [
-                'round' => 1, 'game_id' => 913, "q_image" =>  $l19_G913image . "green-star.png",
+                'round' => 1, 'game_id' => 913, "q_image" =>  $l19_G913image . "green-star_round.png",
                 //  "q_content" => "You are at the stationery shop. \nYou want 1 notebook, 3 pens, and 5 pencils.\nAsk the shopkeeper and talk about it.",
                 "q_content" => "S: Can I help you? \nC: I want ________________________________. Do you have? \nS: Yes, we do. \nC: How much is the notebook? How much ____________ and _____________? \nS: It's $200 in total. \nC: Here you are. \nS: __________________.",
                 "round_instruction" => $AudioDomain . $G4_L19_speaking_topic . "SubBlock_You-are-at-the-stationery-shop" . ".mp3"
@@ -3897,7 +3897,7 @@ class AnsNQueSeeder extends Seeder
         $l20_G920image = $domain . "/storage/images/Grade_4/lesson_20/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 920, "q_image" =>  $l20_G920image . "green-star.png", "q_content" => "You want 3 apples, 5 oranges, and 1 watermelon. \nYou are at the mart. \nAnswer the questions and talk. ", "round_instruction" => $AudioDomain . $G4_L20_speaking_topic . "SubBlock_You-want-3-apples-5-oranges" . ".mp3"],
+            ['round' => 1, 'game_id' => 920, "q_image" =>  $l20_G920image . "green-star_round.png", "q_content" => "You want 3 apples, 5 oranges, and 1 watermelon. \nYou are at the mart. \nAnswer the questions and talk. ", "round_instruction" => $AudioDomain . $G4_L20_speaking_topic . "SubBlock_You-want-3-apples-5-oranges" . ".mp3"],
         ]);
 
 
@@ -4409,7 +4409,7 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
             [
-                'round' => 1, 'game_id' => 938, "q_image" =>  $l22_G938image . "green-star.png",
+                'round' => 1, 'game_id' => 938, "q_image" =>  $l22_G938image . "green-star_round.png",
                 //  "q_content" => "Talk about the country you want to visit. \nWhere do you want to go?\nWhere do you want to visit? \nWhat do you want to eat there?",
                 "q_content" => "Use the prompts. \nI want to visit _____. It is to the _____ of Myanmar. \nThe currency of _____ is _____. I want to visit _____, and I want to eat _____",
                 "round_instruction" => $AudioDomain . $G4_L22_speaking_topic . "SubBlock_You-are-at-the-stationery-shop" . ".mp3"
@@ -4588,7 +4588,7 @@ class AnsNQueSeeder extends Seeder
         $l23_G945image = $domain . "/storage/images/Grade_4/lesson_23/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 945, "q_image" =>  $l23_G945image . "green-star.png", "q_content" => "Talk about your own country.\nAnswer the questions. Use the prompts.\nWhat is your country?\nWhere is it?\nWhat is the capital?\nWhat is the currency?\nWhat are the famous foods?", "round_instruction" => $AudioDomain . $G4_L23_speaking_topic . "SubBlock_Talk-about-your-own-country-A" . ".mp3"],
+            ['round' => 1, 'game_id' => 945, "q_image" =>  $l23_G945image . "green-star_round.png", "q_content" => "Talk about your own country.\nAnswer the questions. Use the prompts.\nWhat is your country?\nWhere is it?\nWhat is the capital?\nWhat is the currency?\nWhat are the famous foods?", "round_instruction" => $AudioDomain . $G4_L23_speaking_topic . "SubBlock_Talk-about-your-own-country-A" . ".mp3"],
         ]);
 
 
@@ -4797,7 +4797,7 @@ class AnsNQueSeeder extends Seeder
         $l24_G952image = $domain . "/storage/images/Grade_4/lesson_24/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 952, "q_image" =>  $l24_G952image . "green-star.png", "q_content" => "Find out the country you would like to talk about. \nAsk your mom and dad about that country or your teachers and friends.\nPlan and talk about it.", "round_instruction" => $AudioDomain . $G4_L24_speaking_topic . "Block_Find-out-the-country-you-would" . ".mp3"],
+            ['round' => 1, 'game_id' => 952, "q_image" =>  $l24_G952image . "green-star_round.png", "q_content" => "Find out the country you would like to talk about. \nAsk your mom and dad about that country or your teachers and friends.\nPlan and talk about it.", "round_instruction" => $AudioDomain . $G4_L24_speaking_topic . "Block_Find-out-the-country-you-would" . ".mp3"],
         ]);
 
 
@@ -5167,7 +5167,7 @@ class AnsNQueSeeder extends Seeder
         $l38_G1054image = $domain . "/storage/images/Grade_4/lesson_38/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 1054,  'q_image' => $l38_G1054image . "green-star.png", "round_instruction" => $AudioDomain . $G4_L38_speaking_topic . "SubBlock_Look-at-the-table-below-Talk" . ".mp3", "q_content" => $l38_G1054image . "text.png"],
+            ['round' => 1, 'game_id' => 1054,  'q_image' => $l38_G1054image . "green-star_round.png", "round_instruction" => $AudioDomain . $G4_L38_speaking_topic . "SubBlock_Look-at-the-table-below-Talk" . ".mp3", "q_content" => $l38_G1054image . "text.png"],
         ]);
 
 
@@ -5283,10 +5283,10 @@ class AnsNQueSeeder extends Seeder
         $l39_G1060image = $domain . "/storage/images/Grade_4/lesson_39/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 1060,  'q_image' => $l39_G1060image . "green-star.png", "round_instruction" => $AudioDomain . $G4_L39_speaking_topic . "SubBlock_Look-at-the-given-question-Re" . ".mp3", "q_content" => "A: Would you like to go to the library with me?\nB: Yes, ___________________."],
-            ['round' => 2, 'game_id' => 1060,  'q_image' => $l39_G1060image . "green-star.png", "round_instruction" => $AudioDomain . $G4_L39_speaking_topic . "SubBlock_Look-at-the-given-question-Re" . ".mp3", "q_content" => "A: Would you like to go to the swimming pool with me?\nB: I am sorry. ___________________."],
-            ['round' => 3, 'game_id' => 1060,  'q_image' => $l39_G1060image . "green-star.png", "round_instruction" => $AudioDomain . $G4_L39_speaking_topic . "SubBlock_Look-at-the-given-question-Re" . ".mp3", "q_content" => "A: ___________________? \nB: I am sorry. I can't."],
-            ['round' => 4, 'game_id' => 1060,  'q_image' => $l39_G1060image . "green-star.png", "round_instruction" => $AudioDomain . $G4_L39_speaking_topic . "SubBlock_Look-at-the-given-question-Re" . ".mp3", "q_content" => "A: ___________________? \nB: Sure, I would love to."],
+            ['round' => 1, 'game_id' => 1060,  'q_image' => $l39_G1060image . "green-star_round.png", "round_instruction" => $AudioDomain . $G4_L39_speaking_topic . "SubBlock_Look-at-the-given-question-Re" . ".mp3", "q_content" => "A: Would you like to go to the library with me?\nB: Yes, ___________________."],
+            ['round' => 2, 'game_id' => 1060,  'q_image' => $l39_G1060image . "green-star_round.png", "round_instruction" => $AudioDomain . $G4_L39_speaking_topic . "SubBlock_Look-at-the-given-question-Re" . ".mp3", "q_content" => "A: Would you like to go to the swimming pool with me?\nB: I am sorry. ___________________."],
+            ['round' => 3, 'game_id' => 1060,  'q_image' => $l39_G1060image . "green-star_round.png", "round_instruction" => $AudioDomain . $G4_L39_speaking_topic . "SubBlock_Look-at-the-given-question-Re" . ".mp3", "q_content" => "A: ___________________? \nB: I am sorry. I can't."],
+            ['round' => 4, 'game_id' => 1060,  'q_image' => $l39_G1060image . "green-star_round.png", "round_instruction" => $AudioDomain . $G4_L39_speaking_topic . "SubBlock_Look-at-the-given-question-Re" . ".mp3", "q_content" => "A: ___________________? \nB: Sure, I would love to."],
         ]);
 
 
@@ -5436,7 +5436,7 @@ class AnsNQueSeeder extends Seeder
         $l40_G1065image = $domain . "/storage/images/Grade_4/lesson_40/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 1065,  'q_image' => $l40_G1065image . "green-star.png", "round_instruction" => $AudioDomain . $G4_L40_speaking_topic . "SubBlock_Make-a-plan-for-your-next-birt" . ".mp3", "q_content" => "My birthday party will be at ____ (place).\nThe time is ____(time).\nI will treat the guests ____ and ____ (food). \nI will invite ____ , ____ and ____ (people).\nWe will ____ , ____ and ____ (activities)."],
+            ['round' => 1, 'game_id' => 1065,  'q_image' => $l40_G1065image . "green-star_round.png", "round_instruction" => $AudioDomain . $G4_L40_speaking_topic . "SubBlock_Make-a-plan-for-your-next-birt" . ".mp3", "q_content" => "My birthday party will be at ____ (place).\nThe time is ____(time).\nI will treat the guests ____ and ____ (food). \nI will invite ____ , ____ and ____ (people).\nWe will ____ , ____ and ____ (activities)."],
         ]);
 
 
