@@ -1182,8 +1182,8 @@ class AnsNQueSeeder extends Seeder
             ['short', 'tall'],
         ];
 
-        $audio = $AudioDomain . "Grade_3/Lesson_8/listen_n_write/";
-        $img = $ImageDomain . "Grade_3/Lesson_8/listen_n_write/";
+        $audio = $AudioDomain . "Grade_2/Lesson_8/listen_n_write/";
+        $img = $ImageDomain . "Grade_2/Lesson_8/listen_n_write/";
 
         foreach ($contents as $key =>  $val) {
 
