@@ -496,17 +496,20 @@ class AnsNQueSeeder extends Seeder
         DB::table('ans_n_ques')->insert([
 
             ['round' => 11, 'game_id' => 265, 'a_image' => $l3_G265_image . "hla.gif", "a_audio" => $AudioDomain . $G2_L3_Speaking . "Hi-Su-Su-How-are-you-feeling.mp3", "a_conver" => $l3_G265_image .  "hi-susu.png", "background" =>  $l3_G265_image . "bg1.png"],
+
             ['round' => 11, 'game_id' => 265, 'a_image' => $l3_G265_image . "su.gif", "a_audio" => $AudioDomain . $G2_L3_Speaking . "Hello-Hla-Hla-Im-happy.mp3", "a_conver" => $l3_G265_image .  "hello-hla-hla.png", "background" =>  $l3_G265_image . "bg1.png"],
 
             ['round' => 12, 'game_id' => 265, 'a_image' => $l3_G265_image . "su.gif", "a_audio" => $AudioDomain . $G2_L3_Speaking . "Hi-Aye-Aye-How-are-you-feelin.mp3", "a_conver" => $l3_G265_image .  "hi-aye-aye.png", "background" =>  $l3_G265_image . "bg1.png"],
+
             ['round' => 12, 'game_id' => 265, 'a_image' => $l3_G265_image . "aye.gif", "a_audio" => $AudioDomain . $G2_L3_Speaking . "Hello-Su-Su-Im-hungry.mp3", "a_conver" => $l3_G265_image .  "hello-susu.png", "background" =>  $l3_G265_image . "bg1.png"],
 
             ['round' => 13, 'game_id' => 265, 'a_image' => $l3_G265_image . "chris.gif", "a_audio" => $AudioDomain . $G2_L3_Speaking . "Block_Hi-Kyaw-Kyaw-How-are-you-feeli.mp3", "a_conver" => $l3_G265_image .  "hi-kyaw-kyaw.png", "background" =>  $l3_G265_image . "bg1.png"],
+
             ['round' => 13, 'game_id' => 265, 'a_image' => $l3_G265_image . "kyaw.gif", "a_audio" =>  $AudioDomain . $G2_L3_Speaking . "Block_Hello-Chris-Im-sad.mp3", "a_conver" => $l3_G265_image .  "hello-chris.png", "background" =>  $l3_G265_image . "bg1.png"],
         ]);
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 14, 'game_id' => 265,  'q_image' => $l3_G265_image . "teacher_chara.png", "q_content" => null, "q_conver" => "Hello, what's your name?\nHow are you feeling today?", "round_instruction" => $AudioDomain . $G2_L3_Speaking . "SubBlock_hello-what-is-your-name-how" . ".mp3"],
+            ['round' => 14, 'game_id' => 265,  'q_image' => $l3_G265_image . "teacher_chara.png", "q_content" => null, "q_conver" => $l3_G265_image."Hello-what-is-your-name.png", "round_instruction" => $AudioDomain . $G2_L3_Speaking . "SubBlock_hello-what-is-your-name-how" . ".mp3"],
         ]);
 
 
@@ -2063,6 +2066,16 @@ class AnsNQueSeeder extends Seeder
 
             ['round' => 9, 'game_id' => 313, "q_audio" => $AudioDomain . $G2_L13_Speaking . "do-you-like-jacket.mp3", 'q_image' => $l13_G313_image . "brown-jacket.png", "round_instruction" => $AudioDomain . $G2_L13_Speaking . "look-at-the-picture-and-answer-the-question.mp3", "q_content" => "Look at the picture and answer the question.\n Do you like jacket?"],
 
+            ['round' => 10, 'game_id' => 313, "q_audio" => $AudioDomain . $G2_L13_Speaking . "do-you-like-insects.mp3", 'q_image' => $l13_G313_image . "insects.png", "round_instruction" => $AudioDomain . $G2_L13_Speaking . "look-at-the-picture-and-answer-the-question.mp3", "q_content" => "Look at the picture and answer the question.\n Do you like insects?"],
+
+            ['round' => 11, 'game_id' => 313, "q_audio" => $AudioDomain . $G2_L13_Speaking . "do-you-like-insects.mp3", 'q_image' => $l13_G313_image . "insects.png", "round_instruction" => $AudioDomain . $G2_L13_Speaking . "look-at-the-picture-and-answer-the-question.mp3", "q_content" => "Look at the picture and answer the question.\n Do you like insects?"],
+
+            ['round' => 12, 'game_id' => 313, "q_audio" => $AudioDomain . $G2_L13_Speaking . "do-you-like-insects.mp3", 'q_image' => $l13_G313_image . "insects.png", "round_instruction" => $AudioDomain . $G2_L13_Speaking . "look-at-the-picture-and-answer-the-question.mp3", "q_content" => "Look at the picture and answer the question.\n Do you like insects?"],
+
+            ['round' => 13, 'game_id' => 313, "q_audio" => $AudioDomain . $G2_L13_Speaking . "whos-bag-is-it.mp3", 'q_image' => $l13_G313_image . "bag.png", "round_instruction" => $AudioDomain . $G2_L13_Speaking . "look-at-the-picture-and-answer-the-question.mp3", "q_content" => "Look at the picture and answer the question.\n is it orange?"],
+
+            ['round' => 14, 'game_id' => 313, "q_audio" => $AudioDomain . $G2_L13_Speaking . "is-it-brown.mp3", 'q_image' => $l13_G313_image . "pencil.png", "round_instruction" => $AudioDomain . $G2_L13_Speaking . "look-at-the-picture-and-answer-the-question.mp3", "q_content" => "Look at the picture and answer the question.\n Is is brown?"],
+
 
 
         ]);
@@ -2177,7 +2190,7 @@ class AnsNQueSeeder extends Seeder
         $G2_L14_Speaking = "Grade_2/" . "Lesson_14/" . "Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 320,  'q_image' => $l14_G320_image . "speaker.png", "q_audio" => $AudioDomain . $G2_L14_Speaking . "Hello-my-name-is-Jack-I-am-6.mp3", "q_content" => "Hello, my name is _____. I am ___ years old. I am _____. I have ______ and _______. I have ______. My favorite food is _______. My favorite juice is ______. My favorite animal is ______."],
+            ['round' => 1, 'game_id' => 320,  'q_image' => $l14_G320_image . "green_starfish.png", "q_audio" => $AudioDomain . $G2_L14_Speaking . "Hello-my-name-is-Jack-I-am-6.mp3", "q_content" => "Hello, my name is _____. I am ___ years old. I am _____. I have ______ and _______. I have ______. My favorite food is _______. My favorite juice is ______. My favorite animal is ______."],
         ]);
 
 
@@ -2358,7 +2371,7 @@ class AnsNQueSeeder extends Seeder
         $G2_L15_Speaking = "Grade_2/" . "Lesson_15/" . "Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 325,  'q_image' => $l15_G325_image . "speaker.png", "q_audio" => $AudioDomain . $G2_L15_Speaking . "My-names-Chris-I-have-a-frie.mp3", "q_content" => "My name's _____. I have a _______. His/her name's ______. She has a ______  kite. _____ and I like kites. They are ______  and _______. We fly kites in the ______ . We are ______ when we fly kites. "],
+            ['round' => 1, 'game_id' => 325,  'q_image' => $l15_G325_image . "green_starfish.png", "q_audio" => $AudioDomain . $G2_L15_Speaking . "My-names-Chris-I-have-a-frie.mp3", "q_content" => "My name's _____. I have a _______. His/her name's ______. She has a ______  kite. _____ and I like kites. They are ______  and _______. We fly kites in the ______ . We are ______ when we fly kites. "],
         ]);
 
 
@@ -2496,13 +2509,22 @@ class AnsNQueSeeder extends Seeder
         $G2_L16_Speaking = "Grade_2/" . "Lesson_16/" . "Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 331, "q_audio" => $AudioDomain . $G2_L16_Speaking . "Wednesday.mp3", 'q_image' => $l16_G331_image . "wed.png", "round_instruction" => $AudioDomain . $G2_L16_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak?"],
-            ['round' => 2, 'game_id' => 331, "q_audio" => $AudioDomain . $G2_L16_Speaking . "Friday.mp3", 'q_image' => $l16_G331_image . "fri.png", "round_instruction" => $AudioDomain . $G2_L16_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak?"],
-            ['round' => 3, 'game_id' => 331, "q_audio" => $AudioDomain . $G2_L16_Speaking . "Monday.mp3", 'q_image' => $l16_G331_image . "mon.png", "round_instruction" => $AudioDomain . $G2_L16_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak?"],
-            ['round' => 4, 'game_id' => 331, "q_audio" => $AudioDomain . $G2_L16_Speaking . "Thursday.mp3", 'q_image' => $l16_G331_image . "thur.png", "round_instruction" => $AudioDomain . $G2_L16_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak?"],
-            ['round' => 5, 'game_id' => 331, "q_audio" => $AudioDomain . $G2_L16_Speaking . "Sunday.mp3", 'q_image' => $l16_G331_image . "sun.png", "round_instruction" => $AudioDomain . $G2_L16_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak?"],
-            ['round' => 6, 'game_id' => 331, "q_audio" => $AudioDomain . $G2_L16_Speaking . "Tuesday.mp3", 'q_image' => $l16_G331_image . "tue.png", "round_instruction" => $AudioDomain . $G2_L16_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak?"],
-            ['round' => 7, 'game_id' => 331, "q_audio" => $AudioDomain . $G2_L16_Speaking . "Saturday.mp3", 'q_image' => $l16_G331_image . "sat.png", "round_instruction" => $AudioDomain . $G2_L16_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak?"],
+
+            ['round' => 7, 'game_id' => 331, "q_audio" => $AudioDomain . $G2_L16_Speaking . "What-day-is-it-today-Saturday.mp3", 'q_image' => $l16_G331_image . "sat.png", "round_instruction" => $AudioDomain . $G2_L16_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak? \n Example \n What day is it today? \n It's Saturday."],
+
+            ['round' => 5, 'game_id' => 331, "q_audio" => $AudioDomain . $G2_L16_Speaking . "favorite-day-of-the-week-Sunday.mp3", 'q_image' => $l16_G331_image . "sun.png", "round_instruction" => $AudioDomain . $G2_L16_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "Look at the picture and speak? \n Example \n What's your favorite day of the week? It's Sunday."],
+
+
+            ['round' => 1, 'game_id' => 331, "q_audio" => $AudioDomain . $G2_L16_Speaking . "What-day-is-it-today.mp3", 'q_image' => $l16_G331_image . "wed.png", "round_instruction" => $AudioDomain . $G2_L16_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "What day is it today?"],
+
+            ['round' => 2, 'game_id' => 331, "q_audio" => $AudioDomain . $G2_L16_Speaking . "favorite-day-of-the-week.mp3", 'q_image' => $l16_G331_image . "fri.png", "round_instruction" => $AudioDomain . $G2_L16_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "What's your favorite day of the week?"],
+
+            ['round' => 3, 'game_id' => 331, "q_audio" => $AudioDomain . $G2_L16_Speaking . "What-day-is-it-today.mp3", 'q_image' => $l16_G331_image . "mon.png", "round_instruction" => $AudioDomain . $G2_L16_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "What day is it today?"],
+
+            ['round' => 4, 'game_id' => 331, "q_audio" => $AudioDomain . $G2_L16_Speaking . "favorite-day-of-the-week.mp3", 'q_image' => $l16_G331_image . "thur.png", "round_instruction" => $AudioDomain . $G2_L16_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "What's your favorite day of the week?"],
+
+            ['round' => 6, 'game_id' => 331, "q_audio" => $AudioDomain . $G2_L16_Speaking . "What-day-is-it-today.mp3", 'q_image' => $l16_G331_image . "tue.png", "round_instruction" => $AudioDomain . $G2_L16_Speaking . "Look-at-the-pictures-and-speak.mp3", "q_content" => "What day is it today?"],
+
         ]);
 
 
@@ -2584,7 +2606,9 @@ class AnsNQueSeeder extends Seeder
         $G2_L17_Speaking = "Grade_2/" . "Lesson_17/" . "Speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 335, "q_audio" => $AudioDomain . $G2_L17_Speaking . "My-best-friend-is-Jack-He-lik" . ".mp3", 'q_image' => $l17_G335_image . "boy.png", "q_content" => "My best friend is _____. He/She likes _____. On Monday, he/she eats ______ ______. On Tuesday, she eats _____ ______. On Wednesday, he eats _____ _____. On Thursday, he eats _____ ______. On Friday, he drinks _____ _____. On Saturday, he eats _____ ______. He likes it very much. On Sunday, he is sick."],
+            ['round' => 1, 'game_id' => 335, "q_audio" => $AudioDomain . $G2_L17_Speaking . "My-best-friend-is-Jack-He-lik" . ".mp3", 'q_image' => $l17_G335_image . "boy.png",
+            "q_content" => "My best friend is _____. He/She likes _____. On Monday, he/she eats ______ ______. On Tuesday, he/she eats _____ ______. On Wednesday, he/she eats _____ _____. On Thursday, he/she eats _____ ______. On Friday, he/she drinks _____ _____. On Saturday, he/she eats _____ ______. He/She likes it very much. On Sunday, he/she is sick."
+        ],
         ]);
 
 
