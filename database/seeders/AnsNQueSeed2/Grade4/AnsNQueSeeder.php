@@ -212,85 +212,65 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Tall", "q_conver" => null, 'a_content' => 1],
+            ['round' => 1, 'game_id' => 764, "q_image" => $l11_G764_image . "emma.png", "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Emma-She-is-tall-and.mp3", "q_content" => "Tall", 'q_conver' => "This is Emma. She is ____ and slim.", 'a_content' => 1],
             ['round' => 1, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Short", "q_conver" => null, 'a_content' => 0],
-            ['round' => 1, 'game_id' => 764, "q_image" => $l11_G764_image . "emma.png", "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Emma-She-is-tall-and.mp3", "q_content" => null, 'q_conver' => "This is Emma. She is ____ and slim.", 'a_content' => null],
 
-            ['round' => 2, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => 1, "q_conver" => null, 'a_content' => 0],
+            ['round' => 2, 'game_id' => 764, "q_image" => $l11_G764_image . "emma.png", "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Emma-She-is-tall-and.mp3", "q_content" => 1, 'q_conver' => "She is in Grade ____.", 'a_content' => 0],
             ['round' => 2, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => 3, "q_conver" => null, 'a_content' => 1],
-            ['round' => 2, 'game_id' => 764, "q_image" => $l11_G764_image . "emma.png", "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Emma-She-is-tall-and.mp3", "q_content" => null, 'q_conver' => "She is in Grade ____.", 'a_content' => null],
 
-            ['round' => 3, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Slim", "q_conver" => null, 'a_content' => 0],
+            ['round' => 3, 'game_id' => 764, "q_image" => $l11_G764_image . "max.png", "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Max-He-is-short-and-p.mp3", "q_content" => "Slim", 'q_conver' => "This is Max. He is short and ____.", 'a_content' => 0],
             ['round' => 3, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Plump", "q_conver" => null, 'a_content' => 1],
-            ['round' => 3, 'game_id' => 764, "q_image" => $l11_G764_image . "max.png", "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Max-He-is-short-and-p.mp3", "q_content" => null, 'q_conver' => "This is Max. He is short and ____.", 'a_content' => null],
 
-            ['round' => 4, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => 1, "q_conver" => null, 'a_content' => 0],
+            ['round' => 4, 'game_id' => 764, "q_image" => $l11_G764_image . "max.png", "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Max-He-is-short-and-p.mp3", "q_content" => 1, 'q_conver' => "He is in Grade ____.", 'a_content' => 0],
             ['round' => 4, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => 2, "q_conver" => null, 'a_content' => 1],
-            ['round' => 4, 'game_id' => 764, "q_image" => $l11_G764_image . "max.png", "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Max-He-is-short-and-p.mp3", "q_content" => null, 'q_conver' => "He is in Grade ____.", 'a_content' => null],
 
-            ['round' => 5, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "family", "q_conver" => null, 'a_content' => 0],
+            ['round' => 5, 'game_id' => 764, "q_image" => $l11_G764_image . "sophie-max.png", "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "SubBlock_They-are-Sophie-and-Max-They.mp3", "q_content" => "family", 'q_conver' => "They are Sophie and Max. They are ____.", 'a_content' => 0],
             ['round' => 5, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "friends", "q_conver" => null, 'a_content' => 1],
-            ['round' => 5, 'game_id' => 764, "q_image" => $l11_G764_image . "sophie-max.png", "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "SubBlock_They-are-Sophie-and-Max-They.mp3", "q_content" => null, 'q_conver' => "They are Sophie and Max. They are ____.", 'a_content' => null],
 
-            ['round' => 6, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Tall", "q_conver" => null, 'a_content' => 1],
+            ['round' => 6, 'game_id' => 764, "q_image" => $l11_G764_image . "john.png", "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-John-He-is-tall-and-s.mp3", "q_content" =>  "Tall", 'q_conver' => "This is John. He is ____ and ____. He is in Grade 1.", 'a_content' => 1],
             ['round' => 6, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Short", "q_conver" => null, 'a_content' => 0],
-            ['round' => 6, 'game_id' => 764, "q_image" => $l11_G764_image . "john.png", "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-John-He-is-tall-and-s.mp3", "q_content" => null, 'q_conver' => "This is John. He is ____ and ____. He is in Grade 1.", 'a_content' => null],
 
-            ['round' => 7, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Plump", "q_conver" => null, 'a_content' => 0],
+            ['round' => 7, 'game_id' => 764, "q_image" => $l11_G764_image . "john.png", "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-John-He-is-tall-and-s.mp3", "q_content" =>  "Plump", 'q_conver' => "This is John. He is ____ and ____. He is in Grade 1.", 'a_content' => 0],
             ['round' => 7, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Slim", "q_conver" => null, 'a_content' => 1],
-            ['round' => 7, 'game_id' => 764, "q_image" => $l11_G764_image . "john.png", "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-John-He-is-tall-and-s.mp3", "q_content" => null, 'q_conver' => "This is John. He is ____ and ____. He is in Grade 1.", 'a_content' => null],
 
-            ['round' => 8, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Tall", "q_conver" => null, 'a_content' => 0],
+            ['round' => 8, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Emma-She-is-short-and.mp3", "q_content" => "Tall", 'q_conver' => "This is Emma. She is ____ and ____. She is____. She is in Grade 4.", 'a_content' => 0],
             ['round' => 8, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Short", "q_conver" => null, 'a_content' => 1],
-            ['round' => 8, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Emma-She-is-short-and.mp3", "q_content" => null, 'q_conver' => "This is Emma. She is ____ and ____. She is____. She is in Grade 4.", 'a_content' => null],
 
-            ['round' => 9, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Handsome", "q_conver" => null, 'a_content' => 0],
+            ['round' => 9, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Emma-She-is-short-and.mp3", "q_content" => "Handsome", 'q_conver' => "This is Emma. She is ____ and ____. She is____. She is in Grade 4.", 'a_content' => 0],
             ['round' => 9, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Beautiful", "q_conver" => null, 'a_content' => 1],
-            ['round' => 9, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Emma-She-is-short-and.mp3", "q_content" => null, 'q_conver' => "This is Emma. She is ____ and ____. She is____. She is in Grade 4.", 'a_content' => null],
 
-            ['round' => 10, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Plump", "q_conver" => null, 'a_content' => 0],
+            ['round' => 10, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Emma-She-is-short-and.mp3", "q_content" => "Plump", 'q_conver' => "This is Emma. She is ____ and ____. She is____. She is in Grade 4.", 'a_content' => 0],
             ['round' => 10, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Slim", "q_conver" => null, 'a_content' => 1],
-            ['round' => 10, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Emma-She-is-short-and.mp3", "q_content" => null, 'q_conver' => "This is Emma. She is ____ and ____. She is____. She is in Grade 4.", 'a_content' => null],
 
-            ['round' => 11, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Young", "q_conver" => null, 'a_content' => 1],
+            ['round' => 11, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Elsa-She-is-young-and.mp3", "q_content" => "Young", 'q_conver' => "This is Elsa. She is ____  and ____ . She is ____. Her face is oval.", 'a_content' => 1],
             ['round' => 11, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Old", "q_conver" => null, 'a_content' => 0],
-            ['round' => 11, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Elsa-She-is-young-and.mp3", "q_content" => null, 'q_conver' => "This is Elsa. She is ____  and ____ . She is ____. Her face is oval.", 'a_content' => null],
 
-            ['round' => 12, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Tall", "q_conver" => null, 'a_content' => 1],
+            ['round' => 12, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Elsa-She-is-young-and.mp3", "q_content" => "Tall", 'q_conver' => "This is Elsa. She is ____  and ____ . She is ____. Her face is oval.", 'a_content' => 1],
             ['round' => 12, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Short", "q_conver" => null, 'a_content' => 0],
-            ['round' => 12, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Elsa-She-is-young-and.mp3", "q_content" => null, 'q_conver' => "This is Elsa. She is ____  and ____ . She is ____. Her face is oval.", 'a_content' => null],
 
-            ['round' => 13, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Handsome", "q_conver" => null, 'a_content' => 0],
+            ['round' => 13, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Elsa-She-is-young-and.mp3", "q_content" => "Handsome", 'q_conver' => "This is Elsa. She is ____  and ____ . She is ____. Her face is oval.", 'a_content' => 0],
             ['round' => 13, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Beautiful", "q_conver" => null, 'a_content' => 1],
-            ['round' => 13, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Elsa-She-is-young-and.mp3", "q_content" => null, 'q_conver' => "This is Elsa. She is ____  and ____ . She is ____. Her face is oval.", 'a_content' => null],
 
-            ['round' => 14, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Tall", "q_conver" => null, 'a_content' => 0],
+            ['round' => 14, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Jack-He-is-medium-hei.mp3", "q_content" => "Tall", 'q_conver' => "This is Jack. He is ____. He is ____.", 'a_content' => 0],
             ['round' => 14, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Medium Height", "q_conver" => null, 'a_content' => 1],
-            ['round' => 14, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Jack-He-is-medium-hei.mp3", "q_content" => null, 'q_conver' => "This is Jack. He is ____. He is ____.", 'a_content' => null],
 
-            ['round' => 15, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Plump", "q_conver" => null, 'a_content' => 0],
+            ['round' => 15, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Jack-He-is-medium-hei.mp3", "q_content" => "Plump", 'q_conver' => "This is Jack. He is ____. He is ____.", 'a_content' => 0],
             ['round' => 15, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Well Built", "q_conver" => null, 'a_content' => 1],
-            ['round' => 15, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Jack-He-is-medium-hei.mp3", "q_content" => null, 'q_conver' => "This is Jack. He is ____. He is ____.", 'a_content' => null],
 
-            ['round' => 16, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Young", "q_conver" => null, 'a_content' => 0],
+            ['round' => 16, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-David-He-is-tall-and.mp3", "q_content" => "Young", 'q_conver' => "This is David. He is tall and ____. His face is ____.", 'a_content' => 0],
             ['round' => 16, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Old", "q_conver" => null, 'a_content' => 1],
-            ['round' => 16, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-David-He-is-tall-and.mp3", "q_content" => null, 'q_conver' => "This is David. He is tall and ____. His face is ____.", 'a_content' => null],
 
-            ['round' => 17, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Oval", "q_conver" => null, 'a_content' => 0],
+            ['round' => 17, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-David-He-is-tall-and.mp3", "q_content" => "Oval", 'q_conver' => "This is David. He is tall and ____. His face is ____.", 'a_content' => 0],
             ['round' => 17, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Square", "q_conver" => null, 'a_content' => 1],
-            ['round' => 17, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-David-He-is-tall-and.mp3", "q_content" => null, 'q_conver' => "This is David. He is tall and ____. His face is ____.", 'a_content' => null],
 
-            ['round' => 18, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Short", "q_conver" => null, 'a_content' => 0],
+            ['round' => 18, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Woody-He-is-medium-he.mp3", "q_content" => "Short", 'q_conver' => "This is Woody. He is ____ and ____. His face is ____.", 'a_content' => 0],
             ['round' => 18, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Medium Height", "q_conver" => null, 'a_content' => 1],
-            ['round' => 18, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Woody-He-is-medium-he.mp3", "q_content" => null, 'q_conver' => "This is Woody. He is ____ and ____. His face is ____.", 'a_content' => null],
 
-            ['round' => 19, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Pretty", "q_conver" => null, 'a_content' => 0],
+            ['round' => 19, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Woody-He-is-medium-he.mp3", "q_content" => "Pretty", 'q_conver' => "This is Woody. He is ____ and ____. His face is ____.", 'a_content' => 0],
             ['round' => 19, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Handsome", "q_conver" => null, 'a_content' => 1],
-            ['round' => 19, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Woody-He-is-medium-he.mp3", "q_content" => null, 'q_conver' => "This is Woody. He is ____ and ____. His face is ____.", 'a_content' => null],
 
-            ['round' => 20, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Oval", "q_conver" => null, 'a_content' => 1],
+            ['round' => 20, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Woody-He-is-medium-he.mp3", "q_content" => "Oval", 'q_conver' => "This is Woody. He is ____ and ____. His face is ____.", 'a_content' => 1],
             ['round' => 20, 'game_id' => 764, "q_image" => null, "q_audio" =>  null, 'q_content' => "Square", "q_conver" => null, 'a_content' => 0],
-            ['round' => 20, 'game_id' => 764, "q_image" => null, "q_audio" => $AudioDomain . $G3_L11_listen_n_practice_path . "This-is-Woody-He-is-medium-he.mp3", "q_content" => null, 'q_conver' => "This is Woody. He is ____ and ____. His face is ____.", 'a_content' => null],
 
         ]);
 
@@ -3545,50 +3525,41 @@ class AnsNQueSeeder extends Seeder
         // Game 908
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 100, "q_conver" => null, 'a_content' => 1],
+            ['round' => 1, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "1.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "100.mp3", "q_content" => 100, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => 1],
             ['round' => 1, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 200, "q_conver" => null, 'a_content' => 0],
             ['round' => 1, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 300, "q_conver" => null, 'a_content' => 0],
-            ['round' => 1, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "1.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "100.mp3", "q_content" => null, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => null],
 
-            ['round' => 2, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 100, "q_conver" => null, 'a_content' => 0],
+            ['round' => 2, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "2.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "100.mp3", "q_content" => 100, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => 0],
             ['round' => 2, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 200, "q_conver" => null, 'a_content' => 1],
             ['round' => 2, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 300, "q_conver" => null, 'a_content' => 0],
-            ['round' => 2, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "2.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "100.mp3", "q_content" => null, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => null],
 
-            ['round' => 3, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 100, "q_conver" => null, 'a_content' => 0],
+            ['round' => 3, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "3.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "300.mp3", "q_content" => 100, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => 0],
             ['round' => 3, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 200, "q_conver" => null, 'a_content' => 0],
             ['round' => 3, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 300, "q_conver" => null, 'a_content' => 1],
-            ['round' => 3, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "3.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "300.mp3", "q_content" => null, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => null],
 
-            ['round' => 4, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 400, "q_conver" => null, 'a_content' => 1],
+            ['round' => 4, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "4.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "400.mp3", "q_content" => 400, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => 1],
             ['round' => 4, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 500, "q_conver" => null, 'a_content' => 0],
             ['round' => 4, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 600, "q_conver" => null, 'a_content' => 0],
-            ['round' => 4, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "4.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "400.mp3", "q_content" => null, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => null],
 
-            ['round' => 5, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 400, "q_conver" => null, 'a_content' => 0],
+            ['round' => 5, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "5.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "500.mp3", "q_content" => 400, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => 0],
             ['round' => 5, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 500, "q_conver" => null, 'a_content' => 1],
             ['round' => 5, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 600, "q_conver" => null, 'a_content' => 0],
-            ['round' => 5, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "5.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "500.mp3", "q_content" => null, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => null],
 
-            ['round' => 6, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 400, "q_conver" => null, 'a_content' => 0],
+            ['round' => 6, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "6.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "600.mp3", "q_content" => 400, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => 0],
             ['round' => 6, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 500, "q_conver" => null, 'a_content' => 0],
             ['round' => 6, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 600, "q_conver" => null, 'a_content' => 1],
-            ['round' => 6, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "6.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "600.mp3", "q_content" => null, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => null],
 
-            ['round' => 7, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 700, "q_conver" => null, 'a_content' => 1],
+            ['round' => 7, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "7.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "700.mp3", "q_content" => 700, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => 1],
             ['round' => 7, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 800, "q_conver" => null, 'a_content' => 0],
             ['round' => 7, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 900, "q_conver" => null, 'a_content' => 0],
-            ['round' => 7, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "7.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "700.mp3", "q_content" => null, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => null],
 
-            ['round' => 8, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 700, "q_conver" => null, 'a_content' => 0],
+            ['round' => 8, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "8.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "800.mp3", "q_content" => 700, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => 0],
             ['round' => 8, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 800, "q_conver" => null, 'a_content' => 1],
             ['round' => 8, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 900, "q_conver" => null, 'a_content' => 0],
-            ['round' => 8, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "8.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "800.mp3", "q_content" => null, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => null],
 
-            ['round' => 9, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 700, "q_conver" => null, 'a_content' => 0],
+            ['round' => 9, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "9.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "900.mp3", "q_content" => 700, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => 0],
             ['round' => 9, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 800, "q_conver" => null, 'a_content' => 0],
             ['round' => 9, 'game_id' => 908, "q_image" => null, "q_audio" =>  null, 'q_content' => 900, "q_conver" => null, 'a_content' => 1],
-            ['round' => 9, 'game_id' => 908, "q_image" => $l19_G908_G909_image . "9.png", "q_audio" => $AudioDomain . $G3_L19_practice_path . "900.mp3", "q_content" => null, 'q_conver' => "Choose the right words \nfor the given picture.", 'a_content' => null],
 
         ]);
 
