@@ -156,24 +156,27 @@ class PSNAnsNQuesG2Seeder extends Seeder
     // ========================================
     // Unit -4  <speaking_and_recording>
 
-        $contentImg = ['basketball', 'volleyball', 'hide and seek', 'football', 'frisbee'];
+        $contentImg = ['frisbee', 'football', 'basketball', 'hopscotch', 'volleyball', 'hide and seek','jump-rope'];
 
 
         $questionContent = [
-            "I can play ___. Can ___ ___ ___? Yes,___ ___",
-            "I can play ___. ___ ___ ___ ___? No,___ ___",
-            "I can play ___. ___ ___ ___ ___? ___ ___ ___",
-            "I can play football. Can you play it? No,___ ___",
-            "I can play frisbee. Can you play it? Yes,I can.",
-
+            "Example \n They can play frisbee. Can you play it? Yes,I can.",
+            "Example \n I can play football. Can you play it? No,I can't.",
+            "I can play ___. ___ ___ ___ ___? ___.",
+            "I can play ___. ___ ___ ___ ___? ___",
+            "I can play ___. ___ ___ ___ ___? ___",
+            "I can play ___. ___ ___ ___ ___? ___",
+            "I can play ___. ___ ___ ___ ___? ___",
         ];
 
         $questionAudio = [
+            "They-Can-Play-frisbee.mp3",
+            "I-Cant-Play-football.mp3",
             "I-Can-Play-Basketball.mp3",
+            "I-Can-Play-hopscotch.mp3",
             "I-Can-Play-Volleyball.mp3",
             "I-Can-Play-hide-and-seek.mp3",
-            "I-Can-Play-football.mp3",
-            "I-Can-Play-frisbee.mp3",
+            "I-Can-Play-jump-rope.mp3",
         ];
 
         $img = $ImageDomain . "Grade_2/Lesson_21/Speaking/";
@@ -189,7 +192,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'q_content' => $value,
                     'q_image' => $img . str_replace(' ', '-', $contentImg[$key]) . ".png",
                     'a_content' => null,
-                    // 'q_audio' => $audio.$questionAudio[$key],
+                    'q_audio' => $audio.$questionAudio[$key].".mp3",
                 ]
 
             ]);
@@ -204,23 +207,24 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-        $contentImg = ['hopscotch', 'rope-jump', 'sing-english-songs', 'football', 'draw-picture'];
+        $contentImg = ['badminton', 'rope-jump', 'hopscotch', 'draw-picture','sing-english-songs', 'football', ];
 
         $questionContent = [
-            "I can play hopscotch. Can you play it? Yes,I can.I Can play better than you.",
-            "I can play ___ . Can you play it? Yes,I can.I Can play jump rope ___ than you.",
-            "I can  ___  English songs. Can you ___ ___ ___? Yes,I can.I Can sing English songs ___ ___ you.",
-            "I can ___. Can you play it? Yes,I can. I can ___ ___ ___ than you.",
-            "I can draw ___ . Can you ___ picture? Yes,I can. I can ___ ___ ___ than you."
-
+            "Look at the picture and speak \n Example \n I can play badminton. Can you play it? \n Yes,I can. I can play badminton better than you.",
+            "I can play ___ . Can you play it? Yes,I can.I Can play ___ ___ than you.",
+            "I can play ___ . Can you play it? Yes,I can.I Can play ___ ___ than you.",
+            "I can draw ___ . Can you ___ ___? Yes,I can. I can ___ ___ ___ than you.",
+            "I can  ___  English songs. Can you ___ ___? Yes,I can.I Can sing English songs ___ ___ you.",
+            "I can play ___. Can you play it? Yes,I can. I can play ___ ___ than you.",
         ];
 
         $questionAudio = [
-            "I-Can-play-hopscotch.mp3",
+            "I-Can-play-badminton.mp3",
             "I-Can-play-jump-rode.mp3",
+            "I-Can-play-hopscotch.mp3",
+            "I-Can-Play-draw.mp3",
             "I-Can-sing-english-songs.mp3",
             "I-Can-Play-football.mp3",
-            "I-Can-Play-draw.mp3",
         ];
 
         $img = $ImageDomain . "Grade_2/Lesson_22/Speaking/";
@@ -233,6 +237,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 [
                     'game_id' => 360,
                     'round' => $key + 1,
+                    'round_instruction' => $key == 0 ? $audio."look-at-the-picture-and-speak.mp3" : null,
                     'q_content' => $value,
                     'q_image' => $img . str_replace(' ', '-', $contentImg[$key]) . ".png",
                     'a_content' => null,
@@ -620,10 +625,10 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
         $L32U5_given_q = [
             ["Does she like mangoes? ----, She does.", "Yes"],
-            ["What does she eat on Sunday?", "Three mango"],
-            ["Can she play badminton? ___ She can.", 'No'],
+            ["What does she eat on Sunday?", "Three mangoes"],
+            ["Can she play badminton? ___ She can't.", 'No'],
             ["What color is the rabbit?", "White"],
-            ["What is the rabbit's name?.", 'Lovely'],
+            ["What is the rabbit's name?", 'Lovely'],
         ];
         $given_audio = [
             "Does-she-like-mango.mp3",
@@ -636,7 +641,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
         $given_answer = [
             ['Yes', 'No'],
-            ['Two mango', 'Five mango', 'Three mango'],
+            ['Two mangoes', 'Five mangoes', 'Three mangoes'],
             ['Yes', 'No',],
             ['White', 'Gray', 'Black'],
             ['Lovely', 'Sofia', 'Likely']
@@ -835,17 +840,18 @@ class PSNAnsNQuesG2Seeder extends Seeder
     //// Lesson 25 Unit 5 (Speaking) <speaking_and_recording>
 
         $contents = [
-            "Egg", "Dog", "Cat", "Quail",
-            "Rabbit", "Cow",
+            "Cow", "bird" ,"Eggs", "Dog", "Cat", "Quail",
+            "Rabbit",
         ];
 
         $Question_contents = [
-            'The egg is ___',
+            "Look at the picture and speak. \n Example \n The cow is beside the farm house.",
+            'The bird is ___',
+            'The eggs are ___',
             'The dog is ___',
             'The cat is ___',
             'The quail is ___',
             'The rabbit is ___',
-            'The cow is ___',
         ];
 
 
@@ -855,8 +861,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
                 [
                     'game_id' => 377, 'round' => $key + 1,
-                    // 'round_instruction' => "Look at this picture and speak.",
-                    'q_content' =>"Free Practice. ".$Question_contents[$key],
+                    'round_instruction' => $key == 0 ? $AudioDomain."/Grade_2/Lesson_25/Speaking/"."look-at-the-picture-and-speak.mp3" : null,
+                    'q_content' => $Question_contents[$key],
                     'q_audio' => $AudioDomain."/Grade_2/Lesson_25/Speaking/".$contents[$key].".mp3",
                     'q_image' => $ImageDomain . "Grade_2/Lesson_25/Speaking/" . $value . ".png",
                     // 'a_content' => str_replace('-', ' ', $value)
@@ -1043,7 +1049,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         "I live in   ___",
         "My father is a  ___",
         "He goes to school by ___",
-        "The school is ___ ths ___.",
+        "The school is ___ the ___.",
         "I have a  ___. It is white and fast.",
         "Free practice, \n The rabbit is ___ the __now. \n I love it very much.",
     ];
@@ -1346,13 +1352,13 @@ class PSNAnsNQuesG2Seeder extends Seeder
         $audios = $AudioDomain . "Grade_2/Lesson_28/Reading_Short/";
         // $L32U5_content = ['umbrella','violin','vase'];
 
-        $L32U5_para = "This is Saturday. Jane and Chris go to the zoo. They are very happy today. There are many animals there. In the picture, the giraffe is behind the wall. It's tall, It't yellow and brown. It has a long neck. The monkey is on the tree. It's small. It's brown too. It's very fast. Jane like giraffe and Chris's favorite animal is monkey.";
+        $L32U5_para = "This is Saturday. Jane and Chris go to the zoo. They are very happy today. There are many animals there. In the picture, the giraffe is behind the wall. It's tall, It't yellow and brown. It has a long neck. The monkey is on the tree. It's small. It's brown too. It's very fast. Jane likes giraffe and Chris's favorite animal is monkey.";
 
         $L32U5_given_q = [
             ["The monkey is slow.", "No"],
             ["Chris's favorite animal is giraffe.", "No"],
             ["Jane and Chris are happy today.", 'Yes'],
-            ["The giraffe are tall and brown?", "Yes"],
+            ["The giraffe are tall and brown.", "Yes"],
             ["This is Sunday.", 'No'],
         ];
 
@@ -1537,17 +1543,24 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
     //// Lesson 29 Unit 5 (Speak) <speaking_and_recording>
 
-    $contents = "boy_and_girl";
+    // $contents = "boy_and_girl";
 
     $Question_contents = [
-        "My name is Chris. I like sport shirts and shorts. \n My favorite color are brown and blue.\n Today, I am wearing a blue sport shirt and black sandals.\n When I go out, I wear shorts.",
-        "My name is ___. I like ___ and ___.,\n My favorite color are ___ and ___.\n Today I am wearing a ___ and white sandals.\n When I go out, I wear ___.",
+        "Example \n My name is Jane. I like dress and skirts. \n My favorite color are pink and yellow.\n Today, I am wearing a beautiful pink dress and white sandals.\n When I go out, I wear dresses.",
+
+        "Example \n My name is Chris. I like sport shirts and shorts. \n My favorite color are brown and blue.\n Today, I am wearing a blue sport shirt and black sandals.\n When I go out, I wear shorts.",
+
+        "Talk about you.Say what you are wearing."
+
+
+        // "My name is ___. I like ___ and ___.,\n My favorite color are ___ and ___.\n Today I am wearing a ___ and white sandals.\n When I go out, I wear ___.",
 
     ];
 
     $ques_contents_audio = [
+        'Jane',
         'Chris',
-        'Jane'
+        'both'
     ];
 
 
@@ -1562,7 +1575,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 'round_instruction' => "Talk about you.",
                 'q_content' => $value,
                 'q_audio' => $AudioDomain."/Grade_2/Lesson_29/Speak/".$ques_contents_audio[$key].".mp3",
-                'q_image' => $ImageDomain . "Grade_2/Lesson_29/Speak/" . $contents . ".png",
+                'q_image' => $ImageDomain . "Grade_2/Lesson_29/Speak/" . $ques_contents_audio[$key] . ".png",
                 // 'a_content' => str_replace('-', ' ', $value)
             ]
 
