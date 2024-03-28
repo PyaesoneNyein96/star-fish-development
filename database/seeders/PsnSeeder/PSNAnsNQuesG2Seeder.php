@@ -136,7 +136,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 'round' => $key + 1,
                 'q_image' => $img.$val.".png",
                 'q_audio' => $audio.str_replace('_','-',$val).".mp3",
-                'q_conver' => "I can play " .str_replace('_',' ',$val).".Can you play it?",
+                // 'q_conver' => "I can play " .str_replace('_',' ',$val).".Can you play it?",
                 'q_content' =>  "Yes, I can",
                 'a_content' =>  true == $ans[$key] ? true : false,
                 ]
