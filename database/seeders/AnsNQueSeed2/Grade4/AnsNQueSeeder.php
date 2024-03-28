@@ -1064,9 +1064,9 @@ class AnsNQueSeeder extends Seeder
         $l4_G791image = $domain . "/storage/images/Grade_4/lesson_4/speaking_practice/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 791, "q_image" => $l4_G791image . "star.png", "q_audio" => $AudioDomain . $G4_L4_speaking_practice . "Block_My-teacher-is-Su-Su-She-is-ta.mp3", "q_conver" => $l4_G791image . "teacher.png"],
-            ['round' => 2, 'game_id' => 791, "q_image" => $l4_G791image . "star.png", "q_audio" => $AudioDomain . $G4_L4_speaking_practice . "Block_My-friend-is-April-She-is-tal.mp3", "q_conver" => $l4_G791image . "friend.png"],
-            ['round' => 3, 'game_id' => 791, "q_image" => $l4_G791image . "star.png", "q_audio" => $AudioDomain . $G4_L4_speaking_practice . "Block_My-brother-is-Zaw-Zaw-He-is-t.mp3", "q_conver" => $l4_G791image . "bro.png"],
+            ['round' => 1, 'game_id' => 791, "q_image" => $l4_G791image . "star_round.png", "q_audio" => $AudioDomain . $G4_L4_speaking_practice . "Block_My-teacher-is-Su-Su-She-is-ta.mp3", "q_conver" => $l4_G791image . "teacher.png"],
+            ['round' => 2, 'game_id' => 791, "q_image" => $l4_G791image . "star_round.png", "q_audio" => $AudioDomain . $G4_L4_speaking_practice . "Block_My-friend-is-April-She-is-tal.mp3", "q_conver" => $l4_G791image . "friend.png"],
+            ['round' => 3, 'game_id' => 791, "q_image" => $l4_G791image . "star_round.png", "q_audio" => $AudioDomain . $G4_L4_speaking_practice . "Block_My-brother-is-Zaw-Zaw-He-is-t.mp3", "q_conver" => $l4_G791image . "bro.png"],
         ]);
 
 
@@ -1108,7 +1108,7 @@ class AnsNQueSeeder extends Seeder
         $l4_G793image = $domain . "/storage/images/Grade_4/lesson_4/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 793, 'q_image' => $l4_G793image . "1_round.png", "q_audio" => $AudioDomain . $G4_L4_speaking_topic . ".mp3", "q_conver" => "Describe this photo about Taylor. \nPrepare before you talk.", "round_instruction" => $AudioDomain . $G4_L4_speaking_topic . "Describe-this-photo-about-Tayl" . ".mp3"],
+            ['round' => 1, 'game_id' => 793, 'q_image' => $l4_G793image . "1.png", "q_audio" => $AudioDomain . $G4_L4_speaking_topic . ".mp3", "q_conver" => "Describe this photo about Taylor. \nPrepare before you talk.", "round_instruction" => $AudioDomain . $G4_L4_speaking_topic . "Describe-this-photo-about-Tayl" . ".mp3"],
         ]);
 
 
