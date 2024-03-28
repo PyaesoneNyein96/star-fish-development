@@ -66,7 +66,7 @@ class LessonSeeder extends Seeder
             DB::table('student_lessons')->insert([
                 [
                     'student_id' => 1,
-                    'grade_id' => 1,
+                    'grade_id' => 2,
                     'lesson_id' => $l,
                 ]
             ]);
