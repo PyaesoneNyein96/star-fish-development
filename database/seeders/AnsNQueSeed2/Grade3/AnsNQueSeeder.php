@@ -1650,13 +1650,13 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ["round" => 1, "game_id" => 522, "q_image" => $l9G522image . "sofa.png", "q_audio" => null, "a_content" => 1],
-            ["round" => 1, "game_id" => 522, "q_image" => $l9G522image . "TV.png", "q_audio" => null, "a_content" => 0],
-            ["round" => 1, "game_id" => 522, "q_image" => $l9G522image . "washing-machine.png", "q_audio" => null, "a_content" => 1],
-            ["round" => 1, "game_id" => 522, "q_image" => $l9G522image . "book.png", "q_audio" => null, "a_content" => 1],
-            ["round" => 1, "game_id" => 522, "q_image" => $l9G522image . "fridge.png", "q_audio" => null, "a_content" => 1],
-            ["round" => 1, "game_id" => 522, "q_image" => $l9G522image . "cooker.png", "q_audio" => null, "a_content" => 0],
-            ["round" => 1, "game_id" => 522, "q_image" =>  null, "q_audio" => $AudioDomain . $G3_L9_G522_listen_n_practice_path . "In-my-new-house-there-is-a-go" . ".mp3", "a_content" => null],
+            ["game_id" => 522, "q_image" =>  null, "q_audio" => $AudioDomain . $G3_L9_G522_listen_n_practice_path . "In-my-new-house-there-is-a-go" . ".mp3", "a_content" => null],
+            ["game_id" => 522, "q_image" => $l9G522image . "sofa.png", "q_audio" => null, "a_content" => 1],
+            ["game_id" => 522, "q_image" => $l9G522image . "TV.png", "q_audio" => null, "a_content" => 0],
+            ["game_id" => 522, "q_image" => $l9G522image . "washing-machine.png", "q_audio" => null, "a_content" => 1],
+            ["game_id" => 522, "q_image" => $l9G522image . "book.png", "q_audio" => null, "a_content" => 1],
+            ["game_id" => 522, "q_image" => $l9G522image . "fridge.png", "q_audio" => null, "a_content" => 1],
+            ["game_id" => 522, "q_image" => $l9G522image . "cooker.png", "q_audio" => null, "a_content" => 0],
 
         ]);
 

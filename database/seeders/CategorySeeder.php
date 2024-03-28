@@ -76,7 +76,8 @@ class CategorySeeder extends Seeder
             'look_writing_topic',
             'skimming_reading_conversation',
             'fill_in_the_blanks_three',
-            'matching_columns_three'
+            'matching_columns_three',
+            'listening_and_choosing_pics_four'
 
 
         ];
