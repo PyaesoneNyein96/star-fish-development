@@ -105,10 +105,8 @@ class GameController extends Controller
     public function lessons(Request $request)
     {
 
-
-
         $token = $request->header('token');
-        $grade = $request->header('gradeid');
+        $grade = $request->header('grade_id');
 
         $student = Student::where('token', $token)->first();
         $allLessons = Lesson::where('grade_id', $grade)->get();
@@ -116,9 +114,7 @@ class GameController extends Controller
         // $studentGrade = $student->grades;
         $GradeChosen = $student->grade_chosen;
 
-
         $studentLessons = $student->lessons; // ဆော့ပီးတဲ့ lessons
-
 
         $assessments = AssessmentFinishData::where('student_id',$student->id)
         ->where('grade_id',$grade)->select('student_id','grade_id','assess_name','finish')->get();
@@ -158,6 +154,8 @@ class GameController extends Controller
         return $lessons;
 
 
+
+
     }
 
 
@@ -168,8 +166,8 @@ class GameController extends Controller
     {
 
         $student = Student::where('token', $request->header('token'))->first();
-        $lesson = $request->header('lessonid');
-        $gradeId = $request->header('gradeid');
+        $lesson = $request->header('lesson_id');
+        $gradeId = $request->header('grade_id');
 
 
         ////////////////////////////////////////////////////////////////////////////
@@ -227,9 +225,9 @@ class GameController extends Controller
     {
 
         $student = Student::where('token', $request->header('token'))->first();
-        $unit_id = $request->header('unitid');
-        $lesson_id = $request->header('lessonid');
-        $game_id = $request->header('gameid');
+        $unit_id = $request->header('unit_id');
+        $lesson_id = $request->header('lesson_id');
+        $game_id = $request->header('game_id');
 
 
         $unit = Unit::where('id', $unit_id)->where('lesson_id', $lesson_id)->first();
@@ -276,9 +274,9 @@ class GameController extends Controller
 
 
         $token = $request->header('token');
-        $gameId = $request->header('gameid');
-        $lesson_id = $request->header('lessonid');
-        $question_answer = $request->header('questionanswer');
+        $gameId = $request->header('game_id');
+        $lesson_id = $request->header('lesson_id');
+        $question_answer = $request->header('question_answer');
         $point = $request->header('point');
 
         // =================================
@@ -417,7 +415,7 @@ class GameController extends Controller
 
         //ထူးထူး
         // if ($student->grade_chosen == null) {
-        //  $this->addPointFunction($student, $request->header('point'),$request->header('questionanswer'));
+        //  $this->addPointFunction($student, $request->header('point'),$request->header('question_answer'));
         // }
 
 
