@@ -208,6 +208,11 @@ trait gameTraits2
         return $this->common_fun($game, $unit);
     }
 
+    public function listening_and_choosing_pics_four($game, $student, $unit)
+    {
+        return $this->common_fun($game, $unit);
+    }
+
     // speak_listen_and_record
     public function speak_listen_and_record($game, $student, $unit)
     {

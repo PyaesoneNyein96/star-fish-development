@@ -4,6 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\API\Lessons\GameController;
 use App\Http\Controllers\API\Dashboard\DashboardController;
 use App\Http\Controllers\API\Subscribe\SubscriptionController;
 
@@ -111,6 +112,8 @@ Route::get('/seed', function () {
     Artisan::call('db:seed');
     return back();
 });
+
+Route::get('/lock', [GameController::class,'lockAndUnlock']);
 
 Route::get('/link', function () {
     Artisan::call('storage:link');

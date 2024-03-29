@@ -13,9 +13,22 @@ trait gameControlTrait
     public function lockAndUnlock(Request $request){
 
 
-        // return $request;
+        $lockGameId = [
+            259, 268, 283, 294, 310, 322, 342, 348,
+            363, 368, 379, 399, 411, 420, 443
 
-        if(!$request->games) return "Games list is empty!";
+            ];
+
+
+
+        if(!$request->games) {
+            Game::whereIn('id', $lockGameId)->update(['status' => 0]);
+            return Game::whereIn('id', $lockGameId)->get();
+        }
+
+
+
+        // if(!$request->games) return "Games list is empty!";
 
         $games = explode(",", $request->games);
         $status = $request->status == "lock" ? 0 : 1 ;

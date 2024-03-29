@@ -101,6 +101,7 @@ Field (token (Header))
 ### Purchase Plan
 
 #### - Request Prepay_Id
+
 Method (POST) [https://star-fish.myanmargateway.net/api/payment/request_prepay_id](https://star-fish.myanmargateway.net/api/payment/request_prepay_id)  
 Field (token, grade_id, subscription_id (Header))
 
@@ -154,7 +155,7 @@ Field ( body ) = student_id , message
 ### Set NickName
 
 (Method: POST) [https://star-fish.myanmargateway.net/api/chat/nick](https://star-fish.myanmargateway.net/api/chat/nick)
-Field ( body ) = student_id , nickName
+Field ( body ) = student_id , nick_name
 
 ### ====================================================
 

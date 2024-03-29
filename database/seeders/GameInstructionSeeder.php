@@ -1080,7 +1080,9 @@ class GameInstructionSeeder extends Seeder
             // ['content' => "Look at the pictures and say out sentences", 'game_id' => 402, 'audio' =>  $Instructions . "Look-at-the-pictures-and-say-out-sentences.mp3"],
 
 
-            ['content' => "Look at the pictures and write", 'game_id' => 406, 'audio' => $Instructions . "Look-at-the-pictures-and-write.mp3"],
+            // ['content' => "Look at the pictures and write", 'game_id' => 406, 'audio' => $Instructions . "Look-at-the-pictures-and-write.mp3"],
+
+           ['content' => "Listen and Write.", 'game_id' => 406, 'audio' => $Instructions . "Listen-and-write.mp3"],
 
             ['content' => "Look at the pictures and match them with the words", 'game_id' => 407, 'audio' =>  $Instructions . "Look-at-the-pictures-and-match-them-with-the-words" . ".mp3"],
 
@@ -1215,6 +1217,9 @@ class GameInstructionSeeder extends Seeder
 
             // G-3 lesson_2 U-438
             ['content' => "Look at the pictures and choose the right answer", 'game_id' => 468, 'audio' =>  $Instructions . "look-at-the-pictures-and-choos" . ".mp3"],
+
+            // G-3 lesson_2 U-440
+            ['content' => "Look at the pictures and write answers", 'game_id' => 470, 'audio' =>  $Instructions . "Look-at-the-pictures-and-write" . ".mp3"],
 
 
             // G-2 lesson_2 U-439
