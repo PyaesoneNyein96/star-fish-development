@@ -34,7 +34,12 @@ class CitySeeder extends Seeder
             ['name' => 'Pattaya', 'country_id' => 2],
             ['name' => 'Pak Kret', 'country_id' => 2],
             ['name' => 'Mae Sot', 'country_id' => 2],
-
+            ['name' => 'Surat Thani', 'country_id' => 2],
+            ['name' => 'Nakhon Ratchasima', 'country_id' => 2],
+            ['name' => 'Pattaya', 'country_id' => 2],
+            ['name' => 'Phuket', 'country_id' => 2],
+            ['name' => 'Nong Khai', 'country_id' => 2],
+            ['name' => 'Chanthaburi', 'country_id' => 2],
 
         ]);
 
@@ -46,6 +51,11 @@ class CitySeeder extends Seeder
             ['name' => 'Phnom_Penh', 'country_id' => 3],
             ['name' => 'Krong Kampong Cham', 'country_id' => 3],
             ['name' => 'Krong Battambang', 'country_id' => 3],
+            ['name' => 'Sihanoukville', 'country_id' => 3],
+            ['name' => 'Battambang', 'country_id' => 3],
+            ['name' => 'Siem Reap', 'country_id' => 3],
+            ['name' => 'Takeo', 'country_id' => 3],
+            ['name' => 'Sihanoukville', 'country_id' => 3],
 
 
         ]);
@@ -57,6 +67,7 @@ class CitySeeder extends Seeder
             ['name' => 'Vientiane', 'country_id' => 4],
             ['name' => 'Luang Prabang', 'country_id' => 4],
             ['name' => 'Pakse', 'country_id' => 4],
+            ['name' => 'Savannakhet', 'country_id' => 4],
 
         ]);
 
