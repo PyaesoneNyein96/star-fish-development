@@ -1080,7 +1080,9 @@ class GameInstructionSeeder extends Seeder
             // ['content' => "Look at the pictures and say out sentences", 'game_id' => 402, 'audio' =>  $Instructions . "Look-at-the-pictures-and-say-out-sentences.mp3"],
 
 
-            ['content' => "Look at the pictures and write", 'game_id' => 406, 'audio' => $Instructions . "Look-at-the-pictures-and-write.mp3"],
+            // ['content' => "Look at the pictures and write", 'game_id' => 406, 'audio' => $Instructions . "Look-at-the-pictures-and-write.mp3"],
+
+           ['content' => "Listen and Write.", 'game_id' => 406, 'audio' => $Instructions . "Listen-and-write.mp3"],
 
             ['content' => "Look at the pictures and match them with the words", 'game_id' => 407, 'audio' =>  $Instructions . "Look-at-the-pictures-and-match-them-with-the-words" . ".mp3"],
 
