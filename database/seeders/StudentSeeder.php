@@ -38,13 +38,13 @@ class StudentSeeder extends Seeder
                 'isSubscriber' => 0
             ],
             [
-                'name' => 'phone user',
-                'phone' => "09795686097",
+                'name' => 'Daniel',
+                'phone' => "+959782006953",
                 'email' => null,
                 'password' => Hash::make('admin123'),
-                'age' => 5,
-                'country_id' => 2,
-                'city_id' => 2,
+                'age' => 10,
+                'country_id' => 1,
+                'city_id' => 1,
                 'agreeToPolicy' => 1,
                 'deviceId' => null,
                 'isAuth' => 0,
@@ -53,7 +53,7 @@ class StudentSeeder extends Seeder
                 'profile_picture' => null,
                 'status' => 1,
                 'grade_chosen' => null,
-                'token' => "10|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+                'token' => "90|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
                 'isSubscriber' => 0
             ],
 
