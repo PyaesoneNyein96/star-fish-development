@@ -123,10 +123,17 @@ class GameController extends Controller
 
         $ls_count = StudentLesson::where('student_id', $student->id)->where('grade_id',$grade)->get()->count();
 
-        $lessons = $allLessons->map(function ($lesson, $index) use ($studentLessons, $grade, $count, $ls_count, $GradeChosen) {
+        // Map fun
+        $lessons = $allLessons->map(function ($lesson, $index) use ($studentLessons, $grade, $count, $ls_count, $GradeChosen, $student) {
 
-        $complete = $studentLessons->contains('id', $lesson->id) || $index  == $ls_count ? true : false;
 
+        $complete = $studentLessons->contains('id', $lesson->id) || $index == $ls_count - 1 ? true : false;
+
+        $gradeDone =StudentGrade::where('student_id',$student->id)->where('grade_id',$grade)->where('isDone',1)->first();
+        if($gradeDone){
+            $ls_count = 40;
+            $complete = true;
+        }
 
             $ls = $ls_count % 8 == 0  ?  $ls_count : $ls_count + 1;
 
@@ -134,16 +141,19 @@ class GameController extends Controller
                 $ls ++;
             }
 
-            $gc = $GradeChosen;
+            // return $ls;
+
             return [
                 'id' => $lesson->id,
                 'grade_id' => $lesson->grade_id,
                 'name' => $lesson->name,
-                'complete' => $studentLessons->contains('id', $lesson->id),
+                // 'complete' => $studentLessons->contains('id', $lesson->id),
+                'complete' => $complete,
                 // 'allowed' => $complete || ($index > $count * 8 - 1  ? false : true), // normal index +
                 // 'allowed' => $gc && ($complete || ($index > $ls_count - 1  ? false : true)), // normal index+
-                // 'allowed' =>  $index < ($ls == 0 ? 1 : $ls)  // ‌include Assessment
-                'allowed' => $gc ? $gc && ($complete || ($index > $ls_count - 1  ? false : true)) :  $index < ($ls == 0 ? 1 : $ls)  // ‌include Assessment
+                // 'allowed' => $gc ? $complete || ($index > $ls_count - 1  ? false : true) :  $index < ($ls == 0 ? 1 : $ls)  // ‌include Assessment
+                'allowed' => $GradeChosen ? ($index == 0 ? true : false) : $index < ($ls == 0 ? 1 : $ls) , // ‌include Assessment
+
 
             ];
 
@@ -366,6 +376,18 @@ class GameController extends Controller
 
             if ($alreadyExist) return 201;
 
+            // for Subscription and Real Server
+            // $grade_id = Lesson::find($lesson_id)->grade['id'];
+
+            // $studentGrade = StudentGrade::where('student_id', $student->id)
+            //     ->where('grade_id', $grade_id)->first();
+
+            // if (!$studentGrade) return response()->json(
+            //     ["status" => "U need to buy a grade"],
+            //     402
+            // );
+            //----------------
+
             $lessonInsert = StudentLesson::create([
                 'student_id' => $student->id,
                 'lesson_id' => $lesson_id,
@@ -403,10 +425,10 @@ class GameController extends Controller
 
             $DeleteLessons = Lesson::whereIn('grade_id', $gradeDoneCheck)->pluck('id');
 
-            StudentLesson::where('student_id', $student->id)
-                ->whereIn('lesson_id', $DeleteLessons)
-                ->where('grade_id', $grade_id)
-                ->delete();
+            // StudentLesson::where('student_id', $student->id)
+            //     ->whereIn('lesson_id', $DeleteLessons)
+            //     ->where('grade_id', $grade_id)
+            //     ->delete();
 
             // StudentLesson::where('student_id', $student->id)
             //     ->whereIn('lesson_id', $DeleteLessons)->delete();
@@ -460,9 +482,6 @@ class GameController extends Controller
         $lessons = Lesson::where('grade_id', $grade->id)->get();
         $lessonDone = studentLesson::where('student_id', $student->id)->get();
 
-        // logger($lessons->toArray());
-        // logger($lesson_id);
-        // logger($lessonDone->toArray());
 
         $result = $lessons->filter(function ($i) use ($lessonDone) {
             return !$lessonDone->contains('lesson_id', $i->id);

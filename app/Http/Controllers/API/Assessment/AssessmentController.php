@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\API\Assessment;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use App\Models\Lesson;
+use App\Models\Student;
 use App\Models\Assessment;
+use App\Models\Certificate;
+use Illuminate\Http\Request;
+use App\Models\StudentLesson;
 use App\Models\AssessmentAnsNQues;
 use App\Models\AssessmentCategory;
+use App\Http\Controllers\Controller;
 use App\Models\AssessmentFinishData;
-use App\Models\Certificate;
-use App\Models\Student;
-use App\Models\StudentLesson;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class AssessmentController extends Controller
 {
@@ -254,6 +255,14 @@ class AssessmentController extends Controller
                         $certificate["date"] = Carbon::now()->format('d M Y');
 
                         $recorded["certificate"] = $certificate;
+
+            // Del lessons =========================================
+                        StudentLesson::where('student_id', $Stu->id)
+                            ->whereIn('lesson_id', Lesson::where('grade_id',$assessment->grade_id)->pluck('id'))
+                            ->where('grade_id', $assessment->grade_id)
+                            ->delete();
+
+
                     };
                 } else  return response()->json(['message' => 'Point field is required.'], 403);
 
