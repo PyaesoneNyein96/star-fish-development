@@ -37,25 +37,6 @@ class StudentSeeder extends Seeder
                 'token' => "1|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
                 'isSubscriber' => 0
             ],
-            [
-                'name' => 'Daniel',
-                'phone' => "+959782006953",
-                'email' => null,
-                'password' => Hash::make('admin123'),
-                'age' => 10,
-                'country_id' => 1,
-                'city_id' => 1,
-                'agreeToPolicy' => 1,
-                'deviceId' => null,
-                'isAuth' => 0,
-                'isLocal' => 1,
-                'level' => 1,
-                'profile_picture' => null,
-                'status' => 1,
-                'grade_chosen' => null,
-                'token' => "90|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
-                'isSubscriber' => 0
-            ],
 
 
             [
@@ -175,7 +156,7 @@ class StudentSeeder extends Seeder
                 'grade_chosen' => null,
                 'token' => "1|kOmYAEqfpoVE3mFQa5DeDBq93S7N6Pp3peZl5bBId1aa4575",
                 'isSubscriber' => 0
-            ]
+            ],
 
 
 
@@ -222,6 +203,49 @@ class StudentSeeder extends Seeder
                 'token' => "2|4gOjWmThLCiMfZNCAkv9V4drEz5yghQ9z6HUzKfi33c91233",
                 'isSubscriber' => 0
             ],
+
+
+            [
+                'name' => 'Admin 2',
+                'phone' => "+959799839053",
+                'email' => null,
+                'password' => Hash::make('admin123'),
+                'age' => 10,
+                'country_id' => 1,
+                'city_id' => 1,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 1,
+                'level' => 1,
+                'profile_picture' => null,
+                'status' => 1,
+                'grade_chosen' => null,
+                'token' => "91|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+                'isSubscriber' => 0
+            ],
+
+            [
+            'name' => 'Daniel',
+            'phone' => "+959782006953",
+            'email' => null,
+            'password' => Hash::make('admin123'),
+            'age' => 10,
+            'country_id' => 1,
+            'city_id' => 1,
+            'agreeToPolicy' => 1,
+            'deviceId' => null,
+            'isAuth' => 0,
+            'isLocal' => 1,
+            'level' => 1,
+            'profile_picture' => null,
+            'status' => 1,
+            'grade_chosen' => null,
+            'token' => "90|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+            'isSubscriber' => 0
+        ],
+
+
 
         ]);
     }
