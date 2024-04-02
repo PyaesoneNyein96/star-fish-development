@@ -127,7 +127,7 @@ class GameController extends Controller
         $lessons = $allLessons->map(function ($lesson, $index) use ($studentLessons, $grade, $count, $ls_count, $GradeChosen, $student) {
 
 
-        $complete = $studentLessons->contains('id', $lesson->id) || $index == $ls_count - 1 ? true : false;
+        $complete = $studentLessons->contains('id', $lesson->id) || $index == $ls_count ? true : false;
 
         $gradeDone =StudentGrade::where('student_id',$student->id)->where('grade_id',$grade)->where('isDone',1)->first();
         if($gradeDone){
@@ -141,18 +141,14 @@ class GameController extends Controller
                 $ls ++;
             }
 
-            // return $ls;
-
             return [
                 'id' => $lesson->id,
                 'grade_id' => $lesson->grade_id,
                 'name' => $lesson->name,
-                // 'complete' => $studentLessons->contains('id', $lesson->id),
-                'complete' => $complete,
-                // 'allowed' => $complete || ($index > $count * 8 - 1  ? false : true), // normal index +
-                // 'allowed' => $gc && ($complete || ($index > $ls_count - 1  ? false : true)), // normal index+
-                // 'allowed' => $gc ? $complete || ($index > $ls_count - 1  ? false : true) :  $index < ($ls == 0 ? 1 : $ls)  // ‌include Assessment
-                'allowed' => $GradeChosen ? ($index == 0 ? true : false) : $index < ($ls == 0 ? 1 : $ls) , // ‌include Assessment
+                'complete' => $studentLessons->contains('id', $lesson->id),
+                'allowed' => $GradeChosen ? $complete || ($index > $ls_count - 1 ? false : true) : $index < ($ls == 0 ? 1 : $ls),// Free open for BETA
+
+                // 'allowed' => $GradeChosen ? ($index == 0 ? true : false) : $index < ($ls == 0 ? 1 : $ls) , // ‌include Assessment for - REAL -
 
 
             ];
@@ -188,7 +184,6 @@ class GameController extends Controller
         try {
 
             if ($student->isSubscriber == 0 && $student->grade_chosen == Null) {
-
                 Student::where('id', $student->id)->update([
                     'grade_chosen' => $gradeId
                 ]);
@@ -376,16 +371,18 @@ class GameController extends Controller
 
             if ($alreadyExist) return 201;
 
-            // for Subscription and Real Server
-            // $grade_id = Lesson::find($lesson_id)->grade['id'];
 
-            // $studentGrade = StudentGrade::where('student_id', $student->id)
-            //     ->where('grade_id', $grade_id)->first();
+            // for Subscription and Real Server (block adding lesson records)
 
-            // if (!$studentGrade) return response()->json(
-            //     ["status" => "U need to buy a grade"],
-            //     402
-            // );
+            $grade_id = Lesson::find($lesson_id)->grade['id'];
+
+            $studentGrade = StudentGrade::where('student_id', $student->id)
+                ->where('grade_id', $grade_id)->first();
+
+            if (!$studentGrade) return response()->json(
+                ["status" => "U need to buy a grade"],
+                402
+            );
             //----------------
 
             $lessonInsert = StudentLesson::create([
