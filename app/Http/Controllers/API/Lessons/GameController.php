@@ -309,8 +309,8 @@ class GameController extends Controller
         ->where('game_id', $gameId)->first();
 
 
-        // TEMPORARY BLOCK THIS FEATURE (POINT FILTER)
-        // if ($student->grades->count() == 0)  return response()->json(["status" => "Plz subscribe the plan."], 200);
+        // TEMPORARY BLOCK THIS FEATURE (POINT FILTER) Totally block free Trail players
+        // if ($student->grades->count() == 0)  return response()->json(["message" => "Plz subscribe the plan."], 403);
 
         if(!$alreadyDone) {
             StudentGame::insert([
@@ -372,17 +372,18 @@ class GameController extends Controller
             if ($alreadyExist) return 201;
 
 
-            // for Subscription and Real Server (block adding lesson records)
+            //---- for Subscription and Real Server (block adding lesson records)
 
-            $grade_id = Lesson::find($lesson_id)->grade['id'];
+                // $grade_id = Lesson::find($lesson_id)->grade['id'];
 
-            $studentGrade = StudentGrade::where('student_id', $student->id)
-                ->where('grade_id', $grade_id)->first();
+                // $studentGrade = StudentGrade::where('student_id', $student->id)
+                //     ->where('grade_id', $grade_id)->first();
 
-            if (!$studentGrade) return response()->json(
-                ["status" => "U need to buy a grade"],
-                402
-            );
+                // if (!$studentGrade) return response()->json(
+                //     ["message" => "U need to buy a grade"],
+                //     402
+                // );
+            //----------------
             //----------------
 
             $lessonInsert = StudentLesson::create([
@@ -407,28 +408,15 @@ class GameController extends Controller
                 ->where('grade_id', $grade_id)->first();
 
             if (!$studentGrade) return response()->json(
-                ["status" => "U need to buy a grade"],
+                ["message" => "You Complete the grade-1 lessons"],
                 402
             );
-
 
 
             StudentGrade::where('student_id', $student->id)
                 ->where('grade_id', $grade_id)
                 ->update(['isDone' => 1,]);
 
-            $gradeDoneCheck = StudentGrade::where('student_id', $student->id)
-                ->where('isDone', 1)->pluck('grade_id');
-
-            $DeleteLessons = Lesson::whereIn('grade_id', $gradeDoneCheck)->pluck('id');
-
-            // StudentLesson::where('student_id', $student->id)
-            //     ->whereIn('lesson_id', $DeleteLessons)
-            //     ->where('grade_id', $grade_id)
-            //     ->delete();
-
-            // StudentLesson::where('student_id', $student->id)
-            //     ->whereIn('lesson_id', $DeleteLessons)->delete();
         }
 
 
@@ -436,17 +424,10 @@ class GameController extends Controller
         // if ($student->grade_chosen == null) {
         //  $this->addPointFunction($student, $request->header('point'),$request->header('question_answer'));
         // }
-
-
         $this->addPointFunction($student, $point, $question_answer);
 
-
-        // $assessment_records = AssessmentFinishData::where('student_id',$student->id)
-        // ->where('grade_id',$grade)->select('student_id','grade_id','assess_name','finish')->get();
-
-
         return response()->json([
-            'status' => 'success and recorded',
+            'message' => 'success and recorded',
             // 'assessment_status' => $data,
             'fixed_point' => Student::where('id', $student->id)->pluck('fixed_point')->first(),
         ], 200);
