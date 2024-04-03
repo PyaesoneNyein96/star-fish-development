@@ -152,7 +152,7 @@ class SubscriptionController extends Controller
             if (!$result) return response()->json(["message" => $response['Response']], 402);
 
 
-            $data = ['timestamp' => $this->time, 'appid' => "kp0480c579f02f48ae8c37ce82260511", 'merch_code' => "70244201"];
+            $data = ['timestamp' => $this->time, 'appid' => "kp6d29862312994fa09afb52c00e6687", 'merch_code' => "70244201"];
 
             $params = "appid=kp6d29862312994fa09afb52c00e6687&merch_code=70244201&nonce_str=" . $this->nonce_str . "&prepay_id=" . $response['Response']['prepay_id'] . "&timestamp=" . $this->time;
 
