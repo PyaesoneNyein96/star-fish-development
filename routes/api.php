@@ -77,8 +77,10 @@ Route::prefix('points')->group(function () {
 });
 
 Route::prefix('reward')->group(function () {
-    Route::get('/', [RewardController::class, 'displayReward']);
-    Route::get('/{id}', [RewardController::class, 'getReward']);
+    Route::get('/all', [RewardController::class, 'displayAllReward']);
+    Route::get('/each', [RewardController::class, 'displayEachReward']);
+    Route::get('/profiles', [RewardController::class, 'displayEachProfile']);
+    Route::get('/', [RewardController::class, 'getReward']);
     Route::post('/', [RewardController::class, 'buyReward']);
 });
 

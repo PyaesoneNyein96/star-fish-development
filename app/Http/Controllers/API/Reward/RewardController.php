@@ -5,13 +5,24 @@ namespace App\Http\Controllers\API\Reward;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\RewardResource;
 use App\Models\Reward;
 use App\Models\Stud_reward;
 use Mockery\Undefined;
 
 class RewardController extends Controller
 {
+    private $domain, $achieve, $each_ach, $profiles;
+
+    public function __construct()
+    {
+        $this->domain = app('domain');
+        $this->achieve = $this->domain . "/storage/images/Achievement/Main/";
+        $this->each_ach = $this->domain . "/storage/images/Achievement/Each_achieve/";
+        $this->profiles = $this->domain . "/storage/images/Achievement/Profiles/";
+    }
+
+
+
     // =======
     // Point
     // =======
@@ -20,7 +31,7 @@ class RewardController extends Controller
     {
         $point = Student::where('id', $id)->first();
 
-        return new RewardResource($point);
+        return $point;
     }
 
     public function addPoint(Request $request)
@@ -52,21 +63,93 @@ class RewardController extends Controller
     // Reward
     // =========
 
-    public function displayReward()
+    public function displayAllReward(Request $request)
     {
-        $reward = Reward::get();
+        $token = $request->header("token");
+        $data = Reward::where('type', "achieve")->get()->groupBy('name');
+        $stu = Student::where('token', $token)->first();
 
-        return new RewardResource($reward);
+        if (!$stu) return response()->json(["message" => "user not found"], 403);
+        if (count($data) == 0) return response()->json(["message" => "data not found"], 404);
+
+        $point = 30;
+        foreach ($data as $name => $item) {
+            $reward[] = [
+                "name" => $name,
+                "item" => $this->achieve .  str_replace(
+                    ' ',
+                    '-',
+                    $name
+                ) . ".png",
+                "lock" => $stu->fixed_point < $point ? 1 : 0,
+            ];
+            $point *= 2;
+        }
+
+        return $reward;
     }
 
-    public function getReward($id)
+    public function displayEachReward(Request $request)
     {
+        $token = $request->header("token");
+        $name = $request->header("name");
+
+        $id = Student::where('token', $token)->first();
+        $data = Reward::where("name", $name)->get();
+
+        if (!$id) return response()->json(["message" => "user not found"], 403);
+        if (count($data) == 0) return response()->json(["message" => "data not found"], 404);
+
+        foreach ($data as $d) {
+            $stuReward = Stud_reward::where("student_id", $id->id)->where("reward_id", $d->id)->first();
+            $d["item"] = $this->each_ach . $name . "/" . $d->item . ".png";
+            $d["bought"] = $stuReward ? 1 : 0;
+        }
+
+        return $data;
+    }
+
+    public function displayEachProfile(Request $request)
+    {
+        $token = $request->header("token");
+        $data = Reward::where('type', "profile")->get()->groupBy('name');
+        $stu = Student::where('token', $token)->first();
+
+        if (!$stu) return response()->json(["message" => "user not found"], 403);
+        if (count($data) == 0) return response()->json(["message" => "data not found"], 404);
+
+        $point = 50;
+        foreach ($data as $name => $item) {
+            $reward[] = [
+                "name" => $name,
+                "item" => $this->profiles . str_replace(
+                    ' ',
+                    '-',
+                    $name
+                ) . ".png",
+                "lock" => $stu->fixed_point < $point ? 1 : 0,
+            ];
+            $point *= 2;
+        }
+
+        return $reward;
+    }
+
+    public function getReward(Request $request)
+    {
+        $token = $request->header("token");
+
+        $id = Student::where('token', $token)->first();
+        if (!$id) return response()->json(["message" => "user not found"], 403);
+
         $studReward = Stud_reward::select('rewards.*', 'stud_rewards.*')
             ->leftJoin('rewards', 'stud_rewards.reward_id', 'rewards.id')
-            ->where('stud_rewards.student_id', $id)
+            ->where('stud_rewards.student_id', $id->id)
             ->get();
 
-        return new RewardResource($studReward);
+        if (count($studReward) == 0) return response()->json(["message" => "You haven't bought anything."]);
+
+        return ($studReward);
     }
 
     public function buyReward(Request $request)
@@ -90,7 +173,7 @@ class RewardController extends Controller
                     'reward_id' => $request->reward_id
                 ]);
 
-                return new RewardResource($studReward);
+                return ($studReward);
             } else {
                 foreach ($rewardConflict as $r) {
                     if ($request->reward_id == $r->reward_id) {
@@ -107,7 +190,7 @@ class RewardController extends Controller
                             'reward_id' => $request->reward_id
                         ]);
 
-                        return new RewardResource($studReward);
+                        return ($studReward);
                     }
                 }
             }
