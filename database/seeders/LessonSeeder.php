@@ -66,7 +66,7 @@ class LessonSeeder extends Seeder
             DB::table('student_lessons')->insert([
                 [
                     'student_id' => 1,
-                    'grade_id' => 2,
+                    'grade_id' => 1,
                     'lesson_id' => $l,
                 ]
             ]);
@@ -75,7 +75,7 @@ class LessonSeeder extends Seeder
             DB::table('assessment_finish_data')->insert([
                 [
                     'student_id' => 1,
-                    'grade_id' => 2,
+                    'grade_id' => 1,
                     'assess_name' => 1,
                     'point' => 1,
                     'finish' => 1,

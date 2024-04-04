@@ -134,7 +134,7 @@ class SubscriptionController extends Controller
         }
 
         // skip payment process
-        // $this->getGradeAsset($student, $this->grade_id, $this->subscription_id);
+        // $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
         // return "ok";
 
 
@@ -254,7 +254,7 @@ class SubscriptionController extends Controller
 
             $student = Student::find($student_id);
 
-            $this->getGradeAsset($student, $payInfo->grade_id, $payInfo->subscription_id);
+            $this->getGradeAccess($student, $payInfo->grade_id, $payInfo->subscription_id);
 
             return "success from url";
         }
@@ -389,7 +389,7 @@ class SubscriptionController extends Controller
     }
 
 
-    private function getGradeAsset($student, $grade_id, $subscription_id)
+    private function getGradeAccess($student, $grade_id, $subscription_id)
     {
 
         DB::beginTransaction();
