@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\API\Lessons\GameController;
+use App\Http\Controllers\Dashboard\AdminProfileController;
 use App\Http\Controllers\API\Dashboard\DashboardController;
 use App\Http\Controllers\API\Subscribe\SubscriptionController;
 
@@ -30,8 +31,8 @@ Route::middleware([
     Route::prefix('/dashboard')->group(function () {
         Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
-        // profile
-        Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
+        // Admin
+        Route::get('/profile', [AdminProfileController::class, 'profile'])->name('adminProfile');
 
         // students
         Route::get('/students', [DashboardController::class, 'students'])->name('students');
@@ -53,6 +54,11 @@ Route::middleware([
         Route::get('/axios/chats', [DashboardController::class, 'axiosChat']);
     });
 });
+
+
+
+
+
 
 
 /////////////////////// Payment Integration /////////////////////////
