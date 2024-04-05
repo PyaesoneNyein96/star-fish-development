@@ -14,7 +14,7 @@ const form = useForm({
     board: data.student.board,
     level: data.student.level,
     point: data.student.point,
-    status: data.student.status,
+    isAuth: data.student.isAuth,
     age: data.student.age,
     isSubscriber: data.student.isSubscriber
 });
@@ -46,8 +46,8 @@ const postEditData = () => {
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">
                         Student Profile Edit
                     </h1>
-                    <button type="button" class=" rounded border text-white btn btn-sm bg-secondary" data-bs-dismiss="modal"
-                        aria-label="Close">esc</button>
+                    <button type="button" class=" rounded border text-white btn btn-sm bg-secondary"
+                        data-bs-dismiss="modal" aria-label="Close">esc</button>
                 </div>
 
                 <form @submit.prevent="postEditData">
@@ -60,11 +60,15 @@ const postEditData = () => {
                                             <div style="width: 100px" class=" d-flex ">
                                                 <!-- <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
                                                                 alt="" class="w-100 shadow-sm mb-3" /> -->
-                                                <img :src="'/storage/' + form.profile_picture" alt="" />
-                                                <div class=" text-end">
+                                                <img :src="'/storage/' + form.profile_picture" alt=""
+                                                    v-if="form.profile_picture" />
+                                                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                                                    alt="" class="w-100 shadow-sm mb-3" v-if="!form.profile_picture" />
+                                                <div class=" text-end align-content-end pb-2 ">
                                                     <button type="button" class="btn btn-sm text-white"
                                                         title="Upload Profile"><label for="uploadProfile">
-                                                            <i class="fa-solid fa-arrow-up-from-bracket text-secondary"></i>
+                                                            <i
+                                                                class="fa-solid fa-arrow-up-from-bracket text-secondary"></i>
                                                         </label>
                                                         <input type="file" id="uploadProfile" class="d-none"
                                                             @input="selectProfile"></button>
@@ -106,7 +110,8 @@ const postEditData = () => {
                                         <th>Tier</th>
                                         <td>
                                             <select v-model="form.board" class=" w-100 shadow-sm bg-light">
-                                                <option value="silver" :selected="form.board == 'silver'">Silver</option>
+                                                <option value="silver" :selected="form.board == 'silver'">Silver
+                                                </option>
                                                 <option value="platinum" :selected="form.board == 'platinum'">Platinum
                                                 </option>
                                                 <option value="gold" :selected="form.board == 'gold'">Gold</option>
@@ -128,9 +133,12 @@ const postEditData = () => {
                                     <tr>
                                         <th>Status</th>
                                         <td>
-                                            <select v-model="form.status" class=" w-100 shadow-sm bg-light">
-                                                <option value="1" :selected="form.status == 1">online</option>
-                                                <option value="0" :selected="form.status == 0">offline</option>
+                                            <select v-model="form.isAuth" class=" w-100 shadow-sm bg-light"
+                                                :class="{ 'text-black-50': form.isAuth == 0 }"
+                                                :disabled="form.isAuth == 0">
+                                                <option value="1" :selected="form.isAuth == 1">online</option>
+                                                <option value="0" :selected="form.isAuth == 0">offline
+                                                </option>
                                             </select>
                                         </td>
                                     </tr>

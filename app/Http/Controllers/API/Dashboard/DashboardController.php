@@ -68,9 +68,12 @@ class DashboardController extends Controller
             "point" => $request->point,
             "level" => $request->level,
             "board" => $request->board,
-            "status" => $request->status,
             "isSubscriber" => $request->isSubscriber,
         ];
+        if ($request->isAuth == 0) {
+            $update["deviceId"] = null;
+            $update["isAuth"] = $request->isAuth;
+        }
 
         if ($request->hasFile('profile_picture')) {
             $allowedMimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];

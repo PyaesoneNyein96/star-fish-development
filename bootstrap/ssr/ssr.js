@@ -225,10 +225,10 @@ var f = String.prototype.replace, a = /%20/g, c = "RFC3986", l = { default: c, f
     k2 = a2 ? T2.sort(a2) : T2;
   }
   for (var N2 = 0; N2 < k2.length; ++N2) {
-    var C2 = k2[N2], D2 = "object" == typeof C2 && void 0 !== C2.value ? C2.value : h2[C2];
-    if (!i2 || null !== D2) {
-      var $2 = g(h2) ? "function" == typeof e2 ? e2(n2, C2) : n2 : n2 + (c2 ? "." + C2 : "[" + C2 + "]");
-      w(x2, t3(D2, $2, e2, o2, i2, u2, f2, a2, c2, l2, s2, v2, p2, y2));
+    var C2 = k2[N2], A2 = "object" == typeof C2 && void 0 !== C2.value ? C2.value : h2[C2];
+    if (!i2 || null !== A2) {
+      var D2 = g(h2) ? "function" == typeof e2 ? e2(n2, C2) : n2 : n2 + (c2 ? "." + C2 : "[" + C2 + "]");
+      w(x2, t3(A2, D2, e2, o2, i2, u2, f2, a2, c2, l2, s2, v2, p2, y2));
     }
   }
   return x2;
@@ -238,7 +238,7 @@ var f = String.prototype.replace, a = /%20/g, c = "RFC3986", l = { default: c, f
   });
 }, C = function(t4, r2) {
   return t4 && "string" == typeof t4 && r2.comma && t4.indexOf(",") > -1 ? t4.split(",") : t4;
-}, D = function(t4, r2, n2, e2) {
+}, A = function(t4, r2, n2, e2) {
   if (t4) {
     var o2 = n2.allowDots ? t4.replace(/\.([^.[]+)/g, "[$1]") : t4, i2 = /(\[[^[\]]*])/g, u2 = n2.depth > 0 && /(\[[^[\]]*])/.exec(o2), f2 = u2 ? o2.slice(0, u2.index) : o2, a2 = [];
     if (f2) {
@@ -266,7 +266,7 @@ var f = String.prototype.replace, a = /%20/g, c = "RFC3986", l = { default: c, f
       return o3;
     }(a2, r2, n2, e2);
   }
-}, $ = function(t4, r2) {
+}, D = function(t4, r2) {
   var n2 = function(t5) {
     if (!t5)
       return T;
@@ -292,11 +292,11 @@ var f = String.prototype.replace, a = /%20/g, c = "RFC3986", l = { default: c, f
       }
     return e3;
   }(t4, n2) : t4, o2 = n2.plainObjects ? /* @__PURE__ */ Object.create(null) : {}, i2 = Object.keys(e2), u2 = 0; u2 < i2.length; ++u2) {
-    var f2 = i2[u2], a2 = D(f2, e2[f2], n2, "string" == typeof t4);
+    var f2 = i2[u2], a2 = A(f2, e2[f2], n2, "string" == typeof t4);
     o2 = d.merge(o2, a2, n2);
   }
   return d.compact(o2);
-}, F = /* @__PURE__ */ function() {
+}, $ = /* @__PURE__ */ function() {
   function t4(t5, r2, n3) {
     var e2, o2;
     this.name = t5, this.definition = r2, this.bindings = null != (e2 = r2.bindings) ? e2 : {}, this.wheres = null != (o2 = r2.wheres) ? o2 : {}, this.config = n3;
@@ -313,7 +313,7 @@ var f = String.prototype.replace, a = /%20/g, c = "RFC3986", l = { default: c, f
     if (u2) {
       for (var f2 in u2.groups)
         u2.groups[f2] = "string" == typeof u2.groups[f2] ? decodeURIComponent(u2.groups[f2]) : u2.groups[f2];
-      return { params: u2.groups, query: $(i2) };
+      return { params: u2.groups, query: D(i2) };
     }
     return false;
   }, n2.compile = function(t5) {
@@ -337,14 +337,14 @@ var f = String.prototype.replace, a = /%20/g, c = "RFC3986", l = { default: c, f
       return { name: t6.replace(/{|\??}/g, ""), required: !/\?}$/.test(t6) };
     })) ? t5 : [];
   } }]), t4;
-}(), I = /* @__PURE__ */ function(t4) {
+}(), F = /* @__PURE__ */ function(t4) {
   var e2, i2;
   function u2(r2, e3, o2, i3) {
     var u3;
     if (void 0 === o2 && (o2 = true), (u3 = t4.call(this) || this).t = null != i3 ? i3 : "undefined" != typeof Ziggy ? Ziggy : null == globalThis ? void 0 : globalThis.Ziggy, u3.t = n({}, u3.t, { absolute: o2 }), r2) {
       if (!u3.t.routes[r2])
         throw new Error("Ziggy error: route '" + r2 + "' is not in the route list.");
-      u3.i = new F(r2, u3.t.routes[r2], u3.t), u3.u = u3.l(e3);
+      u3.i = new $(r2, u3.t.routes[r2], u3.t), u3.u = u3.l(e3);
     }
     return u3;
   }
@@ -398,7 +398,7 @@ var f = String.prototype.replace, a = /%20/g, c = "RFC3986", l = { default: c, f
     var r2 = this;
     t5 ? this.t.absolute && t5.startsWith("/") && (t5 = this.p().host + t5) : t5 = this.h();
     var e3 = {}, o2 = Object.entries(this.t.routes).find(function(n2) {
-      return e3 = new F(n2[0], n2[1], r2.t).matchesUrl(t5);
+      return e3 = new $(n2[0], n2[1], r2.t).matchesUrl(t5);
     }) || [void 0, void 0];
     return n({ name: o2[0] }, e3, { route: o2[1] });
   }, f2.h = function() {
@@ -411,16 +411,21 @@ var f = String.prototype.replace, a = /%20/g, c = "RFC3986", l = { default: c, f
     var a2 = new RegExp("^" + t5.replace(/\./g, "\\.").replace(/\*/g, ".*") + "$").test(o2);
     if ([null, void 0].includes(r2) || !a2)
       return a2;
-    var c2 = new F(o2, f3, this.t);
+    var c2 = new $(o2, f3, this.t);
     r2 = this.l(r2, c2);
     var l2 = n({}, i3, u3);
     return !(!Object.values(r2).every(function(t6) {
       return !t6;
     }) || Object.values(l2).some(function(t6) {
       return void 0 !== t6;
-    })) || Object.entries(r2).every(function(t6) {
-      return l2[t6[0]] == t6[1];
-    });
+    })) || function t6(r3, n2) {
+      return Object.entries(r3).every(function(r4) {
+        var e4 = r4[0], o3 = r4[1];
+        return Array.isArray(o3) && Array.isArray(n2[e4]) ? o3.every(function(t7) {
+          return n2[e4].includes(t7);
+        }) : "object" == typeof o3 && "object" == typeof n2[e4] && null !== o3 && null !== n2[e4] ? t6(o3, n2[e4]) : n2[e4] == o3;
+      });
+    }(r2, l2);
   }, f2.p = function() {
     var t5, r2, n2, e3, o2, i3, u3 = "undefined" != typeof window ? window.location : {}, f3 = u3.host, a2 = u3.pathname, c2 = u3.search;
     return { host: null != (t5 = null == (r2 = this.t.location) ? void 0 : r2.host) ? t5 : void 0 === f3 ? "" : f3, pathname: null != (n2 = null == (e3 = this.t.location) ? void 0 : e3.pathname) ? n2 : void 0 === a2 ? "" : a2, search: null != (o2 = null == (i3 = this.t.location) ? void 0 : i3.search) ? o2 : void 0 === c2 ? "" : c2 };
@@ -473,10 +478,10 @@ var f = String.prototype.replace, a = /%20/g, c = "RFC3986", l = { default: c, f
     var t5 = this.v();
     return n({}, t5.params, t5.query);
   } }]), u2;
-}(/* @__PURE__ */ u(String)), P = { install: function(t4, r2) {
+}(/* @__PURE__ */ u(String)), I = { install: function(t4, r2) {
   var n2 = function(t5, n3, e2, o2) {
     return void 0 === o2 && (o2 = r2), function(t6, r3, n4, e3) {
-      var o3 = new I(t6, r3, n4, e3);
+      var o3 = new F(t6, r3, n4, e3);
       return t6 ? o3.toString() : o3;
     }(t5, n3, e2, o2);
   };
@@ -488,9 +493,9 @@ createServer(
     page,
     render: renderToString,
     title: (title) => `${title} - ${appName}`,
-    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, /* @__PURE__ */ Object.assign({ "./Pages/Auth/ConfirmPassword.vue": () => import("./assets/ConfirmPassword-ff227455.js"), "./Pages/Auth/ForgotPassword.vue": () => import("./assets/ForgotPassword-bb3dd4b6.js"), "./Pages/Auth/Login.vue": () => import("./assets/Login-7288c7b5.js"), "./Pages/Auth/Register.vue": () => import("./assets/Register-8e924e85.js"), "./Pages/Auth/ResetPassword.vue": () => import("./assets/ResetPassword-88a9e82c.js"), "./Pages/Auth/TwoFactorChallenge.vue": () => import("./assets/TwoFactorChallenge-2b12c9fd.js"), "./Pages/Auth/VerifyEmail.vue": () => import("./assets/VerifyEmail-05ddb51d.js"), "./Pages/Chat/Index.vue": () => import("./assets/Index-2255828c.js"), "./Pages/Dashboard/Chat.vue": () => import("./assets/Chat-8fd3cb29.js"), "./Pages/Dashboard/Header/Index.vue": () => import("./assets/Index-b365969b.js"), "./Pages/Dashboard/Main.vue": () => import("./assets/Main-80890858.js"), "./Pages/Dashboard/Rewards.vue": () => import("./assets/Rewards-7d504f3a.js"), "./Pages/Dashboard/SideBar/Index.vue": () => import("./assets/Index-4d4473ea.js"), "./Pages/Dashboard/Students.vue": () => import("./assets/Students-3f08d4d9.js"), "./Pages/Modals/Profile.vue": () => import("./assets/Profile-3fc77b99.js"), "./Pages/Profile/Index.vue": () => import("./assets/Index-c3546e7d.js"), "./Pages/Rewards/Index.vue": () => import("./assets/Index-30915b41.js"), "./Pages/Rewards/Modals/AddItem.vue": () => import("./assets/AddItem-e6d41a84.js"), "./Pages/Rewards/Modals/Items.vue": () => import("./assets/Items-7b457be0.js"), "./Pages/Students/Index.vue": () => import("./assets/Index-f571b4e3.js"), "./Pages/Students/Modals/Details.vue": () => import("./assets/Details-55765411.js"), "./Pages/Students/Modals/Edit.vue": () => import("./assets/Edit-0d277341.js") })),
+    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, /* @__PURE__ */ Object.assign({ "./Pages/Auth/ConfirmPassword.vue": () => import("./assets/ConfirmPassword-ff227455.js"), "./Pages/Auth/ForgotPassword.vue": () => import("./assets/ForgotPassword-bb3dd4b6.js"), "./Pages/Auth/Login.vue": () => import("./assets/Login-2c3fa647.js"), "./Pages/Auth/Register.vue": () => import("./assets/Register-8e924e85.js"), "./Pages/Auth/ResetPassword.vue": () => import("./assets/ResetPassword-88a9e82c.js"), "./Pages/Auth/TwoFactorChallenge.vue": () => import("./assets/TwoFactorChallenge-2b12c9fd.js"), "./Pages/Auth/VerifyEmail.vue": () => import("./assets/VerifyEmail-05ddb51d.js"), "./Pages/Chat/Index.vue": () => import("./assets/Index-2255828c.js"), "./Pages/Dashboard/Chat.vue": () => import("./assets/Chat-8fd3cb29.js"), "./Pages/Dashboard/Header/Index.vue": () => import("./assets/Index-b365969b.js"), "./Pages/Dashboard/Main.vue": () => import("./assets/Main-80890858.js"), "./Pages/Dashboard/Rewards.vue": () => import("./assets/Rewards-7d504f3a.js"), "./Pages/Dashboard/SideBar/Index.vue": () => import("./assets/Index-4d4473ea.js"), "./Pages/Dashboard/Students.vue": () => import("./assets/Students-3f08d4d9.js"), "./Pages/Modals/Profile.vue": () => import("./assets/Profile-3fc77b99.js"), "./Pages/Profile/Index.vue": () => import("./assets/Index-c3546e7d.js"), "./Pages/Rewards/Index.vue": () => import("./assets/Index-30915b41.js"), "./Pages/Rewards/Modals/AddItem.vue": () => import("./assets/AddItem-e6d41a84.js"), "./Pages/Rewards/Modals/Items.vue": () => import("./assets/Items-7b457be0.js"), "./Pages/Students/Index.vue": () => import("./assets/Index-2f4f0b44.js"), "./Pages/Students/Modals/Details.vue": () => import("./assets/Details-d00bc0ba.js"), "./Pages/Students/Modals/Edit.vue": () => import("./assets/Edit-8ca86385.js") })),
     setup({ App, props, plugin }) {
-      return createSSRApp({ render: () => h$1(App, props) }).use(plugin).use(P, {
+      return createSSRApp({ render: () => h$1(App, props) }).use(plugin).use(I, {
         ...page.props.ziggy,
         location: new URL(page.props.ziggy.location)
       });

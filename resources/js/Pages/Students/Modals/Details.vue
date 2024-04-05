@@ -47,15 +47,16 @@ if (yearsDifference > 0) {
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">
                         Student Profile
                     </h1>
-                    <button type="button" class="rounded border text-white btn btn-sm bg-secondary" data-bs-dismiss="modal"
-                        aria-label="Close">
+                    <button type="button" class="rounded border text-white btn btn-sm bg-secondary"
+                        data-bs-dismiss="modal" aria-label="Close">
                         esc
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="container">
                         <div class="">
-                            <small class="d-block text-decoration-underline "><strong>Account Created Date</strong></small>
+                            <small class="d-block text-decoration-underline "><strong>Account Created
+                                    Date</strong></small>
                             <small>{{ day + " " + month + " " + year }}</small>
                         </div>
                         <table class="table table-borderless">
@@ -64,11 +65,10 @@ if (yearsDifference > 0) {
                                     <th>
                                         <div style="width: 100px">
                                             <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                                                alt="" class="w-100 shadow-sm mb-3" />
-                                            <img :src="
-                                                '/storage/' +
-                                                student.profile_picture
-                                            " alt="" />
+                                                alt="" class="w-100 shadow-sm mb-3" v-if="!student.profile_picture" />
+                                            <img :src="'/storage/' +
+        student.profile_picture
+        " alt="" v-if="student.profile_picture" />
 
                                         </div>
                                     </th>
@@ -110,10 +110,10 @@ if (yearsDifference > 0) {
                                     <th>Status</th>
                                     <td>
                                         <span :class="[student.isAuth ? 'text-primary' : '']" class=" me-3 "> {{
-                                            student.isAuth
-                                            ? "online"
-                                            : "offline"
-                                        }}</span>
+        student.isAuth
+            ? "online"
+            : "offline"
+    }}</span>
                                         <small v-if="!student.isAuth">( Active {{ timeAgo }} )</small>
                                     </td>
                                 </tr>
@@ -125,10 +125,10 @@ if (yearsDifference > 0) {
                                     <td colspan="2">
                                         <p class="border rounded p-2 fw-bold">
                                             {{
-                                                student.isSubscriber
-                                                ? "Subscribe User"
-                                                : "Free User"
-                                            }}
+        student.isSubscriber
+            ? "Subscribe User"
+            : "Free User"
+    }}
                                         </p>
                                     </td>
                                 </tr>
