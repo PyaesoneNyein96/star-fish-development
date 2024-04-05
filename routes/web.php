@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\API\Lessons\GameController;
+use App\Http\Controllers\Dashboard\StudentController;
 use App\Http\Controllers\Dashboard\AdminProfileController;
 use App\Http\Controllers\API\Dashboard\DashboardController;
 use App\Http\Controllers\API\Subscribe\SubscriptionController;
@@ -35,10 +36,10 @@ Route::middleware([
         Route::get('/profile', [AdminProfileController::class, 'profile'])->name('adminProfile');
 
         // students
-        Route::get('/students', [DashboardController::class, 'students'])->name('students');
-        Route::post('/student/edit', [DashboardController::class, 'postEditStudent']);
-        Route::get('/student/remove/{id}', [DashboardController::class, 'removeStudent']);
-        Route::get('/student/profilepic/remove/{id}', [DashboardController::class, 'profilePicRemove']);
+        Route::get('/students', [StudentController::class, 'students'])->name('students');
+        Route::post('/student/edit', [StudentController::class, 'postEditStudent']);
+        Route::get('/student/remove/{id}', [StudentController::class, 'removeStudent']);
+        Route::get('/student/profilepic/remove/{id}', [StudentController::class, 'profilePicRemove']);
 
         // rewards
         Route::get('/rewards', [DashboardController::class, 'rewards'])->name('reward');
