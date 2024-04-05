@@ -2,8 +2,12 @@
 import { router } from "@inertiajs/vue3";
 import { onMounted } from "vue";
 
+
+const GlobalDomain = "http://localhost:8000";
+
+
 const toProfile = () => {
-    router.get("/dashboard/profile");
+    router.get("/dashboard/profile", {props: {'domain': GlobalDomain}});
 };
 
 const toStudents = () => {
