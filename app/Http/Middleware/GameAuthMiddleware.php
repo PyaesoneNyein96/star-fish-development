@@ -15,7 +15,7 @@ class GameAuthMiddleware
 
         $student = Student::where('token',$request->header('token'))->first();
 
-        if(!$student) return response()->json("Student not found.", 403);
+        if(!$student) return response()->json("Student not found.", 404);
 
         return $next($request);
     }

@@ -1088,7 +1088,7 @@ class AnsNQueSeeder extends Seeder
         $l4_G793image = $domain . "/storage/images/Grade_4/lesson_4/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 793, 'q_image' => $l4_G793image . "1.png", "q_audio" => $AudioDomain . $G4_L4_speaking_topic . ".mp3", "q_conver" => "Describe this photo about Taylor. \nPrepare before you talk.", "round_instruction" => $AudioDomain . $G4_L4_speaking_topic . "Describe-this-photo-about-Tayl" . ".mp3"],
+            ['round' => 1, 'game_id' => 793, 'q_image' => $l4_G793image . "1.png", "q_audio" => $AudioDomain . $G4_L4_speaking_topic . ".mp3", "q_content" => "Describe this photo about Taylor. \nPrepare before you talk.", "round_instruction" => $AudioDomain . $G4_L4_speaking_topic . "Describe-this-photo-about-Tayl" . ".mp3"],
         ]);
 
 
@@ -1368,7 +1368,7 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ["round" => 1, "game_id" => 802, "q_image" => $l5G802image . "cock.png", "q_audio" => null, "a_content" => 0],
+            // ["round" => 1, "game_id" => 802, "q_image" => $l5G802image . "cock.png", "q_audio" => null, "a_content" => 0],
             ["round" => 1, "game_id" => 802, "q_image" => $l5G802image . "dog.png", "q_audio" => null, "a_content" => 0],
             ["round" => 1, "game_id" => 802, "q_image" => $l5G802image . "duck.png", "q_audio" => null, "a_content" => 0],
             ["round" => 1, "game_id" => 802, "q_image" => $l5G802image . "cow.png", "q_audio" => null, "a_content" => 1],
@@ -1376,42 +1376,42 @@ class AnsNQueSeeder extends Seeder
 
             ["round" => 2, "game_id" => 802, "q_image" => $l5G802image . "horse.png", "q_audio" => null, "a_content" => 0],
             ["round" => 2, "game_id" => 802, "q_image" => $l5G802image . "cat.png", "q_audio" => null, "a_content" => 0],
-            ["round" => 2, "game_id" => 802, "q_image" => $l5G802image . "goat.png", "q_audio" => null, "a_content" => 0],
+            // ["round" => 2, "game_id" => 802, "q_image" => $l5G802image . "goat.png", "q_audio" => null, "a_content" => 0],
             ["round" => 2, "game_id" => 802, "q_image" => $l5G802image . "rabbit.png", "q_audio" => null, "a_content" => 1],
             ["round" => 2, "game_id" => 802, "q_image" =>  null, "q_audio" => $AudioDomain . $G4_L5_G802_listen_n_practice_path . "rabbit" . ".mp3", "a_content" => null],
 
             ["round" => 3, "game_id" => 802, "q_image" => $l5G802image . "sheep.png", "q_audio" => null, "a_content" => 1],
             ["round" => 3, "game_id" => 802, "q_image" => $l5G802image . "duck.png", "q_audio" => null, "a_content" => 0],
-            ["round" => 3, "game_id" => 802, "q_image" => $l5G802image . "cock.png", "q_audio" => null, "a_content" => 0],
+            // ["round" => 3, "game_id" => 802, "q_image" => $l5G802image . "cock.png", "q_audio" => null, "a_content" => 0],
             ["round" => 3, "game_id" => 802, "q_image" => $l5G802image . "dog.png", "q_audio" => null, "a_content" => 0],
             ["round" => 3, "game_id" => 802, "q_image" =>  null, "q_audio" => $AudioDomain . $G4_L5_G802_listen_n_practice_path . "sheep" . ".mp3", "a_content" => null],
 
-            ["round" => 4, "game_id" => 802, "q_image" => $l5G802image . "horse.png", "q_audio" => null, "a_content" => 0],
+            // ["round" => 4, "game_id" => 802, "q_image" => $l5G802image . "horse.png", "q_audio" => null, "a_content" => 0],
             ["round" => 4, "game_id" => 802, "q_image" => $l5G802image . "cow.png", "q_audio" => null, "a_content" => 0],
             ["round" => 4, "game_id" => 802, "q_image" => $l5G802image . "goat.png", "q_audio" => null, "a_content" => 1],
             ["round" => 4, "game_id" => 802, "q_image" => $l5G802image . "cat.png", "q_audio" => null, "a_content" => 0],
             ["round" => 4, "game_id" => 802, "q_image" =>  null, "q_audio" => $AudioDomain . $G4_L5_G802_listen_n_practice_path . "goat" . ".mp3", "a_content" => null],
 
-            ["round" => 5, "game_id" => 802, "q_image" => $l5G802image . "cow.png", "q_audio" => null, "a_content" => 0],
+            // ["round" => 5, "game_id" => 802, "q_image" => $l5G802image . "cow.png", "q_audio" => null, "a_content" => 0],
             ["round" => 5, "game_id" => 802, "q_image" => $l5G802image . "cock.png", "q_audio" => null, "a_content" => 0],
             ["round" => 5, "game_id" => 802, "q_image" => $l5G802image . "sheep.png", "q_audio" => null, "a_content" => 0],
             ["round" => 5, "game_id" => 802, "q_image" => $l5G802image . "horse.png", "q_audio" => null, "a_content" => 1],
             ["round" => 5, "game_id" => 802, "q_image" =>  null, "q_audio" => $AudioDomain . $G4_L5_G802_listen_n_practice_path . "horse" . ".mp3", "a_content" => null],
 
             ["round" => 6, "game_id" => 802, "q_image" => $l5G802image . "cat.png", "q_audio" => null, "a_content" => 1],
-            ["round" => 6, "game_id" => 802, "q_image" => $l5G802image . "dog.png", "q_audio" => null, "a_content" => 0],
+            // ["round" => 6, "game_id" => 802, "q_image" => $l5G802image . "dog.png", "q_audio" => null, "a_content" => 0],
             ["round" => 6, "game_id" => 802, "q_image" => $l5G802image . "rabbit.png", "q_audio" => null, "a_content" => 0],
             ["round" => 6, "game_id" => 802, "q_image" => $l5G802image . "goat.png", "q_audio" => null, "a_content" => 0],
             ["round" => 6, "game_id" => 802, "q_image" =>  null, "q_audio" => $AudioDomain . $G4_L5_G802_listen_n_practice_path . "cat" . ".mp3", "a_content" => null],
 
             ["round" => 7, "game_id" => 802, "q_image" => $l5G802image . "duck.png", "q_audio" => null, "a_content" => 1],
-            ["round" => 7, "game_id" => 802, "q_image" => $l5G802image . "sheep.png", "q_audio" => null, "a_content" => 0],
+            // ["round" => 7, "game_id" => 802, "q_image" => $l5G802image . "sheep.png", "q_audio" => null, "a_content" => 0],
             ["round" => 7, "game_id" => 802, "q_image" => $l5G802image . "cow.png", "q_audio" => null, "a_content" => 0],
             ["round" => 7, "game_id" => 802, "q_image" => $l5G802image . "horse.png", "q_audio" => null, "a_content" => 0],
             ["round" => 7, "game_id" => 802, "q_image" =>  null, "q_audio" => $AudioDomain . $G4_L5_G802_listen_n_practice_path . "duck" . ".mp3", "a_content" => null],
 
             ["round" => 8, "game_id" => 802, "q_image" => $l5G802image . "dog.png", "q_audio" => null, "a_content" => 1],
-            ["round" => 8, "game_id" => 802, "q_image" => $l5G802image . "rabbit.png", "q_audio" => null, "a_content" => 0],
+            // ["round" => 8, "game_id" => 802, "q_image" => $l5G802image . "rabbit.png", "q_audio" => null, "a_content" => 0],
             ["round" => 8, "game_id" => 802, "q_image" => $l5G802image . "horse.png", "q_audio" => null, "a_content" => 0],
             ["round" => 8, "game_id" => 802, "q_image" => $l5G802image . "duck.png", "q_audio" => null, "a_content" => 0],
             ["round" => 8, "game_id" => 802, "q_image" =>  null, "q_audio" => $AudioDomain . $G4_L5_G802_listen_n_practice_path . "dog" . ".mp3", "a_content" => null],

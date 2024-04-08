@@ -2,8 +2,12 @@
 import { router } from "@inertiajs/vue3";
 import { onMounted } from "vue";
 
+
+const GlobalDomain = "http://localhost:8000";
+
+
 const toProfile = () => {
-    router.get("/dashboard/profile");
+    router.get("/dashboard/profile", {props: {'domain': GlobalDomain}});
 };
 
 const toStudents = () => {
@@ -39,38 +43,38 @@ onMounted(() => {
 </script>
 <template>
     <!-- ======= Sidebar ======= -->
-<aside id="sidebar" class="sidebar">
-    <ul class="sidebar-nav" id="sidebar-nav">
-        <li class="nav-item">
-            <a class="nav-link collapsed" id="dashboard" @click="toDashboard">
-                <i class="bi bi-grid"></i>
-                <span>Dashboard</span>
-            </a>
-        </li>
-        <!-- End Dashboard Nav -->
+    <aside id="sidebar" class="sidebar">
+        <ul class="sidebar-nav" id="sidebar-nav">
+            <li class="nav-item">
+                <a class="nav-link collapsed" id="dashboard" @click="toDashboard">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <!-- End Dashboard Nav -->
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" id="students" @click="toStudents">
-                <i class="fa-solid fa-graduation-cap"></i> <span>Students</span>
-            </a>
-        </li>
-        <!-- End Student Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" id="students" @click="toStudents">
+                    <i class="fa-solid fa-graduation-cap"></i> <span>Students</span>
+                </a>
+            </li>
+            <!-- End Student Nav -->
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" id="chats" @click="toChats">
-                <i class="fa-solid fa-comment"></i><span>Chats</span>
-            </a>
-        </li>
-        <!-- End Chat Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" id="chats" @click="toChats">
+                    <i class="fa-solid fa-comment"></i><span>Chats</span>
+                </a>
+            </li>
+            <!-- End Chat Nav -->
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" id="rewards" @click="toRewards">
-                <i class="fa-solid fa-trophy"></i><span>Rewards</span>
-            </a>
-        </li>
-        <!-- End Rewards Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" id="rewards" @click="toRewards">
+                    <i class="fa-solid fa-trophy"></i><span>Rewards</span>
+                </a>
+            </li>
+            <!-- End Rewards Nav -->
 
-        <!-- <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
@@ -147,9 +151,9 @@ onMounted(() => {
                     </li>
                 </ul>
             </li> -->
-        <!-- End Components Nav -->
+            <!-- End Components Nav -->
 
-        <!-- <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
@@ -176,9 +180,9 @@ onMounted(() => {
                     </li>
                 </ul>
             </li> -->
-        <!-- End Forms Nav -->
+            <!-- End Forms Nav -->
 
-        <!-- <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i
                                 class="bi bi-chevron-down ms-auto"></i>
@@ -196,9 +200,9 @@ onMounted(() => {
                     </li>
                 </ul>
             </li> -->
-        <!-- End Tables Nav -->
+            <!-- End Tables Nav -->
 
-        <!-- <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>

@@ -127,11 +127,23 @@ Field = student_id , point
 
 ### Display All Reward
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/reward](https://star-fish.myanmargateway.net/api/reward).
+(Method: GET) [https://star-fish.myanmargateway.net/api/reward/all](https://star-fish.myanmargateway.net/api/reward/all).
+Field ( header ) = token
+
+### Display Each Reward
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/reward/each](https://star-fish.myanmargateway.net/api/reward/each).
+Field ( header ) = token , name
+
+### Display Profiles
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/reward/profiles](https://star-fish.myanmargateway.net/api/reward/profiles).
+Field ( header ) = token
 
 ### Display Student Reward
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/reward/{student_id}](https://star-fish.myanmargateway.net/api/reward).
+(Method: GET) [https://star-fish.myanmargateway.net/api/reward](https://star-fish.myanmargateway.net/api/reward).
+Field ( header ) = token
 
 ### Buy Reward
 

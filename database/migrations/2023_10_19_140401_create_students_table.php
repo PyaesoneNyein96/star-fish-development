@@ -22,10 +22,10 @@ return new class extends Migration
             $table->string('role')->nullable();
             $table->string('grade_chosen')->nullable();
             $table->string('token')->nullable();
-            $table->index('token','students_token_index');
+            $table->index('token', 'students_token_index');
 
             $table->string('deviceId')->nullable();
-            $table->string('isAuth')->default(0);
+            $table->integer('isAuth')->default(0);
             $table->integer('agreeToPolicy')->default(0);
             $table->integer('point')->default(0);
             $table->integer('fixed_point')->default(0);
@@ -41,10 +41,10 @@ return new class extends Migration
             $table->string('isSubscriber')->default(0);
 
             $table->foreignId('country_id')->nullable()
-            ->constrained()->onDelete('cascade')->onUpdate('cascade');
+                ->constrained()->onDelete('cascade')->onUpdate('cascade');
 
             $table->foreignId('city_id')->nullable()->constrained()
-            ->onDelete('cascade')->onUpdate('cascade');
+                ->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });
@@ -56,7 +56,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('students');
-
-
     }
 };

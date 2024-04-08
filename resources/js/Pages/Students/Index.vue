@@ -555,7 +555,8 @@ onMounted(() => {
 
             <!-- pagination  -->
             <div class=" d-flex justify-content-between mt-4">
-                <p>Showing <strong>1</strong> to <strong>{{ perPage }}</strong> of <strong>{{ students.length }}</strong>
+                <p>Showing <strong>1</strong> to <strong>{{ perPage }}</strong> of <strong>{{ students.length
+                        }}</strong>
                     entries</p>
                 <nav aria-label="...">
                     <ul class="pagination">

@@ -121,12 +121,12 @@ class SubscriptionController extends Controller
 
         $alreadyBought = StudentGrade::where('student_id', $student->id)->where('grade_id', $request->header('grade_id'))->first();
 
-        if($alreadyBought){
-        $renew = Carbon::now()->diff($alreadyBought->expire_date);
+        if ($alreadyBought) {
+            $renew = Carbon::now()->diff($alreadyBought->expire_date);
             $type = $renew->invert ? '-' : '';
             $day_count = $type . $renew->days;
 
-            if((int)$day_count > 0 ) {
+            if ((int)$day_count > 0) {
                 return response()->json([
                     "message" => "You are already purchased the plan."
                 ], 402);
@@ -134,7 +134,7 @@ class SubscriptionController extends Controller
         }
 
         // skip payment process
-        // $this->getGradeAsset($student, $this->grade_id, $this->subscription_id);
+        // $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
         // return "ok";
 
 
@@ -147,7 +147,7 @@ class SubscriptionController extends Controller
             // $response = $this->request_prepay_id($this->time, $this->orderId, $this->nonce_str);
             $response = $this->request_prepay_id($this->time, $order_id, $this->nonce_str);
 
-
+            // return $response;
             $result = $response['Response']['result'] == "SUCCESS";
             if (!$result) return response()->json(["message" => $response['Response']], 402);
 
@@ -255,7 +255,7 @@ class SubscriptionController extends Controller
 
             $student = Student::find($student_id);
 
-            $this->getGradeAsset($student, $payInfo->grade_id, $payInfo->subscription_id);
+            $this->getGradeAccess($student, $payInfo->grade_id, $payInfo->subscription_id);
 
             return "success from url";
         }
@@ -307,7 +307,7 @@ class SubscriptionController extends Controller
         ];
 
 
-
+        // return $data;
         if ($sign) {
             return Http::post($kbzRequestURL, $data);
         }
@@ -393,7 +393,7 @@ class SubscriptionController extends Controller
     }
 
 
-    private function getGradeAsset($student, $grade_id, $subscription_id)
+    private function getGradeAccess($student, $grade_id, $subscription_id)
     {
 
         DB::beginTransaction();

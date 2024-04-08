@@ -12,9 +12,11 @@ class Reward extends Model
 
     protected $fillable = [
         'id',
+        'type',
         'name',
         'item',
         'point'
     ];
 
+    protected $hidden = ['created_at', 'updated_at'];
 }

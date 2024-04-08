@@ -1258,13 +1258,13 @@ class PSNAnsNQuesG4Seeder extends Seeder
         $audios = $AudioDomain . "Grade_4/Lesson_9/Listening_Practice/";
 
         $contents = [
-            ['snowy', 'windy', 'stormy', 'rainy'],
-            ['cold', 'snowy', 'rainy', 'foggy'],
-            ['sunny', 'cloudy', 'hot', 'cold'],
-            ['cloudy', 'stormy', 'snowy', 'windy'],
-            ['rainy', 'sunny', 'windy', 'hot'],
-            ['hot', 'sunny', 'hot', 'windy'],
-            ['foggy', 'rainy', 'sunny', 'stormy'],
+            ['snowy', 'windy', 'stormy'],
+            ['cold', 'snowy', 'rainy'],
+            ['sunny', 'cloudy', 'hot'],
+            ['cloudy', 'stormy', 'snowy'],
+            ['rainy', 'sunny', 'windy'],
+            ['hot', 'sunny', 'hot'],
+            ['foggy', 'rainy', 'stormy'],
         ];
 
 
@@ -1324,7 +1324,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         ]);
 
 
-        /////////////////////////////////////////// End of Lesson 9  ////////////////////////////////////////////////
+        /////////////////////////////////////////// End of Lesson 9  //////////////////////////////////////////
 
 
 
@@ -1517,7 +1517,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
         $contents = [
             ['white-shirt', 'dark-blue-skirt', 'purple-skirt'],
-            ['emo', 'red-shirt', 'dark-blue-skirt', 'white-shirt', 'purple-skirt'],
+            ['red-shirt', 'dark-blue-skirt', 'purple-skirt'],
         ];
 
 
@@ -2087,7 +2087,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
         $audios = $AudioDomain . "Grade_4/Lesson_28/Listen_Practice/";
 
         $contents = [
-            ['red-hat', 'blue-dress', 'big-hat', 'red-short', 'blue-short-dress', 'orange'],
+            ['red-hat', 'big-hat', 'blue-short-dress'],
         ];
 
 
