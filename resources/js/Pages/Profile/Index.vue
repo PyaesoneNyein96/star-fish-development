@@ -35,7 +35,9 @@ const mainDashboard = () => {
                     <div class="card">
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-                            <img :src="admin.profile_photo_path" alt="Profile" class="rounded-circle">
+
+                            <img v-if="admin.profile_photo_path" :src="admin.profile_photo_path" alt="Profile" class="rounded-circle">
+                            <img v-else src="https://storage.googleapis.com/pai-images/cfb4836d64a8451fa53e50e352988ba8.jpeg" alt="Profile" class="rounded-circle">
                             <h2>Kevin Anderson</h2>
                             <h3>Web Designer</h3>
 
@@ -98,7 +100,7 @@ const mainDashboard = () => {
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Job</div>
-                                        <div class="col-lg-9 col-md-8">Admin</div>
+                                        <div class="col-lg-9 col-md-8">{{admin.role}}</div>
                                     </div>
 
                                     <div class="row">
@@ -108,7 +110,7 @@ const mainDashboard = () => {
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Address</div>
-                                        <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
+                                        <div class="col-lg-9 col-md-8">{{admin.address}}</div>
                                     </div>
 
                                     <div class="row">
