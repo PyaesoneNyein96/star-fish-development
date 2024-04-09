@@ -24,6 +24,9 @@ use App\Http\Controllers\API\Subscribe\SubscriptionController;
 Route::get('/', function () {
     return redirect()->route('dashboard');
 });
+Route::get('/register', function () {
+    return redirect()->route('login');
+});
 
 Route::middleware([
     'auth:sanctum',

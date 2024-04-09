@@ -187,3 +187,14 @@ Field ( header ) = assess_game_id
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/assessment/end_match](https://star-fish.myanmargateway.net/api/assessment/end_match)
 Field ( header ) = token , assess_game_id , point
+
+
+
+### Version Check
+
+### Android
+(Method: GET) [https://star-fish.myanmargateway.net/api/auth/versionCheck/android](https://star-fish.myanmargateway.net/api/auth/versionCheck/android)
+
+### IOS
+(Method: GET) [https://star-fish.myanmargateway.net/api/auth/versionCheck/ios](https://star-fish.myanmargateway.net/api/auth/versionCheck/ios)
+

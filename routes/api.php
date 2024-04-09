@@ -57,8 +57,8 @@ Route::prefix('auth')->group(function () {
     Route::post('login', [AuthController::class, 'login']);
     Route::post('logout', [AuthController::class, 'logout']);
     Route::get('userData', [AuthController::class, 'userData']);
-    // Route::get('userData', [VersionAndUpdateController::class, 'userDataAndroid'])->middleware('StudentExist');
-    // Route::get('userData/ios', [VersionAndUpdateController::class, 'userDataIOS'])->middleware('StudentExist');
+    Route::get('versionCheck/android', [VersionAndUpdateController::class, 'AndroidVersionCheck']);
+    Route::get('versionCheck/ios', [VersionAndUpdateController::class, 'IosVersionCheck']);
 
 
     //Account Setting
