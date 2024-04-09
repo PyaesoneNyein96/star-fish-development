@@ -37,6 +37,25 @@ class StudentSeeder extends Seeder
                 'token' => "1|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
                 'isSubscriber' => 0
             ],
+            [
+                'name' => 'Ko Nyein Maung',
+                'phone' => "09795686097",
+                'email' => null,
+                'password' => Hash::make('admin123'),
+                'age' => 5,
+                'country_id' => 2,
+                'city_id' => 2,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 1,
+                'level' => 1,
+                'profile_picture' => null,
+                'status' => 1,
+                'grade_chosen' => null,
+                'token' => "10|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+                'isSubscriber' => 0
+            ],
 
 
             [
@@ -99,6 +118,26 @@ class StudentSeeder extends Seeder
                 'token' => "1|xX0ZvemvpMedgbhDOCcOqICgKg0YTjpfv2KnV1Traa776425",
                 'isSubscriber' => 0
             ],
+             [
+                'name' => 'Zwe 2',
+                'phone' => "+959894156850",
+                'email' => null,
+                'password' => Hash::make('admin123'),
+                'age' => 12,
+                'country_id' => 1,
+                'city_id' => 1,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 1,
+                'level' => 1,
+                'profile_picture' => null,
+                'status' => 1,
+                'grade_chosen' => null,
+                'token' => "10|xX0ZvemvpMedgbhDOCcOqICgKg0YTjpfv2KnV1Traa776425",
+                'isSubscriber' => 0
+            ],
+
 
             [
                 'name' => 'yma',
