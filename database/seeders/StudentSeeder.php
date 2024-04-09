@@ -265,27 +265,45 @@ class StudentSeeder extends Seeder
             ],
 
             [
-            'name' => 'Daniel',
-            'phone' => "+959782006953",
-            'email' => null,
-            'password' => Hash::make('admin123'),
-            'age' => 10,
-            'country_id' => 1,
-            'city_id' => 1,
-            'agreeToPolicy' => 1,
-            'deviceId' => null,
-            'isAuth' => 0,
-            'isLocal' => 1,
-            'level' => 1,
-            'profile_picture' => null,
-            'status' => 1,
-            'grade_chosen' => null,
-            'token' => "90|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
-            'isSubscriber' => 0
-        ],
+                'name' => 'Daniel',
+                'phone' => "+959782006953",
+                'email' => null,
+                'password' => Hash::make('admin123'),
+                'age' => 10,
+                'country_id' => 1,
+                'city_id' => 1,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 1,
+                'level' => 1,
+                'profile_picture' => null,
+                'status' => 1,
+                'grade_chosen' => null,
+                'token' => "90|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+                'isSubscriber' => 0
+            ],
 
 
 
         ]);
+
+
+         DB::table('users')->insert([
+
+            [
+                'name' => 'admin',
+                'email' => "admin@gmail.com",
+                'password' => Hash::make('admin123'),
+                'phone' => null,
+
+            ]
+
+        ]);
+
+
+
+
+
     }
 }
