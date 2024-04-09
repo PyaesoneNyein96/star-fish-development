@@ -87,7 +87,7 @@ class AnsNQueSeeder extends Seeder
         $l1_G255image = $domain . "/storage/images/Grade_2/lesson_1/listen_n_practice/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 255, 'a_image' => $l1_G255image . "teacher.gif", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "These-two-are-the-same-Im-Su.mp3", "q_content" => "There two are the same. \nI'm Su Su. = My name's Su Su.", "background" =>  $l1_G255image . "bg1.jpg"],
+            ['round' => 1, 'game_id' => 255, 'a_image' => $l1_G255image . "teacher.gif", "a_audio" => $AudioDomain . $G2_L1_listen_n_practice . "These-two-are-the-same-Im-Su.mp3", "q_content" => "This two are the same. \nI'm Su Su. = My name's Su Su.", "background" =>  $l1_G255image . "bg1.jpg"],
         ]);
 
         DB::table('ans_n_ques')->insert([
