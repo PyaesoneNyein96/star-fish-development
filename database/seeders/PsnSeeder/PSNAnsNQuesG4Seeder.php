@@ -641,7 +641,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     'round' => $key + 1,
                     //  'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
                     'q_content' => $Question_contents[0],
-                    'q_audio' => $audio . $this->removeSpace($value) . ".mp3",
+                    'q_audio' => $audios . $this->removeSpace($value) . ".mp3",
                     'q_image' => $images . $this->removeSpace($value) . ".png",
                 ]
 
@@ -996,6 +996,10 @@ class PSNAnsNQuesG4Seeder extends Seeder
             null,
         ];
 
+        $instructions = [
+            "leopard_instruction",null, null,null
+        ];
+
 
 
         $images = $ImageDomain . "Grade_4/Lesson_8/Speaking_Practice/";
@@ -1007,10 +1011,10 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 [
                     'game_id' => 826,
                     'round' => $key + 1,
-                    //  'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                    'round_instruction' => $audios.$this->removeSpace($instructions[$key]).".mp3",
                     'a_content' => $a_contents[$key],
                     'q_content' => "Describe the following animals",
-                    //  'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                    'q_audio' => $audios.$this->removeSpace($value).".mp3",
                     'q_image' => $images . $this->removeSpace($value) . ".png",
                 ]
 
@@ -1890,7 +1894,27 @@ class PSNAnsNQuesG4Seeder extends Seeder
         }
 
 
-        // lesson 27 Unit 6 Speaking topic < --- >    => Game id 976
+        // lesson 27 Unit 6 Speaking topic < speaking_and_recording >    => Game id 976
+
+
+        $images = $ImageDomain . "Grade_4/Lesson_27/Speaking_Topic/";
+        $audios = $AudioDomain . "Grade_4/Lesson_27/Speaking_Topic/";
+
+        $contents = "What do you like to wear during these events? \n. I like to wear ___,___, and ___ \n when I go shopping with my family. \n. I like to wear ___,___, and ___ \n when I go to school. \n. I like to wear ___,___, and ___ when I visit my friends.";
+
+
+        DB::table('ans_n_ques')->insert([
+            [
+                'game_id' => 976,
+                'round' => 1,
+                'q_content' => $contents,
+                // 'q_audio' => $audios."father-wearing-mother-wearing.mp3",
+                'q_image' => $images . "Three-kids.png",
+            ]
+
+        ]);
+
+
 
 
 
