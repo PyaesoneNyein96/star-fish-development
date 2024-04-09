@@ -1,12 +1,12 @@
 <?php
 
-use Inertia\Inertia;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\API\Lessons\GameController;
 use App\Http\Controllers\API\Dashboard\DashboardController;
 use App\Http\Controllers\API\Subscribe\SubscriptionController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,24 +20,42 @@ use App\Http\Controllers\API\Subscribe\SubscriptionController;
 */
 
 Route::get('/', function () {
+    // return Inertia::render('Welcome', [
+    //     'canLogin' => Route::has('login'),
+    //     'canRegister' => Route::has('register'),
+    //     'laravelVersion' => Application::VERSION,
+    //     'phpVersion' => PHP_VERSION,
+    // ]);
     return redirect()->route('dashboard');
 });
+
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
 
 Route::middleware([
     'auth:sanctum',
     'verified',
 ])->group(function () {
     Route::prefix('/dashboard')->group(function () {
-        Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+        // Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
-        // profile
-        Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
+        // Admin
+        Route::get('/profile', [AdminProfileController::class, 'profile'])->name('adminProfile');
 
         // students
-        Route::get('/students', [DashboardController::class, 'students'])->name('students');
-        Route::post('/student/edit', [DashboardController::class, 'postEditStudent']);
-        Route::get('/student/remove/{id}', [DashboardController::class, 'removeStudent']);
-        Route::get('/student/profilepic/remove/{id}', [DashboardController::class, 'profilePicRemove']);
+        Route::get('/students', [StudentController::class, 'students'])->name('students');
+        Route::post('/student/edit', [StudentController::class, 'postEditStudent']);
+        Route::get('/student/remove/{id}', [StudentController::class, 'removeStudent']);
+        Route::get('/student/profilepic/remove/{id}', [StudentController::class, 'profilePicRemove']);
 
         // rewards
         Route::get('/rewards', [DashboardController::class, 'rewards'])->name('reward');
@@ -53,6 +71,11 @@ Route::middleware([
         Route::get('/axios/chats', [DashboardController::class, 'axiosChat']);
     });
 });
+
+
+
+
+
 
 
 /////////////////////// Payment Integration /////////////////////////
@@ -103,9 +126,9 @@ Route::get('/migrate', function () {
     return back();
 });
 
-Route::get('/fresh', function (){
-        Artisan::call('migrate:fresh');
-        return back();
+Route::get('/fresh', function () {
+    Artisan::call('migrate:fresh');
+    return back();
 });
 
 Route::get('/seed', function () {
@@ -113,9 +136,12 @@ Route::get('/seed', function () {
     return back();
 });
 
-Route::get('/lock', [GameController::class,'lockAndUnlock']);
+Route::get('/lock', [GameController::class, 'lockAndUnlock']);
 
 Route::get('/link', function () {
     Artisan::call('storage:link');
     return back();
 });
+
+
+require __DIR__ . '/auth.php';
