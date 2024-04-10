@@ -25,7 +25,7 @@ return new class extends Migration
             $table->index('token', 'students_token_index');
 
             $table->string('deviceId')->nullable();
-            $table->integer('isAuth')->default(0);
+            $table->string('isAuth')->default(0);
             $table->integer('agreeToPolicy')->default(0);
             $table->integer('point')->default(0);
             $table->integer('fixed_point')->default(0);
