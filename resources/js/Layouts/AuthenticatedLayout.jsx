@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
-import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/react';
 import { useDispatch } from 'react-redux'
@@ -19,16 +17,11 @@ export default function Authenticated({ user, header, children }) {
                     <div className="flex justify-between h-14">
                         <div className="flex">
                             <div className="shrink-0 flex items-center ">
-                                {/* <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
-                                </Link> */}
+
                                 <i className="fa-solid fa-bars text-2xl text-gray-600" onClick={() => dispatch(update())}></i>
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                {/* <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Dashboard
-                                </NavLink> */}
                                 <input
                                     type="text"
                                     className=" rounded-md border-0 my-2 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"

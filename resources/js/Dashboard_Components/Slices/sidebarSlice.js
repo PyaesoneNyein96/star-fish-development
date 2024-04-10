@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    sideOpen: true
+    sideOpen: true,
+    selectItem: ""
 }
 
 export const sidebarSlice = createSlice({
@@ -11,9 +12,12 @@ export const sidebarSlice = createSlice({
         update: (state) => {
             state.sideOpen = !state.sideOpen;
         },
+        setSelectItem: (state, action) => {
+            state.selectItem = action.payload
+        }
     }
 })
 
-export const { update } = sidebarSlice.actions;
+export const { update, setSelectItem } = sidebarSlice.actions;
 
 export default sidebarSlice.reducer

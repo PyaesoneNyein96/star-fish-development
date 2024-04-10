@@ -1,7 +1,12 @@
 <?php
 
 use App\Http\Controllers\API\Dashboard\DashboardController;
+use App\Http\Controllers\API\Lessons\GameController;
+use App\Http\Controllers\API\Reward\RewardController;
 use App\Http\Controllers\API\Subscribe\SubscriptionController;
+use App\Http\Controllers\Dashboard\DashboardController as DashboardDashboardController;
+use App\Http\Controllers\Dashboard\RewardController as DashboardRewardController;
+use App\Http\Controllers\Dashboard\StudentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
@@ -20,18 +25,10 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    // return Inertia::render('Welcome', [
-    //     'canLogin' => Route::has('login'),
-    //     'canRegister' => Route::has('register'),
-    //     'laravelVersion' => Application::VERSION,
-    //     'phpVersion' => PHP_VERSION,
-    // ]);
     return redirect()->route('dashboard');
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 
 Route::middleware('auth')->group(function () {
@@ -46,29 +43,31 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::prefix('/dashboard')->group(function () {
-        // Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
-
-        // Admin
-        Route::get('/profile', [AdminProfileController::class, 'profile'])->name('adminProfile');
+        Route::get('/', [DashboardDashboardController::class, "getDashboard"])->middleware(['auth', 'verified'])->name('dashboard');
 
         // students
-        Route::get('/students', [StudentController::class, 'students'])->name('students');
-        Route::post('/student/edit', [StudentController::class, 'postEditStudent']);
-        Route::get('/student/remove/{id}', [StudentController::class, 'removeStudent']);
-        Route::get('/student/profilepic/remove/{id}', [StudentController::class, 'profilePicRemove']);
+        Route::get('/students', [StudentController::class, 'getAllStudents'])->name('students');
 
         // rewards
-        Route::get('/rewards', [DashboardController::class, 'rewards'])->name('reward');
-        Route::post('/rewards', [DashboardController::class, 'addReward']);
-        Route::get('/rewards/remove/{name}', [DashboardController::class, 'removeReward']);
-        Route::post('/rewards/rename', [DashboardController::class, 'renameReward']);
-        Route::post('/rewards/per/add', [DashboardController::class, 'addPerReward']);
-        Route::post('/rewards/per/edit', [DashboardController::class, 'editPerReward']);
-        Route::post('/rewards/per/delete', [DashboardController::class, 'deletePerReward']);
+        Route::get('/rewards', [DashboardRewardController::class, 'getAllRewards'])->name('reward');
 
-        // chats
-        Route::get('/chats', [DashboardController::class, 'chat']);
-        Route::get('/axios/chats', [DashboardController::class, 'axiosChat']);
+        // // Admin
+        // Route::get('/profile', [AdminProfileController::class, 'profile'])->name('adminProfile');
+
+        // Route::post('/student/edit', [StudentController::class, 'postEditStudent']);
+        // Route::get('/student/remove/{id}', [StudentController::class, 'removeStudent']);
+        // Route::get('/student/profilepic/remove/{id}', [StudentController::class, 'profilePicRemove']);
+
+        // Route::post('/rewards', [DashboardController::class, 'addReward']);
+        // Route::get('/rewards/remove/{name}', [DashboardController::class, 'removeReward']);
+        // Route::post('/rewards/rename', [DashboardController::class, 'renameReward']);
+        // Route::post('/rewards/per/add', [DashboardController::class, 'addPerReward']);
+        // Route::post('/rewards/per/edit', [DashboardController::class, 'editPerReward']);
+        // Route::post('/rewards/per/delete', [DashboardController::class, 'deletePerReward']);
+
+        // // chats
+        // Route::get('/chats', [DashboardController::class, 'chat']);
+        // Route::get('/axios/chats', [DashboardController::class, 'axiosChat']);
     });
 });
 

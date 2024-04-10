@@ -102,7 +102,7 @@ class DatabaseSeeder extends Seeder
         $this->call(Grade1AssessmentSeeder::class);
 
 
-
-
+        // Admin
+        $this->call(AdminUserSeeder::class);
     }
 }
