@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\Auth;
 
+use App\Models\Banner;
 use App\Models\Country;
 use App\Models\Student;
 use App\Models\Version;
@@ -146,12 +147,19 @@ class AuthController extends Controller
     }
 
 
+    // User Data
+
     public function userData(Request $request){
         $token = $request->header('token');
         $userData = Student::where('token', $token)->first();
 
         if(!$userData) return response()->json(["status" => "User Not found !!!"], 404);
         return $userData;
+    }
+
+    // Banners
+    public function getBanners(){
+        return Banner::get();
     }
 
 

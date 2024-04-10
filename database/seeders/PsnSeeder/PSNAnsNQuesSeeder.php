@@ -1806,7 +1806,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_image' => $img . str_replace(' ', '-', $value) . ".png",
                     'q_content' => $TF[0],
                     'q_conver' => $L35_U3_content[$k],
-                    'round_instruction' => $audio . str_replace(' ', '-', $L35_U3_content[$key]) . ".mp3",
+                    'round_instruction' => $audio . str_replace(' ', '-', $L35_U3_content[$k]) . ".mp3",
                     'a_content' => ($L35_U3_q_img[$k] == $L35_U3_content[$k]) == $tf[0]  ? true : false
                 ],
             ]);
