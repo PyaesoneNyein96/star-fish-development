@@ -60,6 +60,8 @@ Route::prefix('auth')->group(function () {
     Route::get('versionCheck/android', [VersionAndUpdateController::class, 'AndroidVersionCheck']);
     Route::get('versionCheck/ios', [VersionAndUpdateController::class, 'IosVersionCheck']);
 
+    Route::post('version/add', [VersionAndUpdateController::class,'addVersion']);
+
 
     //Account Setting
     Route::middleware('StudentExist')->prefix('account')->group(function () {
@@ -90,7 +92,7 @@ Route::prefix('chat')->group(function () {
     Route::post('/', [ChatController::class, 'sendChat'])->middleware('delaySendMessage');
 });
 
-
+// Games (grade, lesson, unit, game)
 Route::middleware('GameAuth')->group(function () {
     Route::get('grades', [GameController::class, 'grades']);
     Route::get('lessons', [GameController::class, 'lessons']);
@@ -100,23 +102,23 @@ Route::middleware('GameAuth')->group(function () {
 });
 
 
-
+// Game Control
 Route::prefix('control')->group(function () {
     Route::post('/', [GameController::class, 'lockAndUnlock']);
     Route::post('/check', [GameController::class, 'showLockAndUnlock']);
     Route::post('/lesson', [GameController::class, 'LessonLock']);
 });
 
-
+// Subscription plans
 Route::prefix('subscription')->group(function () {
     Route::get('plans', [SubscriptionController::class, 'plans']);
     Route::post('removePlan', [SubscriptionController::class, 'removePlan']);
 });
 
+// Payment
 Route::prefix('payment')->group(function () {
     Route::post('request_prepay_id', [SubscriptionController::class, 'getPrepay_id']);
     Route::post('check/result', [SubscriptionController::class, 'checkPaymentResult']);
-    // Route::post('signature_algorithm', [SubscriptionController::class, 'notify']);
 });
 
 
@@ -133,19 +135,3 @@ Route::prefix('assessment')->group(function () {
 // ===============================
 Route::get('/test', [GameController::class, 'test']);
 
-
-    // Route::middleware(['auth', 'second'])->prefix('setting')->group(function () {
-    //     Route::post('/email',[AuthController::class,'request_email']);
-    // });
-
-
-
-    // ============== Versions ================
-
-
-    // Route::prefix('version')->middleware('StudentExist')->group(function () {
-
-    //     Route::get('');
-
-
-    // });
