@@ -9,14 +9,31 @@ use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
-    // get all students
-    public function getAllStudents()
+    // update students
+    public function updateStudent(Request $request)
     {
-        $students = Student::get();
+        $update = [
+            "name" => $request->name,
+            "nickName" => $request->nickName,
+            "email" => $request->email,
+            "phone" => $request->phone,
+            "age" => $request->age,
+            "point" => $request->point,
+            "level" => $request->level,
+            "board" => $request->board,
+            "isAuth" => $request->isAuth,
+            "isSubscriber" => $request->isSubscriber,
+        ];
+        if ($request->isAuth == 0) {
+            $update["deviceId"] = null;
+        }
 
-        return inertia('Dashboard', [
-            'user' => Auth::user(),
-            'students' => $students,
-        ]);
+        Student::where('id', $request->id)->update($update);
+    }
+
+    // delete student
+    public function removeStudent($id)
+    {
+        Student::where('id', $id)->delete();
     }
 }

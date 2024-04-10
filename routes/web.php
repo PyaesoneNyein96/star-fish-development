@@ -46,16 +46,16 @@ Route::middleware([
         Route::get('/', [DashboardDashboardController::class, "getDashboard"])->middleware(['auth', 'verified'])->name('dashboard');
 
         // students
-        Route::get('/students', [StudentController::class, 'getAllStudents'])->name('students');
+        // Route::get('/students', [StudentController::class, 'getAllStudents'])->name('students');
+        Route::post('/student/update', [StudentController::class, 'updateStudent']);
+        Route::delete('/student/delete/{id}', [StudentController::class, 'removeStudent']);
 
         // rewards
-        Route::get('/rewards', [DashboardRewardController::class, 'getAllRewards'])->name('reward');
+        // Route::get('/rewards', [DashboardRewardController::class, 'getAllRewards'])->name('reward');
 
         // // Admin
         // Route::get('/profile', [AdminProfileController::class, 'profile'])->name('adminProfile');
 
-        // Route::post('/student/edit', [StudentController::class, 'postEditStudent']);
-        // Route::get('/student/remove/{id}', [StudentController::class, 'removeStudent']);
         // Route::get('/student/profilepic/remove/{id}', [StudentController::class, 'profilePicRemove']);
 
         // Route::post('/rewards', [DashboardController::class, 'addReward']);
