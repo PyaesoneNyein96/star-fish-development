@@ -12,14 +12,14 @@ class VersionAndUpdateController extends Controller
 {
 
 
-    public $client_version;
-    public $os;
+    // public $client_version;
+    // public $os;
 
-    public function __construct(Request $request) {
+    // public function __construct(Request $request) {
 
-        $this->client_version = $request->header('client_version');
-        // $this->os = $request->header('os');
-    }
+    //     $this->client_version = $request->header('client_version');
+    //     // $this->os = $request->header('os');
+    // }
 
 
     public function AndroidVersionCheck(Request $request) {
