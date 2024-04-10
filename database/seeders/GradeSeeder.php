@@ -43,7 +43,7 @@ class GradeSeeder extends Seeder
                 'version' => "1.0.0",
                 'force_update' => 1,
                 'under_maintenance' => 0,
-                'OS' => 0,
+                'OS' => 1,
                 'url' => "http://play.google.com/store/apps/details?id=star123",
                 'created_at' => Carbon::now()
             ]

@@ -12,23 +12,21 @@ class VersionAndUpdateController extends Controller
 {
 
 
-    public $client_version;
-    public $os;
+    // public $client_version;
+    // public $os;
 
-    public function __construct(Request $request) {
+    // public function __construct(Request $request) {
 
-        $this->client_version = $request->header('client_version');
-        // $this->os = $request->header('os');
-    }
+    //     $this->client_version = $request->header('client_version');
+    //     // $this->os = $request->header('os');
+    // }
 
 
-    public function userDataAndroid(Request $request) {
+    public function AndroidVersionCheck(Request $request) {
 
-        $userData =  $request->student;
 
         $version = Version::where('os',0)->latest()->first();
-
-        // return $version;
+        if(!$version) return null;
 
         $data = [
                 'version' => $version->version,
@@ -42,19 +40,14 @@ class VersionAndUpdateController extends Controller
                 'statusCode' => 200,
                 'message' => 'Success'
             ];
-
-
     }
 
 
 
-    public function userDataIOS(Request $request){
-
-        $userData =  $request->student;
+    public function IosVersionCheck(Request $request){
 
         $version = Version::where('os',1)->latest()->first();
-
-        // return $version;
+        if(!$version) return null;
 
          $data = [
             'version' => $version->version,
