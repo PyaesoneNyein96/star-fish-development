@@ -180,7 +180,7 @@ const Details = ({ student }) => {
                                 <tr className='h-12'>
                                     <th className='px-3'>Tier</th>
                                     <td>:</td>
-                                    <select className='w-full' style={{ border: "1px solid #eff6ff" }}>
+                                    <select className='w-full' style={{ border: "1px solid #eff6ff" }} defaultValue={student.board}>
                                         <option value="silver" onClick={() => setBoard("silver")} selected={student.board == "silver"}>Silver</option>
                                         <option value="platinum" onClick={() => setBoard("platinum")} selected={student.board == "platinum"}>Platinum</option>
                                         <option value="gold" onClick={() => setBoard("gold")} selected={student.board == "gold"}>Gold</option>
@@ -209,17 +209,18 @@ const Details = ({ student }) => {
                                         onChange={(e) => setStar(e.target.value)}
                                     />
                                 </tr>
-                                <tr className='h-12'>
+                                {/* <tr className='h-12'>
                                     <th className='px-3'>Status</th>
                                     <td>:</td>
                                     <select className='w-full'
                                         style={{ border: "1px solid #eff6ff" }}
                                         disabled={student.isAuth == 0}
+                                        defaultValue={student.isAuth}
                                     >
-                                        <option value="1" onClick={() => setStatus("diamond")} selected={student.isAuth == 1}>online</option>
-                                        <option value="0" onClick={() => setStatus("diamond")} selected={student.isAuth == 0}>offline</option>
+                                        <option value="1" onClick={() => setStatus("1")} selected={student.isAuth == 1}>online</option>
+                                        <option value="0" onClick={() => setStatus("0")} selected={student.isAuth == 0}>offline</option>
                                     </select>
-                                </tr>
+                                </tr> */}
                                 <tr className='h-12'>
                                     <th className='px-3'>Age</th>
                                     <td>:</td>
@@ -234,10 +235,11 @@ const Details = ({ student }) => {
                                 <tr className="text-center" style={{ backgroundColor: "#eff6ff" }}>
                                     <td colspan="3">
                                         <select className='w-full text-center'
+                                            defaultValue={student.isSubscriber}
                                             style={{ backgroundColor: "#eff6ff", border: "1px solid #eff6ff" }}
                                         >
-                                            <option value="1" onClick={() => setIsSubscriber("diamond")} selected={student.isSubscriber}>Subscribe User</option>
-                                            <option value="0" onClick={() => setIsSubscriber("diamond")} selected={!student.isSubscriber}>Free User</option>
+                                            <option value="1" onClick={() => setIsSubscriber(1)} selected={student.isSubscriber}>Subscribe User</option>
+                                            <option value="0" onClick={() => setIsSubscriber(0)} selected={!student.isSubscriber}>Free User</option>
                                         </select>
 
                                     </td>

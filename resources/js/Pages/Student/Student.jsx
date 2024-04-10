@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../../../css/Student.css"
 import Details from './Dialogs/Details';
 import { useSelector, useDispatch } from 'react-redux'
 import { btnClickToDelete, btnClickToDetail } from '@/Dashboard_Components/Slices/componentSlice';
 import Delete from './Dialogs/Delete';
+import { router } from '@inertiajs/react';
 
 const Student = ({ students }) => {
     const [search, setSearch] = useState("")
@@ -11,11 +12,8 @@ const Student = ({ students }) => {
     const [tierFilter, setTierFilter] = useState("all");
     const [statusFilter, setStatusFilter] = useState("all");
 
-    // const [clickDetail, setClickDetail] = useState(0);
     const { studentToDetail: clickDetail, toDelete: clickDelete } = useSelector((state) => state.componentSlice)
     const dispatch = useDispatch();
-
-    const [clicklogout, setClicklogout] = useState(false);
 
     const query = search.toLowerCase().replace(/\s/g, "");
     const filtered = students.filter((student) => {
@@ -49,6 +47,13 @@ const Student = ({ students }) => {
         return searching && userTypeMatches && statusMatches && tierMatches;
     }
     );
+
+    const handleLogout = (e, student) => {
+        e.preventDefault();
+        let ans = confirm(`Do you want to log out this user "${student.name}"`)
+        if (ans && student.isAuth == 1) router.get(`/dashboard/student/logout/${student.id}`)
+
+    }
 
     return (
         <main id="main" className="main " >
@@ -127,8 +132,10 @@ const Student = ({ students }) => {
                                                         <div className='flex justify-center content-center'>
 
                                                             <button
-                                                                className="border px-2 py-1 mx-2 hover:bg-zinc-700 text-white bg-zinc-600 rounded-md drop-shadow "
+                                                                className={`border px-2 py-1 mx-2 text-white  rounded-md drop-shadow ${s.isAuth == "0" ? "bg-zinc-400" : "bg-zinc-600  hover:bg-zinc-700"}`}
                                                                 title='Logout'
+                                                                onClick={(e) => handleLogout(e, s)}
+                                                                disabled={s.isAuth == "0"}
                                                             >
                                                                 <i className="fa-solid fa-right-from-bracket"></i>
                                                             </button>
@@ -178,7 +185,8 @@ const Student = ({ students }) => {
                             </div>
 
                         </div >
-                    )}
+                    )
+            }
         </main >
     )
 }

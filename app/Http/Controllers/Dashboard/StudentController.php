@@ -12,6 +12,7 @@ class StudentController extends Controller
     // update students
     public function updateStudent(Request $request)
     {
+        logger($request);
         $update = [
             "name" => $request->name,
             "nickName" => $request->nickName,
@@ -21,12 +22,8 @@ class StudentController extends Controller
             "point" => $request->point,
             "level" => $request->level,
             "board" => $request->board,
-            "isAuth" => $request->isAuth,
             "isSubscriber" => $request->isSubscriber,
         ];
-        if ($request->isAuth == 0) {
-            $update["deviceId"] = null;
-        }
 
         Student::where('id', $request->id)->update($update);
     }
@@ -35,5 +32,11 @@ class StudentController extends Controller
     public function removeStudent($id)
     {
         Student::where('id', $id)->delete();
+    }
+
+    // logout student
+    public function logoutStudent($id)
+    {
+        Student::where('id', $id)->update(["isAuth" => 0, "deviceId" => null]);
     }
 }
