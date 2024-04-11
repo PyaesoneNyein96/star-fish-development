@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -32,6 +33,7 @@ class BannerSeeder extends Seeder
                         'isLocal' => $banner['isLocal'],
                         'image_path' => $path.$banner['name'].".png",
                         'url' => null,
+                        'created_at' => Carbon::now()
                     ],
             ]);
         }

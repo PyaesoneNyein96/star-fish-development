@@ -198,3 +198,8 @@ Field ( header ) = token , assess_game_id , point
 ### IOS
 (Method: GET) [https://star-fish.myanmargateway.net/api/auth/versionCheck/ios](https://star-fish.myanmargateway.net/api/auth/versionCheck/ios)
 
+
+### Banner Images
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/banners](https://star-fish.myanmargateway.net/api/banners)
+
