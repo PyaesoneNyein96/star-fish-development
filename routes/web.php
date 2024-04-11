@@ -49,7 +49,7 @@ Route::middleware([
         // Route::get('/students', [StudentController::class, 'getAllStudents'])->name('students');
         Route::post('/student/update', [StudentController::class, 'updateStudent']);
         Route::delete('/student/delete/{id}', [StudentController::class, 'removeStudent']);
-        Route::get('/student/logout/{id}', [StudentController::class, 'logoutStudent']);
+        Route::patch('/student/logout/{id}', [StudentController::class, 'logoutStudent']);
 
         // rewards
         // Route::get('/rewards', [DashboardRewardController::class, 'getAllRewards'])->name('reward');

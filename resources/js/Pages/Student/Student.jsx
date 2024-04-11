@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "../../../css/Student.css"
 import Details from './Dialogs/Details';
 import { useSelector, useDispatch } from 'react-redux'
-import { btnClickToDelete, btnClickToDetail } from '@/Dashboard_Components/Slices/componentSlice';
+import { btnClickToDelete, btnClickToDetail, setUpdateAlert } from '@/Dashboard_Components/Slices/componentSlice';
 import Delete from './Dialogs/Delete';
 import { router } from '@inertiajs/react';
 
@@ -50,10 +50,13 @@ const Student = ({ students }) => {
 
     const handleLogout = (e, student) => {
         e.preventDefault();
-        let ans = confirm(`Do you want to log out this user "${student.name}"`)
-        if (ans && student.isAuth == 1) router.get(`/dashboard/student/logout/${student.id}`)
-
+        let ans = confirm(`Do you want to log out this user "${student.name}"?`)
+        if (ans && student.isAuth == 1) {
+            router.patch(`/dashboard/student/logout/${student.id}`)
+            dispatch(setUpdateAlert())
+        }
     }
+
 
     return (
         <main id="main" className="main " >
@@ -107,8 +110,8 @@ const Student = ({ students }) => {
                                 </div>
                             </div>
 
-                            <div className='overflow-y-scroll h-[25rem] drop-shadow'>
-                                <table className=" border  w-full border-separate rounded bg-white " >
+                            <div className='overflow-y-scroll h-[25rem] drop-shadow rounded-lg '>
+                                <table className=" border  w-full rounded-lg bg-white " >
                                     <thead className='table-auto w-full '>
                                         <tr className=' text-left'>
                                             <th className='border px-4 py-2'>id</th>
@@ -122,12 +125,13 @@ const Student = ({ students }) => {
                                     <tbody>
                                         {filtered.length ?
                                             filtered.map((s) => (
+
                                                 <tr key={s.id}>
                                                     <td className="border px-4 py-2" >{s.id}</td>
                                                     <td className="border px-4 py-2">{s.name}</td>
                                                     <td className="border px-4 py-2">{s.email ? s.email : "-"}</td>
                                                     <td className="border px-4 py-2">{s.phone ? s.phone : "-"}</td>
-                                                    <td className="border px-4 py-2">{s.isAuth == "1" ? "online" : "offline"}</td>
+                                                    <td className={`border px-4 py-2 ${s.isAuth == 1 ? "text-emerald-400" : ""}`}>{s.isAuth == "1" ? "online" : "offline"}</td>
                                                     <td className="border px-4 py-2 ">
                                                         <div className='flex justify-center content-center'>
 

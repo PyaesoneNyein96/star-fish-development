@@ -2417,7 +2417,6 @@ class PSNAnsNQuesSeeder extends Seeder
                 'This is my grandfather.His name is James', 'This is my grandmother.Her name is Alice',
                 'This is my uncle.His name is John'
             ],
-
         ];
 
 
@@ -2463,7 +2462,7 @@ class PSNAnsNQuesSeeder extends Seeder
         ];
 
         $answers = [
-           'FATHER','GRANDFATHER','UNCLE', 'BROTHER', 'MOTHER', 'SISTER',
+            'FATHER', 'GRANDFATHER', 'UNCLE', 'BROTHER', 'MOTHER', 'SISTER',
         ];
 
         for ($i = 0; $i < count($Questions); $i++) {
@@ -2543,7 +2542,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_content' =>  $names[$key],
                     'q_image' => $ImageDomain . "Grade_1/Lesson_38/Speaking/" . str_replace(' ', '-', $content[$key]) . ".png",
                     'a_content' => $value,
-                    'q_audio' => $AudioDomain . "Grade_1/Lesson_38/Speaking/" .str_replace(' ', '-', $content[$key]).".mp3",
+                    'q_audio' => $AudioDomain . "Grade_1/Lesson_38/Speaking/" . str_replace(' ', '-', $content[$key]) . ".mp3",
                 ]
 
             ]);

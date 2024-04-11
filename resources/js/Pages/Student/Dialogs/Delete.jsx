@@ -1,4 +1,4 @@
-import { btnClickToDelete } from '@/Dashboard_Components/Slices/componentSlice';
+import { btnClickToDelete, setUpdateAlert } from '@/Dashboard_Components/Slices/componentSlice';
 import { router } from '@inertiajs/react';
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -14,6 +14,7 @@ const Delete = ({ student }) => {
             router.delete(`/dashboard/student/delete/${student.id}`)
             setInputName("")
             dispatch(btnClickToDelete(null))
+            dispatch(setUpdateAlert())
         }
         else alert("Wrong name!")
     }

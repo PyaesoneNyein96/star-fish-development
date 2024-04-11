@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { router } from "@inertiajs/react"
 import DialogsLayout from '@/Dashboard_Layouts/DialogsLayout'
 import { useDispatch } from 'react-redux'
-import { btnClickToDetail } from '@/Dashboard_Components/Slices/componentSlice'
+import { btnClickToDetail, setUpdateAlert } from '@/Dashboard_Components/Slices/componentSlice'
 
 
 const Details = ({ student }) => {
@@ -35,14 +35,15 @@ const Details = ({ student }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        try {
-            router.post('/dashboard/student/update', formData);
-
-            dispatch(btnClickToDetail(null))
-            console.log('Form submitted successfully');
-        } catch (err) {
-            console.error('Error submitting form:', err.message);
+        let ans = confirm(`Do you want to update this user "${student.name}"?`)
+        if (ans) {
+            try {
+                router.post('/dashboard/student/update', formData);
+                dispatch(btnClickToDetail(null))
+                dispatch(setUpdateAlert())
+            } catch (err) {
+                console.error('Error submitting form:', err.message);
+            }
         }
     };
 
@@ -50,10 +51,9 @@ const Details = ({ student }) => {
     return (
         <>
             <DialogsLayout>
-                <div className='rounded-sm border-solid border-2  bg-white'>
+                <div className='rounded-lg border-solid border-2  bg-white'>
                     <div className=' m-1 p-2 ' style={{ backgroundColor: "#eff6ff" }}>
                         <h1 className=' font-bold'>Details</h1>
-                        {/* <hr /> */}
                     </div>
                     <div className=' flex items-center mx-4'>
                         <table className='w-full'>
@@ -123,7 +123,7 @@ const Details = ({ student }) => {
                         </table>
                     </div>
                 </div>
-                <div className=' rounded-sm border-solid border-2 overflow-y-scroll bg-white pb-2'>
+                <div className=' rounded-lg border-solid border-2 overflow-y-scroll bg-white pb-2'>
                     <div className=' m-1 p-2 ' style={{ backgroundColor: "#eff6ff" }}>
                         <h1 className=' font-bold'>Edit</h1>
                     </div>

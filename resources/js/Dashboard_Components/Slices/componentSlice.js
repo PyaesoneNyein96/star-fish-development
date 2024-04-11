@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     studentToDetail: null,
     toDelete: null,
+    updateAlert: false,
 }
 
 export const componentSlice = createSlice({
@@ -15,9 +16,12 @@ export const componentSlice = createSlice({
         btnClickToDelete: (state, action) => {
             state.toDelete = action.payload;
         },
+        setUpdateAlert: (state) => {
+            state.updateAlert = !state.updateAlert
+        }
     }
 })
 
-export const { btnClickToDetail, btnClickToDelete } = componentSlice.actions;
+export const { btnClickToDetail, btnClickToDelete, setUpdateAlert } = componentSlice.actions;
 
 export default componentSlice.reducer
