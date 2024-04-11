@@ -14,8 +14,8 @@ class BannerSeeder extends Seeder
      */
     public function run(): void
     {
-        // $domain = app('domain');
-        $domain = "http://localhost:8000/";
+        $domain = app('domain');
+        // $domain = "http://localhost:8000/";
         $path = $domain."storage/images/Banner/";
 
         $banners = [
