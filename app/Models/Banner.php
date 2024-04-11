@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Version extends Model
+class Banner extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'OS',
-        'force_update',
-        'under_maintenance',
-        'url',
-        'version',
-
+        'name',
+        'image_path',
+        'isLocal',
+        'url'
     ];
 
 

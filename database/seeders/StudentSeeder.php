@@ -38,7 +38,7 @@ class StudentSeeder extends Seeder
                 'isSubscriber' => 0
             ],
             [
-                'name' => 'phone user',
+                'name' => 'Ko Nyein Maung',
                 'phone' => "09795686097",
                 'email' => null,
                 'password' => Hash::make('admin123'),
@@ -118,6 +118,26 @@ class StudentSeeder extends Seeder
                 'token' => "1|xX0ZvemvpMedgbhDOCcOqICgKg0YTjpfv2KnV1Traa776425",
                 'isSubscriber' => 0
             ],
+             [
+                'name' => 'Zwe 2',
+                'phone' => "+959894156850",
+                'email' => null,
+                'password' => Hash::make('admin123'),
+                'age' => 12,
+                'country_id' => 1,
+                'city_id' => 1,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 1,
+                'level' => 1,
+                'profile_picture' => null,
+                'status' => 1,
+                'grade_chosen' => null,
+                'token' => "10|xX0ZvemvpMedgbhDOCcOqICgKg0YTjpfv2KnV1Traa776425",
+                'isSubscriber' => 0
+            ],
+
 
             [
                 'name' => 'yma',
@@ -224,5 +244,17 @@ class StudentSeeder extends Seeder
             ],
 
         ]);
+
+
+        DB::table('users')->insert([
+            [
+                'name' => 'admin',
+                'email' => 'admin@gmail.com',
+                'password' => Hash::make('admin123'),
+                'phone' => null
+            ]
+        ]);
+
+
     }
 }

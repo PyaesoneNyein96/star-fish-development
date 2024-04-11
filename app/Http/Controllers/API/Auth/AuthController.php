@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\Auth;
 
+use App\Models\Banner;
 use App\Models\Country;
 use App\Models\Student;
 use App\Models\Version;
@@ -9,6 +10,7 @@ use Tzsk\Otp\Facades\Otp;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Traits\mailTraits;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
@@ -145,12 +147,19 @@ class AuthController extends Controller
     }
 
 
+    // User Data
+
     public function userData(Request $request){
         $token = $request->header('token');
         $userData = Student::where('token', $token)->first();
 
         if(!$userData) return response()->json(["status" => "User Not found !!!"], 404);
         return $userData;
+    }
+
+    // Banners
+    public function getBanners(){
+        return Banner::get();
     }
 
 
@@ -213,22 +222,31 @@ class AuthController extends Controller
 
         if($new !== $confirm) return response()->json(["message" => "Password do not match"], 403);
 
-        $update =  $request->student->update(['password' => Hash::make($confirm)]);
+        DB::beginTransaction();
+        try {
 
-        if($update) return response()->json(["message" => "successfully rest password"], 200);
+            $update =  $request->student->update([
+                'password' => Hash::make($confirm),
+                'deviceId' => null,
+            ]);
+
+
+
+
+            DB::commit();
+
+            if($update) return response()->json(["message" => "You have successfully rest your password"], 200);
+
+
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return $th;
+        }
+
+
 
 
     }
-
-
-
-    // public function enum(Request $request){
-
-    //     $vers =  Version::all();
-    //     return $vers;
-
-    // }
-
 
 
 

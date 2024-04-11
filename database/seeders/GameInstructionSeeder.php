@@ -120,11 +120,13 @@ class GameInstructionSeeder extends Seeder
             // G-1 lesson_5 U-24
             ['content' => "Listen and Repeat", 'game_id' => 24, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
+            // G-1 lesson_5 U-25
+            ['content' => "Read the passage and answer the following questions.", 'game_id' => 25, 'audio' => $Instructions . "SubBlock_Read-the-passage-and-answer-th.mp3"],
+
             // G-1 lesson_5 U-26
             ['content' => "Answer the question", 'game_id' => 26, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
 
-            // G-1 lesson_5 U-26
-            // ['content' => "Tap the things in the room and answer the question", 'game_id' => 26, 'audio' =>  $Instructions . "Tap_the_things_in_the_room_and" . ".mp3"],
+
 
             // G-1 lesson_5 U-27
             ['content' => "Arranging the conversation in order", 'game_id' => 27, 'audio' =>  $Instructions . "Arranging-the-conversation-in" . ".mp3"],
@@ -2425,15 +2427,15 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Answer the question", 'game_id' => 1022, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
 
-            ['content' => "Take notes. Write down what you usually eat in day. Use the prompts.", 'game_id' => 1023, 'audio' => $Instructions . "Take-notes-Write-down-what-you-usually-eat-in-day-Use-the-prompts.mp3"],
+            ['content' => "Take notes. Write down what you usually eat in day. Use the prompts.", 'game_id' => 1026, 'audio' => $Instructions . "Take-notes-Write-down-what-you-usually-eat-in-day-Use-the-prompts.mp3"],
 
 
 
             // Lesson -34
 
-            ['content' => "Listen and Repeat", 'game_id' => 1024, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+            // ['content' => "Listen and Repeat", 'game_id' => 1024, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
-            ['content' => "Listen and choose the correct option", 'game_id' => 1026, 'audio' => $Instructions . "Listen-and-choose-the-correct-option.mp3"],
+            // ['content' => "Listen and choose the correct option", 'game_id' => 1026, 'audio' => $Instructions . "Listen-and-choose-the-correct-option.mp3"],
 
             [
                 'content' => "Look at the following letters and answer the questions", 'game_id' => 1027,
