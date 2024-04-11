@@ -16,7 +16,7 @@ export default function Authenticated({ user, header, children }) {
                 <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 ">
                     <div className="flex justify-between h-14">
                         <div className="flex">
-                            <div className="shrink-0 flex items-center ">
+                            <div className="shrink-0 flex items-center cursor-pointer">
 
                                 <i className="fa-solid fa-bars text-2xl text-gray-600" onClick={() => dispatch(update())}></i>
                             </div>

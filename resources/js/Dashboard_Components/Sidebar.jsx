@@ -21,7 +21,7 @@ const Sidebar = () => {
                     <div key={sl.name}>
                         {sl.gap && <hr />}
                         <p
-                            className={`${sl.name === selectItem ? "bg-blue-50" : ""} ${sl.gap ? "mt-6" : ""} py-3 font-bold hover:bg-blue-50 ps-2 rounded cursor-point my-1`}
+                            className={`${sl.name === selectItem ? "bg-blue-50" : ""} ${sl.gap ? "mt-6" : ""} cursor-pointer py-3 font-bold hover:bg-blue-50 ps-2 rounded cursor-point my-1`}
                             style={{ color: "#173b7c" }}
                             onClick={() => dispatch(setSelectItem(sl.name))}
                         >

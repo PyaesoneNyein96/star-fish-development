@@ -132,10 +132,10 @@ const Student = ({ students }) => {
                                 <hr />
                             </div>
 
-                            <div className="flex justify-between mb-3">
+                            <div className="flex justify-between mb-3 ">
                                 <div>
                                     <select
-                                        className="border-0 rounded drop-shadow mb-2"
+                                        className="border-0 rounded drop-shadow mb-2 "
                                         style={{ width: "190px" }}
                                         onClick={(e) => setUserTypeFilter(e.target.value)}
                                     >
@@ -254,7 +254,7 @@ const Student = ({ students }) => {
                             <div className=" flex justify-between mt-4">
                                 <p>Showing <strong>{start + 1}</strong> to <strong>{end > students.length ? students.length : end}</strong> of <strong>{students.length}</strong> entries</p>
                                 <nav >
-                                    <ul className="pagination flex text-gray-600 text-md">
+                                    <ul className="pagination flex text-gray-600 text-md cursor-pointer">
                                         <li className="page-item border px-5 py-1 rounded bg-white  drop-shadow " disabled={currentPage === 1} onClick={() => prevPage()}>
                                             <a className="page-link" href="#"><i class="fa-solid fa-angles-left"></i></a>
                                         </li>
