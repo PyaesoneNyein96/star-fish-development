@@ -174,9 +174,9 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 [
                     'game_id' => 808,
                     'round' => $key + 1,
-                    // 'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                    'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
                     'q_content' => $Question_contents[$key],
-                    // 'q_audio' => $audio.$this->removeSpace($value).".mp3",
+                    'q_audio' => $audio.$this->removeSpace($value).".mp3",
                     'q_image' => $images . $this->removeSpace($value) . ".png",
                 ]
 

@@ -18,6 +18,9 @@ class BannerSeeder extends Seeder
         // $domain = "http://localhost:8000/";
         $path = $domain."storage/images/Banner/";
 
+        $AndroidURL = "https://play.google.com/store/apps/details?id=com.StarFish.LittleStars";
+        $IosURL = "https://apps.apple.com/star/details?id=com.StarFish.LittleStars";
+
         $banners = [
             ['name' => "banner-1", 'isLocal' => 1],
             ['name' => "banner-2", 'isLocal' => 1],
@@ -32,7 +35,7 @@ class BannerSeeder extends Seeder
                         'name' => $banner['name'],
                         'isLocal' => $banner['isLocal'],
                         'image_path' => $path.$banner['name'].".png",
-                        'url' => null,
+                        'url' => $AndroidURL,
                         'created_at' => Carbon::now()
                     ],
             ]);
