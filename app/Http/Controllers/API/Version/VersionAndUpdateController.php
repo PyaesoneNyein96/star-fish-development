@@ -6,20 +6,13 @@ use Carbon\Carbon;
 use App\Models\Student;
 use App\Models\Version;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class VersionAndUpdateController extends Controller
 {
 
 
-    // public $client_version;
-    // public $os;
-
-    // public function __construct(Request $request) {
-
-    //     $this->client_version = $request->header('client_version');
-    //     // $this->os = $request->header('os');
-    // }
 
 
     public function AndroidVersionCheck(Request $request) {
@@ -67,6 +60,48 @@ class VersionAndUpdateController extends Controller
 
 
 
+
+    /////////////////////////////////////////////////////////
+
+
+    public function addVersion(Request $request){
+
+
+        $check = Version::where('OS', $request->os)->latest()->first();
+
+
+        if($check->version == $request->version) return response()->json([
+            "message" => "Version conflict !!"
+        ], 403);
+
+        DB::beginTransaction();
+        try {
+
+            $create = Version::create([
+                'OS' => $request->os,
+                'force_update' => $request->force_update,
+                'under_maintenance' => $request->under_maintenance,
+                'url' => $request->url,
+                'version' => $request->version,
+                'created_at' => Carbon::now()
+            ]);
+
+
+            DB::commit();
+
+            if($create){
+                return Version::where('OS', $request->os)->latest()->first();
+            }else{
+                return "nope son";
+            }
+
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return $th;
+        }
+
+
+    }
 
 
 
