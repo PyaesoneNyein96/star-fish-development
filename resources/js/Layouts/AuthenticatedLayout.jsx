@@ -12,7 +12,7 @@ export default function Authenticated({ user, header, children }) {
 
     return (
         <div className="min-h-screen bg-gray-100" style={{ backgroundColor: "#f6f9ff" }}>
-            <nav className=" bg-white border-b border-gray-100 shadow-lg w-full fixed z-[2]">
+            <nav className=" bg-white border-b border-gray-100 shadow-sm w-full fixed z-[2]">
                 <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 ">
                     <div className="flex justify-between h-14">
                         <div className="flex">

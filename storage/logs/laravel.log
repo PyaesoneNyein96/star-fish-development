@@ -1,0 +1,13 @@
+[2024-04-11 11:28:41] local.DEBUG: array (
+  'id' => 2,
+  'name' => 'kps',
+  'nickName' => 'pyae pyae',
+  'email' => NULL,
+  'phone' => '09795686096',
+  'board' => 'silver',
+  'level' => '1',
+  'point' => 0,
+  'isAuth' => 1,
+  'age' => '5',
+  'isSubscriber' => '0',
+)  

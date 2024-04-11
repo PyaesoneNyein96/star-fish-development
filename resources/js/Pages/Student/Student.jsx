@@ -11,12 +11,14 @@ const Student = ({ students }) => {
     const [userTypeFilter, setUserTypeFilter] = useState("all");
     const [tierFilter, setTierFilter] = useState("all");
     const [statusFilter, setStatusFilter] = useState("all");
+    const [perPage, setPerPage] = useState(10);
+    const [currentPage, setCurrentPage] = useState(1);
 
     const { studentToDetail: clickDetail, toDelete: clickDelete } = useSelector((state) => state.componentSlice)
     const dispatch = useDispatch();
 
     const query = search.toLowerCase().replace(/\s/g, "");
-    const filtered = students.filter((student) => {
+    var filtered = students.filter((student) => {
         let searching = student.phone == null
             ? student.name.toLowerCase().replace(/\s/g, "").includes(query) ||
             student.email.toLowerCase().replace(/\s/g, "").includes(query)
@@ -33,8 +35,8 @@ const Student = ({ students }) => {
                     true;
 
         const statusMatches =
-            statusFilter == "online" ? student.isAuth :
-                statusFilter == "offline" ? !student.isAuth :
+            statusFilter == "online" ? student.isAuth == 1 :
+                statusFilter == "offline" ? student.isAuth == 0 :
                     true;
 
         const tierMatches =
@@ -43,10 +45,35 @@ const Student = ({ students }) => {
                     tierFilter == "gold" ? student.board.includes("gold") :
                         tierFilter == "diamond" ? student.board.includes("diamond") :
                             true;
-
         return searching && userTypeMatches && statusMatches && tierMatches;
     }
     );
+
+    const start = (currentPage - 1) * perPage;
+    const end = start + Number(perPage);
+    filtered = filtered.slice(start, end);
+
+    const totalPages = Math.ceil(students.length / perPage);
+
+    const nextPage = () => {
+        if (currentPage < totalPages) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
+    const prevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+
+        }
+    };
+
+    const gotoPage = (page) => {
+        if (page >= 1 && page <= totalPages) {
+            setCurrentPage(page);
+        }
+    };
+
 
     const handleLogout = (e, student) => {
         e.preventDefault();
@@ -57,6 +84,42 @@ const Student = ({ students }) => {
         }
     }
 
+    const renderPaginationItems = () => {
+        const paginationItems = [];
+
+        let startPage = Math.max(1, currentPage - 1);
+        let endPage = Math.min(startPage + 2, totalPages);
+
+        for (let i = startPage; i <= endPage; i++) {
+            paginationItems.push(
+                <li key={i}
+                    className={`border px-4 py-1 bg-white  drop-shadow  ${currentPage === i ? 'bg-gray-200' : ''}`}
+                    onClick={() => gotoPage(i)}
+                >
+                    <a className="page-link">{i}</a>
+                </li>
+            );
+        }
+
+        if (startPage > 1) {
+            paginationItems.unshift(
+                <li key="firstEllipsis" className=" disabled border px-4 py-1 bg-white  drop-shadow  ">
+                    <span className="page-link">...</span>
+                </li>
+            );
+        }
+        if (endPage < totalPages) {
+            paginationItems.push(
+                <li key="lastEllipsis" className=" disabled border px-4 py-1 bg-white  drop-shadow  ">
+                    <span className="page-link">...</span>
+                </li>
+            );
+        }
+
+        return paginationItems;
+    };
+
+
 
     return (
         <main id="main" className="main " >
@@ -65,7 +128,7 @@ const Student = ({ students }) => {
                     (
                         <div className="mt-3 ">
                             <div className=" mb-4 pt-3 border-bottom">
-                                <h1>Students</h1>
+                                <h1 className='font-bold text-xl'>Students</h1>
                                 <hr />
                             </div>
 
@@ -110,7 +173,7 @@ const Student = ({ students }) => {
                                 </div>
                             </div>
 
-                            <div className='overflow-y-scroll h-[25rem] drop-shadow rounded-lg '>
+                            <div className='overflow-y-scroll h-[22rem] drop-shadow rounded-lg '>
                                 <table className=" border  w-full rounded-lg bg-white " >
                                     <thead className='table-auto w-full '>
                                         <tr className=' text-left'>
@@ -187,7 +250,23 @@ const Student = ({ students }) => {
                                     </tbody >
                                 </table >
                             </div>
-
+                            {/* pagination  */}
+                            <div className=" flex justify-between mt-4">
+                                <p>Showing <strong>{start + 1}</strong> to <strong>{end > students.length ? students.length : end}</strong> of <strong>{students.length}</strong> entries</p>
+                                <nav >
+                                    <ul className="pagination flex text-gray-600 text-md">
+                                        <li className="page-item border px-5 py-1 rounded bg-white  drop-shadow " disabled={currentPage === 1} onClick={() => prevPage()}>
+                                            <a className="page-link" href="#"><i class="fa-solid fa-angles-left"></i></a>
+                                        </li>
+                                        <div className='flex '>
+                                            {renderPaginationItems()}
+                                        </div>
+                                        <li className="page-item border px-5 py-1  rounded bg-white  drop-shadow " onClick={() => nextPage()} disabled={currentPage === totalPages}>
+                                            <a className="page-link" href="#"><i class="fa-solid fa-angles-right"></i></a>
+                                        </li >
+                                    </ul >
+                                </nav >
+                            </div >
                         </div >
                     )
             }

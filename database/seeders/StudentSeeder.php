@@ -118,7 +118,7 @@ class StudentSeeder extends Seeder
                 'token' => "1|xX0ZvemvpMedgbhDOCcOqICgKg0YTjpfv2KnV1Traa776425",
                 'isSubscriber' => 0
             ],
-             [
+            [
                 'name' => 'Zwe 2',
                 'phone' => "+959894156850",
                 'email' => null,
@@ -246,14 +246,14 @@ class StudentSeeder extends Seeder
         ]);
 
 
-        DB::table('users')->insert([
-            [
-                'name' => 'admin',
-                'email' => 'admin@gmail.com',
-                'password' => Hash::make('admin123'),
-                'phone' => null
-            ]
-        ]);
+        // DB::table('users')->insert([
+        //     [
+        //         'name' => 'admin',
+        //         'email' => 'admin@gmail.com',
+        //         'password' => Hash::make('admin123'),
+        //         'phone' => null
+        //     ]
+        // ]);
 
 
     }
