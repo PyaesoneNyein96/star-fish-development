@@ -8,6 +8,7 @@ import Student from './Student/Student';
 import Reward from './Reward/Reward';
 import Alert from '@/Dashboard_Components/Alert';
 import Chat from './Chat/Chat';
+import { useEffect } from 'react';
 
 export default function Dashboard({ auth }) {
     const { sideOpen, selectItem } = useSelector((state) => state.sidebar);
