@@ -91,6 +91,10 @@ Field (Body) (status eg - "lock" & "unlock" )
 Method(POST) [https://star-fish.myanmargateway.net/api/control/lesson](https://star-fish.myanmargateway.net/api/control/lesson)  
 Field (Body) (lesson_id ,status eg - "lock" & "unlock" )
 
+
+Method(POST) [https://star-fish.myanmargateway.net/api/control/category](https://star-fish.myanmargateway.net/api/control/category)  
+Field (Body) (category (category name) ,status eg - "lock" & "unlock" )
+
 > # Subscription Plans
 
 ### Plan List

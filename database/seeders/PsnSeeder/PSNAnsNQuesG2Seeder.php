@@ -46,6 +46,12 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
         // ========================   Lesson - 21 ===================================
+
+
+        DB::table('ans_n_ques')->insert(['game_id' => 352, 'a_content' => 'lesson_21', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 352, 'a_content' => 'lesson_21 (Global)', 'isLocal' => 0]);
+
+
         // Unit - 2 <reading_carousel>
 
         $contents = [
@@ -201,7 +207,24 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // ========================   Lesson - 22 ===================================
+    // ========================   Lesson 22 ===================================
+
+
+        DB::table('ans_n_ques')->insert(['game_id' => 357, 'a_content' => 'lesson_22', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 357, 'a_content' => 'lesson_22 (Global)', 'isLocal' => 0]);
+
+
+        //////////////////////////////////////////////// song
+
+        DB::table('ans_n_ques')->insert(['game_id' => 358, 'a_content' => 'lesson_22', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 358, 'a_content' => 'lesson_22 (Global)', 'isLocal' => 0]);
+
+
+        //////////////////////////////////////////////// song or video
+
+        DB::table('ans_n_ques')->insert(['game_id' => 359, 'a_content' => 'lesson_22', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 359, 'a_content' => 'lesson_22 (Global)', 'isLocal' => 0]);
+
     // Unit - 4 <speaking_and_recording>
 
 
@@ -252,6 +275,12 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
     // ========================   Lesson - 23 ===================================
+
+
+
+    DB::table('ans_n_ques')->insert(['game_id' => 361, 'a_content' => 'lesson_23', 'isLocal' => 1]);
+    DB::table('ans_n_ques')->insert(['game_id' => 361, 'a_content' => 'lesson_23 (Global)', 'isLocal' => 0]);
+
     // Unit - 2 <reading_carousel>
 
     $contents = [
@@ -409,6 +438,12 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
+/////////////////////////// Lesson 24 //////////////////////////////////////////
+
+
+
+    DB::table('ans_n_ques')->insert(['game_id' => 366, 'a_content' => 'lesson_24', 'isLocal' => 1]);
+    DB::table('ans_n_ques')->insert(['game_id' => 366, 'a_content' => 'lesson_24 (Global)', 'isLocal' => 0]);
 
     // Lesson 24 unit 2 Listen and Practice <Reading_carousel>
 
@@ -688,6 +723,13 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
     // ========================   Lesson - 25 ===================================
+
+
+    DB::table('ans_n_ques')->insert(['game_id' => 373, 'a_content' => 'lesson_25', 'isLocal' => 1]);
+    DB::table('ans_n_ques')->insert(['game_id' => 373, 'a_content' => 'lesson_25 (Global)', 'isLocal' => 0]);
+
+
+
     // Unit - 2 <reading_carousel>
 
     $contents = [
@@ -874,6 +916,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
     // ========================   Lesson - 26 ===================================
+
+
     // Unit - 1 Listen and Repeat <reading_carousel>
 
 
@@ -1075,6 +1119,10 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
     // =======================================   27 ==============================================
+
+    DB::table('ans_n_ques')->insert(['game_id' => 383, 'a_content' => 'lesson_27', 'isLocal' => 1]);
+    DB::table('ans_n_ques')->insert(['game_id' => 383, 'a_content' => 'lesson_27 (Global)', 'isLocal' => 0]);
+
     // Unit - 2 Reading <reading_carousel>
 
     // sub -1

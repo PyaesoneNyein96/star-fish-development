@@ -4,6 +4,7 @@ namespace App\Http\Traits;
 use App\Models\Game;
 use App\Models\Unit;
 use App\Models\Lesson;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 trait gameControlTrait
@@ -81,25 +82,41 @@ trait gameControlTrait
     }
 
 
-    public function lessonLockCheck(Request $request){
+    // public function lessonLockCheck(Request $request){
 
-        $status = $request->status == "lock" ? 0 : 1;
+    //     $status = $request->status == "lock" ? 0 : 1;
 
-        $games = Game::where('status',$status)->with('unit')->get();
+    //     $games = Game::where('status',$status)->with('unit')->get();
 
 
-        $units = $games->map(function ($g) {
-            return $g->unit['id'];
-        });
+    //     $units = $games->map(function ($g) {
+    //         return $g->unit['id'];
+    //     });
 
-        $lessonsId = Unit::whereIn('id',$units)->pluck('lesson_id');
+    //     $lessonsId = Unit::whereIn('id',$units)->pluck('lesson_id');
 
-        return $units;
+    //     return $units;
+
+
+    // }
+
+
+    public function CategoryLock(Request $request){
+
+        $category = Category::where('name', $request->category)->first();
+        $status = $request->status == "lock" ? 0 : 1 ;
+
+        if(!$category) return "category not found.";
+
+        $gameIds = $category->games->pluck('id');
+
+        Game::whereIn('id', $gameIds)->update(['status' => $status]);
+        return Game::whereIn('id', $gameIds)->get();
+
+
 
 
     }
-
-
 
 
 
