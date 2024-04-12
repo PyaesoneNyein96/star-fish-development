@@ -623,8 +623,8 @@ class GameInstructionSeeder extends Seeder
             // Lesson 34
             // Game 3 (213)
             [
-                'content' => "Listen and look at the picture. Choose True or False.", 'game_id' => 212,
-                'audio' =>  $Instructions . "Listen-and-look-at-the-picture-Choose-True-or-False" . ".mp3"
+                'content' => "Answer True or False", 'game_id' => 212,
+                'audio' =>  $Instructions . "Answer-True-or-False" . ".mp3"
             ],
 
             // Game 3 (214)
@@ -638,8 +638,8 @@ class GameInstructionSeeder extends Seeder
             // Lesson 35
             // Game 3 (218)
             [
-                'content' => "Listen and look at the picture. Choose True or False.", 'game_id' => 217,
-                'audio' =>  $Instructions . "Listen-and-look-at-the-picture-Choose-True-or-False" . ".mp3"
+                'content' => "Answer True or False.", 'game_id' => 217,
+                'audio' =>  $Instructions . "Answer-True-or-False" . ".mp3"
             ],
 
             // Game 5 (220)

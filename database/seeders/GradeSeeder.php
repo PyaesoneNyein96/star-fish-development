@@ -22,7 +22,7 @@ class GradeSeeder extends Seeder
                     'name' => $g,
                     'local_price' => 100 + 10 * (int)$g / 4,
                     'global_price' => 20 + 4 * (int)$g / 4,
-                    'status' => $key  <= 4 ? 1 : 0
+                    'status' => $key  < 4 ? 1 : 0
                 ],
             ]);
         }
@@ -33,18 +33,18 @@ class GradeSeeder extends Seeder
         DB::table('versions')->insert([
             [
                 'version' => "1.0.0",
-                'force_update' => 1,
+                'force_update' => 0,
                 'under_maintenance' => 0,
                 'OS' => 0,
-                'url' => "https://apps.apple.com/<country>/app/star/12345",
+                'url' => "https://play.google.com/store/apps/details?id=com.StarFish.LittleStars",
                 'created_at' => Carbon::now()
             ],
             [
                 'version' => "1.0.0",
-                'force_update' => 1,
+                'force_update' => 0,
                 'under_maintenance' => 0,
                 'OS' => 1,
-                'url' => "http://play.google.com/store/apps/details?id=star123",
+                'url' => "https://apps.apple.com/star/details?id=com.StarFish.LittleStars",
                 'created_at' => Carbon::now()
             ]
         ]);
