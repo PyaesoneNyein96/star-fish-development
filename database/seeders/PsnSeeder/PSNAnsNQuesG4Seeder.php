@@ -639,7 +639,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                 [
                     'game_id' => 817,
                     'round' => $key + 1,
-                    //  'round_instruction' => $audio.$this->removeSpace($value)."_round_ins".".mp3",
+                    'round_instruction' => $audios.$this->removeSpace($value)."_round_ins".".mp3",
                     'q_content' => $Question_contents[0],
                     'q_audio' => $audios . $this->removeSpace($value) . ".mp3",
                     'q_image' => $images . $this->removeSpace($value) . ".png",
