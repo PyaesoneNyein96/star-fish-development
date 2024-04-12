@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Checkbox from '@/Components/Checkbox';
 import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
@@ -8,6 +8,7 @@ import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
 
 export default function Login({ status, canResetPassword }) {
+    const [viewPW, setViewPW] = useState(false)
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
         password: '',
@@ -59,13 +60,24 @@ export default function Login({ status, canResetPassword }) {
 
                     <TextInput
                         id="password"
-                        type="password"
+                        type={viewPW ? "text" : "password"}
                         name="password"
                         value={data.password}
                         className="mt-1 block w-full"
                         autoComplete="current-password"
                         onChange={(e) => setData('password', e.target.value)}
                     />
+                    <div className=' flex items-center mt-2'>
+                        <input
+                            type="checkbox"
+                            id='viewpw'
+                            className='border-gray-300 flex rounded-md items-center text-sm  mr-1'
+                            onChange={() => setViewPW(!viewPW)}
+                        />
+                        <label htmlFor="viewpw" className='text-gray-700'>
+                            show  password
+                        </label>
+                    </div>
 
                     <InputError message={errors.password} className="mt-2" />
                 </div>
@@ -89,7 +101,7 @@ export default function Login({ status, canResetPassword }) {
                     )}
                 </div> */}
 
-                <div className="flex items-center justify-center mt-10">
+                <div className="flex items-center justify-center mt-4">
 
                     {/* <Link
                         href={route('register')}

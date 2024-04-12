@@ -99,8 +99,8 @@ export default function Register() {
                         onChange={(e) => setData('password_confirmation', e.target.value)}
                         required
                     />
-
                     <InputError message={errors.password_confirmation} className="mt-2" />
+
                 </div>
 
                 <div className="flex items-center justify-end mt-4">
