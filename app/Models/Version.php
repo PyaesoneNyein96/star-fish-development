@@ -10,13 +10,12 @@ class Version extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'tag',
-        'version_code',
-        'update_type',
-        'changelog',
         'OS',
-        'url'
+        'force_update',
+        'under_maintenance',
+        'url',
+        'version',
+
     ];
 
 

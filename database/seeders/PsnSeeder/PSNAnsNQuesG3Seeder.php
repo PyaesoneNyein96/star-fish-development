@@ -48,6 +48,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         // Unit 1 // game_id -> 607
 
 
+        DB::table('ans_n_ques')->insert(['game_id' => 607, 'a_content' => 'lesson_38', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 607, 'a_content' => 'lesson_38 (Global)', 'isLocal' => 0]);
 
 
         // Unit 2 sub 1 Reading  <Reading_carousel>
@@ -248,7 +250,11 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         // Unit 1 // game_id -> 613
 
-        // ....................
+
+
+        DB::table('ans_n_ques')->insert(['game_id' => 613, 'a_content' => 'lesson_38', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 613, 'a_content' => 'lesson_38 (Global)', 'isLocal' => 0]);
+
 
 
 
@@ -548,8 +554,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         // Unit 1 // game_id -> 621
 
-        // ....................
-
+        DB::table('ans_n_ques')->insert(['game_id' => 621, 'a_content' => 'lesson_23', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 621, 'a_content' => 'lesson_23 (Global)', 'isLocal' => 0]);
 
 
 
@@ -808,7 +814,11 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         // Unit 1 // game_id -> 627
 
-        // ....................
+
+
+    DB::table('ans_n_ques')->insert(['game_id' => 627, 'a_content' => 'lesson_38', 'isLocal' => 1]);
+    DB::table('ans_n_ques')->insert(['game_id' => 627, 'a_content' => 'lesson_38 (Global)', 'isLocal' => 0]);
+
 
 
 
@@ -1151,8 +1161,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         // Unit 1 // game_id -> 635
 
-        // ....................
 
+
+    DB::table('ans_n_ques')->insert(['game_id' => 635, 'a_content' => 'lesson_25', 'isLocal' => 1]);
+    DB::table('ans_n_ques')->insert(['game_id' => 635, 'a_content' => 'lesson_25 (Global)', 'isLocal' => 0]);
 
 
 
@@ -1355,9 +1367,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         // Unit 1 // game_id -> 641
 
-        // ....................
 
-
+        DB::table('ans_n_ques')->insert(['game_id' => 641, 'a_content' => 'lesson_26 data', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 641, 'a_content' => 'lesson_26  (Global)', 'isLocal' => 0]);
 
 
         // Unit 2 sub 1 Reading  <Reading_carouse>
@@ -1737,7 +1749,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         // Unit 1 // game_id -> 650
 
-        // ....................
+
+        DB::table('ans_n_ques')->insert(['game_id' => 650, 'a_content' => 'data', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 650, 'a_content' => 'data (Global)', 'isLocal' => 0]);
+
 
 
 
@@ -1955,7 +1970,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         // Unit 1 // game_id -> 656
 
-        // ....................
+
+        DB::table('ans_n_ques')->insert(['game_id' => 656, 'a_content' => 'data', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 656, 'a_content' => 'data(Global)', 'isLocal' => 0]);
+
 
 
 
@@ -2236,8 +2254,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         // Unit 1 // game_id -> 664
 
-        // ....................
 
+
+        DB::table('ans_n_ques')->insert(['game_id' => 664, 'a_content' => 'data', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 664, 'a_content' => 'data(Global)', 'isLocal' => 0]);
 
 
 
@@ -2532,8 +2552,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         // Unit 1 // game_id -> 671
 
-
-
+        DB::table('ans_n_ques')->insert(['game_id' => 671, 'a_content' => 'data', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 671, 'a_content' => 'data(Global)', 'isLocal' => 0]);
 
         // Unit 2 Vocabulary  <Reading_carousel>
 
@@ -2860,6 +2880,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         // Unit 1 // game_id -> 680
 
 
+        DB::table('ans_n_ques')->insert(['game_id' => 680, 'a_content' => 'data', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 680, 'a_content' => 'data(Global)', 'isLocal' => 0]);
 
 
         // Unit 2 Vocabulary  <Reading_carousel>
@@ -3080,6 +3102,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         // Unit 1 // game_id -> 687
 
 
+        DB::table('ans_n_ques')->insert(['game_id' => 687, 'a_content' => 'data', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 687, 'a_content' => 'data(Global)', 'isLocal' => 0]);
 
 
         // Unit 2 Vocabulary  <Reading_carousel>
@@ -3436,6 +3460,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         // Unit 1 // game_id -> 696
 
 
+        DB::table('ans_n_ques')->insert(['game_id' => 696, 'a_content' => 'data', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 696, 'a_content' => 'data(Global)', 'isLocal' => 0]);
 
 
         // Unit 2 Vocabulary  <reading_carousel_two>
@@ -3667,6 +3693,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
         // Unit 1 // game_id -> 703
+
+
+        DB::table('ans_n_ques')->insert(['game_id' => 703, 'a_content' => 'data', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 703, 'a_content' => 'data(Global)', 'isLocal' => 0]);
 
 
         // Unit 2 Vocabulary  <Reading_carousel>
@@ -4007,6 +4037,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
         // Unit 1 // game_id -> 712
 
 
+        DB::table('ans_n_ques')->insert(['game_id' => 712, 'a_content' => 'data', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 712, 'a_content' => 'data(Global)', 'isLocal' => 0]);
+
+
         // Unit 2 Vocabulary  <Reading_carousel>
 
         $contents = [
@@ -4268,6 +4302,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
         // Unit 1 // game_id -> 719
+
+
+        DB::table('ans_n_ques')->insert(['game_id' => 719, 'a_content' => 'data', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 719, 'a_content' => 'data(Global)', 'isLocal' => 0]);
 
 
         // Unit 2 Vocabulary  <Reading_carousel>
@@ -4550,6 +4588,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
         // Unit 1 // game_id -> 727
 
 
+        DB::table('ans_n_ques')->insert(['game_id' => 727, 'a_content' => 'data', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 727, 'a_content' => 'data(Global)', 'isLocal' => 0]);
+
+
         // Unit 2 Vocabulary  <Reading_carousel>
 
         $contents = [
@@ -4794,6 +4836,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
         // Unit 1 // game_id -> 734
+
+
+        DB::table('ans_n_ques')->insert(['game_id' => 734, 'a_content' => 'data', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 734, 'a_content' => 'data(Global)', 'isLocal' => 0]);
 
 
         // Unit 2 Vocabulary  <Reading_carousel>
@@ -5085,7 +5131,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         // Unit 1 // game_id -> 742
 
-        // - - - -
+
+        DB::table('ans_n_ques')->insert(['game_id' => 742, 'a_content' => 'data', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 742, 'a_content' => 'data(Global)', 'isLocal' => 0]);
 
 
         // Unit 2 Vocabulary  <Reading_carousel>
@@ -5317,7 +5365,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         // Unit 1 // game_id -> 749
 
-        // - - - -
+
+        DB::table('ans_n_ques')->insert(['game_id' => 749, 'a_content' => 'data', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 749, 'a_content' => 'data(Global)', 'isLocal' => 0]);
 
 
         // Unit 2 Vocabulary  <Reading_carousel>

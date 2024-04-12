@@ -1,14 +1,17 @@
 <?php
 
-use Inertia\Inertia;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\Dashboard\DashboardController;
+use App\Http\Controllers\API\Lessons\GameController;
+use App\Http\Controllers\API\Reward\RewardController;
+use App\Http\Controllers\API\Subscribe\SubscriptionController;
+use App\Http\Controllers\Dashboard\DashboardController as DashboardDashboardController;
+use App\Http\Controllers\Dashboard\RewardController as DashboardRewardController;
+use App\Http\Controllers\Dashboard\StudentController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\API\Lessons\GameController;
-use App\Http\Controllers\Dashboard\StudentController;
-use App\Http\Controllers\Dashboard\AdminProfileController;
-use App\Http\Controllers\API\Dashboard\DashboardController;
-use App\Http\Controllers\API\Subscribe\SubscriptionController;
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,40 +27,55 @@ use App\Http\Controllers\API\Subscribe\SubscriptionController;
 Route::get('/', function () {
     return redirect()->route('dashboard');
 });
-Route::get('/register', function () {
-    return redirect()->route('login');
+
+
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 Route::middleware([
     'auth:sanctum',
     'verified',
 ])->group(function () {
     Route::prefix('/dashboard')->group(function () {
-        Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
-
-        // Admin
-        Route::get('/profile', [AdminProfileController::class, 'profile'])->name('adminProfile');
+        Route::get('/', [DashboardDashboardController::class, "getDashboard"])->middleware(['auth', 'verified'])->name('dashboard');
 
         // students
-        Route::get('/students', [StudentController::class, 'students'])->name('students');
-        Route::post('/student/edit', [StudentController::class, 'postEditStudent']);
-        Route::get('/student/remove/{id}', [StudentController::class, 'removeStudent']);
-        Route::get('/student/profilepic/remove/{id}', [StudentController::class, 'profilePicRemove']);
+        // Route::get('/students', [StudentController::class, 'getAllStudents'])->name('students');
+        Route::post('/student/update', [StudentController::class, 'updateStudent']);
+        Route::delete('/student/delete/{id}', [StudentController::class, 'removeStudent']);
+        Route::patch('/student/logout/{id}', [StudentController::class, 'logoutStudent']);
 
         // rewards
-        Route::get('/rewards', [DashboardController::class, 'rewards'])->name('reward');
-        Route::post('/rewards', [DashboardController::class, 'addReward']);
-        Route::get('/rewards/remove/{name}', [DashboardController::class, 'removeReward']);
-        Route::post('/rewards/rename', [DashboardController::class, 'renameReward']);
-        Route::post('/rewards/per/add', [DashboardController::class, 'addPerReward']);
-        Route::post('/rewards/per/edit', [DashboardController::class, 'editPerReward']);
-        Route::post('/rewards/per/delete', [DashboardController::class, 'deletePerReward']);
+        // Route::get('/rewards', [DashboardRewardController::class, 'getAllRewards'])->name('reward');
 
-        // chats
-        Route::get('/chats', [DashboardController::class, 'chat']);
-        Route::get('/axios/chats', [DashboardController::class, 'axiosChat']);
+        // // Admin
+        // Route::get('/profile', [AdminProfileController::class, 'profile'])->name('adminProfile');
+
+        // Route::get('/student/profilepic/remove/{id}', [StudentController::class, 'profilePicRemove']);
+
+        // Route::post('/rewards', [DashboardController::class, 'addReward']);
+        // Route::get('/rewards/remove/{name}', [DashboardController::class, 'removeReward']);
+        // Route::post('/rewards/rename', [DashboardController::class, 'renameReward']);
+        // Route::post('/rewards/per/add', [DashboardController::class, 'addPerReward']);
+        // Route::post('/rewards/per/edit', [DashboardController::class, 'editPerReward']);
+        // Route::post('/rewards/per/delete', [DashboardController::class, 'deletePerReward']);
+
+        // // chats
+        // Route::get('/chats', [DashboardController::class, 'chat']);
+        // Route::get('/axios/chats', [DashboardController::class, 'axiosChat']);
     });
 });
+
+
+
+
+
 
 
 
@@ -113,9 +131,9 @@ Route::get('/migrate', function () {
     return back();
 });
 
-Route::get('/fresh', function (){
-        Artisan::call('migrate:fresh');
-        return back();
+Route::get('/fresh', function () {
+    Artisan::call('migrate:fresh');
+    return back();
 });
 
 Route::get('/seed', function () {
@@ -123,9 +141,12 @@ Route::get('/seed', function () {
     return back();
 });
 
-Route::get('/lock', [GameController::class,'lockAndUnlock']);
+Route::get('/lock', [GameController::class, 'lockAndUnlock']);
 
 Route::get('/link', function () {
     Artisan::call('storage:link');
     return back();
 });
+
+
+require __DIR__ . '/auth.php';
