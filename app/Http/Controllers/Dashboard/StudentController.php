@@ -12,7 +12,6 @@ class StudentController extends Controller
     // update students
     public function updateStudent(Request $request)
     {
-        logger($request);
         $update = [
             "name" => $request->name,
             "nickName" => $request->nickName,
