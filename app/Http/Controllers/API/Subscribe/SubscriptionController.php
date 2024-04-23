@@ -109,7 +109,7 @@ class SubscriptionController extends Controller
 
 
 
-    /////////////////////// Get Prepay ID ///////////////////////
+    /////////////////////// Get Prepay ID /////////////////////// first step
 
     public function getPrepay_id(Request $request)
     {
@@ -177,7 +177,7 @@ class SubscriptionController extends Controller
     public function checkPaymentResult(Request $request)
     {
 
-        $kbzCheckURL = "http://api.kbzpay.com/payment/gateway/uat/queryorder";
+        // $kbzCheckURL = "http://api.kbzpay.com/payment/gateway/uat/queryorder";
         $kbzCheckURL = "http://api.kbzpay.com/payment/gateway/queryorder";
         $orderId = $request->header('order_id');
 
@@ -204,7 +204,8 @@ class SubscriptionController extends Controller
     // referer kpay
     public function referer(Request $request)
     {
-        $redirectUrl = "https://static.kbzpay.com/pgw/uat/pwa/#/";
+        // $redirectUrl = "https://static.kbzpay.com/pgw/uat/pwa/#/";
+        $redirectUrl = "https://static.kbzpay.com/pgw/pwa/#/";
 
         $appid = $request->query("appid");
         $merch_code = $request->query("merch_code");
@@ -317,7 +318,7 @@ class SubscriptionController extends Controller
     private function convert_SHA256($order_id, $time, $nonce_str, $price)
     {
 
-        $stringA = "appid=kp6d29862312994fa09afb52c00e6687&merch_code=70244201&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=https://star-fish-development.myanmargateway.net/payment/notify&timestamp=$time&total_amount=$price&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
+        $stringA = "appid=kp6d29862312994fa09afb52c00e6687&merch_code=70244201&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=".$this->domain."/payment/notify&timestamp=$time&total_amount=$price&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
 
         return strtoupper(hash('sha256', $stringA . "&key=ddfa5a774af37d9137f51d90c1871cb1"));
     }
