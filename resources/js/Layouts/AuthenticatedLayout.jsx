@@ -70,7 +70,7 @@ export default function Authenticated({ user, header, children }) {
                                     </Dropdown.Trigger>
 
                                     <Dropdown.Content>
-                                        <Dropdown
+                                        {/* <Dropdown
                                             // href={route("adminProfile")}
                                             // href={route("profile.edit")}
                                             onClick={() =>
@@ -80,8 +80,8 @@ export default function Authenticated({ user, header, children }) {
                                             }
                                         >
                                             Profile
-                                            {/* <Profile /> */}
-                                        </Dropdown>
+                                            <Profile />
+                                        </Dropdown> */}
                                         <Dropdown.Link
                                             href={route("logout")}
                                             method="post"

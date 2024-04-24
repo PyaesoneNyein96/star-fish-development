@@ -10,6 +10,7 @@ use App\Http\Controllers\API\Reward\RewardController;
 use App\Http\Controllers\API\Auth\LocalAuthController;
 use App\Http\Controllers\API\Lessons\LessonController;
 use App\Http\Controllers\API\Auth\GlobalAuthController;
+use App\Http\Controllers\API\Mission\MissionController;
 use App\Http\Controllers\API\Assessment\AssessmentController;
 use App\Http\Controllers\API\Subscribe\SubscriptionController;
 use App\Http\Controllers\API\Version\VersionAndUpdateController;
@@ -76,7 +77,7 @@ Route::prefix('auth')->group(function () {
 
 Route::prefix('points')->group(function () {
     Route::get('/{id}', [RewardController::class, 'getPoint']);
-    Route::post('/', [RewardController::class, 'addPoint']);
+    Route::post('/', [RewardController::class, 'addPoint'])->name('addPoint');
 });
 
 Route::prefix('reward')->group(function () {
@@ -128,6 +129,17 @@ Route::prefix('assessment')->group(function () {
     Route::get('/', [AssessmentController::class, 'getAllAssess']);
     Route::get('game', [AssessmentController::class, 'enterGame']);
     Route::get('end_match', [AssessmentController::class, 'endGame']);
+});
+
+
+///////////////// Mission //////////////////////
+
+Route::prefix('mission')->middleware('GameAuth')->group(function () {
+    // Route::get('/repetitive/game-list',[MissionController::class,'repetitiveGameList']);
+    // Route::get('/repetitive/claim_game',[MissionController::class,'repetitiveClaimGame']);
+
+    Route::get('/repetitive/lesson-list',[MissionController::class,'repetitiveLessonList']);
+    Route::get('/repetitive/claim_lesson',[MissionController::class,'repetitiveClaimLesson']);
 });
 
 

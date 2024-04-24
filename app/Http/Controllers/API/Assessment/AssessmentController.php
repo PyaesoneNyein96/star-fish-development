@@ -257,10 +257,10 @@ class AssessmentController extends Controller
                         $recorded["certificate"] = $certificate;
 
             // Del lessons =========================================
-                        StudentLesson::where('student_id', $Stu->id)
-                            ->whereIn('lesson_id', Lesson::where('grade_id',$assessment->grade_id)->pluck('id'))
-                            ->where('grade_id', $assessment->grade_id)
-                            ->delete();
+                        // StudentLesson::where('student_id', $Stu->id)
+                        //     ->whereIn('lesson_id', Lesson::where('grade_id',$assessment->grade_id)->pluck('id'))
+                        //     ->where('grade_id', $assessment->grade_id)
+                        //     ->delete();
 
 
                     };

@@ -46,7 +46,7 @@ class RewardController extends Controller
                 'board' => $newPoint[2]
             ]);
         } else {
-            Student::where('id', $request->id)->update([
+            Student::where('id', $request->student_id)->update([
                 'point' => $newPoint[0],
                 'fixed_point' => $newPoint[1],
                 'board' => $newPoint[2]
