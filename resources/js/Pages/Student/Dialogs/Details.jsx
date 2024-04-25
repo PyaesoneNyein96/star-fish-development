@@ -47,7 +47,6 @@ const Details = ({ student }) => {
         }
     };
 
-
     return (
         <>
             <DialogsLayout>
@@ -59,51 +58,51 @@ const Details = ({ student }) => {
                         <table className='w-full'>
 
                             <tbody class=" text-left ">
-                                <tr className='h-10' >
+                                <tr className='h-[2.1rem]' >
                                     <th className='px-3'>Name</th>
                                     <td>:</td>
                                     <td className='px-3'>{student.name}</td>
                                 </tr>
-                                <tr className='h-10'>
+                                <tr className='h-[2.1rem]'>
                                     <th className='px-3'>Nickname</th>
                                     <td>:</td>
                                     <td className='px-3'>{student.nickName ? student.nickName : "-"}</td>
                                 </tr>
-                                <tr className='h-10'>
+                                <tr className='h-[2.1rem]'>
                                     <th className='px-3'>Email</th>
                                     <td>:</td>
                                     <td className='px-3'>{student.email ? student.email : "-"}</td>
                                 </tr>
 
-                                <tr className='h-10' >
+                                <tr className='h-[2.1rem]' >
                                     <th className='px-3'>Phone</th>
                                     <td>:</td>
                                     <td className='px-3'>{student.phone ? student.phone : "-"}</td>
                                 </tr>
 
-                                <tr className='h-10'>
+                                <tr className='h-[2.1rem]'>
                                     <th className='px-3'>Tier</th>
                                     <td>:</td>
                                     <td className='px-3'>{student.board}</td>
                                 </tr>
-                                <tr className='h-10'>
+                                <tr className='h-[2.1rem]'>
                                     <th className='px-3'>Level</th>
                                     <td>:</td>
                                     <td className='px-3'>{student.level}</td>
                                 </tr>
-                                <tr className='h-10'>
+                                <tr className='h-[2.1rem]'>
                                     <th className='px-3'>Stars</th>
                                     <td>:</td>
                                     <td className='px-3'>{student.point}</td>
                                 </tr>
-                                <tr className='h-10'>
+                                <tr className='h-[2.1rem]'>
                                     <th className='px-3'>Status</th>
                                     <td>:</td>
                                     <td className={`px-3 ${student.isAuth == 1 ? "text-emerald-400" : ""}`}>
                                         {student.isAuth == 1 ? "online" : "offline"}
                                     </td>
                                 </tr>
-                                <tr className='h-10'>
+                                <tr className='h-[2.1rem]'>
                                     <th className='px-3'>Age</th>
                                     <td>:</td>
                                     <td className='px-3'>{student.age}</td>
@@ -180,11 +179,11 @@ const Details = ({ student }) => {
                                 <tr className='h-12'>
                                     <th className='px-3'>Tier</th>
                                     <td>:</td>
-                                    <select className='w-full' style={{ border: "1px solid #eff6ff" }} defaultValue={student.board}>
-                                        <option value="silver" onClick={() => setBoard("silver")} selected={student.board == "silver"}>Silver</option>
-                                        <option value="platinum" onClick={() => setBoard("platinum")} selected={student.board == "platinum"}>Platinum</option>
-                                        <option value="gold" onClick={() => setBoard("gold")} selected={student.board == "gold"}>Gold</option>
-                                        <option value="diamond" onClick={() => setBoard("diamond")} selected={student.board == "diamond"}>Diamond</option>
+                                    <select className='w-full' style={{ border: "1px solid #eff6ff" }} defaultValue={student.board} onChange={(e) => setBoard(e.target.value)}>
+                                        <option value="silver" selected={student.board == "silver"}>Silver</option>
+                                        <option value="platinum" selected={student.board == "platinum"}>Platinum</option>
+                                        <option value="gold" selected={student.board == "gold"}>Gold</option>
+                                        <option value="diamond" selected={student.board == "diamond"}>Diamond</option>
                                     </select>
                                 </tr>
                                 <tr className='h-12'>
@@ -209,18 +208,7 @@ const Details = ({ student }) => {
                                         onChange={(e) => setStar(e.target.value)}
                                     />
                                 </tr>
-                                {/* <tr className='h-12'>
-                                    <th className='px-3'>Status</th>
-                                    <td>:</td>
-                                    <select className='w-full'
-                                        style={{ border: "1px solid #eff6ff" }}
-                                        disabled={student.isAuth == 0}
-                                        defaultValue={student.isAuth}
-                                    >
-                                        <option value="1" onClick={() => setStatus("1")} selected={student.isAuth == 1}>online</option>
-                                        <option value="0" onClick={() => setStatus("0")} selected={student.isAuth == 0}>offline</option>
-                                    </select>
-                                </tr> */}
+
                                 <tr className='h-12'>
                                     <th className='px-3'>Age</th>
                                     <td>:</td>

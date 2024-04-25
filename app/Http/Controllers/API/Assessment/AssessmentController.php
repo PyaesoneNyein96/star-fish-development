@@ -99,9 +99,6 @@ class AssessmentController extends Controller
         return response()->json(["message" => "please finish lessons"], 403);
     }
 
-
-
-
     // enter game
     public function enterGame(Request $request)
     {
@@ -121,6 +118,7 @@ class AssessmentController extends Controller
         $data = [
             'assess_id' => $id,
             'assess_name' => $assess->name,
+            'total_point' => $assess->total_point,
             'category' => $cate->name
         ];
 
@@ -132,7 +130,6 @@ class AssessmentController extends Controller
         }
         return $data;
     }
-
 
     // finish game
     public function endGame(Request $request)
@@ -256,13 +253,11 @@ class AssessmentController extends Controller
 
                         $recorded["certificate"] = $certificate;
 
-            // Del lessons =========================================
+                        // Del lessons =========================================
                         StudentLesson::where('student_id', $Stu->id)
-                            ->whereIn('lesson_id', Lesson::where('grade_id',$assessment->grade_id)->pluck('id'))
+                            ->whereIn('lesson_id', Lesson::where('grade_id', $assessment->grade_id)->pluck('id'))
                             ->where('grade_id', $assessment->grade_id)
                             ->delete();
-
-
                     };
                 } else  return response()->json(['message' => 'Point field is required.'], 403);
 

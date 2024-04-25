@@ -91,7 +91,6 @@ Field (Body) (status eg - "lock" & "unlock" )
 Method(POST) [https://star-fish.myanmargateway.net/api/control/lesson](https://star-fish.myanmargateway.net/api/control/lesson)  
 Field (Body) (lesson_id ,status eg - "lock" & "unlock" )
 
-
 Method(POST) [https://star-fish.myanmargateway.net/api/control/category](https://star-fish.myanmargateway.net/api/control/category)  
 Field (Body) (category (category name) ,status eg - "lock" & "unlock" )
 
@@ -139,20 +138,27 @@ Field ( header ) = token
 (Method: GET) [https://star-fish.myanmargateway.net/api/reward/each](https://star-fish.myanmargateway.net/api/reward/each).
 Field ( header ) = token , name
 
-### Display Profiles
+### Display all Profiles
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/reward/profiles](https://star-fish.myanmargateway.net/api/reward/profiles).
 Field ( header ) = token
 
-### Display Student Reward
+### Display Student Rewards (or) Profiles
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/reward](https://star-fish.myanmargateway.net/api/reward).
-Field ( header ) = token
+Field ( header ) = token , type (eg. "profile" or "achieve")
 
 ### Buy Reward
 
 (Method: POST) [https://star-fish.myanmargateway.net/api/reward](https://star-fish.myanmargateway.net/api/reward)  
-Field = student_id , reward_id , reward_point
+Field ( body ) = token , reward_id , reward_point
+
+# Profile
+
+### Update Profile
+
+(Method: POST) [https://star-fish.myanmargateway.net/api/profile/update](https://star-fish.myanmargateway.net/api/profile/update)  
+Field ( body ) = token , reward_id
 
 ### ====================================================
 
@@ -192,18 +198,16 @@ Field ( header ) = assess_game_id
 (Method: GET) [https://star-fish.myanmargateway.net/api/assessment/end_match](https://star-fish.myanmargateway.net/api/assessment/end_match)
 Field ( header ) = token , assess_game_id , point
 
-
-
 ### Version Check
 
 ### Android
+
 (Method: GET) [https://star-fish.myanmargateway.net/api/auth/versionCheck/android](https://star-fish.myanmargateway.net/api/auth/versionCheck/android)
 
 ### IOS
-(Method: GET) [https://star-fish.myanmargateway.net/api/auth/versionCheck/ios](https://star-fish.myanmargateway.net/api/auth/versionCheck/ios)
 
+(Method: GET) [https://star-fish.myanmargateway.net/api/auth/versionCheck/ios](https://star-fish.myanmargateway.net/api/auth/versionCheck/ios)
 
 ### Banner Images
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/banners](https://star-fish.myanmargateway.net/api/banners)
-

@@ -61,7 +61,7 @@ Route::prefix('auth')->group(function () {
     Route::get('versionCheck/android', [VersionAndUpdateController::class, 'AndroidVersionCheck']);
     Route::get('versionCheck/ios', [VersionAndUpdateController::class, 'IosVersionCheck']);
 
-    Route::post('version/add', [VersionAndUpdateController::class,'addVersion']);
+    Route::post('version/add', [VersionAndUpdateController::class, 'addVersion']);
 
 
     //Account Setting
@@ -86,6 +86,8 @@ Route::prefix('reward')->group(function () {
     Route::get('/', [RewardController::class, 'getReward']);
     Route::post('/', [RewardController::class, 'buyReward']);
 });
+
+Route::post('/profile/update', [RewardController::class, "updateProfile"]);
 
 Route::prefix('chat')->group(function () {
     Route::get('/', [ChatController::class, 'getChat']);
@@ -136,4 +138,3 @@ Route::prefix('assessment')->group(function () {
 // ============ test =============
 // ===============================
 Route::get('/test', [GameController::class, 'test']);
-

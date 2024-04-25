@@ -46,7 +46,7 @@ class RewardController extends Controller
                 'board' => $newPoint[2]
             ]);
         } else {
-            Student::where('id', $request->id)->update([
+            Student::where('id', $request->student_id)->update([
                 'point' => $newPoint[0],
                 'fixed_point' => $newPoint[1],
                 'board' => $newPoint[2]
@@ -66,6 +66,8 @@ class RewardController extends Controller
     public function displayAllReward(Request $request)
     {
         $token = $request->header("token");
+        if (!$token) return response()->json(["message" => "token is required."], 403);
+
         $data = Reward::where('type', "achieve")->get()->groupBy('name');
         $stu = Student::where('token', $token)->first();
 
@@ -94,6 +96,8 @@ class RewardController extends Controller
         $token = $request->header("token");
         $name = $request->header("name");
 
+        if (!$token || !$name) return response()->json(["message" => "token or name is required."], 403);
+
         $id = Student::where('token', $token)->first();
         $data = Reward::where("name", $name)->get();
 
@@ -112,6 +116,8 @@ class RewardController extends Controller
     public function displayEachProfile(Request $request)
     {
         $token = $request->header("token");
+        if (!$token) return response()->json(["message" => "token is required."], 403);
+
         $data = Reward::where('type', "profile")->get()->groupBy('name');
         $stu = Student::where('token', $token)->first();
 
@@ -138,6 +144,9 @@ class RewardController extends Controller
     public function getReward(Request $request)
     {
         $token = $request->header("token");
+        $type = $request->header("type");
+
+        if (!$token || !$type) return response()->json(["message" => "token or type is required."], 403);
 
         $id = Student::where('token', $token)->first();
         if (!$id) return response()->json(["message" => "user not found"], 403);
@@ -147,29 +156,40 @@ class RewardController extends Controller
             ->where('stud_rewards.student_id', $id->id)
             ->get();
 
-        if (count($studReward) == 0) return response()->json(["message" => "You haven't bought anything."]);
+        if (count($studReward) == 0) return response()->json(["message" => "You haven't bought any item."]);
+        foreach ($studReward as $val) {
+            $type === "profile" ? $val->item = $this->profiles . $val->item . ".png" : $val->item = $this->each_ach . $val->name . "/" . $val->item . ".png";
+        }
 
-        return ($studReward);
+        return $type === "profile" ? $studReward->where('type', "profile") : $studReward->where('type', "achieve");
     }
 
     public function buyReward(Request $request)
     {
-        $point = Student::where('id', $request->student_id)->first();
+        $token = $request->token;
+        if (!$token || !$request->reward_point || !$request->reward_id) return response()->json(["message" => "token or some fields is required."], 403);
+
+
+        $id = Student::where('token', $token)->first();
+        if (!$id) return response()->json(["message" => "user not found"], 403);
+        $id = $id->id;
+
+        $point = Student::where('id', $id)->first();
         if ($point->point < (int)$request->reward_point) {
             return response()->json([
                 'error' => 'not enough points'
             ], 403);
         } else {
-            $rewardConflict = Stud_reward::where('student_id', $request->student_id)->get();
+            $rewardConflict = Stud_reward::where('student_id', $id)->get();
             $newPoint = $point->point - (int)$request->reward_point;
 
             if ($rewardConflict->toArray() == []) {
-                Student::where('id', $request->student_id)->update([
+                Student::where('id', $id)->update([
                     'point' => $newPoint
                 ]);
 
-                $studReward = Stud_reward::where('student_id', $request->student_id)->create([
-                    'student_id' => $request->student_id,
+                $studReward = Stud_reward::where('student_id', $id)->create([
+                    'student_id' => $id,
                     'reward_id' => $request->reward_id
                 ]);
 
@@ -181,12 +201,12 @@ class RewardController extends Controller
                             'error' => 'reward already exist'
                         ], 403);
                     } else {
-                        Student::where('id', $request->student_id)->update([
+                        Student::where('id', $id)->update([
                             'point' => $newPoint
                         ]);
 
-                        $studReward = Stud_reward::where('student_id', $request->student_id)->create([
-                            'student_id' => $request->student_id,
+                        $studReward = Stud_reward::where('student_id', $id)->create([
+                            'student_id' => $id,
                             'reward_id' => $request->reward_id
                         ]);
 
@@ -194,6 +214,29 @@ class RewardController extends Controller
                     }
                 }
             }
+        }
+    }
+
+    // Profile
+    public function updateProfile(Request $request)
+    {
+        $token = $request->token;
+        $id = $request->reward_id;
+        if (!$token || !$id) return response()->json(["message" => "token or reward_id is required."]);
+
+        $student = Student::where("token", $token)->first();
+        $stud_id = $student->id;
+        $checkReward = Stud_reward::where('student_id', $stud_id)->where("reward_id", $id)->first();
+
+        if ($checkReward) {
+            $profile = Reward::where("id", $id)->first();
+            if ($profile->type === "profile") {
+                $student->update(["profile_picture" => $this->profiles . $profile->item]);
+                return response()->json(["message" => "Profile updated."]);
+            }
+            return response()->json(["message" => "item isn't profile."], 403);
+        } else {
+            return response()->json(["message" => "You haven't bought this item."], 403);
         }
     }
 
