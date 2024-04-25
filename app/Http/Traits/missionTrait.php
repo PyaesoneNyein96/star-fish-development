@@ -100,11 +100,6 @@ trait missionTrait{
         ->where('count','<=',5)
         ->get();
 
-
-        // $repetitiveForFive =  StudentLesson::where('student_id',$request->student->id)
-        // ->where('count', 5)->get();
-
-
         $gradeId = Student::find($request->student->id)->grades->pluck('id');
 
         if(!$gradeId || $gradeId->count() == 0) return "nope";
@@ -117,10 +112,9 @@ trait missionTrait{
                 'lesson_id' => $raw->id,
                 'name' => "Lesson ". $raw->name,
                 'allowed' => optional($repeat)->count >= 3,
-                'claim' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed == 0 && true,
+                'claim' => (optional($repeat)->count >= 3 && optional($repeat)->count <= 5) && optional($repeat)->claimed_3 == 0 && true,
                 'count' => optional($repeat)->count,
-                'point' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed == 0 ? 1 : null ,
-
+                'point' => (optional($repeat)->count >= 3 && optional($repeat)->count <= 5) && optional($repeat)->claimed_3 == 0 ? 1 : null,
             ];
         });
 
@@ -131,11 +125,10 @@ trait missionTrait{
             return [
                 'lesson_id' => $raw->id,
                 'name' => "Lesson ". $raw->name,
-                'allowed' => optional($repeat)->count == 5,
-                'claim' => optional($repeat)->count == 5 && (optional($repeat)->claimed == 0 || optional($repeat)->claimed <= 3) && true,
+                'allowed' => optional($repeat)->count >= 3,
+                'claim' => optional($repeat)->count == 5 && optional($repeat)->claimed_5 == 0 && true,
                 'count' => optional($repeat)->count,
-                'point' => optional($repeat)->count == 5  && (optional($repeat)->claimed == 0 || optional($repeat)->claimed == 3) ? 1 : null ,
-
+                'point' =>  optional($repeat)->count == 5 && optional($repeat)->claimed_5 == 0 ? 3 : null ,
             ];
         });
 
@@ -154,6 +147,7 @@ trait missionTrait{
 
             $student = $request->student;
             $point = $request->header('point');
+            $count = $request->header('count');
             $lesson_id = $request->header('lesson_id');
 
             $claimUpdate = StudentLesson::where('lesson_id',$lesson_id)
@@ -161,7 +155,13 @@ trait missionTrait{
 
             // return $claimUpdate;
 
-            $claimUpdate->claimed = $claimUpdate->count;
+            // $claimUpdate->claimed = $count == 3 || $count == 4 ? 1 : 3;
+
+            if($count == 3 || $count == 4){
+                $claimUpdate->claimed_3 = 1;
+            }else{
+                $claimUpdate->claimed_5 = 1;
+            }
             $claimUpdate->save();
 
             $this->point_lvl($student, $point);
