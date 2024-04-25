@@ -37,14 +37,73 @@ trait missionTrait{
 
     // }
 
-    public function repetitiveLessonList(Request $request){
+    // public function repetitiveLessonList(Request $request){
+
+    //     $repeat = StudentLesson::where('student_id',$request->student->id)
+    //     ->get();
+
+    //     $repetitive_records =  StudentLesson::where('student_id',$request->student->id)
+    //     ->whereIn('count', [3,5])
+    //     ->get();
+
+
+    //     $gradeId = Student::find($request->student->id)->grades->pluck('id');
+
+    //     if(!$gradeId || $gradeId->count() == 0) return "nope";
+
+    //     $rawLessons = Lesson::where('grade_id', $gradeId)->get();
+
+
+    //     $records = $rawLessons->map(function ($raw) use($repeat, $repetitive_records) { // Map function
+
+    //         $repeat_count = $repeat->where('lesson_id',$raw->id)->first();
+
+
+    //         if($repeat_count){
+    //             if($repeat_count->count == 3 || $repeat_count->count == 5){
+    //                $point = $repeat_count->count - 2;
+    //             }else if($repeat_count->count == 3 || $repeat_count->count == 5){
+    //                 $point = null;
+    //             }
+    //         }else{
+    //             $point =null;
+    //         }
+
+    //         return [
+    //             'lesson_id' => $raw->id,
+    //             'name' => $raw->name,
+    //             'count' => $repeat_count ? $repeat_count->count : null,
+    //             'allowed' => $repetitive_records->contains('lesson_id',$raw->id),
+    //             'claim_3' => $repeat_count ? ($repeat_count->claimed == 0 && ($repeat_count->count >= 3 && $repeat_count->count < 5 )) && true : false,
+    //             'claim_5' => $repeat_count ? ((($repeat_count->claimed == 0 || $repeat_count->claimed == 3  ) && $repeat_count->count == 5)  && true) : false,
+    //             'point' => $point,
+
+    //         ];
+
+
+    //     });
+
+
+    //     return response()->json([
+    //         "repetitive_lessons_bonus" => $records,
+    //     ], 200);
+
+    // }
+
+
+      public function repetitiveLessonList(Request $request){
 
         $repeat = StudentLesson::where('student_id',$request->student->id)
-        ->whereIn('count', [3,5])
-        // ->where('claimed', 3)
         ->get();
 
-        // return $repeat;
+        $repetitiveRecords =  StudentLesson::where('student_id',$request->student->id)
+        ->where('count','<=',5)
+        ->get();
+
+
+        // $repetitiveForFive =  StudentLesson::where('student_id',$request->student->id)
+        // ->where('count', 5)->get();
+
 
         $gradeId = Student::find($request->student->id)->grades->pluck('id');
 
@@ -52,23 +111,38 @@ trait missionTrait{
 
         $rawLessons = Lesson::where('grade_id', $gradeId)->get();
 
-
-        $records = $rawLessons->map(function ($raw) use($repeat) {
-
-            $repeat_count = $repeat->where('lesson_id',$raw->id)->first();
-
+        $mappingForThreeTimes = $rawLessons->map(function ($raw) use($repetitiveRecords) {
+            $repeat = $repetitiveRecords->where('lesson_id',$raw->id)->first();
             return [
                 'lesson_id' => $raw->id,
-                'name' => $raw->name,
-                'claimed' => false,
-                'completed' => $repeat->contains('lesson_id',$raw->id),
-                'repetitive_count' => $repeat_count ? $repeat_count->count : null,
+                'name' => "Lesson ". $raw->name,
+                'allowed' => optional($repeat)->count >= 3,
+                'claim' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed == 0 && true,
+                'count' => optional($repeat)->count,
+                'point' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed == 0 ? 1 : null ,
+
+            ];
+        });
+
+        /////////////////
+
+        $mappingForFiveTimes = $rawLessons->map(function ($raw) use($repetitiveRecords){
+            $repeat = $repetitiveRecords->where('lesson_id',$raw->id)->first();
+            return [
+                'lesson_id' => $raw->id,
+                'name' => "Lesson ". $raw->name,
+                'allowed' => optional($repeat)->count == 5,
+                'claim' => optional($repeat)->count == 5 && (optional($repeat)->claimed == 0 || optional($repeat)->claimed <= 3) && true,
+                'count' => optional($repeat)->count,
+                'point' => optional($repeat)->count == 5  && (optional($repeat)->claimed == 0 || optional($repeat)->claimed == 3) ? 1 : null ,
+
             ];
         });
 
 
         return response()->json([
-            "repetitiveBonus-lessons" => $records,
+            "repetitive_3" => $mappingForThreeTimes,
+            "repetitive_5" => $mappingForFiveTimes,
         ], 200);
 
     }
@@ -76,16 +150,19 @@ trait missionTrait{
 
 
 
-
-    public function repetitiveClaimGame(Request $request){
+    public function repetitiveClaimLesson(Request $request){
 
             $student = $request->student;
             $point = $request->header('point');
-            $game_id = $request->header('game_id');
+            $lesson_id = $request->header('lesson_id');
 
-            $claimUpdate = StudentGame::where('game_id',$game_id)
-            ->where('student_id', $student)->first();
+            $claimUpdate = StudentLesson::where('lesson_id',$lesson_id)
+            ->where('student_id', $request->student->id)->first();
 
+            // return $claimUpdate;
+
+            $claimUpdate->claimed = $claimUpdate->count;
+            $claimUpdate->save();
 
             $this->point_lvl($student, $point);
 
