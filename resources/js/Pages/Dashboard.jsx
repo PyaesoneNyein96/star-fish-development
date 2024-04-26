@@ -11,7 +11,7 @@ import Chat from './Chat/Chat';
 import { useEffect } from 'react';
 import Delete from './Student/Dialogs/Delete';
 import { setSelectItem } from '@/Dashboard_Components/Slices/sidebarSlice';
-import { setUpdateAlert } from '@/Dashboard_Components/Slices/componentSlice';
+import { setInitialUpdateAlert, setUpdateAlert } from '@/Dashboard_Components/Slices/componentSlice';
 
 export default function Dashboard({ auth }) {
     const { sideOpen, selectItem } = useSelector((state) => state.sidebar);
@@ -25,6 +25,8 @@ export default function Dashboard({ auth }) {
             dispatch(setUpdateAlert())
         }
     }, [])
+
+    if (updateAlert) setTimeout(() => dispatch(setInitialUpdateAlert(false)), 1500);
 
     return (
         <AuthenticatedLayout

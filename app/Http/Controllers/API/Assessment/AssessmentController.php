@@ -31,9 +31,6 @@ class AssessmentController extends Controller
         $gradeId = $lessonId->grade_id;
         $lessonId = $lessonId->lesson_id;
 
-        // $gradeId = StudentLesson::where("student_id", $studentId->id)->where("lesson_id", $lessonId)->first();
-        // if (!$gradeId) return response()->json(["message" => "didn't complete lessons"], 403);
-
         $isfinishassess = AssessmentFinishData::where("student_id", $studentId->id)->where("grade_id", $gradeId)->where("assess_name", 5)->first();
 
         $assesLessArray = [
@@ -59,42 +56,6 @@ class AssessmentController extends Controller
         } else if ($isfinishassess) {
             return response()->json(["message" => "assessment game completed"], 403);
         }
-        // else {
-
-        //     $grades = [
-        //         // Grade 1
-        //         [
-        //             [0, 8], [8, 16], [16, 24], [24, 32], [32, 40]
-        //         ],
-
-        //         // Grade 2
-        //         [
-        //             [40, 48], [48, 56], [56, 64], [64, 72], [72, 80]
-        //         ],
-
-        //         // Grade 3
-        //         [
-        //             [80, 88], [88, 96], [96, 104], [104, 112], [112, 120],
-        //         ],
-
-        //         // Grade 4
-        //         [
-        //             [120, 128], [128, 136], [136, 144], [144, 152], [152, 160]
-        //         ]
-        //     ];
-
-        //     foreach ($grades as $grade => $ranges) {
-        //         foreach ($ranges as $index => $range) {
-        //             if ($lessonId >= $range[0] && $lessonId < $range[1]) {
-        //                 $data = Assessment::where("grade_id", $grade + 1)->where("name", $index + 1)->get();
-        //                 foreach ($data as $d) {
-        //                     $d["disable"] = 1;
-        //                 }
-        //                 return response()->json(["assessment" => $data]);
-        //             }
-        //         }
-        //     }
-        // }
 
         return response()->json(["message" => "please finish lessons"], 403);
     }
@@ -118,6 +79,8 @@ class AssessmentController extends Controller
         $data = [
             'assess_id' => $id,
             'assess_name' => $assess->name,
+            'assess_game_name' => $assess->assess_game_name,
+            'grade_id' => $assess->grade_id,
             'total_point' => $assess->total_point,
             'category' => $cate->name
         ];

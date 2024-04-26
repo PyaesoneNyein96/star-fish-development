@@ -18,10 +18,13 @@ export const componentSlice = createSlice({
         },
         setUpdateAlert: (state) => {
             state.updateAlert = !state.updateAlert
+        },
+        setInitialUpdateAlert: (state, action) => {
+            state.updateAlert = action.payload
         }
     }
 })
 
-export const { btnClickToDetail, btnClickToDelete, setUpdateAlert } = componentSlice.actions;
+export const { btnClickToDetail, btnClickToDelete, setUpdateAlert, setInitialUpdateAlert } = componentSlice.actions;
 
 export default componentSlice.reducer

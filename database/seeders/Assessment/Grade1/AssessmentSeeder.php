@@ -730,19 +730,19 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 12, "q_image" => $G1_A2_grammar . "horse.png", "q_conver" => "It's ____ horse.", 'q_content' => "an", 'a_content' => 0],
+            ['round' => 1, 'assess_id' => 12, "q_image" => $A2_ID12_image . "horse.png", "q_conver" => "It's ____ horse.", 'q_content' => "an", 'a_content' => 0],
             ['round' => 1, 'assess_id' => 12, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 1],
 
-            ['round' => 2, 'assess_id' => 12, "q_image" => $G1_A2_grammar . "goat.png", "q_conver" => "It's ____ goat.", 'q_content' => "an", 'a_content' => 0],
+            ['round' => 2, 'assess_id' => 12, "q_image" => $A2_ID12_image . "goat.png", "q_conver" => "It's ____ goat.", 'q_content' => "an", 'a_content' => 0],
             ['round' => 2, 'assess_id' => 12, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 1],
 
-            ['round' => 3, 'assess_id' => 12, "q_image" => $G1_A2_grammar . "egg.png", "q_conver" => "It's ____ egg.", 'q_content' => "an", 'a_content' => 1],
+            ['round' => 3, 'assess_id' => 12, "q_image" => $A2_ID12_image . "egg.png", "q_conver" => "It's ____ egg.", 'q_content' => "an", 'a_content' => 1],
             ['round' => 3, 'assess_id' => 12, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 0],
 
-            ['round' => 4, 'assess_id' => 12, "q_image" => $G1_A2_grammar . "ant.png", "q_conver" => "It's ____ ant.", 'q_content' => "an", 'a_content' => 1],
+            ['round' => 4, 'assess_id' => 12, "q_image" => $A2_ID12_image . "ant.png", "q_conver" => "It's ____ ant.", 'q_content' => "an", 'a_content' => 1],
             ['round' => 4, 'assess_id' => 12, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 0],
 
-            ['round' => 5, 'assess_id' => 12, "q_image" => $G1_A2_grammar . "jacket.png", "q_conver" => "It's ____ jacket.", 'q_content' => "an", 'a_content' => 0],
+            ['round' => 5, 'assess_id' => 12, "q_image" => $A2_ID12_image . "jacket.png", "q_conver" => "It's ____ jacket.", 'q_content' => "an", 'a_content' => 0],
             ['round' => 5, 'assess_id' => 12, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 1],
 
         ]);
