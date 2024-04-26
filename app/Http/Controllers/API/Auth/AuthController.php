@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\API\Auth;
 
+use Carbon\Carbon;
 use App\Models\Banner;
 use App\Models\Country;
 use App\Models\Student;
 use App\Models\Version;
 use Tzsk\Otp\Facades\Otp;
+use App\Models\DailyBonus;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Traits\mailTraits;
@@ -153,8 +155,33 @@ class AuthController extends Controller
         $token = $request->header('token');
         $userData = Student::where('token', $token)->first();
 
-        if(!$userData) return response()->json(["status" => "User Not found !!!"], 404);
-        return $userData;
+        DB::beginTransaction();
+        try {
+            $dailyRecord = DailyBonus::where('student_id',$userData->id)->first();
+            $currentTime = Carbon::now(strval($userData->country->timezone));
+
+            // return $dailyRecord;
+
+            $dailyRecord->update([
+                'fifteen' =>"2024-04-26T09:55:36.037774Z",
+                'thirty' => "2024-04-26T09:55:36.037774Z",
+                'daily' => "2024-04-26T09:55:36.037774Z",
+            ]);
+
+            if(!$userData) return response()->json(["status" => "User Not found !!!"], 404);
+
+            DB::commit();
+
+            return $userData;
+
+        } catch (\Throwable $th) {
+            DB::rollback();
+            logger($th);
+        }
+
+
+
+
     }
 
     // Banners

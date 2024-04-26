@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\API\Auth\AuthController;
 use App\Http\Controllers\API\Chat\ChatController;
 use App\Http\Controllers\API\Lessons\GameController;
@@ -135,11 +134,24 @@ Route::prefix('assessment')->group(function () {
 ///////////////// Mission //////////////////////
 
 Route::prefix('mission')->middleware('GameAuth')->group(function () {
-    // Route::get('/repetitive/game-list',[MissionController::class,'repetitiveGameList']);
-    // Route::get('/repetitive/claim_game',[MissionController::class,'repetitiveClaimGame']);
 
-    Route::get('/repetitive/lesson-list',[MissionController::class,'repetitiveLessonList']);
-    Route::get('/repetitive/claim_lesson',[MissionController::class,'repetitiveClaimLesson']);
+    Route::prefix('repetitive')->group(function () {
+        // Route::get('/game-list',[MissionController::class,'repetitiveGameList']);
+
+        Route::get('/lesson-list',[MissionController::class,'repetitiveLessonList']);
+        Route::get('/claim_lesson',[MissionController::class,'repetitiveClaimLesson']);
+    });
+
+    Route::prefix('daily')->group(function () {
+        Route::get('bonus',[MissionController::class,'dailyBonusList']);
+        Route::get('claim',[MissionController::class,'dailyBonusClaim']);
+    });
+
+    Route::prefix('login')->group(function () {
+        Route::get('bonus',[MissionController::class,'loginBonusList']);
+    });
+
+
 });
 
 
