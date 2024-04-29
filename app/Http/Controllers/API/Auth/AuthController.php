@@ -158,14 +158,14 @@ class AuthController extends Controller
         DB::beginTransaction();
         try {
             $dailyRecord = DailyBonus::where('student_id',$userData->id)->first();
-            $currentTime = Carbon::now(strval($userData->country->timezone));
+            $currentTime = Carbon::now();
 
-            // return $dailyRecord;
+            // return $currentTime->format('h:i');
 
             $dailyRecord->update([
-                'fifteen' =>"2024-04-26T09:55:36.037774Z",
-                'thirty' => "2024-04-26T09:55:36.037774Z",
-                'daily' => "2024-04-26T09:55:36.037774Z",
+                'first' => Carbon::now()->addMinutes(3),
+                'second' => Carbon::now()->addMinutes(30),
+                'daily' => Carbon::Now()->addDays(1),
             ]);
 
             if(!$userData) return response()->json(["status" => "User Not found !!!"], 404);

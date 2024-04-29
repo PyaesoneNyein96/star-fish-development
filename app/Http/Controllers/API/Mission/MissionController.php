@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers\API\Mission;
 
+use Carbon\Carbon;
 use App\Models\Game;
 use App\Models\Lesson;
 use App\Models\Student;
-use App\Models\StudentGame;
 
+use App\Models\DailyBonus;
+use App\Models\StudentGame;
 use Illuminate\Http\Request;
 use App\Models\StudentLesson;
 use App\Models\LoginDailyBonus;
 use App\Http\Controllers\Controller;
 use App\Http\Traits\PointAddingTrait;
-use App\Models\DailyBonus;
 
 
 class MissionController extends Controller
@@ -111,12 +112,21 @@ class MissionController extends Controller
     // Daily Bonus list
     public function dailyBonusList(Request $request){
 
-        $bonus = DailyBonus::where('student_id',$request->student->id)->first();
+        $record = DailyBonus::where('student_id',$request->student->id)->first();
+        $timezone =  strval($request->student->country->timezone);
+
+
+
+        $now = Carbon::now();
+        $added15mins =  $record->first != 1 ? Carbon::parse($record->first) : null;
+        $added30mins =  $record->second != 1 ? Carbon::parse($record->second) : null;
+        $daily_count =  $record->daily != 1 ? Carbon::parse($record->daily) : null;
+
 
         $bonus_list = [
-            '15_min' => $bonus->fifteen == null && true,
-            '15_daily' => $bonus->daily,
-            '30_min' => $bonus->fifteen !== null && true,
+            'first' =>  $record->first && ($now >= $added15mins) ? true : false,
+            'second' => $record->first && ($now >= $added30mins)  ? true: false,
+            'daily' =>  $daily_count && ($now >= $daily_count)  ? false : true,
         ];
 
         return $bonus_list;
@@ -129,10 +139,21 @@ class MissionController extends Controller
 
         $record = DailyBonus::where('student_id', $request->student->id)->first();
 
+        $timezone =  strval($request->student->country->timezone);
 
-        $dailyBonus = $record->daily == 0 ? 1 : 2;
 
-        $record->update(['daily' => $dailyBonus]);
+        $now = Carbon::now();
+
+        $first_claim = $request->header('first');
+        $second_claim = $request->header('second');
+        $daily_claim = $request->header('daily');
+
+
+        $record->update([
+            'first' => ($first_claim && $added15mins != 1 ) ? 1 : $added15mins,
+            'second' =>  $second_claim && ($added30mins <= $now) ? 1 : $record->second,
+            'daily' => $daily_claim && ($daily_count <= $now) ? 1 : $record->daily,
+        ]);
 
         return "success";
 

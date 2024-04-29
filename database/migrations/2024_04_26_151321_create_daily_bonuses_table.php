@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('daily_bonuses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained()->onDelete('cascade');
-            $table->string('fifteen')->nullable();
-            $table->string('thirty')->nullable();
+            $table->string('first')->nullable();
+            $table->string('second')->nullable();
             $table->string('daily')->nullable();
             $table->timestamps();
         });

@@ -11,8 +11,8 @@ class DailyBonus extends Model
 
     protected $fillable = [
         'student_id',
-        'fifteen',
-        'thirty',
+        'first',
+        'second',
         'daily'
     ];
 }
