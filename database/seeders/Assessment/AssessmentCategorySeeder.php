@@ -28,7 +28,10 @@ class AssessmentCategorySeeder extends Seeder
             "listen_and_act",
             "matching_columns",
             "word_tracing",
-            "listening_and_choosing_pics_one"
+            "listening_and_choosing_pics_one",
+            "look_and_write",
+            "listening_choosing_answer_two",
+            "choose_right_answer"
         ];
 
 

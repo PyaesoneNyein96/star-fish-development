@@ -44,6 +44,8 @@ use Database\Seeders\AnsNQueSeed2\Grade3\AnsNQueSeeder as Grade3AnsNQueSeeder;
 use Database\Seeders\AnsNQueSeed2\Grade4\AnsNQueSeeder as Grade4AnsNQueSeeder;
 use Database\Seeders\Assessment\Grade1\AssessmentSeeder as Grade1AssessmentSeeder;
 use Database\Seeders\Assessment\Grade2\AssessmentSeeder as Grade2AssessmentSeeder;
+use Database\Seeders\Assessment\Grade3\AssessmentSeeder as Grade3AssessmentSeeder;
+use Database\Seeders\Assessment\Grade4\AssessmentSeeder as Grade4AssessmentSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -105,6 +107,8 @@ class DatabaseSeeder extends Seeder
         $this->call(AssessmentCategorySeeder::class);
         $this->call(Grade1AssessmentSeeder::class);
         $this->call(Grade2AssessmentSeeder::class);
+        $this->call(Grade3AssessmentSeeder::class);
+        $this->call(Grade4AssessmentSeeder::class);
 
 
         // Admin

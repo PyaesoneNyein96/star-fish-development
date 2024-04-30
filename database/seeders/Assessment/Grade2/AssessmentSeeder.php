@@ -15,7 +15,6 @@ class AssessmentSeeder extends Seeder
     {
         $domain = app('domain');
         $AudioDomain = $domain . "/storage/audios/";
-        $ImageDomain = $domain . "/storage/images/";
 
 
         ////////////////////////////////////////////////////////
@@ -656,7 +655,7 @@ class AssessmentSeeder extends Seeder
 
 
         $G2_A3_fill_in_the_blank = "Grade_2/" . "Assessments/" . "Assessment_3/" . "fill_in_the_blank/";
-        $A1_ID54_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_3/fill_in_the_blank/";
+        $A3_ID54_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_3/fill_in_the_blank/";
 
         DB::table('assessment_ans_n_ques')->insert([
 
@@ -744,7 +743,7 @@ class AssessmentSeeder extends Seeder
         $G2_A3_reading_passage = "Grade_2/" . "Assessments/" . "Assessment_3/" . "reading_passage/";
         $A3_ID57_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_3/reading_passage/";
 
-        $A2_ID57_q_audio = [
+        $A3_ID57_q_audio = [
             "lucky-cat",
             "lucky-fish",
             "ted-has",
@@ -752,7 +751,7 @@ class AssessmentSeeder extends Seeder
             "lucky-like",
         ];
 
-        $A1_ID57_q_conver = [
+        $A3_ID57_q_conver = [
             "Lucky is a little ____ cat.",
             "On Tuesday, Lucky eats ____ fish.",
             "Ted is Lucky's ____.",
@@ -760,7 +759,7 @@ class AssessmentSeeder extends Seeder
             "Lucky likes _____ very much. ",
         ];
 
-        $A2_ID57_q_audio_ans = [
+        $A3_ID57_q_audio_ans = [
             ["brown", "black"],
             ["two", "more"],
             ["brother", "friend"],
@@ -768,7 +767,7 @@ class AssessmentSeeder extends Seeder
             ["football", "fish"],
         ];
 
-        $A2_ID57_q_audio_a_content = [
+        $A3_ID57_q_audio_a_content = [
             [1, 0],
             [1, 0],
             [0, 1],
@@ -777,16 +776,16 @@ class AssessmentSeeder extends Seeder
         ];
 
 
-        for ($i = 0; $i < count($A2_ID57_q_audio); $i++) {
+        for ($i = 0; $i < count($A3_ID57_q_audio); $i++) {
 
-            foreach ($A2_ID57_q_audio_ans[$i] as $key => $val) {
+            foreach ($A3_ID57_q_audio_ans[$i] as $key => $val) {
                 DB::table('assessment_ans_n_ques')->insert([
                     [
                         'round' => $i + 1,
                         'assess_id' => 57,
                         "q_audio" => $AudioDomain . $G2_A3_reading_passage . str_replace(' ', '-', strtolower($val)) . ".mp3",
                         'q_content' => $val,
-                        'a_content' => $A2_ID57_q_audio_a_content[$i][$key]
+                        'a_content' => $A3_ID57_q_audio_a_content[$i][$key]
                     ],
                 ]);
             }
@@ -795,8 +794,8 @@ class AssessmentSeeder extends Seeder
                 [
                     'round' => $i + 1,
                     'assess_id' => 57,
-                    "q_audio" => $AudioDomain . $G2_A3_reading_passage . $A2_ID57_q_audio[$i] . ".mp3",
-                    "q_conver" => $A1_ID57_q_conver[$i]
+                    "q_audio" => $AudioDomain . $G2_A3_reading_passage . $A3_ID57_q_audio[$i] . ".mp3",
+                    "q_conver" => $A3_ID57_q_conver[$i]
                 ],
             ]);
 
@@ -807,6 +806,532 @@ class AssessmentSeeder extends Seeder
                     "q_audio" => $AudioDomain . $G2_A3_reading_passage . "lucky-audio" . ".mp3",
                     "q_conver" => "Lucky is a little brown cat. On Monday, he eats two fish. On Tuesday, he eats another two fish. On Wednesday, he eats more fish. He likes fish very much. He plays with his friend, Ted. Ted is a monkey. He likes banana. Ted's favorite sport is football. On Thursday, Lucky and Ted play football. Ted can run very fast.",
                     "background" => $A3_ID57_image . "bg.png"
+                ],
+            ]);
+        }
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Assessment 4 ID 58 ( Tracing )
+        ////////////////////////////////////////////////////////
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Assessment 4 ID 59 ( Arranging Letter )
+        ////////////////////////////////////////////////////////
+
+
+        $G2_A4_ID59_arrange_letter = "Grade_2/" . "Assessments/" . "Assessment_4/" . "rearrange_letter/";
+        $A4_ID59_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_4/rearrange_letter/";
+
+        $a_ID59 = [
+            "soup", "shop", "truck", "uniform", "unicorn", "van", "vest"
+        ];
+
+        foreach ($a_ID59 as $index => $i) {
+
+            $q_ID59_shuf = str_shuffle($i);
+            $q_ID59 = str_split($q_ID59_shuf);
+
+            foreach ($q_ID59 as $j) {
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $index + 1, 'assess_id' => 59,
+                        'q_content' => strtoupper($j),
+                        'q_audio' => $AudioDomain . $G2_A4_ID59_arrange_letter . strtoupper($j) . ".mp3"
+                    ],
+                ]);
+            }
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $index + 1, 'assess_id' => 59,
+                    'q_image' => $A4_ID59_image . str_replace(' ', '', strtolower($i)) . ".png",
+                    'a_audio' => $AudioDomain . $G2_A4_ID59_arrange_letter . strtolower($i) . ".mp3",
+                    'a_content' => strtoupper($i),
+                ],
+            ]);
+        }
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Assessment 4 ID 60 ( Matching )
+        ////////////////////////////////////////////////////////
+
+        $A4_I60_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_4/matching/";
+        $A4_I60_matching = "Grade_2/" . "Assessments/" . "Assessment_4/" . "matching/";
+
+        $G2_A4_I60_matching = [
+
+            ['Blue Cap', 'Brown Shirt', 'Xylophone', 'Black Sandals', "Wolf"],
+
+        ];
+
+        $G2_A4_I60_matching_image = [
+
+            ["Wolf", 'Xylophone', 'Black Sandals', 'Blue Cap', 'Brown Shirt'],
+
+        ];
+
+        for ($i = 0; $i < count($G2_A4_I60_matching); $i++) {
+
+            foreach ($G2_A4_I60_matching[$i] as $q) {
+
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'assess_id' => 60, 'round' => $i + 1, 'q_content' => $q, 'q_image' => $q,
+                        'q_audio' => $AudioDomain . $A4_I60_matching .  str_replace(' ', '-', strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+
+            foreach ($G2_A4_I60_matching_image[$i] as $q) {
+
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'assess_id' => 60, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $A4_I60_image . str_replace(' ', '-', strtolower($q)) . ".png",
+                        'q_audio' => $AudioDomain . $A4_I60_matching . str_replace(' ', '-',  strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+        }
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Assessment 4 ID 61 ( multlple choice )
+        ////////////////////////////////////////////////////////
+
+        $G2_A4_multiple_choice = "Grade_2/" . "Assessments/" . "Assessment_4/" . "multiple_choice/";
+        $A4_ID61_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_4/multiple_choice/";
+
+        DB::table('assessment_ans_n_ques')->insert([
+
+            ['round' => 1, 'assess_id' => 61, 'q_image' => $A4_ID61_image . "giraffe.png", "q_content" => "beside", "a_content" => 1],
+            ['round' => 1, 'assess_id' => 61, 'q_image' => null, "q_content" => "behind", "a_content" => 0],
+
+            ['round' => 2, 'assess_id' => 61, 'q_image' => $A4_ID61_image . "tiger.png", "q_content" => "behind", "a_content" => 1],
+            ['round' => 2, 'assess_id' => 61, 'q_image' => null, "q_content" => "beside", "a_content" => 0],
+
+            ['round' => 3, 'assess_id' => 61, 'q_image' => $A4_ID61_image . "dog.png", "q_content" => "under", "a_content" => 0],
+            ['round' => 3, 'assess_id' => 61, 'q_image' => null, "q_content" => "in front of", "a_content" => 1],
+
+            ['round' => 4, 'assess_id' => 61, 'q_image' => $A4_ID61_image . "monkey.png", "q_content" => "on", "a_content" => 1],
+            ['round' => 4, 'assess_id' => 61, 'q_image' => null, "q_content" => "in", "a_content" => 0],
+
+            ['round' => 5, 'assess_id' => 61, 'q_image' => $A4_ID61_image . "rabbit.png", "q_content" => "on", "a_content" => 0],
+            ['round' => 5, 'assess_id' => 61, 'q_image' => null, "q_content" => "in", "a_content" => 1],
+
+        ]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Assessment 4 ID 62 ( Listening )
+        ////////////////////////////////////////////////////////
+
+
+        $G2_A4_fill_in_the_blank = "Grade_2/" . "Assessments/" . "Assessment_4/" . "fill_in_the_blank/";
+        $A4_ID62_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_4/fill_in_the_blank/";
+
+        DB::table('assessment_ans_n_ques')->insert([
+
+            ['round' => 1, 'assess_id' => 62,  'q_audio' =>  $AudioDomain . $G2_A4_fill_in_the_blank . "he-wearing-blue-t-shirt" . ".mp3", "q_content" => "Shorts", "a_content" => 1],
+            ['round' => 1, 'assess_id' => 62,  'q_audio' =>  null, "q_content" => "Yellow", "a_content" => 0],
+            ['round' => 1, 'assess_id' => 62,  'q_audio' =>  null, "q_content" => "Gloves", "a_content" => 0],
+
+            ['round' => 2, 'assess_id' => 62,  'q_audio' =>  $AudioDomain . $G2_A4_fill_in_the_blank . "she-wearing-scarf" . ".mp3", "q_content" => "Shorts",  "a_content" => 0],
+            ['round' => 2, 'assess_id' => 62,  'q_audio' =>  null, "q_content" => "Yellow", "a_content" => 1],
+            ['round' => 2, 'assess_id' => 62,  'q_audio' =>  null, "q_content" => "Gloves", "a_content" => 0],
+
+            ['round' => 3, 'assess_id' => 62,  'q_audio' =>  $AudioDomain . $G2_A4_fill_in_the_blank . "she-wearing-blue-dress" . ".mp3", "q_content" => "Shorts", "a_content" => 0],
+            ['round' => 3, 'assess_id' => 62,  'q_audio' =>  null, "q_content" => "Yellow", "a_content" => 0],
+            ['round' => 3, 'assess_id' => 62,  'q_audio' =>  null, "q_content" => "Gloves", "a_content" => 1],
+
+            ['round' => 4, 'assess_id' => 62,  'q_audio' =>  $AudioDomain . $G2_A4_fill_in_the_blank . "she-wearing-shoes" . ".mp3", "q_content" => "Purple", "a_content" => 1],
+            ['round' => 4, 'assess_id' => 62,  'q_audio' =>  null, "q_content" => "Orange", "a_content" => 0],
+            ['round' => 4, 'assess_id' => 62,  'q_audio' =>  null, "q_content" => "Yellow", "a_content" => 0],
+
+            ['round' => 5, 'assess_id' => 62,  'q_audio' =>  $AudioDomain . $G2_A4_fill_in_the_blank . "he-wearing-gray-boots" . ".mp3", "q_content" => "Orange", "a_content" => 1],
+            ['round' => 5, 'assess_id' => 62,  'q_audio' =>  null, "q_content" => "Gloves", "a_content" => 0],
+            ['round' => 5, 'assess_id' => 62,  'q_audio' =>  null, "q_content" => "Yellow", "a_content" => 0],
+
+        ]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Assessment 4 ID 63 ( True or False )
+        ////////////////////////////////////////////////////////
+
+        $G2_A4_true_false = "Grade_2/" . "Assessments/" . "Assessment_4/" . "true_false/";
+        $A4_ID63_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_4/true_false/";
+
+        DB::table('assessment_ans_n_ques')->insert([
+
+            ['round' => 1, 'assess_id' => 63, 'q_audio' => $AudioDomain . $G2_A4_true_false . "yellow-shirt-red-shorts.mp3", 'q_content' => "true",  'a_content' => 0, 'q_image' => $A4_ID63_image . "yellow-shirt-red-shorts.png"],
+            ['round' => 1, 'assess_id' => 63, 'q_audio' => null, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
+
+            ['round' => 2, 'assess_id' => 63, 'q_audio' => $AudioDomain . $G2_A4_true_false . "pink-cap-blue-scarf.mp3", 'q_content' => "true",  'a_content' => 1, 'q_image' => $A4_ID63_image . "pink-cap-blue-scarf.png"],
+            ['round' => 2, 'assess_id' => 63, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+
+            ['round' => 3, 'assess_id' => 63, 'q_audio' => $AudioDomain . $G2_A4_true_false . "orange-sweater.mp3", 'q_content' => "true",  'a_content' => 0, 'q_image' => $A4_ID63_image . "orange-sweater.png"],
+            ['round' => 3, 'assess_id' => 63, 'q_audio' => null, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
+
+            ['round' => 4, 'assess_id' => 63, 'q_audio' => $AudioDomain . $G2_A4_true_false . "blue-raincoat.mp3", 'q_content' => "true", 'a_content' => 1, 'q_image' => $A4_ID63_image . "blue-raincoat.png"],
+            ['round' => 4, 'assess_id' => 63, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+
+            ['round' => 5, 'assess_id' => 63, 'q_audio' => $AudioDomain . $G2_A4_true_false . "red-dress.mp3", 'q_content' => "true",  'a_content' => 1, 'q_image' => $A4_ID63_image . "red-dress.png"],
+            ['round' => 5, 'assess_id' => 63, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+
+        ]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Assessment 4 ID 64 ( Reading Passages )
+        ////////////////////////////////////////////////////////
+
+        $G2_A4_reading_passage = "Grade_2/" . "Assessments/" . "Assessment_4/" . "reading_passage/";
+        $A4_ID64_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_4/reading_passage/";
+
+        $A4_ID64_q_audio = [
+            "rosy-and-jane-live",
+            "jane-wearing",
+            "rosy-wearing",
+            "they-see-many",
+            "they-play-with",
+        ];
+
+        $A4_ID64_q_conver = [
+            "Rosy and Jane live near the zoo.",
+            "Jane is wearing a blue dress.",
+            "Rosy is wearing a yellow blouse.",
+            "They see many animals.",
+            "They play with giraffe and monkey.",
+        ];
+
+        $A4_ID64_q_audio_ans = [
+            ["True", "False"],
+            ["True", "False"],
+            ["True", "False"],
+            ["True", "False"],
+            ["True", "False"],
+        ];
+
+        $A4_ID64_q_audio_a_content = [
+            [0, 1],
+            [1, 0],
+            [0, 1],
+            [1, 0],
+            [0, 1],
+        ];
+
+
+        for ($i = 0; $i < count($A4_ID64_q_audio); $i++) {
+
+            foreach ($A4_ID64_q_audio_ans[$i] as $key => $val) {
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1,
+                        'assess_id' => 64,
+                        'q_content' => $val,
+                        'a_content' => $A4_ID64_q_audio_a_content[$i][$key]
+                    ],
+                ]);
+            }
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 64,
+                    "q_audio" => $AudioDomain . $G2_A4_reading_passage . $A4_ID64_q_audio[$i] . ".mp3",
+                    "q_conver" => $A4_ID64_q_conver[$i]
+                ],
+            ]);
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 64,
+                    "q_audio" => $AudioDomain . $G2_A4_reading_passage . "jane-n-rosy-audio" . ".mp3",
+                    "q_conver" => "Jane lives near the zoo. On Friday, Rosy comes to Jane's house. They go to the zoo together. Jane is wearing a blue dress. Rosy is wearing a pink blouse and black skirt. They look beautiful. At the zoo, they see a giraffe, a tiger, a monkey, and an elephant. They give food to the animals and play with other children at the zoo. They have a great day.",
+                    "background" => $A4_ID64_image . "bg.png",
+                    "q_content" => "Jane and Rosy",
+                ],
+            ]);
+        }
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Assessment 5 ID 65 ( Tracing )
+        ////////////////////////////////////////////////////////
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Assessment 5 ID 66 ( Arranging Letter )
+        ////////////////////////////////////////////////////////
+
+        $G2_A5_ID66_arrange_letter = "Grade_2/" . "Assessments/" . "Assessment_5/" . "rearrange_letter/";
+        $A5_ID66_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_5/rearrange_letter/";
+
+        $a_ID66 = [
+            "bicycle", "boy", "train", "boat", "bus", "car"
+        ];
+
+        foreach ($a_ID66 as $index => $i) {
+
+            $q_ID66_shuf = str_shuffle($i);
+            $q_ID66 = str_split($q_ID66_shuf);
+
+            foreach ($q_ID66 as $j) {
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $index + 1, 'assess_id' => 66, 'q_content' => strtoupper($j),
+                        'q_audio' => $AudioDomain . $G2_A5_ID66_arrange_letter . strtoupper($j) . ".mp3"
+                    ],
+                ]);
+            }
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $index + 1, 'assess_id' => 66,
+                    'q_image' => $A5_ID66_image . str_replace(' ', '', strtolower($i)) . ".png",
+                    'a_audio' => $AudioDomain . $G2_A5_ID66_arrange_letter . strtolower($i) . ".mp3",
+                    'a_content' => strtoupper($i),
+                ],
+            ]);
+        }
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Assessment 5 ID 67 ( Matching )
+        ////////////////////////////////////////////////////////
+
+        $A5_I67_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_5/matching/";
+        $A5_I67_matching = "Grade_2/" . "Assessments/" . "Assessment_5/" . "matching/";
+
+        $G2_A5_I67_matching = [
+
+            ['Train', 'Boat', 'Market', 'Library', "Playground"],
+
+        ];
+
+        $G2_A5_I67_matching_image = [
+
+            ["Playground", 'Market', 'Library', 'Train', 'Boat'],
+
+        ];
+
+        for ($i = 0; $i < count($G2_A5_I67_matching); $i++) {
+
+            foreach ($G2_A5_I67_matching[$i] as $q) {
+
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'assess_id' => 67, 'round' => $i + 1, 'q_content' => $q, 'q_image' => $q,
+                        'q_audio' => $AudioDomain . $A5_I67_matching .  str_replace(' ', '-', strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+
+            foreach ($G2_A5_I67_matching_image[$i] as $q) {
+
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'assess_id' => 67, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $A5_I67_image . str_replace(' ', '-', strtolower($q)) . ".png",
+                        'q_audio' => $AudioDomain . $A5_I67_matching . str_replace(' ', '-',  strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+        }
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Assessment 5 ID 68 ( Listen and Choice )
+        ////////////////////////////////////////////////////////
+
+        $A5_I68_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_5/listen_n_choice/";
+        $G2_A5_ID68_listen_n_choice_path = "Grade_2/" . "Assessments/" . "Assessment_5/" . "listen_n_choice/";
+
+        DB::table('assessment_ans_n_ques')->insert([
+
+            ["round" => 1, "assess_id" => 68, "q_image" => $A5_I68_image . "market.png", "q_audio" => null, "a_content" => 0],
+            ["round" => 1, "assess_id" => 68, "q_image" => $A5_I68_image . "library.png", "q_audio" => null, "a_content" => 1],
+            ["round" => 1, "assess_id" => 68, "q_image" =>  null, "q_audio" => $AudioDomain . $G2_A5_ID68_listen_n_choice_path . "i-like-reading" . ".mp3", "a_content" => null],
+
+            ["round" => 2, "assess_id" => 68, "q_image" => $A5_I68_image . "zoo.png", "q_audio" => null, "a_content" => 1],
+            ["round" => 2, "assess_id" => 68, "q_image" => $A5_I68_image . "school.png", "q_audio" => null, "a_content" => 0],
+            ["round" => 2, "assess_id" => 68, "q_image" =>  null, "q_audio" => $AudioDomain . $G2_A5_ID68_listen_n_choice_path . "i-like-elephant" . ".mp3", "a_content" => null],
+
+            ["round" => 3, "assess_id" => 68, "q_image" => $A5_I68_image . "restaurant.png", "q_audio" => null, "a_content" => 0],
+            ["round" => 3, "assess_id" => 68, "q_image" => $A5_I68_image . "cinema.png", "q_audio" => null, "a_content" => 1],
+            ["round" => 3, "assess_id" => 68, "q_image" =>  null, "q_audio" => $AudioDomain . $G2_A5_ID68_listen_n_choice_path . "i-like-movie" . ".mp3", "a_content" => null],
+
+            ["round" => 4, "assess_id" => 68, "q_image" => $A5_I68_image . "toy-shop.png", "q_audio" => null, "a_content" => 1],
+            ["round" => 4, "assess_id" => 68, "q_image" => $A5_I68_image . "library.png", "q_audio" => null, "a_content" => 0],
+            ["round" => 4, "assess_id" => 68, "q_image" =>  null, "q_audio" => $AudioDomain . $G2_A5_ID68_listen_n_choice_path . "i-like-toys" . ".mp3", "a_content" => null],
+
+            ["round" => 5, "assess_id" => 68, "q_image" => $A5_I68_image . "playground.png", "q_audio" => null, "a_content" => 1],
+            ["round" => 5, "assess_id" => 68, "q_image" => $A5_I68_image . "cinema.png", "q_audio" => null, "a_content" => 0],
+            ["round" => 5, "assess_id" => 68, "q_image" =>  null, "q_audio" => $AudioDomain . $G2_A5_ID68_listen_n_choice_path . "i-like-rides" . ".mp3", "a_content" => null],
+
+        ]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Assessment 5 ID 69 ( Listening )
+        ////////////////////////////////////////////////////////
+
+
+        $G2_A5_fill_in_the_blank = "Grade_2/" . "Assessments/" . "Assessment_5/" . "fill_in_the_blank/";
+        $A5_ID69_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_5/fill_in_the_blank/";
+
+        DB::table('assessment_ans_n_ques')->insert([
+
+            ['round' => 1, 'assess_id' => 69,  'q_audio' =>  $AudioDomain . $G2_A5_fill_in_the_blank . "jane-has" . ".mp3", "q_content" => "Two", "a_content" => 1],
+            ['round' => 1, 'assess_id' => 69,  'q_audio' =>  null, "q_content" => "Six", "a_content" => 0],
+            ['round' => 1, 'assess_id' => 69,  'q_audio' =>  null, "q_content" => "One", "a_content" => 0],
+
+            ['round' => 2, 'assess_id' => 69,  'q_audio' =>  $AudioDomain . $G2_A5_fill_in_the_blank . "i-have" . ".mp3", "q_content" => "Ten",  "a_content" => 0],
+            ['round' => 2, 'assess_id' => 69,  'q_audio' =>  null, "q_content" => "Eleven", "a_content" => 1],
+            ['round' => 2, 'assess_id' => 69,  'q_audio' =>  null, "q_content" => "Twelve", "a_content" => 0],
+
+            ['round' => 3, 'assess_id' => 69,  'q_audio' =>  $AudioDomain . $G2_A5_fill_in_the_blank . "jack-has" . ".mp3", "q_content" => "Four", "a_content" => 0],
+            ['round' => 3, 'assess_id' => 69,  'q_audio' =>  null, "q_content" => "Sevem", "a_content" => 0],
+            ['round' => 3, 'assess_id' => 69,  'q_audio' =>  null, "q_content" => "Five", "a_content" => 1],
+
+            ['round' => 4, 'assess_id' => 69,  'q_audio' =>  $AudioDomain . $G2_A5_fill_in_the_blank . "chris-has" . ".mp3", "q_content" => "Seven", "a_content" => 1],
+            ['round' => 4, 'assess_id' => 69,  'q_audio' =>  null, "q_content" => "One", "a_content" => 0],
+            ['round' => 4, 'assess_id' => 69,  'q_audio' =>  null, "q_content" => "Two", "a_content" => 0],
+
+            ['round' => 5, 'assess_id' => 69,  'q_audio' =>  $AudioDomain . $G2_A5_fill_in_the_blank . "i-have" . ".mp3", "q_content" => "One", "a_content" => 1],
+            ['round' => 5, 'assess_id' => 69,  'q_audio' =>  null, "q_content" => "Four", "a_content" => 0],
+            ['round' => 5, 'assess_id' => 69,  'q_audio' =>  null, "q_content" => "Five", "a_content" => 0],
+
+        ]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Assessment 5 ID 70 ( Grammar Multiple Choice )
+        ////////////////////////////////////////////////////////
+
+        $G2_A5_I70_multiple_choice = "Grade_2/" . "Assessments/" . "Assessment_5/" . "06_multiple_choice/";
+        $A5_ID70_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_5/06_multiple_choice/";
+
+        DB::table('assessment_ans_n_ques')->insert([
+
+            ['round' => 1, 'assess_id' => 70, "q_image" => $A5_ID70_image . "jane.png", "q_conver" => "Jane ____ two cats.", 'q_content' => "has", 'a_content' => 1],
+            ['round' => 1, 'assess_id' => 70, "q_image" => null, "q_conver" => null, 'q_content' => "have", 'a_content' => 0],
+
+            ['round' => 2, 'assess_id' => 70, "q_image" => $A5_ID70_image . "i.png", "q_conver" => "I ____ ten dogs.", 'q_content' => "has", 'a_content' => 0],
+            ['round' => 2, 'assess_id' => 70, "q_image" => null, "q_conver" => null, 'q_content' => "have", 'a_content' => 1],
+
+            ['round' => 3, 'assess_id' => 70, "q_image" => $A5_ID70_image . "jack.png", "q_conver" => "Jack ____ three apples.", 'q_content' => "has", 'a_content' => 1],
+            ['round' => 3, 'assess_id' => 70, "q_image" => null, "q_conver" => null, 'q_content' => "have", 'a_content' => 0],
+
+            ['round' => 4, 'assess_id' => 70, "q_image" => $A5_ID70_image . "chris.png", "q_conver" => "Chris _____ seven balls.", 'q_content' => "has", 'a_content' => 1],
+            ['round' => 4, 'assess_id' => 70, "q_image" => null, "q_conver" => null, 'q_content' => "have", 'a_content' => 0],
+
+            ['round' => 5, 'assess_id' => 70, "q_image" => $A5_ID70_image . "you.png", "q_conver" => "You _____ one bicycle.", 'q_content' => "has", 'a_content' => 0],
+            ['round' => 5, 'assess_id' => 70, "q_image" => null, "q_conver" => null, 'q_content' => "have", 'a_content' => 1],
+
+        ]);
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Assessment 5 ID 71 ( True or False )
+        ////////////////////////////////////////////////////////
+
+        $G2_A5_true_false = "Grade_2/" . "Assessments/" . "Assessment_5/" . "true_false/";
+        $A5_ID71_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_5/true_false/";
+
+        DB::table('assessment_ans_n_ques')->insert([
+
+            ['round' => 1, 'assess_id' => 71, 'q_audio' => $AudioDomain . $G2_A5_true_false . "get-up.mp3", 'q_content' => "true",  'a_content' => 0, 'q_image' => $A5_ID71_image . "get-up.png"],
+            ['round' => 1, 'assess_id' => 71, 'q_audio' => null, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
+
+            ['round' => 2, 'assess_id' => 71, 'q_audio' => $AudioDomain . $G2_A5_true_false . "breakfast.mp3", 'q_content' => "true",  'a_content' => 1, 'q_image' => $A5_ID71_image . "breakfast.png"],
+            ['round' => 2, 'assess_id' => 71, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+
+            ['round' => 3, 'assess_id' => 71, 'q_audio' => $AudioDomain . $G2_A5_true_false . "goes-to-school.mp3", 'q_content' => "true",  'a_content' => 0, 'q_image' => $A5_ID71_image . "goes-to-school.png"],
+            ['round' => 3, 'assess_id' => 71, 'q_audio' => null, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
+
+            ['round' => 4, 'assess_id' => 71, 'q_audio' => $AudioDomain . $G2_A5_true_false . "have-lunch.mp3", 'q_content' => "true", 'a_content' => 1, 'q_image' => $A5_ID71_image . "have-lunch.png"],
+            ['round' => 4, 'assess_id' => 71, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+
+            ['round' => 5, 'assess_id' => 71, 'q_audio' => $AudioDomain . $G2_A5_true_false . "goes-to-bed.mp3", 'q_content' => "true",  'a_content' => 0, 'q_image' => $A5_ID71_image . "goes-to-bed.png"],
+            ['round' => 5, 'assess_id' => 71, 'q_audio' => null, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
+
+        ]);
+
+
+
+        ////////////////////////////////////////////////////////
+        ////    Grade 2  Assessment 5 ID 72 ( Reading Passages )
+        ////////////////////////////////////////////////////////
+
+        $G2_A5_reading_passage = "Grade_2/" . "Assessments/" . "Assessment_4/" . "reading_passage/";
+        $A5_ID72_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_4/reading_passage/";
+
+        $A5_ID72_q_audio = [
+            "chris-has",
+            "jack-eats",
+            "after-lunch",
+            "they-go-to-playground",
+            "they-go-to-bed",
+        ];
+
+        $A5_ID72_q_conver = [
+            "Chris has a _____.",
+            "Jack eats _____ for lunch.",
+            "After lunch they go to the _____.",
+            "They go to the playground at _____.",
+            "They go to bed at _____.",
+        ];
+
+        $A5_ID72_q_audio_ans = [
+            ["dog", "cat"],
+            ["hamburger", "fried noodles"],
+            ["library", "toy shop"],
+            ["3 o'clock", "4 o'clock"],
+            ["9 o'clock", "10 o'clock"],
+        ];
+
+        $A5_ID72_q_audio_a_content = [
+            [1, 0],
+            [0, 1],
+            [1, 0],
+            [0, 1],
+            [1, 0],
+        ];
+
+        for ($i = 0; $i < count($A5_ID72_q_audio); $i++) {
+
+            foreach ($A5_ID72_q_audio_ans[$i] as $key => $val) {
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $i + 1,
+                        'assess_id' => 72,
+                        "q_audio" => $AudioDomain . $G2_A5_reading_passage . str_replace(' ', '-', strtolower($val)) . ".mp3",
+                        'q_content' => $val,
+                        'a_content' => $A5_ID72_q_audio_a_content[$i][$key]
+                    ],
+                ]);
+            }
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 72,
+                    "q_audio" => $AudioDomain . $G2_A5_reading_passage . $A5_ID72_q_audio[$i] . ".mp3",
+                    "q_conver" => $A5_ID72_q_conver[$i]
+                ],
+            ]);
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $i + 1,
+                    'assess_id' => 72,
+                    "q_audio" => $AudioDomain . $G2_A5_reading_passage . "jane-n-rosy-audio" . ".mp3",
+                    "q_conver" => "Chris and Jack are good friends. Chris has a dog and Jack has a cat. Every morning, they go to school together. They eat lunch at 12 o'clock. Chris eats a hamburger for lunch and Jack eats fried noodles. After lunch, they go to the library and read books. They go back home at 3 o'clock. They go to the playground and play their dog and cat at 4 o'clock. They eat dinner at 5 o'clock and go to bed at 9 o'clock.",
+                    "background" => $A5_ID72_image . "bg.png",
+                    "q_content" => "Chris and Jack",
                 ],
             ]);
         }

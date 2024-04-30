@@ -31,25 +31,23 @@ class AssessmentSeeder extends Seeder
         ];
 
         $grade_3 = [
-            // // Grade 3
-            // ["Arranging Letters", "Fill in the blank", "Listening (Multiple Choice)", "Listening (Drag and Drop)", "Reading Passages", "True or False"],
-            // ["Arranging Letters", "Fill in the blank", "Multiple Choice", "Drag and Drop", "Grammar", "True or False"],
-            // ["Arranging Letters", "Fill in the blank", "Listening (Multiple Choice)", "Drag and Drop", "True or False", "Reading Passages"],
-            // ["Arranging Letters", "Fill in the blank", "Multiple Choice", "Drag and Drop", "Grammar", "Reading Passages"],
-            // ["Arranging Letters", "Fill in the blank", "Multiple Choice", "Drag and Drop", "True or False", "Reading Passages"],
+            ["Multiple Choice", "Listen & Fill in the blank", "Multiple Choice (Listening)", "Matching", "Reading Passages (1)", "Reading Passages (2)"],
+            ["Vocabulary", "Listen and Choose", "Rearrange", "Reading (1)", "Reading (2)"],
+            ["Vocabulary (1)", "Vocabulary (2)", "Vocabulary (3)", "Listen (1)", "Listen (2)", "Grammar", "Listening (1)", "Listening (2)"],
+            ["Multiple Choice", "Multiple Choice", "Listen (1)", "Listen (2)", "Grammar", "Reading (1)", "Reading (2)"],
+            ["Vocabulary (1)", "Vocabulary (2)", "Vocabulary (3)", "Matching", "Listening", "Grammar (1)", "Grammar (2)", "Reading (1)", "Reading (2)"],
         ];
 
         $grade_4 = [
-            // // Grade 4
-            // ["Arranging Letters", "Fill in the blank", "Listening (Multiple Choice)", "Listening (Drag and Drop)", "Reading Passages", "True or False"],
-            // ["Arranging Letters", "Fill in the blank", "Multiple Choice", "Drag and Drop", "Grammar", "True or False"],
-            // ["Arranging Letters", "Fill in the blank", "Listening (Multiple Choice)", "Drag and Drop", "True or False", "Reading Passages"],
-            // ["Arranging Letters", "Fill in the blank", "Multiple Choice", "Drag and Drop", "Grammar", "Reading Passages"],
-            // ["Arranging Letters", "Fill in the blank", "Multiple Choice", "Drag and Drop", "True or False", "Reading Passages"],
+            ["Matching", "Arranging Words", "Listen and Practice", "Grammar", "Reading Passages (1)", "Reading Passages (2)"],
+            ["Matching", "Choose", "Listening",  "Grammar", "Reading Passages (1)", "Reading Passages (2)"],
+            ["Matching", "Arranging Letter", "Listening", "Grammar", "Reading Passages (1)", "Reading Passages (2)"],
+            ["Matching", "Arranging Letter", "Listening (1)", "Listening (2)", "Grammar", "Reading Passages (1)", "Reading Passages (2)"],
+            ["Matching", "Arranging Letter", "Listening Practice", "Grammar", "Reading (1)", "Reading (2)"],
         ];
 
+        // Grade 1
         $category_1 = [
-            // Grade 1
             [1, 2, 3, 4, 5, 5, 6],
             [1, 2, 3, 11, 7, 5, 5],
             [1, 2, 8, 9, 6, 5, 5],
@@ -57,8 +55,8 @@ class AssessmentSeeder extends Seeder
             [1, 2, 12, 9, 6, 5],
         ];
 
+        // Grade 2
         $category_2 = [
-            // Grade 2
             [14, 1, 8, 8, 7, 7, 6, 5],
             [14, 1, 8, 8, 3, 7, 6, 5],
             [14, 1, 13, 8, 3, 7, 6, 5],
@@ -66,26 +64,26 @@ class AssessmentSeeder extends Seeder
             [14, 1, 13, 15, 3, 7, 6, 5],
         ];
 
+        // Grade 3
         $category_3 = [
-            // // Grade 3
-            // [1, 2, 3, 4, 5, 6],
-            // [1, 2, 3, 11, 7, 5],
-            // [1, 2, 8, 9, 6, 5],
-            // [1, 2, 3, 10, 7, 5],
-            // [1, 2, 12, 9, 6, 5],
+            [8, 16, 3, 13, 5, 5],
+            [1, 3, 1, 5, 16],
+            [13, 1, 8, 3, 15, 1, 5, 5],
+            [1, 7, 3, 15, 1, 5, 5],
+            [16, 7, 7, 13, 3, 1, 7, 5, 5],
         ];
 
+        // // Grade 4
         $category_4 = [
-            // // Grade 4
-            // [1, 2, 3, 4, 5, 6],
-            // [1, 2, 3, 11, 7, 5],
-            // [1, 2, 8, 9, 6, 5],
-            // [1, 2, 3, 10, 7, 5],
-            // [1, 2, 12, 9, 6, 5],
+            [13, 1, 3, 17, 5, 5],
+            [13, 16, 3, 18, 5, 5],
+            [13, 1, 3, 18, 5, 5],
+            [13, 1, 8, 3, 18, 5, 5],
+            [13, 1, 3, 18, 5, 5],
         ];
 
+        // Grade 1
         $gameQues_1 = [
-            // Grade 1
             [10, 10, 5, 10, 5, 5, 5],
             [10, 10, 5, 10, 5, 5, 5],
             [10, 10, 5, 12, 5, 5, 5],
@@ -93,8 +91,8 @@ class AssessmentSeeder extends Seeder
             [10, 10, 5, 10, 5, 10],
         ];
 
+        // Grade 2
         $gameQues_2 = [
-            // Grade 2
             [0, 6, 6, 5, 5, 5, 5, 10],
             [0, 6, 6, 5, 5, 5, 5, 10],
             [0, 6, 6, 5, 5, 5, 5, 10],
@@ -102,42 +100,42 @@ class AssessmentSeeder extends Seeder
             [0, 6, 6, 5, 5, 5, 5, 10],
         ];
 
+        // Grade 3
         $gameQues_3 = [
-            // // Grade 3
-            // [10, 10, 5, 10, 10, 5],
-            // [10, 10, 5, 10, 5, 10],
-            // [10, 10, 5, 12, 5, 10],
-            // [10, 10, 5, 15, 5, 10],
-            // [10, 10, 5, 10, 5, 10],
+            [20, 5, 5, 10, 5, 5],
+            [20, 10, 10, 5, 5],
+            [10, 5, 5, 5, 5, 10, 5, 5],
+            [10, 10, 5, 5, 10, 5, 5],
+            [5, 5, 5, 5, 10, 5, 5, 5, 5],
         ];
 
+        // // Grade 4
         $gameQues_4 = [
-            // // Grade 4
-            // [10, 10, 5, 10, 10, 5],
-            // [10, 10, 5, 10, 5, 10],
-            // [10, 10, 5, 12, 5, 10],
-            // [10, 10, 5, 15, 5, 10],
-            // [10, 10, 5, 10, 5, 10],
+            [10, 10, 10, 10, 5, 5],
+            [10, 10, 10, 10, 5, 5],
+            [10, 10, 10, 10, 5, 5],
+            [10, 10, 5, 5, 10, 5, 5],
+            [10, 10, 10, 10, 5, 5],
         ];
 
+        // Grade 1
         $assessQues_1 = [
-            // Grade 1
             50, 50, 52, 55, 50,
         ];
 
+        // Grade 2
         $assessQues_2 = [
-            // // Grade 2
             42, 42, 42, 37, 42,
         ];
 
+        // Grade 3
         $assessQues_3 = [
-            // // Grade 3
-            // 50, 50, 52, 55, 50,
+            50, 50, 50, 50, 50,
         ];
 
+        // Grade 4
         $assessQues_4 = [
-            // // Grade 4
-            // 50, 50, 52, 55, 50,
+            50, 50, 50, 50, 50,
         ];
 
         // Grade 1
@@ -172,36 +170,36 @@ class AssessmentSeeder extends Seeder
             }
         }
 
-        // // Grade 3
-        // foreach ($grade_3 as $i => $j) {
-        //     foreach ($j as $index => $val) {
-        //         DB::table('assessments')->insert([
-        //             [
-        //                 'grade_id' => 3,
-        //                 "name" => $i + 1,
-        //                 "assess_game_name" => $val,
-        //                 "assess_category_id" => $category_3[$i][$index],
-        //                 "total_point" => $gameQues_3[$i][$index],
-        //                 "total_assess_ques" => $assessQues_3[$i]
-        //             ]
-        //         ]);
-        //     }
-        // }
+        // Grade 3
+        foreach ($grade_3 as $i => $j) {
+            foreach ($j as $index => $val) {
+                DB::table('assessments')->insert([
+                    [
+                        'grade_id' => 3,
+                        "name" => $i + 1,
+                        "assess_game_name" => $val,
+                        "assess_category_id" => $category_3[$i][$index],
+                        "total_point" => $gameQues_3[$i][$index],
+                        "total_assess_ques" => $assessQues_3[$i]
+                    ]
+                ]);
+            }
+        }
 
-        // // Grade 4
-        // foreach ($grade_4 as $i => $j) {
-        //     foreach ($j as $index => $val) {
-        //         DB::table('assessments')->insert([
-        //             [
-        //                 'grade_id' => 4,
-        //                 "name" => $i + 1,
-        //                 "assess_game_name" => $val,
-        //                 "assess_category_id" => $category_4[$i][$index],
-        //                 "total_point" => $gameQues_4[$i][$index],
-        //                 "total_assess_ques" => $assessQues_4[$i]
-        //             ]
-        //         ]);
-        //     }
-        // }
+        // Grade 4
+        foreach ($grade_4 as $i => $j) {
+            foreach ($j as $index => $val) {
+                DB::table('assessments')->insert([
+                    [
+                        'grade_id' => 4,
+                        "name" => $i + 1,
+                        "assess_game_name" => $val,
+                        "assess_category_id" => $category_4[$i][$index],
+                        "total_point" => $gameQues_4[$i][$index],
+                        "total_assess_ques" => $assessQues_4[$i]
+                    ]
+                ]);
+            }
+        }
     }
 }

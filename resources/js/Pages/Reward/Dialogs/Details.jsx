@@ -17,22 +17,26 @@ const Details = ({ reward, back }) => {
     }
 
     const handleUploadPic = (data) => {
-        var FileUploadPath = data.value;
-        var Extension = FileUploadPath.substring(FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
+        var Extension = data.files.item(0).type;
+        var fileSize = data.files.item(0).size;
 
-        if (Extension == "png") {
-            if (data.files && data.files[0]) {
-                var name = data.files.item(0).name.split(".").pop();
-                var image_name = name.join(".")
-                setIsExist(image_name)
-                setItemPic(data.files.item(0));
+        if (Extension == "image/png") {
+            if (fileSize && fileSize < 30000) {
+                if (data.files && data.files[0]) {
+                    var name = data.files.item(0).name.split(".").shift();
+
+                    setIsExist(name)
+                    setItemPic(data.files.item(0));
+                }
             }
-        }
-        else {
+            else {
+                alert("File size must be less than 30 KB. ");
+            }
+        } else {
             alert("Photo only allows file types of PNG. ");
-
         }
     }
+
     const handleBtnAddItem = (e) => {
         e.preventDefault();
         if (addStar && itemPic) {
@@ -55,28 +59,36 @@ const Details = ({ reward, back }) => {
         if (res) router.delete(`/dashboard/rewards/per/delete/${val.id}`)
     }
 
+    const handleItemEditPicSize = (val) => {
+        var data = val.target;
+        var Extension = data.files.item(0).type;
+        var fileSize = data.files.item(0).size;
+
+        if (Extension == "image/png") {
+            if (fileSize && fileSize < 30000) {
+                setItemEditPic(val)
+            } else {
+                alert("File size must be less than 30 KB. ");
+            }
+        }
+        else {
+            alert("Photo only allows file types of GIF, PNG, JPG, JPEG and BMP. ");
+        }
+    }
+
     const handlebtnEdit = (id, type) => {
         if (itemEditPic && editStar) {
             var data = itemEditPic.target;
-            console.log(data)
-            var FileUploadPath = data.value;
-            var Extension = FileUploadPath.substring(FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
 
-            if (Extension == "png") {
-                if (data.files && data.files[0]) {
-                    const editForm = {
-                        id,
-                        type,
-                        "item": data.files.item(0),
-                        "point": editStar
-                    }
-                    router.post("/dashboard/rewards/per/edit", editForm)
-                    setEdit(null)
+            if (data.files && data.files[0]) {
+                const editForm = {
+                    id,
+                    type,
+                    "item": data.files.item(0),
+                    "point": editStar
                 }
-            }
-
-            else {
-                alert("Photo only allows file types of GIF, PNG, JPG, JPEG and BMP. ");
+                router.post("/dashboard/rewards/per/edit", editForm)
+                setEdit(null)
             }
         } else {
             alert("Enter data.");
@@ -85,21 +97,25 @@ const Details = ({ reward, back }) => {
     }
 
     const settingNewName = (data) => {
-        var FileUploadPath = data.value;
-        var Extension = FileUploadPath.substring(FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
+        var Extension = data.files.item(0).type;
+        var fileSize = data.files.item(0).size;
 
-        if (Extension == "png") {
-            if (data.files && data.files[0]) {
-                const updateForm = {
-                    "name": data.files.item(0),
-                    "old_name": reward[0].name
+        if (Extension == "image/png") {
+            if (fileSize && fileSize < 30000) {
+                if (data.files && data.files[0]) {
+                    const updateForm = {
+                        "name": data.files.item(0),
+                        "old_name": reward[0].name
+                    }
+                    router.post("/dashboard/rewards/rename", updateForm)
+                    back(null)
                 }
-                router.post("/dashboard/rewards/rename", updateForm)
-                back(null)
+            } else {
+                alert("File size must be less than 30 KB. ");
             }
         }
         else {
-            alert("Photo only allows file types of GIF, PNG, JPG, JPEG and BMP. ");
+            alert("Photo only allows file types of PNG. ");
         }
     }
 
@@ -148,7 +164,7 @@ const Details = ({ reward, back }) => {
                                                         type="file"
                                                         id='addNewItem'
                                                         hidden
-                                                        onChange={(e) => setItemEditPic(e)}
+                                                        onChange={(e) => handleItemEditPicSize(e)}
                                                     />
                                                 </> : val.item.split("_").pop().split(".").shift()
                                             }
@@ -177,7 +193,7 @@ const Details = ({ reward, back }) => {
                                                         title='Back'
                                                         onClick={() => setEdit(null)}
                                                     >
-                                                        <i class="fa-solid fa-rotate-left"></i>
+                                                        <i className="fa-solid fa-rotate-left"></i>
                                                     </button>
 
                                                     <button
@@ -185,7 +201,7 @@ const Details = ({ reward, back }) => {
                                                         title='Add'
                                                         onClick={() => handlebtnEdit(val.id, val.type)}
                                                     >
-                                                        <i class="fa-solid fa-plus"></i>
+                                                        <i className="fa-solid fa-plus"></i>
                                                     </button>
                                                 </>
                                                 :
