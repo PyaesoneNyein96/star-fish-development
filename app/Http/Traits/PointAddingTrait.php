@@ -21,7 +21,7 @@ trait PointAddingTrait{
 
         $lvl = $newFixPoint / 10 ;
 
-        if ($lvl >= 1 && $lvl <= 50) {
+        if ($lvl >= 0 && $lvl <= 50) {
             $board = 'silver';
         }else if
         ($lvl > 50 && $lvl <= 100) {

@@ -12,6 +12,7 @@ use App\Models\StudentGame;
 use Illuminate\Http\Request;
 use App\Models\StudentLesson;
 use App\Models\LoginDailyBonus;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Traits\PointAddingTrait;
 
@@ -43,19 +44,22 @@ class MissionController extends Controller
 
         $rawLessons = Lesson::where('grade_id', $gradeId)->get();
 
+
+        /// ====================== 3 times
+
         $mappingForThreeTimes = $rawLessons->map(function ($raw) use($repetitiveRecords) {
             $repeat = $repetitiveRecords->where('lesson_id',$raw->id)->first();
             return [
                 'lesson_id' => $raw->id,
                 'name' => "Lesson ". $raw->name,
                 'allowed' => optional($repeat)->count == 3 || optional($repeat)->count == 4 ,
-                'claimed' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed_3 == 1 && true,
+                'claimed' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed_3 == 0 && true,
                 'count' => optional($repeat)->count,
-                'point' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed_3 == 0 ? 1 : null,
+                // 'point' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed_3 == 0 ? 1 : null,
             ];
         });
 
-        /// ======================
+        /// ====================== 5 times
 
         $mappingForFiveTimes = $rawLessons->map(function ($raw) use($repetitiveRecords){
             $repeat = $repetitiveRecords->where('lesson_id',$raw->id)->first();
@@ -65,7 +69,7 @@ class MissionController extends Controller
                 'allowed' => optional($repeat)->count == 5,
                 'claimed' => optional($repeat)->count == 5 && optional($repeat)->claimed_5 == 1 && true,
                 'count' => optional($repeat)->count,
-                'point' =>  optional($repeat)->count == 5 && optional($repeat)->claimed_5 == 0 ? 3 : null ,
+                // 'point' =>  optional($repeat)->count == 5 && optional($repeat)->claimed_5 == 0 ? 3 : null ,
             ];
         });
 
@@ -81,16 +85,16 @@ class MissionController extends Controller
     public function repetitiveClaimLesson(Request $request){
 
             $student = $request->student;
-            $point = $request->header('point');
             $count = $request->header('count');
             $lesson_id = $request->header('lesson_id');
+
+
+            DB::beginTransaction();
+            try {
 
             $claimUpdate = StudentLesson::where('lesson_id',$lesson_id)
             ->where('student_id', $request->student->id)->first();
 
-            // return $claimUpdate;
-
-            // $claimUpdate->claimed = $count == 3 || $count == 4 ? 1 : 3;
 
             if($count == 3 || $count == 4){
                 $claimUpdate->claimed_3 = 1;
@@ -99,7 +103,19 @@ class MissionController extends Controller
             }
             $claimUpdate->save();
 
-            $this->point_lvl($student, $point);
+            $this->point_lvl($student, $count == 3 ? 1 : 3);
+
+            DB::commit();
+            return response()->json([
+                'message' => "Successfully claimed repetitive bonus."
+            ], 200);
+
+           } catch (\Throwable $th) {
+            DB::rollback();
+            return $th;
+            return response()->json($th, 200);
+           }
+
 
     }
 
@@ -150,9 +166,9 @@ class MissionController extends Controller
 
 
         $record->update([
-            'first' => ($first_claim && $added15mins != 1 ) ? 1 : $added15mins,
-            'second' =>  $second_claim && ($added30mins <= $now) ? 1 : $record->second,
-            'daily' => $daily_claim && ($daily_count <= $now) ? 1 : $record->daily,
+            'first' => $first_claim && $record->first != 1 ? 1 : $added15mins,
+            'second' =>  $second_claim && $record->second  != 1 ? 1 : $record->second,
+            'daily' => $daily_claim && $record->daily  != 1 ? 1 : $record->daily,
         ]);
 
         return "success";
