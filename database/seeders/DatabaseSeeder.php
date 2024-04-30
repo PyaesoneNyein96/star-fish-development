@@ -27,18 +27,20 @@ use Database\Seeders\StudentSeeder;
 use Database\Seeders\CategorySeeder;
 
 use Illuminate\Support\Facades\Hash;
+use Database\Seeders\TestingDataSeeder;
 use Database\Seeders\GameInstructionSeeder;
 use Database\Seeders\SubscriptionPlanSeeder;
-use Database\Seeders\Assessment\AssessmentSeeder;
 
+use Database\Seeders\StudentMissionBonusSeeder;
+use Database\Seeders\Assessment\AssessmentSeeder;
 use Database\Seeders\PsnSeeder\PSNAnsNQuesSeeder;
 use Database\Seeders\PsnSeeder\PSNAnsNQuesG2Seeder;
+
 use Database\Seeders\PsnSeeder\PSNAnsNQuesG3Seeder;
 use Database\Seeders\PsnSeeder\PSNAnsNQuesG4Seeder;
 
 use Database\Seeders\Assessment\AssessmentCategorySeeder;
 use Database\Seeders\AnsNQueSeed2\Grade1\AnsNQueSeeder as Grade1AnsNQueSeeder;
-
 use Database\Seeders\AnsNQueSeed2\Grade2\AnsNQueSeeder as Grade2AnsNQueSeeder;
 use Database\Seeders\AnsNQueSeed2\Grade3\AnsNQueSeeder as Grade3AnsNQueSeeder;
 use Database\Seeders\AnsNQueSeed2\Grade4\AnsNQueSeeder as Grade4AnsNQueSeeder;
@@ -82,6 +84,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(GameInstructionSeeder::class);
 
+        $this->call(TestingDataSeeder::class); //
 
 
         $this->call(RewardSeeder::class);
@@ -113,5 +116,9 @@ class DatabaseSeeder extends Seeder
 
         // Admin
         $this->call(AdminUserSeeder::class);
+
+
+        // Mission Pre Record
+        $this->call(StudentMissionBonusSeeder::Class);
     }
 }

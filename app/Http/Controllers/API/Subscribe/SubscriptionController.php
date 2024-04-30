@@ -7,6 +7,7 @@ use App\Models\Game;
 use App\Models\Grade;
 use App\Models\Country;
 use App\Models\Student;
+use App\Models\DailyBonus;
 use App\Models\StudentGame;
 use App\Models\StudentUnit;
 use Illuminate\Support\Str;
@@ -134,8 +135,8 @@ class SubscriptionController extends Controller
         }
 
         // skip payment process
-        // $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
-        // return "ok";
+        $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
+        return "ok";
 
 
 
@@ -416,8 +417,16 @@ class SubscriptionController extends Controller
             $latest_date = StudentGrade::where('grade_id', $grade_id)
                 ->pluck('expire_date');
 
-            $this->addedSubscriptionDate($latest_date, $student);
+            // Bonus Record Adding
+            DailyBonus::create([
+                'student_id' => $student->id,
+                'fifteen' => null,
+                'thirty' => null,
+                'daily' => null,
+            ]);
 
+
+            $this->addedSubscriptionDate($latest_date, $student);
 
             DB::commit();
 
@@ -429,4 +438,7 @@ class SubscriptionController extends Controller
             return $th;
         }
     }
+
+
+
 }
