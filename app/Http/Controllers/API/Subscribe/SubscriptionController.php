@@ -403,15 +403,15 @@ class SubscriptionController extends Controller
                 'student_id' => $student->id,
                 'grade_id' => $grade_id,
                 'subscription_id' => $subscription_id,
-                'created_at' => Carbon::now(strval($student->country['timezone'])),
+                'created_at' => Carbon::now(),
                 'expire_date' => $now->addYear(),
             ]);
 
             $student->update([
                 'isSubscriber' => 1,
                 'grade_chosen' => null,
-                'created_at' => Carbon::now(strval($student->country['timezone'])),
-                'updated_at' => Carbon::now(strval($student->country['timezone']))
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
 
             $latest_date = StudentGrade::where('grade_id', $grade_id)

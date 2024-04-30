@@ -40,7 +40,7 @@ class MissionController extends Controller
 
         $gradeId = Student::find($request->student->id)->grades->pluck('id');
 
-        if(!$gradeId || $gradeId->count() == 0) return "nope";
+        if(!$gradeId || $gradeId->count() == 0) return response()->json(["message" => "You must be a subscriber for this feature."], 200);
 
         $rawLessons = Lesson::where('grade_id', $gradeId)->get();
 
@@ -133,20 +133,18 @@ class MissionController extends Controller
     public function dailyBonusList(Request $request){
 
         $record = DailyBonus::where('student_id',$request->student->id)->first();
-        $timezone =  strval($request->student->country->timezone);
 
-
-
-        $now = Carbon::now();
+        $now = Carbon::now()
+        ->addMinutes(35)
+        ;
         $added15mins =  $record->first != 1 ? Carbon::parse($record->first) : null;
         $added30mins =  $record->second != 1 ? Carbon::parse($record->second) : null;
         $daily_count =  $record->daily != 1 ? Carbon::parse($record->daily) : null;
 
-
         $bonus_list = [
-            'first' =>  $record->first && ($now >= $added15mins) ? true : false,
-            'second' => $record->first && ($now >= $added30mins)  ? true: false,
-            'daily' =>  $daily_count && ($now >= $daily_count)  ? false : true,
+            'first' =>  $added15mins && $now >= $added15mins,
+            'second' => $added30mins && $now >= $added30mins,
+            'daily' =>  $daily_count && $now <= $daily_count,
         ];
 
         return $bonus_list;
@@ -159,23 +157,41 @@ class MissionController extends Controller
 
         $record = DailyBonus::where('student_id', $request->student->id)->first();
 
-        $timezone =  strval($request->student->country->timezone);
-
-
-        $now = Carbon::now();
+        $now = Carbon::now()
+        ->addMinutes(30)
+        ;
 
         $first_claim = $request->header('first');
         $second_claim = $request->header('second');
         $daily_claim = $request->header('daily');
 
+        $msg;
+        if($first_claim && $record->first != 1){
+            $record->update([
+                'first' =>  Carbon::parse($record->first) <= $now ? 1 : $record->first
+            ]);
+            $msg = "15 minutes";
+        }
 
-        $record->update([
-            'first' => $first_claim && $record->first != 1 ? 1 : $added15mins,
-            'second' =>  $second_claim && $record->second  != 1 ? 1 : $record->second,
-            'daily' => $daily_claim && $record->daily  != 1 ? 1 : $record->daily,
-        ]);
 
-        return "success";
+        if($second_claim && $record->second != 1) {
+            $update = $record->update([
+                'second' => Carbon::parse($record->second) <= $now ? 1 : $record->second
+            ]);
+            $msg = "30 minutes";
+        }
+
+        if($daily_claim && $record->daily != 1 && Carbon::parse($record->daily) >= $now) {
+            $record->update([
+                'daily' =>  Carbon::parse($record->daily) >= $now  ? 1 : $record->daily
+            ]);
+            $msg = "1 day";
+        }
+
+
+        return response()->json([
+        'message' => isset($msg) ? "Successfully claimed daily rewards $msg." : "Already claimed bonus for today."
+        ], 200);
 
     }
 

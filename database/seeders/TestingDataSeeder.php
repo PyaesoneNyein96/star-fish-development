@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Carbon\Carbon;
+use App\Models\Student;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -29,38 +30,7 @@ class TestingDataSeeder extends Seeder
             ['count' => 5, 'claimed_3'=> 0, 'claimed_5'=> 1 ],
             ['count' => 5, 'claimed_3'=> 1, 'claimed_5'=> 1 ],
 
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
 
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            // ['count' => 0, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
         ];
 
         $lessons =  range(1,10);
@@ -78,6 +48,7 @@ class TestingDataSeeder extends Seeder
             ]);
         }
 
+
         $lessons =  range(1,10);
         foreach ($lessons as $k => $l) {
             DB::table('student_lessons')->insert([
@@ -93,6 +64,10 @@ class TestingDataSeeder extends Seeder
         }
 
         ////// Grade
+
+
+        Student::where('id',1)->update(['isSubscriber'=> 1]);
+        Student::where('id',9)->update(['isSubscriber'=> 1]);
 
         DB::table('student_grades')->insert([
             [

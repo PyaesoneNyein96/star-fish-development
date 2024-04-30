@@ -13,6 +13,8 @@ class DailyBonus extends Model
         'student_id',
         'first',
         'second',
-        'daily'
+        'daily',
+        'created_at',
+        'updated_at',
     ];
 }
