@@ -11,7 +11,6 @@ export default function Authenticated({ user, header, children }) {
     const { toDelete: clickDelete } = useSelector((state) => state.componentSlice)
     const dispatch = useDispatch();
 
-
     return (
         <div className="min-h-screen bg-gray-100" style={{ backgroundColor: "#f6f9ff" }}>
             {/* {clickDelete ? <Delete student={clickDelete} /> :

@@ -19,7 +19,7 @@ class AdminProfileController extends Controller
 
    public function profile()
     {
-        return inertia('Profile/Index', [
+        return inertia('Profile/Profile', [
             'admin' => Auth::user()
         ]);
     }

@@ -29,15 +29,10 @@ export default function Dashboard({ auth }) {
     if (updateAlert) setTimeout(() => dispatch(setInitialUpdateAlert(false)), 1500);
 
     return (
-        <AuthenticatedLayout
-            user={auth.user}
-        >
+        <AuthenticatedLayout user={auth.user}>
             <Head title="Dashboard" />
-            <main className='flex'>
-                <AnimatePresence>
-                    {sideOpen &&
-                        <Sidebar />}
-                </AnimatePresence>
+            <main className="flex">
+                <AnimatePresence>{sideOpen && <Sidebar />}</AnimatePresence>
 
                 <div className="pt-12  w-full">
                     <AnimatePresence>
@@ -57,6 +52,6 @@ export default function Dashboard({ auth }) {
                     </div>
                 </div>
             </main>
-        </AuthenticatedLayout >
+        </AuthenticatedLayout>
     );
 }

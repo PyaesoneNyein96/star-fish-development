@@ -112,7 +112,7 @@ class GameController extends Controller
         $allLessons = Lesson::where('grade_id', $grade)->get();
 
         // $studentGrade = $student->grades;
-        $GradeChosen = $student->grade_chosen;
+        $GradeChosen = $request->student->grade_chosen;
 
         $studentLessons = $student->lessons; // ဆော့ပီးတဲ့ lessons
 
@@ -305,7 +305,8 @@ class GameController extends Controller
         }
 
 
-        $alreadyDone = StudentGame::where('student_id', $student->id)->where('status', 1 )
+        $alreadyDone = StudentGame::where('student_id', $student->id)
+        // ->where('status', 1 )
         ->where('game_id', $gameId)->first();
 
 
@@ -317,9 +318,10 @@ class GameController extends Controller
                 'student_id' => $student->id,
                 'game_id' => $gameId,
                 'unit_id' => $unit->id,
-                'status' => 1,
                 'count' => 1 ,
             ]);
+
+         $this->addPointFunction($student, $point, $question_answer);
 
         }else if($alreadyDone && $alreadyDone->count != 5){
 
@@ -348,7 +350,9 @@ class GameController extends Controller
         ->where('lesson_id', $unit->lesson_id)->first();
 
 
-        if ($unitCheck->count() == 0 && $gameCheck_two->count() == 0 && !$lessonCheck ) {
+        if ($unitCheck->count() == 0
+        // && $gameCheck_two->count() == 0 && !$lessonCheck
+        ) {
 
             $unitInsert = StudentUnit::insert([
                 'student_id' => $student->id,
@@ -366,13 +370,18 @@ class GameController extends Controller
             && $unitCheck->count() == 0
         ) {
 
-            $alreadyExist =  StudentLesson::where('student_id', $student->id)
+            $alreadyExistLesson =  StudentLesson::where('student_id', $student->id)
                 ->where('lesson_id', $lesson_id)->first();
 
-            if ($alreadyExist) return 201;
+            if ($alreadyExistLesson) {
+                $alreadyExistLesson->count ++;
+                $alreadyExistLesson->save();
+            }else{
 
 
-            //---- for Subscription and Real Server (block adding lesson records)
+
+
+            //---- for Subscription and Real Server (** block adding lesson records **)
 
                 // $grade_id = Lesson::find($lesson_id)->grade['id'];
 
@@ -386,16 +395,17 @@ class GameController extends Controller
             //----------------
             //----------------
 
-            $lessonInsert = StudentLesson::create([
-                'student_id' => $student->id,
-                'lesson_id' => $lesson_id,
-                'grade_id' => $grade->id,
-                'status' => 1
-            ]);
+                $lessonInsert = StudentLesson::create([
+                    'student_id' => $student->id,
+                    'lesson_id' => $lesson_id,
+                    'grade_id' => $grade->id,
+                    'count' => 1,
+                ]);
 
-            if ($lessonInsert) {
-                StudentUnit::where('student_id', $student->id)
-                    ->where('lesson_id', $lesson_id)->delete();
+                if ($lessonInsert) {
+                    StudentUnit::where('student_id', $student->id)
+                        ->where('lesson_id', $lesson_id)->delete();
+                }
             }
         }
 
@@ -424,7 +434,7 @@ class GameController extends Controller
         // if ($student->grade_chosen == null) {
         //  $this->addPointFunction($student, $request->header('point'),$request->header('question_answer'));
         // }
-        $this->addPointFunction($student, $point, $question_answer);
+        // $this->addPointFunction($student, $point, $question_answer);
 
         return response()->json([
             'message' => 'success and recorded',
@@ -439,9 +449,6 @@ class GameController extends Controller
 
     private function lessonCheck($student, $lessonUnit)
     {
-
-
-
         $unitDone = StudentUnit::where('student_id', $student->id)->get();
 
 
@@ -484,38 +491,39 @@ class GameController extends Controller
         $newPoint = $oldPoint->point + (int)$point;
         $newFixPoint = $oldPoint->fixed_point + (int)$point;
 
-        if ($oldPoint->level >= 1 && $oldPoint->level <= 50) {
-            $board = 'silver';
-        }
+            $lvl = $newFixPoint / 10 ;
 
-        if ($oldPoint->level >= 51 && $oldPoint->level <= 100) {
-            $board = 'platinum';
-        }
-        if ($oldPoint->level >= 101 && $oldPoint->level <= 200) {
-            $board = 'gold';
-        }
-        if ($oldPoint->level >= 201 && $oldPoint->level <= 300) {
-            $board = 'diamond';
-        }
+            // logger($lvl);
 
-        if ($newFixPoint >= 0 && $newFixPoint <= 3000) {
-            $level = ceil($newFixPoint / 10);
-            Student::where('id', $student_id)->update([
-                'point' => $newPoint,
-                'fixed_point' => $newFixPoint,
-                'level' => $level,
-                'board' => $board
-            ]);
-        } else {
-            Student::where('id', $student_id)->update([
-                'point' => $newPoint,
-                'fixed_point' => $newFixPoint,
-                'board' => $board
-            ]);
-        }
+            if ($lvl <= 50) {
+                $board = 'silver';
+            }else if
+            ($lvl > 50 && $lvl <= 100) {
+                $board = 'platinum';
+            }
+            else if
+            ($lvl > 100 && $lvl <= 200) {
+                $board = 'gold';
+            }
+            else if
+            ($lvl > 200 && $lvl <= 300) {
+                $board = 'diamond';
+            }
 
-        // Total - ans_ques
 
+        $data = [
+            'point' => $newPoint,
+            'fixed_point' => $newFixPoint,
+            'board' => $board
+        ];
+
+            if ($newFixPoint >= 0 && $newFixPoint <= 3000) {
+                    $level = floor($newFixPoint / 10);
+                    $data['level'] = $level < 1 ?  1 : $level;
+                    Student::where('id', $student->id)->update($data);
+            } else {
+                    Student::where('id', $student->id)->update($data);
+            }
 
         Student::where('id', $student_id)->update([
             'question_answer' => (int)$question_answer + Student::find($student_id)->question_answer

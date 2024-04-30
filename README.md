@@ -211,3 +211,13 @@ Field ( header ) = token , assess_game_id , point
 ### Banner Images
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/banners](https://star-fish.myanmargateway.net/api/banners)
+
+### Repetitive Mission
+
+### Repetitive Lessons List
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/repetitive/lesson-list](https://star-fish.myanmargateway.net/api/mission/repetitive/lesson-list) Field (header) = token
+
+### Repetitive bonus claim
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/repetitive/claim_lesson](https://star-fish.myanmargateway.net/api/mission/repetitive/claim_lesson) Field (header) = token, lesson_id, count, point

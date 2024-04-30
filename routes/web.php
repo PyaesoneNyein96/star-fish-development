@@ -1,17 +1,17 @@
 <?php
 
-use App\Http\Controllers\API\Dashboard\DashboardController;
-use App\Http\Controllers\API\Lessons\GameController;
-use App\Http\Controllers\API\Reward\RewardController;
-use App\Http\Controllers\API\Subscribe\SubscriptionController;
-use App\Http\Controllers\Dashboard\DashboardController as DashboardDashboardController;
-use App\Http\Controllers\Dashboard\RewardController as DashboardRewardController;
-use App\Http\Controllers\Dashboard\StudentController;
-use App\Http\Controllers\ProfileController;
+
+use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\API\Lessons\GameController;
+use App\Http\Controllers\Dashboard\RewardController;
+use App\Http\Controllers\Dashboard\StudentController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\AdminProfileController;
+use App\Http\Controllers\API\Subscribe\SubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,12 +38,9 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::middleware([
-    'auth:sanctum',
-    'verified',
-])->group(function () {
-    Route::prefix('/dashboard')->group(function () {
-        Route::get('/', [DashboardDashboardController::class, "getDashboard"])->middleware(['auth', 'verified'])->name('dashboard');
+Route::prefix('/dashboard')->middleware(['auth:sanctum','verified',])->group(function () {
+
+        Route::get('/', [DashboardController::class, "getDashboard"])->middleware('auth')->name('dashboard');
 
         // students
         // Route::get('/students', [StudentController::class, 'getAllStudents'])->name('students');
@@ -60,10 +57,9 @@ Route::middleware([
         Route::post('/rewards/rename', [DashboardRewardController::class, 'renameReward']);
         Route::delete('/rewards/remove/{name}', [DashboardRewardController::class, 'removeReward']);
 
-        // // Admin
-        // Route::get('/profile', [AdminProfileController::class, 'profile'])->name('adminProfile');
+        // Admin
+        Route::get('/profile', [AdminProfileController::class, 'profile'])->name('adminProfile');
 
-        // Route::get('/student/profilepic/remove/{id}', [StudentController::class, 'profilePicRemove']);
 
         // Route::post('/rewards', [DashboardController::class, 'addReward']);
 
@@ -72,11 +68,6 @@ Route::middleware([
         // Route::get('/axios/chats', [DashboardController::class, 'axiosChat']);
     });
 });
-
-
-
-
-
 
 
 
