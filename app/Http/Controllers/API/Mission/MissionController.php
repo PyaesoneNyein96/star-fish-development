@@ -88,26 +88,30 @@ class MissionController extends Controller
             $count = $request->header('count');
             $lesson_id = $request->header('lesson_id');
 
-
             DB::beginTransaction();
             try {
 
             $claimUpdate = StudentLesson::where('lesson_id',$lesson_id)
             ->where('student_id', $request->student->id)->first();
 
-
-            if($count == 3 || $count == 4){
+            $sms = null;
+            if($claimUpdate->claimed_3 == 0 && ($count == 3 || $count == 4)){
                 $claimUpdate->claimed_3 = 1;
-            }else{
+                $sms = 3;
+                $this->point_lvl($student, 1);
+
+            }else if ($claimUpdate->claimed_5 == 0 && $count == 5){
                 $claimUpdate->claimed_5 = 1;
+                $sms = 5;
+                $this->point_lvl($student,3);
             }
+
             $claimUpdate->save();
 
-            $this->point_lvl($student, $count == 3 ? 1 : 3);
 
             DB::commit();
             return response()->json([
-                'message' => "Successfully claimed repetitive bonus."
+                'message' => $sms == null ? "Already Claimed this bonus!" : "Successfully claimed ".$sms." repetitive bonus."
             ], 200);
 
            } catch (\Throwable $th) {
