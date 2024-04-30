@@ -1326,3 +1326,25 @@
 #25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #26 {main}
 "} 
+[2024-04-30 11:24:20] local.ERROR: Uncaught ErrorException: include(C:\Users\Lenovo\Desktop\star-fish\star-fish-api\vendor\composer/../../app/Http/Middleware/VersionMiddleware.php): Failed to open stream: No such file or directory in C:\Users\Lenovo\Desktop\star-fish\star-fish-api\vendor\composer\ClassLoader.php:576
+Stack trace:
+#0 C:\Users\Lenovo\Desktop\star-fish\star-fish-api\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\HandleExceptions.php(255): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'include(C:\\User...', 'C:\\Users\\Lenovo...', 576)
+#1 C:\Users\Lenovo\Desktop\star-fish\star-fish-api\vendor\composer\ClassLoader.php(576): Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}(2, 'include(C:\\User...', 'C:\\Users\\Lenovo...', 576)
+#2 C:\Users\Lenovo\Desktop\star-fish\star-fish-api\vendor\composer\ClassLoader.php(576): include('C:\\Users\\Lenovo...')
+#3 C:\Users\Lenovo\Desktop\star-fish\star-fish-api\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\Users\\Lenovo...')
+#4 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Http\\Middle...')
+#5 Command line code(1): ReflectionMethod->__construct('App\\Http\\Middle...', 'handle')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ErrorException: include(C:\\Users\\Lenovo\\Desktop\\star-fish\\star-fish-api\\vendor\\composer/../../app/Http/Middleware/VersionMiddleware.php): Failed to open stream: No such file or directory in C:\\Users\\Lenovo\\Desktop\\star-fish\\star-fish-api\\vendor\\composer\\ClassLoader.php:576
+Stack trace:
+#0 C:\\Users\\Lenovo\\Desktop\\star-fish\\star-fish-api\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(C:\\\\User...', 'C:\\\\Users\\\\Lenovo...', 576)
+#1 C:\\Users\\Lenovo\\Desktop\\star-fish\\star-fish-api\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'include(C:\\\\User...', 'C:\\\\Users\\\\Lenovo...', 576)
+#2 C:\\Users\\Lenovo\\Desktop\\star-fish\\star-fish-api\\vendor\\composer\\ClassLoader.php(576): include('C:\\\\Users\\\\Lenovo...')
+#3 C:\\Users\\Lenovo\\Desktop\\star-fish\\star-fish-api\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('C:\\\\Users\\\\Lenovo...')
+#4 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Http\\\\Middle...')
+#5 Command line code(1): ReflectionMethod->__construct('App\\\\Http\\\\Middle...', 'handle')
+#6 {main}
+  thrown at C:\\Users\\Lenovo\\Desktop\\star-fish\\star-fish-api\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 {main}
+"} 

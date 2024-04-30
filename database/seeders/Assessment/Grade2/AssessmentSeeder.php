@@ -598,22 +598,22 @@ class AssessmentSeeder extends Seeder
 
         for ($i = 0; $i < count($G2_A3_I52_matching); $i++) {
 
-            foreach ($G2_A3_I52_matching[$i] as $q) {
-
-                DB::table('assessment_ans_n_ques')->insert([
-                    [
-                        'assess_id' => 52, 'round' => $i + 1, 'q_content' => $q,
-                        'q_image' => $q, 'q_audio' => $AudioDomain . $A3_I52_matching .  str_replace(' ', '-', strtolower($q)) . ".mp3",
-                    ]
-                ]);
-            }
-
             foreach ($G2_A3_I52_matching_image[$i] as $q) {
 
                 DB::table('assessment_ans_n_ques')->insert([
                     [
                         'assess_id' => 52, 'round' => $i + 1, 'q_content' => $q,
                         'q_image' => $A3_I52_image . str_replace(' ', '-', strtolower($q)) . ".png", 'q_audio' => $AudioDomain . $A3_I52_matching . str_replace(' ', '-',  strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+
+            foreach ($G2_A3_I52_matching[$i] as $q) {
+
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'assess_id' => 52, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $q, 'q_audio' => $AudioDomain . $A3_I52_matching .  str_replace(' ', '-', strtolower($q)) . ".mp3",
                     ]
                 ]);
             }
@@ -872,16 +872,6 @@ class AssessmentSeeder extends Seeder
 
         for ($i = 0; $i < count($G2_A4_I60_matching); $i++) {
 
-            foreach ($G2_A4_I60_matching[$i] as $q) {
-
-                DB::table('assessment_ans_n_ques')->insert([
-                    [
-                        'assess_id' => 60, 'round' => $i + 1, 'q_content' => $q, 'q_image' => $q,
-                        'q_audio' => $AudioDomain . $A4_I60_matching .  str_replace(' ', '-', strtolower($q)) . ".mp3",
-                    ]
-                ]);
-            }
-
             foreach ($G2_A4_I60_matching_image[$i] as $q) {
 
                 DB::table('assessment_ans_n_ques')->insert([
@@ -889,6 +879,16 @@ class AssessmentSeeder extends Seeder
                         'assess_id' => 60, 'round' => $i + 1, 'q_content' => $q,
                         'q_image' => $A4_I60_image . str_replace(' ', '-', strtolower($q)) . ".png",
                         'q_audio' => $AudioDomain . $A4_I60_matching . str_replace(' ', '-',  strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+
+            foreach ($G2_A4_I60_matching[$i] as $q) {
+
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'assess_id' => 60, 'round' => $i + 1, 'q_content' => $q, 'q_image' => $q,
+                        'q_audio' => $AudioDomain . $A4_I60_matching .  str_replace(' ', '-', strtolower($q)) . ".mp3",
                     ]
                 ]);
             }
@@ -1119,16 +1119,6 @@ class AssessmentSeeder extends Seeder
 
         for ($i = 0; $i < count($G2_A5_I67_matching); $i++) {
 
-            foreach ($G2_A5_I67_matching[$i] as $q) {
-
-                DB::table('assessment_ans_n_ques')->insert([
-                    [
-                        'assess_id' => 67, 'round' => $i + 1, 'q_content' => $q, 'q_image' => $q,
-                        'q_audio' => $AudioDomain . $A5_I67_matching .  str_replace(' ', '-', strtolower($q)) . ".mp3",
-                    ]
-                ]);
-            }
-
             foreach ($G2_A5_I67_matching_image[$i] as $q) {
 
                 DB::table('assessment_ans_n_ques')->insert([
@@ -1136,6 +1126,16 @@ class AssessmentSeeder extends Seeder
                         'assess_id' => 67, 'round' => $i + 1, 'q_content' => $q,
                         'q_image' => $A5_I67_image . str_replace(' ', '-', strtolower($q)) . ".png",
                         'q_audio' => $AudioDomain . $A5_I67_matching . str_replace(' ', '-',  strtolower($q)) . ".mp3",
+                    ]
+                ]);
+            }
+
+            foreach ($G2_A5_I67_matching[$i] as $q) {
+
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'assess_id' => 67, 'round' => $i + 1, 'q_content' => $q, 'q_image' => $q,
+                        'q_audio' => $AudioDomain . $A5_I67_matching .  str_replace(' ', '-', strtolower($q)) . ".mp3",
                     ]
                 ]);
             }
