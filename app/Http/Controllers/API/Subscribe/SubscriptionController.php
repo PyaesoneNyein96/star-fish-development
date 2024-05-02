@@ -8,6 +8,7 @@ use App\Models\Grade;
 use App\Models\Country;
 use App\Models\Student;
 use App\Models\DailyBonus;
+use App\Models\LoginBonus;
 use App\Models\StudentGame;
 use App\Models\StudentUnit;
 use Illuminate\Support\Str;
@@ -135,8 +136,12 @@ class SubscriptionController extends Controller
         }
 
         // skip payment process
-        $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
-        return "ok";
+        try {
+           return $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
+
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
 
 
 
@@ -167,7 +172,7 @@ class SubscriptionController extends Controller
         } catch (\Throwable $th) {
             DB::rollback();
             logger($th);
-            throw $th;
+            return $th->getMessage();
         }
     }
 
@@ -397,7 +402,8 @@ class SubscriptionController extends Controller
 
         try {
 
-            $now = Carbon::now(strval($student->country['timezone']));
+            // $now = Carbon::now(strval($student->country['timezone']));
+            $now = Carbon::now();
 
             StudentGrade::create([
                 'student_id' => $student->id,
@@ -417,13 +423,18 @@ class SubscriptionController extends Controller
             $latest_date = StudentGrade::where('grade_id', $grade_id)
                 ->pluck('expire_date');
 
-            // Bonus Record Adding
-            DailyBonus::create([
-                'student_id' => $student->id,
-                'fifteen' => null,
-                'thirty' => null,
-                'daily' => null,
-            ]);
+
+            if($student->grades->count() == 1){
+
+                // Bonus Record Adding
+                $this->addDailyBonusRecord($student);
+
+                // Bonus Record Adding
+                $this->addLoginBonusRecord($student);
+            }
+
+
+
 
 
             $this->addedSubscriptionDate($latest_date, $student);
@@ -435,9 +446,45 @@ class SubscriptionController extends Controller
             ], 200);
         } catch (\Throwable $th) {
             DB::rollback();
-            return $th;
+            return $th->getMessage();
         }
     }
+
+
+    private function addDailyBonusRecord($student){
+
+        try {
+
+            DailyBonus::create([
+                'student_id' => $student->id,
+                'fifteen' => null,
+                'thirty' => null,
+                'daily' => null,
+            ]);
+
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+
+    }
+
+    private function addLoginBonusRecord($student){
+
+        try {
+          LoginBonus::create([
+                'student_id' => $student->id,
+                'day_count' => 0,
+                'claim' => 0,
+            ]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+
+    }
+
 
 
 

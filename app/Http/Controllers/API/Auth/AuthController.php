@@ -9,6 +9,7 @@ use App\Models\Student;
 use App\Models\Version;
 use Tzsk\Otp\Facades\Otp;
 use App\Models\DailyBonus;
+use App\Models\LoginBonus;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Traits\mailTraits;
@@ -159,31 +160,13 @@ class AuthController extends Controller
         try {
 
 
-            //For Daily Record . . .
+            // - For Daily Record . . .
+            $this->dailyLoginProcess($userData);
 
-            $dailyRecord = DailyBonus::where('student_id',$userData->id)->first();
+            // - For Login Record . . .
+            // $this->loginBonusProcess($userData);
 
-            if($userData->isSubscriber == 1){
 
-                if(($dailyRecord->created_at->addDays(1) <= Carbon::now()) || $dailyRecord->first == null || $dailyRecord->daily == null ){
-
-                    $dailyRecord->update([
-                        'first' => Carbon::now()->addMinutes(3),
-                        'second' => Carbon::now()->addMinutes(30),
-                        'daily' => Carbon::Now()->addDays(1),
-                        'created_at' => Carbon::now(),
-                        'updated_at' => Carbon::now()
-                    ]);
-
-                }else {
-
-                    $dailyRecord->update([
-                        'updated_at' => Carbon::now()->addDays()
-                    ]);
-
-                }
-
-            }
 
             if(!$userData) return response()->json(["status" => "User Not found !!!"], 404);
 
@@ -194,6 +177,7 @@ class AuthController extends Controller
         } catch (\Throwable $th) {
             DB::rollback();
             logger($th);
+            return $th->getMessage();
         }
 
 
@@ -295,10 +279,80 @@ class AuthController extends Controller
 
 
 
+    ///////////////////////////////////////////////////////////
+    //////////// Daily Login Process
+    ///////////////////////////////////////////////////////////
+
+    private function dailyLoginProcess($userData){
+
+       try {
+
+        $dailyRecord = DailyBonus::where('student_id',$userData->id)->first();
+
+        if($userData->isSubscriber == 1){
+
+            $day_count = $dailyRecord->created_at->diffInDays(Carbon::now());
+
+            if(($dailyRecord->updated_at->addDays() <= Carbon::now() ||
+                !$dailyRecord->first|| !$dailyRecord->second || !$dailyRecord->daily ) && $day_count < 7 ){
+
+                // daily Update process
+                $dailyRecord->update([
+                    'first' => Carbon::now()->addMinutes(15),
+                    'second' => Carbon::now()->addMinutes(30),
+                    'daily' => Carbon::Now()->addDays(1),
+                    'day_count' => $day_count,
+                    'updated_at' => Carbon::now()
+                ]);
+
+            }else if($day_count > 7){
+                $dailyRecord->update([
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                    'day_count' => 0,
+                ]);
+            }
+
+        }
 
 
 
+       } catch (\Throwable $th) {
+        throw $th;
+       }
 
+
+    }
+
+
+    private function loginBonusProcess($userData){
+
+        try {
+
+            $dailyRecord = LoginBonus::where('student_id',$userData->id)->first();
+
+            $day_count = $dailyRecord->created_at->diffInDays(Carbon::now());
+
+            // if($userData->isSubscriber == 1){
+
+            //     if($dailyRecord->updated_at <= Carbon::now() ){
+            //         $dailyRecord->update([
+            //             'student_id' => $userData->id,
+            //             'day_count' => 1,
+            //             'claim' => 0
+            //         ]);
+
+            //     }
+
+            // }
+
+
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+    }
 
 
 

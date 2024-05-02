@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('first')->nullable();
             $table->string('second')->nullable();
             $table->string('daily')->nullable();
+            $table->integer('day_count')->nullable()->default(0);
             $table->timestamps();
         });
     }

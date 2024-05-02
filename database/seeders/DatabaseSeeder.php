@@ -118,7 +118,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminUserSeeder::class);
 
 
-        // Mission Pre Record
-        $this->call(StudentMissionBonusSeeder::Class);
+
     }
 }

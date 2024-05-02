@@ -151,6 +151,7 @@ Route::prefix('mission')->middleware('GameAuth')->group(function () {
 
     Route::prefix('login')->group(function () {
         Route::get('bonus',[MissionController::class,'loginBonusList']);
+        Route::get('claim',[MissionController::class,'loginBonusClaim']);
     });
 
 
