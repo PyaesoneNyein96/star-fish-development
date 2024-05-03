@@ -280,7 +280,7 @@ class AuthController extends Controller
 
 
     ///////////////////////////////////////////////////////////
-    //////////// Daily Login Process
+    //////////// Daily Bonus Process
     ///////////////////////////////////////////////////////////
 
     private function dailyLoginProcess($userData){
@@ -291,10 +291,13 @@ class AuthController extends Controller
 
         if($userData->isSubscriber == 1){
 
+
+
             $day_count = $dailyRecord->created_at->diffInDays(Carbon::now());
 
             if(($dailyRecord->updated_at->addDays() <= Carbon::now() ||
                 !$dailyRecord->first|| !$dailyRecord->second || !$dailyRecord->daily ) && $day_count < 7 ){
+
 
                 // daily Update process
                 $dailyRecord->update([
@@ -306,6 +309,7 @@ class AuthController extends Controller
                 ]);
 
             }else if($day_count > 7){
+
                 $dailyRecord->update([
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
@@ -316,7 +320,6 @@ class AuthController extends Controller
         }
 
 
-
        } catch (\Throwable $th) {
         throw $th;
        }
@@ -325,34 +328,51 @@ class AuthController extends Controller
     }
 
 
-    private function loginBonusProcess($userData){
+    ///////////////////////////////////////////////////////////
+    //////////// Login Bonus Process
+    ///////////////////////////////////////////////////////////
 
-        try {
+    // private function loginBonusProcess($userData){
 
-            $dailyRecord = LoginBonus::where('student_id',$userData->id)->first();
+    //     try {
 
-            $day_count = $dailyRecord->created_at->diffInDays(Carbon::now());
+    //         $dailyRecords = LoginBonus::where('student_id',$userData->id)->get();
 
-            // if($userData->isSubscriber == 1){
 
-            //     if($dailyRecord->updated_at <= Carbon::now() ){
-            //         $dailyRecord->update([
-            //             'student_id' => $userData->id,
-            //             'day_count' => 1,
-            //             'claim' => 0
-            //         ]);
-
-            //     }
-
-            // }
+    //         if($userData->isSubscriber == 1){
+    //             foreach ($dailyRecords as $key => $record) {
+    //                 $record->update([
+    //                     'updated_at' => Carbon::now(),
+    //                 ]);
+    //             }
+    //         }
 
 
 
-        } catch (\Throwable $th) {
-            throw $th;
-        }
 
-    }
+
+    //         // if($userData->isSubscriber == 1){
+
+    //         //     $dailyRecord->update(['updated_at', Carbon::now()]);
+
+    //         //     if($dailyRecord->updated_at <= Carbon::now() ){
+    //         //         $dailyRecord->update([
+    //         //             'student_id' => $userData->id,
+    //         //             'day_count' => 1,
+    //         //             'claim' => 0
+    //         //         ]);
+
+    //         //     }
+
+    //         // }
+
+
+
+    //     } catch (\Throwable $th) {
+    //         throw $th;
+    //     }
+
+    // }
 
 
 

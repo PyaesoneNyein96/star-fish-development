@@ -426,15 +426,12 @@ class SubscriptionController extends Controller
 
             if($student->grades->count() == 1){
 
-                // Bonus Record Adding
+                //Daily Bonus Record Adding
                 $this->addDailyBonusRecord($student);
 
-                // Bonus Record Adding
-                $this->addLoginBonusRecord($student);
+                //Login Bonus Record Adding
+                // $this->addLoginBonusRecord($student);
             }
-
-
-
 
 
             $this->addedSubscriptionDate($latest_date, $student);
@@ -470,20 +467,28 @@ class SubscriptionController extends Controller
 
     }
 
-    private function addLoginBonusRecord($student){
+    // private function addLoginBonusRecord($student){
 
-        try {
-          LoginBonus::create([
-                'student_id' => $student->id,
-                'day_count' => 0,
-                'claim' => 0,
-            ]);
-        } catch (\Throwable $th) {
-            throw $th;
-        }
+    //     $range = [7,15,30,60,90,120,180,365];
+
+    //     try {
+
+    //         foreach ($range as $key => $r) {
+    //             LoginBonus::create([
+    //                 'student_id' => $student->id,
+    //                 'given_days' => $r,
+    //                 'day_count' => 1,
+    //                 'claim' => 0,
+    //             ]);
+    //         }
 
 
-    }
+    //     } catch (\Throwable $th) {
+    //         throw $th;
+    //     }
+
+
+    // }
 
 
 

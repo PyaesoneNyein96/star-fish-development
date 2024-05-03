@@ -12,6 +12,7 @@ class LoginBonus extends Model
     protected $fillable = [
         'student_id',
         'day_count',
+        'given_days',
         'claim',
         'created_at',
         'updated_at'

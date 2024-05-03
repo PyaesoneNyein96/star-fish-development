@@ -51,6 +51,17 @@ class TestingDataSeeder extends Seeder
             }
         }
 
+        foreach (range(1,8) as $k => $l) {
+            DB::table('student_lessons')->insert([
+                'student_id' => 3,
+                'grade_id' => 1,
+                'lesson_id' => $l,
+                'count' => 1,
+                'claimed_3' => 0,
+                'claimed_5' => 0,
+            ]);
+        }
+
 
 
 
@@ -58,34 +69,34 @@ class TestingDataSeeder extends Seeder
         ////// Grade
 
 
-        Student::where('id',1)->update(['isSubscriber'=> 1]);
-        Student::where('id',9)->update(['isSubscriber'=> 1]);
+        // Student::where('id',1)->update(['isSubscriber'=> 1]);
+        // Student::where('id',9)->update(['isSubscriber'=> 1]);
 
 
-        DB::table('student_grades')->insert([
-            [
-                'student_id' => 1,
-                'grade_id' => 1,
-                'subscription_id' => 1,
-                'expire_date' => Carbon::now()->addYears(1),
-                'isDone' => 0,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
+        // DB::table('student_grades')->insert([
+        //     [
+        //         'student_id' => 1,
+        //         'grade_id' => 1,
+        //         'subscription_id' => 1,
+        //         'expire_date' => Carbon::now()->addYears(1),
+        //         'isDone' => 0,
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now()
+        //     ],
 
-        ]);
-        DB::table('student_grades')->insert([
-            [
-                'student_id' => 9,
-                'grade_id' => 1,
-                'subscription_id' => 1,
-                'expire_date' => Carbon::now()->addYears(1),
-                'isDone' => 0,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
+        // ]);
+        // DB::table('student_grades')->insert([
+        //     [
+        //         'student_id' => 9,
+        //         'grade_id' => 1,
+        //         'subscription_id' => 1,
+        //         'expire_date' => Carbon::now()->addYears(1),
+        //         'isDone' => 0,
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now()
+        //     ],
 
-        ]);
+        // ]);
 
 
         // Daily Bonus Records

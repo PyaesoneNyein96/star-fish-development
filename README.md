@@ -212,7 +212,9 @@ Field ( header ) = token , assess_game_id , point
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/banners](https://star-fish.myanmargateway.net/api/banners)
 
-### Repetitive Mission
+ #  MISSIONS
+
+* ### Repetitive Mission
 
 ### Repetitive Lessons List
 
@@ -222,12 +224,23 @@ Field ( header ) = token , assess_game_id , point
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/repetitive/claim_lesson](https://star-fish.myanmargateway.net/api/mission/repetitive/claim_lesson) Field (header) = token, lesson_id, count
 
-### Daily Login
++ ### Daily Bonus
 
-### Daily Login List
+### Daily bonus List
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/daily/bonus](https://star-fish.myanmargateway.net/api/mission/daily/bonus) Field (header) = token
 
 ### Daily Login Bonus Claim
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/daily/claim](https://star-fish.myanmargateway.net/api/mission/daily/claim) Field (header) = token, (first or second or daily)
+
+
+<!-- + ### Login Bonus
+
+### Login Bonus List
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/login/bonus](https://star-fish.myanmargateway.net/api/mission/login/bonus) Field (header) = token
+
+### Login Bonus Claim
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/login/claim](https://star-fish.myanmargateway.net/api/mission/login/claim) Field (header) = token, (days) -->
