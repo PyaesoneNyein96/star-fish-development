@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('characters', function (Blueprint $table) {
+        Schema::create('login_bonuses', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
-            $table->string('round_id')->nullable();
-            $table->string('game_id')->nullable();
+            $table->foreignId('student_id')->constrained()->onDelete('cascade');
+            $table->integer('given_days')->nullable()->default(0);
+            $table->integer('day_count')->nullable()->default(0);
+            $table->integer('claim')->nullable()->default(0);
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('characters');
+        Schema::dropIfExists('login_bonuses');
     }
 };

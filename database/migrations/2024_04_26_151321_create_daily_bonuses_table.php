@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('conversations', function (Blueprint $table) {
+        Schema::create('daily_bonuses', function (Blueprint $table) {
             $table->id();
-            $table->string('content')->nullable();
-            $table->string('image')->nullable();
-            $table->string('audio')->nullable();
-            $table->string('round_id')->nullable();
-            $table->integer('game_id')->nullable()->constrained();
+            $table->foreignId('student_id')->constrained()->onDelete('cascade');
+            $table->string('first')->nullable();
+            $table->string('second')->nullable();
+            $table->string('daily')->nullable();
+            $table->integer('day_count')->nullable()->default(0);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('conversations');
+        Schema::dropIfExists('daily_bonuses');
     }
 };

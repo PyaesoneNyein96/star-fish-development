@@ -7,6 +7,8 @@ use App\Models\Game;
 use App\Models\Grade;
 use App\Models\Country;
 use App\Models\Student;
+use App\Models\DailyBonus;
+use App\Models\LoginBonus;
 use App\Models\StudentGame;
 use App\Models\StudentUnit;
 use Illuminate\Support\Str;
@@ -134,8 +136,12 @@ class SubscriptionController extends Controller
         }
 
         // skip payment process
-        // $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
-        // return "ok";
+        try {
+           return $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
+
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
 
 
 
@@ -166,7 +172,7 @@ class SubscriptionController extends Controller
         } catch (\Throwable $th) {
             DB::rollback();
             logger($th);
-            throw $th;
+            return $th->getMessage();
         }
     }
 
@@ -396,28 +402,39 @@ class SubscriptionController extends Controller
 
         try {
 
-            $now = Carbon::now(strval($student->country['timezone']));
+            // $now = Carbon::now(strval($student->country['timezone']));
+            $now = Carbon::now();
 
             StudentGrade::create([
                 'student_id' => $student->id,
                 'grade_id' => $grade_id,
                 'subscription_id' => $subscription_id,
-                'created_at' => Carbon::now(strval($student->country['timezone'])),
+                'created_at' => Carbon::now(),
                 'expire_date' => $now->addYear(),
             ]);
 
             $student->update([
                 'isSubscriber' => 1,
                 'grade_chosen' => null,
-                'created_at' => Carbon::now(strval($student->country['timezone'])),
-                'updated_at' => Carbon::now(strval($student->country['timezone']))
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
 
             $latest_date = StudentGrade::where('grade_id', $grade_id)
                 ->pluck('expire_date');
 
-            $this->addedSubscriptionDate($latest_date, $student);
 
+            if($student->grades->count() == 1){
+
+                //Daily Bonus Record Adding
+                $this->addDailyBonusRecord($student);
+
+                //Login Bonus Record Adding
+                // $this->addLoginBonusRecord($student);
+            }
+
+
+            $this->addedSubscriptionDate($latest_date, $student);
 
             DB::commit();
 
@@ -426,7 +443,54 @@ class SubscriptionController extends Controller
             ], 200);
         } catch (\Throwable $th) {
             DB::rollback();
-            return $th;
+            return $th->getMessage();
         }
     }
+
+
+    private function addDailyBonusRecord($student){
+
+        try {
+
+            DailyBonus::create([
+                'student_id' => $student->id,
+                'fifteen' => null,
+                'thirty' => null,
+                'daily' => null,
+            ]);
+
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+
+    }
+
+    // private function addLoginBonusRecord($student){
+
+    //     $range = [7,15,30,60,90,120,180,365];
+
+    //     try {
+
+    //         foreach ($range as $key => $r) {
+    //             LoginBonus::create([
+    //                 'student_id' => $student->id,
+    //                 'given_days' => $r,
+    //                 'day_count' => 1,
+    //                 'claim' => 0,
+    //             ]);
+    //         }
+
+
+    //     } catch (\Throwable $th) {
+    //         throw $th;
+    //     }
+
+
+    // }
+
+
+
+
 }
