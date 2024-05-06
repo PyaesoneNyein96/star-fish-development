@@ -429,8 +429,6 @@ class SubscriptionController extends Controller
                 //Daily Bonus Record Adding
                 $this->addDailyBonusRecord($student);
 
-                //Login Bonus Record Adding
-                // $this->addLoginBonusRecord($student);
             }
 
 

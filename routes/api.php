@@ -145,11 +145,13 @@ Route::prefix('mission')->middleware('isSubscriber')->group(function () {
     });
 
     Route::prefix('daily')->group(function () {
+        Route::get('check',[MissionController::class,'dailyBonusCheck']);
         Route::get('bonus',[MissionController::class,'dailyBonusList']);
         Route::get('claim',[MissionController::class,'dailyBonusClaim']);
     });
 
     Route::prefix('login')->group(function () {
+        Route::get('check',[MissionController::class,'checkLogin']);
         Route::get('bonus',[MissionController::class,'loginBonusList']);
         Route::get('claim',[MissionController::class,'loginBonusClaim']);
     });

@@ -218,7 +218,7 @@ Field ( header ) = token , assess_game_id , point
 
 ### Repetitive Lessons List
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/mission/repetitive/lesson-list](https://star-fish.myanmargateway.net/api/mission/repetitive/lesson-list) Field (header) = token, page, perPage
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/repetitive/lesson-list](https://star-fish.myanmargateway.net/api/mission/repetitive/lesson-list) Field (header) = token
 
 ### Repetitive bonus claim
 
@@ -229,6 +229,10 @@ Field ( header ) = token , assess_game_id , point
 ### Daily bonus List
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/daily/bonus](https://star-fish.myanmargateway.net/api/mission/daily/bonus) Field (header) = token
+
+### Daily bonus record detect
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/daily/check](https://star-fish.myanmargateway.net/api/mission/daily/check) Field (header) = token
 
 ### Daily Login Bonus Claim
 

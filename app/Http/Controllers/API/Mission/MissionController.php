@@ -13,9 +13,11 @@ use App\Models\StudentGame;
 use Illuminate\Http\Request;
 use App\Models\StudentLesson;
 use App\Models\LoginDailyBonus;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Traits\PointAddingTrait;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 
 class MissionController extends Controller
@@ -28,6 +30,59 @@ class MissionController extends Controller
     //===============================================================//
     // REPETITIVE LESSON -
     //===============================================================//
+
+    public function dailyBonusCheck(Request $request){
+
+        try {
+
+            $userData = Student::where('token',$request->student->id)->first();
+            $dailyRecord = DailyBonus::where('student_id',$userData->id)->first();
+
+
+            $day_count = $dailyRecord->created_at->diffInDays(Carbon::now());
+
+            if(($dailyRecord->updated_at->addDays() <= Carbon::now() ||
+                !$dailyRecord->first|| !$dailyRecord->second || !$dailyRecord->daily ) && $day_count < 7 ){
+
+
+                // daily Update process
+                $dailyRecord->update([
+                    'first' => Carbon::now()->addSeconds(20),
+                    'second' => Carbon::now()->addMinutes(1),
+                    'daily' => Carbon::Now()->addHours(1),
+                    // 'first' => Carbon::now()->addMinutes(15),
+                    // 'second' => Carbon::now()->addMinutes(30),
+                    // 'daily' => Carbon::Now()->addDays(1),
+                    'day_count' => $day_count,
+                    'updated_at' => Carbon::now()
+                ]);
+
+            }else if($day_count > 7){
+
+                $dailyRecord->update([
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                    'day_count' => 0,
+                ]);
+            }
+
+            return response()->json([
+                'message' => 'Daily-bonus record updated successfully.'
+            ], 200);
+
+
+
+
+       } catch (\Throwable $th) {
+        throw $th;
+       }
+
+
+
+    }
+
+
+
 
     // Repetitive Lesson List
     public function repetitiveLessonList(Request $request){
@@ -45,50 +100,75 @@ class MissionController extends Controller
 
         if(!$gradeId || $gradeId->count() == 0) return response()->json(["message" => "You must be a subscriber for this feature."], 200);
 
+        $rawLessons = Lesson::whereIn('grade_id', $gradeId->pluck('id'))->get();
 
-        $perPage = $request->header('perPage') ? $request->header('perPage') : 20;
-        $page = $request->header('page') ? $request->header('page') : 1;
-
-        $rawLessons = Lesson::whereIn('grade_id', $gradeId->pluck('id'))->paginate($perPage,['*'],'page',$page);
-
-        // return $rawLessons;
 
 
         /// ====================== 3 times
 
-        $mappingForThreeTimes = $rawLessons->map(function ($raw) use($repetitiveRecords) {
+        $ThreeTimes = $rawLessons->map(function ($raw) use($repetitiveRecords) {
             $repeat = $repetitiveRecords->where('lesson_id',$raw->id)->first();
             return [
                 'lesson_id' => $raw->id,
-                'name' => "Lesson ". $raw->name,
+                'name' => "Lesson ". $raw->name . ": 3 repetitive practices",
                 'grade' => $raw->grade->name,
                 'allowed' => optional($repeat)->count == 3 || optional($repeat)->count == 4 ,
                 'claimed' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed_3 == 0 && true,
                 'count' => optional($repeat)->count,
+                'point' =>  3,
 
             ];
         });
 
-        /// ====================== 5 times
+        // /// ====================== 5 times
 
-        $mappingForFiveTimes = $rawLessons->map(function ($raw) use($repetitiveRecords){
+        $FiveTimes = $rawLessons->map(function ($raw) use($repetitiveRecords){
             $repeat = $repetitiveRecords->where('lesson_id',$raw->id)->first();
             return [
                 'lesson_id' => $raw->id,
-                'name' => "Lesson ". $raw->name,
+                'name' => "Lesson ". $raw->name . ": 5 repetitive practices",
                 'grade' => $raw->grade->name,
                 'allowed' => optional($repeat)->count == 5,
                 'claimed' => optional($repeat)->count == 5 && optional($repeat)->claimed_5 == 1 && true,
                 'count' => optional($repeat)->count,
+                'point' => 5
             ];
         });
 
+        $collection = array_merge($ThreeTimes->toArray(), $FiveTimes->toArray());
+
+        $perPage = $request->header('perPage') ? $request->header('perPage') : 20;
+        $page = $request->header('page') ? $request->header('page') : 1;
+        $startingPoint = ($page - 1) * $perPage;
+
+
+        $collection = new Collection($collection);
+
+
+        $slicedItems = $collection->slice($startingPoint, $perPage)->all();
+
+        $data =  collect($slicedItems)->values();
+
 
         return response()->json([
-            "repetitive_3" => $mappingForThreeTimes,
-            "repetitive_5" => $mappingForFiveTimes,
-            'page' => $page
+            'data' => $data,
+            'perPage' => $perPage,
+            'page' =>$page
         ], 200);
+
+        // $paginatedData = new LengthAwarePaginator(
+        //     $slicedItems,
+        //     $collection->count(), // Total number of items
+        //     $perPage,
+        //     $page,
+        //     ['path' => url()->current(), 'query' => request()->query()]
+        // );
+
+        // return response()->json([
+        //     'data' => $paginatedData->items(),
+        //     'page' => $paginatedData->currentPage(),
+        //     'perPage' => $perPage
+        // ], 200);
 
     }
 
@@ -249,6 +329,17 @@ class MissionController extends Controller
     // ===============================================================//
     // Login Bonus -
     // ===============================================================//
+
+
+
+    // public function checkLogin(Request $request){
+
+
+
+    // }
+
+
+
 
     // public function loginBonusList(Request $request){
 
