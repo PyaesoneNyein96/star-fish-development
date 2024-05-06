@@ -35,8 +35,7 @@ class MissionController extends Controller
 
         try {
 
-            $userData = Student::where('token',$request->student->id)->first();
-            $dailyRecord = DailyBonus::where('student_id',$userData->id)->first();
+            $dailyRecord = DailyBonus::where('student_id',$request->student->id)->first();
 
 
             $day_count = $dailyRecord->created_at->diffInDays(Carbon::now());
