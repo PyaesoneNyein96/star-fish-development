@@ -13,6 +13,7 @@ class LoginBonus extends Model
         'student_id',
         'day_count',
         'given_days',
+        'given_date',
         'claim',
         'created_at',
         'updated_at'

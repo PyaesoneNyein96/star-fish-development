@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('student_id')->constrained()->onDelete('cascade');
             $table->integer('given_days')->nullable()->default(0);
+            $table->timestamp('given_date')->nullable();
             $table->integer('day_count')->nullable()->default(0);
             $table->integer('claim')->nullable()->default(0);
             $table->timestamps();

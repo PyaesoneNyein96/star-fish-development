@@ -39,11 +39,19 @@ class MissionController extends Controller
         ->where('count','<=',5)
         ->get();
 
-        $gradeId = Student::find($request->student->id)->grades->pluck('id');
+
+        $gradeId = Student::find($request->student->id)->grades;
+
 
         if(!$gradeId || $gradeId->count() == 0) return response()->json(["message" => "You must be a subscriber for this feature."], 200);
 
-        $rawLessons = Lesson::where('grade_id', $gradeId)->get();
+
+        $perPage = $request->perPage ? $request->perPage : 20;
+        $page = $request->page ? $request->page : 1;
+
+        $rawLessons = Lesson::whereIn('grade_id', $gradeId->pluck('id'))->paginate($perPage,['*'],'page',$page);
+
+        // return $rawLessons;
 
 
         /// ====================== 3 times
@@ -53,10 +61,11 @@ class MissionController extends Controller
             return [
                 'lesson_id' => $raw->id,
                 'name' => "Lesson ". $raw->name,
+                'grade' => $raw->grade->name,
                 'allowed' => optional($repeat)->count == 3 || optional($repeat)->count == 4 ,
                 'claimed' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed_3 == 0 && true,
                 'count' => optional($repeat)->count,
-                // 'point' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed_3 == 0 ? 1 : null,
+
             ];
         });
 
@@ -67,10 +76,10 @@ class MissionController extends Controller
             return [
                 'lesson_id' => $raw->id,
                 'name' => "Lesson ". $raw->name,
+                'grade' => $raw->grade->name,
                 'allowed' => optional($repeat)->count == 5,
                 'claimed' => optional($repeat)->count == 5 && optional($repeat)->claimed_5 == 1 && true,
                 'count' => optional($repeat)->count,
-                // 'point' =>  optional($repeat)->count == 5 && optional($repeat)->claimed_5 == 0 ? 3 : null ,
             ];
         });
 
@@ -78,6 +87,7 @@ class MissionController extends Controller
         return response()->json([
             "repetitive_3" => $mappingForThreeTimes,
             "repetitive_5" => $mappingForFiveTimes,
+            'page' => $page
         ], 200);
 
     }
@@ -139,22 +149,21 @@ class MissionController extends Controller
         // ->addMinutes(35)
         ;
 
-
         $result = [
             [
                 'name' => "15 mins",
                 'allowed' => $record->first == 1 || ($record->first != 1 && Carbon::parse($record->first) <= Carbon::now()) ,
-                'claim' => $record->first != 1,
+                'claimed' => $record->first != 1 && ($record->first != 1 && Carbon::parse($record->first) <= Carbon::now()),
             ],
             [
                 'name' => "30 mins",
                  'allowed' => $record->second == 1 || ($record->second != 1 && Carbon::parse($record->second) <= Carbon::now()) ,
-                'claim' => $record->second != 1,
+                'claimed' => $record->second != 1 && ($record->second != 1 && Carbon::parse($record->second) <= Carbon::now()) ,
             ],
             [
                 'name' => "daily",
-                 'allowed' => $record->first == 1 || ($record->first != 1 && Carbon::parse($record->first)->isSameDay(Carbon::now())) ,
-                'claim' => $record->daily != 1,
+                 'allowed' => $record->daily == 1 || ($record->daily != 1 && Carbon::parse($record->daily)->isSameDay(Carbon::now())) ,
+                'claimed' => $record->daily != 1,
             ],
         ];
 
@@ -200,7 +209,7 @@ class MissionController extends Controller
 
             if($daily_claim && $record->daily != 1 && Carbon::parse($record->daily)->isSameDay($now)) {
                 $record->update([
-                    'daily' =>  Carbon::parse($record->daily)->isSameDat($now)  ? 1 : $record->daily
+                    'daily' =>  Carbon::parse($record->daily)->isSameDay($now)  ? 1 : $record->daily
                 ]);
                 $msg = "1 day";
             }
@@ -211,9 +220,18 @@ class MissionController extends Controller
 
             DB::commit();
 
-            return response()->json([
-            'message' => isset($msg) ? "Successfully claimed daily rewards for $msg." : "Already claimed bonus for today."
-            ], 200);
+
+
+
+            if(isset($msg)){
+                return response()->json([
+                'success' =>  "Successfully claimed daily rewards for $msg."
+                ], 200);
+            }else{
+                return response()->json([
+                'errors' => "Already claimed bonus for today"
+                ], 403);
+            }
 
 
 
@@ -232,58 +250,57 @@ class MissionController extends Controller
     // Login Bonus -
     // ===============================================================//
 
-    public function loginBonusList(Request $request){
+    // public function loginBonusList(Request $request){
 
-        $loginRecord = LoginBonus::where('student_id', $request->student->id)->get();
+    //     $loginRecord = LoginBonus::where('student_id', $request->student->id)->first();
 
-        $result = $loginRecord->map(function ($r) {
+    //     $range = [7,15,30,60,90,120,180,365];
 
-            $days = $r->given_days;
-            return [
-                'id' => $r->id,
-                'day_count' => $r->day_count,
-                'allowed' => !$r->claim &&  $r->created_at->addDays($days)->isSameDay(Carbon::now()),
-                'claim' => $r->claim,
-                'created_time' => $r->created_at->addDays($days)->format('Y-m-d H:i:s'),
-                'now' => Carbon::now()->format('Y-m-d H:i:s'),
-            ];
+    //     $result = array_map(function($r) use($loginRecord){
 
-        });
+    //         return [
+    //             'days' => $r,
+    //             'status' => $r == $loginRecord->day_count && Carbon::parse($loginRecord->given_date)->isSameDay($loginRecord->updated_at),
 
-        return $result;
+    //         ];
+
+    //     },$range);
 
 
+    //     return $result;
 
-    }
+
+
+    // }
 
 
     // Login bonus claim
-    public function loginBonusClaim (Request $request){
+    // public function loginBonusClaim (Request $request){
 
-        $days = $request->header('days');
-
-
-        $record = LoginBonus::where('student_id', $request->student->id)
-        ->where('day_count',$days)->first();
-
-        if(!$record) return response()->json(['error' => "Wrong days payload!"],404);
-
-        if($record->claim == 1) return response()->json(['message' => "You already claimed this bonus!"],208);
-
-        if($record->created_at->addDays($days) <= Carbon::now()){
-
-            $record->update([
-                'claim' => 1
-            ]);
-
-        }else{
-            return response()->json([
-             'error' => "Days not match."
-            ], 403);
-        }
+    //     $days = $request->header('days');
 
 
-    }
+    //     $record = LoginBonus::where('student_id', $request->student->id)
+    //     ->where('day_count',$days)->first();
+
+    //     if(!$record) return response()->json(['error' => "Wrong days payload!"],404);
+
+    //     if($record->claim == 1) return response()->json(['message' => "You already claimed this bonus!"],208);
+
+    //     if($record->created_at->addDays($days) <= Carbon::now()){
+
+    //         $record->update([
+    //             'claim' => 1
+    //         ]);
+
+    //     }else{
+    //         return response()->json([
+    //          'error' => "Days not match."
+    //         ], 403);
+    //     }
+
+
+    // }
 
 
 

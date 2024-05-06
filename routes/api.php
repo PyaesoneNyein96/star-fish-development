@@ -135,7 +135,7 @@ Route::prefix('assessment')->group(function () {
 
 ///////////////// Mission //////////////////////
 
-Route::prefix('mission')->middleware('GameAuth')->group(function () {
+Route::prefix('mission')->middleware('isSubscriber')->group(function () {
 
     Route::prefix('repetitive')->group(function () {
         // Route::get('/game-list',[MissionController::class,'repetitiveGameList']);
