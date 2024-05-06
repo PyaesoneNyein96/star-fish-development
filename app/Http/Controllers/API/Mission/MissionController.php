@@ -232,17 +232,17 @@ class MissionController extends Controller
             [
                 'name' => "15 mins",
                 'allowed' => $record->first == 1 || ($record->first != 1 && Carbon::parse($record->first) <= Carbon::now()) ,
-                'claimed' => $record->first != 1 && ($record->first != 1 && Carbon::parse($record->first) <= Carbon::now()),
+                'claimed' => $record->first == 1 ,
             ],
             [
                 'name' => "30 mins",
                  'allowed' => $record->second == 1 || ($record->second != 1 && Carbon::parse($record->second) <= Carbon::now()) ,
-                'claimed' => $record->second != 1 && ($record->second != 1 && Carbon::parse($record->second) <= Carbon::now()) ,
+                'claimed' => $record->second == 1 ,
             ],
             [
                 'name' => "daily",
                  'allowed' => $record->daily == 1 || ($record->daily != 1 && Carbon::parse($record->daily)->isSameDay(Carbon::now())) ,
-                'claimed' => $record->daily != 1,
+                'claimed' => $record->daily == 1,
             ],
         ];
 
