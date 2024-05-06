@@ -163,8 +163,6 @@ class AuthController extends Controller
             // - For Daily Record . . .
             $this->dailyLoginProcess($userData);
 
-            // - For Login Record . . .
-            // $this->loginBonusProcess($userData);
 
 
 
@@ -301,9 +299,12 @@ class AuthController extends Controller
 
                 // daily Update process
                 $dailyRecord->update([
-                    'first' => Carbon::now()->addMinutes(15),
-                    'second' => Carbon::now()->addMinutes(30),
-                    'daily' => Carbon::Now()->addDays(1),
+                    'first' => Carbon::now()->addSeconds(20),
+                    'second' => Carbon::now()->addMinutes(1),
+                    'daily' => Carbon::Now()->addHours(1),
+                    // 'first' => Carbon::now()->addMinutes(15),
+                    // 'second' => Carbon::now()->addMinutes(30),
+                    // 'daily' => Carbon::Now()->addDays(1),
                     'day_count' => $day_count,
                     'updated_at' => Carbon::now()
                 ]);
@@ -336,16 +337,31 @@ class AuthController extends Controller
 
     //     try {
 
-    //         $dailyRecords = LoginBonus::where('student_id',$userData->id)->get();
+    //         $dailyRecord = LoginBonus::where('student_id',$userData->id)->first();
 
+    //         $updateProcess =  $dailyRecord->update([
+    //             'updated_at' => Carbon::now()
+    //         ]);
 
-    //         if($userData->isSubscriber == 1){
-    //             foreach ($dailyRecords as $key => $record) {
-    //                 $record->update([
-    //                     'updated_at' => Carbon::now(),
+    //         if ($updateProcess){
+
+    //             $range = [7,15,30,60,90,120,180,365];
+
+    //             $updateRecords = LoginBonus::where('student_id',$userData->id)->first();
+    //             $days= $updateRecords->created_at->diff($updateRecords->updated_at)->days;
+    //             if($days >= 1){
+    //                 $updateRecords->update([
+    //                     'day_count' => $days
     //                 ]);
     //             }
+    //             if(in_array($days,$range)){
+    //                 return true;
+    //             }
+
+
     //         }
+
+
 
 
 
