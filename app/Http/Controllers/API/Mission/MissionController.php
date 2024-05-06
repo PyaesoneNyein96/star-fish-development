@@ -46,8 +46,8 @@ class MissionController extends Controller
         if(!$gradeId || $gradeId->count() == 0) return response()->json(["message" => "You must be a subscriber for this feature."], 200);
 
 
-        $perPage = $request->perPage ? $request->perPage : 20;
-        $page = $request->page ? $request->page : 1;
+        $perPage = $request->header('perPage') ? $request->header('perPage') : 20;
+        $page = $request->header('page') ? $request->header('page') : 1;
 
         $rawLessons = Lesson::whereIn('grade_id', $gradeId->pluck('id'))->paginate($perPage,['*'],'page',$page);
 
