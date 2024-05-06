@@ -61,8 +61,8 @@ class GlobalAuthController extends Controller
 
             Student::where('email', $student->email)->update([
                 'token' => $token,
-                'created_at' => Carbon::now(strval($timezone)),
-                'updated_at' => Carbon::now(strval($timezone)),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
 
             DB::commit();
@@ -133,8 +133,8 @@ class GlobalAuthController extends Controller
             $student->update([
                 'isAuth' => 1,
                 'status' => 1,
-                'created_at' => Carbon::now(strval($timezone)),
-                'update_at' => Carbon::now(strval($timezone)),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
 
             return response()->json([

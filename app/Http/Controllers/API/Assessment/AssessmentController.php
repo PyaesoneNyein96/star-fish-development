@@ -49,7 +49,10 @@ class AssessmentController extends Controller
 
         if (in_array($lessonId, $assesLessArray) && !$isfinishassess) {
 
-            $data = Assessment::where("grade_id", $gradeId)->where("name", $lessonId / 8)->get();
+            $data = Assessment::select("assessments.*", "assessment_categories.name as assess_category_name")
+                ->rightJoin('assessment_categories', 'assessments.assess_category_id', 'assessment_categories.id')
+                ->where("assessments.grade_id", $gradeId)
+                ->where("assessments.name", $lessonId / 8)->get();
 
             if (!$data->toArray()) return response()->json(['message' => 'Assessment not found.'], 404);
             return response()->json(["assessment" => $data]);
