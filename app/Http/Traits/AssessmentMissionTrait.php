@@ -46,13 +46,56 @@ trait AssessmentMissionTrait
                         $claimed = floor($percentage / 10) * 10;
                     } else $claimed = 0;
 
+                    switch ($data->grade_id) {
+                        case 1:
+                            $gradename = 'one';
+                            break;
+                        case 2:
+                            $gradename = 'two';
+                            break;
+                        case 3:
+                            $gradename = 'three';
+                            break;
+                        case 4:
+                            $gradename = 'four';
+                            break;
+                        case 5:
+                            $gradename = 'five';
+                            break;
+                        case 6:
+                            $gradename = 'six';
+                            break;
+                        case 6:
+                            $gradename = 'seven';
+                            break;
+                        case 5:
+                            $gradename = 'eight';
+                            break;
+                        case 5:
+                            $gradename = 'nine';
+                            break;
+                        case 5:
+                            $gradename = 'ten';
+                            break;
+                        case 5:
+                            $gradename = 'eleven';
+                            break;
+                        case 5:
+                            $gradename = 'twelve';
+                            break;
+                        default:
+                            $gradename = 'unknown';
+                    }
+
+
                     $input = [
                         "name" => $data->name,
                         "grade_id" => $data->grade_id,
+                        "grade" => $gradename,
                         "percentage" => $i . "%",
                         "point" => $i / 10,
-                        "allowed" => (int)$allowed === (int)$i ? 1 : 0,
-                        "claimed" => (int)$claimed === (int)$i ? 1 : 0,
+                        "allowed" => (int)$allowed === (int)$i ? true : false,
+                        "claimed" => (int)$claimed === (int)$i ? true : false,
                     ];
                     array_push($assess, $input);
                 }
@@ -117,6 +160,6 @@ trait AssessmentMissionTrait
             return response()->json(['message' => "claimed"]);
         }
 
-        return response()->json(['message' => "already claimed"]);
+        return response()->json(['message' => "nothing to claim"]);
     }
 }

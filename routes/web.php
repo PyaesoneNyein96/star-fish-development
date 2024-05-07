@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\API\Assessment\AssessmentController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
@@ -70,7 +70,8 @@ Route::prefix('/dashboard')->middleware(['auth:sanctum', 'verified',])->group(fu
 
 
 
-
+// Certificate
+Route::get('/certificate', [AssessmentController::class, 'makeCertificate']);
 
 
 
@@ -81,6 +82,8 @@ Route::prefix('payment')->group(function () {
     Route::get('/kpay/referer', [SubscriptionController::class, 'referer']);
     Route::get('/kpay/result', [SubscriptionController::class, 'return_url']);
 });
+
+
 
 
 

@@ -14,6 +14,7 @@ use App\Models\AssessmentCategory;
 use App\Http\Controllers\Controller;
 use App\Models\AssessmentEachRecordFinishData;
 use App\Models\AssessmentFinishData;
+use Illuminate\Support\Facades\Http;
 
 class AssessmentController extends Controller
 {
@@ -231,10 +232,13 @@ class AssessmentController extends Controller
                         foreach ($total_point as $tp) $sum_point += (int)$tp->point;
 
                         $Stu = Student::find($studentId);
+                        $domain = app('domain');
+                        Http::get($domain . "");
                         $certi = [
                             "student_id" => $Stu->id,
                             "grade_id" => $assessment->grade_id,
                             "total_percentage" => $sum_point,
+                            "pdf_path" => ""
                         ];
                         $certificate = Certificate::create($certi);
 

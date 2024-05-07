@@ -13,7 +13,8 @@ class Certificate extends Model
     protected $fillable = [
         'student_id',
         'grade_id',
-        'total_percentage'
+        'total_percentage',
+        "pdf_path"
     ];
 
     protected $hidden = ['created_at', 'updated_at'];
