@@ -129,6 +129,7 @@ Route::prefix('payment')->group(function () {
 Route::prefix('assessment')->group(function () {
     Route::get('/', [AssessmentController::class, 'getAllAssess']);
     Route::get('game', [AssessmentController::class, 'enterGame']);
+    Route::get('each/game', [AssessmentController::class, 'recordEachGame']);
     Route::get('end_match', [AssessmentController::class, 'endGame']);
 });
 
@@ -140,21 +141,24 @@ Route::prefix('mission')->middleware('GameAuth')->group(function () {
     Route::prefix('repetitive')->group(function () {
         // Route::get('/game-list',[MissionController::class,'repetitiveGameList']);
 
-        Route::get('/lesson-list',[MissionController::class,'repetitiveLessonList']);
-        Route::get('/claim_lesson',[MissionController::class,'repetitiveClaimLesson']);
+        Route::get('/lesson-list', [MissionController::class, 'repetitiveLessonList']);
+        Route::get('/claim_lesson', [MissionController::class, 'repetitiveClaimLesson']);
+    });
+
+    Route::prefix('assessment')->group(function () {
+        Route::get("/assess-list", [MissionController::class, 'assessmentList']);
+        Route::get("/claim_lesson", [MissionController::class, 'assessmentClaim']);
     });
 
     Route::prefix('daily')->group(function () {
-        Route::get('bonus',[MissionController::class,'dailyBonusList']);
-        Route::get('claim',[MissionController::class,'dailyBonusClaim']);
+        Route::get('bonus', [MissionController::class, 'dailyBonusList']);
+        Route::get('claim', [MissionController::class, 'dailyBonusClaim']);
     });
 
     Route::prefix('login')->group(function () {
-        Route::get('bonus',[MissionController::class,'loginBonusList']);
-        Route::get('claim',[MissionController::class,'loginBonusClaim']);
+        Route::get('bonus', [MissionController::class, 'loginBonusList']);
+        Route::get('claim', [MissionController::class, 'loginBonusClaim']);
     });
-
-
 });
 
 

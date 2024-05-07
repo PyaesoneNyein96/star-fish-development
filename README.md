@@ -130,22 +130,22 @@ Field = student_id , point
 
 ### Display All Reward
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/reward/all](https://star-fish.myanmargateway.net/api/reward/all).
+(Method: GET) [https://star-fish.myanmargateway.net/api/reward/all](https://star-fish.myanmargateway.net/api/reward/all).  
 Field ( header ) = token
 
 ### Display Each Reward
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/reward/each](https://star-fish.myanmargateway.net/api/reward/each).
+(Method: GET) [https://star-fish.myanmargateway.net/api/reward/each](https://star-fish.myanmargateway.net/api/reward/each).  
 Field ( header ) = token , name
 
 ### Display all Profiles
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/reward/profiles](https://star-fish.myanmargateway.net/api/reward/profiles).
+(Method: GET) [https://star-fish.myanmargateway.net/api/reward/profiles](https://star-fish.myanmargateway.net/api/reward/profiles).  
 Field ( header ) = token
 
 ### Display Student Rewards (or) Profiles
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/reward](https://star-fish.myanmargateway.net/api/reward).
+(Method: GET) [https://star-fish.myanmargateway.net/api/reward](https://star-fish.myanmargateway.net/api/reward).  
 Field ( header ) = token , type (eg. "profile" or "achieve")
 
 ### Buy Reward
@@ -166,17 +166,17 @@ Field ( body ) = token , reward_id
 
 ### Display all Chating Messages
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/chat](https://star-fish.myanmargateway.net/api/chat)
+(Method: GET) [https://star-fish.myanmargateway.net/api/chat](https://star-fish.myanmargateway.net/api/chat)  
 Field ( header ) = token
 
 ### Chatting
 
-(Method: POST) [https://star-fish.myanmargateway.net/api/chat](https://star-fish.myanmargateway.net/api/chat)
+(Method: POST) [https://star-fish.myanmargateway.net/api/chat](https://star-fish.myanmargateway.net/api/chat)  
 Field ( body ) = student_id , message
 
 ### Set NickName
 
-(Method: POST) [https://star-fish.myanmargateway.net/api/chat/nick](https://star-fish.myanmargateway.net/api/chat/nick)
+(Method: POST) [https://star-fish.myanmargateway.net/api/chat/nick](https://star-fish.myanmargateway.net/api/chat/nick)  
 Field ( body ) = student_id , nick_name
 
 ### ====================================================
@@ -185,18 +185,23 @@ Field ( body ) = student_id , nick_name
 
 ### Get All Assessments
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/assessment](https://star-fish.myanmargateway.net/api/assessment)
+(Method: GET) [https://star-fish.myanmargateway.net/api/assessment](https://star-fish.myanmargateway.net/api/assessment)  
 Field ( header ) = token
 
 ### Enter into Game
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/assessment/game](https://star-fish.myanmargateway.net/api/assessment/game)
+(Method: GET) [https://star-fish.myanmargateway.net/api/assessment/game](https://star-fish.myanmargateway.net/api/assessment/game)  
 Field ( header ) = assess_game_id
+
+### Record Each Game
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/assessment/each/game](https://star-fish.myanmargateway.net/api/assessment/each/game)  
+Field ( header ) = token , assess_game_id
 
 ### End Match
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/assessment/end_match](https://star-fish.myanmargateway.net/api/assessment/end_match)
-Field ( header ) = token , assess_game_id , point
+(Method: GET) [https://star-fish.myanmargateway.net/api/assessment/end_match](https://star-fish.myanmargateway.net/api/assessment/end_match)  
+Field ( header ) = token , point
 
 ### Version Check
 
@@ -212,9 +217,9 @@ Field ( header ) = token , assess_game_id , point
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/banners](https://star-fish.myanmargateway.net/api/banners)
 
- #  MISSIONS
+# MISSIONS
 
-* ### Repetitive Mission
+-   ### Repetitive Mission
 
 ### Repetitive Lessons List
 
@@ -224,7 +229,7 @@ Field ( header ) = token , assess_game_id , point
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/repetitive/claim_lesson](https://star-fish.myanmargateway.net/api/mission/repetitive/claim_lesson) Field (header) = token, lesson_id, count
 
-+ ### Daily Bonus
+-   ### Daily Bonus
 
 ### Daily bonus List
 
@@ -233,7 +238,6 @@ Field ( header ) = token , assess_game_id , point
 ### Daily Login Bonus Claim
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/daily/claim](https://star-fish.myanmargateway.net/api/mission/daily/claim) Field (header) = token, (first or second or daily)
-
 
 <!-- + ### Login Bonus
 
@@ -244,3 +248,13 @@ Field ( header ) = token , assess_game_id , point
 ### Login Bonus Claim
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/login/claim](https://star-fish.myanmargateway.net/api/mission/login/claim) Field (header) = token, (days) -->
+
+### Assessment List
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/assessment/assess-list](https://star-fish.myanmargateway.net/api/mission/assessment/assess-list)  
+Field (header) = token
+
+### Assessment List Claim
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/assessment/claim_lesson](https://star-fish.myanmargateway.net/api/mission/assessment/claim_lesson)  
+Field (header) = token , name , grade_id , point
