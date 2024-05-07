@@ -159,15 +159,6 @@ class AuthController extends Controller
         DB::beginTransaction();
         try {
 
-
-            // - For Daily Record . . .
-            $this->dailyLoginProcess($userData);
-
-            // - For Login Record . . .
-            // $this->loginBonusProcess($userData);
-
-
-
             if(!$userData) return response()->json(["status" => "User Not found !!!"], 404);
 
             DB::commit();
@@ -280,55 +271,6 @@ class AuthController extends Controller
 
 
     ///////////////////////////////////////////////////////////
-    //////////// Daily Bonus Process
-    ///////////////////////////////////////////////////////////
-
-    private function dailyLoginProcess($userData){
-
-       try {
-
-        $dailyRecord = DailyBonus::where('student_id',$userData->id)->first();
-
-        if($userData->isSubscriber == 1){
-
-
-
-            $day_count = $dailyRecord->created_at->diffInDays(Carbon::now());
-
-            if(($dailyRecord->updated_at->addDays() <= Carbon::now() ||
-                !$dailyRecord->first|| !$dailyRecord->second || !$dailyRecord->daily ) && $day_count < 7 ){
-
-
-                // daily Update process
-                $dailyRecord->update([
-                    'first' => Carbon::now()->addMinutes(15),
-                    'second' => Carbon::now()->addMinutes(30),
-                    'daily' => Carbon::Now()->addDays(1),
-                    'day_count' => $day_count,
-                    'updated_at' => Carbon::now()
-                ]);
-
-            }else if($day_count > 7){
-
-                $dailyRecord->update([
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now(),
-                    'day_count' => 0,
-                ]);
-            }
-
-        }
-
-
-       } catch (\Throwable $th) {
-        throw $th;
-       }
-
-
-    }
-
-
-    ///////////////////////////////////////////////////////////
     //////////// Login Bonus Process
     ///////////////////////////////////////////////////////////
 
@@ -336,16 +278,31 @@ class AuthController extends Controller
 
     //     try {
 
-    //         $dailyRecords = LoginBonus::where('student_id',$userData->id)->get();
+    //         $dailyRecord = LoginBonus::where('student_id',$userData->id)->first();
 
+    //         $updateProcess =  $dailyRecord->update([
+    //             'updated_at' => Carbon::now()
+    //         ]);
 
-    //         if($userData->isSubscriber == 1){
-    //             foreach ($dailyRecords as $key => $record) {
-    //                 $record->update([
-    //                     'updated_at' => Carbon::now(),
+    //         if ($updateProcess){
+
+    //             $range = [7,15,30,60,90,120,180,365];
+
+    //             $updateRecords = LoginBonus::where('student_id',$userData->id)->first();
+    //             $days= $updateRecords->created_at->diff($updateRecords->updated_at)->days;
+    //             if($days >= 1){
+    //                 $updateRecords->update([
+    //                     'day_count' => $days
     //                 ]);
     //             }
+    //             if(in_array($days,$range)){
+    //                 return true;
+    //             }
+
+
     //         }
+
+
 
 
 

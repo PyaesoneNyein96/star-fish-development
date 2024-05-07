@@ -235,6 +235,10 @@ Field ( header ) = token , point
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/daily/bonus](https://star-fish.myanmargateway.net/api/mission/daily/bonus) Field (header) = token
 
+### Daily bonus record detect
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/daily/check](https://star-fish.myanmargateway.net/api/mission/daily/check) Field (header) = token
+
 ### Daily Login Bonus Claim
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/daily/claim](https://star-fish.myanmargateway.net/api/mission/daily/claim) Field (header) = token, (first or second or daily)

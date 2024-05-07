@@ -429,8 +429,6 @@ class SubscriptionController extends Controller
                 //Daily Bonus Record Adding
                 $this->addDailyBonusRecord($student);
 
-                //Login Bonus Record Adding
-                // $this->addLoginBonusRecord($student);
             }
 
 
@@ -475,10 +473,13 @@ class SubscriptionController extends Controller
 
     //         foreach ($range as $key => $r) {
     //             LoginBonus::create([
+
     //                 'student_id' => $student->id,
     //                 'given_days' => $r,
+    //                 'given_date' => Carbon::now()->addDays($r),
     //                 'day_count' => 1,
     //                 'claim' => 0,
+
     //             ]);
     //         }
 
