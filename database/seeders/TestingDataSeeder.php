@@ -16,28 +16,28 @@ class TestingDataSeeder extends Seeder
     public function run(): void
     {
 
-        $userId = [1,9];
+        $userId = [1, 9];
 
         ///////////////// testing ////////////////
         $done = [
-            ['count' => 1, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            ['count' => 2, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            ['count' => 3, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            ['count' => 3, 'claimed_3'=> 1, 'claimed_5'=> 0 ],
-            ['count' => 4, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            ['count' => 4, 'claimed_3'=> 1, 'claimed_5'=> 0 ],
-            ['count' => 5, 'claimed_3'=> 0, 'claimed_5'=> 0 ],
-            ['count' => 5, 'claimed_3'=> 1, 'claimed_5'=> 0 ],
-            ['count' => 5, 'claimed_3'=> 0, 'claimed_5'=> 1 ],
-            ['count' => 5, 'claimed_3'=> 1, 'claimed_5'=> 1 ],
+            ['count' => 1, 'claimed_3' => 0, 'claimed_5' => 0],
+            ['count' => 2, 'claimed_3' => 0, 'claimed_5' => 0],
+            ['count' => 3, 'claimed_3' => 0, 'claimed_5' => 0],
+            ['count' => 3, 'claimed_3' => 1, 'claimed_5' => 0],
+            ['count' => 4, 'claimed_3' => 0, 'claimed_5' => 0],
+            ['count' => 4, 'claimed_3' => 1, 'claimed_5' => 0],
+            ['count' => 5, 'claimed_3' => 0, 'claimed_5' => 0],
+            ['count' => 5, 'claimed_3' => 1, 'claimed_5' => 0],
+            ['count' => 5, 'claimed_3' => 0, 'claimed_5' => 1],
+            ['count' => 5, 'claimed_3' => 1, 'claimed_5' => 1],
 
         ];
 
-        $lessons =  range(1,10);
+        $lessons =  range(1, 10);
 
         foreach ($userId as $key => $user) {
             foreach ($lessons as $k => $l) {
-            DB::table('student_lessons')->insert([
+                DB::table('student_lessons')->insert([
                     [
                         'student_id' => $user,
                         'grade_id' => 1,
@@ -51,7 +51,7 @@ class TestingDataSeeder extends Seeder
             }
         }
 
-        foreach (range(1,8) as $k => $l) {
+        foreach (range(1, 8) as $k => $l) {
             DB::table('student_lessons')->insert([
                 'student_id' => 3,
                 'grade_id' => 1,
@@ -118,23 +118,101 @@ class TestingDataSeeder extends Seeder
 
 
         // Assessment Finished Data
-            DB::table('assessment_finish_data')->insert([
-                [
-                    'student_id' => 1,
-                    'grade_id' => 1,
-                    'assess_name' => 1,
-                    'point' => 1,
-                    'finish' => 1,
-                ]
-            ]);
+        DB::table('assessment_finish_data')->insert([
+            [
+                'student_id' => 1,
+                'grade_id' => 1,
+                'assess_name' => 1,
+                'point' => 30,
+                'finish' => 1,
+            ]
+        ]);
+        DB::table('assessment_finish_data')->insert([
+            [
+                'student_id' => 1,
+                'grade_id' => 1,
+                'assess_name' => 2,
+                'point' => 40,
+                'finish' => 1,
+            ]
+        ]);
+        DB::table('assessment_finish_data')->insert([
+            [
+                'student_id' => 1,
+                'grade_id' => 50,
+                'assess_name' => 3,
+                'point' => 1,
+                'finish' => 1,
+            ]
+        ]);
+        DB::table('assessment_finish_data')->insert([
+            [
+                'student_id' => 1,
+                'grade_id' => 1,
+                'assess_name' => 4,
+                'point' => 35,
+                'finish' => 1,
+            ]
+        ]);
+        DB::table('assessment_finish_data')->insert([
+            [
+                'student_id' => 1,
+                'grade_id' => 1,
+                'assess_name' => 5,
+                'point' => 40,
+                'finish' => 1,
+            ]
+        ]);
 
 
-
-
-
-
-
-
-
+        // assessmen5t each record
+        // DB::table('assessment_each_record_finish_data')->insert([
+        //     [
+        //         'student_id' => 1,
+        //         'assess_id' => 28,
+        //         'assess_name' => 5,
+        //         'grade_id' => 1,
+        //     ]
+        // ]);
+        // DB::table('assessment_each_record_finish_data')->insert([
+        //     [
+        //         'student_id' => 1,
+        //         'assess_id' => 29,
+        //         'assess_name' => 5,
+        //         'grade_id' => 1,
+        //     ]
+        // ]);
+        // DB::table('assessment_each_record_finish_data')->insert([
+        //     [
+        //         'student_id' => 1,
+        //         'assess_id' => 30,
+        //         'assess_name' => 5,
+        //         'grade_id' => 1,
+        //     ]
+        // ]);
+        // DB::table('assessment_each_record_finish_data')->insert([
+        //     [
+        //         'student_id' => 1,
+        //         'assess_id' => 31,
+        //         'assess_name' => 5,
+        //         'grade_id' => 1,
+        //     ]
+        // ]);
+        // DB::table('assessment_each_record_finish_data')->insert([
+        //     [
+        //         'student_id' => 1,
+        //         'assess_id' => 32,
+        //         'assess_name' => 5,
+        //         'grade_id' => 1,
+        //     ]
+        // ]);
+        // DB::table('assessment_each_record_finish_data')->insert([
+        //     [
+        //         'student_id' => 1,
+        //         'assess_id' => 33,
+        //         'assess_name' => 5,
+        //         'grade_id' => 1,
+        //     ]
+        // ]);
     }
 }

@@ -35,7 +35,7 @@ class StudentSeeder extends Seeder
                 'status' => 1,
                 'grade_chosen' => null,
                 'token' => "1|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
-                'isSubscriber' => 0
+                'isSubscriber' => 1
             ],
             [
                 'name' => 'Ko Nyein Maung',

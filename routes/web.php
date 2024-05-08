@@ -71,7 +71,8 @@ Route::prefix('/dashboard')->middleware(['auth:sanctum', 'verified',])->group(fu
 
 
 // Certificate
-Route::get('/certificate', [AssessmentController::class, 'makeCertificate']);
+Route::get('/certificate', [AssessmentController::class, 'makeCertificate'])->name('certificate');
+Route::get('/testing', [AssessmentController::class, 'maketest'])->name('testing');
 
 
 

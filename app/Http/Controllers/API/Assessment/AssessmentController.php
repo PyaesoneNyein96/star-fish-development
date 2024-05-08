@@ -15,6 +15,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AssessmentEachRecordFinishData;
 use App\Models\AssessmentFinishData;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Redirect;
 
 class AssessmentController extends Controller
 {
@@ -232,14 +233,18 @@ class AssessmentController extends Controller
                         foreach ($total_point as $tp) $sum_point += (int)$tp->point;
 
                         $Stu = Student::find($studentId);
-                        $domain = app('domain');
-                        Http::get($domain . "");
+
                         $certi = [
                             "student_id" => $Stu->id,
                             "grade_id" => $assessment->grade_id,
                             "total_percentage" => $sum_point,
-                            "pdf_path" => ""
                         ];
+                        // return $certi;
+
+                        // $response = Redirect::route("certificate")->withHeaders($certi);
+                        // return $response;
+
+                        // $certi["pdf_path"] = '';
                         $certificate = Certificate::create($certi);
 
                         $certificate["name"] = $Stu->name;
@@ -294,7 +299,7 @@ class AssessmentController extends Controller
         $toValidate = AssessmentEachRecordFinishData::where("student_id", $studentId)->first();
 
         if ($isExistData || $completedData) return response()->json(['message' => 'completed assessment.'], 403);
-        if ($toValidate && ($toValidate->grade_id !== $assess->grade_id || $toValidate->assess_name !== $assess->name)) return response()->json(['message' => "didn't submit assessment."], 403);
+        if ($toValidate && ($toValidate->grade_id !== $assess->grade_id || $toValidate->assess_name != $assess->name)) return response()->json(['message' => "didn't submit assessment."], 403);
 
         $AddData = [
             "student_id" => $studentId,
@@ -305,5 +310,12 @@ class AssessmentController extends Controller
 
         AssessmentEachRecordFinishData::create($AddData);
         return response()->json(["message" => "assessment data added"]);
+    }
+
+    // make new certificate
+    public function makeCertificate(Request $request)
+    {
+        return $request->header();
+        return view('certificate', compact("redirectUrl", "params"));
     }
 }
