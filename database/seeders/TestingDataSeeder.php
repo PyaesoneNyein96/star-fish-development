@@ -228,7 +228,7 @@ class TestingDataSeeder extends Seeder
         foreach ($loginRange as $k => $l) {
             DB::table('login_bonuses')->insert([
                 'days' => $l,
-                'point' => 3,
+                'point' => 3 + $k,
             ]);
         }
 

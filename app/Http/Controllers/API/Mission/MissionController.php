@@ -331,16 +331,19 @@ class MissionController extends Controller
 
     public function checkLogin(Request $request){
 
-        $record = $request->student->loginBonus->first();
+        // $record = $request->student->loginBonus->first();
+        $record = StudentLoginBonus::where('student_id', $request->student->id)->latest('created_at')->first();
+
         $d_Date = Carbon::parse($record->date);
         // $d_Date = $d_Date->addDays(3);
 
         $now = Carbon::now()
-        ->addDays(14)
+        // ->addDays(14)
         ;
+
         try {
 
-            if($d_Date->addDays(1)->isSameDay($now) ){
+            if($d_Date->addDays(1)->isSameDay($now) && $record->claim == 1){
                 $record->update([
                     'updated_at' => $now,
                     'date' => $now,
@@ -374,25 +377,22 @@ class MissionController extends Controller
 
         $loginBonus = LoginBonus::all();
 
-        $student_bonus = $request->student->loginBonus->first();
-
-        // $date = Carbon::parse($student_bonus->date);
-        // $date = $student_bonus->updated_at->addDays();
+        $student_bonus = $request->student->loginBonus;
 
         // return [
         //     $date->format('d -h-i'),
         //     Carbon::now()->format('d -h:i')
         // ];
 
-        $result = $loginBonus->map(function($bl) use($student_bonus) {
+        $result = $loginBonus->map(function($bl,$index) use($student_bonus) {
+
+            $now = Carbon::now()->addDays(1);
 
             return [
                 'day' => $bl->days,
                 'point' => $bl->point,
-                'allowed' => $bl->days == $student_bonus->day_count,
-                'claimed' => $bl->days == $student_bonus->day_count && $student_bonus->claim && true
-
-
+                'allowed' => $record_convert_date,
+                // 'claimed' => $sameDayOrBigger && $student_bonus[$index]->claim && true
             ];
 
         });
