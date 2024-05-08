@@ -171,6 +171,7 @@ trait AssessmentMissionTrait
     }
 
 
+    // sorting func
     private function sort($arr)
     {
         if (count($arr) <= 1) return $arr;
@@ -184,20 +185,6 @@ trait AssessmentMissionTrait
     {
         $result = [];
         while (!empty($left) && !empty($right)) {
-            // if ($left[0]["claimed"] === true && $left[0]["allowed"] === false) {
-            //     array_push($result, array_shift($left));
-            // } elseif ($left[0]["claimed"] === false && $left[0]["allowed"] === true) {
-            //     array_push($result, array_shift($left));
-            // } elseif ($right[0]["claimed"] === true && $left[0]["allowed"] === false) {
-            //     array_push($result, array_shift($right));
-            // } elseif ($right[0]["claimed"] === false && $left[0]["allowed"] === true) {
-            //     array_push($result, array_shift($right));
-            // } elseif ($left[0]["claimed"] <= $right[0]["claimed"]) {
-            //     array_push($result, array_shift($left));
-            // } else {
-            //     array_push($result, array_shift($right));
-            // }
-
             if ($left[0]['claimed'] === true) {
                 array_push($result, array_shift($left));
             } elseif ($right[0]['claimed'] === true) {

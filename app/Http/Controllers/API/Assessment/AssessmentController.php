@@ -102,6 +102,52 @@ class AssessmentController extends Controller
         return $data;
     }
 
+    // record each game
+    public function recordEachGame(Request $request)
+    {
+        $token =  $request->header('token');
+        $assessGameId = $request->header('assess_game_id');
+
+        if (!$token || !$assessGameId) return response()->json(['message' => 'Token or Point or Assessment id is required.'], 403);
+
+        $studentId = Student::where("token", $token)->first();
+        if (!$studentId) return response()->json(['message' => 'Stduent Not Found.'], 404);
+
+        $assess = Assessment::where(
+            'id',
+            $assessGameId
+        )->first();
+        if (!$assess) return response()->json(['message' => 'Assessment Not Found.'], 404);
+
+        $studentId = $studentId->id;
+        $isExistData = AssessmentEachRecordFinishData::where("student_id", $studentId)
+            ->where("assess_id", $assessGameId)
+            ->where("assess_name", $assess->name)
+            ->where("grade_id", $assess->grade_id)
+            ->first();
+
+        $completedData = AssessmentFinishData::where("student_id", $studentId)
+            ->where("assess_name", $assess->name)
+            ->where("grade_id", $assess->grade_id)
+            ->where("finish", 1)
+            ->first();
+
+        $toValidate = AssessmentEachRecordFinishData::where("student_id", $studentId)->first();
+
+        if ($isExistData || $completedData) return response()->json(['message' => 'completed assessment.'], 403);
+        if ($toValidate && ($toValidate->grade_id !== $assess->grade_id || $toValidate->assess_name != $assess->name)) return response()->json(['message' => "didn't submit assessment."], 403);
+
+        $AddData = [
+            "student_id" => $studentId,
+            "assess_id" => $assessGameId,
+            "assess_name" => $assess->name,
+            "grade_id" => $assess->grade_id
+        ];
+
+        AssessmentEachRecordFinishData::create($AddData);
+        return response()->json(["message" => "assessment data added"]);
+    }
+
     // finish game
     public function endGame(Request $request)
     {
@@ -283,54 +329,12 @@ class AssessmentController extends Controller
         return response()->json(['message' => "please finish lessons"], 403);
     }
 
-    // record each game
-    public function recordEachGame(Request $request)
-    {
-        $token =  $request->header('token');
-        $assessGameId = $request->header('assess_game_id');
-
-        if (!$token || !$assessGameId) return response()->json(['message' => 'Token or Point or Assessment id is required.'], 403);
-
-        $studentId = Student::where("token", $token)->first();
-        if (!$studentId) return response()->json(['message' => 'Stduent Not Found.'], 404);
-
-        $assess = Assessment::where('id', $assessGameId)->first();
-        if (!$assess) return response()->json(['message' => 'Assessment Not Found.'], 404);
-
-        $studentId = $studentId->id;
-        $isExistData = AssessmentEachRecordFinishData::where("student_id", $studentId)
-            ->where("assess_id", $assessGameId)
-            ->where("assess_name", $assess->name)
-            ->where("grade_id", $assess->grade_id)
-            ->first();
-
-        $completedData = AssessmentFinishData::where("student_id", $studentId)
-            ->where("assess_name", $assess->name)
-            ->where("grade_id", $assess->grade_id)
-            ->where("finish", 1)
-            ->first();
-
-        $toValidate = AssessmentEachRecordFinishData::where("student_id", $studentId)->first();
-
-        if ($isExistData || $completedData) return response()->json(['message' => 'completed assessment.'], 403);
-        if ($toValidate && ($toValidate->grade_id !== $assess->grade_id || $toValidate->assess_name != $assess->name)) return response()->json(['message' => "didn't submit assessment."], 403);
-
-        $AddData = [
-            "student_id" => $studentId,
-            "assess_id" => $assessGameId,
-            "assess_name" => $assess->name,
-            "grade_id" => $assess->grade_id
-        ];
-
-        AssessmentEachRecordFinishData::create($AddData);
-        return response()->json(["message" => "assessment data added"]);
-    }
 
     // make new certificate
-    public function makeCertificate(Request $request, $id, $percentage)
+    public function makeCertificate(Request $request, $id, $percentage, $stu)
     {
-        $token = $request->header("token");
-        $Stu = Student::find($token);
+        // $token = $request->header("token");
+        $Stu = Student::find($stu);
 
         $certi = [
             "student_id" => $Stu->id,
@@ -340,9 +344,11 @@ class AssessmentController extends Controller
         ];
         $certificate = Certificate::create($certi);
 
-        // $certificate["name"] = $Stu->name;
-        // $certificate["certificate_num"] =  str_pad($certificate->id, 7, '0', STR_PAD_LEFT);
-        // $certificate["date"] = Carbon::now()->format('d M Y');
+        $certi["name"] = $Stu->name;
+        $certi["certificate_num"] =  str_pad($certificate->id, 7, '0', STR_PAD_LEFT);
+        $certi["date"] = Carbon::now()->format('d M Y');
+
         return view('certificate', compact("certi"));
+        // return view('certificate');
     }
 }

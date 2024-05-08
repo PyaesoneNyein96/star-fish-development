@@ -9,7 +9,13 @@
 </head>
 
 <body>
-    Certificate
+    <div class="">
+        <img src="https://star-fish-development.myanmargateway.net/storage/certificate_template/certificate.png"
+            alt="">
+    </div>
+    {{-- <?php
+    var_dump($certi);
+    ?> --}}
 </body>
 
 </html>
