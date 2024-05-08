@@ -120,7 +120,7 @@ class TestingDataSeeder extends Seeder
         // Assessment Finished Data
         DB::table('assessment_finish_data')->insert([
             [
-                'student_id' => 1,
+                'student_id' => 9,
                 'grade_id' => 1,
                 'assess_name' => 1,
                 'point' => 30,
@@ -129,7 +129,7 @@ class TestingDataSeeder extends Seeder
         ]);
         DB::table('assessment_finish_data')->insert([
             [
-                'student_id' => 1,
+                'student_id' => 9,
                 'grade_id' => 1,
                 'assess_name' => 2,
                 'point' => 40,
@@ -138,7 +138,7 @@ class TestingDataSeeder extends Seeder
         ]);
         DB::table('assessment_finish_data')->insert([
             [
-                'student_id' => 1,
+                'student_id' => 9,
                 'grade_id' => 50,
                 'assess_name' => 3,
                 'point' => 1,
@@ -147,7 +147,7 @@ class TestingDataSeeder extends Seeder
         ]);
         DB::table('assessment_finish_data')->insert([
             [
-                'student_id' => 1,
+                'student_id' => 9,
                 'grade_id' => 1,
                 'assess_name' => 4,
                 'point' => 35,
@@ -156,7 +156,7 @@ class TestingDataSeeder extends Seeder
         ]);
         DB::table('assessment_finish_data')->insert([
             [
-                'student_id' => 1,
+                'student_id' => 9,
                 'grade_id' => 1,
                 'assess_name' => 5,
                 'point' => 40,
