@@ -225,18 +225,21 @@ class MissionController extends Controller
         $result = [
             [
                 'name' => "15 mins",
-                'allowed' => $record->first == 1 || ($record->first != 1 && Carbon::parse($record->first) <= Carbon::now()),
-                'claimed' => $record->first == 1,
+                'allowed' => $record->first == 1 || ($record->first != 1 && Carbon::parse($record->first) <= Carbon::now()) ,
+                'claimed' => $record->first == 1 ,
+                'full_name' => "15 minutes time spent in the app."
             ],
             [
                 'name' => "30 mins",
-                'allowed' => $record->second == 1 || ($record->second != 1 && Carbon::parse($record->second) <= Carbon::now()),
-                'claimed' => $record->second == 1,
+                 'allowed' => $record->second == 1 || ($record->second != 1 && Carbon::parse($record->second) <= Carbon::now()) ,
+                'claimed' => $record->second == 1 ,
+                'full_name' => "30 minutes time spent in the app."
             ],
             [
                 'name' => "daily",
                 'allowed' => $record->daily == 1 || ($record->daily != 1 && Carbon::parse($record->daily)->isSameDay(Carbon::now())),
                 'claimed' => $record->daily == 1,
+                'full_name' => "Daily Loging"
             ],
         ];
 
@@ -253,9 +256,12 @@ class MissionController extends Controller
             // ->addMinutes(30)
         ;
 
-        $first_claim = $request->header('first');
-        $second_claim = $request->header('second');
-        $daily_claim = $request->header('daily');
+        $claim_name = $request->header('claim_name');
+
+
+        $first_claim = $claim_name == '15 mins';
+        $second_claim = $claim_name == '30 mins';
+        $daily_claim = $claim_name == 'daily';
 
         DB::beginTransaction();
         try {
