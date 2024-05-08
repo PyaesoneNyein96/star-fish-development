@@ -14,8 +14,6 @@ use App\Models\AssessmentCategory;
 use App\Http\Controllers\Controller;
 use App\Models\AssessmentEachRecordFinishData;
 use App\Models\AssessmentFinishData;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Redirect;
 
 class AssessmentController extends Controller
 {
@@ -87,7 +85,7 @@ class AssessmentController extends Controller
         $roundExist = array_key_exists('round', $game[0]->toArray());
 
         $data = [
-            'assess_id' => $id,
+            'assess_id' => (int)$id,
             'assess_name' => $assess->name,
             'assess_game_name' => $assess->assess_game_name,
             'grade_id' => $assess->grade_id,
@@ -224,24 +222,40 @@ class AssessmentController extends Controller
                         "percentage" => $point
                     ];
 
-                    $assessGradeCheck = Assessment::select("name")->where("grade_id", $assessment->grade_id)->groupby("name")->get();
-                    $isfinish = AssessmentFinishData::where("student_id", $studentId)->where("grade_id", $assessment->grade_id)->where("assess_name", count($assessGradeCheck))->first();
+                    $assessGrade = Assessment::select("total_assess_ques", "name")
+                        ->where("grade_id", $assessment->grade_id)
+                        ->groupby("name")
+                        ->groupby("total_assess_ques")
+                        ->get();
+
+                    // $total_percentage = 0;
+                    // foreach ($assessGrade as $ag) $total_percentage += (int)$ag->total_assess_ques;
+
+                    // return $total_percentage;
+
+                    $isfinish = AssessmentFinishData::where("student_id", $studentId)->where("grade_id", $assessment->grade_id)->where("assess_name", count($assessGrade))->first();
 
                     if ($isfinish != null) {
                         $sum_point = 0;
+                        $total_grade_point = 0;
                         $total_point = AssessmentFinishData::where("student_id", $studentId)->where("grade_id", $assessment->grade_id)->get();
+
                         foreach ($total_point as $tp) $sum_point += (int)$tp->point;
+                        foreach ($assessGrade as $ag) $total_grade_point += (int)$ag->total_assess_ques;
+
+                        $total_percentage = floor(($sum_point / $total_grade_point) * 100);
 
                         $Stu = Student::find($studentId);
 
                         $certi = [
                             "student_id" => $Stu->id,
                             "grade_id" => $assessment->grade_id,
-                            "total_percentage" => $sum_point,
+                            "total_percentage" => $total_percentage,
+                            "pdf_path" => "--"
                         ];
                         // return $certi;
 
-                        // $response = Redirect::route("certificate")->withHeaders($certi);
+                        // $response = redirect("/api/assessment/certificate/$assessment->grade_id/$total_percentage");
                         // return $response;
 
                         // $certi["pdf_path"] = '';
@@ -313,9 +327,22 @@ class AssessmentController extends Controller
     }
 
     // make new certificate
-    public function makeCertificate(Request $request)
+    public function makeCertificate(Request $request, $id, $percentage)
     {
-        return $request->header();
-        return view('certificate', compact("redirectUrl", "params"));
+        $token = $request->header("token");
+        $Stu = Student::find($token);
+
+        $certi = [
+            "student_id" => $Stu->id,
+            "grade_id" => $id,
+            "total_percentage" => $percentage,
+            "pdf_path" => "--"
+        ];
+        $certificate = Certificate::create($certi);
+
+        // $certificate["name"] = $Stu->name;
+        // $certificate["certificate_num"] =  str_pad($certificate->id, 7, '0', STR_PAD_LEFT);
+        // $certificate["date"] = Carbon::now()->format('d M Y');
+        return view('certificate', compact("certi"));
     }
 }

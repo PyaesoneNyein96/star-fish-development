@@ -22,6 +22,7 @@ trait AssessmentMissionTrait
 
         $assess = [];
         $res = Assessment::select("name", "grade_id", "total_assess_ques")->get();
+        $id = 1;
         foreach ($res as $index => $data) {
 
             if ($index < count($res) - 1 && $data->name !== $res[$index + 1]->name) {
@@ -89,6 +90,7 @@ trait AssessmentMissionTrait
 
 
                     $input = [
+                        "id" => $id,
                         "name" => $data->name,
                         "grade_id" => $data->grade_id,
                         "grade" => $gradename,
@@ -98,11 +100,16 @@ trait AssessmentMissionTrait
                         "claimed" => (int)$claimed === (int)$i ? true : false,
                     ];
                     array_push($assess, $input);
+                    $id++;
                 }
             }
         }
+        $result = $this->sort($assess);
+        // foreach ($assess as $as) {
+        //     if()
+        // }
 
-        return $assess;
+        return $result;
     }
 
     public function assessmentClaim(Request $request)
@@ -161,5 +168,50 @@ trait AssessmentMissionTrait
         }
 
         return response()->json(['message' => "nothing to claim"]);
+    }
+
+
+    private function sort($arr)
+    {
+        if (count($arr) <= 1) return $arr;
+        $mid = floor(count($arr) / 2);
+        $left = $this->sort(array_slice($arr, 0, $mid));
+        $right = $this->sort(array_slice($arr, $mid));
+        return $this->mergeTwoArr($left, $right);
+    }
+
+    private function mergeTwoArr($left, $right)
+    {
+        $result = [];
+        while (!empty($left) && !empty($right)) {
+            // if ($left[0]["claimed"] === true && $left[0]["allowed"] === false) {
+            //     array_push($result, array_shift($left));
+            // } elseif ($left[0]["claimed"] === false && $left[0]["allowed"] === true) {
+            //     array_push($result, array_shift($left));
+            // } elseif ($right[0]["claimed"] === true && $left[0]["allowed"] === false) {
+            //     array_push($result, array_shift($right));
+            // } elseif ($right[0]["claimed"] === false && $left[0]["allowed"] === true) {
+            //     array_push($result, array_shift($right));
+            // } elseif ($left[0]["claimed"] <= $right[0]["claimed"]) {
+            //     array_push($result, array_shift($left));
+            // } else {
+            //     array_push($result, array_shift($right));
+            // }
+
+            if ($left[0]['claimed'] === true) {
+                array_push($result, array_shift($left));
+            } elseif ($right[0]['claimed'] === true) {
+                array_push($result, array_shift($right));
+            } elseif ($left[0]['allowed'] === true) {
+                array_push($result, array_shift($left));
+            } elseif ($right[0]['allowed'] === true) {
+                array_push($result, array_shift($right));
+            } elseif ($left[0]["claimed"] <= $right[0]["claimed"]) {
+                array_push($result, array_shift($left));
+            } else {
+                array_push($result, array_shift($right));
+            }
+        }
+        return array_merge($result, $left, $right);
     }
 }
