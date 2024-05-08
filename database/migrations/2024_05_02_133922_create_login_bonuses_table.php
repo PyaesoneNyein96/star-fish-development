@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('conversations', function (Blueprint $table) {
+        Schema::create('login_bonuses', function (Blueprint $table) {
             $table->id();
-            $table->string('content')->nullable();
-            $table->string('image')->nullable();
-            $table->string('audio')->nullable();
-            $table->string('round_id')->nullable();
-            $table->integer('game_id')->nullable()->constrained();
+            $table->integer('days')->nullable()->default(0);
+            $table->integer('point')->nullable()->default(0);
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('conversations');
+        Schema::dropIfExists('login_bonuses');
     }
 };

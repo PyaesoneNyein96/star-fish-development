@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('characters', function (Blueprint $table) {
+        Schema::create('assessment_each_record_finish_data', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
-            $table->string('round_id')->nullable();
-            $table->string('game_id')->nullable();
+            $table->integer("student_id");
+            $table->integer("assess_id");
+            $table->integer("assess_name");
+            $table->integer("grade_id");
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('characters');
+        Schema::dropIfExists('assessment_each_record_finish_data');
     }
 };

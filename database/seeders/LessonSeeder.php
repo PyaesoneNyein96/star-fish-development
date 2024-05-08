@@ -59,29 +59,6 @@ class LessonSeeder extends Seeder
 
 
 
-        ///////////////// testing ////////////////
-
-        $lessons =  range(2,40);
-        foreach ($lessons as $l) {
-            DB::table('student_lessons')->insert([
-                [
-                    'student_id' => 1,
-                    'grade_id' => 1,
-                    'lesson_id' => $l,
-                ]
-            ]);
-        }
-
-            DB::table('assessment_finish_data')->insert([
-                [
-                    'student_id' => 1,
-                    'grade_id' => 1,
-                    'assess_name' => 1,
-                    'point' => 1,
-                    'finish' => 1,
-                ]
-            ]);
-
 
 
 

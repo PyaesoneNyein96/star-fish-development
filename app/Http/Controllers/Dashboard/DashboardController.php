@@ -17,9 +17,7 @@ class DashboardController extends Controller
         $rewards = Reward::get();
         $rewards_name = Reward::select('name')->orderBy('name')->distinct()->get();
 
-
         return inertia('Dashboard', [
-            'user' => Auth::user(),
             'rewards_name' => $rewards_name,
             'rewards' => $rewards,
             'students' => $students,

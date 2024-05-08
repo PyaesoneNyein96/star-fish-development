@@ -61,7 +61,7 @@ Route::prefix('auth')->group(function () {
     Route::get('versionCheck/android', [VersionAndUpdateController::class, 'AndroidVersionCheck']);
     Route::get('versionCheck/ios', [VersionAndUpdateController::class, 'IosVersionCheck']);
 
-    Route::post('version/add', [VersionAndUpdateController::class,'addVersion']);
+    Route::post('version/add', [VersionAndUpdateController::class, 'addVersion']);
 
 
     //Account Setting
@@ -86,6 +86,8 @@ Route::prefix('reward')->group(function () {
     Route::get('/', [RewardController::class, 'getReward']);
     Route::post('/', [RewardController::class, 'buyReward']);
 });
+
+Route::post('/profile/update', [RewardController::class, "updateProfile"]);
 
 Route::prefix('chat')->group(function () {
     Route::get('/', [ChatController::class, 'getChat']);
@@ -127,31 +129,40 @@ Route::prefix('payment')->group(function () {
 Route::prefix('assessment')->group(function () {
     Route::get('/', [AssessmentController::class, 'getAllAssess']);
     Route::get('game', [AssessmentController::class, 'enterGame']);
+    Route::get('each/game', [AssessmentController::class, 'recordEachGame']);
     Route::get('end_match', [AssessmentController::class, 'endGame']);
+    Route::get('/certificate/{id}/{percentage}/{stu}', [AssessmentController::class, 'makeCertificate'])->name('certificate');
 });
 
+// Route::get('/testing', [AssessmentController::class, 'maketest'])->name('testing');
 
 ///////////////// Mission //////////////////////
 
-Route::prefix('mission')->middleware('GameAuth')->group(function () {
+Route::prefix('mission')->middleware('isSubscriber')->group(function () {
 
     Route::prefix('repetitive')->group(function () {
         // Route::get('/game-list',[MissionController::class,'repetitiveGameList']);
 
-        Route::get('/lesson-list',[MissionController::class,'repetitiveLessonList']);
-        Route::get('/claim_lesson',[MissionController::class,'repetitiveClaimLesson']);
+        Route::get('/lesson-list', [MissionController::class, 'repetitiveLessonList']);
+        Route::get('/claim_lesson', [MissionController::class, 'repetitiveClaimLesson']);
+    });
+
+    Route::prefix('assessment')->group(function () {
+        Route::get("/assess-list", [MissionController::class, 'assessmentList']);
+        Route::get("/claim_lesson", [MissionController::class, 'assessmentClaim']);
     });
 
     Route::prefix('daily')->group(function () {
-        Route::get('bonus',[MissionController::class,'dailyBonusList']);
-        Route::get('claim',[MissionController::class,'dailyBonusClaim']);
+        Route::get('check', [MissionController::class, 'dailyBonusCheck']);
+        Route::get('bonus', [MissionController::class, 'dailyBonusList']);
+        Route::get('claim', [MissionController::class, 'dailyBonusClaim']);
     });
 
     Route::prefix('login')->group(function () {
-        Route::get('bonus',[MissionController::class,'loginBonusList']);
+        Route::get('check', [MissionController::class, 'checkLogin']);
+        Route::get('bonus', [MissionController::class, 'loginBonusList']);
+        Route::get('claim', [MissionController::class, 'loginBonusClaim']);
     });
-
-
 });
 
 
@@ -160,4 +171,3 @@ Route::prefix('mission')->middleware('GameAuth')->group(function () {
 // ============ test =============
 // ===============================
 Route::get('/test', [GameController::class, 'test']);
-

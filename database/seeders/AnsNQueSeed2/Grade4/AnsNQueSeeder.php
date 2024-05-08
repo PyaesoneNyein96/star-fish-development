@@ -3086,14 +3086,14 @@ class AnsNQueSeeder extends Seeder
         // Game 891
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "girl.gif", "a_audio" => $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "audio.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "can-i-help.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
-            ['round' => 1, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "boy.gif", "a_audio" => $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "audio.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "you-have-notebook.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
+            ['round' => 1, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "girl.gif", "a_audio" => $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "SubBlock_Can-I-help-you.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "can-i-help.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
+            ['round' => 1, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "boy.gif", "a_audio" => $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "SubBlock_Do-you-have-any-notebooks.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "you-have-notebook.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
 
-            ['round' => 2, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "audio.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "sure-how-many.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
-            ['round' => 2, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "boy.gif", "a_audio" => $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "audio.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "two-please.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
+            ['round' => 2, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "SubBlock_Sure-How-many-do-you-want.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "sure-how-many.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
+            ['round' => 2, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "boy.gif", "a_audio" => $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "SubBlock_Two-please.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "two-please.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
 
-            ['round' => 3, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "audio.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "here-you.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
-            ['round' => 3, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "boy.gif", "a_audio" => $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "audio.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "thank-y.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
+            ['round' => 3, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "SubBlock_Here-you-are.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "here-you.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
+            ['round' => 3, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "boy.gif", "a_audio" => $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "SubBlock_Thank-you.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "thank-y.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
 
         ]);
 
@@ -3755,19 +3755,19 @@ class AnsNQueSeeder extends Seeder
         // Game 916
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "can-i-help-u.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
-            ['round' => 1, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "i-want-some.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 1, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_Can-I-help-you.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "can-i-help-u.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 1, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_I-want-some-puddings-please.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "i-want-some.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
 
-            ['round' => 2, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "yes-we-do.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
-            ['round' => 2, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "how-much.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 2, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_Yes-we-do.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "yes-we-do.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 2, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_How-much-is-one.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "how-much.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
 
-            ['round' => 3, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "500-kyat.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
-            ['round' => 3, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "i-want-six.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 3, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_Its-500-kyats.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "500-kyat.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 3, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_I-want-six-please.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "i-want-six.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
 
-            ['round' => 4, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "3000-kyat.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
-            ['round' => 4, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "here-you-are.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 4, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_OK-That-will-be-3000-kyats.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "3000-kyat.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 4, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_Here-you-are.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "here-you-are.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
 
-            ['round' => 5, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "thank-u.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 5, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_Thank-you.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "thank-u.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
             ['round' => 5, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => null, "a_conver" => null, "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
 
         ]);
