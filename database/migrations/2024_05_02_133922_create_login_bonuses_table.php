@@ -13,11 +13,8 @@ return new class extends Migration
     {
         Schema::create('login_bonuses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('student_id')->constrained()->onDelete('cascade');
-            $table->integer('given_days')->nullable()->default(0);
-            $table->timestamp('given_date')->nullable();
-            $table->integer('day_count')->nullable()->default(0);
-            $table->integer('claim')->nullable()->default(0);
+            $table->integer('days')->nullable()->default(0);
+            $table->integer('point')->nullable()->default(0);
             $table->timestamps();
         });
     }

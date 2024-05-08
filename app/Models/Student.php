@@ -98,6 +98,13 @@ class Student extends Model
     }
 
 
+//////////////////// Loin Bonus /////////////////////
+
+    public function loginBonus(){
+        return $this->hasMany(StudentLoginBonus::class);
+        // return $this->belongsToMany(LoginBonus::class,'student_login_bonuses','student_id','login_bonuses_id');
+    }
+
 
 
 

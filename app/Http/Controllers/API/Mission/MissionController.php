@@ -13,11 +13,12 @@ use App\Models\StudentGame;
 use Illuminate\Http\Request;
 use App\Models\StudentLesson;
 use App\Models\LoginDailyBonus;
+use App\Models\StudentLoginBonus;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Http\Traits\AssessmentMissionTrait;
 use App\Http\Traits\PointAddingTrait;
+use App\Http\Traits\AssessmentMissionTrait;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 
@@ -32,49 +33,6 @@ class MissionController extends Controller
     //===============================================================//
     // REPETITIVE LESSON -
     //===============================================================//
-
-    public function dailyBonusCheck(Request $request)
-    {
-
-        try {
-
-            $dailyRecord = DailyBonus::where('student_id', $request->student->id)->first();
-
-
-            $day_count = $dailyRecord->created_at->diffInDays(Carbon::now());
-
-            if (($dailyRecord->updated_at->addDays() <= Carbon::now() ||
-                !$dailyRecord->first || !$dailyRecord->second || !$dailyRecord->daily) && $day_count < 7) {
-
-
-                // daily Update process
-                $dailyRecord->update([
-                    'first' => Carbon::now()->addSeconds(20),
-                    'second' => Carbon::now()->addMinutes(1),
-                    'daily' => Carbon::Now()->addHours(1),
-                    // 'first' => Carbon::now()->addMinutes(15),
-                    // 'second' => Carbon::now()->addMinutes(30),
-                    // 'daily' => Carbon::Now()->addDays(1),
-                    'day_count' => $day_count,
-                    'updated_at' => Carbon::now()
-                ]);
-            } else if ($day_count > 7) {
-
-                $dailyRecord->update([
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now(),
-                    'day_count' => 0,
-                ]);
-            }
-
-            return response()->json([
-                'message' => 'Daily-bonus record updated successfully.'
-            ], 200);
-        } catch (\Throwable $th) {
-            throw $th;
-        }
-    }
-
 
 
 
@@ -108,12 +66,14 @@ class MissionController extends Controller
                 'name' => "Lesson " . $raw->name . ": 3 repetitive practices",
                 'grade' => $raw->grade->name,
                 'allowed' => optional($repeat)->count == 3 || optional($repeat)->count == 4,
-                'claimed' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed_3 == 0 && true,
+                // 'claimed' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed_3 === 0 && false,
+                'claimed' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed_3 == 0 ? false : true,
                 'count' => optional($repeat)->count,
                 'point' =>  3,
 
             ];
         });
+
 
         // /// ====================== 5 times
 
@@ -124,7 +84,7 @@ class MissionController extends Controller
                 'name' => "Lesson " . $raw->name . ": 5 repetitive practices",
                 'grade' => $raw->grade->name,
                 'allowed' => optional($repeat)->count == 5,
-                'claimed' => optional($repeat)->count == 5 && optional($repeat)->claimed_5 == 1 && true,
+                'claimed' => optional($repeat)->count == 5 && optional($repeat)->claimed_5 == 0 ? false : true,
                 'count' => optional($repeat)->count,
                 'point' => 5
             ];
@@ -211,6 +171,49 @@ class MissionController extends Controller
     // ===============================================================//
     // Daily Bonus -
     // ===============================================================//
+
+    public function dailyBonusCheck(Request $request)
+    {
+
+        try {
+
+            $dailyRecord = DailyBonus::where('student_id', $request->student->id)->first();
+
+
+            $day_count = $dailyRecord->created_at->diffInDays(Carbon::now());
+
+            if (($dailyRecord->updated_at->addDays() <= Carbon::now() ||
+                !$dailyRecord->first || !$dailyRecord->second || !$dailyRecord->daily) && $day_count < 7) {
+
+
+                // daily Update process
+                $dailyRecord->update([
+                    'first' => Carbon::now()->addSeconds(20),
+                    'second' => Carbon::now()->addMinutes(1),
+                    'daily' => Carbon::Now()->addHours(1),
+                    // 'first' => Carbon::now()->addMinutes(15),
+                    // 'second' => Carbon::now()->addMinutes(30),
+                    // 'daily' => Carbon::Now()->addDays(1),
+                    'day_count' => $day_count,
+                    'updated_at' => Carbon::now()
+                ]);
+            } else if ($day_count > 7) {
+
+                $dailyRecord->update([
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                    'day_count' => 0,
+                ]);
+            }
+
+            return response()->json([
+                'message' => 'Daily-bonus record updated successfully.'
+            ], 200);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
 
     // Daily Bonus list
     public function dailyBonusList(Request $request)
@@ -326,37 +329,80 @@ class MissionController extends Controller
 
 
 
-    // public function checkLogin(Request $request){
+    public function checkLogin(Request $request){
+
+        $record = $request->student->loginBonus->first();
+        $d_Date = Carbon::parse($record->date);
+        // $d_Date = $d_Date->addDays(3);
+
+        $now = Carbon::now()
+        ->addDays(14)
+        ;
+        try {
+
+            if($d_Date->addDays(1)->isSameDay($now) ){
+                $record->update([
+                    'updated_at' => $now,
+                    'date' => $now,
+                    'day_count' => $record->day_count + 1
+                ]);
+                return response()->json(['message' => "login bonus record was updated"], 200);
+
+            }else if ($d_Date->addDays(1) < $now){
+                $record->update([
+                    'updated_at' => $now,
+                    'date' => $now,
+                    'day_count' => 1
+                ]);
+                return response()->json(['message' => "reset login bonus counting circle"], 200);
+            }
+
+            return response()->json(['message' => "nice try 🤭"], 201);
+
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+
+    }
 
 
 
-    // }
+
+    public function loginBonusList(Request $request){
+
+        $loginBonus = LoginBonus::all();
+
+        $student_bonus = $request->student->loginBonus->first();
+
+        // $date = Carbon::parse($student_bonus->date);
+        // $date = $student_bonus->updated_at->addDays();
+
+        // return [
+        //     $date->format('d -h-i'),
+        //     Carbon::now()->format('d -h:i')
+        // ];
+
+        $result = $loginBonus->map(function($bl) use($student_bonus) {
+
+            return [
+                'day' => $bl->days,
+                'point' => $bl->point,
+                'allowed' => $bl->days == $student_bonus->day_count,
+                'claimed' => $bl->days == $student_bonus->day_count && $student_bonus->claim && true
+
+
+            ];
+
+        });
+
+
+        return $result;
 
 
 
-
-    // public function loginBonusList(Request $request){
-
-    //     $loginRecord = LoginBonus::where('student_id', $request->student->id)->first();
-
-    //     $range = [7,15,30,60,90,120,180,365];
-
-    //     $result = array_map(function($r) use($loginRecord){
-
-    //         return [
-    //             'days' => $r,
-    //             'status' => $r == $loginRecord->day_count && Carbon::parse($loginRecord->given_date)->isSameDay($loginRecord->updated_at),
-
-    //         ];
-
-    //     },$range);
-
-
-    //     return $result;
-
-
-
-    // }
+    }
 
 
     // Login bonus claim

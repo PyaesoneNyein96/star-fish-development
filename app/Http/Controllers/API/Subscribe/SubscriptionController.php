@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 use App\Models\StudentLesson;
 use App\Models\OrderTransaction;
 use App\Models\SubscriptionPlan;
+use App\Models\StudentLoginBonus;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
@@ -429,6 +430,9 @@ class SubscriptionController extends Controller
                 //Daily Bonus Record Adding
                 $this->addDailyBonusRecord($student);
 
+                //Login Bonus Record Adding
+                $this->addLoginBonusRecord($student);
+
             }
 
 
@@ -465,31 +469,27 @@ class SubscriptionController extends Controller
 
     }
 
-    // private function addLoginBonusRecord($student){
 
-    //     $range = [7,15,30,60,90,120,180,365];
+    private function addLoginBonusRecord($student){
 
-    //     try {
+        try {
 
-    //         foreach ($range as $key => $r) {
-    //             LoginBonus::create([
+            StudentLoginBonus::create([
 
-    //                 'student_id' => $student->id,
-    //                 'given_days' => $r,
-    //                 'given_date' => Carbon::now()->addDays($r),
-    //                 'day_count' => 1,
-    //                 'claim' => 0,
+                'student_id' => $student->id,
+                'date' => null,
+                'day_count' => null,
 
-    //             ]);
-    //         }
+            ]);
 
 
-    //     } catch (\Throwable $th) {
-    //         throw $th;
-    //     }
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
 
 
-    // }
+    }
 
 
 

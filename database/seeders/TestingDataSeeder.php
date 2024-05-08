@@ -214,5 +214,31 @@ class TestingDataSeeder extends Seeder
         //         'grade_id' => 1,
         //     ]
         // ]);
+
+
+
+
+
+
+
+        // Login Bonus seeder
+
+        $loginRange = [7,15,30,60,90,120,180,365];
+
+        foreach ($loginRange as $k => $l) {
+            DB::table('login_bonuses')->insert([
+                'days' => $l,
+                'point' => 3,
+            ]);
+        }
+
+
+
+
+
+
+
+
+
     }
 }
