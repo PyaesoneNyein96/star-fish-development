@@ -332,16 +332,18 @@ class MissionController extends Controller
     public function checkLogin(Request $request){
 
         $record = StudentLoginBonus::where('student_id', $request->student->id)->latest('created_at')->first();
-
+        // return $record;
         $add_date = Carbon::parse($record->date)->addDays(1);
         $givenDates = LoginBonus::all()->pluck('days')->toArray();
 
+        $testing_day = $request->header('day');
+        $testing_day = !$testing_day ? 0 : $testing_day;
 
         $all_records = $request->student->loginBonus;
 
 
         $now = Carbon::now()
-        ->addDays(7)
+        ->addDays($testing_day)
         ;
 
 
