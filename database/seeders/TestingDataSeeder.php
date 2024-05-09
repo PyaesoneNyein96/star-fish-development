@@ -51,7 +51,7 @@ class TestingDataSeeder extends Seeder
             }
         }
 
-        foreach (range(1, 8) as $k => $l) {
+        foreach (range(1, 40) as $k => $l) {
             DB::table('student_lessons')->insert([
                 'student_id' => 3,
                 'grade_id' => 1,
@@ -164,6 +164,27 @@ class TestingDataSeeder extends Seeder
             ]
         ]);
 
+        // Assessment Finished Data for A Soe
+        DB::table('assessment_finish_data')->insert([
+            [
+                'student_id' => 3,
+                'grade_id' => 1,
+                'assess_name' => 1,
+                'point' => 30,
+                'finish' => 1,
+            ]
+        ]);
+        // Assessment Finished Data for A Soe
+        DB::table('assessment_finish_data')->insert([
+            [
+                'student_id' => 3,
+                'grade_id' => 1,
+                'assess_name' => 2,
+                'point' => 30,
+                'finish' => 1,
+            ]
+        ]);
+
 
         // assessmen5t each record
         // DB::table('assessment_each_record_finish_data')->insert([
@@ -221,14 +242,25 @@ class TestingDataSeeder extends Seeder
 
 
 
-        // Login Bonus seeder
+        // // Login Bonus seeder
 
-        $loginRange = [7,15,30,60,90,120,180,365];
+        $now = Carbon::now();
+        $login_data = [
+            [  'date' => Carbon::now()->addDays(2), 'day_count' => 3, 'claim' => 1 ],
+            [  'date' => Carbon::now()->addDays(4), 'day_count' => 5, 'claim' => 0 ],
+            [  'date' => Carbon::now()->addDays(6), 'day_count' => 7, 'claim' => 1 ],
+        ];
 
-        foreach ($loginRange as $k => $l) {
-            DB::table('login_bonuses')->insert([
-                'days' => $l,
-                'point' => 3 + $k,
+
+        foreach ($login_data as $k => $data) {
+            DB::table('student_login_bonuses')->insert([
+                [
+                    'student_id' => 9,
+                    'day_count' => $data['day_count'],
+                    'date' => $data['date'],
+                    'claim' => $data['claim'],
+                    'created_at' => Carbon::now(),
+                ]
             ]);
         }
 

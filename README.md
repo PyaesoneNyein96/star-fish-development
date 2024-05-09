@@ -243,15 +243,21 @@ Field ( header ) = token , point
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/daily/claim](https://star-fish.myanmargateway.net/api/mission/daily/claim) Field (header) = token, (first or second or daily)
 
-<!-- + ### Login Bonus
+ + ### Login Bonus
+
+### Login Bonus Check
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/login/check](https://star-fish.myanmargateway.net/api/mission/login/check) Field (header) = token 
 
 ### Login Bonus List
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/mission/login/bonus](https://star-fish.myanmargateway.net/api/mission/login/bonus) Field (header) = token
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/login/bonus](https://star-fish.myanmargateway.net/api/mission/login/bonus) Field (header) = token 
 
 ### Login Bonus Claim
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/mission/login/claim](https://star-fish.myanmargateway.net/api/mission/login/claim) Field (header) = token, (days) -->
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/login/claim](https://star-fish.myanmargateway.net/api/mission/login/claim) Field (header) = token, days 
+
+
 
 ### Assessment List
 

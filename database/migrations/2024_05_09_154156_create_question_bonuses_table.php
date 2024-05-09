@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('login_bonuses', function (Blueprint $table) {
+        Schema::create('question_bonuses', function (Blueprint $table) {
             $table->id();
-            $table->integer('days')->nullable()->default(0);
-            $table->integer('point')->nullable()->default(0);
-            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('login_bonuses');
+        Schema::dropIfExists('question_bonuses');
     }
 };

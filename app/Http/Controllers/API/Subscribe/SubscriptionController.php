@@ -453,9 +453,9 @@ class SubscriptionController extends Controller
     private function addDailyBonusRecord($student){
 
         try {
-            $duplicate = DailyBonus::where('student_id')->get();
+            $duplicate = DailyBonus::where('student_id',$student->id)->get();
 
-            if(!$duplicate){
+              if($duplicate->count() == 0){
                 DailyBonus::create([
                     'student_id' => $student->id,
                     'fifteen' => null,
@@ -463,8 +463,6 @@ class SubscriptionController extends Controller
                     'daily' => null,
                 ]);
             }
-
-
 
         } catch (\Throwable $th) {
             throw $th;
@@ -476,20 +474,20 @@ class SubscriptionController extends Controller
 
     private function addLoginBonusRecord($student){
 
-        try {
-            $allDays = LoginBonus::all();
+        $already = StudentLoginBonus::where('student_id',$student->id)->get();
 
-            // foreach ($allDays as $key => $day) {
+
+        try {
+            if($already->count() == 0) {
+
+                $allDays = LoginBonus::all();
+
                 StudentLoginBonus::create([
                     'student_id' => $student->id,
                     'date' => Carbon::now(),
                     'day_count' => 1,
                 ]);
-            // }
-
-
-
-
+            }
 
 
         } catch (\Throwable $th) {
