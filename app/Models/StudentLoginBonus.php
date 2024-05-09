@@ -13,7 +13,7 @@ class StudentLoginBonus extends Model
 
     protected $fillable = [
         'student_id',
-        // 'login_bonuses_id',
+        'attend',
         'date',
         'day_count',
         'claim'

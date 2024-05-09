@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('student_login_bonuses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained()->onDelete('cascade');
-            // $table->foreignId('login_bonuses_id')->nullable()->constrained()->onDelete('cascade');
+            $table->integer('attend')->nullable()->default(0);
             $table->timestamp('date')->nullable();
             $table->integer('day_count')->nullable();
             $table->integer('claim')->default(0);

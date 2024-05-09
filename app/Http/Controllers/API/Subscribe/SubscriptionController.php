@@ -479,11 +479,14 @@ class SubscriptionController extends Controller
         try {
             $allDays = LoginBonus::all();
 
-            StudentLoginBonus::create([
-                'student_id' => $student->id,
-                'date' => Carbon::now(),
-                'day_count' => 1,
-            ]);
+            // foreach ($allDays as $key => $day) {
+                StudentLoginBonus::create([
+                    'student_id' => $student->id,
+                    'date' => Carbon::now(),
+                    'day_count' => 1,
+                ]);
+            // }
+
 
 
 
