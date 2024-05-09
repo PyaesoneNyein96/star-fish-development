@@ -385,7 +385,7 @@ class MissionController extends Controller
                 DB::commit();
                 return response()->json(['message' => "reset login bonus counting circle"], 200);
             }else{
-                return response()->json(['message' => "nice try 🤭"], 201);
+                return response()->json(['message' => "nth 🤭"], 201);
             }
 
             DB::commit();
@@ -415,7 +415,7 @@ class MissionController extends Controller
             return [
                 'day' => $bl->days,
                 'point' => $bl->point,
-                'allowed (done)' => $student_bonus->contains('day_count', $bl->days),
+                'allowed' => $student_bonus->contains('day_count', $bl->days),
                 'claimed' => $same_record ? ($student_bonus[$index]->claim ? true : false ) : false ,
             ];
 

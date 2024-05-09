@@ -164,6 +164,17 @@ class TestingDataSeeder extends Seeder
             ]
         ]);
 
+        // Assessment Finished Data for A Soe
+        DB::table('assessment_finish_data')->insert([
+            [
+                'student_id' => 3,
+                'grade_id' => 1,
+                'assess_name' => 1,
+                'point' => 30,
+                'finish' => 1,
+            ]
+        ]);
+
 
         // assessmen5t each record
         // DB::table('assessment_each_record_finish_data')->insert([

@@ -21,7 +21,7 @@ class StructuredDataSeeder extends Seeder
         foreach ($loginRange as $k => $l) {
             DB::table('login_bonuses')->insert([
                 'days' => $l,
-                'point' => 3 + $k,
+                'point' => $l,
             ]);
         }
 
