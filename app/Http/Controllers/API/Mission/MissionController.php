@@ -454,7 +454,7 @@ class MissionController extends Controller
             ]);
 
 
-            $this->point_lvl($student, $points->point);
+            $this->point_lvl($request->student, $points->point);
 
         DB::commit();
 
