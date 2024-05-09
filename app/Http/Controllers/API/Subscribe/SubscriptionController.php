@@ -453,9 +453,9 @@ class SubscriptionController extends Controller
     private function addDailyBonusRecord($student){
 
         try {
-            $duplicate = DailyBonus::where('student_id')->get();
+            $duplicate = DailyBonus::where('student_id',$student->id)->get();
 
-            if(!$duplicate){
+              if($duplicate->count() == 0){
                 DailyBonus::create([
                     'student_id' => $student->id,
                     'fifteen' => null,
@@ -463,8 +463,6 @@ class SubscriptionController extends Controller
                     'daily' => null,
                 ]);
             }
-
-
 
         } catch (\Throwable $th) {
             throw $th;
