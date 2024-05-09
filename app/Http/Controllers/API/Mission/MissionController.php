@@ -17,6 +17,7 @@ use App\Models\StudentLoginBonus;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\StudentQuestionBonus;
 use App\Http\Traits\PointAddingTrait;
 use App\Http\Traits\AssessmentMissionTrait;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -328,7 +329,6 @@ class MissionController extends Controller
     // ===============================================================//
 
 
-
     public function checkLogin(Request $request){
 
         $record = StudentLoginBonus::where('student_id', $request->student->id)->latest('created_at')->first();
@@ -401,8 +401,6 @@ class MissionController extends Controller
     }
 
 
-
-
     public function loginBonusList(Request $request){
 
         $loginBonus = LoginBonus::all();
@@ -430,7 +428,6 @@ class MissionController extends Controller
 
     }
 
-
     // Login bonus claim
     public function loginBonusClaim (Request $request){
 
@@ -443,32 +440,32 @@ class MissionController extends Controller
         DB::beginTransaction();
         try {
 
-        $record = StudentLoginBonus::where('student_id', $request->student->id)
-        ->where('day_count',$days)->first();
+            $record = StudentLoginBonus::where('student_id', $request->student->id)
+            ->where('day_count',$days)->first();
 
 
-        if(!$record) return response()->json(['error' => "Wrong days payload!"],404);
+            if(!$record) return response()->json(['error' => "Wrong days payload!"],404);
 
-        if($record->claim == 1) return response()->json(['message' => "You already claimed this bonus!"],208);
+            if($record->claim == 1) return response()->json(['message' => "You already claimed this bonus!"],208);
 
-        if($record->created_at->addDays($days)->isSameDay(Carbon::now()->addDays($days))){
+            if($record->created_at->addDays($days)->isSameDay(Carbon::now()->addDays($days))){
 
-            $record->update([
-                'claim' => 1
-            ]);
+                $record->update([
+                    'claim' => 1
+                ]);
 
 
-            $this->point_lvl($request->student, $points->point);
+                $this->point_lvl($request->student, $points->point);
 
-        DB::commit();
+            DB::commit();
 
-        return response()->json(['message' => "successfully claimed"], 200);
+            return response()->json(['message' => "successfully claimed"], 200);
 
-        }else{
-            return response()->json([
-             'error' => "Days not match."
-            ], 403);
-        }
+            }else{
+                return response()->json([
+                'error' => "Days not match."
+                ], 403);
+            }
 
         } catch (\Throwable $th) {
             DB::rollback();
@@ -483,7 +480,62 @@ class MissionController extends Controller
     }
 
 
+    // ===============================================================//
+    // Question Bonus -
+    // ===============================================================//
 
+    public function questionBonusList(Request $request){
+
+        $student = $request->student;
+
+        $records = StudentQuestionBonus::where('student_id',$student->id)->get();
+
+
+        return  $records->map(function ($record) use($student) {
+
+            return [
+                'name' => $record->question_count,
+                'point' => $record->point,
+                'allowed' => $record->question_count <= $student->question_answer,
+                'claimed' => $record->claim && true
+            ];
+
+        });
+
+    }
+
+
+    public function questionBonusClaim(Request $request){
+
+        $student = $request->student;
+        $name = $request->header('name');
+
+        DB::beginTransaction();
+        try {
+
+            $record = StudentQuestionBonus::where('student_id',$student->id)->where('question_count', $name)->first();
+            $allowed = $student->question_answer >= $name;
+
+            if(!$allowed) return response()->json(['error' => "not enough question for this Questions bonus"], 403);
+
+            if($record && $allowed){
+                $record->update(['claim' => 1]);
+                DB::Commit();
+                return response()->json([
+                    'message' => "Successfully Claim for $name questions Bonus"
+                ], 200);
+            }
+
+
+
+        } catch (\Throwable $th) {
+            DB::rollback();
+            throw $th;
+        }
+
+
+
+    }
 
 
     ////////////

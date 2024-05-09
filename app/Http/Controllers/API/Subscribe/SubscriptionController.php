@@ -21,6 +21,7 @@ use App\Models\SubscriptionPlan;
 use App\Models\StudentLoginBonus;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\StudentQuestionBonus;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
@@ -433,6 +434,9 @@ class SubscriptionController extends Controller
                 //Login Bonus Record Adding
                 $this->addLoginBonusRecord($student);
 
+                //Login Bonus Record Adding
+                $this->addQuestionBonusRecords($student);
+
             }
 
 
@@ -476,7 +480,6 @@ class SubscriptionController extends Controller
 
         $already = StudentLoginBonus::where('student_id',$student->id)->get();
 
-
         try {
             if($already->count() == 0) {
 
@@ -493,6 +496,31 @@ class SubscriptionController extends Controller
         } catch (\Throwable $th) {
             throw $th;
         }
+
+    }
+
+
+    private function addQuestionBonusRecords($student){
+
+        $already = StudentQuestionBonus::where('student_id', $student->id)->get();
+
+        try {
+
+            if($already->count() == 0){
+
+                foreach (range(1,8) as $num) {
+                    StudentQuestionBonus::create([
+                        'student_id' => $student->id,
+                        'point' => $num*10,
+                        'question_count' => $num*100
+                    ]);
+                }
+            }
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
 
 
     }
