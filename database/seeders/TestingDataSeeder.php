@@ -246,9 +246,9 @@ class TestingDataSeeder extends Seeder
 
         $now = Carbon::now();
         $login_data = [
-            [  'date' => $now->addDays(1), 'day_count' => 2, 'claim' => 1 ],
-            [  'date' => $now->addDays(2), 'day_count' => 3, 'claim' => 0 ],
-            [  'date' => $now->addDays(3), 'day_count' => 4, 'claim' => 1 ],
+            [  'date' => Carbon::now()->addDays(2), 'day_count' => 3, 'claim' => 1 ],
+            [  'date' => Carbon::now()->addDays(4), 'day_count' => 5, 'claim' => 0 ],
+            [  'date' => Carbon::now()->addDays(6), 'day_count' => 7, 'claim' => 1 ],
         ];
 
 
