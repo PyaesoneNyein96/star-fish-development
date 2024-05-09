@@ -365,7 +365,8 @@ class MissionController extends Controller
                 StudentLoginBonus::create([
                     'student_id' => $request->student->id,
                     'date' => $now,
-                    'day_count' => $record->day_count + 1
+                    'day_count' => $record->day_count + 1,
+                    'created_at' => $now
                 ]);
                 DB::commit();
                 return response()->json(['message' => "create new one"], 200);
@@ -379,7 +380,8 @@ class MissionController extends Controller
                 StudentLoginBonus::create([
                     'student_id' => $request->student->id,
                     'date' => $now,
-                    'day_count' =>  1
+                    'day_count' =>  1,
+                    'created_at' => $now
                 ]);
 
                 DB::commit();
@@ -437,11 +439,13 @@ class MissionController extends Controller
         $points = LoginBonus::where('days',$days)->first();
 
 
+
         DB::beginTransaction();
         try {
 
         $record = StudentLoginBonus::where('student_id', $request->student->id)
         ->where('day_count',$days)->first();
+
 
         if(!$record) return response()->json(['error' => "Wrong days payload!"],404);
 

@@ -259,6 +259,7 @@ class TestingDataSeeder extends Seeder
                     'day_count' => $data['day_count'],
                     'date' => $data['date'],
                     'claim' => $data['claim'],
+                    'created_at' => Carbon::now(),
                 ]
             ]);
         }
