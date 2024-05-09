@@ -51,7 +51,7 @@ class TestingDataSeeder extends Seeder
             }
         }
 
-        foreach (range(1, 16) as $k => $l) {
+        foreach (range(1, 24) as $k => $l) {
             DB::table('student_lessons')->insert([
                 'student_id' => 3,
                 'grade_id' => 1,
@@ -170,6 +170,16 @@ class TestingDataSeeder extends Seeder
                 'student_id' => 3,
                 'grade_id' => 1,
                 'assess_name' => 1,
+                'point' => 30,
+                'finish' => 1,
+            ]
+        ]);
+        // Assessment Finished Data for A Soe
+        DB::table('assessment_finish_data')->insert([
+            [
+                'student_id' => 3,
+                'grade_id' => 1,
+                'assess_name' => 2,
                 'point' => 30,
                 'finish' => 1,
             ]
