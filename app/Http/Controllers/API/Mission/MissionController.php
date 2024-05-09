@@ -434,6 +434,11 @@ class MissionController extends Controller
 
         $days = $request->header('days');
 
+        $points = LoginBonus::where('days',$days)->first();
+
+
+        DB::beginTransaction();
+        try {
 
         $record = StudentLoginBonus::where('student_id', $request->student->id)
         ->where('day_count',$days)->first();
@@ -449,12 +454,26 @@ class MissionController extends Controller
             ]);
 
 
-            return response()->json(['message' => "successfully claimed"], 200);
+            $this->point_lvl($student, $points->point);
+
+        DB::commit();
+
+        return response()->json(['message' => "successfully claimed"], 200);
+
         }else{
             return response()->json([
              'error' => "Days not match."
             ], 403);
         }
+
+        } catch (\Throwable $th) {
+            DB::rollback();
+            throw $th;
+
+
+        }
+
+
 
 
     }
