@@ -440,11 +440,12 @@ class MissionController extends Controller
 
         if($record->claim == 1) return response()->json(['message' => "You already claimed this bonus!"],208);
 
-        if($record->created_at->addDays($days) <= Carbon::now()->addDays($days) || $record->created_at->addDays($days)->isSameDay(Carbon::now()->addDays($days))){
+        if($record->created_at->addDays($days)->isSameDay(Carbon::now()->addDays($days))){
 
             $record->update([
                 'claim' => 1
             ]);
+
 
             return response()->json(['message' => "successfully claimed"], 200);
         }else{

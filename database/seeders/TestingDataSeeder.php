@@ -221,14 +221,24 @@ class TestingDataSeeder extends Seeder
 
 
 
-        // Login Bonus seeder
+        // // Login Bonus seeder
 
-        $loginRange = [3,5,7,10,12,15,20,22];
+        $now = Carbon::now();
+        $login_data = [
+            [  'date' => $now->addDays(1), 'day_count' => 2, 'claim' => 1 ],
+            [  'date' => $now->addDays(2), 'day_count' => 3, 'claim' => 0 ],
+            [  'date' => $now->addDays(3), 'day_count' => 4, 'claim' => 1 ],
+        ];
 
-        foreach ($loginRange as $k => $l) {
-            DB::table('login_bonuses')->insert([
-                'days' => $l,
-                'point' => 3 + $k,
+
+        foreach ($login_data as $k => $data) {
+            DB::table('student_login_bonuses')->insert([
+                [
+                    'student_id' => 9,
+                    'day_count' => $data['day_count'],
+                    'date' => $data['date'],
+                    'claim' => $data['claim'],
+                ]
             ]);
         }
 

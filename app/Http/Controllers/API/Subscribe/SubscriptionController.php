@@ -476,17 +476,20 @@ class SubscriptionController extends Controller
 
     private function addLoginBonusRecord($student){
 
+        $already = StudentLoginBonus::where('student_id',$student->id)->get();
+
+
         try {
-            $allDays = LoginBonus::all();
+            if($already->count() == 0) {
 
-            StudentLoginBonus::create([
-                'student_id' => $student->id,
-                'date' => Carbon::now(),
-                'day_count' => 1,
-            ]);
+                $allDays = LoginBonus::all();
 
-
-
+                StudentLoginBonus::create([
+                    'student_id' => $student->id,
+                    'date' => Carbon::now(),
+                    'day_count' => 1,
+                ]);
+            }
 
 
         } catch (\Throwable $th) {
