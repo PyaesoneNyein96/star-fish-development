@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('days')->nullable()->default(0);
             $table->integer('point')->nullable()->default(0);
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

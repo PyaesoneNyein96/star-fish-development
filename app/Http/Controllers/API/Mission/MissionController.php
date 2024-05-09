@@ -331,39 +331,65 @@ class MissionController extends Controller
 
     public function checkLogin(Request $request){
 
-        // $record = $request->student->loginBonus->first();
         $record = StudentLoginBonus::where('student_id', $request->student->id)->latest('created_at')->first();
 
-        $d_Date = Carbon::parse($record->date);
-        // $d_Date = $d_Date->addDays(3);
+        $add_date = Carbon::parse($record->date)->addDays(1);
+        $givenDates = LoginBonus::all()->pluck('days')->toArray();
+
+
+        $all_records = $request->student->loginBonus;
+
 
         $now = Carbon::now()
-        // ->addDays(14)
+        ->addDays(7)
         ;
+
+
+        DB::beginTransaction();
 
         try {
 
-            if($d_Date->addDays(1)->isSameDay($now) && $record->claim == 1){
+            if($add_date->isSameDay($now) && !in_array($record->day_count, $givenDates) ){
                 $record->update([
                     'updated_at' => $now,
                     'date' => $now,
                     'day_count' => $record->day_count + 1
                 ]);
+                DB::commit();
                 return response()->json(['message' => "login bonus record was updated"], 200);
 
-            }else if ($d_Date->addDays(1) < $now){
-                $record->update([
-                    'updated_at' => $now,
+            }else if($add_date->isSameDay($now) && $record->claim == 0  && in_array($record->day_count, $givenDates) ){
+
+                StudentLoginBonus::create([
+                    'student_id' => $request->student->id,
                     'date' => $now,
-                    'day_count' => 1
+                    'day_count' => $record->day_count + 1
                 ]);
+                DB::commit();
+                return response()->json(['message' => "create new one"], 200);
+
+            }else if ($add_date < $now){
+
+                foreach ($all_records as $key => $rd) {
+                    $rd->delete();
+                }
+
+                StudentLoginBonus::create([
+                    'student_id' => $request->student->id,
+                    'date' => $now,
+                    'day_count' =>  1
+                ]);
+
+                DB::commit();
                 return response()->json(['message' => "reset login bonus counting circle"], 200);
+            }else{
+                return response()->json(['message' => "nice try 🤭"], 201);
             }
 
-            return response()->json(['message' => "nice try 🤭"], 201);
-
+            DB::commit();
 
         } catch (\Throwable $th) {
+            DB::rollback();
             throw $th;
         }
 
@@ -379,20 +405,16 @@ class MissionController extends Controller
 
         $student_bonus = $request->student->loginBonus;
 
-        // return [
-        //     $date->format('d -h-i'),
-        //     Carbon::now()->format('d -h:i')
-        // ];
-
         $result = $loginBonus->map(function($bl,$index) use($student_bonus) {
 
             $now = Carbon::now()->addDays(1);
+            $same_record = $bl->days == isset($student_bonus[$index]);
 
             return [
                 'day' => $bl->days,
                 'point' => $bl->point,
-                'allowed' => $record_convert_date,
-                // 'claimed' => $sameDayOrBigger && $student_bonus[$index]->claim && true
+                'allowed (done)' => $student_bonus->contains('day_count', $bl->days),
+                'claimed' => $same_record ? ($student_bonus[$index]->claim ? true : false ) : false ,
             ];
 
         });
@@ -406,32 +428,33 @@ class MissionController extends Controller
 
 
     // Login bonus claim
-    // public function loginBonusClaim (Request $request){
+    public function loginBonusClaim (Request $request){
 
-    //     $days = $request->header('days');
-
-
-    //     $record = LoginBonus::where('student_id', $request->student->id)
-    //     ->where('day_count',$days)->first();
-
-    //     if(!$record) return response()->json(['error' => "Wrong days payload!"],404);
-
-    //     if($record->claim == 1) return response()->json(['message' => "You already claimed this bonus!"],208);
-
-    //     if($record->created_at->addDays($days) <= Carbon::now()){
-
-    //         $record->update([
-    //             'claim' => 1
-    //         ]);
-
-    //     }else{
-    //         return response()->json([
-    //          'error' => "Days not match."
-    //         ], 403);
-    //     }
+        $days = $request->header('days');
 
 
-    // }
+        $record = StudentLoginBonus::where('student_id', $request->student->id)
+        ->where('day_count',$days)->first();
+
+        if(!$record) return response()->json(['error' => "Wrong days payload!"],404);
+
+        if($record->claim == 1) return response()->json(['message' => "You already claimed this bonus!"],208);
+
+        if($record->created_at->addDays($days) <= Carbon::now()->addDays($days) || $record->created_at->addDays($days)->isSameDay(Carbon::now()->addDays($days))){
+
+            $record->update([
+                'claim' => 1
+            ]);
+
+            return response()->json(['message' => "successfully claimed"], 200);
+        }else{
+            return response()->json([
+             'error' => "Days not match."
+            ], 403);
+        }
+
+
+    }
 
 
 

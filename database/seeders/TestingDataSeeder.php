@@ -223,7 +223,7 @@ class TestingDataSeeder extends Seeder
 
         // Login Bonus seeder
 
-        $loginRange = [7,15,30,60,90,120,180,365];
+        $loginRange = [3,5,7,10,12,15,20,22];
 
         foreach ($loginRange as $k => $l) {
             DB::table('login_bonuses')->insert([
