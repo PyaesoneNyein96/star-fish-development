@@ -51,7 +51,7 @@ class TestingDataSeeder extends Seeder
             }
         }
 
-        foreach (range(1, 24) as $k => $l) {
+        foreach (range(1, 40) as $k => $l) {
             DB::table('student_lessons')->insert([
                 'student_id' => 3,
                 'grade_id' => 1,
