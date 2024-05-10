@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\StudentQuestionBonus;
 use Illuminate\Support\Facades\Http;
+use App\Models\StudentChampionshipBonus;
 use Illuminate\Support\Facades\Redirect;
 
 class SubscriptionController extends Controller
@@ -437,6 +438,9 @@ class SubscriptionController extends Controller
                 //Login Bonus Record Adding
                 $this->addQuestionBonusRecords($student);
 
+                //Championship Bonus Record Adding
+                $this->addChampionshipBonusRecords($student);
+
             }
 
 
@@ -521,7 +525,36 @@ class SubscriptionController extends Controller
             throw $th;
         }
 
+    }
 
+
+
+    private function addChampionshipBonusRecords($student){
+
+        $already = StudentChampionshipBonus::where('student_id',$student->id)->get();
+
+        $champions = [
+            ['platinum' , 50],
+            ['gold' , 100],
+            ['diamond' , 200]
+        ];
+
+        try {
+
+            if($already->count() == 0){
+
+                foreach($champions as $champ){
+                    StudentChampionshipBonus::create([
+                        'student_id' => $student->id,
+                        'point' => 1,
+                        'champion' => $champ[0],
+                        'fix_level' => $champ[1],
+                    ]);
+                }
+            }
+        } catch (\Throwable $th) {
+            throw $th;
+        }
 
     }
 

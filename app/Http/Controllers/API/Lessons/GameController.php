@@ -506,14 +506,14 @@ class GameController extends Controller
                 $board = 'gold';
             }
             else if
-            ($lvl > 200 && $lvl <= 300) {
+            ($lvl > 200) {
                 $board = 'diamond';
             }
 
 
         $data = [
-            'point' => $newPoint,
-            'fixed_point' => $newFixPoint,
+            'point' => $newPoint > 3000 ? 3000 : $newPoint,
+            'fixed_point' => $newFixPoint > 3000 ? 3000 : $newFixPoint,
             'board' => $board
         ];
 

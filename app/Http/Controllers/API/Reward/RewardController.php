@@ -34,11 +34,19 @@ class RewardController extends Controller
         return $point;
     }
 
+
+
     public function addPoint(Request $request)
     {
         $newPoint = $this->addPointFunction($request);
+
+        $newPoint[0] = $newPoint[0] >= 3000 ? 3000 : $newPoint[0];
+        $newPoint[1] = $newPoint[1] >= 3000 ? 3000 : $newPoint[1];
+
+
+
         if ($newPoint[1] >= 0 && $newPoint[1] <= 3000) {
-            $level = ceil($newPoint[1] / 10);
+            $level = floor($newPoint[1] / 10);
             Student::where('id', $request->student_id)->update([
                 'point' => $newPoint[0],
                 'fixed_point' => $newPoint[1],
@@ -246,16 +254,19 @@ class RewardController extends Controller
         $newPoint = $oldPoint->point + (int)$request->point;
         $newFixPoint = $oldPoint->fixed_point + (int)$request->point;
 
-        if ($oldPoint->level >= 1 && $oldPoint->level <= 50) {
+            $level = $newFixPoint / 10;
+
+
+        if ($level <= 50) {
             $board = 'silver';
         }
-        if ($oldPoint->level >= 51 && $oldPoint->level <= 100) {
+        if ($level >= 51 && $level <= 100) {
             $board = 'platinum';
         }
-        if ($oldPoint->level >= 101 && $oldPoint->level <= 200) {
+        if ($level >= 101 && $level <= 200) {
             $board = 'gold';
         }
-        if ($oldPoint->level >= 201 && $oldPoint->level <= 300) {
+        if ($level >= 201) {
             $board = 'diamond';
         }
         return [$newPoint, $newFixPoint, $board];
