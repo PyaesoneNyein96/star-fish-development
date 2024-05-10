@@ -168,6 +168,11 @@ Route::prefix('mission')->middleware('isSubscriber')->group(function () {
         Route::get('bonus', [MissionController::class,'questionBonusList']);
         Route::get('claim', [MissionController::class,'questionBonusClaim']);
     });
+
+    Route::prefix('championship')->group(function () {
+        Route::get('bonus',[MissionController::class,'championshipBonusList']);
+        Route::get('claim',[MissionController::class,'championshipBonusClaim']);
+    });
 });
 
 

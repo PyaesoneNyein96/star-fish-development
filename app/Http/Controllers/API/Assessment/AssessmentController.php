@@ -211,22 +211,26 @@ class AssessmentController extends Controller
                     $newPoint = $oldPoint->point + (int)$point;
                     $newFixPoint = $oldPoint->fixed_point + (int)$point;
 
-                    if ($oldPoint->level >= 1 && $oldPoint->level <= 50) {
+                    $level = $newFIxPoint / 10;
+
+                    if ($level <= 50) {
                         $board = 'silver';
                     }
-
-                    if ($oldPoint->level >= 51 && $oldPoint->level <= 100) {
+                    if ($level >= 51 && $level <= 100) {
                         $board = 'platinum';
                     }
-                    if ($oldPoint->level >= 101 && $oldPoint->level <= 200) {
+                    if ($level >= 101 && $level <= 200) {
                         $board = 'gold';
                     }
-                    if ($oldPoint->level >= 201 && $oldPoint->level <= 300) {
+                    if ($level >= 201) {
                         $board = 'diamond';
                     }
 
+                    $newFixPoint = $newFixPoint > 3000 ? 3000 : $newFixPoint;
+                    $newPoint = $newPoint > 3000 ? 3000 : $newPoint;
+
                     if ($newFixPoint >= 0 && $newFixPoint <= 3000) {
-                        $level = ceil($newFixPoint / 10);
+                        $level = floor($newFixPoint / 10);
                         Student::where('id', $studentId)->update([
                             'point' => $newPoint,
                             'fixed_point' => $newFixPoint,
