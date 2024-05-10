@@ -86,21 +86,24 @@ class Student extends Model
         return $this->belongsToMany(Game::class, 'student_games', 'student_id', 'game_id');
     }
 
-    public function certificates(){
+    public function certificates()
+    {
         return $this->hasMany(Certificate::class);
     }
 
 
-/////////////////// Order Transaction //////////////////
+    /////////////////// Order Transaction //////////////////
 
-    public function orderTransaction(){
+    public function orderTransaction()
+    {
         return $this->hasMany(OrderTransaction::class);
     }
 
 
-//////////////////// Loin Bonus /////////////////////
+    //////////////////// Loin Bonus /////////////////////
 
-    public function loginBonus(){
+    public function loginBonus()
+    {
         return $this->hasMany(StudentLoginBonus::class);
         // return $this->belongsToMany(LoginBonus::class,'student_login_bonuses','student_id','login_bonuses_id');
     }

@@ -203,7 +203,19 @@ Field ( header ) = token , assess_game_id
 (Method: GET) [https://star-fish.myanmargateway.net/api/assessment/end_match](https://star-fish.myanmargateway.net/api/assessment/end_match)  
 Field ( header ) = token , point
 
-### Version Check
+### Certificate
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/assessment/certificate](https://star-fish.myanmargateway.net/api/assessment/certificate)  
+Field ( header ) = token , grade_id
+
+# Champions Board
+
+### Get All Data
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/board](https://star-fish.myanmargateway.net/api/board)  
+Field ( header ) = name (champion board name)
+
+# Version Check
 
 ### Android
 

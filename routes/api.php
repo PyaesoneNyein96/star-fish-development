@@ -11,6 +11,7 @@ use App\Http\Controllers\API\Lessons\LessonController;
 use App\Http\Controllers\API\Auth\GlobalAuthController;
 use App\Http\Controllers\API\Mission\MissionController;
 use App\Http\Controllers\API\Assessment\AssessmentController;
+use App\Http\Controllers\API\Board\ChampionsBoardController;
 use App\Http\Controllers\API\Subscribe\SubscriptionController;
 use App\Http\Controllers\API\Version\VersionAndUpdateController;
 
@@ -134,6 +135,11 @@ Route::prefix('assessment')->group(function () {
     Route::get('certificate', [AssessmentController::class, 'callCertificate']);
 });
 
+
+Route::prefix('board')->group(function () {
+    Route::get('/', [ChampionsBoardController::class, 'getAll']);
+});
+
 // Route::get('/testing', [AssessmentController::class, 'maketest'])->name('testing');
 
 ///////////////// Mission //////////////////////
@@ -165,8 +171,8 @@ Route::prefix('mission')->middleware('isSubscriber')->group(function () {
     });
 
     Route::prefix('question')->group(function () {
-        Route::get('bonus', [MissionController::class,'questionBonusList']);
-        Route::get('claim', [MissionController::class,'questionBonusClaim']);
+        Route::get('bonus', [MissionController::class, 'questionBonusList']);
+        Route::get('claim', [MissionController::class, 'questionBonusClaim']);
     });
 });
 
