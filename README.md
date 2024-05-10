@@ -267,6 +267,18 @@ Field ( header ) = token , point
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/question/claim](https://star-fish.myanmargateway.net/api/mission/question/claim) Field (header) = token, name
 
+
+-   ### Championship Bonus
+
+### Championship Bonus List
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/Championship/bonus](https://star-fish.myanmargateway.net/api/mission/Championship/bonus) Field (header) = token
+
+### Championship Bonus Claim
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/Championship/claim](https://star-fish.myanmargateway.net/api/mission/Championship/claim) Field (header) = token, name
+
+
 -   ### Assessment Bonus
 
 ### Assessment List
