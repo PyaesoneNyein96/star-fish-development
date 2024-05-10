@@ -163,6 +163,11 @@ Route::prefix('mission')->middleware('isSubscriber')->group(function () {
         Route::get('bonus', [MissionController::class, 'loginBonusList']);
         Route::get('claim', [MissionController::class, 'loginBonusClaim']);
     });
+
+    Route::prefix('question')->group(function () {
+        Route::get('bonus', [MissionController::class,'questionBonusList']);
+        Route::get('claim', [MissionController::class,'questionBonusClaim']);
+    });
 });
 
 

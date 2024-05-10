@@ -18,8 +18,10 @@ use Illuminate\Http\Request;
 use App\Models\StudentLesson;
 use App\Models\OrderTransaction;
 use App\Models\SubscriptionPlan;
+use App\Models\StudentLoginBonus;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\StudentQuestionBonus;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
@@ -429,6 +431,12 @@ class SubscriptionController extends Controller
                 //Daily Bonus Record Adding
                 $this->addDailyBonusRecord($student);
 
+                //Login Bonus Record Adding
+                $this->addLoginBonusRecord($student);
+
+                //Login Bonus Record Adding
+                $this->addQuestionBonusRecords($student);
+
             }
 
 
@@ -449,14 +457,16 @@ class SubscriptionController extends Controller
     private function addDailyBonusRecord($student){
 
         try {
+            $duplicate = DailyBonus::where('student_id',$student->id)->get();
 
-            DailyBonus::create([
-                'student_id' => $student->id,
-                'fifteen' => null,
-                'thirty' => null,
-                'daily' => null,
-            ]);
-
+              if($duplicate->count() == 0){
+                DailyBonus::create([
+                    'student_id' => $student->id,
+                    'fifteen' => null,
+                    'thirty' => null,
+                    'daily' => null,
+                ]);
+            }
 
         } catch (\Throwable $th) {
             throw $th;
@@ -465,31 +475,55 @@ class SubscriptionController extends Controller
 
     }
 
-    // private function addLoginBonusRecord($student){
 
-    //     $range = [7,15,30,60,90,120,180,365];
+    private function addLoginBonusRecord($student){
 
-    //     try {
+        $already = StudentLoginBonus::where('student_id',$student->id)->get();
 
-    //         foreach ($range as $key => $r) {
-    //             LoginBonus::create([
+        try {
+            if($already->count() == 0) {
 
-    //                 'student_id' => $student->id,
-    //                 'given_days' => $r,
-    //                 'given_date' => Carbon::now()->addDays($r),
-    //                 'day_count' => 1,
-    //                 'claim' => 0,
+                $allDays = LoginBonus::all();
 
-    //             ]);
-    //         }
-
-
-    //     } catch (\Throwable $th) {
-    //         throw $th;
-    //     }
+                StudentLoginBonus::create([
+                    'student_id' => $student->id,
+                    'date' => Carbon::now(),
+                    'day_count' => 1,
+                ]);
+            }
 
 
-    // }
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+    }
+
+
+    private function addQuestionBonusRecords($student){
+
+        $already = StudentQuestionBonus::where('student_id', $student->id)->get();
+
+        try {
+
+            if($already->count() == 0){
+
+                foreach (range(1,8) as $num) {
+                    StudentQuestionBonus::create([
+                        'student_id' => $student->id,
+                        'point' => $num*10,
+                        'question_count' => $num*100
+                    ]);
+                }
+            }
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+
+
+    }
 
 
 

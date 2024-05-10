@@ -5,16 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class LoginBonus extends Model
+class StudentQuestionBonus extends Model
 {
     use HasFactory;
-    // protected $hidden = ['pivot'];
 
     protected $fillable = [
-        'days',
+        'student_id',
         'point',
-        'created_at',
-        'updated_at'
+        'question_count',
+        'claim'
     ];
 
 }
