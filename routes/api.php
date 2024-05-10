@@ -131,7 +131,7 @@ Route::prefix('assessment')->group(function () {
     Route::get('game', [AssessmentController::class, 'enterGame']);
     Route::get('each/game', [AssessmentController::class, 'recordEachGame']);
     Route::get('end_match', [AssessmentController::class, 'endGame']);
-    Route::get('/certificate/{id}/{percentage}/{stu}', [AssessmentController::class, 'makeCertificate'])->name('certificate');
+    Route::get('certificate', [AssessmentController::class, 'callCertificate']);
 });
 
 // Route::get('/testing', [AssessmentController::class, 'maketest'])->name('testing');

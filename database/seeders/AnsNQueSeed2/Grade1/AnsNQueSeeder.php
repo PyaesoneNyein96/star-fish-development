@@ -2471,29 +2471,29 @@ class AnsNQueSeeder extends Seeder
 
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "SubBlock_This-is-a-cat-Its-small-Its.mp3", 'q_conver' => "This is a cat. It's small. It's yellow.", 'q_content' => "true", 'a_content' => 1, 'q_image' =>  $l14G80image . "cat.png"],
-            ['round' => 1, 'game_id' => 80, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 1, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "SubBlock_This-is-a-cat-Its-small-Its.mp3", 'q_content' => "true", 'a_content' => 1, 'q_image' =>  $l14G80image . "cat.png"],
+            ['round' => 1, 'game_id' => 80, 'q_audio' => null,  'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 2, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-hat-Its-new-Its.mp3", 'q_conver' => "This is a hat. It's new. It's blue.", 'q_content' => "true", 'a_content' => 0, 'q_image' =>  $l14G80image . "hat.png"],
-            ['round' => 2, 'game_id' => 80, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
+            ['round' => 2, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-hat-Its-new-Its.mp3", 'q_content' => "true", 'a_content' => 0, 'q_image' =>  $l14G80image . "hat.png"],
+            ['round' => 2, 'game_id' => 80, 'q_audio' => null,  'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 3, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-house-Its-big-It.mp3", 'q_conver' => "This house is big. It's big. It's white.", 'q_content' => "true", 'a_content' => 1, 'q_image' =>  $l14G80image . "house.png"],
-            ['round' => 3, 'game_id' => 80, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 3, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-house-Its-big-It.mp3", 'q_content' => "true", 'a_content' => 1, 'q_image' =>  $l14G80image . "house.png"],
+            ['round' => 3, 'game_id' => 80, 'q_audio' => null,  'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 4, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-cake-Its-hard-It.mp3", 'q_conver' => "It's a cake. It's hard. It's yellow", 'q_content' => "true", 'a_content' => 0, 'q_image' =>  $l14G80image . "cake.png"],
-            ['round' => 4, 'game_id' => 80, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
+            ['round' => 4, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-cake-Its-hard-It.mp3", 'q_content' => "true", 'a_content' => 0, 'q_image' =>  $l14G80image . "cake.png"],
+            ['round' => 4, 'game_id' => 80, 'q_audio' => null,  'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 5, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-car-Its-old-and-sl-2.mp3", 'q_conver' => "This is a car. It's old and slow. It's green", 'q_content' => "true", 'a_content' => 1, 'q_image' =>  $l14G80image . "car.png"],
-            ['round' => 5, 'game_id' => 80, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 5, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-car-Its-old-and-sl-2.mp3",  'q_content' => "true", 'a_content' => 1, 'q_image' =>  $l14G80image . "car.png"],
+            ['round' => 5, 'game_id' => 80, 'q_audio' => null,  'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 6, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "Its-a-doll-Its-soft-Its-y.mp3", 'q_conver' => "It's a doll. It's soft. It's yellow.", 'q_content' => "true", 'a_content' => 1, 'q_image' =>  $l14G80image . "doll.png"],
-            ['round' => 6, 'game_id' => 80, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 6, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "Its-a-doll-Its-soft-Its-y.mp3", 'q_content' => "true", 'a_content' => 1, 'q_image' =>  $l14G80image . "doll.png"],
+            ['round' => 6, 'game_id' => 80, 'q_audio' => null,  'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 7, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-bag-Its-old-Its.mp3", 'q_conver' => "This is a bag. It's old. It's red.", 'q_content' => "true", 'a_content' => 0, 'q_image' =>  $l14G80image . "bag.png"],
-            ['round' => 7, 'game_id' => 80, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
+            ['round' => 7, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-bag-Its-old-Its.mp3", 'q_content' => "true", 'a_content' => 0, 'q_image' =>  $l14G80image . "bag.png"],
+            ['round' => 7, 'game_id' => 80, 'q_audio' => null,  'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 8, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-pen-Its-long-Its.mp3", 'q_conver' => "This is a pen. It's long. It's brown.", 'q_content' => "true", 'a_content' => 0, 'q_image' =>  $l14G80image . "pen.png"],
-            ['round' => 8, 'game_id' => 80, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
+            ['round' => 8, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-pen-Its-long-Its.mp3", 'q_content' => "true", 'a_content' => 0, 'q_image' =>  $l14G80image . "pen.png"],
+            ['round' => 8, 'game_id' => 80, 'q_audio' => null,  'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
 
         ]);
 

@@ -12,8 +12,12 @@ use App\Models\StudentLesson;
 use App\Models\AssessmentAnsNQues;
 use App\Models\AssessmentCategory;
 use App\Http\Controllers\Controller;
+use App\Jobs\MakeCertificate;
 use App\Models\AssessmentEachRecordFinishData;
 use App\Models\AssessmentFinishData;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Spatie\PdfToImage\Pdf as Png;
+use Illuminate\Support\Facades\Storage;
 
 class AssessmentController extends Controller
 {
@@ -156,11 +160,10 @@ class AssessmentController extends Controller
 
         if (!$token) return response()->json(['message' => 'Token is required.'], 403);
 
-        $studentId = Student::where("token", $token)->first();
-        if (!$studentId) return response()->json(['message' => 'Stduent Not Found.'], 404);
+        $student = Student::where("token", $token)->first();
+        if (!$student) return response()->json(['message' => 'Stduent Not Found.'], 404);
 
-
-        $studentId = $studentId->id;
+        $studentId = $student->id;
         $lessonId = StudentLesson::where("student_id", $studentId)->get();
         if (!$lessonId[0]) return response()->json(['message' => "didn't complete any lessons"], 403);
 
@@ -198,16 +201,10 @@ class AssessmentController extends Controller
                     ->where("finish", 1)->first();
 
                 if ($isExistAssessFinish) return response()->json(['message' => 'completed assessment.'], 403);
-                if (!$data->toArray()) return response()->json(['message' => 'Grade Id and Lesson Id not match.'], 403);
-
-                // foreach ($data as $key => $value) {
-                //     if ($value['id'] == $assessGameId) {
-                //         if (count($data) != $key + 1) return response()->json(['message' => "didn't complete assessment lessons"], 403);
-                //     }
-                // }
+                if (!count($data)) return response()->json(['message' => 'Grade Id and Lesson Id not match.'], 403);
 
                 if ($point) {
-                    $oldPoint = Student::where('id', $studentId)->first();
+                    $oldPoint = $student;
                     $newPoint = $oldPoint->point + (int)$point;
                     $newFixPoint = $oldPoint->fixed_point + (int)$point;
 
@@ -241,12 +238,6 @@ class AssessmentController extends Controller
                         ]);
                     }
 
-
-                    // AssessmentFinishData::where("student_id", $studentId)
-                    //     ->where("assess_name", $data[0]->name)->update([
-                    //         "point"=> ,
-                    //         "finish" => 1
-                    //     ]);
                     $addData = [
                         "student_id" => $studentId,
                         "grade_id" => $assessment->grade_id,
@@ -274,11 +265,6 @@ class AssessmentController extends Controller
                         ->groupby("total_assess_ques")
                         ->get();
 
-                    // $total_percentage = 0;
-                    // foreach ($assessGrade as $ag) $total_percentage += (int)$ag->total_assess_ques;
-
-                    // return $total_percentage;
-
                     $isfinish = AssessmentFinishData::where("student_id", $studentId)->where("grade_id", $assessment->grade_id)->where("assess_name", count($assessGrade))->first();
 
                     if ($isfinish != null) {
@@ -291,23 +277,15 @@ class AssessmentController extends Controller
 
                         $total_percentage = floor(($sum_point / $total_grade_point) * 100);
 
-                        $Stu = Student::find($studentId);
-
                         $certi = [
-                            "student_id" => $Stu->id,
+                            "student_id" => $studentId,
                             "grade_id" => $assessment->grade_id,
                             "total_percentage" => $total_percentage,
-                            "pdf_path" => "--"
                         ];
-                        // return $certi;
 
-                        // $response = redirect("/api/assessment/certificate/$assessment->grade_id/$total_percentage");
-                        // return $response;
-
-                        // $certi["pdf_path"] = '';
                         $certificate = Certificate::create($certi);
 
-                        $certificate["name"] = $Stu->name;
+                        $certificate["name"] = $student->name;
                         $certificate["certificate_num"] =  str_pad($certificate->id, 7, '0', STR_PAD_LEFT);
                         $certificate["date"] = Carbon::now()->format('d M Y');
 
@@ -331,24 +309,50 @@ class AssessmentController extends Controller
 
 
     // make new certificate
-    public function makeCertificate(Request $request, $id, $percentage, $stu)
+    public function makeCertificate($data)
     {
-        // $token = $request->header("token");
-        $Stu = Student::find($stu);
+        $stu = $data['student_id'];
+        $percentage = $data['total_percentage'];
+        $id = $data['grade_id'];
 
-        $certi = [
-            "student_id" => $Stu->id,
-            "grade_id" => $id,
-            "total_percentage" => $percentage,
-            "pdf_path" => "--"
-        ];
-        $certificate = Certificate::create($certi);
+        $certificate_path = Certificate::where("student_id", $stu)->where("grade_id", $id)->first();
 
-        $certi["name"] = $Stu->name;
-        $certi["certificate_num"] =  str_pad($certificate->id, 7, '0', STR_PAD_LEFT);
-        $certi["date"] = Carbon::now()->format('d M Y');
+        if ($certificate_path && !$certificate_path->pdf_path) {
+            $Stu = Student::where("id", $stu)->first();
 
-        return view('certificate', compact("certi"));
-        // return view('certificate');
+            $certi = [
+                "name" => $Stu->name,
+                "student_id" => $Stu->id,
+                "grade_id" => $id,
+                "total_percentage" => $percentage,
+                "certificate_num" =>  str_pad($certificate_path->id, 7, '0', STR_PAD_LEFT),
+                "date" => Carbon::now()->format('d M Y')
+            ];
+
+            $customPaper = array(0, 0, 975, 1364);
+
+            // convert pdf
+            $pdf = Pdf::loadView('certificate', $certi)->setPaper($customPaper, 'landscape');
+            Storage::put("public/certificate_pdf/$Stu->name.pdf", $pdf->output());
+            $certi["pdf_path"] = app('domain') . "public/certificate_pdf/$Stu->name.pdf";
+            Certificate::where('id', $certificate_path->id)->update(["pdf_path" => $certi["pdf_path"]]);
+        }
+    }
+
+    public function callCertificate(Request $request)
+    {
+        $token = $request->header('token');
+        $grade = $request->header('grade_id');
+
+        if (!$token) return response()->json(['message' => "token is required"], 403);
+
+        $stu = Student::where('token', $token)->first();
+        $certificate = Certificate::where("student_id", $stu->id)
+            ->where("grade_id", $grade)
+            ->first();
+
+        if (!$certificate) return response()->json(['message' => "You don't have certificate."], 403);
+
+        return response()->json($certificate);
     }
 }

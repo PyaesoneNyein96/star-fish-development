@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('student_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->integer('grade_id');
             $table->integer('total_percentage');
-            $table->longText("pdf_path");
+            $table->longText("pdf_path")->nullable();
             // $table->foreignId('grade_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

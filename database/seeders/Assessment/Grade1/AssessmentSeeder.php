@@ -907,20 +907,20 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_This-is-my-father.mp3", 'q_content' => $A5_ID30_image .  "father.png", "q_conver" => $A5_ID30_image .  "father-text.png", 'a_content' => 1, 'q_image' => $A5_ID30_image . "girl.png"],
-            ['round' => 1, 'assess_id' => 30, 'q_audio' => null, 'q_content' => $A5_ID30_image . "mother.png", "q_conver" => null, 'a_content' => 0, 'q_image' => null],
+            ['round' => 1, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_This-is-my-father.mp3", 'q_image' => $A5_ID30_image .  "father.png", "q_conver" => $A5_ID30_image .  "father-text.png", 'a_content' => 1, 'q_content' => $A5_ID30_image . "girl.png"],
+            ['round' => 1, 'assess_id' => 30, 'q_audio' => null, 'q_image' => $A5_ID30_image . "mother.png", "q_conver" => null, 'a_content' => 0, 'q_content' => null],
 
-            ['round' => 2, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_She-is-my-mother.mp3", 'q_content' => $A5_ID30_image .  "father.png", "q_conver" => $A5_ID30_image . "mother-text.png", 'a_content' => 0, 'q_image' => $A5_ID30_image . "girl.png"],
-            ['round' => 2, 'assess_id' => 30, 'q_audio' => null, 'q_content' => $A5_ID30_image . "mother.png", "q_conver" => null, 'a_content' => 1, 'q_image' => null],
+            ['round' => 2, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_She-is-my-mother.mp3", 'q_image' => $A5_ID30_image .  "father.png", "q_conver" => $A5_ID30_image . "mother-text.png", 'a_content' => 0, 'q_content' => $A5_ID30_image . "girl.png"],
+            ['round' => 2, 'assess_id' => 30, 'q_audio' => null, 'q_image' => $A5_ID30_image . "mother.png", "q_conver" => null, 'a_content' => 1, 'q_content' => null],
 
-            ['round' => 3, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_He-is-my-brother.mp3", 'q_content' => $A5_ID30_image .  "brother.png", "q_conver" => $A5_ID30_image . "brother-text.png", 'a_content' => 1, 'q_image' => $A5_ID30_image . "girl.png"],
-            ['round' => 3, 'assess_id' => 30, 'q_audio' => null, 'q_content' => $A5_ID30_image . "old.png", "q_conver" => null, 'a_content' => 0, 'q_image' => null],
+            ['round' => 3, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_He-is-my-brother.mp3", 'q_image' => $A5_ID30_image .  "brother.png", "q_conver" => $A5_ID30_image . "brother-text.png", 'a_content' => 1, 'q_content' => $A5_ID30_image . "girl.png"],
+            ['round' => 3, 'assess_id' => 30, 'q_audio' => null, 'q_image' => $A5_ID30_image . "old.png", "q_conver" => null, 'a_content' => 0, 'q_content' => null],
 
-            ['round' => 4, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_She-is-my-older-sister.mp3", 'q_content' => $A5_ID30_image .  "brother.png", "q_conver" => $A5_ID30_image . "older-sister-text.png", 'a_content' => 0, 'q_image' => $A5_ID30_image . "girl.png"],
-            ['round' => 4, 'assess_id' => 30, 'q_audio' => null, 'q_content' => $A5_ID30_image . "sister.png", "q_conver" => null, 'a_content' => 1, 'q_image' => null],
+            ['round' => 4, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_She-is-my-older-sister.mp3", 'q_image' => $A5_ID30_image .  "brother.png", "q_conver" => $A5_ID30_image . "older-sister-text.png", 'a_content' => 0, 'q_content' => $A5_ID30_image . "girl.png"],
+            ['round' => 4, 'assess_id' => 30, 'q_audio' => null, 'q_image' => $A5_ID30_image . "sister.png", "q_conver" => null, 'a_content' => 1, 'q_content' => null],
 
-            ['round' => 5, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_This-is-my-grandmother.mp3", 'q_content' => $A5_ID30_image .  "grandpa.png", "q_conver" => $A5_ID30_image . "grandma-text.png", 'a_content' => 0, 'q_image' => $A5_ID30_image . "girl.png"],
-            ['round' => 5, 'assess_id' => 30, 'q_audio' => null, 'q_content' => $A5_ID30_image . "grandma.png", "q_conver" => null, 'a_content' => 1, 'q_image' => null],
+            ['round' => 5, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_This-is-my-grandmother.mp3", 'q_image' => $A5_ID30_image .  "grandpa.png", "q_conver" => $A5_ID30_image . "grandma-text.png", 'a_content' => 0, 'q_content' => $A5_ID30_image . "girl.png"],
+            ['round' => 5, 'assess_id' => 30, 'q_audio' => null, 'q_image' => $A5_ID30_image . "grandma.png", "q_conver" => null, 'a_content' => 1, 'q_content' => null],
 
         ]);
 
@@ -937,8 +937,8 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 4, "q_image" => $A1_ID4_image . "classroom.png", "q_audio" => $G1_A1_drag_n_drop . "classroom.mp3"],
-            ['round' => 1, 'assess_id' => 4, "q_image" => $A1_ID4_image . "bedroom.png", "q_audio" => $G1_A1_drag_n_drop . "bedroom.mp3"],
+            ['round' => 1, 'assess_id' => 4, "q_image" => $A1_ID4_image . "classroom.png", "q_audio" => $AudioDomain . $G1_A1_drag_n_drop . "classroom.mp3"],
+            ['round' => 1, 'assess_id' => 4, "q_image" => $A1_ID4_image . "bedroom.png", "q_audio" => $AudioDomain . $G1_A1_drag_n_drop . "bedroom.mp3"],
         ]);
 
         DB::table('assessment_ans_n_ques')->insert([
@@ -968,7 +968,7 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 18, "q_image" => $A3_ID18_image . "pic.png", "q_audio" => $G1_A3_drag_n_drop . "SubBlock_My-names-Anna-I-like-juice.mp3"],
+            ['round' => 1, 'assess_id' => 18, "q_image" => $A3_ID18_image . "pic.png", "q_audio" => $AudioDomain . $G1_A3_drag_n_drop . "SubBlock_My-names-Anna-I-like-juice.mp3"],
         ]);
 
         DB::table('assessment_ans_n_ques')->insert([
@@ -999,7 +999,7 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 31, "q_image" => $A5_ID31_image . "pic.png", "q_audio" => $G1_A5_drag_n_drop . "SubBlock_Good-morning-students-Open-t.mp3"],
+            ['round' => 1, 'assess_id' => 31, "q_image" => $A5_ID31_image . "pic.png", "q_audio" => $AudioDomain . $G1_A5_drag_n_drop . "SubBlock_Good-morning-students-Open-t.mp3"],
         ]);
 
         DB::table('assessment_ans_n_ques')->insert([
@@ -1059,9 +1059,9 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 11, "q_image" => $A2_ID11_image . "pencil.png", "q_audio" => $G1_A2_drag_n_drop . "SubBlock_This-is-a-pencil-Its-hard-I.mp3"],
-            ['round' => 1, 'assess_id' => 11, "q_image" => $A2_ID11_image . "jacket.png", "q_audio" => $G1_A2_drag_n_drop . "SubBlock_This-is-a-new-jacket-Its-whi.mp3"],
-            ['round' => 1, 'assess_id' => 11, "q_image" => $A2_ID11_image . "turtle.png", "q_audio" => $G1_A2_drag_n_drop . "SubBlock_Its-a-turtle-Its-green-It.mp3"],
+            ['round' => 1, 'assess_id' => 11, "q_image" => $A2_ID11_image . "pencil.png", "q_audio" => $AudioDomain . $G1_A2_drag_n_drop . "SubBlock_This-is-a-pencil-Its-hard-I.mp3"],
+            ['round' => 1, 'assess_id' => 11, "q_image" => $A2_ID11_image . "jacket.png", "q_audio" => $AudioDomain . $G1_A2_drag_n_drop . "SubBlock_This-is-a-new-jacket-Its-whi.mp3"],
+            ['round' => 1, 'assess_id' => 11, "q_image" => $A2_ID11_image . "turtle.png", "q_audio" => $AudioDomain . $G1_A2_drag_n_drop . "SubBlock_Its-a-turtle-Its-green-It.mp3"],
         ]);
 
         DB::table('assessment_ans_n_ques')->insert([
@@ -1090,7 +1090,7 @@ class AssessmentSeeder extends Seeder
         $images = $ImageDomain . "Grade_1/Assessments/Assessment_1/Reading_passage_1/";
         $audios = $AudioDomain . "Grade_1/Assessments/Assessment_1/Reading_passage_1/";
 
-        $para = "Hi, my name is Dan. I'm 5 years old. In the afternoon, I say 'Good Afternoon. \n Hello and how are you?' They say 'I'm fine.And you?' I say 'I'm great.' \n It's going to be wonderful day.";
+        $para = "Hi, my name is Dan. I'm 5 years old. In the afternoon, I say 'Good Afternoon. Hello and how are you?' They say 'I'm fine.And you?' I say 'I'm great.' It's going to be wonderful day.";
 
         $given_q = [
             ["What is my name ?", "Dan"],
@@ -1166,8 +1166,7 @@ class AssessmentSeeder extends Seeder
         $images = $ImageDomain . "Grade_1/Assessments/Assessment_1/Reading_passage_2/";
         $audios = $AudioDomain . "Grade_1/Assessments/Assessment_1/Reading_passage_2/";
 
-        $para = "Hi,I'm Dan. This is my room. I love coloring. \n My color pencils, crayons, a sharpener \n
-         and  eraser are on the table. I love playing with toys. A ball in under my chair.";
+        $para = "Hi,I'm Dan. This is my room. I love coloring. My color pencils, crayons, a sharpener and  eraser are on the table. I love playing with toys. A ball in under my chair.";
 
         $given_q = [
             ["Select the things Dan has in his room.", "Color Pencils"],
