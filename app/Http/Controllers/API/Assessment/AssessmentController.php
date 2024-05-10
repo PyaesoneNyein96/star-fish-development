@@ -334,7 +334,7 @@ class AssessmentController extends Controller
             // convert pdf
             $pdf = Pdf::loadView('certificate', $certi)->setPaper($customPaper, 'landscape');
             Storage::put("public/certificate_pdf/$Stu->name.pdf", $pdf->output());
-            $certi["pdf_path"] = app('domain') . "public/certificate_pdf/$Stu->name.pdf";
+            $certi["pdf_path"] = app('domain') . "/storage/certificate_pdf/$Stu->name.pdf";
             Certificate::where('id', $certificate_path->id)->update(["pdf_path" => $certi["pdf_path"]]);
         }
     }
