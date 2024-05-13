@@ -1039,17 +1039,12 @@ class AssessmentSeeder extends Seeder
             ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "owl"],
             ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "quince"],
 
-            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => "uncle"],
-            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => "watch"],
-            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => "white"],
-            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => "unicorn"],
-            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => "wall"],
-            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => "uniform"],
-
-            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => ""],
-            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => ""],
-            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => ""],
-
+            ['round' => 1, 'assess_id' => 25, "q_content" => "U W", "a_content" => "uncle"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "U W", "a_content" => "watch"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "U W", "a_content" => "white"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "U W", "a_content" => "unicorn"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "U W", "a_content" => "wall"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "U W", "a_content" => "uniform"],
         ]);
 
 
