@@ -1046,6 +1046,10 @@ class AssessmentSeeder extends Seeder
             ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => "wall"],
             ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => "uniform"],
 
+            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => ""],
+            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => ""],
+            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => ""],
+
         ]);
 
 
