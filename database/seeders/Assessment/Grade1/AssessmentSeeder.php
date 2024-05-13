@@ -1029,22 +1029,22 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "olives"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "snail"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "sun"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "quail"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "ostrich"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "queen"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "sea"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "owl"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "quince"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "olives"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "snail"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "sun"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "quail"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "ostrich"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "queen"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "sea"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "owl"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "quince"],
 
-            ['round' => 1, 'assess_id' => 25, "q_content" => "U W", "a_content" => "uncle"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "U W", "a_content" => "watch"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "U W", "a_content" => "white"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "U W", "a_content" => "unicorn"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "U W", "a_content" => "wall"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "U W", "a_content" => "uniform"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "uncle"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "watch"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "white"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "unicorn"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "wall"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "uniform"],
         ]);
 
 
