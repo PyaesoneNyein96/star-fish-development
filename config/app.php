@@ -174,7 +174,7 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
         // Barryvdh\Snappy\ServiceProvider::class,
-        \Barryvdh\DomPDF\ServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
         CustomValidationServiceProvider::class,
 
         GlobalVar::class

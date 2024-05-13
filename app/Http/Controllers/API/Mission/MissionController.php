@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\StudentQuestionBonus;
 use App\Http\Traits\PointAddingTrait;
+use App\Models\StudentChampionshipBonus;
 use App\Http\Traits\AssessmentMissionTrait;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -93,23 +94,45 @@ class MissionController extends Controller
 
         $collection = array_merge($ThreeTimes->toArray(), $FiveTimes->toArray());
 
+        // foreach ($collection as $k => $v) {
+        //      $v['i'] = 3  ;
+        // }
+
+        // return $collection;
+
+
+
         $perPage = $request->header('perPage') ? $request->header('perPage') : 20;
         $page = $request->header('page') ? $request->header('page') : 1;
-        $startingPoint = ($page - 1) * $perPage;
+        // $startingPoint = ($page - 1) * $perPage;
+        $startingPoint = 0;
 
 
         $collection = new Collection($collection);
 
+        $collection = $collection->sortByDesc(function ($lesson) {
 
-        $slicedItems = $collection->slice($startingPoint, $perPage)->all();
+            if ($lesson['claimed'] && $lesson['allowed']) {
+                return 0;
+            } elseif ($lesson['claimed'] && $lesson['allowed']) {
+                return 1;
+            }  elseif ($lesson['claimed']) {
+                return 2;
+            } else {
+                return 3;
+            }
+
+        });
+
+        $slicedItems = $collection->slice($startingPoint, $perPage * $page)->all();
 
         $data =  collect($slicedItems)->values();
 
-
         return response()->json([
             'data' => $data,
-            'perPage' => $perPage,
-            'page' => $page
+            'perPage' => $perPage * $page > $data->count() ? $data->count() : $perPage * $page,
+            'page' => $page,
+            'total' => $data->count()
         ], 200);
 
         // $paginatedData = new LengthAwarePaginator(
@@ -117,13 +140,16 @@ class MissionController extends Controller
         //     $collection->count(), // Total number of items
         //     $perPage,
         //     $page,
-        //     ['path' => url()->current(), 'query' => request()->query()]
+            // ['path' => url()->current(), 'query' => request()->query()]
         // );
 
         // return response()->json([
         //     'data' => $paginatedData->items(),
         //     'page' => $paginatedData->currentPage(),
-        //     'perPage' => $perPage
+        //     'perPage' => (int)$perPage,
+        //     'lastPage' => $paginatedData->lastPage(),
+        //     'total_items' => $collection->count()
+
         // ], 200);
 
     }
@@ -520,6 +546,9 @@ class MissionController extends Controller
 
             if($record && $allowed){
                 $record->update(['claim' => 1]);
+
+                $this->point_lvl($request->student, $record->point);
+
                 DB::Commit();
                 return response()->json([
                     'message' => "Successfully Claim for $name questions Bonus"
@@ -536,6 +565,70 @@ class MissionController extends Controller
 
 
     }
+
+
+
+    // ===============================================================//
+    // Championship Bonus -
+    // ===============================================================//
+
+
+    public function championshipBonusList(Request $request){
+
+        $student = $request->student;
+
+        $record = StudentChampionshipBonus::where('student_id', $student->id)->get();
+
+        return $record->map(function ($record) use($student){
+            return [
+                'name' => $record->champion,
+                'point' => $record->point,
+                'allowed' => $record->champion == $student->board || $record->fix_level < $student->level,
+                'claimed' => $record->claim && true
+            ];
+        });
+    }
+
+
+    public function championshipBonusClaim(Request $request){
+
+        $student =  $request->student;
+        $name = $request->header('name');
+
+        DB::beginTransaction();
+
+        try {
+
+
+            $record = StudentChampionshipBonus::where('student_id',$student->id)->where('champion', $name)->first();
+            $allowed = $student->board == $name || $record->fix_level <= $student->level;
+
+            if(!$allowed) return response()->json(['error' => "not enough level for championship bonus"], 403);
+
+            if($record && $allowed){
+
+                $record->update(['claim' => 1]);
+
+                $this->point_lvl($request->student, $record->point);
+
+                DB::Commit();
+                return response()->json([
+                    'message' => "Successfully Claim for $name champion Bonus"
+                ], 200);
+
+            }
+
+
+        } catch (\Throwable $th){
+            DB::rollback();
+            throw $th;
+        }
+
+
+
+
+    }
+
 
 
     ////////////
