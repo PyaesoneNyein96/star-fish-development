@@ -188,39 +188,39 @@ class TestingDataSeeder extends Seeder
 
         // assessmen5t each record
         // DB::table('assessment_each_record_finish_data')->insert([
-        // DB::table('assessment_finish_data')->insert([
-        //     [
-        //         'student_id' => 9,
-        //         'grade_id' => 1,
-        //         'assess_name' => 5,
-        //         'point' => 40,
-        //         'finish' => 1,
-        //     ]
-        // ]);
-        // DB::table('assessment_each_record_finish_data')->insert([
-        //     [
-        //         'student_id' => 9,
-        //         'assess_id' => 30,
-        //         'assess_name' => 5,
-        //         'grade_id' => 1,
-        //     ]
-        // ]);
-        // DB::table('assessment_each_record_finish_data')->insert([
-        //     [
-        //         'student_id' => 9,
-        //         'assess_id' => 31,
-        //         'assess_name' => 5,
-        //         'grade_id' => 1,
-        //     ]
-        // ]);
-        // DB::table('assessment_each_record_finish_data')->insert([
-        //     [
-        //         'student_id' => 9,
-        //         'assess_id' => 32,
-        //         'assess_name' => 5,
-        //         'grade_id' => 1,
-        //     ]
-        // ]);
+        DB::table('assessment_finish_data')->insert([
+            [
+                'student_id' => 9,
+                'grade_id' => 1,
+                'assess_name' => 5,
+                'point' => 40,
+                'finish' => 1,
+            ]
+        ]);
+        DB::table('assessment_each_record_finish_data')->insert([
+            [
+                'student_id' => 9,
+                'assess_id' => 30,
+                'assess_name' => 5,
+                'grade_id' => 1,
+            ]
+        ]);
+        DB::table('assessment_each_record_finish_data')->insert([
+            [
+                'student_id' => 9,
+                'assess_id' => 31,
+                'assess_name' => 5,
+                'grade_id' => 1,
+            ]
+        ]);
+        DB::table('assessment_each_record_finish_data')->insert([
+            [
+                'student_id' => 9,
+                'assess_id' => 32,
+                'assess_name' => 5,
+                'grade_id' => 1,
+            ]
+        ]);
         // DB::table('assessment_each_record_finish_data')->insert([
         //     [
         //         'student_id' => 9,
