@@ -323,7 +323,7 @@ class AssessmentController extends Controller
 
         if ($certificate_path && !$certificate_path->pdf_path) {
             $Stu = Student::where("id", $stu)->first();
-
+            $stuName = uniqid() . "_" . str_replace(' ', '-', strtolower($Stu->name));
             $certi = [
                 "name" => $Stu->name,
                 "student_id" => $Stu->id,
@@ -337,8 +337,8 @@ class AssessmentController extends Controller
 
             // convert pdf
             $pdf = Pdf::loadView('certificate', $certi)->setPaper($customPaper, 'landscape');
-            Storage::put("public/certificate_pdf/$Stu->name.pdf", $pdf->output());
-            $certi["pdf_path"] = app('domain') . "/storage/certificate_pdf/$Stu->name.pdf";
+            Storage::put("public/certificate_pdf/$stuName.pdf", $pdf->output());
+            $certi["pdf_path"] = app('domain') . "/storage/certificate_pdf/$stuName.pdf";
             Certificate::where('id', $certificate_path->id)->update(["pdf_path" => $certi["pdf_path"]]);
         }
     }
