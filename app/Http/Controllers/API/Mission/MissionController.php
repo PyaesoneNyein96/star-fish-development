@@ -69,7 +69,7 @@ class MissionController extends Controller
                 'grade' => $raw->grade->name,
                 'allowed' => optional($repeat)->count == 3 || optional($repeat)->count == 4,
                 // 'claimed' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed_3 === 0 && false,
-                'claimed' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed_3 == 0 ? false : true,
+                'claimed' => (optional($repeat)->count >= 3 && optional($repeat)->count < 5) && optional($repeat)->claimed_3 == 0 ? true : false,
                 'count' => optional($repeat)->count,
                 'point' =>  3,
 
@@ -86,7 +86,7 @@ class MissionController extends Controller
                 'name' => "Lesson " . $raw->name . ": 5 repetitive practices",
                 'grade' => $raw->grade->name,
                 'allowed' => optional($repeat)->count == 5,
-                'claimed' => optional($repeat)->count == 5 && optional($repeat)->claimed_5 == 0 ? false : true,
+                'claimed' => optional($repeat)->count == 5 && optional($repeat)->claimed_5 == 0 ? true : false,
                 'count' => optional($repeat)->count,
                 'point' => 5
             ];
@@ -112,14 +112,14 @@ class MissionController extends Controller
 
         $collection = $collection->sortByDesc(function ($lesson) {
 
-            if ($lesson['claimed'] && $lesson['allowed']) {
-                return 0;
-            } elseif ($lesson['claimed'] && $lesson['allowed']) {
+            if (!$lesson['claimed'] && $lesson['allowed']) {
                 return 1;
-            }  elseif ($lesson['claimed']) {
+            } elseif ($lesson['claimed'] && $lesson['allowed']) {
                 return 2;
-            } else {
+            }  elseif ($lesson['claimed']) {
                 return 3;
+            } else {
+                return 0;
             }
 
         });
@@ -373,6 +373,14 @@ class MissionController extends Controller
         ;
 
 
+
+        // return [
+        //     "now" => Carbon::now()->format('d-h-i'),
+        //     // "created" => $record->created_at->addDays()->format('d-h-i'),
+        //     "add_date" => $add_date->format('d-h-i')
+        // ];
+
+
         DB::beginTransaction();
 
         try {
@@ -397,7 +405,7 @@ class MissionController extends Controller
                 DB::commit();
                 return response()->json(['message' => "create new one"], 200);
 
-            }else if ($add_date < $now){
+            }else if ($add_date->addDays(1) < $now){
 
                 foreach ($all_records as $key => $rd) {
                     $rd->delete();

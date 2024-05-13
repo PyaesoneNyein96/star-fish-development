@@ -323,14 +323,13 @@ class GameController extends Controller
 
          $this->addPointFunction($student, $point, $question_answer);
 
-        }else if($alreadyDone && $alreadyDone->count != 5){
-
-                $fix_count = $alreadyDone->count;
-                $alreadyDone->count = $fix_count + 1;
-                $alreadyDone->save();
         }
+        // else if($alreadyDone && $alreadyDone->count != 5){
 
-
+        //         $fix_count = $alreadyDone->count;
+        //         $alreadyDone->count = $fix_count + 1;
+        //         $alreadyDone->save();
+        // }
 
 
         $gameDone = StudentGame::where('student_id', $student->id)->get();
@@ -340,10 +339,11 @@ class GameController extends Controller
             return $gameDone->contains('game_id', $g->id);
         });
 
-        $gameCheck_two  = $unitDone->filter(function ($u) use ($unit) {
+        $gameCheck_two = $unitDone->filter(function ($u) use ($unit) {
             return $u->unit_id == $unit->id;
         });
 
+        // return $gameCheck_two;
 
         // To prevent adding StudentUnit record for already done games;
         $lessonCheck = StudentLesson::where('student_id', $student->id)
@@ -351,7 +351,7 @@ class GameController extends Controller
 
 
         if ($unitCheck->count() == 0
-        // && $gameCheck_two->count() == 0 && !$lessonCheck
+        && $gameCheck_two->count() == 0 && !$lessonCheck
         ) {
 
             $unitInsert = StudentUnit::insert([
