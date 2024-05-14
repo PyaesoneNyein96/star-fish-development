@@ -169,7 +169,10 @@ class AssessmentController extends Controller
 
         $finishDataCount = AssessmentEachRecordFinishData::where("student_id", $studentId)->get();
         if (count($finishDataCount)) {
-            $assessDataCount = Assessment::where('name', $finishDataCount[0]->assess_name)->where("grade_id", $finishDataCount[0]->grade_id)->get();
+            $assessDataCount = Assessment::where('name', $finishDataCount[0]->assess_name)
+                ->where("grade_id", $finishDataCount[0]->grade_id)
+                ->get();
+
             if (count($finishDataCount) !== count($assessDataCount)) return response()->json(['message' => "didn't complete assessment lessons"], 403);
         } else {
             return response()->json(['message' => "didn't complete assessment lessons"], 403);
@@ -193,7 +196,9 @@ class AssessmentController extends Controller
             if (in_array($lesId->lesson_id, $assesLessArray)) {
 
                 $assessment = AssessmentEachRecordFinishData::where("student_id", $studentId)->first();
-                $data = Assessment::where("grade_id", $assessment->grade_id)->where("name", $assessment->assess_name)->get();
+                $data = Assessment::where("grade_id", $assessment->grade_id)
+                    ->where("name", $assessment->assess_name)
+                    ->get();
 
                 $isExistAssessFinish = AssessmentFinishData::where("student_id", $studentId)
                     ->where("grade_id", $assessment->grade_id)
@@ -203,7 +208,7 @@ class AssessmentController extends Controller
                 if ($isExistAssessFinish) return response()->json(['message' => 'completed assessment.'], 403);
                 if (!count($data)) return response()->json(['message' => 'Grade Id and Lesson Id not match.'], 403);
 
-                if ($point) {
+                if ($point !== null) {
                     $oldPoint = $student;
                     $newPoint = $oldPoint->point + (int)$point;
                     $newFixPoint = $oldPoint->fixed_point + (int)$point;
@@ -269,12 +274,17 @@ class AssessmentController extends Controller
                         ->groupby("total_assess_ques")
                         ->get();
 
-                    $isfinish = AssessmentFinishData::where("student_id", $studentId)->where("grade_id", $assessment->grade_id)->where("assess_name", count($assessGrade))->first();
+                    $isfinish = AssessmentFinishData::where("student_id", $studentId)
+                        ->where("grade_id", $assessment->grade_id)
+                        ->where("assess_name", count($assessGrade))
+                        ->first();
 
                     if ($isfinish != null) {
                         $sum_point = 0;
                         $total_grade_point = 0;
-                        $total_point = AssessmentFinishData::where("student_id", $studentId)->where("grade_id", $assessment->grade_id)->get();
+                        $total_point = AssessmentFinishData::where("student_id", $studentId)
+                            ->where("grade_id", $assessment->grade_id)
+                            ->get();
 
                         foreach ($total_point as $tp) $sum_point += (int)$tp->point;
                         foreach ($assessGrade as $ag) $total_grade_point += (int)$ag->total_assess_ques;

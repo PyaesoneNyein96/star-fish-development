@@ -84,6 +84,9 @@ Route::prefix('payment')->group(function () {
     Route::get('/kpay/result', [SubscriptionController::class, 'return_url']);
 });
 
+// Route::get('/certi', function () {
+//     return view('certificate');
+// });
 
 
 

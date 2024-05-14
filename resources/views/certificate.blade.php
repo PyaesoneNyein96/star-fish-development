@@ -7,6 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Certificate</title>
     <style>
+        /* @font-face {
+            font-family: 'AlbertusNova';
+            src: url({{ asset('fonts/Albertus-Medium-Regular.ttf') }}) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        } */
+
         * {
             margin: 0;
             padding: 0;
@@ -32,6 +39,7 @@
             color: #4c82fc;
             font-size: 6rem;
             text-align: center;
+            /* font-family: "AlbertusNova" */
         }
 
         .grade-id {
@@ -101,29 +109,22 @@
             alt="">
 
         {{-- name --}}
-        {{-- <h1>{{ $certi['name'] }}</h1> --}}
         <h1>{{ $name }}</h1>
+        {{-- <h1>May Pyae Sone Aung</h1> --}}
 
         {{-- grade --}}
-        {{-- <p class="grade-id">{{ $certi['grade_id'] }}</p> --}}
         <p class="grade-id">{{ $grade_id }}</p>
 
         {{-- percantage --}}
-        {{-- <p class="percent">{{ $certi['total_percentage'] }}%</p> --}}
         <p class="percent">{{ $total_percentage }}%</p>
         <p class="pass">Pass</p>
 
         {{-- certi num  --}}
-        {{-- <p class="certi-num">Certificate Number : {{ $certi['certificate_num'] }}</p> --}}
         <p class="certi-num">Certificate Number : {{ $certificate_num }}</p>
 
         {{-- date  --}}
-        {{-- <p class="date">Date of Award : {{ $certi['date'] }}</p> --}}
         <p class="date">Date of Award : {{ $date }}</p>
     </div>
-    {{-- <?php
-    var_dump($certi);
-    ?> --}}
 </body>
 
 </html>

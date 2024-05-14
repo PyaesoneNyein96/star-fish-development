@@ -93,7 +93,7 @@ class RewardController extends Controller
                 ) . ".png",
                 "lock" => $stu->fixed_point < $point ? 1 : 0,
             ];
-            $point *= 2;
+            $point += 30;
         }
 
         return $reward;
@@ -107,7 +107,7 @@ class RewardController extends Controller
         if (!$token || !$name) return response()->json(["message" => "token or name is required."], 403);
 
         $id = Student::where('token', $token)->first();
-        $data = Reward::where("name", $name)->get();
+        $data = Reward::where("name", $name)->where('type', "achieve")->get();
 
         if (!$id) return response()->json(["message" => "user not found"], 403);
         if (count($data) == 0) return response()->json(["message" => "data not found"], 404);
@@ -126,24 +126,23 @@ class RewardController extends Controller
         $token = $request->header("token");
         if (!$token) return response()->json(["message" => "token is required."], 403);
 
-        $data = Reward::where('type', "profile")->get()->groupBy('name');
+        $data = Reward::where('type', "profile")->get();
         $stu = Student::where('token', $token)->first();
 
         if (!$stu) return response()->json(["message" => "user not found"], 403);
         if (count($data) == 0) return response()->json(["message" => "data not found"], 404);
 
         $point = 50;
-        foreach ($data as $name => $item) {
-            $reward[] = [
-                "name" => $name,
-                "item" => $this->profiles . str_replace(
-                    ' ',
-                    '-',
-                    $name
-                ) . ".png",
-                "lock" => $stu->fixed_point < $point ? 1 : 0,
-            ];
-            $point *= 2;
+        $reward = [];
+        foreach ($data as $idx => $value) {
+            $stuReward = Stud_reward::where("student_id", $stu->id)->where("reward_id", $value->id)->first();
+
+            $value['item'] = $this->profiles . str_replace(' ', '-', $value->item) . ".png";
+            $value['lock'] = $stu->fixed_point < $point ? 1 : 0;
+            $value["bought"] = $stuReward ? 1 : 0;
+            array_push($reward, $value);
+
+            if (isset($data[$idx + 1]) && $value->name !== $data[$idx + 1]->name) $point += 50;
         }
 
         return $reward;
@@ -152,7 +151,7 @@ class RewardController extends Controller
     public function getReward(Request $request)
     {
         $token = $request->header("token");
-        $type = $request->header("type");
+        $type = $request->header('type');
 
         if (!$token || !$type) return response()->json(["message" => "token or type is required."], 403);
 
@@ -165,9 +164,9 @@ class RewardController extends Controller
             ->get();
 
         if (count($studReward) == 0) return response()->json(["message" => "You haven't bought any item."]);
-        foreach ($studReward as $val) {
-            $type === "profile" ? $val->item = $this->profiles . $val->item . ".png" : $val->item = $this->each_ach . $val->name . "/" . $val->item . ".png";
-        }
+        foreach ($studReward as $val) $type === "profile" ?
+            $val->item = $this->profiles . $val->item . ".png" :
+            $val->item = $this->each_ach . $val->name . "/" . $val->item . ".png";
 
         return $type === "profile" ? $studReward->where('type', "profile") : $studReward->where('type', "achieve");
     }
@@ -254,7 +253,7 @@ class RewardController extends Controller
         $newPoint = $oldPoint->point + (int)$request->point;
         $newFixPoint = $oldPoint->fixed_point + (int)$request->point;
 
-            $level = $newFixPoint / 10;
+        $level = $newFixPoint / 10;
 
 
         if ($level <= 50) {

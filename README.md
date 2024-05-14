@@ -143,7 +143,7 @@ Field ( header ) = token , name
 (Method: GET) [https://star-fish.myanmargateway.net/api/reward/profiles](https://star-fish.myanmargateway.net/api/reward/profiles).  
 Field ( header ) = token
 
-### Display Student Rewards (or) Profiles
+### Display Student Rewards
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/reward](https://star-fish.myanmargateway.net/api/reward).  
 Field ( header ) = token , type (eg. "profile" or "achieve")
@@ -279,7 +279,6 @@ Field ( header ) = name (champion board name)
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/question/claim](https://star-fish.myanmargateway.net/api/mission/question/claim) Field (header) = token, name
 
-
 -   ### Championship Bonus
 
 ### Championship Bonus List
@@ -289,7 +288,6 @@ Field ( header ) = name (champion board name)
 ### Championship Bonus Claim
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/Championship/claim](https://star-fish.myanmargateway.net/api/mission/Championship/claim) Field (header) = token, name
-
 
 -   ### Assessment Bonus
 
