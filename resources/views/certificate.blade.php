@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Certificate</title>
     <style>
-        @font-face {
+        /* @font-face {
             font-family: 'AlbertusNova';
             src: url({{ asset('fonts/Albertus-Medium-Regular.ttf') }}) format('truetype');
             font-weight: normal;
             font-style: normal;
-        }
+        } */
 
         * {
             margin: 0;
@@ -39,7 +39,7 @@
             color: #4c82fc;
             font-size: 6rem;
             text-align: center;
-            font-family: "AlbertusNova"
+            /* font-family: "AlbertusNova" */
         }
 
         .grade-id {
