@@ -21,7 +21,7 @@ class isSubscriber
         $student = Student::where('token',$request->header('token'))->first();
 
         if(!$student) return response()->json("Student not found.", 404);
-        if(!$student->isSubscriber && $student->grades->count() == 0 ) return response()->json("You are not a subscriber.", 403);
+        if(!$student->isSubscriber || $student->grades->count() == 0 ) return response()->json("You are not a subscriber.", 403);
 
         $request->merge(['student' => $student]);
         return $next($request);

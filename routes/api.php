@@ -146,8 +146,10 @@ Route::prefix('board')->group(function () {
 
 Route::prefix('mission')->middleware('isSubscriber')->group(function () {
 
+
+    Route::get('notify', [MissionController::class,'notify']);
+
     Route::prefix('repetitive')->group(function () {
-        // Route::get('/game-list',[MissionController::class,'repetitiveGameList']);
 
         Route::get('/lesson-list', [MissionController::class, 'repetitiveLessonList']);
         Route::get('/claim_lesson', [MissionController::class, 'repetitiveClaimLesson']);

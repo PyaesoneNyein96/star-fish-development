@@ -229,7 +229,13 @@ Field ( header ) = name (champion board name)
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/banners](https://star-fish.myanmargateway.net/api/banners)
 
+### ##########
 # MISSIONS
+### ##########
+
+- ### Notification for Mission Button UI
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/notify](https://star-fish.myanmargateway.net/api/mission/notify) Field (header) = token
 
 -   ### Repetitive Mission
 

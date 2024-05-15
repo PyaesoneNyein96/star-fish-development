@@ -204,7 +204,7 @@ class MissionController extends Controller
 
         try {
 
-            $dailyRecord = DailyBonus::where('student_id', $request->student->id)->first();
+            $dailyRecord = $request->student->dailyBonus->first();
 
 
             $day_count = $dailyRecord->created_at->diffInDays(Carbon::now());
@@ -246,7 +246,7 @@ class MissionController extends Controller
     public function dailyBonusList(Request $request)
     {
 
-        $record = DailyBonus::where('student_id', $request->student->id)->first();
+        $record =  $request->student->dailyBonus->first();
 
         $now = Carbon::now()
             // ->addMinutes(35)
@@ -280,7 +280,7 @@ class MissionController extends Controller
     public function dailyBonusClaim(Request $request)
     {
 
-        $record = DailyBonus::where('student_id', $request->student->id)->first();
+        $record = $request->student->dailyBonus->first();
 
         $now = Carbon::now()
             // ->addMinutes(30)
@@ -466,8 +466,7 @@ class MissionController extends Controller
         DB::beginTransaction();
         try {
 
-            $record = StudentLoginBonus::where('student_id', $request->student->id)
-            ->where('day_count',$days)->first();
+            $record = $request->student->loginBonus->where('day_count',$days)->first();
 
 
             if(!$record) return response()->json(['error' => "Wrong days payload!"],404);
@@ -514,7 +513,7 @@ class MissionController extends Controller
 
         $student = $request->student;
 
-        $records = StudentQuestionBonus::where('student_id',$student->id)->get();
+        $records = $student->questionBonus;
 
 
         return  $records->map(function ($record) use($student) {
@@ -539,7 +538,7 @@ class MissionController extends Controller
         DB::beginTransaction();
         try {
 
-            $record = StudentQuestionBonus::where('student_id',$student->id)->where('question_count', $name)->first();
+            $record = $student->questionBonus->where('question_count', $name)->first();
             $allowed = $student->question_answer >= $name;
 
             if(!$allowed) return response()->json(['error' => "not enough question for this Questions bonus"], 403);
@@ -568,16 +567,14 @@ class MissionController extends Controller
 
 
 
-    // ===============================================================//
-    // Championship Bonus -
-    // ===============================================================//
+
 
 
     public function championshipBonusList(Request $request){
 
         $student = $request->student;
 
-        $record = StudentChampionshipBonus::where('student_id', $student->id)->get();
+        $record = $student->championBonus;
 
         return $record->map(function ($record) use($student){
             return [
@@ -630,6 +627,75 @@ class MissionController extends Controller
     }
 
 
+    // ===============================================================//
+    // Notify -
+    // ===============================================================//
 
-    ////////////
+
+    public function notify(Request $request){
+
+        $student = $request->student;
+
+
+        // ==================================
+        // Repetitive
+        // ==================================
+        $repetitive_3 = StudentLesson::where('student_id', $student->id)
+        ->where('count', '>=' , 3)->where('count', '<' , 5)
+        ->where('claimed_3', 0)->get()->toArray();
+
+        $repetitive_5 = StudentLesson::where('student_id', $student->id)
+        ->where('count', 5)
+        ->where('claimed_5', 0)->get()->toArray();
+
+        $repetitive_count = collect(array_merge($repetitive_3,$repetitive_5))->count();
+
+
+
+        // ==================================
+        // Daily
+        // ==================================
+        // $daily = DailyBonus::where('student_id',$student->id)->first();
+        $daily = $student->dailyBonus->first();
+
+        $daily_count = intval($daily->first != 1) + intval($daily->second != 1) + intval($daily->daily != 1);
+
+
+        // ==================================
+        // Login
+        // ==================================
+        $login_count = $student->loginBonus->where('claim',0)->count();
+
+
+
+        // ==================================
+        // Question
+        // ==================================
+        $question_count = $student->questionBonus->where('claim','!=', 1)
+        ->where('question_count','<=',$student->question_answer)->values()->count();
+
+
+        // ==================================
+        // Champion
+        // ==================================
+        $champion_count = $student->championBonus->where('claim',0)
+        ->where('champion', $student->board)->where('fix_level','<',$student->level)->count();
+
+
+        // ==================================
+        // Assessment
+        // ==================================
+
+        $assessment_count = 0;
+
+       $total = intval($repetitive_count) + intval($daily_count) + intval($login_count) + intval($question_count) + intval($champion_count) + intval(0);
+
+       if($total > 0) {
+         return response()->json(['notify_count' => $total], 200);
+       }
+        return response()->json(['notify_count' => 0], 404);
+
+    }
+
+
 }
