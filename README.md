@@ -128,6 +128,11 @@ Field = student_id , point
 
 # Reward
 
+### Level Up Reward
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/reward/level-up](https://star-fish.myanmargateway.net/api/reward/level-up).  
+Field ( header ) = token
+
 ### Display All Reward
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/reward/all](https://star-fish.myanmargateway.net/api/reward/all).  
@@ -143,10 +148,10 @@ Field ( header ) = token , name
 (Method: GET) [https://star-fish.myanmargateway.net/api/reward/profiles](https://star-fish.myanmargateway.net/api/reward/profiles).  
 Field ( header ) = token
 
-### Display Student Rewards
+### Display Student Rewards (Owned)
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/reward](https://star-fish.myanmargateway.net/api/reward).  
-Field ( header ) = token , type (eg. "profile" or "achieve")
+Field ( header ) = token
 
 ### Buy Reward
 
@@ -155,10 +160,15 @@ Field ( body ) = token , reward_id , reward_point
 
 # Profile
 
+### Display Student Profile (Owned)
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/profile](https://star-fish.myanmargateway.net/api/profile).  
+Field ( header ) = token
+
 ### Update Profile
 
 (Method: POST) [https://star-fish.myanmargateway.net/api/profile/update](https://star-fish.myanmargateway.net/api/profile/update)  
-Field ( body ) = token , reward_id
+Field ( body ) = token , profile_id
 
 ### ====================================================
 

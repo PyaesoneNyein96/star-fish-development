@@ -74,13 +74,13 @@ class RewardController extends Controller
     public function displayAllReward(Request $request)
     {
         $token = $request->header("token");
-        if (!$token) return response()->json(["message" => "token is required."], 403);
+        if (!$token) return response()->json(["error" => "token is required."], 400);
 
         $data = Reward::where('type', "achieve")->get()->groupBy('name');
         $stu = Student::where('token', $token)->first();
 
-        if (!$stu) return response()->json(["message" => "user not found"], 403);
-        if (count($data) == 0) return response()->json(["message" => "data not found"], 404);
+        if (!$stu) return response()->json(["error" => "user not found"], 400);
+        if (count($data) == 0) return response()->json(["error" => "data not found"], 404);
 
         $point = 30;
         foreach ($data as $name => $item) {
@@ -104,17 +104,17 @@ class RewardController extends Controller
         $token = $request->header("token");
         $name = $request->header("name");
 
-        if (!$token || !$name) return response()->json(["message" => "token or name is required."], 403);
+        if (!$token || !$name) return response()->json(["error" => "token or name is required."], 400);
 
         $id = Student::where('token', $token)->first();
         $data = Reward::where("name", $name)->where('type', "achieve")->get();
 
-        if (!$id) return response()->json(["message" => "user not found"], 403);
-        if (count($data) == 0) return response()->json(["message" => "data not found"], 404);
+        if (!$id) return response()->json(["error" => "user not found"], 400);
+        if (count($data) == 0) return response()->json(["error" => "data not found"], 404);
 
         foreach ($data as $d) {
             $stuReward = Stud_reward::where("student_id", $id->id)->where("reward_id", $d->id)->first();
-            $d["item"] = $this->each_ach . $name . "/" . $d->item . ".png";
+            $d["item"] = $this->each_ach . str_replace(' ', '-', $name) . "/" . $d->item . ".png";
             $d["bought"] = $stuReward ? 1 : 0;
         }
 
@@ -124,12 +124,12 @@ class RewardController extends Controller
     public function displayEachProfile(Request $request)
     {
         $token = $request->header("token");
-        if (!$token) return response()->json(["message" => "token is required."], 403);
+        if (!$token) return response()->json(["error" => "token is required."], 400);
 
         $data = Reward::where('type', "profile")->get();
         $stu = Student::where('token', $token)->first();
 
-        if (!$stu) return response()->json(["message" => "user not found"], 403);
+        if (!$stu) return response()->json(["error" => "user not found"], 404);
         if (count($data) == 0) return response()->json(["message" => "data not found"], 404);
 
         $point = 50;
@@ -137,7 +137,7 @@ class RewardController extends Controller
         foreach ($data as $idx => $value) {
             $stuReward = Stud_reward::where("student_id", $stu->id)->where("reward_id", $value->id)->first();
 
-            $value['item'] = $this->profiles . str_replace(' ', '-', $value->item) . ".png";
+            $value['item'] = $this->profiles . str_replace(' ', '-', $value->name) . "/" .  $value->item . ".png";
             $value['lock'] = $stu->fixed_point < $point ? 1 : 0;
             $value["bought"] = $stuReward ? 1 : 0;
             array_push($reward, $value);
@@ -151,24 +151,21 @@ class RewardController extends Controller
     public function getReward(Request $request)
     {
         $token = $request->header("token");
-        $type = $request->header('type');
 
-        if (!$token || !$type) return response()->json(["message" => "token or type is required."], 403);
+        if (!$token) return response()->json(["error" => "token is required."], 400);
 
         $id = Student::where('token', $token)->first();
-        if (!$id) return response()->json(["message" => "user not found"], 403);
+        if (!$id) return response()->json(["error" => "user not found"], 404);
 
         $studReward = Stud_reward::select('rewards.*', 'stud_rewards.*')
             ->leftJoin('rewards', 'stud_rewards.reward_id', 'rewards.id')
             ->where('stud_rewards.student_id', $id->id)
             ->get();
 
-        if (count($studReward) == 0) return response()->json(["message" => "You haven't bought any item."]);
-        foreach ($studReward as $val) $type === "profile" ?
-            $val->item = $this->profiles . $val->item . ".png" :
-            $val->item = $this->each_ach . $val->name . "/" . $val->item . ".png";
+        if (count($studReward) == 0) return response()->json(["error" => "You haven't bought any item."], 403);
+        foreach ($studReward as $val) $val->item = $this->each_ach . str_replace(' ', '-',  $val->name) . "/" . $val->item . ".png";
 
-        return $type === "profile" ? $studReward->where('type', "profile") : $studReward->where('type', "achieve");
+        return $studReward->where('type', "achieve");
     }
 
     public function buyReward(Request $request)
@@ -224,12 +221,66 @@ class RewardController extends Controller
         }
     }
 
+    // level up reward
+    public function getLevelUp(Request $request)
+    {
+        $token = $request->header("token");
+        if (!$token) return response()->json(["error" => "token is required."], 400);
+
+        $stu = Student::where("token", $token)->first();
+        $profile = Reward::where("type", "profile")->get();
+
+        $res = [
+            "point" => $stu->point,
+            "level" => $stu->level,
+        ];
+
+        $reward = [];
+        foreach ($profile as $val) {
+            if ($val->point <= $stu->fixed_point) {
+                $inReward = Stud_reward::where("reward_id", $val->id)->first();
+                if (!$inReward) {
+                    $data = [
+                        "student_id" => $stu->id,
+                        "reward_id" => $val->id,
+                    ];
+                    $url = $this->profiles . $val->name . "/" . $val->item . ".png";
+                    array_push($reward, $url);
+                    Stud_reward::create($data);
+                }
+            }
+        }
+
+        if (count($reward)) $res["rewards"] = $reward;
+        return $res;
+    }
+
     // Profile
+    public function displayStudProfile(Request $request)
+    {
+        $token = $request->header("token");
+
+        if (!$token) return response()->json(["error" => "token is required."], 400);
+
+        $id = Student::where('token', $token)->first();
+        if (!$id) return response()->json(["error" => "user not found"], 404);
+
+        $studReward = Stud_reward::select('rewards.*', 'stud_rewards.*')
+            ->leftJoin('rewards', 'stud_rewards.reward_id', 'rewards.id')
+            ->where('stud_rewards.student_id', $id->id)
+            ->get();
+
+        if (count($studReward) == 0) return response()->json(["error" => "You haven't bought any item."], 403);
+        foreach ($studReward as $val) $val->item = $this->profiles . str_replace(' ', '-', $val->name) . "/" . $val->item . ".png";
+
+        return $studReward->where('type', "profile");
+    }
+
     public function updateProfile(Request $request)
     {
         $token = $request->token;
-        $id = $request->reward_id;
-        if (!$token || !$id) return response()->json(["message" => "token or reward_id is required."]);
+        $id = $request->profile_id;
+        if (!$token || !$id) return response()->json(["error" => "token or profile_id is required."], 400);
 
         $student = Student::where("token", $token)->first();
         $stud_id = $student->id;
@@ -238,15 +289,16 @@ class RewardController extends Controller
         if ($checkReward) {
             $profile = Reward::where("id", $id)->first();
             if ($profile->type === "profile") {
-                $student->update(["profile_picture" => $this->profiles . $profile->item]);
+                $student->update(["profile_picture" => $this->profiles . $profile->name . "/" . $profile->item]);
                 return response()->json(["message" => "Profile updated."]);
             }
-            return response()->json(["message" => "item isn't profile."], 403);
+            return response()->json(["error" => "item isn't profile."], 403);
         } else {
-            return response()->json(["message" => "You haven't bought this item."], 403);
+            return response()->json(["error" => "You haven't bought this item."], 403);
         }
     }
 
+    // private
     private function addPointFunction($request)
     {
         $oldPoint = Student::where('id', $request->student_id)->first();

@@ -9,7 +9,7 @@
     <style>
         /* @font-face {
             font-family: 'AlbertusNova';
-            src: url({{ asset('fonts/Albertus-Medium-Regular.ttf') }}) format('truetype');
+            src: url('public/fonts/Albertus-Medium-Regular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         } */
@@ -31,15 +31,16 @@
         }
 
         h1 {
+            width: 100%;
             position: absolute;
             top: 42%;
             left: 50%;
             bottom: auto;
             transform: translate(-50%, -50%);
             color: #4c82fc;
-            font-size: 6rem;
+            font-size: 4rem;
             text-align: center;
-            /* font-family: "AlbertusNova" */
+            font-family: "Albertus-Medium-Regular", sans-serif
         }
 
         .grade-id {
@@ -104,24 +105,15 @@
 
 <body>
     <div class="container">
-        {{-- image --}}
         <img src="https://star-fish-development.myanmargateway.net/storage/certificate_template/certificate.png"
             alt="">
 
-        {{-- name --}}
+        {{-- <h1>May Pyae Sone Aung</h1> --}}
         <h1>{{ $name }}</h1>
-
-        {{-- grade --}}
         <p class="grade-id">{{ $grade_id }}</p>
-
-        {{-- percantage --}}
         <p class="percent">{{ $total_percentage }}%</p>
         <p class="pass">Pass</p>
-
-        {{-- certi num  --}}
         <p class="certi-num">Certificate Number : {{ $certificate_num }}</p>
-
-        {{-- date  --}}
         <p class="date">Date of Award : {{ $date }}</p>
     </div>
 </body>

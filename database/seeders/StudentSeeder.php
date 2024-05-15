@@ -73,7 +73,7 @@ class StudentSeeder extends Seeder
                 'isAuth' => 0,
                 'isLocal' => 0,
                 'level' => 1,
-                'profile_picture' => $domain . "/storage/images/profile_pic/avatar-green.png",
+                'profile_picture' => $domain . "/storage/images/Achievement/Profiles/Princess/item2.png",
                 'status' => 1,
                 'grade_chosen' => null,
                 'question_answer' => 0,

@@ -718,20 +718,20 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 56, 'q_audio' => $AudioDomain . $G2_A3_true_false . "giraffe.mp3", 'q_content' => "true",  'a_content' => 1, 'q_image' => $A3_ID56_image . "giraffe.png"],
-            ['round' => 1, 'assess_id' => 56, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 1, 'assess_id' => 56, 'q_content' => "true",  'a_content' => 1, 'q_image' => $A3_ID56_image . "giraffe.png"],
+            ['round' => 1, 'assess_id' => 56, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 2, 'assess_id' => 56, 'q_audio' => $AudioDomain . $G2_A3_true_false . "pineapple.mp3", 'q_content' => "true",  'a_content' => 1, 'q_image' => $A3_ID56_image . "pineapple.png"],
-            ['round' => 2, 'assess_id' => 56, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 2, 'assess_id' => 56, 'q_content' => "true",  'a_content' => 1, 'q_image' => $A3_ID56_image . "pineapple.png"],
+            ['round' => 2, 'assess_id' => 56, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 3, 'assess_id' => 56, 'q_audio' => $AudioDomain . $G2_A3_true_false . "mango.mp3", 'q_content' => "true",  'a_content' => 0, 'q_image' => $A3_ID56_image . "mango.png"],
-            ['round' => 3, 'assess_id' => 56, 'q_audio' => null, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
+            ['round' => 3, 'assess_id' => 56, 'q_content' => "true",  'a_content' => 0, 'q_image' => $A3_ID56_image . "mango.png"],
+            ['round' => 3, 'assess_id' => 56, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 4, 'assess_id' => 56, 'q_audio' => $AudioDomain . $G2_A3_true_false . "hippo.mp3", 'q_content' => "true", 'a_content' => 1, 'q_image' => $A3_ID56_image . "hippo.png"],
-            ['round' => 4, 'assess_id' => 56, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 4, 'assess_id' => 56, 'q_content' => "true", 'a_content' => 1, 'q_image' => $A3_ID56_image . "hippo.png"],
+            ['round' => 4, 'assess_id' => 56, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 5, 'assess_id' => 56, 'q_audio' => $AudioDomain . $G2_A3_true_false . "watermelon.mp3", 'q_content' => "true",  'a_content' => 0, 'q_image' => $A3_ID56_image . "watermelon.png"],
-            ['round' => 5, 'assess_id' => 56, 'q_audio' => null, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
+            ['round' => 5, 'assess_id' => 56, 'q_content' => "true",  'a_content' => 0, 'q_image' => $A3_ID56_image . "watermelon.png"],
+            ['round' => 5, 'assess_id' => 56, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
 
         ]);
 
@@ -963,20 +963,20 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 63, 'q_audio' => $AudioDomain . $G2_A4_true_false . "yellow-shirt-red-shorts.mp3", 'q_content' => "true",  'a_content' => 0, 'q_image' => $A4_ID63_image . "yellow-shirt-red-shorts.png"],
-            ['round' => 1, 'assess_id' => 63, 'q_audio' => null, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
+            ['round' => 1, 'assess_id' => 63,  'q_content' => "true",  'a_content' => 0, 'q_image' => $A4_ID63_image . "yellow-shirt-red-shorts.png"],
+            ['round' => 1, 'assess_id' => 63,  'q_content' => "false", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 2, 'assess_id' => 63, 'q_audio' => $AudioDomain . $G2_A4_true_false . "pink-cap-blue-scarf.mp3", 'q_content' => "true",  'a_content' => 1, 'q_image' => $A4_ID63_image . "pink-cap-blue-scarf.png"],
-            ['round' => 2, 'assess_id' => 63, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 2, 'assess_id' => 63,  'q_content' => "true",  'a_content' => 1, 'q_image' => $A4_ID63_image . "pink-cap-blue-scarf.png"],
+            ['round' => 2, 'assess_id' => 63,  'q_content' => "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 3, 'assess_id' => 63, 'q_audio' => $AudioDomain . $G2_A4_true_false . "orange-sweater.mp3", 'q_content' => "true",  'a_content' => 0, 'q_image' => $A4_ID63_image . "orange-sweater.png"],
-            ['round' => 3, 'assess_id' => 63, 'q_audio' => null, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
+            ['round' => 3, 'assess_id' => 63,  'q_content' => "true",  'a_content' => 0, 'q_image' => $A4_ID63_image . "orange-sweater.png"],
+            ['round' => 3, 'assess_id' => 63,  'q_content' => "false", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 4, 'assess_id' => 63, 'q_audio' => $AudioDomain . $G2_A4_true_false . "blue-raincoat.mp3", 'q_content' => "true", 'a_content' => 1, 'q_image' => $A4_ID63_image . "blue-raincoat.png"],
-            ['round' => 4, 'assess_id' => 63, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 4, 'assess_id' => 63,  'q_content' => "true", 'a_content' => 1, 'q_image' => $A4_ID63_image . "blue-raincoat.png"],
+            ['round' => 4, 'assess_id' => 63,  'q_content' => "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 5, 'assess_id' => 63, 'q_audio' => $AudioDomain . $G2_A4_true_false . "red-dress.mp3", 'q_content' => "true",  'a_content' => 1, 'q_image' => $A4_ID63_image . "red-dress.png"],
-            ['round' => 5, 'assess_id' => 63, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 5, 'assess_id' => 63,  'q_content' => "true",  'a_content' => 1, 'q_image' => $A4_ID63_image . "red-dress.png"],
+            ['round' => 5, 'assess_id' => 63,  'q_content' => "false", 'a_content' => 0, 'q_image' => null],
 
         ]);
 

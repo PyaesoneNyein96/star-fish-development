@@ -84,11 +84,15 @@ Route::prefix('reward')->group(function () {
     Route::get('/all', [RewardController::class, 'displayAllReward']);
     Route::get('/each', [RewardController::class, 'displayEachReward']);
     Route::get('/profiles', [RewardController::class, 'displayEachProfile']);
+    Route::get('/level-up', [RewardController::class, 'getLevelUp']);
     Route::get('/', [RewardController::class, 'getReward']);
     Route::post('/', [RewardController::class, 'buyReward']);
 });
 
-Route::post('/profile/update', [RewardController::class, "updateProfile"]);
+Route::prefix('profile')->group(function () {
+    Route::get('/', [RewardController::class, "displayStudProfile"]);
+    Route::post('/update', [RewardController::class, "updateProfile"]);
+});
 
 Route::prefix('chat')->group(function () {
     Route::get('/', [ChatController::class, 'getChat']);
@@ -176,8 +180,8 @@ Route::prefix('mission')->middleware('isSubscriber')->group(function () {
     });
 
     Route::prefix('championship')->group(function () {
-        Route::get('bonus',[MissionController::class,'championshipBonusList']);
-        Route::get('claim',[MissionController::class,'championshipBonusClaim']);
+        Route::get('bonus', [MissionController::class, 'championshipBonusList']);
+        Route::get('claim', [MissionController::class, 'championshipBonusClaim']);
     });
 });
 

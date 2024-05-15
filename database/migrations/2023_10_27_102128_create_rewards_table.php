@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('type');
             $table->string('name');
             $table->string('item');
-            $table->string('point');
+            $table->string('point')->nullable();
             $table->timestamps();
         });
     }

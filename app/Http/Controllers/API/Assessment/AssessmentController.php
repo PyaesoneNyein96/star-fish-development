@@ -16,7 +16,6 @@ use App\Jobs\MakeCertificate;
 use App\Models\AssessmentEachRecordFinishData;
 use App\Models\AssessmentFinishData;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Spatie\PdfToImage\Pdf as Png;
 use Illuminate\Support\Facades\Storage;
 
 class AssessmentController extends Controller
@@ -347,6 +346,7 @@ class AssessmentController extends Controller
 
             // convert pdf
             $pdf = Pdf::loadView('certificate', $certi)->setPaper($customPaper, 'landscape');
+
             Storage::put("public/certificate_pdf/$stuName.pdf", $pdf->output());
             $certi["pdf_path"] = app('domain') . "/storage/certificate_pdf/$stuName.pdf";
             Certificate::where('id', $certificate_path->id)->update(["pdf_path" => $certi["pdf_path"]]);
