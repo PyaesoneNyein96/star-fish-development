@@ -24,13 +24,13 @@ class AssessmentController extends Controller
     public function getAllAssess(Request $request)
     {
         $token =  $request->header('token');
-        if (!$token) return response()->json(['message' => 'Token is required.'], 403);
+        if (!$token) return response()->json(['error' => 'Token is required.'], 400);
 
         $studentId = Student::where("token", $token)->first();
-        if (!$studentId) return response()->json(['message' => 'Student Not Found.'], 404);
+        if (!$studentId) return response()->json(['error' => 'Student Not Found.'], 404);
 
         $lessonId = StudentLesson::where("student_id", $studentId->id)->orderBy('lesson_id', 'desc')->first();
-        if (!$lessonId) return response()->json(["message" => "didn't complete any lessons"], 403);
+        if (!$lessonId) return response()->json(["error" => "didn't complete any lessons"], 403);
 
         $gradeId = $lessonId->grade_id;
         $lessonId = $lessonId->lesson_id;
@@ -53,22 +53,32 @@ class AssessmentController extends Controller
 
         if (in_array($lessonId, $assesLessArray) && !$isfinishassess) {
 
+            if ($lessonId <= 40) {
+                $name = $lessonId / 8;
+            } elseif ($lessonId >= 48 && $lessonId <= 80) {
+                $name = ($lessonId / 8) - 5;
+            } elseif ($lessonId >= 88 && $lessonId <= 120) {
+                $name = ($lessonId / 8) - 10;
+            } elseif ($lessonId >= 128 && $lessonId <= 160) {
+                $name = ($lessonId / 8) - 15;
+            }
+
             $data = Assessment::select("assessments.*", "assessment_categories.name as assess_category_name")
                 ->rightJoin('assessment_categories', 'assessments.assess_category_id', 'assessment_categories.id')
                 ->where("assessments.grade_id", $gradeId)
-                ->where("assessments.name", $lessonId / 8)->get();
+                ->where("assessments.name", $name)->get();
 
-            if (!$data->toArray()) return response()->json(['message' => 'Assessment not found.'], 404);
+            if (!$data->toArray()) return response()->json(['error' => 'Assessment not found.'], 404);
 
             $isfinish = AssessmentEachRecordFinishData::where("student_id", $studentId->id)->where("grade_id", $gradeId)->pluck("assess_id");
             foreach ($data as $dt) $dt["status"] = in_array($dt->id, $isfinish->toArray()) ? 1 : 0;
 
             return response()->json(["assessment" => $data]);
         } else if ($isfinishassess) {
-            return response()->json(["message" => "assessment game completed"], 403);
+            return response()->json(["error" => "assessment game completed"], 403);
         }
 
-        return response()->json(["message" => "please finish lessons"], 403);
+        return response()->json(["error" => "please finish lessons"], 403);
     }
 
     // enter game
@@ -76,14 +86,14 @@ class AssessmentController extends Controller
     {
         $id = $request->header("assess_game_id");
 
-        if (!$id) return response()->json(['message' => 'Game ID or Other fields are required.'], 403);
+        if (!$id) return response()->json(['error' => 'Game ID or Other fields are required.'], 400);
 
         $assess = Assessment::where("id", $id)->first();
         $game = AssessmentAnsNQues::where("assess_id", $id)->get();
         $cate = AssessmentCategory::where("id", $assess->assess_category_id)->first();
 
-        if (!$assess || !$game->toArray()) return response()->json(['message' => 'Assessments not Found'], 404);
-        if (!$cate) return response()->json(['message' => 'Category not Found'], 404);
+        if (!$assess || !$game->toArray()) return response()->json(['error' => 'Assessments not Found'], 404);
+        if (!$cate) return response()->json(['error' => 'Category not Found'], 404);
 
         $roundExist = array_key_exists('round', $game[0]->toArray());
 
@@ -111,16 +121,16 @@ class AssessmentController extends Controller
         $token =  $request->header('token');
         $assessGameId = $request->header('assess_game_id');
 
-        if (!$token || !$assessGameId) return response()->json(['message' => 'Token or Point or Assessment id is required.'], 403);
+        if (!$token || !$assessGameId) return response()->json(['error' => 'Token or Point or Assessment id is required.'], 400);
 
         $studentId = Student::where("token", $token)->first();
-        if (!$studentId) return response()->json(['message' => 'Stduent Not Found.'], 404);
+        if (!$studentId) return response()->json(['error' => 'Stduent Not Found.'], 404);
 
         $assess = Assessment::where(
             'id',
             $assessGameId
         )->first();
-        if (!$assess) return response()->json(['message' => 'Assessment Not Found.'], 404);
+        if (!$assess) return response()->json(['error' => 'Assessment Not Found.'], 404);
 
         $studentId = $studentId->id;
         $isExistData = AssessmentEachRecordFinishData::where("student_id", $studentId)
@@ -137,8 +147,8 @@ class AssessmentController extends Controller
 
         $toValidate = AssessmentEachRecordFinishData::where("student_id", $studentId)->first();
 
-        if ($isExistData || $completedData) return response()->json(['message' => 'completed assessment.'], 403);
-        if ($toValidate && ($toValidate->grade_id !== $assess->grade_id || $toValidate->assess_name != $assess->name)) return response()->json(['message' => "didn't submit assessment."], 403);
+        if ($isExistData || $completedData) return response()->json(['error' => 'completed assessment.'], 403);
+        if ($toValidate && ($toValidate->grade_id !== $assess->grade_id || $toValidate->assess_name != $assess->name)) return response()->json(['error' => "didn't submit assessment."], 403);
 
         $AddData = [
             "student_id" => $studentId,
@@ -157,14 +167,14 @@ class AssessmentController extends Controller
         $token =  $request->header('token');
         $point = $request->header('point');
 
-        if (!$token) return response()->json(['message' => 'Token is required.'], 403);
+        if (!$token) return response()->json(['error' => 'Token is required.'], 400);
 
         $student = Student::where("token", $token)->first();
-        if (!$student) return response()->json(['message' => 'Stduent Not Found.'], 404);
+        if (!$student) return response()->json(['error' => 'Stduent Not Found.'], 404);
 
         $studentId = $student->id;
         $lessonId = StudentLesson::where("student_id", $studentId)->get();
-        if (!$lessonId[0]) return response()->json(['message' => "didn't complete any lessons"], 403);
+        if (!$lessonId[0]) return response()->json(['error' => "didn't complete any lessons"], 403);
 
         $finishDataCount = AssessmentEachRecordFinishData::where("student_id", $studentId)->get();
         if (count($finishDataCount)) {
@@ -172,9 +182,9 @@ class AssessmentController extends Controller
                 ->where("grade_id", $finishDataCount[0]->grade_id)
                 ->get();
 
-            if (count($finishDataCount) !== count($assessDataCount)) return response()->json(['message' => "didn't complete assessment lessons"], 403);
+            if (count($finishDataCount) !== count($assessDataCount)) return response()->json(['error' => "didn't complete assessment lessons"], 403);
         } else {
-            return response()->json(['message' => "didn't complete assessment lessons"], 403);
+            return response()->json(['error' => "didn't complete assessment lessons"], 403);
         }
 
         $assesLessArray = [
@@ -317,7 +327,7 @@ class AssessmentController extends Controller
                 return response()->json($recorded);
             }
         }
-        return response()->json(['message' => "please finish lessons"], 403);
+        return response()->json(['error' => "please finish lessons"], 403);
     }
 
 
@@ -358,14 +368,14 @@ class AssessmentController extends Controller
         $token = $request->header('token');
         $grade = $request->header('grade_id');
 
-        if (!$token) return response()->json(['message' => "token is required"], 403);
+        if (!$token) return response()->json(['error' => "token is required"], 400);
 
         $stu = Student::where('token', $token)->first();
         $certificate = Certificate::where("student_id", $stu->id)
             ->where("grade_id", $grade)
             ->first();
 
-        if (!$certificate) return response()->json(['message' => "You don't have certificate."], 403);
+        if (!$certificate) return response()->json(['error' => "You don't have certificate."], 403);
 
         return response()->json($certificate);
     }
