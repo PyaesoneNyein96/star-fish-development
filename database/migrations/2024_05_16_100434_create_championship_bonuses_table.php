@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('background_images', function (Blueprint $table) {
+        Schema::create('championship_bonuses', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->integer('round_id')->nullable();
-            $table->integer('game_id')->nullable()->constrained();
-            $table->string('image')->nullable();
+            $table->foreignId('student_id')->constrained()->onDelete('cascade');
+            $table->integer('point');
+            $table->string('champion');
+            $table->integer('fix_level');
+            $table->integer('claim')->default(0);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('background_images');
+        Schema::dropIfExists('championship_bonuses');
     }
 };
