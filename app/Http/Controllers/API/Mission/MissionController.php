@@ -11,13 +11,15 @@ use App\Models\DailyBonus;
 use App\Models\LoginBonus;
 use App\Models\StudentGame;
 use Illuminate\Http\Request;
+use App\Models\QuestionBonus;
 use App\Models\StudentLesson;
 use App\Models\LoginDailyBonus;
+use App\Models\ChampionshipBonus;
 use App\Models\StudentLoginBonus;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\StudentQuestionBonus;
+use App\Models\AssessmentFinishData;
 use App\Http\Traits\PointAddingTrait;
 use App\Models\StudentChampionshipBonus;
 use App\Http\Traits\AssessmentMissionTrait;
@@ -597,7 +599,7 @@ class MissionController extends Controller
         try {
 
 
-            $record = StudentChampionshipBonus::where('student_id',$student->id)->where('champion', $name)->first();
+            $record = $student->championBonus->where('champion', $name)->first();
             $allowed = $student->board == $name || $record->fix_level <= $student->level;
 
             if(!$allowed) return response()->json(['error' => "not enough level for championship bonus"], 403);
@@ -686,14 +688,18 @@ class MissionController extends Controller
         // Assessment
         // ==================================
 
-        $assessment_count = 0;
+          $assessment_count = AssessmentFinishData::where("student_id", $student->id)
+            ->where("finish", 1)
+            ->where("claim", 0)->get();
+
+
 
        $total = intval($repetitive_count) + intval($daily_count) + intval($login_count) + intval($question_count) + intval($champion_count) + intval(0);
 
        if($total > 0) {
          return response()->json(['notify_count' => $total], 200);
        }
-        return response()->json(['notify_count' => 0], 404);
+        return response()->json(['notify_count' => 0], 200);
 
     }
 

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class StudentQuestionBonus extends Model
+class QuestionBonus extends Model
 {
     use HasFactory;
 
@@ -15,5 +15,4 @@ class StudentQuestionBonus extends Model
         'question_count',
         'claim'
     ];
-
 }

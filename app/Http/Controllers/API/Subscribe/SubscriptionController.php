@@ -21,9 +21,9 @@ use App\Models\SubscriptionPlan;
 use App\Models\StudentLoginBonus;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\StudentQuestionBonus;
+use App\Models\QuestionBonus;
 use Illuminate\Support\Facades\Http;
-use App\Models\StudentChampionshipBonus;
+use App\Models\ChampionshipBonus;
 use Illuminate\Support\Facades\Redirect;
 
 class SubscriptionController extends Controller
@@ -506,14 +506,14 @@ class SubscriptionController extends Controller
 
     private function addQuestionBonusRecords($student){
 
-        $already = StudentQuestionBonus::where('student_id', $student->id)->get();
+        $already = $student->questionBonus;
 
         try {
 
             if($already->count() == 0){
 
                 foreach (range(1,8) as $num) {
-                    StudentQuestionBonus::create([
+                    QuestionBonus::create([
                         'student_id' => $student->id,
                         'point' => $num*10,
                         'question_count' => $num*100
@@ -531,7 +531,7 @@ class SubscriptionController extends Controller
 
     private function addChampionshipBonusRecords($student){
 
-        $already = StudentChampionshipBonus::where('student_id',$student->id)->get();
+        $already = $student->championBonus;
 
         $champions = [
             ['platinum' , 50],
@@ -544,7 +544,7 @@ class SubscriptionController extends Controller
             if($already->count() == 0){
 
                 foreach($champions as $champ){
-                    StudentChampionshipBonus::create([
+                    ChampionshipBonus::create([
                         'student_id' => $student->id,
                         'point' => 1,
                         'champion' => $champ[0],

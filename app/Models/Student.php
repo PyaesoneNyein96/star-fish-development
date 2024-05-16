@@ -109,17 +109,22 @@ class Student extends Model
 
     public function questionBonus()
     {
-        return $this->hasMany(StudentQuestionBonus::class);
+        return $this->hasMany(QuestionBonus::class);
     }
 
     public function championBonus()
     {
-        return $this->hasMany(StudentChampionshipBonus::class);
+        return $this->hasMany(ChampionshipBonus::class);
     }
 
     public function dailyBonus()
     {
         return $this->hasMany(DailyBonus::class);
+    }
+
+    public function assessmentFinishRecords()
+    {
+        return $this->hasMany(AssessmentFinishData::class);
     }
 
 
