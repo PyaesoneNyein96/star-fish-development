@@ -143,27 +143,32 @@ Field ( header ) = token
 (Method: GET) [https://star-fish.myanmargateway.net/api/reward/each](https://star-fish.myanmargateway.net/api/reward/each).  
 Field ( header ) = token , name
 
-### Display all Profiles
+### Buy Reward
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/reward/profiles](https://star-fish.myanmargateway.net/api/reward/profiles).  
-Field ( header ) = token
+(Method: POST) [https://star-fish.myanmargateway.net/api/reward](https://star-fish.myanmargateway.net/api/reward)  
+Field ( body ) = token , reward_id , reward_point
 
 ### Display Student Rewards (Owned)
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/reward](https://star-fish.myanmargateway.net/api/reward).  
 Field ( header ) = token
 
-### Buy Reward
-
-(Method: POST) [https://star-fish.myanmargateway.net/api/reward](https://star-fish.myanmargateway.net/api/reward)  
-Field ( body ) = token , reward_id , reward_point
-
 # Profile
+
+### Display Profiles
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/reward/profiles](https://star-fish.myanmargateway.net/api/reward/profiles).  
+Field ( header ) = token
+
+### Display Frames
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/reward/frames](https://star-fish.myanmargateway.net/api/reward/frames).  
+Field ( header ) = token
 
 ### Update Profile
 
 (Method: POST) [https://star-fish.myanmargateway.net/api/profile/update](https://star-fish.myanmargateway.net/api/profile/update)  
-Field ( body ) = token , profile_id
+Field ( body ) = token , id (profile id (or) frame id)
 
 ### ====================================================
 
@@ -234,11 +239,13 @@ Field ( header ) = name (champion board name)
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/banners](https://star-fish.myanmargateway.net/api/banners)
 
-### ##########
-# MISSIONS
-### ##########
+###
 
-- ### Notification for Mission Button UI
+# MISSIONS
+
+###
+
+-   ### Notification for Mission Button UI
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/notify](https://star-fish.myanmargateway.net/api/mission/notify) Field (header) = token
 

@@ -11,7 +11,7 @@ use Mockery\Undefined;
 
 class RewardController extends Controller
 {
-    private $domain, $achieve, $each_ach, $profiles;
+    private $domain, $achieve, $each_ach, $profiles, $frames;
 
     public function __construct()
     {
@@ -19,6 +19,7 @@ class RewardController extends Controller
         $this->achieve = $this->domain . "/storage/images/Achievement/Main/";
         $this->each_ach = $this->domain . "/storage/images/Achievement/Each_achieve/";
         $this->profiles = $this->domain . "/storage/images/Achievement/Profiles/";
+        $this->frames = $this->domain . "/storage/images/Achievement/Frames/";
     }
 
 
@@ -132,17 +133,17 @@ class RewardController extends Controller
         if (!$stu) return response()->json(["error" => "user not found"], 404);
         if (count($data) == 0) return response()->json(["message" => "data not found"], 404);
 
-        $point = 50;
+        // $point = 50;
         $reward = [];
         foreach ($data as $idx => $value) {
             $stuReward = Stud_reward::where("student_id", $stu->id)->where("reward_id", $value->id)->first();
 
             $value['item'] = $this->profiles . str_replace(' ', '-', $value->name) . "/" .  $value->item . ".png";
-            $value['lock'] = $stu->fixed_point < $point ? 1 : 0;
-            $value["bought"] = $stuReward ? 1 : 0;
+            $value['lock'] = $stu->fixed_point < $value->point ? 1 : 0;
+            $value["own"] = $stuReward ? 1 : 0;
             array_push($reward, $value);
 
-            if (isset($data[$idx + 1]) && $value->name !== $data[$idx + 1]->name) $point += 50;
+            // if (isset($data[$idx + 1]) && $value->name !== $data[$idx + 1]->name) $point += 50;
         }
 
         return $reward;
@@ -221,6 +222,33 @@ class RewardController extends Controller
         }
     }
 
+    public function getProfileFrames(Request $request)
+    {
+        $token = $request->header("token");
+        if (!$token) return response()->json(["error" => "token is required."], 400);
+
+        $data = Reward::where('type', "frames")->get();
+        $stu = Student::where('token', $token)->first();
+
+        if (!$stu) return response()->json(["error" => "user not found"], 404);
+        if (count($data) == 0) return response()->json(["message" => "data not found"], 404);
+
+        // $point = 20;
+        $reward = [];
+        foreach ($data as $idx => $value) {
+            $stuReward = Stud_reward::where("student_id", $stu->id)->where("reward_id", $value->id)->first();
+
+            $value['item'] = $this->frames . $value->item . ".png";
+            $value['lock'] = $stu->fixed_point < $value->point ? 1 : 0;
+            $value["own"] = $stuReward ? 1 : 0;
+            array_push($reward, $value);
+
+            // if (isset($data[$idx + 1]) && $value->name !== $data[$idx + 1]->name) $point += 20;
+        }
+
+        return $reward;
+    }
+
     // level up reward
     public function getLevelUp(Request $request)
     {
@@ -229,6 +257,7 @@ class RewardController extends Controller
 
         $stu = Student::where("token", $token)->first();
         $profile = Reward::where("type", "profile")->get();
+        $frames = Reward::where("type", "frames")->get();
 
         $res = [
             "point" => $stu->point,
@@ -244,7 +273,22 @@ class RewardController extends Controller
                         "student_id" => $stu->id,
                         "reward_id" => $val->id,
                     ];
-                    $url = $this->profiles . $val->name . "/" . $val->item . ".png";
+                    $url = $this->profiles .  str_replace(' ', '-', $val->name) . "/" . $val->item . ".png";
+                    array_push($reward, $url);
+                    Stud_reward::create($data);
+                }
+            }
+        }
+
+        foreach ($frames as $val) {
+            if ($val->point <= $stu->fixed_point) {
+                $inReward = Stud_reward::where("reward_id", $val->id)->first();
+                if (!$inReward) {
+                    $data = [
+                        "student_id" => $stu->id,
+                        "reward_id" => $val->id,
+                    ];
+                    $url = $this->frames . $val->item . ".png";
                     array_push($reward, $url);
                     Stud_reward::create($data);
                 }
@@ -259,8 +303,8 @@ class RewardController extends Controller
     public function updateProfile(Request $request)
     {
         $token = $request->token;
-        $id = $request->profile_id;
-        if (!$token || !$id) return response()->json(["error" => "token or profile_id is required."], 400);
+        $id = $request->id;
+        if (!$token || !$id) return response()->json(["error" => "token or id is required."], 400);
 
         $student = Student::where("token", $token)->first();
         $stud_id = $student->id;
@@ -269,12 +313,15 @@ class RewardController extends Controller
         if ($checkReward) {
             $profile = Reward::where("id", $id)->first();
             if ($profile->type === "profile") {
-                $student->update(["profile_picture" => $this->profiles . $profile->name . "/" . $profile->item . ".png"]);
-                return response()->json(["message" => "Profile updated."]);
+                $student->update(["profile_picture" => $this->profiles .  str_replace(' ', '-', $profile->name) . "/" . $profile->item . ".png"]);
+                return response()->json(["message" => "User profile updated."]);
+            } else if ($profile->type === "frames") {
+                $student->update(["profile_frame" => $this->frames . $profile->item . ".png"]);
+                return response()->json(["message" => "User frame updated."]);
             }
-            return response()->json(["error" => "item isn't profile."], 403);
+            return response()->json(["error" => "item isn't profile or frame."], 403);
         } else {
-            return response()->json(["error" => "You don't have this profile."], 403);
+            return response()->json(["error" => "You don't have this item."], 403);
         }
     }
 

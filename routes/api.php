@@ -84,6 +84,7 @@ Route::prefix('reward')->group(function () {
     Route::get('/all', [RewardController::class, 'displayAllReward']);
     Route::get('/each', [RewardController::class, 'displayEachReward']);
     Route::get('/profiles', [RewardController::class, 'displayEachProfile']);
+    Route::get('/frames', [RewardController::class, 'getProfileFrames']);
     Route::get('/level-up', [RewardController::class, 'getLevelUp']);
     Route::get('/', [RewardController::class, 'getReward']);
     Route::post('/', [RewardController::class, 'buyReward']);
@@ -150,7 +151,7 @@ Route::prefix('board')->group(function () {
 Route::prefix('mission')->middleware('isSubscriber')->group(function () {
 
 
-    Route::get('notify', [MissionController::class,'notify']);
+    Route::get('notify', [MissionController::class, 'notify']);
 
     Route::prefix('repetitive')->group(function () {
 

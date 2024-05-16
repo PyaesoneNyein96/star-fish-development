@@ -25,6 +25,7 @@ class Student extends Model
         'age',
         'password',
         'profile_picture',
+        'profile_frame',
         'role',
         'grade',
         'otp',
