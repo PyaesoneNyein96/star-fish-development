@@ -160,11 +160,6 @@ Field ( body ) = token , reward_id , reward_point
 
 # Profile
 
-### Display Student Profile (Owned)
-
-(Method: GET) [https://star-fish.myanmargateway.net/api/profile](https://star-fish.myanmargateway.net/api/profile).  
-Field ( header ) = token
-
 ### Update Profile
 
 (Method: POST) [https://star-fish.myanmargateway.net/api/profile/update](https://star-fish.myanmargateway.net/api/profile/update)  

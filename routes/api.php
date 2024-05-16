@@ -90,7 +90,6 @@ Route::prefix('reward')->group(function () {
 });
 
 Route::prefix('profile')->group(function () {
-    Route::get('/', [RewardController::class, "displayStudProfile"]);
     Route::post('/update', [RewardController::class, "updateProfile"]);
 });
 

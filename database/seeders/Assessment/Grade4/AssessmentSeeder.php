@@ -70,7 +70,7 @@ class AssessmentSeeder extends Seeder
         $A1_ID109_image = $domain . "/storage/images/Grade_4/Assessments/Assessment_1/rearrange_letter/";
 
         $a_ID109 = [
-            "beautiful", "handsome", "old", "young", "lazy", "cow", "snake", "rabbit", "seal", "cheetah"
+            "beautiful", "handsome", "old", "young", "lazy", "cow", "snake", "rabbit", "seal", "leopard"
         ];
 
         foreach ($a_ID109 as $index => $i) {
@@ -126,23 +126,23 @@ class AssessmentSeeder extends Seeder
             ['round' => 5, 'assess_id' => 110, "q_conver" => null,  'q_audio' =>  null, "q_content" => "Yes, he has.", "a_content" => 0],
 
 
-            ['round' => 6, 'assess_id' => 110, "q_conver" => "A leopard has ____ fur.",  'q_audio' =>  $AudioDomain . $G4_A1_listen_n_practice . "sec-transcript-audio" . ".mp3", "q_content" => "black", "a_content" => 0],
+            ['round' => 6, 'assess_id' => 110, "q_conver" => "A leopard has ____ fur.",  'q_audio' =>  $AudioDomain . $G4_A1_listen_n_practice . "leopard" . ".mp3", "q_content" => "black", "a_content" => 0],
             ['round' => 6, 'assess_id' => 110, "q_conver" => null,  'q_audio' =>  null, "q_content" => "yellow", "a_content" => 1],
             ['round' => 6, 'assess_id' => 110, "q_conver" => null,  'q_audio' =>  null, "q_content" => "white", "a_content" => 0],
 
-            ['round' => 7, 'assess_id' => 110, "q_conver" => "A leopard can ____ very fast.",  'q_audio' =>  $AudioDomain . $G4_A1_listen_n_practice . "sec-transcript-audio" . ".mp3", "q_content" => "jump",  "a_content" => 0],
+            ['round' => 7, 'assess_id' => 110, "q_conver" => "A leopard can ____ very fast.",  'q_audio' =>  $AudioDomain . $G4_A1_listen_n_practice . "leopard" . ".mp3", "q_content" => "jump",  "a_content" => 0],
             ['round' => 7, 'assess_id' => 110, "q_conver" => null,  'q_audio' =>  null, "q_content" => "eat", "a_content" => 0],
             ['round' => 7, 'assess_id' => 110, "q_conver" => null,  'q_audio' =>  null, "q_content" => "run", "a_content" => 1],
 
-            ['round' => 8, 'assess_id' => 110, "q_conver" => "Which animal can not jump?",  'q_audio' =>  $AudioDomain . $G4_A1_listen_n_practice . "sec-transcript-audio" . ".mp3", "q_content" => "Leopard", "a_content" => 0],
+            ['round' => 8, 'assess_id' => 110, "q_conver" => "Which animal can not jump?",  'q_audio' =>  $AudioDomain . $G4_A1_listen_n_practice . "elephant" . ".mp3", "q_content" => "Leopard", "a_content" => 0],
             ['round' => 8, 'assess_id' => 110, "q_conver" => null,  'q_audio' =>  null, "q_content" => "Elephant", "a_content" => 1],
             ['round' => 8, 'assess_id' => 110, "q_conver" => null,  'q_audio' =>  null, "q_content" => "Lion", "a_content" => 0],
 
-            ['round' => 9, 'assess_id' => 110, "q_conver" => "Which animal has a big head?",  'q_audio' =>  $AudioDomain . $G4_A1_listen_n_practice . "sec-transcript-audio" . ".mp3", "q_content" => "Leopard", "a_content" => 0],
+            ['round' => 9, 'assess_id' => 110, "q_conver" => "Which animal has a big head?",  'q_audio' =>  $AudioDomain . $G4_A1_listen_n_practice . "lion" . ".mp3", "q_content" => "Leopard", "a_content" => 0],
             ['round' => 9, 'assess_id' => 110, "q_conver" => null,  'q_audio' =>  null, "q_content" => "Elephant", "a_content" => 0],
             ['round' => 9, 'assess_id' => 110, "q_conver" => null,  'q_audio' =>  null, "q_content" => "Lion", "a_content" => 1],
 
-            ['round' => 10, 'assess_id' => 110, "q_conver" => "What does the shark eat?",  'q_audio' =>  $AudioDomain . $G4_A1_listen_n_practice . "sec-transcript-audio" . ".mp3", "q_content" => "Turtle", "a_content" => 0],
+            ['round' => 10, 'assess_id' => 110, "q_conver" => "What does the shark eat?",  'q_audio' =>  $AudioDomain . $G4_A1_listen_n_practice . "shark" . ".mp3", "q_content" => "Turtle", "a_content" => 0],
             ['round' => 10, 'assess_id' => 110, "q_conver" => null,  'q_audio' =>  null, "q_content" => "fish", "a_content" => 1],
             ['round' => 10, 'assess_id' => 110, "q_conver" => null,  'q_audio' =>  null, "q_content" => "whale", "a_content" => 0],
 
@@ -158,45 +158,45 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 111, "q_image" => $A1_ID111_image . "happy.png", "q_audio" => $AudioDomain . $G4_A1_grammar . "happy.mp3", "q_content" => "Is", 'q_conver' => "I ____ usually happy.", 'a_content' => 0],
-            ['round' => 1, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "Am", "q_conver" => null, 'a_content' => 1],
-            ['round' => 1, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "Are", "q_conver" => null, 'a_content' => 0],
+            ['round' => 1, 'assess_id' => 111, "q_image" => $A1_ID111_image . "happy.png", "q_content" => "Is", 'q_conver' => "I ____ usually happy.", 'a_content' => 0],
+            ['round' => 1, 'assess_id' => 111, "q_image" => null, 'q_content' => "Am", "q_conver" => null, 'a_content' => 1],
+            ['round' => 1, 'assess_id' => 111, "q_image" => null, 'q_content' => "Are", "q_conver" => null, 'a_content' => 0],
 
-            ['round' => 2, 'assess_id' => 111, "q_image" => $A1_ID111_image . "oval.png", "q_audio" => $AudioDomain . $G4_A1_grammar . "oval.mp3", "q_content" => "Has", 'q_conver' => "She ____ an oval face.", 'a_content' => 1],
-            ['round' => 2, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "Am", "q_conver" => null, 'a_content' => 0],
-            ['round' => 2, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "Is", "q_conver" => null, 'a_content' => 0],
+            ['round' => 2, 'assess_id' => 111, "q_image" => $A1_ID111_image . "oval.png", "q_content" => "Has", 'q_conver' => "She ____ an oval face.", 'a_content' => 1],
+            ['round' => 2, 'assess_id' => 111, "q_image" => null, 'q_content' => "Am", "q_conver" => null, 'a_content' => 0],
+            ['round' => 2, 'assess_id' => 111, "q_image" => null, 'q_content' => "Is", "q_conver" => null, 'a_content' => 0],
 
-            ['round' => 3, 'assess_id' => 111, "q_image" => $A1_ID111_image . "sheep.png", "q_audio" => $AudioDomain . $G4_A1_grammar . "sheep.mp3", "q_content" => "a sheep", 'q_conver' => "How many ____ are there?",  'a_content' => 0],
-            ['round' => 3, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "sheep", "q_conver" => null, 'a_content' => 1],
-            ['round' => 3, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "sheeps", "q_conver" => null, 'a_content' => 0],
+            ['round' => 3, 'assess_id' => 111, "q_image" => $A1_ID111_image . "sheep.png", "q_content" => "a sheep", 'q_conver' => "How many ____ are there?",  'a_content' => 0],
+            ['round' => 3, 'assess_id' => 111, "q_image" => null, 'q_content' => "sheep", "q_conver" => null, 'a_content' => 1],
+            ['round' => 3, 'assess_id' => 111, "q_image" => null, 'q_content' => "sheeps", "q_conver" => null, 'a_content' => 0],
 
-            ['round' => 4, 'assess_id' => 111, "q_image" => $A1_ID111_image . "have.png", "q_audio" => $AudioDomain . $G4_A1_grammar . "have.mp3", "q_content" => "Does", 'q_conver' => "____ she have short hair?", 'a_content' => 1],
-            ['round' => 4, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "Do", "q_conver" => null, 'a_content' => 0],
-            ['round' => 4, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "Is", "q_conver" => null, 'a_content' => 0],
+            ['round' => 4, 'assess_id' => 111, "q_image" => $A1_ID111_image . "have.png", "q_content" => "Does", 'q_conver' => "____ she have short hair?", 'a_content' => 1],
+            ['round' => 4, 'assess_id' => 111, "q_image" => null, 'q_content' => "Do", "q_conver" => null, 'a_content' => 0],
+            ['round' => 4, 'assess_id' => 111, "q_image" => null, 'q_content' => "Is", "q_conver" => null, 'a_content' => 0],
 
-            ['round' => 5, 'assess_id' => 111, "q_image" => $A1_ID111_image . "got.png", "q_audio" => $AudioDomain . $G4_A1_grammar . "got.mp3", "q_content" => "Has", 'q_conver' => "____ she got short hair?", 'a_content' => 1],
-            ['round' => 5, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "Does", "q_conver" => null, 'a_content' => 0],
-            ['round' => 5, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "Is", "q_conver" => null, 'a_content' => 0],
+            ['round' => 5, 'assess_id' => 111, "q_image" => $A1_ID111_image . "got.png", "q_content" => "Has", 'q_conver' => "____ she got short hair?", 'a_content' => 1],
+            ['round' => 5, 'assess_id' => 111, "q_image" => null, 'q_content' => "Does", "q_conver" => null, 'a_content' => 0],
+            ['round' => 5, 'assess_id' => 111, "q_image" => null, 'q_content' => "Is", "q_conver" => null, 'a_content' => 0],
 
-            ['round' => 6, 'assess_id' => 111, "q_image" => $A1_ID111_image . "ox.png", "q_audio" => $AudioDomain . $G4_A1_grammar . "ox.mp3", "q_content" => "ox", 'q_conver' => "How many ____ are there on the farm?", 'a_content' => 0],
-            ['round' => 6, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "oxs", "q_conver" => null, 'a_content' => 0],
-            ['round' => 6, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "oxen", "q_conver" => null, 'a_content' => 1],
+            ['round' => 6, 'assess_id' => 111, "q_image" => $A1_ID111_image . "ox.png", "q_content" => "ox", 'q_conver' => "How many ____ are there on the farm?", 'a_content' => 0],
+            ['round' => 6, 'assess_id' => 111, "q_image" => null, 'q_content' => "oxs", "q_conver" => null, 'a_content' => 0],
+            ['round' => 6, 'assess_id' => 111, "q_image" => null, 'q_content' => "oxen", "q_conver" => null, 'a_content' => 1],
 
-            ['round' => 7, 'assess_id' => 111, "q_image" => $A1_ID111_image . "dog.png", "q_audio" => $AudioDomain . $G4_A1_grammar . "dog.mp3", "q_content" => "am", 'q_conver' => "How may dogs ____ there?", 'a_content' => 0],
-            ['round' => 7, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "is", "q_conver" => null, 'a_content' => 0],
-            ['round' => 7, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "are", "q_conver" => null, 'a_content' => 1],
+            ['round' => 7, 'assess_id' => 111, "q_image" => $A1_ID111_image . "dog.png", "q_content" => "am", 'q_conver' => "How may dogs ____ there?", 'a_content' => 0],
+            ['round' => 7, 'assess_id' => 111, "q_image" => null, 'q_content' => "is", "q_conver" => null, 'a_content' => 0],
+            ['round' => 7, 'assess_id' => 111, "q_image" => null, 'q_content' => "are", "q_conver" => null, 'a_content' => 1],
 
-            ['round' => 8, 'assess_id' => 111, "q_image" => $A1_ID111_image . "deer.png", "q_audio" => $AudioDomain . $G4_A1_grammar . "deer.mp3", "q_content" => "deer", 'q_conver' => "The plural form of 'deer' is ____.",  'a_content' => 1],
-            ['round' => 8, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "deers", "q_conver" => null, 'a_content' => 0],
-            ['round' => 8, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "deeres", "q_conver" => null, 'a_content' => 0],
+            ['round' => 8, 'assess_id' => 111, "q_image" => $A1_ID111_image . "deer.png", "q_content" => "deer", 'q_conver' => "The plural form of 'deer' is ____.",  'a_content' => 1],
+            ['round' => 8, 'assess_id' => 111, "q_image" => null, 'q_content' => "deers", "q_conver" => null, 'a_content' => 0],
+            ['round' => 8, 'assess_id' => 111, "q_image" => null, 'q_content' => "deeres", "q_conver" => null, 'a_content' => 0],
 
-            ['round' => 9, 'assess_id' => 111, "q_image" => $A1_ID111_image . "cat.png", "q_audio" => $AudioDomain . $G4_A1_grammar . "cat.mp3", "q_content" => "am", 'q_conver' => "The cats ____ chasing the rats.", 'a_content' => 0],
-            ['round' => 9, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "is", "q_conver" => null, 'a_content' => 0],
-            ['round' => 9, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "are", "q_conver" => null, 'a_content' => 1],
+            ['round' => 9, 'assess_id' => 111, "q_image" => $A1_ID111_image . "cat.png", "q_content" => "am", 'q_conver' => "The cats ____ chasing the rats.", 'a_content' => 0],
+            ['round' => 9, 'assess_id' => 111, "q_image" => null, 'q_content' => "is", "q_conver" => null, 'a_content' => 0],
+            ['round' => 9, 'assess_id' => 111, "q_image" => null, 'q_content' => "are", "q_conver" => null, 'a_content' => 1],
 
-            ['round' => 10, 'assess_id' => 111, "q_image" => $A1_ID111_image . "friends.png", "q_audio" => $AudioDomain . $G4_A1_grammar . "friends.mp3", "q_content" => "have", 'q_conver' => "Who ____ your friends?", 'a_content' => 0],
-            ['round' => 10, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "are", "q_conver" => null, 'a_content' => 1],
-            ['round' => 10, 'assess_id' => 111, "q_image" => null, "q_audio" =>  null, 'q_content' => "is", "q_conver" => null, 'a_content' => 0],
+            ['round' => 10, 'assess_id' => 111, "q_image" => $A1_ID111_image . "friends.png", "q_content" => "have", 'q_conver' => "Who ____ your friends?", 'a_content' => 0],
+            ['round' => 10, 'assess_id' => 111, "q_image" => null, 'q_content' => "are", "q_conver" => null, 'a_content' => 1],
+            ['round' => 10, 'assess_id' => 111, "q_image" => null, 'q_content' => "is", "q_conver" => null, 'a_content' => 0],
 
         ]);
 
@@ -894,7 +894,7 @@ class AssessmentSeeder extends Seeder
         $A3_ID124_image = $domain . "/storage/images/Grade_4/Assessments/Assessment_3/reading_passage_1/";
 
         $A3_ID124_q_audio = [
-            "went-to-ciname",
+            "went-to-cinema",
             "by-train",
             "shopping",
             "near-cereals",
@@ -903,7 +903,7 @@ class AssessmentSeeder extends Seeder
 
         $A3_ID124_q_conver = [
             "Fred and his mother went to the cinema.",
-            "They went to town bt train.",
+            "They went to town by train.",
             "Fred enjoys shopping.",
             "The rice was near the cereals.",
             "Fred's father drove them home. "
@@ -1115,7 +1115,7 @@ class AssessmentSeeder extends Seeder
         }
 
         ////////////////////////////////////////////////////////
-        ////    Grade 4 Assessment 4 ID 128 ( Listening (2) )
+        ////    Grade 4 Assessment 4 ID 128 ( Listening (1) )
         ////////////////////////////////////////////////////////
 
         $G4_A1_listening_1 = "Grade_4/" . "Assessments/" . "Assessment_4/" . "listening_1/";
@@ -1383,14 +1383,14 @@ class AssessmentSeeder extends Seeder
 
         $G4_A5_I133_matching = [
 
-            ['Go to the library', 'Go to the art gallery', 'Go to the swimming pool', 'Go to the supermarket', "Go to market"],
+            ['Go to the library', 'Go to the art gallery', 'Go to the swimming pool', 'Go to the supermarket', "Go to shopping centre"],
             ["Go to the grandmother's home", "Go to the sports centre", "Write a letter", "Go to the music festival", "Send a letter"]
 
         ];
 
         $G4_A5_I133_matching_image = [
 
-            ["Go to market",  'Go to the supermarket', 'Go to the swimming pool', 'Go to the library', 'Go to the art gallery'],
+            ["Go to shopping centre",  'Go to the supermarket', 'Go to the swimming pool', 'Go to the library', 'Go to the art gallery'],
             ["Go to the music festival", "Send a letter", "Go to the sports centre", "Write a letter", "Go to the grandmother's home"]
 
         ];

@@ -81,6 +81,16 @@ class TestingDataSeeder extends Seeder
                 'claimed_5' => 0,
             ]);
         }
+        // foreach (range(121, 160) as $k => $l) {
+        //     DB::table('student_lessons')->insert([
+        //         'student_id' => 3,
+        //         'grade_id' => 4,
+        //         'lesson_id' => $l,
+        //         'count' => 1,
+        //         'claimed_3' => 0,
+        //         'claimed_5' => 0,
+        //     ]);
+        // }
 
 
 

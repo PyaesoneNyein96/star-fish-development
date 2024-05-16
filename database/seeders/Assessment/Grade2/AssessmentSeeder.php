@@ -1186,7 +1186,7 @@ class AssessmentSeeder extends Seeder
             ['round' => 1, 'assess_id' => 69,  'q_audio' =>  null, "q_content" => "Six", "a_content" => 0],
             ['round' => 1, 'assess_id' => 69,  'q_audio' =>  null, "q_content" => "One", "a_content" => 0],
 
-            ['round' => 2, 'assess_id' => 69,  'q_audio' =>  $AudioDomain . $G2_A5_fill_in_the_blank . "i-have" . ".mp3", "q_content" => "Ten",  "a_content" => 0],
+            ['round' => 2, 'assess_id' => 69,  'q_audio' =>  $AudioDomain . $G2_A5_fill_in_the_blank . "i-have-dogs" . ".mp3", "q_content" => "Ten",  "a_content" => 0],
             ['round' => 2, 'assess_id' => 69,  'q_audio' =>  null, "q_content" => "Eleven", "a_content" => 1],
             ['round' => 2, 'assess_id' => 69,  'q_audio' =>  null, "q_content" => "Twelve", "a_content" => 0],
 

@@ -177,8 +177,8 @@ class AssessmentSeeder extends Seeder
 
         $G3_A1_I76_matching_image = [
 
-            ["He is handsome", 'My favorite fruit is watermelon', 'She is kind', 'He is doctor', 'No, I don\'t. I want to be an artist'],
-            ["I am good at swimming", 'I am good at Maths', 'My favorite subject is English', 'Yes, I do. But my brother doesn\'t', 'My sister is clever'],
+            ["He is handsome", 'My favorite fruit is watermelon', 'She is kind', 'He is a doctor', "No, I don't. I want to be an artist"],
+            ["I am good at swimming", 'I am good at Maths', 'My favorite subject is English', "Yes, I do. But my brother doesn't", 'My sister is clever'],
 
         ];
 
@@ -654,7 +654,7 @@ class AssessmentSeeder extends Seeder
         $A3_ID85_image = $domain . "/storage/images/Grade_3/Assessments/Assessment_3/vocab_2/";
 
         $a_ID85 = [
-            "yellow", "thirteen", "green", "laundromat", "drinking"
+            "yellow", "buttons", "green", "laundromat", "drinking"
         ];
 
         foreach ($a_ID85 as $index => $i) {
@@ -1272,7 +1272,7 @@ class AssessmentSeeder extends Seeder
 
 
         ////////////////////////////////////////////////////////
-        ////    Grade 3 Assessment 3 ID 98 ( Reading Passages (2) )
+        ////    Grade 3 Assessment 4 ID 98 ( Reading Passages (2) )
         ////////////////////////////////////////////////////////
 
         $G3_A4_reading_passage_2 = "Grade_3/" . "Assessments/" . "Assessment_4/" . "reading_passage_2/";
@@ -1344,6 +1344,8 @@ class AssessmentSeeder extends Seeder
                 ],
             ]);
         }
+
+
 
         ////////////////////////////////////////////////////////////////////
         ////    Grade 3 Assessment 5 ID 99 ( Vocab (1) )
