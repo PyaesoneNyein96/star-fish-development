@@ -1,9 +1,10 @@
 
 ## Requirement  
-- php version : 8.2.4 (min php version 8.1)
+- php version : 8.2.4 (min php version 8)
 - Composer version : 2.5.8 
 - Laravel version : 10.48.1 (min php version 8.1)
 - node : 18.16.1
+- MySql version : 5.2.1 (min Mysql version 5.015)
 - Web Server : Apache, Nginx or PHP's build-in service
 - Database : Mysql
 ##
@@ -42,6 +43,12 @@ run `npm install` & `npm run dev`
 
 #### - Serve the Application
 run `php artisan serve`
+
+## Additional commands
+
+For refresh the database
+const some = ' <?php echo env('DYNAMIC_VARIABLE', 'default_value'); ?>
+sdf'
 
 
 
@@ -212,6 +219,11 @@ Field ( header ) = token
 Field ( body ) = token , reward_id , reward_point
 
 # Profile
+
+### Display Student Profile (Owned)
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/profile](https://star-fish.myanmargateway.net/api/profile).  
+Field ( header ) = token
 
 ### Update Profile
 

@@ -302,17 +302,17 @@ trait gameTraits
 
 
 
-        // $data = [];
+        $data = [];
 
-        // foreach ($rounds as  $round) {
+        foreach ($rounds as  $round) {
 
-        //     $first = array_slice($round->toArray(), 0, $round->count() / 2);
-        //     $second = array_slice($round->toArray(), $round->count() / 2);
-        //     shuffle($second);
+            $first = array_slice($round->toArray(), 0, $round->count() / 2);
+            $second = array_slice($round->toArray(), $round->count() / 2);
+            shuffle($second);
 
-        //     $final = array_merge($first, $second);
-        //     $data[] = $final;
-        // }
+            $final = array_merge($first, $second);
+            $data[] = $final;
+        }
 
 
 
@@ -326,7 +326,7 @@ trait gameTraits
             'category' => $game->category->name,
             'instructionGIF'  => $game->instructionGIF,
             'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
-            'rounds' => $rounds
+            'rounds' => $data
         ];
     }
 
