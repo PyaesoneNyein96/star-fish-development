@@ -403,46 +403,46 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 115, "q_image" => $A2_ID115_image . "kate.png", 'q_content' => "First", 'a_content' => 1],
-            ['round' => 1, 'assess_id' => 115, "q_image" => null, 'q_content' => "Second", 'a_content' => 0],
-            ['round' => 1, 'assess_id' => 115, "q_image" => null, 'q_content' => "Third", 'a_content' => 0],
+            ['round' => 1, 'assess_id' => 115, "q_conver" => "Look at the picture, in which positions people are in?", "q_image" => $A2_ID115_image . "kate.png", 'q_content' => "First", 'a_content' => 1],
+            ['round' => 1, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Second", 'a_content' => 0],
+            ['round' => 1, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Third", 'a_content' => 0],
 
-            ['round' => 2, 'assess_id' => 115, "q_image" => $A2_ID115_image . "susan.png", 'q_content' => "Seventh", 'a_content' => 0],
-            ['round' => 2, 'assess_id' => 115, "q_image" => null, 'q_content' => "Eighth", 'a_content' => 1],
-            ['round' => 2, 'assess_id' => 115, "q_image" => null, 'q_content' => "Ninth", 'a_content' => 0],
+            ['round' => 2, 'assess_id' => 115, "q_conver" => "Look at the picture, in which positions people are in?", "q_image" => $A2_ID115_image . "susan.png", 'q_content' => "Seventh", 'a_content' => 0],
+            ['round' => 2, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Eighth", 'a_content' => 1],
+            ['round' => 2, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Ninth", 'a_content' => 0],
 
-            ['round' => 3, 'assess_id' => 115, "q_image" => $A2_ID115_image . "mary.png", 'q_content' => "Third", 'a_content' => 0],
-            ['round' => 3, 'assess_id' => 115, "q_image" => null, 'q_content' => "Fourth", 'a_content' => 0],
-            ['round' => 3, 'assess_id' => 115, "q_image" => null, 'q_content' => "Fifth", 'a_content' => 1],
+            ['round' => 3, 'assess_id' => 115, "q_conver" => "Look at the picture, in which positions people are in?", "q_image" => $A2_ID115_image . "mary.png", 'q_content' => "Third", 'a_content' => 0],
+            ['round' => 3, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Fourth", 'a_content' => 0],
+            ['round' => 3, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Fifth", 'a_content' => 1],
 
-            ['round' => 4, 'assess_id' => 115, "q_image" => $A2_ID115_image . "tim.png", 'q_content' => "Third", 'a_content' => 0],
-            ['round' => 4, 'assess_id' => 115, "q_image" => null, 'q_content' => "Fourth", 'a_content' => 1],
-            ['round' => 4, 'assess_id' => 115, "q_image" => null, 'q_content' => "Fifth", 'a_content' => 0],
+            ['round' => 4, 'assess_id' => 115, "q_conver" => "Look at the picture, in which positions people are in?", "q_image" => $A2_ID115_image . "tim.png", 'q_content' => "Third", 'a_content' => 0],
+            ['round' => 4, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Fourth", 'a_content' => 1],
+            ['round' => 4, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Fifth", 'a_content' => 0],
 
-            ['round' => 5, 'assess_id' => 115, "q_image" => $A2_ID115_image . "kurt.png", 'q_content' => "Eighth", 'a_content' => 0],
-            ['round' => 5, 'assess_id' => 115, "q_image" => null, 'q_content' => "Ninth", 'a_content' => 1],
-            ['round' => 5, 'assess_id' => 115, "q_image" => null, 'q_content' => "Tenth", 'a_content' => 0],
+            ['round' => 5, 'assess_id' => 115, "q_conver" => "Look at the picture, in which positions people are in?", "q_image" => $A2_ID115_image . "kurt.png", 'q_content' => "Eighth", 'a_content' => 0],
+            ['round' => 5, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Ninth", 'a_content' => 1],
+            ['round' => 5, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Tenth", 'a_content' => 0],
 
 
-            ['round' => 6, 'assess_id' => 115, "q_image" => $A2_ID115_image . "boris.png", 'q_content' => "First", 'a_content' => 0],
-            ['round' => 6, 'assess_id' => 115, "q_image" => null, 'q_content' => "Second", 'a_content' => 1],
-            ['round' => 6, 'assess_id' => 115, "q_image" => null, 'q_content' => "Third", 'a_content' => 0],
+            ['round' => 6, 'assess_id' => 115, "q_conver" => "Look at the picture, in which positions people are in?", "q_image" => $A2_ID115_image . "boris.png", 'q_content' => "First", 'a_content' => 0],
+            ['round' => 6, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Second", 'a_content' => 1],
+            ['round' => 6, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Third", 'a_content' => 0],
 
-            ['round' => 7, 'assess_id' => 115, "q_image" => $A2_ID115_image . "jake.png", 'q_content' => "First", 'a_content' => 0],
-            ['round' => 7, 'assess_id' => 115, "q_image" => null, 'q_content' => "Second", 'a_content' => 0],
-            ['round' => 7, 'assess_id' => 115, "q_image" => null, 'q_content' => "Third", 'a_content' => 1],
+            ['round' => 7, 'assess_id' => 115, "q_conver" => "Look at the picture, in which positions people are in?", "q_image" => $A2_ID115_image . "jake.png", 'q_content' => "First", 'a_content' => 0],
+            ['round' => 7, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Second", 'a_content' => 0],
+            ['round' => 7, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Third", 'a_content' => 1],
 
-            ['round' => 8, 'assess_id' => 115, "q_image" => $A2_ID115_image . "ted.png", 'q_content' => "Fifth", 'a_content' => 0],
-            ['round' => 8, 'assess_id' => 115, "q_image" => null, 'q_content' => "Sixth", 'a_content' => 1],
-            ['round' => 8, 'assess_id' => 115, "q_image" => null, 'q_content' => "Seventh", 'a_content' => 0],
+            ['round' => 8, 'assess_id' => 115, "q_conver" => "Look at the picture, in which positions people are in?", "q_image" => $A2_ID115_image . "ted.png", 'q_content' => "Fifth", 'a_content' => 0],
+            ['round' => 8, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Sixth", 'a_content' => 1],
+            ['round' => 8, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Seventh", 'a_content' => 0],
 
-            ['round' => 9, 'assess_id' => 115, "q_image" => $A2_ID115_image . "james.png", 'q_content' => "Seventh", 'a_content' => 1],
-            ['round' => 9, 'assess_id' => 115, "q_image" => null, 'q_content' => "Eighth", 'a_content' => 0],
-            ['round' => 9, 'assess_id' => 115, "q_image" => null, 'q_content' => "Ninth", 'a_content' => 0],
+            ['round' => 9, 'assess_id' => 115, "q_conver" => "Look at the picture, in which positions people are in?", "q_image" => $A2_ID115_image . "james.png", 'q_content' => "Seventh", 'a_content' => 1],
+            ['round' => 9, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Eighth", 'a_content' => 0],
+            ['round' => 9, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "Ninth", 'a_content' => 0],
 
-            ['round' => 10, 'assess_id' => 115, "q_image" => $A2_ID115_image . "waiting-in-bus.png", 'q_content' => "8", 'a_content' => 0],
-            ['round' => 10, 'assess_id' => 115, "q_image" => null, 'q_content' => "9", 'a_content' => 1],
-            ['round' => 10, 'assess_id' => 115, "q_image" => null, 'q_content' => "10", 'a_content' => 0],
+            ['round' => 10, 'assess_id' => 115, "q_conver" => "Look at the picture, in which positions people are in?", "q_image" => $A2_ID115_image . "waiting-in-bus.png", 'q_content' => "8", 'a_content' => 0],
+            ['round' => 10, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "9", 'a_content' => 1],
+            ['round' => 10, 'assess_id' => 115, "q_conver" => null, "q_image" => null, 'q_content' => "10", 'a_content' => 0],
 
         ]);
 
