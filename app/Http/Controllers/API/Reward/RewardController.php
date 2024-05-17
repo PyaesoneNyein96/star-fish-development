@@ -267,7 +267,9 @@ class RewardController extends Controller
         $reward = [];
         foreach ($profile as $val) {
             if ($val->point <= $stu->fixed_point) {
-                $inReward = Stud_reward::where("reward_id", $val->id)->first();
+                $inReward = Stud_reward::where("reward_id", $val->id)
+                    ->where('student_id', $stu->id)
+                    ->first();
                 if (!$inReward) {
                     $data = [
                         "student_id" => $stu->id,
@@ -282,7 +284,9 @@ class RewardController extends Controller
 
         foreach ($frames as $val) {
             if ($val->point <= $stu->fixed_point) {
-                $inReward = Stud_reward::where("reward_id", $val->id)->first();
+                $inReward = Stud_reward::where("reward_id", $val->id)
+                    ->where('student_id', $stu->id)
+                    ->first();
                 if (!$inReward) {
                     $data = [
                         "student_id" => $stu->id,

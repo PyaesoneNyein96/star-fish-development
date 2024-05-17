@@ -38,7 +38,7 @@ class AssessmentSeeder extends Seeder
             ["T", "E", "R", "D", "S", "U"],
             ["C", "I", "L", "E", "N", "P"],
             ["A", "P", "L", "T",  "E"],
-            ["N", "O", "Y", "C", "R", "A", "T", "S", "R"],
+            ["N", "O", "Y", "C", "R", "A"],
 
         ];
 
@@ -256,11 +256,11 @@ class AssessmentSeeder extends Seeder
             ['A', 'E', 'C', 'H', 'A'],
             ['A', 'P', 'C', 'H', 'A'],
             ['A', 'D', 'C', 'H', 'O'],
-            ['R', 'C', 'I', 'H', 'O'],
-            ['R', 'G', 'I', 'A', 'O'],
+            ['R', 'C', 'I', 'H', 'A'],
+            ['R', 'G', 'I', 'A', 'B'],
             ['C', 'H', 'A', 'H', 'T'],
             ['Y', 'G', 'F', 'B', 'D'],
-            ['K', 'L', 'F', 'C', 'Z'],
+            ['K', 'L', 'F', 'C', 'C'],
             ['L', 'A', 'E', 'B', 'T'],
             ['A', 'A', 'E', 'B', 'N'],
 
@@ -333,11 +333,11 @@ class AssessmentSeeder extends Seeder
             ['H', 'G', 'E', 'G'],
             ['I', 'E', 'K', 'T'],
             ['L', 'E', 'F', 'W'],
-            ['L', 'I', 'F', 'R'],
+            ['B', 'I', 'F', 'D'],
             ['E', 'I', 'G', 'C'],
-            ['S', 'I', 'H', 'C', 'D'],
-            ['O', 'I', 'K', 'C', 'D'],
-            ['O', 'C', 'L', 'Z', 'U'],
+            ['F', 'I', 'H', 'C', 'D'],
+            ['C', 'I', 'K', 'C', 'D'],
+            ['O', 'C', 'L', 'Z', 'K'],
 
         ];
 
@@ -403,12 +403,12 @@ class AssessmentSeeder extends Seeder
 
         $g1_A3_ID16_fill_in_the_blank_q1 = [
 
-            ['C', 'H', 'K', 'I', 'R'],
+            ['A', 'H', 'K', 'I', 'R'],
             ['H', 'D', 'L', 'E', 'A'],
-            ['K', 'I', 'K', 'R', "E"],
+            ['N', 'I', 'K', 'R', "E"],
             ['G', 'Y', 'L', 'E', "J"],
-            ['B', 'I', 'L', 'R', "C"],
-            ['C', 'I', 'K', 'R', "E"],
+            ['B', 'I', 'L', 'E', "C"],
+            ['N', 'I', 'K', 'R', "E"],
             ['E', 'I', 'G', 'K', "L"],
             ['N', 'G', 'E', 'A', 'M'],
             ['N', 'G', 'I', 'A', 'L'],
@@ -667,7 +667,7 @@ class AssessmentSeeder extends Seeder
             ['round' => 1, 'assess_id' => 10,  'q_audio' =>  null, "q_content" => "hand", "a_content" => 0],
 
             ['round' => 2, 'assess_id' => 10,  'q_audio' =>  $AudioDomain . $G1_A2_listening . "This-is-my-house-It-is-big-T" . ".mp3", "q_content" => "flower",  "a_content" => 0],
-            ['round' => 2, 'assess_id' => 10,  'q_audio' =>  null, "q_content" => "hosue", "a_content" => 1],
+            ['round' => 2, 'assess_id' => 10,  'q_audio' =>  null, "q_content" => "house", "a_content" => 1],
             ['round' => 2, 'assess_id' => 10,  'q_audio' =>  null, "q_content" => "grass", "a_content" => 0],
 
             ['round' => 3, 'assess_id' => 10,  'q_audio' =>  $AudioDomain . $G1_A2_listening . "This-is-my-house-It-is-big-T" . ".mp3", "q_content" => "gate", "a_content" => 0],

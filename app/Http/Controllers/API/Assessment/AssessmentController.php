@@ -35,7 +35,6 @@ class AssessmentController extends Controller
         $gradeId = $lessonId->grade_id;
         $lessonId = $lessonId->lesson_id;
 
-        $isfinishassess = AssessmentFinishData::where("student_id", $studentId->id)->where("grade_id", $gradeId)->where("assess_name", 5)->first();
 
         $assesLessArray = [
             // Grade 1
@@ -51,7 +50,7 @@ class AssessmentController extends Controller
             128, 136, 144, 152, 160
         ];
 
-        if (in_array($lessonId, $assesLessArray) && !$isfinishassess) {
+        if (in_array($lessonId, $assesLessArray)) {
 
             if ($lessonId <= 40) {
                 $name = $lessonId / 8;
@@ -62,6 +61,12 @@ class AssessmentController extends Controller
             } elseif ($lessonId >= 128 && $lessonId <= 160) {
                 $name = ($lessonId / 8) - 15;
             }
+
+            $isfinishassess = AssessmentFinishData::where("student_id", $studentId->id)
+                ->where("grade_id", $gradeId)
+                ->where("assess_name", $name)
+                ->first();
+            if ($isfinishassess) return response()->json(["error" => "assessment game completed"], 403);
 
             $data = Assessment::select("assessments.*", "assessment_categories.name as assess_category_name")
                 ->rightJoin('assessment_categories', 'assessments.assess_category_id', 'assessment_categories.id')
@@ -74,8 +79,6 @@ class AssessmentController extends Controller
             foreach ($data as $dt) $dt["status"] = in_array($dt->id, $isfinish->toArray()) ? 1 : 0;
 
             return response()->json(["assessment" => $data]);
-        } else if ($isfinishassess) {
-            return response()->json(["error" => "assessment game completed"], 403);
         }
 
         return response()->json(["error" => "please finish lessons"], 403);
