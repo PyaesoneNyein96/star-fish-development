@@ -371,3 +371,14 @@ Field (header) = token
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/assessment/claim_lesson](https://star-fish.myanmargateway.net/api/mission/assessment/claim_lesson)  
 Field (header) = token , name , grade_id , point
+
+
+#
+#
+## For Testing
+
+### Seed lessons
+(Method: GET) [https://star-fish.myanmargateway.net/api/testing/lesson-seed](https://star-fish.myanmargateway.net/api/testing/lesson-seed) Field (header) token, grade_id, start_lesson_id, end_lesson_id/ count
+
+### Delete lessons
+(Method: GET) [https://star-fish.myanmargateway.net/api/testing/lesson-del](https://star-fish.myanmargateway.net/api/testing/lesson-del) Field (header) token, grade_id, start_lesson_id, end_lesson_id
