@@ -124,15 +124,12 @@ class AssessmentController extends Controller
         $token =  $request->header('token');
         $assessGameId = $request->header('assess_game_id');
 
-        if (!$token || !$assessGameId) return response()->json(['error' => 'Token or Point or Assessment id is required.'], 400);
+        if (!$token || !$assessGameId) return response()->json(['error' => 'Token or Assessment id is required.'], 400);
 
         $studentId = Student::where("token", $token)->first();
         if (!$studentId) return response()->json(['error' => 'Stduent Not Found.'], 404);
 
-        $assess = Assessment::where(
-            'id',
-            $assessGameId
-        )->first();
+        $assess = Assessment::where('id', $assessGameId)->first();
         if (!$assess) return response()->json(['error' => 'Assessment Not Found.'], 404);
 
         $studentId = $studentId->id;
@@ -177,7 +174,7 @@ class AssessmentController extends Controller
 
         $studentId = $student->id;
         $lessonId = StudentLesson::where("student_id", $studentId)->get();
-        if (!$lessonId[0]) return response()->json(['error' => "didn't complete any lessons"], 403);
+        if (!count($lessonId)) return response()->json(['error' => "didn't complete any lessons"], 403);
 
         $finishDataCount = AssessmentEachRecordFinishData::where("student_id", $studentId)->get();
         if (count($finishDataCount)) {
@@ -346,8 +343,15 @@ class AssessmentController extends Controller
         if ($certificate_path && !$certificate_path->pdf_path) {
             $Stu = Student::where("id", $stu)->first();
             $stuName = uniqid() . "_" . str_replace(' ', '-', strtolower($Stu->name));
+
+            // name capitalize
+            $split = explode(" ", $Stu->name);
+            $nameArray = [];
+            foreach ($split as $data) array_push($nameArray, ucfirst($data));
+            $stuName = implode(" ", $nameArray);
+
             $certi = [
-                "name" => $Stu->name,
+                "name" => $stuName,
                 "student_id" => $Stu->id,
                 "grade_id" => $id,
                 "total_percentage" => $percentage,

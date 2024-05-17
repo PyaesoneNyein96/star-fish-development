@@ -360,14 +360,14 @@ class AssessmentSeeder extends Seeder
         $G4_A2_I114_matching = [
 
             ['Spring', 'Twenty-sixth', 'Thirty-first', 'Fall', "Foggy"],
-            ["Hill", "Raindow", "Eleventh", "Windy", "Sunny"]
+            ["Hill", "Rainbow", "Eleventh", "Windy", "Sunny"]
 
         ];
 
         $G4_A2_I114_matching_image = [
 
             ["Foggy",  'Fall', 'Thirty-first', 'Spring', 'Twenty-sixth'],
-            ["Windy", "Sunny", "Raindow", "Eleventh", "Hill"]
+            ["Windy", "Sunny", "Rainbow", "Eleventh", "Hill"]
 
         ];
 
