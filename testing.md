@@ -1,9 +1,10 @@
 
 ## Requirement  
-- php version : 8.2.4 (min php version 8.1)
+- php version : 8.2.4 (min php version 8)
 - Composer version : 2.5.8 
 - Laravel version : 10.48.1 (min php version 8.1)
 - node : 18.16.1
+- MySql version : 5.2.1 (min Mysql version 5.015)
 - Web Server : Apache, Nginx or PHP's build-in service
 - Database : Mysql
 ##
@@ -42,6 +43,12 @@ run `npm install` & `npm run dev`
 
 #### - Serve the Application
 run `php artisan serve`
+
+## Additional commands
+
+For refresh the database
+const some = ' <?php echo env('DYNAMIC_VARIABLE', 'default_value'); ?>
+sdf'
 
 
 
@@ -196,32 +203,32 @@ Field ( header ) = token
 (Method: GET) [https://star-fish.myanmargateway.net/api/reward/each](https://star-fish.myanmargateway.net/api/reward/each).  
 Field ( header ) = token , name
 
-### Buy Reward
+### Display all Profiles
 
-(Method: POST) [https://star-fish.myanmargateway.net/api/reward](https://star-fish.myanmargateway.net/api/reward)  
-Field ( body ) = token , reward_id , reward_point
+(Method: GET) [https://star-fish.myanmargateway.net/api/reward/profiles](https://star-fish.myanmargateway.net/api/reward/profiles).  
+Field ( header ) = token
 
 ### Display Student Rewards (Owned)
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/reward](https://star-fish.myanmargateway.net/api/reward).  
 Field ( header ) = token
 
+### Buy Reward
+
+(Method: POST) [https://star-fish.myanmargateway.net/api/reward](https://star-fish.myanmargateway.net/api/reward)  
+Field ( body ) = token , reward_id , reward_point
+
 # Profile
 
-### Display Profiles
+### Display Student Profile (Owned)
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/reward/profiles](https://star-fish.myanmargateway.net/api/reward/profiles).  
-Field ( header ) = token
-
-### Display Frames
-
-(Method: GET) [https://star-fish.myanmargateway.net/api/reward/frames](https://star-fish.myanmargateway.net/api/reward/frames).  
+(Method: GET) [https://star-fish.myanmargateway.net/api/profile](https://star-fish.myanmargateway.net/api/profile).  
 Field ( header ) = token
 
 ### Update Profile
 
 (Method: POST) [https://star-fish.myanmargateway.net/api/profile/update](https://star-fish.myanmargateway.net/api/profile/update)  
-Field ( body ) = token , id (profile id (or) frame id)
+Field ( body ) = token , profile_id
 
 ### ====================================================
 
@@ -292,13 +299,11 @@ Field ( header ) = name (champion board name)
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/banners](https://star-fish.myanmargateway.net/api/banners)
 
-###
-
+### ##########
 # MISSIONS
+### ##########
 
-###
-
--   ### Notification for Mission Button UI
+- ### Notification for Mission Button UI
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/notify](https://star-fish.myanmargateway.net/api/mission/notify) Field (header) = token
 
