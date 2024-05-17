@@ -278,6 +278,9 @@ class RewardController extends Controller
                     $url = $this->profiles .  str_replace(' ', '-', $val->name) . "/" . $val->item . ".png";
                     array_push($reward, $url);
                     Stud_reward::create($data);
+                } else {
+                    $url = $this->profiles .  str_replace(' ', '-', $val->name) . "/" . $val->item . ".png";
+                    array_push($reward, $url);
                 }
             }
         }
@@ -295,6 +298,9 @@ class RewardController extends Controller
                     $url = $this->frames . $val->item . ".png";
                     array_push($reward, $url);
                     Stud_reward::create($data);
+                } else {
+                    $url = $this->frames . $val->item . ".png";
+                    array_push($reward, $url);
                 }
             }
         }
