@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\TestingController;
 use App\Http\Controllers\API\Auth\AuthController;
 use App\Http\Controllers\API\Chat\ChatController;
 use App\Http\Controllers\API\Lessons\GameController;
@@ -10,8 +11,8 @@ use App\Http\Controllers\API\Auth\LocalAuthController;
 use App\Http\Controllers\API\Lessons\LessonController;
 use App\Http\Controllers\API\Auth\GlobalAuthController;
 use App\Http\Controllers\API\Mission\MissionController;
-use App\Http\Controllers\API\Assessment\AssessmentController;
 use App\Http\Controllers\API\Board\ChampionsBoardController;
+use App\Http\Controllers\API\Assessment\AssessmentController;
 use App\Http\Controllers\API\Subscribe\SubscriptionController;
 use App\Http\Controllers\API\Version\VersionAndUpdateController;
 
@@ -187,7 +188,10 @@ Route::prefix('mission')->middleware('isSubscriber')->group(function () {
     });
 });
 
-
+Route::prefix('testing')->middleware('GameAuth')->group(function () {
+    Route::get('lesson-seed', [TestingController::class,'lessonRecordSeeding']);
+    Route::get('lesson-del', [TestingController::class,'lessonRecordDelete']);
+});
 
 // ===============================
 // ============ test =============

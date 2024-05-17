@@ -239,7 +239,7 @@ class AssessmentSeeder extends Seeder
         ];
 
         $A1_ID77_q_audio_ans = [
-            ["Tennis", "Basketall", "Football"],
+            ["Tennis", "Basketball", "Football"],
             ["At school", "At home", "In the park"],
             [2, 4, 3],
             ["Friday", "Saturday", "Sunday"],
@@ -499,8 +499,8 @@ class AssessmentSeeder extends Seeder
         ////    Grade 3 Assessment 2 ID 82 ( Reading Passages )
         ////////////////////////////////////////////////////////
 
-        $G3_A2_reading_passage = "Grade_3/" . "Assessments/" . "Assessment_1/" . "reading_passage/";
-        $A2_ID82_image = $domain . "/storage/images/Grade_3/Assessments/Assessment_1/reading_passage/";
+        $G3_A2_reading_passage = "Grade_3/" . "Assessments/" . "Assessment_2/" . "reading_passage/";
+        $A2_ID82_image = $domain . "/storage/images/Grade_3/Assessments/Assessment_2/reading_passage/";
 
         $A2_ID82_q_audio = [
             "pigs",
@@ -612,14 +612,14 @@ class AssessmentSeeder extends Seeder
         $G3_A3_I84_vocab_1 = [
 
             ['Work in groups', 'Draw pictures', 'Playing the piano', 'Planting', "Riding a bike"],
-            ['Barker shop', 'Cafeteria', 'Bakery', "Wash the clothes",  'Throw the rubbish out'],
+            ['Barber shop', 'Cafeteria', 'Bakery', "Wash the clothes",  'Throw the rubbish out'],
 
         ];
 
         $G3_A3_I84_vocab_1_image = [
 
             ["Riding a bike", 'Playing the piano', 'Planting', 'Work in groups', 'Draw pictures'],
-            ["Wash the clothes", 'Bakery', 'Throw the rubbish out',  'Barker shop', 'Cafeteria'],
+            ["Wash the clothes", 'Bakery', 'Throw the rubbish out',  'Barber shop', 'Cafeteria'],
 
         ];
 
