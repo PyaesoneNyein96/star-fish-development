@@ -428,10 +428,11 @@ class GameController extends Controller
         ////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////
 
-
+        $updateStudent = Student::where('id', $student->id)->first();
         return response()->json([
             'message' => 'success and recorded',
-            'fixed_point' => Student::where('id', $student->id)->pluck('fixed_point')->first(),
+            'fixed_point' => $updateStudent->pluck('fixed_point')->first(),
+            'level' => $updateStudent->pluck('level')->first(),
         ], 200);
     }
 
