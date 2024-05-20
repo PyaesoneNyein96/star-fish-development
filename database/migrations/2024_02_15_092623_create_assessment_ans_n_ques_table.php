@@ -28,6 +28,7 @@ return new class extends Migration
             $table->longText('a_conver')->nullable();
 
             $table->longText('round_instruction')->nullable();
+            $table->longText('a_extra')->nullable();
 
             $table->string('background')->nullable();
 

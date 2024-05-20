@@ -16,11 +16,49 @@ class AssessmentSeeder extends Seeder
         $domain = app('domain');
         $AudioDomain = $domain . "/storage/audios/";
 
+        $a_z_traceword = $domain . "/storage/images/AtoZTrace/small_dotted/";
+        $A_Z_traceword = $domain . "/storage/images/AtoZTrace/capital_dotted/";
+
+        $a_z_success = $domain . "/storage/images/TraceSuccessAZ/small_success/";
+        $A_Z_success = $domain . "/storage/images/TraceSuccessAZ/capital_success/";
+
 
         ////////////////////////////////////////////////////////
         ////    Grade 2  Assessment 1 ID 34 ( Tracing )
         ////////////////////////////////////////////////////////
 
+        $G2_A1_ID34_tracing = "Grade_2/" . "Assessments/" . "Assessment_1/" . "tracing/";
+        $A1_ID34_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_1/tracing/";
+
+        $Id34_items = ["Angel"];
+        $Id34_items_stroke = [
+            [3, 2, 2, 2, 1],
+        ];
+
+        foreach ($Id34_items as $idx => $val) {
+            $strArr = str_split($val);
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $idx + 1, 'assess_id' => 34,
+                    'q_audio' =>  $AudioDomain . $G2_A1_ID34_tracing . strtolower($val) . ".mp3",
+                    'q_image' => $A1_ID34_image . strtolower($val) . ".png",
+                    'a_content' => strtolower($val)
+                ],
+            ]);
+
+            foreach ($strArr as $index => $data) {
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $idx + 1, 'assess_id' => 34,
+                        'q_content' =>  $index === 0 ? $A_Z_traceword . "$data.png" : $a_z_traceword . "$data.png",
+                        "a_image" =>  $index === 0 ? $A_Z_success . "$data.png" : $a_z_success . "$data.png",
+                        "a_extra" => $Id34_items_stroke[$idx][$index],
+                        'a_content' => $data
+                    ],
+                ]);
+            }
+        }
 
         ////////////////////////////////////////////////////////
         ////    Grade 2  Assessment 1 ID 35 ( Arranging Letter )
@@ -280,6 +318,43 @@ class AssessmentSeeder extends Seeder
         ///////////////////////////////////////////////
 
 
+        $G2_A2_ID42_tracing = "Grade_2/" . "Assessments/" . "Assessment_2/" . "tracing/";
+        $A2_ID42_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_2/tracing/";
+
+        $Id42_items = ["Girl", "Goose", "Gym", "Hand", "Hat"];
+        $Id42_items_stroke = [
+            [2, 2, 2, 1],
+            [2, 1, 1, 1, 1],
+            [2, 2, 3],
+            [3, 2, 2, 2],
+            [3, 2, 2]
+        ];
+
+        foreach ($Id42_items as $idx => $val) {
+            $strArr = str_split($val);
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $idx + 1, 'assess_id' => 42,
+                    'q_audio' =>  $AudioDomain . $G2_A2_ID42_tracing . strtolower($val) . ".mp3",
+                    'q_image' => $A2_ID42_image . strtolower($val) . ".png",
+                    'a_content' => strtolower($val)
+                ],
+            ]);
+
+            foreach ($strArr as $index => $data) {
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $idx + 1, 'assess_id' => 42,
+                        'q_content' =>  $index === 0 ? $A_Z_traceword . "$data.png" : $a_z_traceword . "$data.png",
+                        "a_image" =>  $index === 0 ? $A_Z_success . "$data.png" : $a_z_success . "$data.png",
+                        "a_extra" => $Id42_items_stroke[$idx][$index],
+                        'a_content' => $data
+                    ],
+                ]);
+            }
+        }
+
         ////////////////////////////////////////////////////////
         ////    Grade 2  Assessment 2 ID 43 ( Arranging Letter )
         ////////////////////////////////////////////////////////
@@ -537,6 +612,43 @@ class AssessmentSeeder extends Seeder
         ////    Grade 2  Assessment 3 ID 50 ( Tracing )
         ///////////////////////////////////////////////
 
+        $G2_A3_ID50_tracing = "Grade_2/" . "Assessments/" . "Assessment_3/" . "tracing/";
+        $A3_ID50_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_3/tracing/";
+
+        $Id50_items = ["Man", "Moon", "Mug", "Nail", "Nest", "Note"];
+        $Id50_items_stroke = [
+            [4, 2, 2],
+            [4, 1, 1, 2],
+            [4, 2, 2],
+            [3, 2, 2, 1],
+            [3, 1, 1, 2],
+            [3, 1, 2, 1]
+        ];
+
+        foreach ($Id50_items as $idx => $val) {
+            $strArr = str_split($val);
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $idx + 1, 'assess_id' => 50,
+                    'q_audio' =>  $AudioDomain . $G2_A3_ID50_tracing . strtolower($val) . ".mp3",
+                    'q_image' => $A3_ID50_image . strtolower($val) . ".png",
+                    'a_content' => strtolower($val)
+                ],
+            ]);
+
+            foreach ($strArr as $index => $data) {
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $idx + 1, 'assess_id' => 50,
+                        'q_content' =>  $index === 0 ? $A_Z_traceword . "$data.png" : $a_z_traceword . "$data.png",
+                        "a_image" =>  $index === 0 ? $A_Z_success . "$data.png" : $a_z_success . "$data.png",
+                        "a_extra" => $Id50_items_stroke[$idx][$index],
+                        'a_content' => $data
+                    ],
+                ]);
+            }
+        }
 
         ////////////////////////////////////////////////////////
         ////    Grade 2  Assessment 3 ID 51 ( Arranging Letter )
@@ -814,6 +926,43 @@ class AssessmentSeeder extends Seeder
         ////    Grade 2  Assessment 4 ID 58 ( Tracing )
         ////////////////////////////////////////////////////////
 
+        $G2_A4_ID58_tracing = "Grade_2/" . "Assessments/" . "Assessment_4/" . "tracing/";
+        $A4_ID58_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_4/tracing/";
+
+        $Id58_items = ["Ship", "Shoe", "Taxi", "Tree"];
+        $Id58_items_stroke = [
+            [1, 2, 2, 2],
+            [1, 2, 1, 1],
+            [2, 2, 2, 2],
+            [2, 2, 1, 1]
+        ];
+
+        foreach ($Id58_items as $idx => $val) {
+            $strArr = str_split($val);
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $idx + 1, 'assess_id' => 58,
+                    'q_audio' =>  $AudioDomain . $G2_A4_ID58_tracing . strtolower($val) . ".mp3",
+                    'q_image' => $A4_ID58_image . strtolower($val) . ".png",
+                    'a_content' => strtolower($val)
+                ],
+            ]);
+
+            foreach ($strArr as $index => $data) {
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $idx + 1, 'assess_id' => 58,
+                        'q_content' =>  $index === 0 ? $A_Z_traceword . "$data.png" : $a_z_traceword . "$data.png",
+                        "a_image" =>  $index === 0 ? $A_Z_success . "$data.png" : $a_z_success . "$data.png",
+                        "a_extra" => $Id58_items_stroke[$idx][$index],
+                        'a_content' => $data
+                    ],
+                ]);
+            }
+        }
+
+
         ////////////////////////////////////////////////////////
         ////    Grade 2  Assessment 4 ID 59 ( Arranging Letter )
         ////////////////////////////////////////////////////////
@@ -1060,6 +1209,45 @@ class AssessmentSeeder extends Seeder
         ////////////////////////////////////////////////////////
         ////    Grade 2  Assessment 5 ID 65 ( Tracing )
         ////////////////////////////////////////////////////////
+
+        $G2_A4_ID65_tracing = "Grade_2/" . "Assessments/" . "Assessment_5/" . "tracing/";
+        $A4_ID65_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_5/tracing/";
+
+        $Id65_items = ["Yawn", "Yolk", "Yo-yo", "Zero", "Zip"];
+        $Id65_items_stroke = [
+            [3, 2, 4, 2],
+            [3, 1, 1, 3],
+            [3, 1, 0, 2, 1],
+            [3, 1, 2, 1],
+            [3, 2, 2],
+        ];
+
+        foreach ($Id65_items as $idx => $val) {
+            $strArr = str_split($val);
+
+            DB::table('assessment_ans_n_ques')->insert([
+                [
+                    'round' => $idx + 1, 'assess_id' => 65,
+                    'q_audio' =>  $AudioDomain . $G2_A4_ID65_tracing . strtolower($val) . ".mp3",
+                    'q_image' => $A4_ID65_image . strtolower($val) . ".png",
+                    'a_content' => strtolower($val)
+                ],
+            ]);
+
+            foreach ($strArr as $index => $data) {
+                if (preg_match('/[-\/_ ]/', $data)) continue;
+
+                DB::table('assessment_ans_n_ques')->insert([
+                    [
+                        'round' => $idx + 1, 'assess_id' => 65,
+                        'q_content' =>  $index === 0 ? $A_Z_traceword . "$data.png" : $a_z_traceword . "$data.png",
+                        "a_image" =>  $index === 0 ? $A_Z_success . "$data.png" : $a_z_success . "$data.png",
+                        "a_extra" => $Id65_items_stroke[$idx][$index],
+                        'a_content' => $data
+                    ],
+                ]);
+            }
+        }
 
 
         ////////////////////////////////////////////////////////
