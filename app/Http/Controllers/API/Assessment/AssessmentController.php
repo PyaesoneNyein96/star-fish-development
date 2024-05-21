@@ -266,6 +266,19 @@ class AssessmentController extends Controller
 
                     AssessmentFinishData::create($addData);
 
+                    ////////////////////
+
+                    // Del  lessons(total/8) by assessment (1)  =========================================
+
+                    $calculate_data = AssessmentFinishData::where('student_id', $studentId)
+                    ->where('grade_id',$assessment->grade_id)->count();
+
+
+                    $lesson_ids = StudentLesson::where('lesson_id','<=',$calculate_data * 8)->where('grade_id',$assessment->grade_id)->delete();
+
+
+                    ////////////////////
+
                     AssessmentEachRecordFinishData::where("student_id", $studentId)
                         ->where("assess_name", $data[0]->name)
                         ->where("grade_id", $assessment->grade_id)

@@ -37,7 +37,8 @@ class Game extends Model
 
     public function lesson()
     {
-        return $this->belongsTo(Lesson::class);
+        // return $this->belongsTo(Lesson::class);
+        return $this->hasOneThrough(Lesson::class,Unit::class,'id','id','unit_id','lesson_id');
     }
 
     public function unit()

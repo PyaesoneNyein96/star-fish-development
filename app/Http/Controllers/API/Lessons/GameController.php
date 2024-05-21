@@ -295,6 +295,9 @@ class GameController extends Controller
 
         $unit = optional($game)->unit;
 
+        // return $lessonGames = Lesson::find($lesson_id)->games;
+        // return $gamesLesson = Game::find($gameId)->lesson;
+
         $lessonUnit = Unit::where('lesson_id', $lesson_id)->get();
 
         $grade = Lesson::where('id', $lesson_id)->first()->grade;
@@ -321,6 +324,7 @@ class GameController extends Controller
 
         ////// populate Game records
 
+
         if(!$alreadyDone) {
             StudentGame::insert([
                 'student_id' => $student->id,
@@ -331,6 +335,10 @@ class GameController extends Controller
 
         if(!$ExistLesson) $this->addPointFunction($student, $point, $question_answer);
 
+        }else if($alreadyDone && $alreadyDone->count < 5 )
+        {
+                $alreadyDone->count = $alreadyDone->count + 1;
+                $alreadyDone->save();
         }
 
 
@@ -370,12 +378,12 @@ class GameController extends Controller
             $grade_id = Lesson::find($lesson_id)->grade['id'];
             $studentGrade = StudentGrade::where('student_id', $student->id)->where('grade_id', $grade_id)->first();
 
-            if($ExistLesson && $studentGrade) {
+            $assessment_proven = AssessmentFinishData::where('student_id',$student->id)
+            ->where('grade_id',$grade->id)->count() * 8 + ($grade->id - 1 ) * 40;
 
-                $ExistLesson->count < 5 && $ExistLesson->count ++;
-                $ExistLesson->save();
+            // return $assessment_proven;
 
-            }else if ($studentGrade){
+            if ($studentGrade && !$ExistLesson && ($lesson_id > $assessment_proven)){
 
                 $lessonInsert = StudentLesson::create([
                     'student_id' => $student->id,
@@ -390,7 +398,7 @@ class GameController extends Controller
             $lessonGamesId = Lesson::find($lesson_id)->games->pluck('id');
 
             StudentUnit::where('student_id', $student->id)->where('lesson_id', $lesson_id)->delete();
-            StudentGame::where('student_id', $student->id)->whereIn('game_id', $lessonGamesId)->delete();
+            // StudentGame::where('student_id', $student->id)->whereIn('game_id', $lessonGamesId)->delete();
 
 
             //  For Subscription and Real Server (** block adding lesson records **)
