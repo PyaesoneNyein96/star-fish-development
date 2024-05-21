@@ -41,6 +41,7 @@ class RewardController extends Controller
                 $newProfile = uniqid() . "_" . str_replace(' ', '', $request->file('item')->getClientOriginalName());
                 if ($request->type == "achieve") $request->file('item')->storeAs('public/images/Achievement/Each_achieve/' . $request->name . "/", $newProfile);
                 if ($request->type == "profile") $request->file('item')->storeAs('public/images/Achievement/Profiles/', $newProfile);
+                if ($request->type == "frames") $request->file('item')->storeAs('public/images/Achievement/Frames/', $newProfile);
 
                 $data['item'] = $newProfile;
             }
@@ -51,7 +52,8 @@ class RewardController extends Controller
     // remove reward
     public function removeReward($name)
     {
-        Reward::where("name", $name)->delete();
+        if ($name == "frames") Reward::where("type", "frames")->delete();
+        else Reward::where("name", $name)->delete();
     }
 
     // rename reward
@@ -91,11 +93,14 @@ class RewardController extends Controller
                 if ($oldProfile != null) {
                     if ($reward["type"] == "achieve") Storage::delete('public/images/Achievement/Each_achieve/' . $reward["name"] . "/", $oldProfile);
                     if ($reward["type"] == "profile") Storage::delete('public/images/Achievement/Profiles/', $oldProfile);
+                    if ($reward["type"] == "frames") Storage::delete('public/images/Achievement/Frames/', $oldProfile);
                 }
 
                 $newProfile = uniqid() . "_" . str_replace(' ', '', $request->file('item')->getClientOriginalName());
                 if ($request->type == "achieve") $request->file('item')->storeAs('public/images/Achievement/Each_achieve/' . $request->name . "/", $newProfile);
                 if ($request->type == "profile") $request->file('item')->storeAs('public/images/Achievement/Profiles/', $newProfile);
+                if ($request->type == "frames") $request->file('item')->storeAs('public/images/Achievement/Frames/', $newProfile);
+
                 $item = $newProfile;
             }
             $point = $request->point;

@@ -6,10 +6,11 @@ const Reward = ({ rewards }) => {
     const [btnDetail, setBtnDetail] = useState(null)
     const query = search.toLowerCase().replace(/\s/g, "");
 
-    var filtered = rewards.filter((reward) => reward.name.toLowerCase().replace(/\s/g, "").includes(query));
+    var filtered = rewards.filter((reward) => reward.name ? reward.name.toLowerCase().replace(/\s/g, "").includes(query) : null);
 
     var achieve = filtered.filter((reward) => reward.type === "achieve")
     var profile = filtered.filter((reward) => reward.type === "profile")
+    var frames = rewards.filter((reward) => reward.type === "frames")
 
     var filtered_achieve = []
     achieve.forEach((val, index) => {
@@ -26,7 +27,7 @@ const Reward = ({ rewards }) => {
     )
 
     const handleBtnDetail = (name) => {
-        var data = filtered.filter((reward) => reward.name === name)
+        var data = rewards.filter((reward) => name === "frame" ? reward.type === "frames" : reward.name === name)
         setBtnDetail(data)
     }
 
@@ -59,10 +60,14 @@ const Reward = ({ rewards }) => {
                             </div>
                             <div className='overflow-y-scroll h-[25rem] drop-shadow rounded-lg p-3 bg-white '>
                                 <div className=" mb-4 pt-3 border-bottom">
-                                    <h1 className='text-lg'>Profiles</h1>
+                                    <div className="flex justify-between">
+                                        <h1 className='text-lg'>Profiles & Frames</h1>
+                                        <i class="fa-regular fa-square-plus text-xl me-2" title="add"></i>
+                                    </div>
                                     <hr />
                                 </div>
                                 <div className="grid grid-cols-8 gap-2 mb-3">
+
                                     {filtered_profile.length ?
                                         filtered_profile.map((fp) => (
                                             <span
@@ -75,8 +80,23 @@ const Reward = ({ rewards }) => {
                                         )) : <div>no data found</div>
                                     }
                                 </div>
+                                <div className="grid grid-cols-8 gap-2 mb-3">
+                                    {frames.length ?
+                                        <span
+                                            className='border rounded-lg py-1 text-center cursor-pointer shadow-sm hover:bg-slate-200'
+                                            // key={fp}
+                                            onClick={() => handleBtnDetail("frame")}
+                                        >
+                                            All Frames
+                                        </span>
+                                        : <></>
+                                    }
+                                </div>
                                 <div className=" mb-4 pt-5 border-bottom">
-                                    <h1 className='text-lg'>Achievements</h1>
+                                    <div className="flex justify-between">
+                                        <h1 className='text-lg'>Achievements</h1>
+                                        <i class="fa-regular fa-square-plus text-xl me-2" title="add"></i>
+                                    </div>
                                     <hr />
                                 </div>
                                 <div className="grid grid-cols-8 gap-2 ">

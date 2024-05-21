@@ -47,9 +47,9 @@ const Details = ({ reward, back }) => {
     }
 
     const handleBtnRemoveReward = () => {
-        var res = confirm(`This will remove all of " ${reward[0].name} " data. /nConfirm to remove.`)
+        var res = confirm(`This will remove all of " ${reward[0].name ? reward[0].name : "All Frames"} " data. \nConfirm to remove.`)
         if (res) {
-            router.delete(`/dashboard/rewards/remove/${reward[0].name}`)
+            router.delete(`/dashboard/rewards/remove/${reward[0].name ? reward[0].name : 'frames'}`)
             back(null);
         }
     }
@@ -128,109 +128,114 @@ const Details = ({ reward, back }) => {
             <div className='flex w-full'>
                 <div className='rounded-lg border-solid border-2 overflow-y-scroll bg-white w-[64%] h-[76vh] mr-2 drop-shadow'>
                     <div className=' m-1 p-2 flex justify-between' style={{ backgroundColor: "#eff6ff" }}>
-                        <h1 className=' font-bold'>{reward[0].name.split("_").pop().split(".").shift()}</h1>
-                        <button
-                            title='rename'
-                            className='mr-2'
-                        >
-                            <label htmlFor="addNewName">
-                                <i className="fa-regular fa-pen-to-square "></i>
-                            </label>
-                            <input
-                                type="file"
-                                id='addNewName'
-                                hidden
-                                onChange={(e) => settingNewName(e.target)}
-                            />
-                        </button>
+                        <h1 className=' font-bold'>{reward[0].name ? reward[0].name.split("_").pop().split(".").shift() : "Frames"}</h1>
+                        {reward[0].name ?
+                            <button
+                                title='rename'
+                                className='mr-2'
+                            >
+                                <label htmlFor="addNewName">
+                                    <i className="fa-regular fa-pen-to-square "></i>
+                                </label>
+                                <input
+                                    type="file"
+                                    id='addNewName'
+                                    hidden
+                                    onChange={(e) => settingNewName(e.target)}
+                                />
+                            </button> : <div></div>}
                     </div>
-                    {reward.map((val) => (
+                    {reward.length ?
+                        reward.map((val) => (
 
-                        <div className=' flex items-center mx-4' key={val.id}>
-                            <table className='w-full'>
+                            <div className=' flex items-center mx-4' key={val.id}>
+                                <table className='w-full'>
 
-                                <tbody className=" text-left ">
-                                    <tr className='h-12 border-b-2 border-sky-100' >
-                                        <td className='px-3 w-[50%]'>
-                                            {edit && (edit.id === val.id) ?
-                                                <>
-                                                    <label
-                                                        htmlFor="addNewItem"
-                                                        className='opacity-40 border bg-white drop-shadow rounded-md px-5 py-2'
+                                    <tbody className=" text-left ">
+                                        <tr className='h-12 border-b-2 border-sky-100' >
+                                            <td className='px-3 w-[50%]'>
+                                                {edit && (edit.id === val.id) ?
+                                                    <>
+                                                        <label
+                                                            htmlFor="addNewItem"
+                                                            className='opacity-40 border bg-white drop-shadow rounded-md px-5 py-2'
+                                                        >
+                                                            {edit.item.split("_").pop().split(".").shift()}
+                                                        </label>
+                                                        <input
+                                                            type="file"
+                                                            id='addNewItem'
+                                                            hidden
+                                                            onChange={(e) => handleItemEditPicSize(e)}
+                                                        />
+                                                    </> : val.item.split("_").pop().split(".").shift()
+                                                }
+                                            </td>
+                                            <td className='px-3 w-[30%] text-end'>
+                                                {edit && (edit.id === val.id) ?
+                                                    <select
+                                                        className='w-[52%] border px-3  bg-white drop-shadow rounded-md '
+                                                        onChange={(e) => setEditStar(e.target.value)}
                                                     >
-                                                        {edit.item.split("_").pop().split(".").shift()}
-                                                    </label>
-                                                    <input
-                                                        type="file"
-                                                        id='addNewItem'
-                                                        hidden
-                                                        onChange={(e) => handleItemEditPicSize(e)}
-                                                    />
-                                                </> : val.item.split("_").pop().split(".").shift()
-                                            }
-                                        </td>
-                                        <td className='px-3 w-[30%] text-end'>
-                                            {edit && (edit.id === val.id) ?
-                                                <select
-                                                    className='w-[52%] border px-3  bg-white drop-shadow rounded-md '
-                                                    onChange={(e) => setEditStar(e.target.value)}
-                                                >
-                                                    <option value="null">stars</option>
-                                                    <option value="30" >30</option>
-                                                    <option value="100" >100</option>
-                                                </select>
-                                                :
-                                                <>
-                                                    <b>{val.point}</b><span> stars</span>
-                                                </>
-                                            }
-                                        </td>
-                                        <td className=' text-end'>
-                                            {edit && (edit.id === val.id) ?
-                                                <>
-                                                    <button
-                                                        className="border px-2 py-1 mx-2 hover:bg-slate-700 text-sm text-white bg-slate-600 rounded-md drop-shadow "
-                                                        title='Back'
-                                                        onClick={() => setEdit(null)}
-                                                    >
-                                                        <i className="fa-solid fa-rotate-left"></i>
-                                                    </button>
+                                                        <option value="null">stars</option>
+                                                        <option value="30" >30</option>
+                                                        <option value="100" >100</option>
+                                                    </select>
+                                                    :
+                                                    <>
+                                                        <b>{val.point}</b><span> stars</span>
+                                                    </>
+                                                }
+                                            </td>
+                                            <td className=' text-end'>
+                                                {edit && (edit.id === val.id) ?
+                                                    <>
+                                                        <button
+                                                            className="border px-2 py-1 mx-2 hover:bg-slate-700 text-sm text-white bg-slate-600 rounded-md drop-shadow "
+                                                            title='Back'
+                                                            onClick={() => setEdit(null)}
+                                                        >
+                                                            <i className="fa-solid fa-rotate-left"></i>
+                                                        </button>
 
-                                                    <button
-                                                        className="border px-2 py-1 mx-2 hover:bg-red-600 text-sm text-white bg-red-500 rounded-md drop-shadow"
-                                                        title='Add'
-                                                        onClick={() => handlebtnEdit(val.id, val.type)}
-                                                    >
-                                                        <i className="fa-solid fa-plus"></i>
-                                                    </button>
-                                                </>
-                                                :
-                                                <>
-                                                    <button
-                                                        className="border px-2 py-1 mx-2 hover:bg-sky-700 text-sm text-white bg-sky-600 rounded-md drop-shadow "
-                                                        title='Edit'
-                                                        onClick={() => setEdit(val)}
-                                                    >
-                                                        <i className="fa-solid fa-pen-to-square"></i>
-                                                    </button>
+                                                        <button
+                                                            className="border px-2 py-1 mx-2 hover:bg-red-600 text-sm text-white bg-red-500 rounded-md drop-shadow"
+                                                            title='Add'
+                                                            onClick={() => handlebtnEdit(val.id, val.type)}
+                                                        >
+                                                            <i className="fa-solid fa-plus"></i>
+                                                        </button>
+                                                    </>
+                                                    :
+                                                    <>
+                                                        <button
+                                                            className="border px-2 py-1 mx-2 hover:bg-sky-700 text-sm text-white bg-sky-600 rounded-md drop-shadow "
+                                                            title='Edit'
+                                                            onClick={() => setEdit(val)}
+                                                        >
+                                                            <i className="fa-solid fa-pen-to-square"></i>
+                                                        </button>
 
-                                                    <button
-                                                        className="border px-2 py-1 mx-2 hover:bg-red-600 text-sm text-white bg-red-500 rounded-md drop-shadow"
-                                                        title='Delete'
-                                                        onClick={() => handleBtnPerDelete(val)}
-                                                    >
-                                                        <i className="fa-solid fa-trash-can"></i>
-                                                    </button>
-                                                </>
-                                            }
+                                                        <button
+                                                            className="border px-2 py-1 mx-2 hover:bg-red-600 text-sm text-white bg-red-500 rounded-md drop-shadow"
+                                                            title='Delete'
+                                                            onClick={() => handleBtnPerDelete(val)}
+                                                        >
+                                                            <i className="fa-solid fa-trash-can"></i>
+                                                        </button>
+                                                    </>
+                                                }
 
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
 
-                                </tbody>
-                            </table>
-                        </div>
-                    ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        ))
+                        :
+                        <div>no data found</div>
+                    }
 
                 </div>
                 <div className='w-[34%] ml-2'>
@@ -286,7 +291,7 @@ const Details = ({ reward, back }) => {
                             title='Remove'
                             onClick={() => handleBtnRemoveReward()}
                         >
-                            Remove " {reward[0].name.split("_").pop().split(".").shift()} "
+                            Remove " {reward[0].name ? reward[0].name.split("_").pop().split(".").shift() : "Frames"} "
                         </button >
                         <button
                             className='border rounded-md px-6 py-2 hover:bg-teal-100 font-bold drop-shadow'
