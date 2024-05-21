@@ -14,6 +14,10 @@ class StudentGame extends Model
     protected $fillable = [
         'student_id',
         'game_id',
+        'unit_id',
+        'count',
+        'claimed_3',
+        'claimed_5',
     ];
 
 

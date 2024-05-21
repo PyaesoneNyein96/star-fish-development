@@ -17,7 +17,8 @@ return new class extends Migration
             $table->foreignId('game_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('unit_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
 
-            $table->integer('rp_claimed')->default(0);
+            $table->integer('claimed_3')->default(0);
+            $table->integer('claimed_5')->default(0);
             $table->integer('count')->nullable()->default(0);
 
             $table->timestamps();
