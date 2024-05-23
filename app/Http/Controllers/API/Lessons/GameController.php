@@ -378,12 +378,11 @@ class GameController extends Controller
             $grade_id = Lesson::find($lesson_id)->grade['id'];
             $studentGrade = StudentGrade::where('student_id', $student->id)->where('grade_id', $grade_id)->first();
 
-            $assessment_proven = AssessmentFinishData::where('student_id',$student->id)
+            $assessment_prove = AssessmentFinishData::where('student_id',$student->id)
             ->where('grade_id',$grade->id)->count() * 8 + ($grade->id - 1 ) * 40;
 
-            // return $assessment_proven;
 
-            if ($studentGrade && !$ExistLesson && ($lesson_id > $assessment_proven)){
+            if ($studentGrade && !$ExistLesson && ($lesson_id > $assessment_prove)){
 
                 $lessonInsert = StudentLesson::create([
                     'student_id' => $student->id,

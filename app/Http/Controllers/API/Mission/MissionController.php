@@ -52,13 +52,12 @@ class MissionController extends Controller
 
         if (!$grades || $grades->count() == 0) return response()->json(["message" => "You must be a subscriber for this feature."], 200);
 
+        $gradeCacheKey = implode('_', $grades->pluck('id')->toArray());
 
-
-        $rawUnits = Cache::rememberForever('repetitive', function () use($grades) {
+        $rawUnits = Cache::rememberForever($gradeCacheKey, function () use($grades) {
             return $grades->pluck('units')->flatten()->pluck('games')->flatten();
         });
 
-        // return $rawUnits = $grades->pluck('units')->flatten()->pluck('games')->flatten();
 
 
         /// ====================== 3 times
@@ -843,7 +842,8 @@ class MissionController extends Controller
         // ==================================
         // Login
         // ==================================
-        $login_count = $student->loginBonus->where('claim',0)->count();
+
+        $login_count = $student->loginBonus->whereIn('day_count',LoginBonus::all()->pluck('days'))->where('claim',0)->count();
 
 
 
@@ -865,13 +865,22 @@ class MissionController extends Controller
         // Assessment
         // ==================================
 
-          $assessment_count = AssessmentFinishData::where("student_id", $student->id)
+        $assessment_count = AssessmentFinishData::where("student_id", $student->id)
             ->where("finish", 1)
-            ->where("claim", 0)->get();
+            ->where("claim", 0)->count();
 
 
+        // return [
+        //     'repetitive' => $repetitive_count,
+        //     'daily' => $daily_count,
+        //     'login' => $login_count,
+        //     'question' => $question_count,
+        //     'champion' => $champion_count,
+        //     'assessment' => $assessment_count
+        // ];
 
-       $total = intval($repetitive_count) + intval($daily_count) + intval($login_count) + intval($question_count) + intval($champion_count) + intval(0);
+
+       $total = intval($repetitive_count) + intval($daily_count) + intval($login_count) + intval($question_count) + intval($champion_count) + intval(0) + intval($assessment_count);
 
        if($total > 0) {
          return response()->json(['notify_count' => $total], 200);
