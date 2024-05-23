@@ -23,7 +23,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 757, 'a_content' => 'lesson_1_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 757, 'a_content' => 'https://player.vimeo.com/video/945254605', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 757, 'a_content' => 'lesson_1_video_global', 'isLocal' => 0]);
 
 
@@ -307,7 +307,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 767, 'a_content' => 'lesson_2_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 767, 'a_content' => 'https://player.vimeo.com/video/945254806', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 767, 'a_content' => 'lesson_2_video_global', 'isLocal' => 0]);
 
 
@@ -563,7 +563,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 777, 'a_content' => 'lesson_3_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 777, 'a_content' => 'https://player.vimeo.com/video/945254897', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 777, 'a_content' => 'lesson_3_video_global', 'isLocal' => 0]);
 
 
@@ -912,7 +912,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 4 Game 788 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 788, 'a_content' => 'lesson_4_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 788, 'a_content' => 'https://player.vimeo.com/video/945254953', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 788, 'a_content' => 'lesson_4_video_global', 'isLocal' => 0]);
 
 
@@ -1107,7 +1107,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 795, 'a_content' => 'lesson_5_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 795, 'a_content' => 'https://player.vimeo.com/video/945255176', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 795, 'a_content' => 'lesson_5_video_global', 'isLocal' => 0]);
 
 
@@ -1450,7 +1450,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 836, 'a_content' => 'lesson_10_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 836, 'a_content' => 'https://player.vimeo.com/video/945256097', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 836, 'a_content' => 'lesson_10_video_global', 'isLocal' => 0]);
 
 
@@ -1713,7 +1713,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 11 Game 845 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 845, 'a_content' => 'lesson_11_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 845, 'a_content' => 'https://player.vimeo.com/video/945256539', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 845, 'a_content' => 'lesson_11_video_global', 'isLocal' => 0]);
 
 
@@ -1942,7 +1942,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 852, 'a_content' => 'lesson_12_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 852, 'a_content' => 'https://player.vimeo.com/video/945256792', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 852, 'a_content' => 'lesson_12_video_global', 'isLocal' => 0]);
 
 
@@ -2190,7 +2190,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 13 Game 861 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 861, 'a_content' => 'lesson_13_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 861, 'a_content' => 'https://player.vimeo.com/video/945257118', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 861, 'a_content' => 'lesson_13_video_global', 'isLocal' => 0]);
 
 
@@ -2428,7 +2428,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 14 Game 868 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 868, 'a_content' => 'lesson_14_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 868, 'a_content' => 'https://player.vimeo.com/video/94525732', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 868, 'a_content' => 'lesson_14_video_global', 'isLocal' => 0]);
 
 
@@ -2624,7 +2624,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 874, 'a_content' => 'lesson_15_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 874, 'a_content' => 'https://player.vimeo.com/video/945257418', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 874, 'a_content' => 'lesson_15_video_global', 'isLocal' => 0]);
 
 
@@ -2885,7 +2885,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 883, 'a_content' => 'lesson_16_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 883, 'a_content' => 'https://player.vimeo.com/video/945257470', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 883, 'a_content' => 'lesson_16_video_global', 'isLocal' => 0]);
 
 
@@ -3057,7 +3057,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 889, 'a_content' => 'lesson_17_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 889, 'a_content' => 'https://player.vimeo.com/video/945257856', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 889, 'a_content' => 'lesson_17_video_global', 'isLocal' => 0]);
 
 
@@ -3225,7 +3225,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 896, 'a_content' => 'lesson_18_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 896, 'a_content' => 'https://player.vimeo.com/video/945258000', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 896, 'a_content' => 'lesson_18_video_global', 'isLocal' => 0]);
 
 
@@ -3474,7 +3474,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 905, 'a_content' => 'lesson_19_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 905, 'a_content' => 'https://player.vimeo.com/video/945258154', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 905, 'a_content' => 'lesson_19_video_global', 'isLocal' => 0]);
 
 
@@ -3727,7 +3727,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 20 Game 914 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 914, 'a_content' => 'lesson_20_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 914, 'a_content' => 'https://player.vimeo.com/video/945258262', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 914, 'a_content' => 'lesson_20_video_global', 'isLocal' => 0]);
 
 
@@ -3890,7 +3890,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 21 Game 922 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 922, 'a_content' => 'lesson_21_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 922, 'a_content' => 'https://player.vimeo.com/video/945258507', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 922, 'a_content' => 'lesson_21_video_global', 'isLocal' => 0]);
 
 
@@ -4100,7 +4100,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 22 Game 930 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 930, 'a_content' => 'lesson_22_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 930, 'a_content' => 'https://player.vimeo.com/video/945258664', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 930, 'a_content' => 'lesson_22_video_global', 'isLocal' => 0]);
 
 
@@ -4394,7 +4394,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 23 Game 939 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 939, 'a_content' => 'lesson_23_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 939, 'a_content' => 'https://player.vimeo.com/video/945259160', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 939, 'a_content' => 'lesson_23_video_global', 'isLocal' => 0]);
 
 
@@ -4776,7 +4776,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 25 Game 953 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 953, 'a_content' => 'lesson_25_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 953, 'a_content' => 'https://player.vimeo.com/video/945259378', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 953, 'a_content' => 'lesson_25_video_global', 'isLocal' => 0]);
 
 

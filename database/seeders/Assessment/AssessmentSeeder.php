@@ -13,7 +13,7 @@ class AssessmentSeeder extends Seeder
      */
     public function run(): void
     {
-        // Games
+        // // Games
         $grade_1 = [
             ["Arranging Letters", "Fill in the blank", "Listening (Multiple Choice)", "Listening (Drag and Drop)", "Reading Passages (1)", "Reading Passages (2)", "True or False"],
             ["Arranging Letters", "Fill in the blank", "Multiple Choice", "Drag and Drop", "Grammar", "True or False (1)", "True or False (2)"],
@@ -46,7 +46,7 @@ class AssessmentSeeder extends Seeder
             ["Matching", "Arranging Letter", "Listening Practice", "Grammar", "Reading (1)", "Reading (2)"],
         ];
 
-        // Categories
+        // // Categories
         // Grade 1
         $category_1 = [
             [1, 2, 3, 4, 5, 5, 6],
@@ -74,7 +74,7 @@ class AssessmentSeeder extends Seeder
             [16, 7, 7, 13, 3, 1, 7, 5, 5],
         ];
 
-        // // Grade 4
+        // Grade 4
         $category_4 = [
             [13, 1, 3, 17, 5, 5],
             [13, 19, 3, 18, 5, 5],
@@ -83,7 +83,7 @@ class AssessmentSeeder extends Seeder
             [13, 1, 3, 18, 5, 5],
         ];
 
-        // Question Count
+        // //  Question Count
         // Grade 1
         $gameQues_1 = [
             [10, 10, 5, 10, 5, 5, 5],
@@ -95,11 +95,11 @@ class AssessmentSeeder extends Seeder
 
         // Grade 2
         $gameQues_2 = [
-            [0, 6, 6, 5, 5, 5, 5, 10],
-            [0, 6, 6, 5, 5, 5, 5, 10],
-            [0, 6, 6, 5, 5, 5, 5, 10],
-            [0, 6, 6, 5, 5, 5, 10],
-            [0, 6, 6, 5, 5, 5, 5, 10],
+            [8, 6, 6, 5, 5, 5, 5, 10],
+            [8, 6, 6, 5, 5, 5, 5, 10],
+            [8, 6, 6, 5, 5, 5, 5, 10],
+            [8, 6, 6, 5, 5, 5, 10],
+            [8, 6, 6, 5, 5, 5, 5, 10],
         ];
 
         // Grade 3
@@ -120,7 +120,7 @@ class AssessmentSeeder extends Seeder
             [10, 10, 10, 10, 5, 5],
         ];
 
-        // Total Question Count
+        // // Total Question Count
         // Grade 1
         $assessQues_1 = [
             50, 50, 52, 55, 50,
@@ -128,7 +128,7 @@ class AssessmentSeeder extends Seeder
 
         // Grade 2
         $assessQues_2 = [
-            42, 42, 42, 37, 42,
+            50, 50, 50, 45, 50,
         ];
 
         // Grade 3
