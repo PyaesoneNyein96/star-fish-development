@@ -70,17 +70,20 @@ class MissionController extends Controller
             $repeat = optional($repeat);
 
 
-            if($exist || $repeat->count >= 3){
+            if($exist && $repeat->count >= 3 && $repeat->count < 5){
 
-                if(  $repeat->count >= 3 && $repeat->count < 5 && $repeat->claimed_3 == 0){
+                if( $repeat->claimed_3 == 0){
                     $claimed = false;
-                }else if($repeat->count < 3 && $repeat->claimed_3 == 0){
-                    $claimed = false;
-                }else if($repeat->count >= 3 && $repeat->count < 5 &&  $repeat->claimed_3 == 1){
+                }
+                else if($repeat->claimed_3 == 1){
                     $claimed = true;
                 }
+                else if($repeat->count < 3 && $repeat->claimed_3 == 0){
+                    $claimed = false;
+                }
 
-            }else{
+            }
+            else{
                 $claimed = false;
             }
 
@@ -816,11 +819,11 @@ class MissionController extends Controller
         // ==================================
         // Repetitive
         // ==================================
-        $repetitive_3 = StudentLesson::where('student_id', $student->id)
+        $repetitive_3 = StudentGame::where('student_id', $student->id)
         ->where('count', '>=' , 3)->where('count', '<' , 5)
         ->where('claimed_3', 0)->get()->toArray();
 
-        $repetitive_5 = StudentLesson::where('student_id', $student->id)
+        $repetitive_5 = StudentGame::where('student_id', $student->id)
         ->where('count', 5)
         ->where('claimed_5', 0)->get()->toArray();
 
