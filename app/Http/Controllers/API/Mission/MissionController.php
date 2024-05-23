@@ -66,13 +66,31 @@ class MissionController extends Controller
         $ThreeTimes = $rawUnits->map(function ($raw) use ($repetitiveRecords) {
 
             $repeat = $repetitiveRecords->where('unit_id', $raw->id)->first();
+            $exist = isset($repeat);
             $repeat = optional($repeat);
+
+
+            if($exist || $repeat->count >= 3){
+
+                if(  $repeat->count >= 3 && $repeat->count < 5 && $repeat->claimed_3 == 0){
+                    $claimed = false;
+                }else if($repeat->count < 3 && $repeat->claimed_3 == 0){
+                    $claimed = false;
+                }else if($repeat->count >= 3 && $repeat->count < 5 &&  $repeat->claimed_3 == 1){
+                    $claimed = true;
+                }
+
+            }else{
+                $claimed = false;
+            }
+
+
             return [
-                'lesson_id' => $raw->id,
+                'game_id' => $raw->id,
                 'name' => "Game - " . $raw->name . ": 3 repetitive practices",
                 // 'grade' => $raw->unit->grade->name,
                 'allowed' => $repeat->count == 3 || $repeat->count == 4,
-                'claimed' => $repeat ? ($repeat->count >= 3 && $repeat->count < 5) && $repeat->claimed_3 == 0 ? false : true : false,
+                'claimed' => $claimed ,
                 'count' => $repeat->count,
                 'point' =>  3,
 
@@ -93,7 +111,7 @@ class MissionController extends Controller
                 'name' => "Game - " . $raw->name . ": 5 repetitive practices",
                 // 'grade' => $raw->grade->name,
                 'allowed' => $repeat->count == 5,
-                'claimed' =>  $repeat->count < 5 ? false : ($repeat->count == 5 && $repeat->claimed_5 == 0 ? false : true) ,
+                'claimed' =>  $repeat->count < 5 ? false : ($repeat->count == 5 && $repeat->claimed_5 == 0 ? false : true),
                 'count' => $repeat->count,
                 'point' => 5
             ];
