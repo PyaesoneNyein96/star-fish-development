@@ -36,7 +36,7 @@ class SubscriptionController extends Controller
 
     // Production
     // private $appId = "kp6d29862312994fa09afb52c00e6687";
-    // private $merchCode = 70244201;
+    // private $merchCode = "70244201";
     // private $appKey = "ddfa5a774af37d9137f51d90c1871cb1";
 
     // Testing
