@@ -275,7 +275,10 @@ class RewardController extends Controller
                         "student_id" => $stu->id,
                         "reward_id" => $val->id,
                     ];
-                    $url = $this->profiles .  str_replace(' ', '-', $val->name) . "/" . $val->item . ".png";
+                    $url = [
+                        "id" => $val->id,
+                        "url" => $this->profiles .  str_replace(' ', '-', $val->name) . "/" . $val->item . ".png"
+                    ];
                     array_push($reward, $url);
                     Stud_reward::create($data);
                 } else {
@@ -295,7 +298,10 @@ class RewardController extends Controller
                         "student_id" => $stu->id,
                         "reward_id" => $val->id,
                     ];
-                    $url = $this->frames . $val->item . ".png";
+                    $url = [
+                        "id" => $val->id,
+                        "url" => $this->frames . $val->item . ".png"
+                    ];
                     array_push($reward, $url);
                     Stud_reward::create($data);
                 } else {
