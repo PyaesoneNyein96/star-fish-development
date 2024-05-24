@@ -306,11 +306,11 @@ Field ( header ) = name (champion board name)
 
 ### Repetitive Lessons List
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/mission/repetitive/lesson-list](https://star-fish.myanmargateway.net/api/mission/repetitive/lesson-list) Field (header) = token
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/repetitive/game-list](https://star-fish.myanmargateway.net/api/mission/repetitive/game-list) Field (header) = token
 
 ### Repetitive bonus claim
 
-(Method: GET) [https://star-fish.myanmargateway.net/api/mission/repetitive/claim_lesson](https://star-fish.myanmargateway.net/api/mission/repetitive/claim_lesson) Field (header) = token, lesson_id, count
+(Method: GET) [https://star-fish.myanmargateway.net/api/mission/repetitive/claim_game](https://star-fish.myanmargateway.net/api/mission/repetitive/claim_game) Field (header) = token, game_id, count
 
 -   ### Daily Bonus
 

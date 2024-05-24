@@ -24,6 +24,10 @@ class Unit extends Model
         return $this->belongsTo(Lesson::class);
     }
 
+    public function grade(){
+        return $this->hasOneThrough(Grade::class,Lesson::class,'id','id','lesson_id','grade_id');
+    }
+
 
 
 
