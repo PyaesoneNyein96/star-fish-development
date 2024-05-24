@@ -5,11 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@600&family=Roboto+Slab:wght@100..900&family=Rubik&display=swap"
+        rel="stylesheet"> --}}
+
     <title>Certificate</title>
     <style>
         /* @font-face {
             font-family: 'AlbertusNova';
-            src: url('public/fonts/Albertus-Medium-Regular.ttf') format('truetype');
+            src: url({{ asset('/fonts/Albertus-Medium-Regular.ttf') }}) format('truetype');
             font-weight: normal;
             font-style: normal;
         } */
@@ -40,7 +47,8 @@
             color: #4c82fc;
             font-size: 4rem;
             text-align: center;
-            font-family: "Albertus-Medium-Regular", sans-serif
+            font-family: "AlbertusNova", sans-serif;
+            /* font-family: "EB Garamond"; */
         }
 
         .grade-id {
