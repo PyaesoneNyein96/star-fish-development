@@ -99,7 +99,7 @@ class SubscriptionController extends Controller
 
         // skip payment process
         try {
-           return $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
+            return $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
@@ -120,9 +120,9 @@ class SubscriptionController extends Controller
 
             $data = ['timestamp' => $this->time, 'appid' => $this->appId, 'merch_code' => $this->merch_code];
 
-            $params = "appid=".$this->appId."&merch_code=".$this->merch_code."&nonce_str=" . $this->nonce_str . "&prepay_id=" . $response['Response']['prepay_id'] . "&timestamp=" . $this->time;
+            $params = "appid=" . $this->appId . "&merch_code=" . $this->merch_code . "&nonce_str=" . $this->nonce_str . "&prepay_id=" . $response['Response']['prepay_id'] . "&timestamp=" . $this->time;
 
-            $result = strtoupper(hash('sha256', $params . "&key=".$this->appKey));
+            $result = strtoupper(hash('sha256', $params . "&key=" . $this->appKey));
 
             $data["orderinfo"] = $params . "&sign=$result";
 
@@ -282,18 +282,18 @@ class SubscriptionController extends Controller
     private function convert_SHA256($order_id, $time, $nonce_str, $price)
     {
 
-        $stringA = "appid=".$this->appId."&merch_code=".$this->merch_code."&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=https://star-fish-development.myanmargateway.net/payment/notify&timestamp=$time&total_amount=$price&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
+        $stringA = "appid=" . $this->appId . "&merch_code=" . $this->merch_code . "&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=https://star-fish-development.myanmargateway.net/payment/notify&timestamp=$time&total_amount=$price&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
 
-        return strtoupper(hash('sha256', $stringA . "&key=".$this->appKey));
+        return strtoupper(hash('sha256', $stringA . "&key=" . $this->appKey));
     }
 
 
     private function convert_SHA256_query_result($nonce_str, $orderId, $time)
     {
 
-        $stringA = "appid=".$this->appId."&merch_code=".$this->merch_code."&merch_order_id=$orderId&method=kbz.payment.queryorder&nonce_str=$nonce_str&timestamp=$time&version=3.0";
+        $stringA = "appid=" . $this->appId . "&merch_code=" . $this->merch_code . "&merch_order_id=$orderId&method=kbz.payment.queryorder&nonce_str=$nonce_str&timestamp=$time&version=3.0";
 
-        return strtoupper(hash('sha256', $stringA . "&key=".$this->appKey));
+        return strtoupper(hash('sha256', $stringA . "&key=" . $this->appKey));
     }
 
     private function order_generator()
@@ -306,7 +306,7 @@ class SubscriptionController extends Controller
 
         if ($isOrdered) {
             $closeUrl = "https://api.kbzpay.com/payment/gateway/uat/closeorder";
-            $signString = "appid=".$this->appId."&merch_code=".$merch_code."&merch_order_id=$isOrdered->id&method=kbz.payment.closeorder&nonce_str=" . $this->nonce_str . "&timestamp=" . $this->time . "&version=3.0&key=starfish@123";
+            $signString = "appid=" . $this->appId . "&merch_code=" . $this->merch_code . "&merch_order_id=$isOrdered->id&method=kbz.payment.closeorder&nonce_str=" . $this->nonce_str . "&timestamp=" . $this->time . "&version=3.0&key=starfish@123";
             $dataBody = [
                 "Request" => [
                     "timestamp" => $this->time,
@@ -386,7 +386,7 @@ class SubscriptionController extends Controller
                 ->pluck('expire_date');
 
 
-            if($student->grades->count() == 1){
+            if ($student->grades->count() == 1) {
 
                 //Daily Bonus Record Adding
                 $this->addDailyBonusRecord($student);
@@ -399,7 +399,6 @@ class SubscriptionController extends Controller
 
                 //Championship Bonus Record Adding
                 $this->addChampionshipBonusRecords($student);
-
             }
 
 
@@ -417,12 +416,13 @@ class SubscriptionController extends Controller
     }
 
 
-    private function addDailyBonusRecord($student){
+    private function addDailyBonusRecord($student)
+    {
 
         try {
-            $duplicate = DailyBonus::where('student_id',$student->id)->get();
+            $duplicate = DailyBonus::where('student_id', $student->id)->get();
 
-              if($duplicate->count() == 0){
+            if ($duplicate->count() == 0) {
                 DailyBonus::create([
                     'student_id' => $student->id,
                     'fifteen' => null,
@@ -430,21 +430,19 @@ class SubscriptionController extends Controller
                     'daily' => null,
                 ]);
             }
-
         } catch (\Throwable $th) {
             throw $th;
         }
-
-
     }
 
 
-    private function addLoginBonusRecord($student){
+    private function addLoginBonusRecord($student)
+    {
 
-        $already = StudentLoginBonus::where('student_id',$student->id)->get();
+        $already = StudentLoginBonus::where('student_id', $student->id)->get();
 
         try {
-            if($already->count() == 0) {
+            if ($already->count() == 0) {
 
                 $allDays = LoginBonus::all();
 
@@ -454,55 +452,52 @@ class SubscriptionController extends Controller
                     'day_count' => 1,
                 ]);
             }
-
-
         } catch (\Throwable $th) {
             throw $th;
         }
-
     }
 
 
-    private function addQuestionBonusRecords($student){
+    private function addQuestionBonusRecords($student)
+    {
 
         $already = $student->questionBonus;
 
         try {
 
-            if($already->count() == 0){
+            if ($already->count() == 0) {
 
-                foreach (range(1,8) as $num) {
+                foreach (range(1, 8) as $num) {
                     QuestionBonus::create([
                         'student_id' => $student->id,
-                        'point' => $num*10,
-                        'question_count' => $num*100
+                        'point' => $num * 10,
+                        'question_count' => $num * 100
                     ]);
                 }
             }
-
         } catch (\Throwable $th) {
             throw $th;
         }
-
     }
 
 
 
-    private function addChampionshipBonusRecords($student){
+    private function addChampionshipBonusRecords($student)
+    {
 
         $already = $student->championBonus;
 
         $champions = [
-            ['platinum' , 50],
-            ['gold' , 100],
-            ['diamond' , 200]
+            ['platinum', 50],
+            ['gold', 100],
+            ['diamond', 200]
         ];
 
         try {
 
-            if($already->count() == 0){
+            if ($already->count() == 0) {
 
-                foreach($champions as $champ){
+                foreach ($champions as $champ) {
                     ChampionshipBonus::create([
                         'student_id' => $student->id,
                         'point' => 1,
@@ -514,10 +509,5 @@ class SubscriptionController extends Controller
         } catch (\Throwable $th) {
             throw $th;
         }
-
     }
-
-
-
-
 }
