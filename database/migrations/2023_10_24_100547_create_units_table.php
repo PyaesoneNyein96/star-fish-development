@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('units', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('lesson_id')->constrained();
+            $table->integer('lesson_id')->constrained()->onDelete('cascade');
             $table->index(['id','lesson_id'],'units_id_lesson_id_index');
             // $table->index('id', 'units_id_index');
             // $table->index('lesson_id', 'units_lesson_id_index');

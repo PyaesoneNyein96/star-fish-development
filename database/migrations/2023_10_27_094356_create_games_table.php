@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('instructionGIF')->nullable();
             $table->foreignId('category_id')->nullable()->constrained();
-            $table->foreignId('unit_id')->nullable()->constrained();
+            $table->foreignId('unit_id')->nullable()->constrained()->onDelete('cascade');
             $table->integer('status')->default(1);
             $table->index(['id','unit_id'],'games_id_unit_id_index');
             // $table->index('id', 'games_id_index');

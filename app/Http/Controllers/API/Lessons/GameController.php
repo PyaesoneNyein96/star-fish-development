@@ -440,6 +440,8 @@ class GameController extends Controller
             'message' => 'success and recorded',
             'fixed_point' => $updateStudent->fixed_point,
             'level' => $updateStudent->level,
+            'question_answer' => $updateStudent->question_answer,
+            'board' => $updateStudent->board,
         ], 200);
     }
 

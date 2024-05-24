@@ -15,22 +15,37 @@ use Illuminate\Support\Str;
 use App\Models\StudentGrade;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
+use App\Models\QuestionBonus;
 use App\Models\StudentLesson;
 use App\Models\OrderTransaction;
 use App\Models\SubscriptionPlan;
+use App\Models\ChampionshipBonus;
 use App\Models\StudentLoginBonus;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\QuestionBonus;
+use App\Http\Traits\removePlanTrait;
 use Illuminate\Support\Facades\Http;
-use App\Models\ChampionshipBonus;
 use Illuminate\Support\Facades\Redirect;
 
 class SubscriptionController extends Controller
 {
-    // public $token, $grade_id, $subscription_id, $student ;
+    use removePlanTrait;
 
     private $token, $grade_id, $subscription_id, $student, $time, $orderId, $nonce_str, $domain, $prepay_id;
+
+
+    // Production
+    // private $appId = "kp6d29862312994fa09afb52c00e6687";
+    // private $merch_code = "70244201";
+    // private $appKey = "ddfa5a774af37d9137f51d90c1871cb1";
+
+    // Testing
+    private $appId = "kp0480c579f02f48ae8c37ce82260511";
+    private $merch_code = "70050901";
+    private $appKey = "starfish@123";
+
+
+
 
     public function __construct(Request $request)
     {
@@ -51,66 +66,10 @@ class SubscriptionController extends Controller
 
     public function plans(Request $request)
     {
-
         $student = Student::where('token', $this->token)->first();
         return Subscription::all();
     }
 
-    // public function removePlan(Request $request) {
-
-    //     $student = Student::where('token', $this->token)->where('status',1)->first();
-
-    //     $gradeLessons = Grade::find($this->grade_id)->lessons;
-
-    //     $gradeUnit = Grade::find($this->grade_id)->units->pluck('id');
-
-    //     $gradeGames = Game::whereIn('unit_id', $gradeUnit)->get();
-
-
-    //     DB::beginTransaction();
-
-    //     try {
-
-    //         $del_lessons = $gradeLessons->filter(function($l) use($student) {
-    //             return $student->lessons->contains('id', $l->id);
-    //         })->pluck('id');
-
-    //         $res1= StudentLesson::where('student_id', $student->id)->whereIn('id', $del_lessons)->delete();
-
-    //     //////////////////////////////
-
-    //         $del_units = $gradeUnit->filter(function($l) use($student){
-    //             return $student->units->contains('id', $l->id);
-    //         })->pluck('id');
-
-    //         $res2 = StudentUnit::where('student_id', $student->id)->whereIn('id', $del_units)->delete();
-
-    //     //////////////////////////////
-
-    //         $del_games = $gradeGames->filter(function($g) use($student) {
-    //             return $student->games->contains('id', $g->id);
-    //         })->pluck('id');
-
-    //         $res3 = StudentGame::where('student_id',$student->id)->whereIn('id',$del_games)->delete();
-
-    //         if($res1 && $res3){
-    //             StudentGrade::where('grade_id',$this->grade_id)->delete();
-    //         }
-
-    //         DB::commit();
-
-    //         return true;
-
-
-    //    } catch (\Throwable $th) {
-    //         DB::rollback();
-    //         return $th;
-    //    }
-
-
-
-
-    // }
 
 
 
@@ -141,7 +100,6 @@ class SubscriptionController extends Controller
         // skip payment process
         try {
            return $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
-
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
@@ -153,7 +111,6 @@ class SubscriptionController extends Controller
 
             $order_id = $this->order_generator()->id;
 
-            // $response = $this->request_prepay_id($this->time, $this->orderId, $this->nonce_str);
             $response = $this->request_prepay_id($this->time, $order_id, $this->nonce_str);
 
             // return $response;
@@ -161,11 +118,11 @@ class SubscriptionController extends Controller
             if (!$result) return response()->json(["message" => $response['Response']], 402);
 
 
-            $data = ['timestamp' => $this->time, 'appid' => "kp0480c579f02f48ae8c37ce82260511", 'merch_code' => "70050901"];
+            $data = ['timestamp' => $this->time, 'appid' => $this->appId, 'merch_code' => $this->merch_code];
 
-            $params = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&nonce_str=" . $this->nonce_str . "&prepay_id=" . $response['Response']['prepay_id'] . "&timestamp=" . $this->time;
+            $params = "appid=".$this->appId."&merch_code=".$this->merch_code."&nonce_str=" . $this->nonce_str . "&prepay_id=" . $response['Response']['prepay_id'] . "&timestamp=" . $this->time;
 
-            $result = strtoupper(hash('sha256', $params . "&key=starfish@123"));
+            $result = strtoupper(hash('sha256', $params . "&key=".$this->appKey));
 
             $data["orderinfo"] = $params . "&sign=$result";
 
@@ -186,6 +143,7 @@ class SubscriptionController extends Controller
     public function checkPaymentResult(Request $request)
     {
 
+        // $kbzCheckURL = "http://api.kbzpay.com/payment/gateway/queryorder";
         $kbzCheckURL = "http://api.kbzpay.com/payment/gateway/uat/queryorder";
         $orderId = $request->header('order_id');
 
@@ -198,8 +156,8 @@ class SubscriptionController extends Controller
                 "sign" => $this->convert_SHA256_query_result($this->nonce_str, $orderId, $this->time),
                 "version" => "3.0",
                 "biz_content" => [
-                    "appid" => "kp0480c579f02f48ae8c37ce82260511",
-                    "merch_code" => "70050901",
+                    "appid" => $this->appId,
+                    "merch_code" => $this->merch_code,
                     "merch_order_id" => $orderId,
                 ]
             ]
@@ -213,6 +171,7 @@ class SubscriptionController extends Controller
     public function referer(Request $request)
     {
         $redirectUrl = "https://static.kbzpay.com/pgw/uat/pwa/#/";
+        // $redirectUrl = "https://static.kbzpay.com/pgw/pwa/#/";
 
         $appid = $request->query("appid");
         $merch_code = $request->query("merch_code");
@@ -235,8 +194,8 @@ class SubscriptionController extends Controller
             $payInfo = OrderTransaction::where("id", $request["Request"]["merch_order_id"])->first();
             if (
                 $payInfo &&
-                $request["Request"]["merch_code"] == 70050901 &&
-                $request["Request"]["appid"] == "kp0480c579f02f48ae8c37ce82260511" &&
+                $request["Request"]["merch_code"] == $this->merch_code &&
+                $request["Request"]["appid"] == $this->appId &&
                 $request["Request"]["trade_status"] == "PAY_SUCCESS"
             ) {
                 return "success";
@@ -284,10 +243,10 @@ class SubscriptionController extends Controller
     {
 
         $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
+        // $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/precreate";
 
         $isLocal = $this->student->isLocal;
         $price = Grade::find($this->grade_id)->local_price;
-        // $price = ($isLocal == 0) ? $grade->local_price : $grade->global_price;
 
         $sign = $this->convert_SHA256($orderId, $time, $nonce_str, $price);
 
@@ -303,8 +262,8 @@ class SubscriptionController extends Controller
                 "version" => "1.0",
                 "biz_content" => [
                     "merch_order_id" => $orderId,
-                    "merch_code" => "70050901",
-                    "appid" => "kp0480c579f02f48ae8c37ce82260511",
+                    "merch_code" => $this->merch_code,
+                    "appid" => $this->appId,
                     "trade_type" => "PWAAPP",
                     "total_amount" => $price,
                     "trans_currency" => "MMK",
@@ -323,18 +282,18 @@ class SubscriptionController extends Controller
     private function convert_SHA256($order_id, $time, $nonce_str, $price)
     {
 
-        $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=https://star-fish-development.myanmargateway.net/payment/notify&timestamp=$time&total_amount=$price&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
+        $stringA = "appid=".$this->appId."&merch_code=".$this->merch_code."&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=https://star-fish-development.myanmargateway.net/payment/notify&timestamp=$time&total_amount=$price&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
 
-        return strtoupper(hash('sha256', $stringA . "&key=starfish@123"));
+        return strtoupper(hash('sha256', $stringA . "&key=".$this->appKey));
     }
 
 
     private function convert_SHA256_query_result($nonce_str, $orderId, $time)
     {
 
-        $stringA = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$orderId&method=kbz.payment.queryorder&nonce_str=$nonce_str&timestamp=$time&version=3.0";
+        $stringA = "appid=".$this->appId."&merch_code=".$this->merch_code."&merch_order_id=$orderId&method=kbz.payment.queryorder&nonce_str=$nonce_str&timestamp=$time&version=3.0";
 
-        return strtoupper(hash('sha256', $stringA . "&key=starfish@123"));
+        return strtoupper(hash('sha256', $stringA . "&key=".$this->appKey));
     }
 
     private function order_generator()
@@ -347,7 +306,7 @@ class SubscriptionController extends Controller
 
         if ($isOrdered) {
             $closeUrl = "https://api.kbzpay.com/payment/gateway/uat/closeorder";
-            $signString = "appid=kp0480c579f02f48ae8c37ce82260511&merch_code=70050901&merch_order_id=$isOrdered->id&method=kbz.payment.closeorder&nonce_str=" . $this->nonce_str . "&timestamp=" . $this->time . "&version=3.0&key=starfish@123";
+            $signString = "appid=".$this->appId."&merch_code=".$merch_code."&merch_order_id=$isOrdered->id&method=kbz.payment.closeorder&nonce_str=" . $this->nonce_str . "&timestamp=" . $this->time . "&version=3.0&key=starfish@123";
             $dataBody = [
                 "Request" => [
                     "timestamp" => $this->time,
@@ -358,8 +317,8 @@ class SubscriptionController extends Controller
                     "version" => "3.0",
                     "biz_content" => [
                         "merch_order_id" => $isOrdered->id,
-                        "merch_code" => "70050901",
-                        "appid" => "kp0480c579f02f48ae8c37ce82260511"
+                        "merch_code" => $this->merch_code,
+                        "appid" => $this->appId
                     ]
                 ]
             ];
