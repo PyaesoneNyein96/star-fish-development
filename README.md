@@ -163,8 +163,8 @@ Field (token, grade_id, subscription_id (Header))
 
 ### Remove Grade
 
-<!-- Method (POST) [https://star-fish.myanmargateway.net/api/subscription/removePlan](https://star-fish.myanmargateway.net/api/subscription/removePlan)
-(Delete Subscription Grade and games (Header)) -->
+Method (POST) [https://star-fish.myanmargateway.net/api/subscription/removePlan](https://star-fish.myanmargateway.net/api/subscription/removePlan)
+(grade_id, token (Header))
 
 ### ====================================================
 
