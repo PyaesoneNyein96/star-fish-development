@@ -25,6 +25,9 @@ class Grade extends Model
         return $this->belongsToMany(Student::class,'student_grades','grade_id','student_id');
     }
 
+    public function studentLessons(){
+        return $this->hasMany(StudentLesson::class);
+    }
 
     public function units(){
         return $this->hasManyThrough(Unit::class,Lesson::class);

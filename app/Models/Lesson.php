@@ -20,9 +20,9 @@ class Lesson extends Model
         return $this->belongsTo(Grade::class);
     }
 
-    // public function games(){
-    //     return $this->hasMany(Game::class);
-    // }
+    public function units(){
+        return $this->hasMany(Unit::class);
+    }
 
     public function students(){
         return $this->belongsToMany(Student::class,'student_lessons','lesson_id','student_id');
