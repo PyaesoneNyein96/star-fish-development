@@ -92,7 +92,7 @@ class SubscriptionController extends Controller
 
             if ((int)$day_count > 0) {
                 return response()->json([
-                    "message" => "You are already purchased the plan."
+                    "message" => "You have already purchased the plan."
                 ], 402);
             }
         }
