@@ -370,8 +370,9 @@ class GameController extends Controller
         /// unit left in each lesson ?
         $unit_left_check = empty($this->lessonCheck($student, $lessonUnit, $unitDone));
 
-
+        $lesson_completed = false;
         if($unit_left_check) {
+        $lesson_completed = true;
 
             // Subscription checkpoint (** block adding & updating lesson records **)
             $grade_id = Lesson::find($lesson_id)->grade['id'];
@@ -425,12 +426,13 @@ class GameController extends Controller
 
 
         // repetitive lesson done check for (lesson completed screen)
-        $re_lesson_games = Lesson::find($game->lesson->id)->games;
 
-        $re_lesson_check = array_filter($re_lesson_games->toArray(), function ($re_l_g) use ($gameDone){
-            return !$gameDone->contains('id',$re_l_g['id']);
-        });
-        $lesson_completed = count($re_lesson_check) == 0;
+        // $re_lesson_games = Lesson::find($game->lesson->id)->games;
+
+        // $re_lesson_check = array_filter($re_lesson_games->toArray(), function ($re_l_g) use ($gameDone){
+        //     return !$gameDone->contains('id',$re_l_g['id']);
+        // });
+        // $lesson_completed = count($re_lesson_check) == 0;
 
 
         ////////////////////////////////////////////////////////////////////
