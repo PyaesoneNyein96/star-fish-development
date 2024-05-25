@@ -324,7 +324,6 @@ class GameController extends Controller
 
         ////// populate Game records
 
-
         if(!$alreadyDone) {
             StudentGame::insert([
                 'student_id' => $student->id,
@@ -351,7 +350,7 @@ class GameController extends Controller
             return $gameDone->contains('id', $g->id);
         });
 
-        /// Check duplicate unit check
+        /// Check duplicate unit
         $dup_unit_check = $unitDone->filter(function($done) use($unit){
             return $done->id == $unit->id;
         });
@@ -369,7 +368,7 @@ class GameController extends Controller
 
 
         /// unit left in each lesson ?
-        $unit_left_check =  empty($this->lessonCheck($student, $lessonUnit, $unitDone));
+        $unit_left_check = empty($this->lessonCheck($student, $lessonUnit, $unitDone));
 
 
         if($unit_left_check) {
@@ -403,9 +402,7 @@ class GameController extends Controller
             //  For Subscription and Real Server (** block adding lesson records **)
 
                 if (!$studentGrade) return response()->json(
-                    ["message" => "You are not a subscriber"],
-                    402
-                );
+                    ["message" => "You are not a subscriber"],402);
 
             //----------------
 
@@ -427,9 +424,14 @@ class GameController extends Controller
         }
 
 
+        // repetitive lesson done check for (lesson completed screen)
+        $re_lesson_games = Lesson::find($game->lesson->id)->games;
 
+        $re_lesson_check = array_filter($re_lesson_games->toArray(), function ($re_l_g) use ($gameDone){
+            return !$gameDone->contains('id',$re_l_g['id']);
+        });
+        $lesson_completed = count($re_lesson_check) == 0;
 
-        // return $unit_left_check;
 
         ////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////
@@ -442,6 +444,9 @@ class GameController extends Controller
             'level' => $updateStudent->level,
             'question_answer' => $updateStudent->question_answer,
             'board' => $updateStudent->board,
+            'completed_lesson_id' => $lesson_completed ? $game->lesson->id : null,
+            'completed_lesson_name' => $lesson_completed ? $game->lesson->name : null,
+            // 'repetitive' => $alreadyDone && true
         ], 200);
     }
 
