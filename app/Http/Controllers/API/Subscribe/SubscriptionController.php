@@ -98,11 +98,11 @@ class SubscriptionController extends Controller
         }
 
         // skip payment process
-        // try {
-        //     return $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
-        // } catch (\Throwable $th) {
-        //     return $th->getMessage();
-        // }
+        try {
+            return $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
 
         //ts
 
