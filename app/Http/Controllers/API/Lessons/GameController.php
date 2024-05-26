@@ -446,8 +446,8 @@ class GameController extends Controller
             'level' => $updateStudent->level,
             'question_answer' => $updateStudent->question_answer,
             'board' => $updateStudent->board,
-            'completed_lesson_id' => $lesson_completed ? $game->lesson->id : null,
-            'completed_lesson_name' => $lesson_completed ? $game->lesson->name : null,
+            'completed_lesson_id' => $lesson_completed ? $game->lesson->id : 0,
+            'completed_lesson_name' => $lesson_completed ? $game->lesson->name : 0,
             // 'repetitive' => $alreadyDone && true
         ], 200);
     }
