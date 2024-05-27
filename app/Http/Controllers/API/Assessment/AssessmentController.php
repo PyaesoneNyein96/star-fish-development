@@ -271,10 +271,10 @@ class AssessmentController extends Controller
                     // Del  lessons(total/8) by assessment (1)  =========================================
 
                     $calculate_data = AssessmentFinishData::where('student_id', $studentId)
-                    ->where('grade_id',$assessment->grade_id)->count();
+                        ->where('grade_id', $assessment->grade_id)->count();
 
 
-                    $lesson_ids = StudentLesson::where('lesson_id','<=',$calculate_data * 8)->where('grade_id',$assessment->grade_id)->delete();
+                    $lesson_ids = StudentLesson::where('lesson_id', '<=', $calculate_data * 8)->where('grade_id', $assessment->grade_id)->delete();
 
 
                     ////////////////////
@@ -375,7 +375,12 @@ class AssessmentController extends Controller
             $customPaper = array(0, 0, 975, 1364);
 
             // convert pdf
-            $pdf = Pdf::loadView('certificate', $certi)->setPaper($customPaper, 'landscape');
+            $pdf = Pdf::loadView('certificate', $certi)
+                ->setPaper($customPaper, 'landscape')
+                ->setOption('isHtml5ParserEnabled', true)
+                ->setOption('isRemoteEnabled', true);
+            // ->setOption('chroot', public_path('fonts'));
+            // ->setOption('chroot', storage_path('fonts'));
 
             Storage::put("public/certificate_pdf/$stuName.pdf", $pdf->output());
             $certi["pdf_path"] = app('domain') . "/storage/certificate_pdf/$stuName.pdf";

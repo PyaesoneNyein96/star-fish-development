@@ -72,7 +72,7 @@ Route::prefix('/dashboard')->middleware(['auth:sanctum', 'verified',])->group(fu
 
 // Certificate
 // Route::get('/certificate', [AssessmentController::class, 'makeCertificate'])->name('certificate');
-Route::get('/testing', [AssessmentController::class, 'maketest'])->name('testing');
+// Route::get('/testing', [AssessmentController::class, 'maketest'])->name('testing');
 
 
 
@@ -84,9 +84,9 @@ Route::prefix('payment')->group(function () {
     Route::get('/kpay/result', [SubscriptionController::class, 'return_url']);
 });
 
-// Route::get('/certi', function () {
-//     return view('certificate');
-// });
+Route::get('/certi', function () {
+    return view('certificate');
+});
 
 
 
