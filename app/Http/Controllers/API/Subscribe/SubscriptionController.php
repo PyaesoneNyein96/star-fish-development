@@ -145,7 +145,7 @@ class SubscriptionController extends Controller
     {
 
         // $kbzCheckURL = "http://api.kbzpay.com/payment/gateway/queryorder";
-        $kbzCheckURL = "http://api.kbzpay.com/payment/gateway/uat/queryorder";
+        $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/uat/queryorder";
         $orderId = $request->header('order_id');
 
         $data = [
@@ -171,8 +171,8 @@ class SubscriptionController extends Controller
     // referer kpay
     public function referer(Request $request)
     {
-        $redirectUrl = "https://static.kbzpay.com/pgw/uat/pwa/#/";
-        // $redirectUrl = "https://static.kbzpay.com/pgw/pwa/#/";
+        // $redirectUrl = "https://static.kbzpay.com/pgw/uat/pwa/#/";
+        $redirectUrl = "https://static.kbzpay.com/pgw/pwa/#/";
 
         $appid = $request->query("appid");
         $merch_code = $request->query("merch_code");
