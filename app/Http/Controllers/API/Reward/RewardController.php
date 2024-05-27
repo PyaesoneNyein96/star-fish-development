@@ -354,8 +354,9 @@ class RewardController extends Controller
         $newPoint = $oldPoint->point + (int)$request->point;
         $newFixPoint = $oldPoint->fixed_point + (int)$request->point;
 
-        $level = $newFixPoint / 10;
+        $level = floor($newFixPoint / 10);
 
+        logger($level);
 
         if ($level <= 50) {
             $board = 'silver';

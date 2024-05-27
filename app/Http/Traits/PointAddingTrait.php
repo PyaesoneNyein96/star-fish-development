@@ -19,7 +19,7 @@ trait PointAddingTrait{
         $newPoint = $oldPoint + (int)$point;
         $newFixPoint = $student->fixed_point + (int)$point;
 
-        $lvl = $newFixPoint / 10 ;
+        $lvl = floor($newFixPoint / 10) ;
 
         if ($lvl >= 0 && $lvl <= 50) {
             $board = 'silver';

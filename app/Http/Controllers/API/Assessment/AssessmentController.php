@@ -222,7 +222,7 @@ class AssessmentController extends Controller
                     $newPoint = $oldPoint->point + (int)$point;
                     $newFixPoint = $oldPoint->fixed_point + (int)$point;
 
-                    $level = $newFixPoint / 10;
+                    $level = floor($newFixPoint / 10);
 
                     if ($level <= 50) {
                         $board = 'silver';
