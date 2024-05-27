@@ -69,7 +69,7 @@ class MissionController extends Controller
             $repeat = optional($repeat);
 
 
-            if($exist && $repeat->count >= 3 && $repeat->count < 5){
+            if($exist && $repeat->count >= 3){
 
                 if( $repeat->claimed_3 == 0){
                     $claimed = false;
@@ -91,7 +91,7 @@ class MissionController extends Controller
                 'game_id' => $raw->id,
                 'name' => "Game - " . $raw->name . ": 3 repetitive practices",
                 // 'grade' => $raw->unit->grade->name,
-                'allowed' => $repeat->count == 3 || $repeat->count == 4,
+                'allowed' => $repeat->count >= 3 ,
                 'claimed' => $claimed ,
                 'count' => $repeat->count,
                 'point' =>  3,
@@ -129,7 +129,7 @@ class MissionController extends Controller
 
             if ($lesson['allowed'] && !$lesson['claimed']) {
                 return 0;
-            } elseif ($lesson['claimed'] && $lesson['allowed']) {
+            } elseif ($lesson['allowed'] && $lesson['claimed']) {
                 return 1;
             }  elseif ($lesson['claimed']) {
                 return 2;

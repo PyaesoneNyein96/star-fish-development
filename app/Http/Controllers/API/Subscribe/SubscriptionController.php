@@ -82,7 +82,7 @@ class SubscriptionController extends Controller
 
         if (!$student) return response()->json(["error" => "you are not allowed for this process."], 403);
 
-        if ($student->isLocal == 0) return response()->json(["error" => "you need to be a local user for this process."], 403);
+        // if ($student->isLocal == 0) return response()->json(["error" => "you need to be a local user for this process."], 403);
 
 
         $alreadyBought = StudentGrade::where('student_id', $student->id)->where('grade_id', $request->header('grade_id'))->first();
