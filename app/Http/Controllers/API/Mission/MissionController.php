@@ -858,7 +858,7 @@ class MissionController extends Controller
         // Champion
         // ==================================
         $champion_count = $student->championBonus->where('claim',0)
-        ->where('champion', $student->board)->where('fix_level','<',$student->level)->count();
+        ->where('fix_level','<',$student->level)->count();
 
 
         // ==================================
