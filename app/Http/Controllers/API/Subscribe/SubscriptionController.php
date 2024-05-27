@@ -144,8 +144,8 @@ class SubscriptionController extends Controller
     public function checkPaymentResult(Request $request)
     {
 
-        // $kbzCheckURL = "http://api.kbzpay.com/payment/gateway/queryorder";
-        $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/uat/queryorder";
+        $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/queryorder";
+        // $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/uat/queryorder";
         $orderId = $request->header('order_id');
 
         $data = [
@@ -272,8 +272,6 @@ class SubscriptionController extends Controller
             ]
         ];
 
-
-        // return $data;
         if ($sign) {
             return Http::post($kbzRequestURL, $data);
         }
@@ -306,7 +304,7 @@ class SubscriptionController extends Controller
             ->first();
 
         if ($isOrdered) {
-            $closeUrl = "https://api.kbzpay.com/payment/gateway/uat/closeorder";
+            $closeUrl = "https://api.kbzpay.com/payment/gateway/closeorder";
             $signString = "appid=" . $this->appId . "&merch_code=" . $this->merch_code . "&merch_order_id=$isOrdered->id&method=kbz.payment.closeorder&nonce_str=" . $this->nonce_str . "&timestamp=" . $this->time . "&version=3.0&key=".$this->appKey;
             $dataBody = [
                 "Request" => [
