@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\API\Auth;
 
+use Carbon\Carbon;
 use App\Models\Banner;
 use App\Models\Country;
 use App\Models\Student;
 use App\Models\Version;
 use Tzsk\Otp\Facades\Otp;
+use App\Models\DailyBonus;
+use App\Models\LoginBonus;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Traits\mailTraits;
@@ -153,8 +156,24 @@ class AuthController extends Controller
         $token = $request->header('token');
         $userData = Student::where('token', $token)->first();
 
-        if(!$userData) return response()->json(["status" => "User Not found !!!"], 404);
-        return $userData;
+        DB::beginTransaction();
+        try {
+
+            if(!$userData) return response()->json(["status" => "User Not found !!!"], 404);
+
+            DB::commit();
+
+            return $userData;
+
+        } catch (\Throwable $th) {
+            DB::rollback();
+            logger($th);
+            return $th->getMessage();
+        }
+
+
+
+
     }
 
     // Banners
@@ -251,10 +270,66 @@ class AuthController extends Controller
 
 
 
+    ///////////////////////////////////////////////////////////
+    //////////// Login Bonus Process
+    ///////////////////////////////////////////////////////////
+
+    // private function loginBonusProcess($userData){
+
+    //     try {
+
+    //         $dailyRecord = LoginBonus::where('student_id',$userData->id)->first();
+
+    //         $updateProcess =  $dailyRecord->update([
+    //             'updated_at' => Carbon::now()
+    //         ]);
+
+    //         if ($updateProcess){
+
+    //             $range = [7,15,30,60,90,120,180,365];
+
+    //             $updateRecords = LoginBonus::where('student_id',$userData->id)->first();
+    //             $days= $updateRecords->created_at->diff($updateRecords->updated_at)->days;
+    //             if($days >= 1){
+    //                 $updateRecords->update([
+    //                     'day_count' => $days
+    //                 ]);
+    //             }
+    //             if(in_array($days,$range)){
+    //                 return true;
+    //             }
+
+
+    //         }
 
 
 
 
+
+
+
+    //         // if($userData->isSubscriber == 1){
+
+    //         //     $dailyRecord->update(['updated_at', Carbon::now()]);
+
+    //         //     if($dailyRecord->updated_at <= Carbon::now() ){
+    //         //         $dailyRecord->update([
+    //         //             'student_id' => $userData->id,
+    //         //             'day_count' => 1,
+    //         //             'claim' => 0
+    //         //         ]);
+
+    //         //     }
+
+    //         // }
+
+
+
+    //     } catch (\Throwable $th) {
+    //         throw $th;
+    //     }
+
+    // }
 
 
 

@@ -11,7 +11,7 @@ use Mockery\Undefined;
 
 class RewardController extends Controller
 {
-    private $domain, $achieve, $each_ach, $profiles;
+    private $domain, $achieve, $each_ach, $profiles, $frames;
 
     public function __construct()
     {
@@ -19,6 +19,7 @@ class RewardController extends Controller
         $this->achieve = $this->domain . "/storage/images/Achievement/Main/";
         $this->each_ach = $this->domain . "/storage/images/Achievement/Each_achieve/";
         $this->profiles = $this->domain . "/storage/images/Achievement/Profiles/";
+        $this->frames = $this->domain . "/storage/images/Achievement/Frames/";
     }
 
 
@@ -34,11 +35,19 @@ class RewardController extends Controller
         return $point;
     }
 
+
+
     public function addPoint(Request $request)
     {
         $newPoint = $this->addPointFunction($request);
+
+        $newPoint[0] = $newPoint[0] >= 3000 ? 3000 : $newPoint[0];
+        $newPoint[1] = $newPoint[1] >= 3000 ? 3000 : $newPoint[1];
+
+
+
         if ($newPoint[1] >= 0 && $newPoint[1] <= 3000) {
-            $level = ceil($newPoint[1] / 10);
+            $level = floor($newPoint[1] / 10);
             Student::where('id', $request->student_id)->update([
                 'point' => $newPoint[0],
                 'fixed_point' => $newPoint[1],
@@ -46,7 +55,7 @@ class RewardController extends Controller
                 'board' => $newPoint[2]
             ]);
         } else {
-            Student::where('id', $request->id)->update([
+            Student::where('id', $request->student_id)->update([
                 'point' => $newPoint[0],
                 'fixed_point' => $newPoint[1],
                 'board' => $newPoint[2]
@@ -66,11 +75,13 @@ class RewardController extends Controller
     public function displayAllReward(Request $request)
     {
         $token = $request->header("token");
+        if (!$token) return response()->json(["error" => "token is required."], 400);
+
         $data = Reward::where('type', "achieve")->get()->groupBy('name');
         $stu = Student::where('token', $token)->first();
 
-        if (!$stu) return response()->json(["message" => "user not found"], 403);
-        if (count($data) == 0) return response()->json(["message" => "data not found"], 404);
+        if (!$stu) return response()->json(["error" => "user not found"], 400);
+        if (count($data) == 0) return response()->json(["error" => "data not found"], 404);
 
         $point = 30;
         foreach ($data as $name => $item) {
@@ -83,7 +94,7 @@ class RewardController extends Controller
                 ) . ".png",
                 "lock" => $stu->fixed_point < $point ? 1 : 0,
             ];
-            $point *= 2;
+            $point += 30;
         }
 
         return $reward;
@@ -94,15 +105,17 @@ class RewardController extends Controller
         $token = $request->header("token");
         $name = $request->header("name");
 
-        $id = Student::where('token', $token)->first();
-        $data = Reward::where("name", $name)->get();
+        if (!$token || !$name) return response()->json(["error" => "token or name is required."], 400);
 
-        if (!$id) return response()->json(["message" => "user not found"], 403);
-        if (count($data) == 0) return response()->json(["message" => "data not found"], 404);
+        $id = Student::where('token', $token)->first();
+        $data = Reward::where("name", $name)->where('type', "achieve")->get();
+
+        if (!$id) return response()->json(["error" => "user not found"], 400);
+        if (count($data) == 0) return response()->json(["error" => "data not found"], 404);
 
         foreach ($data as $d) {
             $stuReward = Stud_reward::where("student_id", $id->id)->where("reward_id", $d->id)->first();
-            $d["item"] = $this->each_ach . $name . "/" . $d->item . ".png";
+            $d["item"] = $this->each_ach . str_replace(' ', '-', $name) . "/" . $d->item . ".png";
             $d["bought"] = $stuReward ? 1 : 0;
         }
 
@@ -112,24 +125,25 @@ class RewardController extends Controller
     public function displayEachProfile(Request $request)
     {
         $token = $request->header("token");
-        $data = Reward::where('type', "profile")->get()->groupBy('name');
+        if (!$token) return response()->json(["error" => "token is required."], 400);
+
+        $data = Reward::where('type', "profile")->get();
         $stu = Student::where('token', $token)->first();
 
-        if (!$stu) return response()->json(["message" => "user not found"], 403);
+        if (!$stu) return response()->json(["error" => "user not found"], 404);
         if (count($data) == 0) return response()->json(["message" => "data not found"], 404);
 
-        $point = 50;
-        foreach ($data as $name => $item) {
-            $reward[] = [
-                "name" => $name,
-                "item" => $this->profiles . str_replace(
-                    ' ',
-                    '-',
-                    $name
-                ) . ".png",
-                "lock" => $stu->fixed_point < $point ? 1 : 0,
-            ];
-            $point *= 2;
+        // $point = 50;
+        $reward = [];
+        foreach ($data as $idx => $value) {
+            $stuReward = Stud_reward::where("student_id", $stu->id)->where("reward_id", $value->id)->first();
+
+            $value['item'] = $this->profiles . str_replace(' ', '-', $value->name) . "/" .  $value->item . ".png";
+            $value['lock'] = $stu->fixed_point < $value->point ? 1 : 0;
+            $value["own"] = $stuReward ? 1 : 0;
+            array_push($reward, $value);
+
+            // if (isset($data[$idx + 1]) && $value->name !== $data[$idx + 1]->name) $point += 50;
         }
 
         return $reward;
@@ -139,80 +153,221 @@ class RewardController extends Controller
     {
         $token = $request->header("token");
 
+        if (!$token) return response()->json(["error" => "token is required."], 400);
+
         $id = Student::where('token', $token)->first();
-        if (!$id) return response()->json(["message" => "user not found"], 403);
+        if (!$id) return response()->json(["error" => "user not found"], 404);
 
         $studReward = Stud_reward::select('rewards.*', 'stud_rewards.*')
             ->leftJoin('rewards', 'stud_rewards.reward_id', 'rewards.id')
             ->where('stud_rewards.student_id', $id->id)
             ->get();
 
-        if (count($studReward) == 0) return response()->json(["message" => "You haven't bought anything."]);
+        if (count($studReward) == 0) return response()->json(["error" => "You haven't bought any item."], 403);
+        foreach ($studReward as $val) $val->item = $this->each_ach . str_replace(' ', '-',  $val->name) . "/" . $val->item . ".png";
 
-        return ($studReward);
+        return $studReward->where('type', "achieve");
     }
 
     public function buyReward(Request $request)
     {
-        $point = Student::where('id', $request->student_id)->first();
-        if ($point->point < (int)$request->reward_point) {
-            return response()->json([
-                'error' => 'not enough points'
-            ], 403);
+        $token = $request->token;
+        if (!$token || !$request->reward_point || !$request->reward_id) return response()->json(["message" => "token or some fields is required."], 403);
+
+
+        $stu = Student::where('token', $token)->first();
+        if (!$stu) return response()->json(["error" => "user not found"], 404);
+
+        $isReward = Reward::where('id', $request->reward_id)
+            ->where("type", "achieve")
+            ->first();
+        if (!$isReward) return response()->json(["error" => "reward not found"], 404);
+
+        $point = $stu->point;
+        if (((int)$point < (int)$request->reward_point) || ((int)$isReward->point !== (int)$request->reward_point)) return response()->json(['error' => 'not enough points'], 403);
+
+        $rewardConflict = Stud_reward::where('student_id', $stu->id)->get();
+        $newPoint = (int)$point - (int)$request->reward_point;
+
+        if (!count($rewardConflict)) {
+            Student::where('id', $stu->id)->update([
+                'point' => $newPoint
+            ]);
+
+            $studReward = Stud_reward::where('student_id', $stu->id)->create([
+                'student_id' => $stu->id,
+                'reward_id' => $request->reward_id
+            ]);
+
+            return ($studReward);
         } else {
-            $rewardConflict = Stud_reward::where('student_id', $request->student_id)->get();
-            $newPoint = $point->point - (int)$request->reward_point;
+            foreach ($rewardConflict as $r) {
+                if ($request->reward_id == $r->reward_id) {
+                    return response()->json([
+                        'error' => 'reward already exist'
+                    ], 403);
+                } else {
+                    Student::where('id', $stu->id)->update([
+                        'point' => $newPoint
+                    ]);
 
-            if ($rewardConflict->toArray() == []) {
-                Student::where('id', $request->student_id)->update([
-                    'point' => $newPoint
-                ]);
+                    $studReward = Stud_reward::where('student_id', $stu->id)->create([
+                        'student_id' => $stu->id,
+                        'reward_id' => $request->reward_id
+                    ]);
 
-                $studReward = Stud_reward::where('student_id', $request->student_id)->create([
-                    'student_id' => $request->student_id,
-                    'reward_id' => $request->reward_id
-                ]);
-
-                return ($studReward);
-            } else {
-                foreach ($rewardConflict as $r) {
-                    if ($request->reward_id == $r->reward_id) {
-                        return response()->json([
-                            'error' => 'reward already exist'
-                        ], 403);
-                    } else {
-                        Student::where('id', $request->student_id)->update([
-                            'point' => $newPoint
-                        ]);
-
-                        $studReward = Stud_reward::where('student_id', $request->student_id)->create([
-                            'student_id' => $request->student_id,
-                            'reward_id' => $request->reward_id
-                        ]);
-
-                        return ($studReward);
-                    }
+                    return ($studReward);
                 }
             }
         }
     }
 
+    public function getProfileFrames(Request $request)
+    {
+        $token = $request->header("token");
+        if (!$token) return response()->json(["error" => "token is required."], 400);
+
+        $data = Reward::where('type', "frames")->get();
+        $stu = Student::where('token', $token)->first();
+
+        if (!$stu) return response()->json(["error" => "user not found"], 404);
+        if (count($data) == 0) return response()->json(["message" => "data not found"], 404);
+
+        // $point = 20;
+        $reward = [];
+        foreach ($data as $idx => $value) {
+            $stuReward = Stud_reward::where("student_id", $stu->id)->where("reward_id", $value->id)->first();
+
+            $value['item'] = $this->frames . $value->item . ".png";
+            $value['lock'] = $stu->fixed_point < $value->point ? 1 : 0;
+            $value["own"] = $stuReward ? 1 : 0;
+            array_push($reward, $value);
+
+            // if (isset($data[$idx + 1]) && $value->name !== $data[$idx + 1]->name) $point += 20;
+        }
+
+        return $reward;
+    }
+
+    // level up reward
+    public function getLevelUp(Request $request)
+    {
+        $token = $request->header("token");
+        if (!$token) return response()->json(["error" => "token is required."], 400);
+
+        $stu = Student::where("token", $token)->first();
+        $profile = Reward::where("type", "profile")->get();
+        $frames = Reward::where("type", "frames")->get();
+
+        $res = [
+            "point" => $stu->point,
+            "level" => $stu->level,
+        ];
+
+        $reward = [];
+        foreach ($profile as $val) {
+            if ($val->point <= $stu->fixed_point) {
+                $inReward = Stud_reward::where("reward_id", $val->id)
+                    ->where('student_id', $stu->id)
+                    ->first();
+                if (!$inReward) {
+                    $data = [
+                        "student_id" => $stu->id,
+                        "reward_id" => $val->id,
+                    ];
+                    $url = [
+                        "id" => $val->id,
+                        "url" => $this->profiles .  str_replace(' ', '-', $val->name) . "/" . $val->item . ".png"
+                    ];
+                    array_push($reward, $url);
+                    Stud_reward::create($data);
+                } else {
+                    $url = [
+                        "id" => $val->id,
+                        "url" => $this->profiles .  str_replace(' ', '-', $val->name) . "/" . $val->item . ".png"
+                    ];
+                    array_push($reward, $url);
+                }
+            }
+        }
+
+        foreach ($frames as $val) {
+            if ($val->point <= $stu->fixed_point) {
+                $inReward = Stud_reward::where("reward_id", $val->id)
+                    ->where('student_id', $stu->id)
+                    ->first();
+                if (!$inReward) {
+                    $data = [
+                        "student_id" => $stu->id,
+                        "reward_id" => $val->id,
+                    ];
+                    $url = [
+                        "id" => $val->id,
+                        "url" => $this->frames . $val->item . ".png"
+                    ];
+                    array_push($reward, $url);
+                    Stud_reward::create($data);
+                } else {
+                    $url = [
+                        "id" => $val->id,
+                        "url" => $this->frames . $val->item . ".png"
+                    ];
+                    array_push($reward, $url);
+                }
+            }
+        }
+
+        if (count($reward)) $res["rewards"] = $reward;
+        return $res;
+    }
+
+    // Profile
+    public function updateProfile(Request $request)
+    {
+        $token = $request->token;
+        $id = $request->id;
+        if (!$token || !$id) return response()->json(["error" => "token or id is required."], 400);
+
+        $student = Student::where("token", $token)->first();
+        $stud_id = $student->id;
+        $checkReward = Stud_reward::where('student_id', $stud_id)->where("reward_id", $id)->first();
+
+        if ($checkReward) {
+            $profile = Reward::where("id", $id)->first();
+            if ($profile->type === "profile") {
+                $student->update(["profile_picture" => $this->profiles .  str_replace(' ', '-', $profile->name) . "/" . $profile->item . ".png"]);
+                return response()->json(["message" => "User profile updated."]);
+            } else if ($profile->type === "frames") {
+                $student->update(["profile_frame" => $this->frames . $profile->item . ".png"]);
+                return response()->json(["message" => "User frame updated."]);
+            }
+            return response()->json(["error" => "item isn't profile or frame."], 403);
+        } else {
+            return response()->json(["error" => "You don't have this item."], 403);
+        }
+    }
+
+    // private
     private function addPointFunction($request)
     {
         $oldPoint = Student::where('id', $request->student_id)->first();
         $newPoint = $oldPoint->point + (int)$request->point;
         $newFixPoint = $oldPoint->fixed_point + (int)$request->point;
 
-        if ($oldPoint->level >= 1 && $oldPoint->level <= 50) {
+        $level = floor($newFixPoint / 10);
+
+        logger($level);
+
+        if ($level <= 50) {
             $board = 'silver';
         }
-        if ($oldPoint->level >= 51 && $oldPoint->level <= 100) {
+        if ($level >= 51 && $level <= 100) {
             $board = 'platinum';
         }
-        if ($oldPoint->level >= 101 && $oldPoint->level <= 200) {
+        if ($level >= 101 && $level <= 200) {
             $board = 'gold';
         }
-        if ($oldPoint->level >= 201 && $oldPoint->level <= 300) {
+        if ($level >= 201) {
             $board = 'diamond';
         }
         return [$newPoint, $newFixPoint, $board];

@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('audio', function (Blueprint $table) {
+        Schema::create('login_bonuses', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->integer('round_id')->nullable();
-            $table->integer('game_id')->nullable();
-            $table->string('path')->nullable();
+            $table->integer('days')->nullable()->default(0);
+            $table->integer('point')->nullable()->default(0);
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('audio');
+        Schema::dropIfExists('login_bonuses');
     }
 };

@@ -112,7 +112,7 @@ class GameController extends Controller
         $allLessons = Lesson::where('grade_id', $grade)->get();
 
         // $studentGrade = $student->grades;
-        $GradeChosen = $student->grade_chosen;
+        $GradeChosen = $request->student->grade_chosen;
 
         $studentLessons = $student->lessons; // ဆော့ပီးတဲ့ lessons
 
@@ -148,7 +148,7 @@ class GameController extends Controller
                 'complete' => $studentLessons->contains('id', $lesson->id),
                 'allowed' => $GradeChosen ? $complete || ($index > $ls_count - 1 ? false : true) : $index < ($ls == 0 ? 1 : $ls),// Free open for BETA
 
-                // 'allowed' => $GradeChosen ? ($index == 0 ? true : false) : $index < ($ls == 0 ? 1 : $ls) , // ‌include Assessment for - REAL -
+                // 'allowed' => $GradeChosen ? ($index == 0 ? true : false) : $index < ($ls == 0 ? 1 : $ls) , // ‌include Assessment for - REAL - (only lesson 1 open if student is free user and chose grade * )
 
 
             ];
@@ -289,11 +289,16 @@ class GameController extends Controller
         // return $gradeId = Lesson::find($lesson_id)->grade['id'];
 
 
-        $student = Student::where('token', $token)->first();
+        $student = $request->student;
 
         $game = Game::find($gameId);
 
         $unit = optional($game)->unit;
+
+        // return $lessonGames = Lesson::find($lesson_id)->games;
+        // return $gamesLesson = Game::find($gameId)->lesson;
+
+        $lessonUnit = Unit::where('lesson_id', $lesson_id)->get();
 
         $grade = Lesson::where('id', $lesson_id)->first()->grade;
 
@@ -305,50 +310,53 @@ class GameController extends Controller
         }
 
 
-        $alreadyDone = StudentGame::where('student_id', $student->id)->where('status', 1 )
+        $alreadyDone = StudentGame::where('student_id', $student->id)
         ->where('game_id', $gameId)->first();
+
+        // For block already done game adding points and duplicate lessons
+        $ExistLesson =  StudentLesson::where('student_id', $student->id)
+                ->where('lesson_id', $lesson_id)->first();
 
 
         // TEMPORARY BLOCK THIS FEATURE (POINT FILTER) Totally block free Trail players
         // if ($student->grades->count() == 0)  return response()->json(["message" => "Plz subscribe the plan."], 403);
+
+
+        ////// populate Game records
 
         if(!$alreadyDone) {
             StudentGame::insert([
                 'student_id' => $student->id,
                 'game_id' => $gameId,
                 'unit_id' => $unit->id,
-                'status' => 1,
                 'count' => 1 ,
             ]);
 
-        }else if($alreadyDone && $alreadyDone->count != 5){
+        if(!$ExistLesson) $this->addPointFunction($student, $point, $question_answer);
 
-                $fix_count = $alreadyDone->count;
-                $alreadyDone->count = $fix_count + 1;
+        }else if($alreadyDone && $alreadyDone->count < 5 )
+        {
+                $alreadyDone->count = $alreadyDone->count + 1;
                 $alreadyDone->save();
         }
 
 
+        $gameDone = $student->games;
+        $unitDone = $student->units;
+        $lessonDone = StudentLesson::where('student_id', $student->id)->get();
 
-
-        $gameDone = StudentGame::where('student_id', $student->id)->get();
-        $unitDone = StudentUnit::where('student_id', $student->id)->get();
-
-        $unitCheck = $unit->games->reject(function ($g) use ($gameDone) {  // sub units
-            return $gameDone->contains('game_id', $g->id);
+        /// Check sub game check
+        $subGameCheck = $unit->games->reject(function ($g) use ($gameDone) {
+            return $gameDone->contains('id', $g->id);
         });
 
-        $gameCheck_two  = $unitDone->filter(function ($u) use ($unit) {
-            return $u->unit_id == $unit->id;
+        /// Check duplicate unit
+        $dup_unit_check = $unitDone->filter(function($done) use($unit){
+            return $done->id == $unit->id;
         });
 
-
-        // To prevent adding StudentUnit record for already done games;
-        $lessonCheck = StudentLesson::where('student_id', $student->id)
-        ->where('lesson_id', $unit->lesson_id)->first();
-
-
-        if ($unitCheck->count() == 0 && $gameCheck_two->count() == 0 && !$lessonCheck ) {
+        ////// populate Unit records
+        if(count($subGameCheck) == 0 && count($dup_unit_check) == 0) {
 
             $unitInsert = StudentUnit::insert([
                 'student_id' => $student->id,
@@ -358,45 +366,47 @@ class GameController extends Controller
 
         }
 
-        $lessonUnit = Unit::where('lesson_id', $lesson_id)->get();
+
+        /// unit left in each lesson ?
+        $unit_left_check = empty($this->lessonCheck($student, $lessonUnit, $unitDone));
+
+        $lesson_completed = false;
+        if($unit_left_check) {
+        $lesson_completed = true;
+
+            // Subscription checkpoint (** block adding & updating lesson records **)
+            $grade_id = Lesson::find($lesson_id)->grade['id'];
+            $studentGrade = StudentGrade::where('student_id', $student->id)->where('grade_id', $grade_id)->first();
+
+            $assessment_prove = AssessmentFinishData::where('student_id',$student->id)
+            ->where('grade_id',$grade->id)->count() * 8 + ($grade->id - 1 ) * 40;
 
 
-        if (
-            $this->lessonCheck($student, $lessonUnit)->count() == 0
-            && $unitCheck->count() == 0
-        ) {
+            if ($studentGrade && !$ExistLesson && ($lesson_id > $assessment_prove)){
 
-            $alreadyExist =  StudentLesson::where('student_id', $student->id)
-                ->where('lesson_id', $lesson_id)->first();
+                $lessonInsert = StudentLesson::create([
+                    'student_id' => $student->id,
+                    'lesson_id' => $lesson_id,
+                    'grade_id' => $grade->id,
+                    'count' => 1,
+                ]);
 
-            if ($alreadyExist) return 201;
-
-
-            //---- for Subscription and Real Server (block adding lesson records)
-
-                // $grade_id = Lesson::find($lesson_id)->grade['id'];
-
-                // $studentGrade = StudentGrade::where('student_id', $student->id)
-                //     ->where('grade_id', $grade_id)->first();
-
-                // if (!$studentGrade) return response()->json(
-                //     ["message" => "U need to buy a grade"],
-                //     402
-                // );
-            //----------------
-            //----------------
-
-            $lessonInsert = StudentLesson::create([
-                'student_id' => $student->id,
-                'lesson_id' => $lesson_id,
-                'grade_id' => $grade->id,
-                'status' => 1
-            ]);
-
-            if ($lessonInsert) {
-                StudentUnit::where('student_id', $student->id)
-                    ->where('lesson_id', $lesson_id)->delete();
             }
+
+            /// Delete units and games after add lesson record
+            $lessonGamesId = Lesson::find($lesson_id)->games->pluck('id');
+
+            StudentUnit::where('student_id', $student->id)->where('lesson_id', $lesson_id)->delete();
+            // StudentGame::where('student_id', $student->id)->whereIn('game_id', $lessonGamesId)->delete();
+
+
+            //  For Subscription and Real Server (** block adding lesson records **)
+
+                if (!$studentGrade) return response()->json(
+                    ["message" => "You are not a subscriber"],402);
+
+            //----------------
+
         }
 
 
@@ -407,11 +417,6 @@ class GameController extends Controller
             $studentGrade = StudentGrade::where('student_id', $student->id)
                 ->where('grade_id', $grade_id)->first();
 
-            if (!$studentGrade) return response()->json(
-                ["message" => "You Complete the grade-1 lessons"],
-                402
-            );
-
 
             StudentGrade::where('student_id', $student->id)
                 ->where('grade_id', $grade_id)
@@ -420,16 +425,30 @@ class GameController extends Controller
         }
 
 
-        //ထူးထူး
-        // if ($student->grade_chosen == null) {
-        //  $this->addPointFunction($student, $request->header('point'),$request->header('question_answer'));
-        // }
-        $this->addPointFunction($student, $point, $question_answer);
+        // repetitive lesson done check for (lesson completed screen)
 
+        // $re_lesson_games = Lesson::find($game->lesson->id)->games;
+
+        // $re_lesson_check = array_filter($re_lesson_games->toArray(), function ($re_l_g) use ($gameDone){
+        //     return !$gameDone->contains('id',$re_l_g['id']);
+        // });
+        // $lesson_completed = count($re_lesson_check) == 0;
+
+
+        ////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
+
+        $updateStudent = Student::find($student->id);
         return response()->json([
             'message' => 'success and recorded',
-            // 'assessment_status' => $data,
-            'fixed_point' => Student::where('id', $student->id)->pluck('fixed_point')->first(),
+            'fixed_point' => $updateStudent->fixed_point,
+            'level' => $updateStudent->level,
+            'question_answer' => $updateStudent->question_answer,
+            'board' => $updateStudent->board,
+            'completed_lesson_id' => $lesson_completed ? $game->lesson->id : 0,
+            'completed_lesson_name' => $lesson_completed ? $game->lesson->name : 0,
+            // 'repetitive' => $alreadyDone && true
         ], 200);
     }
 
@@ -437,17 +456,25 @@ class GameController extends Controller
 
 
 
-    private function lessonCheck($student, $lessonUnit)
+    private function lessonCheck($student, $lessonUnit, $unitDone)
     {
 
+        try {
 
+            $unitDone = StudentUnit::where('student_id',$student->id)->get();
 
-        $unitDone = StudentUnit::where('student_id', $student->id)->get();
+            // return $lessonUnit->reject(function ($u) use ($unitDone) {
+            //     return $unitDone->contains('unit_id', $u->id);
+            // });
 
+            return array_filter($lessonUnit->toArray(), function ($u) use ($unitDone){
+                return !$unitDone->contains('unit_id', $u['id']);
+            });
 
-        return $filter = $lessonUnit->reject(function ($u) use ($unitDone) {
-            return $unitDone->contains('unit_id', $u->id);
-        });
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
     }
 
 
@@ -455,18 +482,22 @@ class GameController extends Controller
     private function gradeCheck($student, $lesson_id)
     {
 
-        $grade = Lesson::find($lesson_id)->grade;
+        try {
 
-        $lessons = Lesson::where('grade_id', $grade->id)->get();
-        $lessonDone = studentLesson::where('student_id', $student->id)->get();
+            $grade = Lesson::find($lesson_id)->grade;
+
+            $lessons = Lesson::where('grade_id', $grade->id)->get();
+            $lessonDone = studentLesson::where('student_id', $student->id)->get();
+
+            return $lessons->filter(function ($i) use ($lessonDone) {
+                return !$lessonDone->contains('lesson_id', $i->id);
+            });
 
 
-        $result = $lessons->filter(function ($i) use ($lessonDone) {
-            return !$lessonDone->contains('lesson_id', $i->id);
-        });
+        } catch (\Throwable $th) {
+            throw $th;
+        }
 
-        // logger($result->toArray());
-        return $result;
     }
 
 
@@ -477,45 +508,43 @@ class GameController extends Controller
     private function addPointFunction($student, $point, $question_answer)
     {
 
-        // return 'cc';
         $student_id = $student->id;
 
         $oldPoint = Student::where('id', $student_id)->first();
         $newPoint = $oldPoint->point + (int)$point;
         $newFixPoint = $oldPoint->fixed_point + (int)$point;
 
-        if ($oldPoint->level >= 1 && $oldPoint->level <= 50) {
-            $board = 'silver';
-        }
+            $lvl = floor($newFixPoint / 10) ;
 
-        if ($oldPoint->level >= 51 && $oldPoint->level <= 100) {
-            $board = 'platinum';
-        }
-        if ($oldPoint->level >= 101 && $oldPoint->level <= 200) {
-            $board = 'gold';
-        }
-        if ($oldPoint->level >= 201 && $oldPoint->level <= 300) {
-            $board = 'diamond';
-        }
+            if ($lvl <= 50) {
+                $board = 'silver';
+            }else if
+            ($lvl > 50 && $lvl <= 100) {
+                $board = 'platinum';
+            }
+            else if
+            ($lvl > 100 && $lvl <= 200) {
+                $board = 'gold';
+            }
+            else if
+            ($lvl > 200) {
+                $board = 'diamond';
+            }
 
-        if ($newFixPoint >= 0 && $newFixPoint <= 3000) {
-            $level = ceil($newFixPoint / 10);
-            Student::where('id', $student_id)->update([
-                'point' => $newPoint,
-                'fixed_point' => $newFixPoint,
-                'level' => $level,
-                'board' => $board
-            ]);
-        } else {
-            Student::where('id', $student_id)->update([
-                'point' => $newPoint,
-                'fixed_point' => $newFixPoint,
-                'board' => $board
-            ]);
-        }
 
-        // Total - ans_ques
+        $data = [
+            'point' => $newPoint > 3000 ? 3000 : $newPoint,
+            'fixed_point' => $newFixPoint > 3000 ? 3000 : $newFixPoint,
+            'board' => $board
+        ];
 
+            if ($newFixPoint >= 0 && $newFixPoint <= 3000) {
+                    $level = floor($newFixPoint / 10);
+                    $data['level'] = $level < 1 ?  1 : $level;
+                    Student::where('id', $student->id)->update($data);
+            } else {
+                    Student::where('id', $student->id)->update($data);
+            }
 
         Student::where('id', $student_id)->update([
             'question_answer' => (int)$question_answer + Student::find($student_id)->question_answer

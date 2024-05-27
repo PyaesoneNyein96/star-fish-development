@@ -26,6 +26,7 @@ class AssessmentFinishData extends Model
         // "game_10",
         "point",
         "finish",
+        "claim"
     ];
 
 

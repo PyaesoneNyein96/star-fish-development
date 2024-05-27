@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@600&family=Roboto+Slab:wght@100..900&family=Rubik&display=swap"
+        rel="stylesheet"> --}}
+
+    <title>Certificate</title>
+    <style>
+        /* @font-face {
+            font-family: 'AlbertusNova';
+            src: url({{ asset('/fonts/Albertus-Medium-Regular.ttf') }}) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        } */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        h1 {
+            width: 100%;
+            position: absolute;
+            top: 42%;
+            left: 50%;
+            bottom: auto;
+            transform: translate(-50%, -50%);
+            color: #4c82fc;
+            font-size: 4rem;
+            text-align: center;
+            font-family: "AlbertusNova", sans-serif;
+            /* font-family: "EB Garamond"; */
+        }
+
+        .grade-id {
+            position: absolute;
+            top: 46.2%;
+            left: 49.8%;
+            bottom: auto;
+            font-size: 2.2rem;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .percent {
+            position: absolute;
+            top: 71%;
+            left: 49.6%;
+            bottom: auto;
+            transform: translate(-50%, -50%);
+            font-size: 6.8rem;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .pass {
+            position: absolute;
+            top: 79%;
+            left: 49.8%;
+            bottom: auto;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .certi-num {
+            position: absolute;
+            top: 64%;
+            right: 8%;
+            bottom: auto;
+            font-size: 1.8rem;
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .date {
+            position: absolute;
+            top: 64%;
+            left: 8%;
+            bottom: auto;
+            font-size: 1.8rem;
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://star-fish-development.myanmargateway.net/storage/certificate_template/certificate.png"
+            alt="">
+
+        {{-- <h1>May Pyae Sone Aung</h1> --}}
+        <h1>{{ $name }}</h1>
+        <p class="grade-id">{{ $grade_id }}</p>
+        <p class="percent">{{ $total_percentage }}%</p>
+        <p class="pass">Pass</p>
+        <p class="certi-num">Certificate Number : {{ $certificate_num }}</p>
+        <p class="date">Date of Award : {{ $date }}</p>
+    </div>
+</body>
+
+</html>

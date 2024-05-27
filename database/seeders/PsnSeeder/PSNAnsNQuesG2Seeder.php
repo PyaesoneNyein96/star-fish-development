@@ -12,8 +12,9 @@ class PSNAnsNQuesG2Seeder extends Seeder
      * Run the database seeds.
      */
 
-    private function removeSpace($val){
-        return str_replace(' ','-',$val);
+    private function removeSpace($val)
+    {
+        return str_replace(' ', '-', $val);
     }
 
 
@@ -28,9 +29,9 @@ class PSNAnsNQuesG2Seeder extends Seeder
         $ImageDomainAZ_small = $domain . "/storage/images/AtoZ_Small/";
         $prefix = "SubBlock_";
 
-        $backgroundDomain = $domain."/storage/images/Backgrounds/";
+        $backgroundDomain = $domain . "/storage/images/Backgrounds/";
 
-        $AtoZUpdate = $domain."/storage/audios/A_to_Z_update/";
+        $AtoZUpdate = $domain . "/storage/audios/A_to_Z_update/";
 
 
         $cap_traceSuccess = $ImageDomain . "TraceSuccessAZ/capital_success/";
@@ -48,25 +49,25 @@ class PSNAnsNQuesG2Seeder extends Seeder
         // ========================   Lesson - 21 ===================================
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 352, 'a_content' => 'lesson_21', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 352, 'a_content' => '943911000', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 352, 'a_content' => 'lesson_21 (Global)', 'isLocal' => 0]);
 
 
         // Unit - 2 <reading_carousel>
 
         $contents = [
-            'Badminton','Basketball','Football','Frisbee','Hide and seek','Hopscotch','Jumping Rope','Volleyball'
+            'Badminton', 'Basketball', 'Football', 'Frisbee', 'Hide and seek', 'Hopscotch', 'Jumping Rope', 'Volleyball'
         ];
 
-        $audio = $AudioDomain."Grade_2/Lesson_21/Listen_and_Repeat/";
-        $img = $ImageDomain."Grade_2/Lesson_21/Listen_and_Repeat/";
+        $audio = $AudioDomain . "Grade_2/Lesson_21/Listen_and_Repeat/";
+        $img = $ImageDomain . "Grade_2/Lesson_21/Listen_and_Repeat/";
 
         foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 353, 'a_content' => $val,
-                    'a_image' => $img.str_replace(' ','-',$val).".png",
-                    'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
                 ],
             ]);
         }
@@ -77,92 +78,92 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
         $contents = [
-          'Volleyball','Frisbee','Football','Hopscotch','Basketball'
+            'Volleyball', 'Frisbee', 'Football', 'Hopscotch', 'Basketball'
         ];
 
         $ans = [
-            'Football','Frisbee','Basketball','Hopscotch','Volleyball'
+            'Football', 'Frisbee', 'Basketball', 'Hopscotch', 'Volleyball'
         ];
 
-        $audio = $AudioDomain."Grade_2/Lesson_21/Matching/";
-        $img = $ImageDomain."Grade_2/Lesson_21/Matching/";
+        $audio = $AudioDomain . "Grade_2/Lesson_21/Matching/";
+        $img = $ImageDomain . "Grade_2/Lesson_21/Matching/";
 
         foreach ($ans as $key => $val) {
             DB::table('ans_n_ques')->insert([
-                 [
-                     'game_id' => 354,
-                     'round' => 1,
-                     'q_content' => strtolower($val),
-                     'q_image' => $img.$val.".png",
-                     'q_audio' => $audio.$val.".mp3",
-                 ]
-             ]);
-     }
+                [
+                    'game_id' => 354,
+                    'round' => 1,
+                    'q_content' => strtolower($val),
+                    'q_image' => $img . $val . ".png",
+                    'q_audio' => $audio . $val . ".mp3",
+                ]
+            ]);
+        }
 
 
 
         foreach ($contents as $key => $val) {
-               DB::table('ans_n_ques')->insert([
-                    [
-                        'game_id' => 354,
-                        'round' => 1,
-                        'q_image' => $val,
-                        'q_audio' => $audio.$val.".mp3",
-                        'q_content' => $val,
-                    ]
-                ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 354,
+                    'round' => 1,
+                    'q_image' => $val,
+                    'q_audio' => $audio . $val . ".mp3",
+                    'q_content' => $val,
+                ]
+            ]);
         }
 
 
 
 
 
-    // ========================================
-    // Unit -4  <mcq_tf_instruction>
+        // ========================================
+        // Unit -4  <mcq_tf_instruction>
 
-    $imgs = [
-        'basketball','hopscotch', 'hide_and_seek', 'football','frisbee'
-    ];
+        $imgs = [
+            'basketball', 'hopscotch', 'hide_and_seek', 'football', 'frisbee'
+        ];
 
-    $ans = [
-        false,true,true,false,true
-    ];
-
-
+        $ans = [
+            false, true, true, false, true
+        ];
 
 
-     $audio = $AudioDomain."Grade_2/Lesson_21/Choose_your_answer/";
-        $img = $ImageDomain."Grade_2/Lesson_21/Choose_your_answer/";
 
-    foreach ($imgs as $key => $val) {
 
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 355,
-                'round' => $key + 1,
-                'q_image' => $img.$val.".png",
-                'q_audio' => $audio.str_replace('_','-',$val).".mp3",
-                // 'q_conver' => "I can play " .str_replace('_',' ',$val).".Can you play it?",
-                'q_content' =>  "Yes, I can",
-                'a_content' =>  true == $ans[$key] ? true : false,
+        $audio = $AudioDomain . "Grade_2/Lesson_21/Choose_your_answer/";
+        $img = $ImageDomain . "Grade_2/Lesson_21/Choose_your_answer/";
+
+        foreach ($imgs as $key => $val) {
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 355,
+                    'round' => $key + 1,
+                    'q_image' => $img . $val . ".png",
+                    'q_audio' => $audio . str_replace('_', '-', $val) . ".mp3",
+                    // 'q_conver' => "I can play " .str_replace('_',' ',$val).".Can you play it?",
+                    'q_content' =>  "Yes, I can",
+                    'a_content' =>  true == $ans[$key] ? true : false,
                 ]
-        ]);
+            ]);
 
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 355,
-                'round' => $key + 1,
-                'q_content' => "No, I can't",
-                'a_content' => false == $ans[$key] ? true : false,
-            ]
-        ]);
-    }
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 355,
+                    'round' => $key + 1,
+                    'q_content' => "No, I can't",
+                    'a_content' => false == $ans[$key] ? true : false,
+                ]
+            ]);
+        }
 
 
-    // ========================================
-    // Unit -4  <speaking_and_recording>
+        // ========================================
+        // Unit -4  <speaking_and_recording>
 
-        $contentImg = ['frisbee', 'football', 'basketball', 'hopscotch', 'volleyball', 'hide and seek','jump-rope'];
+        $contentImg = ['frisbee', 'football', 'basketball', 'hopscotch', 'volleyball', 'hide and seek', 'jump-rope'];
 
 
         $questionContent = [
@@ -198,7 +199,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'q_content' => $value,
                     'q_image' => $img . str_replace(' ', '-', $contentImg[$key]) . ".png",
                     'a_content' => null,
-                    'q_audio' => $audio.$questionAudio[$key].".mp3",
+                    'q_audio' => $audio . $questionAudio[$key] . ".mp3",
                 ]
 
             ]);
@@ -207,10 +208,10 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // ========================   Lesson 22 ===================================
+        // ========================   Lesson 22 ===================================
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 357, 'a_content' => 'lesson_22', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 357, 'a_content' => '943911104', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 357, 'a_content' => 'lesson_22 (Global)', 'isLocal' => 0]);
 
 
@@ -225,12 +226,12 @@ class PSNAnsNQuesG2Seeder extends Seeder
         DB::table('ans_n_ques')->insert(['game_id' => 359, 'a_content' => 'lesson_22', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 359, 'a_content' => 'lesson_22 (Global)', 'isLocal' => 0]);
 
-    // Unit - 4 <speaking_and_recording>
+        // Unit - 4 <speaking_and_recording>
 
 
 
 
-        $contentImg = ['badminton', 'rope-jump', 'hopscotch', 'draw-picture','sing-english-songs', 'football', ];
+        $contentImg = ['badminton', 'rope-jump', 'hopscotch', 'draw-picture', 'sing-english-songs', 'football',];
 
         $questionContent = [
             "Look at the picture and speak \n Example \n I can play badminton. Can you play it? \n Yes,I can. I can play badminton better than you.",
@@ -260,11 +261,11 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 [
                     'game_id' => 360,
                     'round' => $key + 1,
-                    'round_instruction' => $key == 0 ? $audio."look-at-the-picture-and-speak.mp3" : null,
+                    'round_instruction' => $key == 0 ? $audio . "look-at-the-picture-and-speak.mp3" : null,
                     'q_content' => $value,
                     'q_image' => $img . str_replace(' ', '-', $contentImg[$key]) . ".png",
                     'a_content' => null,
-                    'q_audio' => $audio.$questionAudio[$key],
+                    'q_audio' => $audio . $questionAudio[$key],
 
                 ]
 
@@ -274,124 +275,123 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // ========================   Lesson - 23 ===================================
+        // ========================   Lesson - 23 ===================================
 
 
 
-    DB::table('ans_n_ques')->insert(['game_id' => 361, 'a_content' => 'lesson_23', 'isLocal' => 1]);
-    DB::table('ans_n_ques')->insert(['game_id' => 361, 'a_content' => 'lesson_23 (Global)', 'isLocal' => 0]);
+        DB::table('ans_n_ques')->insert(['game_id' => 361, 'a_content' => '943911382', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 361, 'a_content' => 'lesson_23 (Global)', 'isLocal' => 0]);
 
-    // Unit - 2 <reading_carousel>
+        // Unit - 2 <reading_carousel>
 
-    $contents = [
-        'bird','cat','cow','dog','giraffe','goat','hippopotamus','monkey','rabbit','snake',
-    ];
+        $contents = [
+            'bird', 'cat', 'cow', 'dog', 'giraffe', 'goat', 'hippopotamus', 'monkey', 'rabbit', 'snake',
+        ];
 
-    $audio = $AudioDomain."Grade_2/Lesson_23/Listen_and_Repeat/";
-    $img = $ImageDomain."Grade_2/Lesson_23/Listen_and_Repeat/";
+        $audio = $AudioDomain . "Grade_2/Lesson_23/Listen_and_Repeat/";
+        $img = $ImageDomain . "Grade_2/Lesson_23/Listen_and_Repeat/";
 
         foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 362,
                     'a_content' => $val,
-                    'a_image' => $img.ucfirst($val).".png",
-                    'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
+                    'a_image' => $img . ucfirst($val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
                 ],
             ]);
         }
 
 
 
-    // Unit - 3 <sentence_tracing>
+        // Unit - 3 <sentence_tracing>
 
-    $words = [
-        'Cow','Dog','Cat','Bird',
-    ];
+        $words = [
+            'Cow', 'Dog', 'Cat', 'Bird',
+        ];
 
-    $letters = [
-        ['C','o','w'],
-        ['D','o','g'],
-        ['C','a','t'],
-        ['B','i','r','d'],
-    ];
-
-
-    $counts = [
-        [1,1,4],
-        [2,1,2],
-        [1,2,2],
-        [3,2,2,2]
-    ];
-
-    $audio = $AudioDomain."Grade_2/Lesson_23/Trace_words/";
-    $img = $ImageDomain."Grade_2/Lesson_23/Trace_words/";
+        $letters = [
+            ['C', 'o', 'w'],
+            ['D', 'o', 'g'],
+            ['C', 'a', 't'],
+            ['B', 'i', 'r', 'd'],
+        ];
 
 
-    foreach ($words as $key => $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 363,
-                'round' => $key + 1,
-                'q_image' => $img.$val.".png",
-                'q_audio' => $audio.$val.".mp3",
-                'a_content' => $val
+        $counts = [
+            [1, 1, 4],
+            [2, 1, 2],
+            [1, 2, 2],
+            [3, 2, 2, 2]
+        ];
 
-            ]
-        ]);
+        $audio = $AudioDomain . "Grade_2/Lesson_23/Trace_words/";
+        $img = $ImageDomain . "Grade_2/Lesson_23/Trace_words/";
 
 
-        foreach ($letters[$key] as $k => $value) {
+        foreach ($words as $key => $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 363,
                     'round' => $key + 1,
-                    'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value.".png",
-                    'a_content' => $value,
-                    'a_image' => ctype_lower($value) ? $sm_traceSuccess. $value . ".png" : $cap_traceSuccess. $value.".png",
-                    'a_extra' => $counts[$key][$k]
+                    'q_image' => $img . $val . ".png",
+                    'q_audio' => $audio . $val . ".mp3",
+                    'a_content' => $val
 
                 ]
             ]);
+
+
+            foreach ($letters[$key] as $k => $value) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 363,
+                        'round' => $key + 1,
+                        'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value . ".png",
+                        'a_content' => $value,
+                        'a_image' => ctype_lower($value) ? $sm_traceSuccess . $value . ".png" : $cap_traceSuccess . $value . ".png",
+                        'a_extra' => $counts[$key][$k]
+
+                    ]
+                ]);
+            }
         }
 
-    }
 
 
+        // Unit - 4 Listen and Choose <mcq_grammar_two>
 
-    // Unit - 4 Listen and Choose <mcq_grammar_two>
+        $imgs = [
+            'Snake', 'Hippo', 'Rabbit', 'Bird', 'Giraffe',
+        ];
 
-    $imgs = [
-        'Snake','Hippo','Rabbit','Bird','Giraffe',
-    ];
-
-    $ques = [
-        ['Snake','Goat'],
-        ['Hippo','Cow'],
-        ['Goat','Rabbit'],
-        ['Bird','Cat'],
-        ['Monkey','Giraffe']
-    ];
+        $ques = [
+            ['Snake', 'Goat'],
+            ['Hippo', 'Cow'],
+            ['Goat', 'Rabbit'],
+            ['Bird', 'Cat'],
+            ['Monkey', 'Giraffe']
+        ];
 
 
-    $audio = $AudioDomain."Grade_2/Lesson_23/Listen_and_Choose/";
-    $img = $ImageDomain."Grade_2/Lesson_23/Listen_and_Choose/";
+        $audio = $AudioDomain . "Grade_2/Lesson_23/Listen_and_Choose/";
+        $img = $ImageDomain . "Grade_2/Lesson_23/Listen_and_Choose/";
 
 
 
 
-    foreach ($imgs as $key => $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 364,
-                'round' => $key + 1,
-                'q_image' => $img.$val.".png",
-                'q_audio' => $audio.$val.".mp3",
-                'q_content' => $ques[$key][0],
-                'q_conver'  =>  "What is it? \n It's a ___. ",
-                'a_content' => $ques[$key][0] == $val ? true : false
-            ]
-        ]);
+        foreach ($imgs as $key => $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 364,
+                    'round' => $key + 1,
+                    'q_image' => $img . $val . ".png",
+                    'q_audio' => $audio . $val . ".mp3",
+                    'q_content' => $ques[$key][0],
+                    'q_conver'  =>  "What is it? \n It's a ___. ",
+                    'a_content' => $ques[$key][0] == $val ? true : false
+                ]
+            ]);
 
 
             DB::table('ans_n_ques')->insert([
@@ -402,16 +402,16 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'a_content' => $ques[$key][1] == $val ? true : false
                 ]
             ]);
-    }
+        }
 
 
-    // Lesson 23 unit 4 Speaking <Speaking_recording>
+        // Lesson 23 unit 4 Speaking <Speaking_recording>
 
 
         $contentImg = ["Jane"];
 
         $questionContent = [
-                "HI,I am ___. I can ___ ___. \n I can ___ ___ and ___ ___. \n I can't ___ ___. I like ___. \n My favorite ___ is ___.It is ___."
+            "HI,I am ___. I can ___ ___. \n I can ___ ___ and ___ ___. \n I can't ___ ___. I like ___. \n My favorite ___ is ___.It is ___."
         ];
 
         $questionAudio = ["Hi i am Jane.I can sing"];
@@ -429,7 +429,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'q_content' => $value,
                     'q_image' => $img . str_replace(' ', '-', $contentImg[$key]) . ".png",
                     'a_content' => null,
-                    'q_audio' => $audio.str_replace(' ','-',$questionAudio[$key]).".mp3",
+                    'q_audio' => $audio . str_replace(' ', '-', $questionAudio[$key]) . ".mp3",
                     // 'q_audio' => null
                 ]
 
@@ -438,96 +438,95 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-/////////////////////////// Lesson 24 //////////////////////////////////////////
+        /////////////////////////// Lesson 24 //////////////////////////////////////////
 
 
 
-    DB::table('ans_n_ques')->insert(['game_id' => 366, 'a_content' => 'lesson_24', 'isLocal' => 1]);
-    DB::table('ans_n_ques')->insert(['game_id' => 366, 'a_content' => 'lesson_24 (Global)', 'isLocal' => 0]);
+        DB::table('ans_n_ques')->insert(['game_id' => 366, 'a_content' => 'lesson_24', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 366, 'a_content' => 'lesson_24 (Global)', 'isLocal' => 0]);
 
-    // Lesson 24 unit 2 Listen and Practice <Reading_carousel>
+        // Lesson 24 unit 2 Listen and Practice <Reading_carousel>
 
-    $contents = [
-        'Quail', 'Queen', 'Question', 'Quilt', 'Quiz', 'Rabbit',
-        'Radio', 'Raincoat', 'Rhino', 'Ring', 'Rocket', 'Rope', 'Ruler'
-    ];
+        $contents = [
+            'Quail', 'Queen', 'Question', 'Quilt', 'Quiz', 'Rabbit',
+            'Radio', 'Raincoat', 'Rhino', 'Ring', 'Rocket', 'Rope', 'Ruler'
+        ];
 
-    $audio = $AudioDomain."Grade_2/Lesson_24/Listen_and_Practice/";
-    $img = $ImageDomain."Grade_2/Lesson_24/Listen_and_Practice/";
+        $audio = $AudioDomain . "Grade_2/Lesson_24/Listen_and_Practice/";
+        $img = $ImageDomain . "Grade_2/Lesson_24/Listen_and_Practice/";
 
         foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 367,
                     'a_content' => $val,
-                    'a_image' => $img.ucfirst($val).".png",
-                    'a_audio' => $audio.str_replace(' ','-',strtolower($val)).".mp3"
+                    'a_image' => $img . ucfirst($val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', strtolower($val)) . ".mp3"
                 ],
             ]);
         }
 
 
 
-    // Lesson 24 Unit 3 Trace Words <sentence_tracing>
+        // Lesson 24 Unit 3 Trace Words <sentence_tracing>
 
 
 
-    $words = [
-        'Rope','Ring','Quiz','Quail',
-    ];
+        $words = [
+            'Rope', 'Ring', 'Quiz', 'Quail',
+        ];
 
-    $letters = [
-        ['R','o','p','e'],
-        ['R','i','n','g'],
-        ['Q','u','i','z'],
-        ['Q','u','a','i','l'],
-    ];
+        $letters = [
+            ['R', 'o', 'p', 'e'],
+            ['R', 'i', 'n', 'g'],
+            ['Q', 'u', 'i', 'z'],
+            ['Q', 'u', 'a', 'i', 'l'],
+        ];
 
-    $counts = [
-        [3,1,2,2],
-        [3,2,2,2],
-        [2,1,2,3],
-        [2,1,2,2,1]
-    ];
+        $counts = [
+            [3, 1, 2, 2],
+            [3, 2, 2, 2],
+            [2, 1, 2, 3],
+            [2, 1, 2, 2, 1]
+        ];
 
-    $audio = $AudioDomain."Grade_2/Lesson_24/Trace_words/";
-    $img = $ImageDomain."Grade_2/Lesson_24/Trace_words/";
-
-
-    foreach ($words as $key => $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 368,
-                'round' => $key + 1,
-                'q_image' => $img.$val.".png",
-                'q_audio' => $audio.$val.".mp3",
-                'a_content' => $val
-
-            ]
-        ]);
+        $audio = $AudioDomain . "Grade_2/Lesson_24/Trace_words/";
+        $img = $ImageDomain . "Grade_2/Lesson_24/Trace_words/";
 
 
-        foreach ($letters[$key]  as $k => $value) {
+        foreach ($words as $key => $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 368,
                     'round' => $key + 1,
-                    'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value.".png",
-                    'a_content' => $value,
-                    'a_image' => ctype_lower($value) ? $sm_traceSuccess. $value . ".png" : $cap_traceSuccess. $value.".png",
-                    'a_extra' => $counts[$key][$k]
+                    'q_image' => $img . $val . ".png",
+                    'q_audio' => $audio . $val . ".mp3",
+                    'a_content' => $val
 
                 ]
             ]);
+
+
+            foreach ($letters[$key]  as $k => $value) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 368,
+                        'round' => $key + 1,
+                        'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value . ".png",
+                        'a_content' => $value,
+                        'a_image' => ctype_lower($value) ? $sm_traceSuccess . $value . ".png" : $cap_traceSuccess . $value . ".png",
+                        'a_extra' => $counts[$key][$k]
+
+                    ]
+                ]);
+            }
         }
 
-    }
 
 
+        // Lesson -24 Unit -4 <matching_columns>
 
-    // Lesson -24 Unit -4 <matching_columns>
-
-    $contents = [
+        $contents = [
             ['Rope', 'Quail', 'Raincoat', 'Rocket', 'Radio'],
             ['Queen', 'Question', 'Rhino', 'Ring', 'Ruler']
         ];
@@ -567,24 +566,24 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // Lesson -24 Writing <rearrange with audio>
+        // Lesson -24 Writing <rearrange with audio>
 
 
         $Questions = [
             ['I', 'O', 'D', 'R', 'A'],
             ['O', 'P', 'R', 'E'],
-            ['I', 'N', 'R', 'C', 'O', 'A', 'A','T'],
+            ['I', 'N', 'R', 'C', 'O', 'A', 'A', 'T'],
             ['I', 'U', 'Q', 'Z'],
             ['R', 'U', 'R', 'E', 'L'],
-            ['O', 'P', 'R','E'],
-            ['O', 'R', 'H','N','I'],
-            ['O','Q','I','T','E','S','U','N'],
-            ['E','Q','E','U','N'],
-            ['R','O','E','T','K','C'],
+            ['O', 'P', 'R', 'E'],
+            ['O', 'R', 'H', 'N', 'I'],
+            ['O', 'Q', 'I', 'T', 'E', 'S', 'U', 'N'],
+            ['E', 'Q', 'E', 'U', 'N'],
+            ['R', 'O', 'E', 'T', 'K', 'C'],
         ];
 
         $answers = [
-            'RADIO', 'ROPE', 'RAINCOAT', 'QUIZ', 'RULER', 'ROPE','RHINO','QUESTION','QUEEN','ROCKET'
+            'RADIO', 'ROPE', 'RAINCOAT', 'QUIZ', 'RULER', 'ROPE', 'RHINO', 'QUESTION', 'QUEEN', 'ROCKET'
         ];
 
         for ($i = 0; $i < count($Questions); $i++) {
@@ -637,9 +636,9 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
                 [
                     'game_id' => 371, 'round' => $key + 1,
-                    'round_instruction' => $AudioDomain."/Grade_2/Lesson_24/Speaking/"."Look-at-the-picture-and-speak.mp3",
+                    'round_instruction' => $AudioDomain . "/Grade_2/Lesson_24/Speaking/" . "Look-at-the-picture-and-speak.mp3",
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $AudioDomain."/Grade_2/Lesson_24/Speaking/".$contents[$key].".mp3",
+                    'q_audio' => $AudioDomain . "/Grade_2/Lesson_24/Speaking/" . $contents[$key] . ".mp3",
                     'q_image' => $ImageDomain . "Grade_2/Lesson_24/Speaking/" . $value . ".png",
                     // 'a_content' => str_replace('-', ' ', $value)
                 ]
@@ -692,7 +691,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     [
                         'round' => $i + 1,
                         'game_id' => 372,
-                        'q_audio' => $audios . str_replace(' ','-',strtolower($value)) . ".mp3",
+                        'q_audio' => $audios . str_replace(' ', '-', strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $L32U5_given_q[$i][1] ? 1 : 0
                     ]
@@ -722,167 +721,163 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // ========================   Lesson - 25 ===================================
+        // ========================   Lesson - 25 ===================================
 
 
-    DB::table('ans_n_ques')->insert(['game_id' => 373, 'a_content' => 'lesson_25', 'isLocal' => 1]);
-    DB::table('ans_n_ques')->insert(['game_id' => 373, 'a_content' => 'lesson_25 (Global)', 'isLocal' => 0]);
+        DB::table('ans_n_ques')->insert(['game_id' => 373, 'a_content' => '943911533', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 373, 'a_content' => 'lesson_25 (Global)', 'isLocal' => 0]);
 
 
 
-    // Unit - 2 <reading_carousel>
+        // Unit - 2 <reading_carousel>
 
-    $contents = [
-        'Bird','Bush','Chair','Egg','Farm House','Nest','Quail','Rabbit','Table'
-    ];
+        $contents = [
+            'Bird', 'Bush', 'Chair', 'Egg', 'Farm House', 'Nest', 'Quail', 'Rabbit', 'Table'
+        ];
 
-    $audio = $AudioDomain."Grade_2/Lesson_25/Listen_and_Repeat/";
-    $img = $ImageDomain."Grade_2/Lesson_25/Listen_and_Repeat/";
+        $audio = $AudioDomain . "Grade_2/Lesson_25/Listen_and_Repeat/";
+        $img = $ImageDomain . "Grade_2/Lesson_25/Listen_and_Repeat/";
 
         foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 374,
                     'a_content' => $val,
-                    'a_image' => $img.str_replace(' ','-',$val).".png",
-                    'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
                 ],
             ]);
         }
 
 
-    // Unit - 3 Choose <mcq_grammar_two>  <mcq_grammar>
+        // Unit - 3 Choose <mcq_grammar_two>  <mcq_grammar>
 
-    $imgs = [
-        'Cat','Cow','Dog','Rabbit','Quail','Egg', 'Bird'
-    ];
-
-
-    $ques = [
-        ['under','on','in'],
-        ['on','beside','in'],
-        ['in','beside','under'],
-        ['on','beside','in'],
-        ['under','on','in'],
-        ['under','on','in'],
-        ['Under','on','in']
-    ];
+        $imgs = [
+            'Cat', 'Cow', 'Dog', 'Rabbit', 'Quail', 'Egg', 'Bird'
+        ];
 
 
-    $audio = $AudioDomain."Grade_2/Lesson_25/Choose/";
-    $img = $ImageDomain."Grade_2/Lesson_25/Choose/";
-
-    $second_q_contents = [
-        'The cat is ___ the table.', 'The cow is ___ the farm house.', 'The dog is ___ the chair.',
-        'The rabbit is ___ the bush.','The quail ___  the tree.','It is ___ the nest.',
-        'it is ___ the tree.'
-    ];
-
-    $ans = [
-        'under','beside','under','in','on','in','on'
-    ];
-
-    foreach ($imgs as $key => $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 375,
-                'round' => $key + 1,
-                'q_image' => $img.$val.".png",
-                'q_audio' => $audio.$val.".mp3",
-                'q_content' => $ques[$key][0],
-                'q_conver'  =>  "Where is the $val ?"." " . $second_q_contents[$key] ,
-                'a_content' => $ques[$key][0] == $ans[$key] ? true : false
-            ]
-        ]);
+        $ques = [
+            ['under', 'on', 'in'],
+            ['on', 'beside', 'in'],
+            ['in', 'beside', 'under'],
+            ['on', 'beside', 'in'],
+            ['under', 'on', 'in'],
+            ['under', 'on', 'in'],
+            ['Under', 'on', 'in']
+        ];
 
 
+        $audio = $AudioDomain . "Grade_2/Lesson_25/Choose/";
+        $img = $ImageDomain . "Grade_2/Lesson_25/Choose/";
 
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 375,
-                'round'  => $key +  1,
-                'q_content' => $ques[$key][1],
-                'a_content' => $ques[$key][1] == $ans[$key] ? true : false
-            ]
-        ]);
+        $second_q_contents = [
+            'The cat is ___ the table.', 'The cow is ___ the farm house.', 'The dog is ___ the chair.',
+            'The rabbit is ___ the bush.', 'The quail ___  the tree.', 'It is ___ the nest.',
+            'it is ___ the tree.'
+        ];
 
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 375,
-                'round'  => $key +  1,
-                'q_content' => $ques[$key][2],
-                'a_content' => $ques[$key][2] == $ans[$key] ? true : false
-            ]
-        ]);
+        $ans = [
+            'under', 'beside', 'under', 'in', 'on', 'in', 'on'
+        ];
+
+        foreach ($imgs as $key => $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 375,
+                    'round' => $key + 1,
+                    'q_image' => $img . $val . ".png",
+                    'q_audio' => $audio . $val . ".mp3",
+                    'q_content' => $ques[$key][0],
+                    'q_conver'  =>  "Where is the $val ?" . " " . $second_q_contents[$key],
+                    'a_content' => $ques[$key][0] == $ans[$key] ? true : false
+                ]
+            ]);
 
 
-    }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 375,
+                    'round'  => $key +  1,
+                    'q_content' => $ques[$key][1],
+                    'a_content' => $ques[$key][1] == $ans[$key] ? true : false
+                ]
+            ]);
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 375,
+                    'round'  => $key +  1,
+                    'q_content' => $ques[$key][2],
+                    'a_content' => $ques[$key][2] == $ans[$key] ? true : false
+                ]
+            ]);
+        }
 
 
 
 
-    // Unit - 4 Listen and write <listening_choosing_answer>
+        // Unit - 4 Listen and write <listening_choosing_answer>
 
 
-      $audio_q = [
-        'cat_on_table','dog_under_chair','quail_on_tree','quail_on_bed','rabbit_in_bush'
-      ];
+        $audio_q = [
+            'cat_on_table', 'dog_under_chair', 'quail_on_tree', 'quail_on_bed', 'rabbit_in_bush'
+        ];
 
-      $given_ques = [
-            ['Chair','Table','Bush'],
-            ['Table','Bed','Chair'],
-            ['Table','Bed','Tree'],
-            ['Chair','Table','Bed'],
-            ['Chair','Table','Bush'],
-      ];
+        $given_ques = [
+            ['Chair', 'Table', 'Bush'],
+            ['Table', 'Bed', 'Chair'],
+            ['Table', 'Bed', 'Tree'],
+            ['Chair', 'Table', 'Bed'],
+            ['Chair', 'Table', 'Bush'],
+        ];
 
-    $ans = [
-        'Table','Chair','Tree','Bed','Bush'
-    ];
+        $ans = [
+            'Table', 'Chair', 'Tree', 'Bed', 'Bush'
+        ];
 
-    $audio = $AudioDomain."Grade_2/Lesson_25/Listen_and_write/";
-    $img = $ImageDomain."Grade_2/Lesson_25/Listen_and_write/";
+        $audio = $AudioDomain . "Grade_2/Lesson_25/Listen_and_write/";
+        $img = $ImageDomain . "Grade_2/Lesson_25/Listen_and_write/";
 
-    foreach ($audio_q as $key => $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 376,
-                'round' => $key + 1,
-                'q_audio' => $audio.$val.".mp3",
-                'q_content' => $given_ques[$key][0],
-                // 'q_conver'  =>  "Where is the $val ?". $second_q_contents[$key] ,
-                'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
-            ]
-        ]);
-
-
-
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 376,
-                'round'  => $key +  1,
-                'q_content' => $given_ques[$key][1],
-                'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
-            ]
-        ]);
-
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 376,
-                'round'  => $key +  1,
-                'q_content' => $given_ques[$key][2],
-                'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
-            ]
-        ]);
+        foreach ($audio_q as $key => $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 376,
+                    'round' => $key + 1,
+                    'q_audio' => $audio . $val . ".mp3",
+                    'q_content' => $given_ques[$key][0],
+                    // 'q_conver'  =>  "Where is the $val ?". $second_q_contents[$key] ,
+                    'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
+                ]
+            ]);
 
 
-    }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 376,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][1],
+                    'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
+                ]
+            ]);
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 376,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][2],
+                    'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
+                ]
+            ]);
+        }
 
 
-    //// Lesson 25 Unit 5 (Speaking) <speaking_and_recording>
+        //// Lesson 25 Unit 5 (Speaking) <speaking_and_recording>
 
         $contents = [
-            "Cow", "bird" ,"Eggs", "Dog", "Cat", "Quail",
+            "Cow", "bird", "Eggs", "Dog", "Cat", "Quail",
             "Rabbit",
         ];
 
@@ -903,9 +898,9 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
                 [
                     'game_id' => 377, 'round' => $key + 1,
-                    'round_instruction' => $key == 0 ? $AudioDomain."/Grade_2/Lesson_25/Speaking/"."look-at-the-picture-and-speak.mp3" : null,
+                    'round_instruction' => $key == 0 ? $AudioDomain . "/Grade_2/Lesson_25/Speaking/" . "look-at-the-picture-and-speak.mp3" : null,
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $AudioDomain."/Grade_2/Lesson_25/Speaking/".$contents[$key].".mp3",
+                    'q_audio' => $AudioDomain . "/Grade_2/Lesson_25/Speaking/" . $contents[$key] . ".mp3",
                     'q_image' => $ImageDomain . "Grade_2/Lesson_25/Speaking/" . $value . ".png",
                     // 'a_content' => str_replace('-', ' ', $value)
                 ]
@@ -915,318 +910,315 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // ========================   Lesson - 26 ===================================
+        // ========================   Lesson - 26 ===================================
 
 
-    // Unit - 1 Listen and Repeat <reading_carousel>
+        // Unit - 1 Listen and Repeat <reading_carousel>
 
 
-    $contents = [
-        'Sea','Ship','Shoe','Shop','Snake','Snow','Soup','Sun',
-        'Table','Taxi','Tomato','Town','Train','Tree','Truck','Tunnel'
-    ];
+        $contents = [
+            'Sea', 'Ship', 'Shoe', 'Shop', 'Snake', 'Snow', 'Soup', 'Sun',
+            'Table', 'Taxi', 'Tomato', 'Town', 'Train', 'Tree', 'Truck', 'Tunnel'
+        ];
 
-    $audio = $AudioDomain."Grade_2/Lesson_26/Listen_and_Repeat/";
-    $img = $ImageDomain."Grade_2/Lesson_26/Listen_and_Repeat/";
+        $audio = $AudioDomain . "Grade_2/Lesson_26/Listen_and_Repeat/";
+        $img = $ImageDomain . "Grade_2/Lesson_26/Listen_and_Repeat/";
 
-    foreach ($contents as $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 378, 'a_content' => $val,
-                'a_image' => $img.str_replace(' ','-',$val).".png",
-                'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
-            ],
-        ]);
-    }
-
-
-    // Unit -2 Trace Word <Sentence_Tracing>
-
-    $words = [
-        'Shoe','Taxi','Ship','Tree',
-    ];
-
-    $letters = [
-        ['S','h','o','e'],
-        ['T','a','x','i'],
-        ['S','h','i','p'],
-        ['T','r','e','e'],
-    ];
-
-    $counts = [
-        [1,2,1,2],
-        [2,2,2,2],
-        [1,2,2,2],
-        [2,2,2,2]
-    ];
-
-    $audio = $AudioDomain."Grade_2/Lesson_26/Trace_words/";
-    $img = $ImageDomain."Grade_2/Lesson_26/Trace_words/";
+        foreach ($contents as $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 378, 'a_content' => $val,
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
+                ],
+            ]);
+        }
 
 
-    foreach ($words as $key => $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 379,
-                'round' => $key + 1,
-                'q_image' => $img.$val.".png",
-                'q_audio' => $audio.$val.".mp3",
-                'a_content' => $val
+        // Unit -2 Trace Word <Sentence_Tracing>
 
-            ]
-        ]);
+        $words = [
+            'Shoe', 'Taxi', 'Ship', 'Tree',
+        ];
+
+        $letters = [
+            ['S', 'h', 'o', 'e'],
+            ['T', 'a', 'x', 'i'],
+            ['S', 'h', 'i', 'p'],
+            ['T', 'r', 'e', 'e'],
+        ];
+
+        $counts = [
+            [1, 2, 1, 2],
+            [2, 2, 2, 2],
+            [1, 2, 2, 2],
+            [2, 2, 2, 2]
+        ];
+
+        $audio = $AudioDomain . "Grade_2/Lesson_26/Trace_words/";
+        $img = $ImageDomain . "Grade_2/Lesson_26/Trace_words/";
 
 
-        foreach ($letters[$key] as $k => $value) {
+        foreach ($words as $key => $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 379,
                     'round' => $key + 1,
-                    'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value.".png",
-                    'a_content' => $value,
-                    'a_image' => ctype_lower($value) ? $sm_traceSuccess. $value . ".png" : $cap_traceSuccess. $value.".png",
-                    'a_extra' => $counts[$key][$k]
+                    'q_image' => $img . $val . ".png",
+                    'q_audio' => $audio . $val . ".mp3",
+                    'a_content' => $val
 
                 ]
             ]);
+
+
+            foreach ($letters[$key] as $k => $value) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 379,
+                        'round' => $key + 1,
+                        'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value . ".png",
+                        'a_content' => $value,
+                        'a_image' => ctype_lower($value) ? $sm_traceSuccess . $value . ".png" : $cap_traceSuccess . $value . ".png",
+                        'a_extra' => $counts[$key][$k]
+
+                    ]
+                ]);
+            }
         }
 
-    }
 
 
 
+        // Lesson -26 Unit -3 <matching_columns>
 
-     // Lesson -26 Unit -3 <matching_columns>
+        $contents = [
+            ['Shop', 'Truck', 'Train', 'Town', 'Shoe'],
+            ['Sun', 'Soup', 'Tunnel', 'Snow', 'Tomato']
+        ];
 
-     $contents = [
-        ['Shop', 'Truck', 'Train', 'Town', 'Shoe'],
-        ['Sun', 'Soup', 'Tunnel', 'Snow', 'Tomato']
-    ];
+        $randomValues = [
+            ['Train', 'Shop', 'Shoe', 'Truck', 'Town'],
+            ['Tunnel', 'Snow', 'Tomato', 'Sun', 'Soup']
+        ];
 
-    $randomValues = [
-        ['Train', 'Shop', 'Shoe', 'Truck', 'Town'],
-        ['Tunnel', 'Snow', 'Tomato', 'Sun', 'Soup']
-    ];
+        $audio = $AudioDomain . "Grade_2/Lesson_26/Matching_words_and_pictures/";
+        $img = $ImageDomain . "Grade_2/Lesson_26/Matching_words_and_pictures/";
 
-    $audio = $AudioDomain . "Grade_2/Lesson_26/Matching_words_and_pictures/";
-    $img = $ImageDomain . "Grade_2/Lesson_26/Matching_words_and_pictures/";
+        for ($i = 0; $i < count($contents); $i++) {
 
-    for ($i = 0; $i < count($contents); $i++) {
+            foreach ($contents[$i] as $q) {
 
-        foreach ($contents[$i] as $q) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 380, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $q,
+                        'q_audio' => $audio . strtolower($q) . ".mp3",
+                    ]
+                ]);
+            }
+
+
+            foreach ($randomValues[$i] as $q) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 380, 'round' => $i + 1, 'q_content' => strtolower($q),
+                        'q_image' => $img . strtolower($q) . ".png",
+                        'q_audio' => $audio . strtolower($q) . ".mp3",
+                    ]
+                ]);
+            }
+        }
+
+
+
+        // Lesson -26 Unit -4 Listen and write <rearrange with audio>
+
+        $Questions = [
+            ['R', 'A', 'N', 'T', 'I'],
+            ['R', 'E', 'E', 'T'],
+            ['T', 'E', 'N', 'L', 'N', 'U'],
+            ['O', 'E', 'S', 'H'],
+            ['A', 'E', 'S'],
+            ['A', 'X', 'T', 'I'],
+            ['C', 'T', 'R', 'U', 'K'],
+            ['T', 'T', 'O', 'O', 'M', 'A'],
+            ['U', 'N', 'S'],
+            ['A', 'N', 'S', 'E', 'K']
+        ];
+
+        $answers = [
+            'TRAIN', 'TREE', 'TUNNEL', 'SHOE', 'SEA', 'TAXI', 'TRUCK', 'TOMATO', 'SUN', 'SNAKE',
+        ];
+
+        for ($i = 0; $i < count($Questions); $i++) {
+
+            foreach ($Questions[$i]  as  $innerVal) {
+                DB::table('ans_n_ques')->insert([
+                    ['game_id' => 381, 'round' => $i + 1, 'q_content' => $innerVal]
+                ]);
+            }
+
+
+            $img = $ImageDomain . "Grade_2/Lesson_26/Listen_and_Writing/";
+            $audio = $AudioDomain . "Grade_2/Lesson_26/Listen_and_Writing/";
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 380, 'round' => $i + 1, 'q_content' => $q,
-                    'q_image' => $q,
-                    'q_audio' => $audio . strtolower($q) . ".mp3",
+                    'game_id' => 381,
+                    'round' => $i + 1,
+                    'q_image' => $img . strtolower($answers[$i]) . ".png",
+                    'a_audio' => $audio . strtolower($answers[$i]) . ".mp3",
+                    'a_content' => $answers[$i],
                 ]
             ]);
         }
 
 
-        foreach ($randomValues[$i] as $q) {
+
+        //// Lesson 26 Unit 5 (Speak) <speaking_and_recording>
+
+        $contents = [
+            "town", "teacher", "train", "beside_shop", "rabbit",
+            "Under_tree",
+        ];
+
+        $Question_contents = [
+            "I live in   ___",
+            "My father is a  ___",
+            "He goes to school by ___",
+            "The school is ___ the ___.",
+            "I have a  ___. It is white and fast.",
+            "Free practice, \n The rabbit is ___ the __now. \n I love it very much.",
+        ];
+
+        $img = $ImageDomain . "Grade_2/Lesson_26/Speak/";
+        $audio = $AudioDomain . "Grade_2/Lesson_26/Speak/";
+
+        foreach ($contents as $key => $value) {
+
+            DB::table('ans_n_ques')->insert([
+
+                [
+                    'game_id' => 382, 'round' => $key + 1,
+                    'round_instruction' => $audio . "Look-at-the-pictures-and-speak.mp3",
+                    'q_content' => $Question_contents[$key],
+                    'q_audio' => $audio . $contents[$key] . ".mp3",
+                    'q_image' => $img . $value . ".png",
+                    'a_content' => str_replace('-', ' ', $value)
+                ]
+
+            ]);
+        }
+
+
+        // =======================================   27 ==============================================
+
+        DB::table('ans_n_ques')->insert(['game_id' => 383, 'a_content' => '943911999', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 383, 'a_content' => 'lesson_27 (Global)', 'isLocal' => 0]);
+
+        // Unit - 2 Reading <reading_carousel>
+
+        // sub -1
+        $contents = [
+            'Deer', 'Duck', 'Elephant', 'Giraffe', 'Tiger', 'Wall'
+        ];
+
+        $audio = $AudioDomain . "Grade_2/Lesson_27/Reading-1/";
+        $img = $ImageDomain . "Grade_2/Lesson_27/Reading-1/";
+
+        foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 380, 'round' => $i + 1, 'q_content' => strtolower($q),
-                    'q_image' => $img . strtolower($q) . ".png",
-                    'q_audio' => $audio . strtolower($q) . ".mp3",
-                ]
+                    'game_id' => 384, 'a_content' => $val,
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
+                ],
             ]);
         }
-    }
 
 
+        // sub -2
 
-    // Lesson -26 Unit -4 Listen and write <rearrange with audio>
+        $contents = [
+            'Deer', 'Duck', 'Elephant', 'Giraffe', 'Tiger', 'Monkey'
+        ];
 
-    $Questions = [
-        ['R', 'A', 'N', 'T', 'I'],
-        ['R', 'E', 'E', 'T'],
-        ['T', 'E', 'N', 'L', 'N', 'U'],
-        ['O', 'E', 'S', 'H'],
-        ['A', 'E', 'S'],
-        ['A', 'X', 'T', 'I'],
-        ['C','T','R','U','K'],
-        ['T','T','O','O','M','A'],
-        ['U','N','S'],
-        ['A','N','S','E','K']
-    ];
+        $audio = $AudioDomain . "Grade_2/Lesson_27/Reading-2/";
+        $img = $ImageDomain . "Grade_2/Lesson_27/Reading-2/";
 
-    $answers = [
-        'TRAIN', 'TREE', 'TUNNEL', 'SHOE', 'SEA', 'TAXI','TRUCK','TOMATO','SUN','SNAKE',
-    ];
-
-    for ($i = 0; $i < count($Questions); $i++) {
-
-        foreach ($Questions[$i]  as  $innerVal) {
+        foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
-                ['game_id' => 381, 'round' => $i + 1, 'q_content' => $innerVal]
+                [
+                    'game_id' => 385, 'a_content' => $val,
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
+                ],
             ]);
         }
 
 
-        $img = $ImageDomain . "Grade_2/Lesson_26/Listen_and_Writing/";
-        $audio = $AudioDomain . "Grade_2/Lesson_26/Listen_and_Writing/";
-
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 381,
-                'round' => $i + 1,
-                'q_image' => $img . strtolower($answers[$i]) . ".png",
-                'a_audio' => $audio . strtolower($answers[$i]) . ".mp3",
-                'a_content' => $answers[$i],
-            ]
-        ]);
-    }
 
 
 
-     //// Lesson 26 Unit 5 (Speak) <speaking_and_recording>
-
-     $contents = [
-        "town","teacher", "train", "beside_shop", "rabbit",
-        "Under_tree",
-    ];
-
-    $Question_contents = [
-        "I live in   ___",
-        "My father is a  ___",
-        "He goes to school by ___",
-        "The school is ___ the ___.",
-        "I have a  ___. It is white and fast.",
-        "Free practice, \n The rabbit is ___ the __now. \n I love it very much.",
-    ];
-
-    $img = $ImageDomain . "Grade_2/Lesson_26/Speak/";
-    $audio = $AudioDomain . "Grade_2/Lesson_26/Speak/";
-
-    foreach ($contents as $key => $value) {
-
-        DB::table('ans_n_ques')->insert([
-
-            [
-                'game_id' => 382, 'round' => $key + 1,
-                'round_instruction' => $audio. "Look-at-the-pictures-and-speak.mp3",
-                'q_content' => $Question_contents[$key],
-                'q_audio' => $audio.$contents[$key].".mp3",
-                'q_image' => $img . $value . ".png",
-                'a_content' => str_replace('-', ' ', $value)
-            ]
-
-        ]);
-    }
+        // Lesson -27 Unit - 4 Listen and write <listening_choosing_answer>
 
 
-    // =======================================   27 ==============================================
+        $audio_q = [
+            'Where_is_the_elephant',
+            'Where_is_the_giraffe',
+            'Where_is_the_monkey',
+            'Where_is_the_rabbit',
+            'Where_is_the_tiger',
+        ];
 
-    DB::table('ans_n_ques')->insert(['game_id' => 383, 'a_content' => 'lesson_27', 'isLocal' => 1]);
-    DB::table('ans_n_ques')->insert(['game_id' => 383, 'a_content' => 'lesson_27 (Global)', 'isLocal' => 0]);
+        $given_ques = [
+            ['in front of', 'Beside', 'on'],
+            ['Beside', 'in', 'on'],
+            ['Behind', 'Beside', 'on'],
+            ['Behind', 'in', 'on'],
+            ['Behind', 'Beside', 'in front of'],
+        ];
 
-    // Unit - 2 Reading <reading_carousel>
+        $ans = [
+            'in front of', 'Beside', 'on', 'in', 'Behind'
+        ];
 
-    // sub -1
-    $contents = [
-       'Deer','Duck','Elephant','Giraffe','Tiger','Wall'
-    ];
-
-    $audio = $AudioDomain."Grade_2/Lesson_27/Reading-1/";
-    $img = $ImageDomain."Grade_2/Lesson_27/Reading-1/";
-
-    foreach ($contents as $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 384, 'a_content' => $val,
-                'a_image' => $img.str_replace(' ','-',$val).".png",
-                'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
-            ],
-        ]);
-    }
-
-
-    // sub -2
-
-    $contents = [
-        'Deer','Duck','Elephant','Giraffe','Tiger','Monkey'
-     ];
-
-     $audio = $AudioDomain."Grade_2/Lesson_27/Reading-2/";
-     $img = $ImageDomain."Grade_2/Lesson_27/Reading-2/";
-
-     foreach ($contents as $val) {
-         DB::table('ans_n_ques')->insert([
-             [
-                 'game_id' => 385, 'a_content' => $val,
-                 'a_image' => $img.str_replace(' ','-',$val).".png",
-                 'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
-             ],
-         ]);
-     }
-
-
-
-
-
-    // Lesson -27 Unit - 4 Listen and write <listening_choosing_answer>
-
-
-    $audio_q = [
-        'Where_is_the_elephant',
-        'Where_is_the_giraffe',
-        'Where_is_the_monkey',
-        'Where_is_the_rabbit',
-        'Where_is_the_tiger',
-      ];
-
-      $given_ques = [
-            ['in front of','Beside','on'],
-            ['Beside','in','on'],
-            ['Behind','Beside','on'],
-            ['Behind','in','on'],
-            ['Behind','Beside','in front of'],
-      ];
-
-    $ans = [
-        'in front of','Beside','on','in','Behind'
-    ];
-
-    $audio = $AudioDomain."Grade_2/Lesson_27/Listen_and_write/";
-    $img = $ImageDomain."Grade_2/Lesson_27/Listen_and_write/";
+        $audio = $AudioDomain . "Grade_2/Lesson_27/Listen_and_write/";
+        $img = $ImageDomain . "Grade_2/Lesson_27/Listen_and_write/";
 
         foreach ($audio_q as $key => $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 386,
-                'round' => $key + 1,
-                'q_audio' => $audio.$val.".mp3",
-                'q_content' => $given_ques[$key][0],
-                // 'q_conver'  =>  "Where is the $val ?". $second_q_contents[$key] ,
-                'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
-            ]
-        ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 386,
+                    'round' => $key + 1,
+                    'q_audio' => $audio . $val . ".mp3",
+                    'q_content' => $given_ques[$key][0],
+                    // 'q_conver'  =>  "Where is the $val ?". $second_q_contents[$key] ,
+                    'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
+                ]
+            ]);
 
 
 
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 386,
-                'round'  => $key +  1,
-                'q_content' => $given_ques[$key][1],
-                'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
-            ]
-        ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 386,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][1],
+                    'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
+                ]
+            ]);
 
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 386,
-                'round'  => $key +  1,
-                'q_content' => $given_ques[$key][2],
-                'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
-            ]
-        ]);
-
-
-    }
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 386,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][2],
+                    'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
+                ]
+            ]);
+        }
 
 
         //// Lesson 27 Unit 4 (Speak) <speaking_and_recording>
@@ -1247,8 +1239,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 [
                     'game_id' => 387, 'round' => $key + 1,
                     'round_instruction' => "Look at this picture and speak.",
-                    'q_content' => "Where is the ".$value."?",
-                    'q_audio' => $AudioDomain."/Grade_2/Lesson_27/Speak/".$value.".mp3",
+                    'q_content' => "Where is the " . $value . "?",
+                    'q_audio' => $AudioDomain . "/Grade_2/Lesson_27/Speak/" . $value . ".mp3",
                     'q_image' => $ImageDomain . "Grade_2/Lesson_27/Speak/" . $value . ".png",
                     'a_content' => str_replace('-', ' ', $value)
                 ]
@@ -1259,27 +1251,27 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // ====================== Lesson -28 ===================================
+        // ====================== Lesson -28 ===================================
 
 
-    DB::table('ans_n_ques')->insert(['game_id' => 388, 'a_content' => 'lesson_28', 'isLocal' => 1]);
-    DB::table('ans_n_ques')->insert(['game_id' => 388, 'a_content' => 'lesson_28(Global)', 'isLocal' => 0]);
+        DB::table('ans_n_ques')->insert(['game_id' => 388, 'a_content' => 'lesson_28', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 388, 'a_content' => 'lesson_28(Global)', 'isLocal' => 0]);
 
 
-    // Unit -2 Reading <Reading_carousel>
-      $contents = [
-            'Blue','Brown','Gray','Green','Ladder','Pink','Short tall','Wall','Yellow'
+        // Unit -2 Reading <Reading_carousel>
+        $contents = [
+            'Blue', 'Brown', 'Gray', 'Green', 'Ladder', 'Pink', 'Short tall', 'Wall', 'Yellow'
         ];
 
-        $audio = $AudioDomain."Grade_2/Lesson_28/Reading/";
-        $img = $ImageDomain."Grade_2/Lesson_28/Reading/";
+        $audio = $AudioDomain . "Grade_2/Lesson_28/Reading/";
+        $img = $ImageDomain . "Grade_2/Lesson_28/Reading/";
 
         foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 389, 'a_content' => $val,
-                    'a_image' => $img.str_replace(' ','-',$val).".png",
-                    'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
                 ],
             ]);
         }
@@ -1289,117 +1281,116 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // Unit - 3 Listen and write <listening_choosing_answer>
+        // Unit - 3 Listen and write <listening_choosing_answer>
 
 
-      $audio_q = [
-        'ant_in_the_cup',
-        'bird_is_in_the_nest',
-        'cow_is_beside_the_house',
-        'deer_is_beside_the_ladder',
-        'elephant_is_in-front_the_tree',
-        'monkey_on_the_wall'
-      ];
+        $audio_q = [
+            'ant_in_the_cup',
+            'bird_is_in_the_nest',
+            'cow_is_beside_the_house',
+            'deer_is_beside_the_ladder',
+            'elephant_is_in-front_the_tree',
+            'monkey_on_the_wall'
+        ];
 
-      $given_ques = [
-            ['Ladder','Nest','Cup'],
-            ['Nest','House','Ladder'],
-            ['Nest','Tree','House'],
-            ['Nest','Ladder','House'],
-            ['Tree','Cup','House'],
-            ['Cup','Wall','Nest'],
-      ];
+        $given_ques = [
+            ['Ladder', 'Nest', 'Cup'],
+            ['Nest', 'House', 'Ladder'],
+            ['Nest', 'Tree', 'House'],
+            ['Nest', 'Ladder', 'House'],
+            ['Tree', 'Cup', 'House'],
+            ['Cup', 'Wall', 'Nest'],
+        ];
 
-    $ans = [
-        'Cup','Nest','House','Ladder','Tree','Wall'
-    ];
+        $ans = [
+            'Cup', 'Nest', 'House', 'Ladder', 'Tree', 'Wall'
+        ];
 
-    $audio = $AudioDomain."Grade_2/Lesson_28/Listen_and_write/";
-    $img = $ImageDomain."Grade_2/Lesson_28/Listen_and_write/";
+        $audio = $AudioDomain . "Grade_2/Lesson_28/Listen_and_write/";
+        $img = $ImageDomain . "Grade_2/Lesson_28/Listen_and_write/";
 
         foreach ($audio_q as $key => $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 390,
-                'round' => $key + 1,
-                'q_audio' => $audio.$val.".mp3",
-                'q_content' => $given_ques[$key][0],
-                // 'q_conver'  =>  "Where is the $val ?". $second_q_contents[$key] ,
-                'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
-            ]
-        ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 390,
+                    'round' => $key + 1,
+                    'q_audio' => $audio . $val . ".mp3",
+                    'q_content' => $given_ques[$key][0],
+                    // 'q_conver'  =>  "Where is the $val ?". $second_q_contents[$key] ,
+                    'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
+                ]
+            ]);
 
 
-
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 390,
-                'round'  => $key +  1,
-                'q_content' => $given_ques[$key][1],
-                'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
-            ]
-        ]);
-
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 390,
-                'round'  => $key +  1,
-                'q_content' => $given_ques[$key][2],
-                'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
-            ]
-        ]);
-
-    }
-
-
-
-
-
-     // Lesson -28 Unit -4 Matching <matching_columns>
-
-     $contents = [
-        ['Elephant', 'Ladder', 'Cup', 'Deer', 'Wall'],
-        ['Cow', 'Bird', 'Monkey', 'House', 'Nest']
-    ];
-
-    $randomValues = [
-        ['Cup', 'Deer', 'Elephant', 'Wall', 'Ladder'],
-        ['Monkey', 'Nest', 'House', 'COw', 'Bird']
-    ];
-
-    $audio = $AudioDomain . "Grade_2/Lesson_28/Matching/";
-    $img = $ImageDomain . "Grade_2/Lesson_28/Matching/";
-
-    for ($i = 0; $i < count($contents); $i++) {
-
-        foreach ($contents[$i] as $q) {
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 391, 'round' => $i + 1, 'q_content' => $q,
-                    'q_image' => $q,
-                    'q_audio' => $audio . strtolower($q) . ".mp3",
+                    'game_id' => 390,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][1],
+                    'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
+                ]
+            ]);
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 390,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][2],
+                    'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
                 ]
             ]);
         }
 
 
-        foreach ($randomValues[$i] as $q) {
-            DB::table('ans_n_ques')->insert([
-                [
-                    'game_id' => 391, 'round' => $i + 1,
-                    'q_content' => strtolower($q),
-                    'q_image' => $img . strtolower($q) . ".png",
-                    'q_audio' => $audio . strtolower($q) . ".mp3",
-                ]
-            ]);
+
+
+
+        // Lesson -28 Unit -4 Matching <matching_columns>
+
+        $contents = [
+            ['Elephant', 'Ladder', 'Cup', 'Deer', 'Wall'],
+            ['Cow', 'Bird', 'Monkey', 'House', 'Nest']
+        ];
+
+        $randomValues = [
+            ['Cup', 'Deer', 'Elephant', 'Wall', 'Ladder'],
+            ['Monkey', 'Nest', 'House', 'COw', 'Bird']
+        ];
+
+        $audio = $AudioDomain . "Grade_2/Lesson_28/Matching/";
+        $img = $ImageDomain . "Grade_2/Lesson_28/Matching/";
+
+        for ($i = 0; $i < count($contents); $i++) {
+
+            foreach ($contents[$i] as $q) {
+
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 391, 'round' => $i + 1, 'q_content' => $q,
+                        'q_image' => $q,
+                        'q_audio' => $audio . strtolower($q) . ".mp3",
+                    ]
+                ]);
+            }
+
+
+            foreach ($randomValues[$i] as $q) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 391, 'round' => $i + 1,
+                        'q_content' => strtolower($q),
+                        'q_image' => $img . strtolower($q) . ".png",
+                        'q_audio' => $audio . strtolower($q) . ".mp3",
+                    ]
+                ]);
+            }
         }
-    }
 
 
 
 
-    //// Lesson 28 Unit 5 (Reading) < reading_passage >
+        //// Lesson 28 Unit 5 (Reading) < reading_passage >
 
         $images = $ImageDomain . "Grade_2/Lesson_28/Reading_Short/";
         $audios = $AudioDomain . "Grade_2/Lesson_28/Reading_Short/";
@@ -1468,32 +1459,32 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // ========================   Lesson - 29 ===================================
+        // ========================   Lesson - 29 ===================================
 
 
-    DB::table('ans_n_ques')->insert(['game_id' => 393, 'a_content' => 'lesson_29', 'isLocal' => 1]);
-    DB::table('ans_n_ques')->insert(['game_id' => 393, 'a_content' => 'lesson_29(Global)', 'isLocal' => 0]);
+        DB::table('ans_n_ques')->insert(['game_id' => 393, 'a_content' => '943912307', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 393, 'a_content' => 'lesson_29(Global)', 'isLocal' => 0]);
 
 
-    // Unit - 2 <reading_carousel>
+        // Unit - 2 <reading_carousel>
 
         // Sub - 1
 
         $contents = [
-            'Blouse','Dress','Green','Pink','Sandals',
-            'Shorts','Skirt','Sport Shirt', 'White', 'Yellow'
+            'Blouse', 'Dress', 'Green', 'Pink', 'Sandals',
+            'Shorts', 'Skirt', 'Sport Shirt', 'White', 'Yellow'
         ];
 
-        $audio = $AudioDomain."Grade_2/Lesson_29/Reading_1/";
-        $img = $ImageDomain."Grade_2/Lesson_29/Reading_1/";
+        $audio = $AudioDomain . "Grade_2/Lesson_29/Reading_1/";
+        $img = $ImageDomain . "Grade_2/Lesson_29/Reading_1/";
 
         foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 394,
                     'a_content' => $val,
-                    'a_image' => $img.str_replace(' ','-',$val).".png",
-                    'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
                 ],
             ]);
         }
@@ -1514,16 +1505,16 @@ class PSNAnsNQuesG2Seeder extends Seeder
             'Wearing_sport_shirt'
         ];
 
-        $audio = $AudioDomain."Grade_2/Lesson_29/Reading_2/";
-        $img = $ImageDomain."Grade_2/Lesson_29/Reading_2/";
+        $audio = $AudioDomain . "Grade_2/Lesson_29/Reading_2/";
+        $img = $ImageDomain . "Grade_2/Lesson_29/Reading_2/";
 
         foreach ($contents as $k => $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 395,
                     'a_content' => $val,
-                    'a_image' => $img.str_replace(' ','-',$data_content[$k]).".png",
-                    'a_audio' => $audio.str_replace(' ','-',$data_content[$k]).".mp3"
+                    'a_image' => $img . str_replace(' ', '-', $data_content[$k]) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $data_content[$k]) . ".mp3"
                 ],
             ]);
         }
@@ -1531,165 +1522,163 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    //Lesson -29 Unit - 3 Look and write <listening_choosing_answer>
+        //Lesson -29 Unit - 3 Look and write <listening_choosing_answer>
 
 
-      $audio_q = [
-        'wearing_black_sandals',
-        'wearing_brown_shorts',
-        'wearing_white_skirt',
-        'wearing_green_sport_shirt',
-        'wearing_pink_blouse'
+        $audio_q = [
+            'wearing_black_sandals',
+            'wearing_brown_shorts',
+            'wearing_white_skirt',
+            'wearing_green_sport_shirt',
+            'wearing_pink_blouse'
 
-      ];
+        ];
 
-      $given_ques = [
-            ['Pink blouse','Sport shirt','Black sandals'],
+        $given_ques = [
+            ['Pink blouse', 'Sport shirt', 'Black sandals'],
             ['Brown shorts', 'White skirt', 'Yellow sandals'],
             ['Brown shorts', 'White skirt', 'Yellow sandals'],
-            ['Pink blouse','Sport shirt','Black sandals'],
-            ['Pink blouse','Sport shirt','Black sandals'],
+            ['Pink blouse', 'Sport shirt', 'Black sandals'],
+            ['Pink blouse', 'Sport shirt', 'Black sandals'],
 
 
-      ];
+        ];
 
-    $ans = [
-        'Black sandals','Brown shorts','White skirt','Sport shirt','Pink blouse'
-    ];
+        $ans = [
+            'Black sandals', 'Brown shorts', 'White skirt', 'Sport shirt', 'Pink blouse'
+        ];
 
-    $audio = $AudioDomain."Grade_2/Lesson_29/Look_and_write/";
-    $img = $ImageDomain."Grade_2/Lesson_29/Look_and_write/";
+        $audio = $AudioDomain . "Grade_2/Lesson_29/Look_and_write/";
+        $img = $ImageDomain . "Grade_2/Lesson_29/Look_and_write/";
 
         foreach ($audio_q as $key => $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 396,
-                'round' => $key + 1,
-                'q_audio' => $audio.$val.".mp3",
-                'q_content' => $given_ques[$key][0],
-                // 'q_conver'  =>  "Where is the $val ?". $second_q_contents[$key] ,
-                'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
-            ]
-        ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 396,
+                    'round' => $key + 1,
+                    'q_audio' => $audio . $val . ".mp3",
+                    'q_content' => $given_ques[$key][0],
+                    // 'q_conver'  =>  "Where is the $val ?". $second_q_contents[$key] ,
+                    'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
+                ]
+            ]);
 
 
 
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 396,
-                'round'  => $key +  1,
-                'q_content' => $given_ques[$key][1],
-                'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
-            ]
-        ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 396,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][1],
+                    'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
+                ]
+            ]);
 
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 396,
-                'round'  => $key +  1,
-                'q_content' => $given_ques[$key][2],
-                'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
-            ]
-        ]);
-
-
-    }
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 396,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][2],
+                    'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
+                ]
+            ]);
+        }
 
 
 
 
 
-    //// Lesson 29 Unit 5 (Speak) <speaking_and_recording>
+        //// Lesson 29 Unit 5 (Speak) <speaking_and_recording>
 
-    // $contents = "boy_and_girl";
+        // $contents = "boy_and_girl";
 
-    $Question_contents = [
-        "Example \n My name is Jane. I like dress and skirts. \n My favorite color are pink and yellow.\n Today, I am wearing a beautiful pink dress and white sandals.\n When I go out, I wear dresses.",
+        $Question_contents = [
+            "Example \n My name is Jane. I like dress and skirts. \n My favorite color are pink and yellow.\n Today, I am wearing a beautiful pink dress and white sandals.\n When I go out, I wear dresses.",
 
-        "Example \n My name is Chris. I like sport shirts and shorts. \n My favorite color are brown and blue.\n Today, I am wearing a blue sport shirt and black sandals.\n When I go out, I wear shorts.",
+            "Example \n My name is Chris. I like sport shirts and shorts. \n My favorite color are brown and blue.\n Today, I am wearing a blue sport shirt and black sandals.\n When I go out, I wear shorts.",
 
-        "Talk about you.Say what you are wearing."
-
-
-        // "My name is ___. I like ___ and ___.,\n My favorite color are ___ and ___.\n Today I am wearing a ___ and white sandals.\n When I go out, I wear ___.",
-
-    ];
-
-    $ques_contents_audio = [
-        'Jane',
-        'Chris',
-        'both'
-    ];
+            "Talk about you.Say what you are wearing."
 
 
+            // "My name is ___. I like ___ and ___.,\n My favorite color are ___ and ___.\n Today I am wearing a ___ and white sandals.\n When I go out, I wear ___.",
 
-    foreach ($Question_contents as $key => $value) {
+        ];
 
-        DB::table('ans_n_ques')->insert([
-
-            [
-                'game_id' => 397,
-                'round' => $key + 1,
-                'round_instruction' => "Talk about you.",
-                'q_content' => $value,
-                'q_audio' => $AudioDomain."/Grade_2/Lesson_29/Speak/".$ques_contents_audio[$key].".mp3",
-                'q_image' => $ImageDomain . "Grade_2/Lesson_29/Speak/" . $ques_contents_audio[$key] . ".png",
-                // 'a_content' => str_replace('-', ' ', $value)
-            ]
-
-        ]);
-    }
+        $ques_contents_audio = [
+            'Jane',
+            'Chris',
+            'both'
+        ];
 
 
 
-    /////////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////// - 30 ===========================================
+        foreach ($Question_contents as $key => $value) {
+
+            DB::table('ans_n_ques')->insert([
+
+                [
+                    'game_id' => 397,
+                    'round' => $key + 1,
+                    'round_instruction' => "Talk about you.",
+                    'q_content' => $value,
+                    'q_audio' => $AudioDomain . "/Grade_2/Lesson_29/Speak/" . $ques_contents_audio[$key] . ".mp3",
+                    'q_image' => $ImageDomain . "Grade_2/Lesson_29/Speak/" . $ques_contents_audio[$key] . ".png",
+                    // 'a_content' => str_replace('-', ' ', $value)
+                ]
+
+            ]);
+        }
 
 
 
-    //  Lesson -30 U-1 Listen and Repeat <Reading_carousel>
-
-            $contents = [
-                'Umbrella','Uncle','Unicorn','Unicycle','Uniform','Van','Vase','Vegetables','Vest','Village','Violet','Violin'
-            ];
-
-            $audio = $AudioDomain."Grade_2/Lesson_30/Listen_and_Repeat/";
-            $img = $ImageDomain."Grade_2/Lesson_30/Listen_and_Repeat/";
-
-            foreach ($contents as $val) {
-                DB::table('ans_n_ques')->insert([
-                    [
-                        'game_id' => 398, 'a_content' => $val,
-                        'a_image' => $img.str_replace(' ','-',$val).".png",
-                        'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
-                    ],
-                ]);
-            }
+        /////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////// - 30 ===========================================
 
 
 
+        //  Lesson -30 U-1 Listen and Repeat <Reading_carousel>
 
-    // Lesson -30 Unit-2 Trace words <sentence_tracing>
+        $contents = [
+            'Umbrella', 'Uncle', 'Unicorn', 'Unicycle', 'Uniform', 'Van', 'Vase', 'Vegetables', 'Vest', 'Village', 'Violet', 'Violin'
+        ];
+
+        $audio = $AudioDomain . "Grade_2/Lesson_30/Listen_and_Repeat/";
+        $img = $ImageDomain . "Grade_2/Lesson_30/Listen_and_Repeat/";
+
+        foreach ($contents as $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 398, 'a_content' => $val,
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
+                ],
+            ]);
+        }
+
+
+
+
+        // Lesson -30 Unit-2 Trace words <sentence_tracing>
 
 
         $words = [
-            'Vase','Vest','Van'
+            'Vase', 'Vest', 'Van'
         ];
 
         $letters = [
-            ['V','a','s','e'],
-            ['V','e','s','t'],
-            ['V','a','n'],
+            ['V', 'a', 's', 'e'],
+            ['V', 'e', 's', 't'],
+            ['V', 'a', 'n'],
         ];
 
         $counts = [
-            [2,2,1,2],
-            [2,2,1,2],
-            [2,2,2],
+            [2, 2, 1, 2],
+            [2, 2, 1, 2],
+            [2, 2, 2],
         ];
 
-        $audio = $AudioDomain."Grade_2/Lesson_30/Trace_words/";
-        $img = $ImageDomain."Grade_2/Lesson_30/Trace_words/";
+        $audio = $AudioDomain . "Grade_2/Lesson_30/Trace_words/";
+        $img = $ImageDomain . "Grade_2/Lesson_30/Trace_words/";
 
 
         foreach ($words as $key => $val) {
@@ -1697,8 +1686,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 [
                     'game_id' => 399,
                     'round' => $key + 1,
-                    'q_image' => $img.$val.".png",
-                    'q_audio' => $audio.$val.".mp3",
+                    'q_image' => $img . $val . ".png",
+                    'q_audio' => $audio . $val . ".mp3",
                     'a_content' => $val
 
                 ]
@@ -1710,115 +1699,114 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     [
                         'game_id' => 399,
                         'round' => $key + 1,
-                        'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value.".png",
+                        'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value . ".png",
                         'a_content' => $value,
-                        'a_image' => ctype_lower($value) ? $sm_traceSuccess. $value . ".png" : $cap_traceSuccess. $value.".png",
+                        'a_image' => ctype_lower($value) ? $sm_traceSuccess . $value . ".png" : $cap_traceSuccess . $value . ".png",
                         'a_extra' => $counts[$key][$k]
 
                     ]
                 ]);
             }
-
         }
 
 
 
 
-    // Lesson - 30 Unit -3 Matching words and pictures <matching_columns>
+        // Lesson - 30 Unit -3 Matching words and pictures <matching_columns>
 
-    $contents = [
-        ['Umbrella', 'Violin', 'Van', 'Vase', 'Unicycle'],
-        ['Uniform', 'Unicorn', 'Village', 'Vest', 'Vegetables']
-    ];
+        $contents = [
+            ['Umbrella', 'Violin', 'Van', 'Vase', 'Unicycle'],
+            ['Uniform', 'Unicorn', 'Village', 'Vest', 'Vegetables']
+        ];
 
-    $randomValues = [
-        ['Van', 'Unicycle', 'Umbrella', 'Violin', 'Vase'],
-        ['Village', 'Vegetables', 'Uniform', 'Unicorn', 'Vest']
-    ];
+        $randomValues = [
+            ['Van', 'Unicycle', 'Umbrella', 'Violin', 'Vase'],
+            ['Village', 'Vegetables', 'Uniform', 'Unicorn', 'Vest']
+        ];
 
-    $audio = $AudioDomain . "Grade_2/Lesson_30/Matching/";
-    $img = $ImageDomain . "Grade_2/Lesson_30/Matching/";
+        $audio = $AudioDomain . "Grade_2/Lesson_30/Matching/";
+        $img = $ImageDomain . "Grade_2/Lesson_30/Matching/";
 
-    for ($i = 0; $i < count($contents); $i++) {
+        for ($i = 0; $i < count($contents); $i++) {
 
-        foreach ($contents[$i] as $q) {
+            foreach ($contents[$i] as $q) {
 
-            DB::table('ans_n_ques')->insert([
-                [
-                    'game_id' => 400,
-                    'round' => $i + 1,
-                    'q_content' => $q,
-                    'q_image' => $q,
-                    'q_audio' => $audio . $q . ".mp3",
-                ]
-            ]);
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 400,
+                        'round' => $i + 1,
+                        'q_content' => $q,
+                        'q_image' => $q,
+                        'q_audio' => $audio . $q . ".mp3",
+                    ]
+                ]);
+            }
+
+
+            foreach ($randomValues[$i] as $q) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 400, 'round' => $i + 1,
+                        'q_content' => strtolower($q),
+                        'q_image' => $img . strtolower($q) . ".png",
+                        'q_audio' => $audio . $q . ".mp3",
+                    ]
+                ]);
+            }
         }
 
 
-        foreach ($randomValues[$i] as $q) {
-            DB::table('ans_n_ques')->insert([
-                [
-                    'game_id' => 400, 'round' => $i + 1,
-                    'q_content' => strtolower($q),
-                    'q_image' => $img . strtolower($q) . ".png",
-                    'q_audio' => $audio . $q . ".mp3",
-                ]
-            ]);
-        }
-    }
 
 
 
+        // Lesson -30 Unit -4 Listen and write <rearrange with audio>
+
+        $Questions = [
+            ['E', 'G', 'L', 'I', 'V', 'L', 'A'],
+            ['E', 'C', 'L', 'N', 'C', 'Y', 'U', 'I'],
+            ['E', 'A', 'S', 'V'],
+            ['E', 'T', 'S', 'V'],
+            ['O', 'V', 'I', 'N', 'L', 'I'],
+            ['O', 'C', 'U', 'N', 'N', 'R', 'I'],
+            ['A', 'V', 'N'],
+            ['F', 'R', 'M', 'I', 'N', 'O', 'U'],
+            ['U', 'R', 'M', 'B', 'A', 'L', 'L', 'E'],
+
+        ];
+
+        $answers = [
+            'VILLAGE', 'UNICYCLE', 'VASE', 'VEST', 'VIOLIN', 'UNICORN', 'VAN', 'UNIFORM', 'UMBRELLA',
+        ];
+
+        for ($i = 0; $i < count($Questions); $i++) {
+
+            foreach ($Questions[$i]  as  $innerVal) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 401,
+                        'round' => $i + 1,
+                        'q_content' => $innerVal
+                    ]
+                ]);
+            }
 
 
-    // Lesson -30 Unit -4 Listen and write <rearrange with audio>
+            $img = $ImageDomain . "Grade_2/Lesson_30/Listen_and_Write/";
+            $audio = $AudioDomain . "Grade_2/Lesson_30/Listen_and_Write/";
 
-    $Questions = [
-        ['E', 'G', 'L', 'I', 'V', 'L', 'A'],
-        ['E', 'C', 'L', 'N','C','Y','U','I'],
-        ['E', 'A', 'S', 'V'],
-        ['E', 'T', 'S', 'V'],
-        ['O', 'V', 'I', 'N', 'L', 'I'],
-        ['O', 'C', 'U', 'N', 'N', 'R', 'I'],
-        ['A', 'V', 'N'],
-        ['F','R','M','I','N','O','U'],
-        ['U','R','M','B','A','L','L','E'],
-
-    ];
-
-    $answers = [
-        'VILLAGE', 'UNICYCLE', 'VASE', 'VEST', 'VIOLIN', 'UNICORN','VAN','UNIFORM','UMBRELLA',
-    ];
-
-    for ($i = 0; $i < count($Questions); $i++) {
-
-        foreach ($Questions[$i]  as  $innerVal) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 401,
                     'round' => $i + 1,
-                    'q_content' => $innerVal
+                    'q_image' => $img . strtolower($answers[$i]) . ".png",
+                    'a_audio' => $audio . ucfirst(strtolower($answers[$i])) . ".mp3",
+                    'a_content' => $answers[$i],
                 ]
             ]);
         }
 
 
-        $img = $ImageDomain . "Grade_2/Lesson_30/Listen_and_Write/";
-        $audio = $AudioDomain . "Grade_2/Lesson_30/Listen_and_Write/";
-
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 401,
-                'round' => $i + 1,
-                'q_image' => $img . strtolower($answers[$i]) . ".png",
-                'a_audio' => $audio .ucfirst(strtolower($answers[$i])) . ".mp3",
-                'a_content' => $answers[$i],
-            ]
-        ]);
-    }
-
-
-    //// Lesson 30 Unit 5 (Speak) <speaking_and_recording>
+        //// Lesson 30 Unit 5 (Speak) <speaking_and_recording>
 
         $contents = [
             "Vest", "Village", "Violin", "Van", "Vase", "Unicorn", "Blouse", "Umbrella",
@@ -1835,7 +1823,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'round' => $key + 1,
                     'round_instruction' => "Look at this picture and speak.",
                     'q_content' => "This is ___.",
-                    'q_audio' => $AudioDomain."/Grade_2/Lesson_30/Speak/".$value.".mp3",
+                    'q_audio' => $AudioDomain . "/Grade_2/Lesson_30/Speak/" . $value . ".mp3",
                     'q_image' => $ImageDomain . "Grade_2/Lesson_30/Speak/" . $value . ".png",
                     'a_content' => str_replace('-', ' ', $value)
                 ]
@@ -1844,146 +1832,144 @@ class PSNAnsNQuesG2Seeder extends Seeder
         }
 
 
-    /////////////////////////// 31 ////////////////////////////////
+        /////////////////////////// 31 ////////////////////////////////
 
 
-    DB::table('ans_n_ques')->insert(['game_id' => 403, 'a_content' => 'lesson_30', 'isLocal' => 1]);
-    DB::table('ans_n_ques')->insert(['game_id' => 403, 'a_content' => 'lesson_30 (Global)', 'isLocal' => 0]);
+        DB::table('ans_n_ques')->insert(['game_id' => 403, 'a_content' => 'lesson_31', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 403, 'a_content' => 'lesson_31 (Global)', 'isLocal' => 0]);
 
-    // Lesson -31 Unit -2 Reading 1 Sub -1 <Reading_carousel>
-
-
-    $contents = [
-        'Blouse','Boots','Cap','Gloves','Orange','Purple','Raincoat','Scarf','Shoes','Socks','Sweater','Trousers'
-    ];
-
-    $audio = $AudioDomain."Grade_2/Lesson_31/Reading-1/";
-    $img = $ImageDomain."Grade_2/Lesson_31/Reading-1/";
-
-    foreach ($contents as $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 404,
-                'a_content' => $val,
-                'a_image' => $img.str_replace(' ','-',$val).".png",
-                'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
-            ],
-        ]);
-    }
+        // Lesson -31 Unit -2 Reading 1 Sub -1 <Reading_carousel>
 
 
-    // SUB -2
+        $contents = [
+            'Blouse', 'Boots', 'Cap', 'Gloves', 'Orange', 'Purple', 'Raincoat', 'Scarf', 'Shoes', 'Socks', 'Sweater', 'Trousers'
+        ];
 
-    $contents = [
-       'cap-n-blue-scarf',
-       'blue-raincoat-n-purple-boots',
-       'yellow-T-shirt-n-red-boots',
-       'white-sweater-n-brown-trousers'
-    ];
+        $audio = $AudioDomain . "Grade_2/Lesson_31/Reading-1/";
+        $img = $ImageDomain . "Grade_2/Lesson_31/Reading-1/";
 
-    // $data_contents = [
-    //     'cap-n-blue-scarf',
-    //     'blue-raincoat-n-purple-boots',
-    //     'yellow-T-shirt-n-red-boots',
-    //     'white-sweater-n-brown-trousers'
-    // ];
-
-    $audio = $AudioDomain."Grade_2/Lesson_31/Reading-2/";
-    $img = $ImageDomain."Grade_2/Lesson_31/Reading-2/";
-
-    foreach ($contents as $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 405,
-                'a_content' => $val,
-                'a_image' => $img.str_replace(' ','-',$val).".png",
-                'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
-            ],
-        ]);
-    }
+        foreach ($contents as $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 404,
+                    'a_content' => $val,
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
+                ],
+            ]);
+        }
 
 
+        // SUB -2
 
+        $contents = [
+            'cap-n-blue-scarf',
+            'blue-raincoat-n-purple-boots',
+            'yellow-T-shirt-n-red-boots',
+            'white-sweater-n-brown-trousers'
+        ];
 
-    //  Lesson -31 Unit-3 Look and Write <listen_choosing_answer>
+        // $data_contents = [
+        //     'cap-n-blue-scarf',
+        //     'blue-raincoat-n-purple-boots',
+        //     'yellow-T-shirt-n-red-boots',
+        //     'white-sweater-n-brown-trousers'
+        // ];
+
+        $audio = $AudioDomain . "Grade_2/Lesson_31/Reading-2/";
+        $img = $ImageDomain . "Grade_2/Lesson_31/Reading-2/";
+
+        foreach ($contents as $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 405,
+                    'a_content' => $val,
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
+                ],
+            ]);
+        }
 
 
 
-      $audio_q = [
-        'blue_T_shirt-red_cap',
-        'violet_skirt_green_glove',
-        'gray_boots_purple_sweater',
-        'gray_scarf_pink_short',
-        'yellow_raincoat_black_boots',
-        'orange_shoe_brown_dress'
-      ];
 
-      $given_ques = [
-            ['Blue T-shirt and red cap','Orange shoes and brown dress','Gray boots and purple sweater'],
-            ['Gray scarf and pink shorts','Violet skirt and green gloves','Yellow raincoat and black boots'],
-            ['Gray boots and purple sweater','Blue T-shirt and red cap','Orange shoes and brown dress'],
-            ['Blue T-shirt and red cap','Yellow raincoat and black boots','Gray scarf and pink shorts'],
-            ['Gray boots and purple sweater','Yellow raincoat and black boots','Gray scarf and pink shorts'],
-            ['Violet skirt and green gloves','Orange shoes and brown dress','Blue T-shirt and red cap'],
-      ];
+        //  Lesson -31 Unit-3 Look and Write <listen_choosing_answer>
 
-    $ans = [
-        'Blue T-shirt and red cap',
-        'Violet skirt and green gloves',
-        'Gray boots and purple sweater',
-        'Gray scarf and pink shorts',
-        'Yellow raincoat and black boots',
-        'Orange shoes and brown dress',
-    ];
 
-    $audio = $AudioDomain."Grade_2/Lesson_31/Look_and_write/";
-    $img = $ImageDomain."Grade_2/Lesson_31/Look_and_write/";
+
+        $audio_q = [
+            'blue_T_shirt-red_cap',
+            'violet_skirt_green_glove',
+            'gray_boots_purple_sweater',
+            'gray_scarf_pink_short',
+            'yellow_raincoat_black_boots',
+            'orange_shoe_brown_dress'
+        ];
+
+        $given_ques = [
+            ['Blue T-shirt and red cap', 'Orange shoes and brown dress', 'Gray boots and purple sweater'],
+            ['Gray scarf and pink shorts', 'Violet skirt and green gloves', 'Yellow raincoat and black boots'],
+            ['Gray boots and purple sweater', 'Blue T-shirt and red cap', 'Orange shoes and brown dress'],
+            ['Blue T-shirt and red cap', 'Yellow raincoat and black boots', 'Gray scarf and pink shorts'],
+            ['Gray boots and purple sweater', 'Yellow raincoat and black boots', 'Gray scarf and pink shorts'],
+            ['Violet skirt and green gloves', 'Orange shoes and brown dress', 'Blue T-shirt and red cap'],
+        ];
+
+        $ans = [
+            'Blue T-shirt and red cap',
+            'Violet skirt and green gloves',
+            'Gray boots and purple sweater',
+            'Gray scarf and pink shorts',
+            'Yellow raincoat and black boots',
+            'Orange shoes and brown dress',
+        ];
+
+        $audio = $AudioDomain . "Grade_2/Lesson_31/Look_and_write/";
+        $img = $ImageDomain . "Grade_2/Lesson_31/Look_and_write/";
 
         foreach ($audio_q as $key => $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 406,
-                'round' => $key + 1,
-                'q_audio' => $audio.$val.".mp3",
-                'q_content' => $given_ques[$key][0],
-                // 'q_conver'  =>  "Where is the $val ?". $second_q_contents[$key] ,
-                'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
-            ]
-        ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 406,
+                    'round' => $key + 1,
+                    'q_audio' => $audio . $val . ".mp3",
+                    'q_content' => $given_ques[$key][0],
+                    // 'q_conver'  =>  "Where is the $val ?". $second_q_contents[$key] ,
+                    'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
+                ]
+            ]);
 
 
 
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 406,
-                'round'  => $key +  1,
-                'q_content' => $given_ques[$key][1],
-                'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
-            ]
-        ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 406,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][1],
+                    'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
+                ]
+            ]);
 
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 406,
-                'round'  => $key +  1,
-                'q_content' => $given_ques[$key][2],
-                'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
-            ]
-        ]);
-
-
-    }
-
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 406,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][2],
+                    'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
+                ]
+            ]);
+        }
 
 
 
 
-    // Lesson 31 Unit-4 Matching <Matching_column>
+
+        // Lesson 31 Unit-4 Matching <Matching_column>
 
 
         $contents = [
             // ['Purple gloves', 'Black trousers', 'Pink skirt', 'Yellow raincoat', 'Orange shoes'],
-            [ 'Raincoat','Socks', 'Trousers', 'Shoes', 'Gloves', ]
+            ['Raincoat', 'Socks', 'Trousers', 'Shoes', 'Gloves',]
         ];
 
         $randomValues = [
@@ -2004,7 +1990,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                         'round' => $i + 1,
                         'q_content' => ucfirst($q),
                         'q_image' => $q,
-                        'q_audio' => $audio .str_replace(' ','-',strtolower($q))  . ".mp3",
+                        'q_audio' => $audio . str_replace(' ', '-', strtolower($q))  . ".mp3",
                     ]
                 ]);
             }
@@ -2016,8 +2002,8 @@ class PSNAnsNQuesG2Seeder extends Seeder
                         'game_id' => 407,
                         'round' => $i + 1,
                         'q_content' =>  ucfirst($q),
-                        'q_image' => $img . str_replace(' ','-',strtolower($q)) . ".png",
-                        'q_audio' => $audio . str_replace(' ','-',strtolower($q)) . ".mp3",
+                        'q_image' => $img . str_replace(' ', '-', strtolower($q)) . ".png",
+                        'q_audio' => $audio . str_replace(' ', '-', strtolower($q)) . ".mp3",
                     ]
                 ]);
             }
@@ -2025,125 +2011,124 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // Lesson - 31 Unit-5 Speak <speaking_and_recording>
+        // Lesson - 31 Unit-5 Speak <speaking_and_recording>
 
 
 
-    $contents = [
-        "t-shirt", "scarf", "blouse", "sweater", "raincoat",
-    ];
+        $contents = [
+            "t-shirt", "scarf", "blouse", "sweater", "raincoat",
+        ];
 
-    $Question_contents = [
-        'He is wearing ___',
-        'She is wearing ___',
-        'She is wearing ___',
-        'She is wearing ___',
-        'He is wearing ___',
-    ];
+        $Question_contents = [
+            'He is wearing ___',
+            'She is wearing ___',
+            'She is wearing ___',
+            'She is wearing ___',
+            'He is wearing ___',
+        ];
 
-    $img = $ImageDomain . "Grade_2/Lesson_31/Speak/";
-    $audio = $AudioDomain . "Grade_2/Lesson_31/Speak/";
+        $img = $ImageDomain . "Grade_2/Lesson_31/Speak/";
+        $audio = $AudioDomain . "Grade_2/Lesson_31/Speak/";
 
-    foreach ($contents as $key => $value) {
+        foreach ($contents as $key => $value) {
 
-        DB::table('ans_n_ques')->insert([
+            DB::table('ans_n_ques')->insert([
 
-            [
-                'game_id' => 408,
-                'round' => $key + 1,
-                'round_instruction' => $audio."Look-at-this-picture-and-speak.mp3",
-                'q_content' => $Question_contents[$key], // updated
-                'q_audio' => $audio.$contents[$key].".mp3",
-                'q_image' => $img . $value . ".png",
-            ]
+                [
+                    'game_id' => 408,
+                    'round' => $key + 1,
+                    'round_instruction' => $audio . "Look-at-this-picture-and-speak.mp3",
+                    'q_content' => $Question_contents[$key], // updated
+                    'q_audio' => $audio . $contents[$key] . ".mp3",
+                    'q_image' => $img . $value . ".png",
+                ]
 
-        ]);
-    }
-
-
-    /////////////////////////////// Lesson - 32 ////////////////////////////////
+            ]);
+        }
 
 
-    DB::table('ans_n_ques')->insert(['game_id' => 409, 'a_content' => 'lesson_32', 'isLocal' => 1]);
-    DB::table('ans_n_ques')->insert(['game_id' => 409, 'a_content' => 'lesson_32(Global)', 'isLocal' => 0]);
+        /////////////////////////////// Lesson - 32 ////////////////////////////////
 
 
-    // Lesson -32 Unit-2 Reading and Repeat <Reading_carousel>
-
-    $contents = [
-        'Wall','Watch','Water','Watermelon','Whale','Window','Wolf','World','X-Ray','Xylophone'
-    ];
-
-    $audio = $AudioDomain."Grade_2/Lesson_32/Listen_and_Repeat/";
-    $img = $ImageDomain."Grade_2/Lesson_32/Listen_and_Repeat/";
-
-    foreach ($contents as $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 410,
-                'a_content' => $val,
-                'a_image' => $img.str_replace(' ','-',$val).".png",
-                'a_audio' => $audio.str_replace(' ','-',strtolower($val)).".mp3"
-            ],
-        ]);
-    }
+        DB::table('ans_n_ques')->insert(['game_id' => 409, 'a_content' => 'lesson_32', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 409, 'a_content' => 'lesson_32(Global)', 'isLocal' => 0]);
 
 
-    // Lesson -32 Unit-3 Trace <sentence_trace>
-    // Unit - 3 Trace <sentence_tracing>
+        // Lesson -32 Unit-2 Reading and Repeat <Reading_carousel>
 
-    $words = [
-        'Wolf','Wall',
-    ];
+        $contents = [
+            'Wall', 'Watch', 'Water', 'Watermelon', 'Whale', 'Window', 'Wolf', 'World', 'X-Ray', 'Xylophone'
+        ];
 
-    $letters = [
-        ['W','o','l','f'],
-        ['W','a','l','l'],
-    ];
+        $audio = $AudioDomain . "Grade_2/Lesson_32/Listen_and_Repeat/";
+        $img = $ImageDomain . "Grade_2/Lesson_32/Listen_and_Repeat/";
 
-    $counts = [
-        [4,1,1,2],
-        [4,2,1,1]
-    ];
-
-    $audio = $AudioDomain."Grade_2/Lesson_32/Trace/";
-    $img = $ImageDomain."Grade_2/Lesson_32/Trace/";
-
-
-    foreach ($words as $key => $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 411,
-                'round' => $key + 1,
-                'q_image' => $img.$val.".png",
-                'q_audio' => $audio.$val.".mp3",
-                'a_content' => $val
-
-            ]
-        ]);
+        foreach ($contents as $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 410,
+                    'a_content' => $val,
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', strtolower($val)) . ".mp3"
+                ],
+            ]);
+        }
 
 
-        foreach ($letters[$key] as $k => $value) {
+        // Lesson -32 Unit-3 Trace <sentence_trace>
+        // Unit - 3 Trace <sentence_tracing>
+
+        $words = [
+            'Wolf', 'Wall',
+        ];
+
+        $letters = [
+            ['W', 'o', 'l', 'f'],
+            ['W', 'a', 'l', 'l'],
+        ];
+
+        $counts = [
+            [4, 1, 1, 2],
+            [4, 2, 1, 1]
+        ];
+
+        $audio = $AudioDomain . "Grade_2/Lesson_32/Trace/";
+        $img = $ImageDomain . "Grade_2/Lesson_32/Trace/";
+
+
+        foreach ($words as $key => $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 411,
                     'round' => $key + 1,
-                    'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value.".png",
-                    'a_content' => $value,
-                    'a_image' => ctype_lower($value) ? $sm_traceSuccess. $value . ".png" : $cap_traceSuccess. $value.".png",
-                    'a_extra' => $counts[$key][$k]
+                    'q_image' => $img . $val . ".png",
+                    'q_audio' => $audio . $val . ".mp3",
+                    'a_content' => $val
 
                 ]
             ]);
+
+
+            foreach ($letters[$key] as $k => $value) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 411,
+                        'round' => $key + 1,
+                        'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value . ".png",
+                        'a_content' => $value,
+                        'a_image' => ctype_lower($value) ? $sm_traceSuccess . $value . ".png" : $cap_traceSuccess . $value . ".png",
+                        'a_extra' => $counts[$key][$k]
+
+                    ]
+                ]);
+            }
         }
 
-    }
 
 
+        // Lesson - 32 Unit-4 Matching <Matching_column>
 
-    // Lesson - 32 Unit-4 Matching <Matching_column>
-
-     $contents = [
+        $contents = [
             ['World', 'Watch', 'Water', 'Whale', 'Wall'],
             ['Watermelon', 'Window', 'X-ray', 'Xylophone', 'Wolf'],
             // ['World', 'Window', 'Whale', 'Watermelon', 'Watch'],
@@ -2214,7 +2199,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         // }
 
 
-         for ($i = 0; $i < count($contents); $i++) {
+        for ($i = 0; $i < count($contents); $i++) {
 
             foreach ($contents[$i] as $q) {
 
@@ -2249,52 +2234,52 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // Lesson -32 Unit - 5 Listen and write <rearrange with audio>
+        // Lesson -32 Unit - 5 Listen and write <rearrange with audio>
 
-    $Questions = [
-        ['W', 'N', 'W', 'I', 'O', 'D'],
-        ['R', '-', 'A', 'Y','X'],
-        ['T', 'A', 'C', 'H', 'W'],
-        ['F', 'L', 'W', 'O'],
-        ['E', 'L', 'A', 'W', 'E', 'O', 'N', 'R', 'T', 'M'],
-        ['C', 'T', 'O','U', 'S', 'O', 'P'],
-        ['E', 'H', 'O', 'P', 'Y', 'N', 'O', 'X', 'L'],
-        ['H','L','E','W','A'],
-        ['A','E','T','R','W'],
-        ['R','O','D','W','L'],
-    ];
+        $Questions = [
+            ['W', 'N', 'W', 'I', 'O', 'D'],
+            ['R', '-', 'A', 'Y', 'X'],
+            ['T', 'A', 'C', 'H', 'W'],
+            ['F', 'L', 'W', 'O'],
+            ['E', 'L', 'A', 'W', 'E', 'O', 'N', 'R', 'T', 'M'],
+            ['C', 'T', 'O', 'U', 'S', 'O', 'P'],
+            ['E', 'H', 'O', 'P', 'Y', 'N', 'O', 'X', 'L'],
+            ['H', 'L', 'E', 'W', 'A'],
+            ['A', 'E', 'T', 'R', 'W'],
+            ['R', 'O', 'D', 'W', 'L'],
+        ];
 
-    $answers = [
-        'WINDOW', 'X-RAY', 'WATCH', 'WOLF', 'WATERMELON',
-        'OCTOPUS','XYLOPHONE','WHALE','WATER', 'WORLD'
-    ];
+        $answers = [
+            'WINDOW', 'X-RAY', 'WATCH', 'WOLF', 'WATERMELON',
+            'OCTOPUS', 'XYLOPHONE', 'WHALE', 'WATER', 'WORLD'
+        ];
 
-    for ($i = 0; $i < count($Questions); $i++) {
+        for ($i = 0; $i < count($Questions); $i++) {
 
-        foreach ($Questions[$i]  as  $innerVal) {
+            foreach ($Questions[$i]  as  $innerVal) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 413,
+                        'round' => $i + 1,
+                        'q_content' => $innerVal
+                    ]
+                ]);
+            }
+
+
+            $img = $ImageDomain . "Grade_2/Lesson_32/Listen_and_Write/";
+            $audio = $AudioDomain . "Grade_2/Lesson_32/Listen_and_Write/";
+
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 413,
                     'round' => $i + 1,
-                    'q_content' => $innerVal
+                    'q_image' => $img . strtolower($answers[$i]) . ".png",
+                    'a_audio' => $audio . strtolower($answers[$i]) . ".mp3",
+                    'a_content' => $answers[$i],
                 ]
             ]);
         }
-
-
-        $img = $ImageDomain . "Grade_2/Lesson_32/Listen_and_Write/";
-        $audio = $AudioDomain . "Grade_2/Lesson_32/Listen_and_Write/";
-
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 413,
-                'round' => $i + 1,
-                'q_image' => $img . strtolower($answers[$i]) . ".png",
-                'a_audio' => $audio .strtolower($answers[$i]) . ".mp3",
-                'a_content' => $answers[$i],
-            ]
-        ]);
-    }
 
 
 
@@ -2323,7 +2308,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         $paraName = "Rosy-jack-story.mp3";
 
         $given_answer = [
-            ['Saturday', 'Sunday','Monday'],
+            ['Saturday', 'Sunday', 'Monday'],
             ['park', 'zoo',],
             ['blouse', 'dress'],
             ['xylophone', 'guitar'],
@@ -2339,7 +2324,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     [
                         'round' => $i + 1,
                         'game_id' => 414,
-                        'q_audio' => $audios . str_replace(' ','-',strtolower($value)) . ".mp3",
+                        'q_audio' => $audios . str_replace(' ', '-', strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $given_q[$i][1] ? 1 : 0
                     ]
@@ -2367,258 +2352,256 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // =============================== lesson 33 ==============================
+        // =============================== lesson 33 ==============================
 
 
-    DB::table('ans_n_ques')->insert(['game_id' => 415, 'a_content' => 'lesson_33', 'isLocal' => 1]);
-    DB::table('ans_n_ques')->insert(['game_id' => 415, 'a_content' => 'lesson_33 (Global)', 'isLocal' => 0]);
+        DB::table('ans_n_ques')->insert(['game_id' => 415, 'a_content' => '943912607', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 415, 'a_content' => 'lesson_33 (Global)', 'isLocal' => 0]);
 
 
-    // Lesson -33 Unit -2 <Reading_conversation>
+        // Lesson -33 Unit -2 <Reading_conversation>
 
-    // $chars = [
-    //   'Toe Toe','Moe Moe', 'Ni Ni', 'San San'
-    // ];
+        // $chars = [
+        //   'Toe Toe','Moe Moe', 'Ni Ni', 'San San'
+        // ];
 
-    // $main_conver = [
-    //     'Toe-Toe-conversation',
-    //     'Moe-Moe-conversation',
-    //     'Ni-Ni-conversation',
-    //     'San-San-conversation'
-    // ];
+        // $main_conver = [
+        //     'Toe-Toe-conversation',
+        //     'Moe-Moe-conversation',
+        //     'Ni-Ni-conversation',
+        //     'San-San-conversation'
+        // ];
 
-    // $images = $ImageDomain . "Grade_2/Lesson_33/Listen_and_Repeat/";
-    // $audios = $AudioDomain . "Grade_2/Lesson_33/Listen_and_Repeat/";
+        // $images = $ImageDomain . "Grade_2/Lesson_33/Listen_and_Repeat/";
+        // $audios = $AudioDomain . "Grade_2/Lesson_33/Listen_and_Repeat/";
 
-    // foreach ($chars as $key => $value) {
-    //     DB::table('ans_n_ques')->insert([
+        // foreach ($chars as $key => $value) {
+        //     DB::table('ans_n_ques')->insert([
 
-    //         [
-    //         'game_id' => 416,
-    //         'round' => $key + 1,
-    //         'a_image' =>  $images.str_replace(' ','-',$value).".gif",
-    //         'a_audio' => $audios.str_replace(' ','-',$value).".mp3",
-    //         'a_conver' => $images.$main_conver[$key].".png",
-    //         'background' => $images."bg".$key + 1 .".png",
-    //         ]
+        //         [
+        //         'game_id' => 416,
+        //         'round' => $key + 1,
+        //         'a_image' =>  $images.str_replace(' ','-',$value).".gif",
+        //         'a_audio' => $audios.str_replace(' ','-',$value).".mp3",
+        //         'a_conver' => $images.$main_conver[$key].".png",
+        //         'background' => $images."bg".$key + 1 .".png",
+        //         ]
 
-    //     ]);
+        //     ]);
 
-    // }
-///////////////////////////////
+        // }
+        ///////////////////////////////
 
 
         $chars = [
-            ['Toe-Toe','Moe-Moe','Ni-Ni'],
-            ['Moe-Moe','Toe-Toe','Ni-Ni'],
-            ['Ni-Ni','Moe-Moe','Toe-Toe'],
-            ['San-San','Toe-Toe','Moe-Moe','Ni-Ni'],
+            ['Toe-Toe', 'Moe-Moe', 'Ni-Ni'],
+            ['Moe-Moe', 'Toe-Toe', 'Ni-Ni'],
+            ['Ni-Ni', 'Moe-Moe', 'Toe-Toe'],
+            ['San-San', 'Toe-Toe', 'Moe-Moe', 'Ni-Ni'],
         ];
 
 
         $convers = [ // စာ-ပုံ
-            ['Toe-Toe-conversation',null,null],
-            ['Moe-Moe-conversation',null,null],
-            ['Ni-Ni-conversation',null,null],
-            ['San-San-conversation','Toe-Toe','Moe-Moe','Ni-Ni'],
+            ['Toe-Toe-conversation', null, null],
+            ['Moe-Moe-conversation', null, null],
+            ['Ni-Ni-conversation', null, null],
+            ['San-San-conversation', 'Toe-Toe', 'Moe-Moe', 'Ni-Ni'],
         ];
         $aud = [ // စာ-ပုံ
-            ['Toe-Toe-conversation',null,null],
-            ['Moe-Moe-conversation',null,null],
-            ['Ni-Ni-conversation',null,null],
-            ['San-San-conversation',null,null,null],
+            ['Toe-Toe-conversation', null, null],
+            ['Moe-Moe-conversation', null, null],
+            ['Ni-Ni-conversation', null, null],
+            ['San-San-conversation', null, null, null],
         ];
 
         $images = $ImageDomain . "Grade_2/Lesson_33/Listen_and_Repeat/";
         $audios = $AudioDomain . "Grade_2/Lesson_33/Listen_and_Repeat/";
 
 
-    foreach ($chars as $key => $char) {
+        foreach ($chars as $key => $char) {
 
-        foreach ($char as $k => $v) {
+            foreach ($char as $k => $v) {
 
                 DB::table('ans_n_ques')->insert([
                     [
                         'game_id' => 416,
                         'round' => $key + 1,
-                        'a_image' => $images.$v.".gif",
-                        'a_audio' => $convers[$key][$k] ? $audios.$aud[$key][$k].".mp3" : null,
-                        'a_conver' => $convers[$key][$k] ? $images.$convers[$key][$k].".png" : null,
-                        "background" => $images."bg.png"
+                        'a_image' => $images . $v . ".gif",
+                        'a_audio' => $convers[$key][$k] ? $audios . $aud[$key][$k] . ".mp3" : null,
+                        'a_conver' => $convers[$key][$k] ? $images . $convers[$key][$k] . ".png" : null,
+                        "background" => $images . "bg.png"
                     ]
                 ]);
-
+            }
         }
-    }
 
 
 
-    // Lesson -33 Unit -3 Writing exercise <look_and_write>
+        // Lesson -33 Unit -3 Writing exercise <look_and_write>
 
-    // Blank ---------------------------------------
-    // Blank ---------------------------------------
-    // Blank ---------------------------------------
-    // Blank ---------------------------------------
-    // Blank ---------------------------------------
+        // Blank ---------------------------------------
+        // Blank ---------------------------------------
+        // Blank ---------------------------------------
+        // Blank ---------------------------------------
+        // Blank ---------------------------------------
 
 
-    $kids = ['Chris','Jack','Jane'];
+        $kids = ['Chris', 'Jack', 'Jane'];
 
-    $questions = [
+        $questions = [
             "Chris is wearing a ___ sport shirt', 'black ___ and red socks.",
             "Jack is wearing a yellow. t-shirt, ___trousers, and blue ___.",
             "Hello, I am Jane. I have three ___. They are Rosy, jack, and Chris."
-    ];
+        ];
 
-    $ans = [
-        "Chris is wearing a red sport shirt', 'black short and red socks.",
-        "Jack is wearing a yellow. t-shirt, black trousers, and blue cap.",
-        "Hello, I am Jane. I have three friends. They are Rosy, jack, and Chris."
-    ];
-
-
-    $images = $ImageDomain . "Grade_2/Lesson_33/Writing_exercise/";
-    $audios = $AudioDomain . "Grade_2/Lesson_33/Writing_exercise/";
-
-    foreach ($questions as $key => $value) {
-
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 417,
-                'round' => $key + 1,
-                'q_image' => $images.$kids[$key].".png",
-                'q_audio' => $audios.$kids[$key].".mp3",
-                'q_content' => $value,
-                'a_content' => $ans[$key],
-            ]
-        ]);
-    }
+        $ans = [
+            "Chris is wearing a red sport shirt', 'black short and red socks.",
+            "Jack is wearing a yellow. t-shirt, black trousers, and blue cap.",
+            "Hello, I am Jane. I have three friends. They are Rosy, jack, and Chris."
+        ];
 
 
+        $images = $ImageDomain . "Grade_2/Lesson_33/Writing_exercise/";
+        $audios = $AudioDomain . "Grade_2/Lesson_33/Writing_exercise/";
 
+        foreach ($questions as $key => $value) {
 
-
-
-
-
-
-    // Lesson -33 Unit-4
-
-
-    $contents = [
-      "sport-shirt", "cap", "t-shirt", "short", "shoes", "sweater",
-    ];
-
-    $example = "Example \n This is my T-shirt.It's pink,\nwhite and red. It's small.\nI love my T-shirt.";
-
-    foreach ($contents as $key => $value) {
-
-        DB::table('ans_n_ques')->insert([
-
-            [
-                'game_id' => 418,
-                'round' => $key + 1,
-                'round_instruction' => $AudioDomain."/Grade_2/Lesson_33/Speak/". "Look-at-the-pictures-and-speak.mp3",
-                'q_content' => $key == 0 ? $example : "Look at this picture and speak.",
-                'q_audio' => $AudioDomain."/Grade_2/Lesson_33/Speak/".$contents[$key].".mp3",
-                'q_image' => $ImageDomain . "Grade_2/Lesson_33/Speak/" . $value . ".png",
-                // 'a_content' => str_replace('-', ' ', $value)
-            ]
-
-        ]);
-    }
-
-
-
-
-    //////////////////////////////// 34 //////////////////////////////
-
-    // Lesson -34 Unit - 1 <reading_carousel>
-
-
-    $contents = [
-        'Yard','Yacht','Yawn','Yo-yo','Yoghurt','Yolk','Zebra','Zero','Zip','Zoo'
-    ];
-
-    $audio = $AudioDomain."Grade_2/Lesson_34/Listen_and_Repeat/";
-    $img = $ImageDomain."Grade_2/Lesson_34/Listen_and_Repeat/";
-
-    foreach ($contents as $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 419,
-                'a_content' => $val,
-                'a_image' => $img.str_replace(' ','-',$val).".png",
-                'a_audio' => $audio.str_replace(' ','-',strtolower($val)).".mp3"
-            ],
-        ]);
-    }
-
-
-    // Lesson -34 Unit-2 Trace Word <sentence_trace>
-    // Unit - 3 Trace <sentence_tracing>
-
-    $words = [
-        'Yawn','Yolk','YoYo','Zero','Zip'
-    ];
-
-    $letters = [
-        ['Y','a','w','n'],
-        ['Y','o','l','k'],
-        ['Y','o','Y','o'],
-        ['Z','e','r','o'],
-        ['Z','i','p'],
-    ];
-
-    $counts = [
-        [3,2,4,2],
-        [3,1,1,3],
-        [3,1,3,1],
-        [3,2,2,1],
-        [3,2,2]
-    ];
-
-    $audio = $AudioDomain."Grade_2/Lesson_34/Trace_words/";
-    $img = $ImageDomain."Grade_2/Lesson_34/Trace_words/";
-
-
-    foreach ($words as $key => $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 420,
-                'round' => $key + 1,
-                'q_image' => $img.$val.".png",
-                'q_audio' => $audio.strtolower($val).".mp3",
-                'a_content' => $val
-
-            ]
-        ]);
-
-
-        foreach ($letters[$key] as $k => $value) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 420,
+                    'game_id' => 417,
                     'round' => $key + 1,
-                    'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value.".png",
-                    'a_content' => $value,
-                    'a_image' => ctype_lower($value) ? $sm_traceSuccess. $value . ".png" : $cap_traceSuccess. $value.".png",
-                    'a_extra' => $counts[$key][$k]
-
+                    'q_image' => $images . $kids[$key] . ".png",
+                    'q_audio' => $audios . $kids[$key] . ".mp3",
+                    'q_content' => $value,
+                    'a_content' => $ans[$key],
                 ]
             ]);
         }
 
-    }
 
 
 
 
 
 
-    // Lesson - 34 Unit-3 Matching <Matching_column>
 
-     $contents = [
+
+        // Lesson -33 Unit-4
+
+
+        $contents = [
+            "sport-shirt", "cap", "t-shirt", "short", "shoes", "sweater",
+        ];
+
+        $example = "Example \n This is my T-shirt.It's pink,\nwhite and red. It's small.\nI love my T-shirt.";
+
+        foreach ($contents as $key => $value) {
+
+            DB::table('ans_n_ques')->insert([
+
+                [
+                    'game_id' => 418,
+                    'round' => $key + 1,
+                    'round_instruction' => $AudioDomain . "/Grade_2/Lesson_33/Speak/" . "Look-at-the-pictures-and-speak.mp3",
+                    'q_content' => $key == 0 ? $example : "Look at this picture and speak.",
+                    'q_audio' => $AudioDomain . "/Grade_2/Lesson_33/Speak/" . $contents[$key] . ".mp3",
+                    'q_image' => $ImageDomain . "Grade_2/Lesson_33/Speak/" . $value . ".png",
+                    // 'a_content' => str_replace('-', ' ', $value)
+                ]
+
+            ]);
+        }
+
+
+
+
+        //////////////////////////////// 34 //////////////////////////////
+
+        // Lesson -34 Unit - 1 <reading_carousel>
+
+
+        $contents = [
+            'Yard', 'Yacht', 'Yawn', 'Yo-yo', 'Yoghurt', 'Yolk', 'Zebra', 'Zero', 'Zip', 'Zoo'
+        ];
+
+        $audio = $AudioDomain . "Grade_2/Lesson_34/Listen_and_Repeat/";
+        $img = $ImageDomain . "Grade_2/Lesson_34/Listen_and_Repeat/";
+
+        foreach ($contents as $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 419,
+                    'a_content' => $val,
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', strtolower($val)) . ".mp3"
+                ],
+            ]);
+        }
+
+
+        // Lesson -34 Unit-2 Trace Word <sentence_trace>
+        // Unit - 3 Trace <sentence_tracing>
+
+        $words = [
+            'Yawn', 'Yolk', 'YoYo', 'Zero', 'Zip'
+        ];
+
+        $letters = [
+            ['Y', 'a', 'w', 'n'],
+            ['Y', 'o', 'l', 'k'],
+            ['Y', 'o', 'Y', 'o'],
+            ['Z', 'e', 'r', 'o'],
+            ['Z', 'i', 'p'],
+        ];
+
+        $counts = [
+            [3, 2, 4, 2],
+            [3, 1, 1, 3],
+            [3, 1, 3, 1],
+            [3, 2, 2, 1],
+            [3, 2, 2]
+        ];
+
+        $audio = $AudioDomain . "Grade_2/Lesson_34/Trace_words/";
+        $img = $ImageDomain . "Grade_2/Lesson_34/Trace_words/";
+
+
+        foreach ($words as $key => $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 420,
+                    'round' => $key + 1,
+                    'q_image' => $img . $val . ".png",
+                    'q_audio' => $audio . strtolower($val) . ".mp3",
+                    'a_content' => $val
+
+                ]
+            ]);
+
+
+            foreach ($letters[$key] as $k => $value) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 420,
+                        'round' => $key + 1,
+                        'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value . ".png",
+                        'a_content' => $value,
+                        'a_image' => ctype_lower($value) ? $sm_traceSuccess . $value . ".png" : $cap_traceSuccess . $value . ".png",
+                        'a_extra' => $counts[$key][$k]
+
+                    ]
+                ]);
+            }
+        }
+
+
+
+
+
+
+        // Lesson - 34 Unit-3 Matching <Matching_column>
+
+        $contents = [
             ['Yolk', 'Yo-yo', 'Yoghurt', 'Zero', 'Zebra'],
             ['Yolk', 'Yacht', 'Yoghurt', 'Yawn', 'Yo-yo'],
         ];
@@ -2664,22 +2647,22 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // Lesson -34 Unit- 4 Listen and Write <rearrange with audio>
+        // Lesson -34 Unit- 4 Listen and Write <rearrange with audio>
 
 
         $Questions = [
             ['A', 'Y', 'D', 'R'],
             ['W', 'Y', 'N', 'A'],
-            ['Y','U','O','G','H','R','T'],
+            ['Y', 'U', 'O', 'G', 'H', 'R', 'T'],
             ['K', 'Y', 'L', 'O'],
-            ['B','E','A','Z','R'],
+            ['B', 'E', 'A', 'Z', 'R'],
             ['E', 'R', 'Z', 'O'],
             ['P', 'I', 'Z'],
             ['O', 'Z', 'O'],
         ];
 
         $answers = [
-            'YARD', 'YAWN', 'YOGHURT', 'YOLK', 'ZEBRA', 'ZERO','ZIP','ZOO'
+            'YARD', 'YAWN', 'YOGHURT', 'YOLK', 'ZEBRA', 'ZERO', 'ZIP', 'ZOO'
         ];
 
         for ($i = 0; $i < count($Questions); $i++) {
@@ -2711,78 +2694,78 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // Lesson -34 Unit- 5 Speak <speaking_and_recording>
+        // Lesson -34 Unit- 5 Speak <speaking_and_recording>
 
-     $contents = [
-        "yoghurt", "zebra", "yoyo", "yawn", "zip", "yolk", "yacht",
-     ];
-
-    foreach ($contents as $key => $value) {
-
-        DB::table('ans_n_ques')->insert([
-
-            [
-                'game_id' => 423,
-                'round' => $key + 1,
-                'round_instruction' => "What is this?",
-                'q_content' =>"What is this?",
-                'q_audio' => $AudioDomain."/Grade_2/Lesson_34/Speak/".$contents[$key].".mp3",
-                'q_image' => $ImageDomain . "Grade_2/Lesson_34/Speak/" . $value . ".png",
-                'a_content' => str_replace('-', ' ', $value)
-            ]
-
-        ]);
-    }
-
-
-
-
-
-    ////////////////////////////////////////   Lesson - 35  /////// //////////////////////////
-
-
-    DB::table('ans_n_ques')->insert(['game_id' => 424, 'a_content' => 'lesson_30', 'isLocal' => 1]);
-    DB::table('ans_n_ques')->insert(['game_id' => 424, 'a_content' => 'lesson_30 (Global)', 'isLocal' => 0]);
-
-
-    // Unit -2 Listen and Repeat <Reading_carousel> sub_games
-
-    // Sub -1 ( Reading -1 )
-
-
-    $contents = [
-        'Cinema','Library','Market','Playground','Toy Store','Zoo',
+        $contents = [
+            "yoghurt", "zebra", "yoyo", "yawn", "zip", "yolk", "yacht",
         ];
 
-        $audio = $AudioDomain."Grade_2/Lesson_35/Listen_and_Repeat/Reading_1/";
-        $img = $ImageDomain."Grade_2/Lesson_35/Listen_and_Repeat/Reading_1/";
+        foreach ($contents as $key => $value) {
+
+            DB::table('ans_n_ques')->insert([
+
+                [
+                    'game_id' => 423,
+                    'round' => $key + 1,
+                    'round_instruction' => "What is this?",
+                    'q_content' => "What is this?",
+                    'q_audio' => $AudioDomain . "/Grade_2/Lesson_34/Speak/" . $contents[$key] . ".mp3",
+                    'q_image' => $ImageDomain . "Grade_2/Lesson_34/Speak/" . $value . ".png",
+                    'a_content' => str_replace('-', ' ', $value)
+                ]
+
+            ]);
+        }
+
+
+
+
+
+        ////////////////////////////////////////   Lesson - 35  /////// //////////////////////////
+
+
+        DB::table('ans_n_ques')->insert(['game_id' => 424, 'a_content' => '943912703', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 424, 'a_content' => 'lesson_35 (Global)', 'isLocal' => 0]);
+
+
+        // Unit -2 Listen and Repeat <Reading_carousel> sub_games
+
+        // Sub -1 ( Reading -1 )
+
+
+        $contents = [
+            'Cinema', 'Library', 'Market', 'Playground', 'Toy Store', 'Zoo',
+        ];
+
+        $audio = $AudioDomain . "Grade_2/Lesson_35/Listen_and_Repeat/Reading_1/";
+        $img = $ImageDomain . "Grade_2/Lesson_35/Listen_and_Repeat/Reading_1/";
 
         foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 425, 'a_content' => $val,
-                    'a_image' => $img.str_replace(' ','-',$val).".png",
-                    'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
                 ],
             ]);
         }
 
 
-    // Sub -2 ( Reading -2 )
+        // Sub -2 ( Reading -2 )
 
-    $contents = [
-        'Cinema','Library','Market','Playground','Toy Shop','Zoo',
+        $contents = [
+            'Cinema', 'Library', 'Market', 'Playground', 'Toy Shop', 'Zoo',
         ];
 
-        $audio = $AudioDomain."Grade_2/Lesson_35/Listen_and_Repeat/Reading_2/";
-        $img = $ImageDomain."Grade_2/Lesson_35/Listen_and_Repeat/Reading_2/";
+        $audio = $AudioDomain . "Grade_2/Lesson_35/Listen_and_Repeat/Reading_2/";
+        $img = $ImageDomain . "Grade_2/Lesson_35/Listen_and_Repeat/Reading_2/";
 
         foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 426, 'a_content' => $val,
-                    'a_image' => $img.str_replace(' ','-',$val).".png",
-                    'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
                 ],
             ]);
         }
@@ -2790,24 +2773,24 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // Lesson -35 Unit - 3 Listen and Write <rearrange_with_audio>
+        // Lesson -35 Unit - 3 Listen and Write <rearrange_with_audio>
 
         $Questions = [
             ['O', 'O', 'Z'],
             ['T', 'K', 'E', 'M', 'R', 'A'],
             ['O', 'T', 'S', 'H', 'P', 'O', 'Y'],
-            ['B','Y','I','A','R','R','L'],
-            ['N','M','E','I','C','A'],
+            ['B', 'Y', 'I', 'A', 'R', 'R', 'L'],
+            ['N', 'M', 'E', 'I', 'C', 'A'],
 
-            ['S','U','B'],
-            ['R','A','I','N','T'],
-            ['A','C','R'],
-            ['I','C','L','E','C','B','Y'],
-            ['A','B','T','O'],
+            ['S', 'U', 'B'],
+            ['R', 'A', 'I', 'N', 'T'],
+            ['A', 'C', 'R'],
+            ['I', 'C', 'L', 'E', 'C', 'B', 'Y'],
+            ['A', 'B', 'T', 'O'],
         ];
 
         $answers = [
-            'ZOO', 'MARKET', 'TOYSHOP','LIBRARY','CINEMA', 'BUS', 'TRAIN', 'CAR' , 'BICYCLE','BOAT'
+            'ZOO', 'MARKET', 'TOYSHOP', 'LIBRARY', 'CINEMA', 'BUS', 'TRAIN', 'CAR', 'BICYCLE', 'BOAT'
         ];
 
         for ($i = 0; $i < count($Questions); $i++) {
@@ -2840,51 +2823,51 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // Lesson -35 Unit-4 Matching <Matching_column>
+        // Lesson -35 Unit-4 Matching <Matching_column>
 
 
         $contents = [
-          'Bicycle','Boat','Market','Trishaw','Train'
+            'Bicycle', 'Boat', 'Market', 'Trishaw', 'Train'
         ];
 
         $ans = [
-            'Trishaw','Train','Bicycle','Boat','Market'
+            'Trishaw', 'Train', 'Bicycle', 'Boat', 'Market'
         ];
 
-        $audio = $AudioDomain."Grade_2/Lesson_35/Matching/";
-        $img = $ImageDomain."Grade_2/Lesson_35/Matching/";
+        $audio = $AudioDomain . "Grade_2/Lesson_35/Matching/";
+        $img = $ImageDomain . "Grade_2/Lesson_35/Matching/";
 
 
         foreach ($contents as $key => $val) {
-               DB::table('ans_n_ques')->insert([
-                    [
-                        'game_id' => 428,
-                        'round' => 1,
-                        'q_content' => $val,
-                        'q_image' => $val,
-                        'q_audio' => $audio.$val.".mp3",
-                    ]
-                ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 428,
+                    'round' => 1,
+                    'q_content' => $val,
+                    'q_image' => $val,
+                    'q_audio' => $audio . $val . ".mp3",
+                ]
+            ]);
         }
 
 
         foreach ($ans as $key => $val) {
-               DB::table('ans_n_ques')->insert([
-                    [
-                        'game_id' => 428,
-                        'round' => 1,
-                        'q_content' => strtolower($val),
-                        'q_image' => $img.$val.".png",
-                        'q_audio' => $audio.$val.".mp3",
-                    ]
-                ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 428,
+                    'round' => 1,
+                    'q_content' => strtolower($val),
+                    'q_image' => $img . $val . ".png",
+                    'q_audio' => $audio . $val . ".mp3",
+                ]
+            ]);
         }
 
 
-    // Lesson -35 Unit -5  Speak <speaking_and_recording>
+        // Lesson -35 Unit -5  Speak <speaking_and_recording>
 
 
-       $contents = [
+        $contents = [
             "Library", "Zoo", "Question",
         ];
 
@@ -2904,7 +2887,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'round' => $key + 1,
                     // 'round_instruction' => "Look at this picture and speak.",
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $AudioDomain."/Grade_2/Lesson_35/Speak/".$contents[$key].".mp3",
+                    'q_audio' => $AudioDomain . "/Grade_2/Lesson_35/Speak/" . $contents[$key] . ".mp3",
                     'q_image' => $ImageDomain . "Grade_2/Lesson_35/Speak/" . $value . ".png",
                     // 'a_content' => str_replace('-', ' ', $value)
                 ]
@@ -2914,124 +2897,122 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    ////////////////////// Lesson -36 /////////////////////////////
+        ////////////////////// Lesson -36 /////////////////////////////
 
 
-    DB::table('ans_n_ques')->insert(['game_id' => 430, 'a_content' => 'lesson_36', 'isLocal' => 1]);
-    DB::table('ans_n_ques')->insert(['game_id' => 430, 'a_content' => 'lesson_36 (Global)', 'isLocal' => 0]);
+        DB::table('ans_n_ques')->insert(['game_id' => 430, 'a_content' => 'lesson_36', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 430, 'a_content' => 'lesson_36 (Global)', 'isLocal' => 0]);
 
 
-    // Lesson -36 Unit -2 Listen and Repeat <Reading_carousel> sub_games
+        // Lesson -36 Unit -2 Listen and Repeat <Reading_carousel> sub_games
 
-    // Sub -1 ( Reading -1 )
+        // Sub -1 ( Reading -1 )
 
-    $contents = [
-        'Cinema','Library','Market','Restaurant','Zoo',
+        $contents = [
+            'Cinema', 'Library', 'Market', 'Restaurant', 'Zoo',
         ];
 
-        $audio = $AudioDomain."Grade_2/Lesson_36/Listen_and_Repeat/Reading_1/";
-        $img = $ImageDomain."Grade_2/Lesson_36/Listen_and_Repeat/Reading_1/";
+        $audio = $AudioDomain . "Grade_2/Lesson_36/Listen_and_Repeat/Reading_1/";
+        $img = $ImageDomain . "Grade_2/Lesson_36/Listen_and_Repeat/Reading_1/";
 
         foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 431, 'a_content' => $val,
-                    'a_image' => $img.str_replace(' ','-',$val).".png",
-                    'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
                 ],
             ]);
         }
 
 
-    // Sub -2 ( Reading -2 )
+        // Sub -2 ( Reading -2 )
 
-    $contents = [
-        'I-like-movie','I-like-reading','I-like-hamburgers','I-like-ride','I-like-toys','I-like-elephant',
+        $contents = [
+            'I-like-movie', 'I-like-reading', 'I-like-hamburgers', 'I-like-ride', 'I-like-toys', 'I-like-elephant',
         ];
 
-    $imgs = [
-        'Cinema','Library','Restaurant','Playground','Toyshop','Zoo'
-    ];
+        $imgs = [
+            'Cinema', 'Library', 'Restaurant', 'Playground', 'Toyshop', 'Zoo'
+        ];
 
-        $audio = $AudioDomain."Grade_2/Lesson_36/Listen_and_Repeat/Reading_2/";
-        $img = $ImageDomain."Grade_2/Lesson_36/Listen_and_Repeat/Reading_2/";
+        $audio = $AudioDomain . "Grade_2/Lesson_36/Listen_and_Repeat/Reading_2/";
+        $img = $ImageDomain . "Grade_2/Lesson_36/Listen_and_Repeat/Reading_2/";
 
         foreach ($contents as $k => $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 432, 'a_content' => $val,
-                    'a_image' => $img.str_replace(' ','-',$imgs[$k]).".png",
-                    'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
+                    'a_image' => $img . str_replace(' ', '-', $imgs[$k]) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
                 ],
             ]);
         }
 
 
 
-    // Unit -3 Listen and Write < listening_choosing_answer >
+        // Unit -3 Listen and Write < listening_choosing_answer >
 
-      $audio_q = [
-        'cinema-toyshop','market-bicycle','restaurant-car','toyshop-bus','zoo-playground'
-      ];
+        $audio_q = [
+            'cinema-toyshop', 'market-bicycle', 'restaurant-car', 'toyshop-bus', 'zoo-playground'
+        ];
 
-      $given_ques = [
-            ['Zoo/Playground','Cinema/Toy shop','Market/Bicycle'],
-            ['Zoo/Playground','Cinema/Toy shop','Market/Bicycle'],
-            ['Restaurant/Car','Cinema/Toy shop','Toy shop/Bus'],
-            ['Restaurant/Car','Cinema/Toy shop','Toy shop/Bus'],
-            ['Zoo/Playground','Cinema/Toy shop','Market/Bicycle'],
-      ];
+        $given_ques = [
+            ['Zoo/Playground', 'Cinema/Toy shop', 'Market/Bicycle'],
+            ['Zoo/Playground', 'Cinema/Toy shop', 'Market/Bicycle'],
+            ['Restaurant/Car', 'Cinema/Toy shop', 'Toy shop/Bus'],
+            ['Restaurant/Car', 'Cinema/Toy shop', 'Toy shop/Bus'],
+            ['Zoo/Playground', 'Cinema/Toy shop', 'Market/Bicycle'],
+        ];
 
-    $ans = [
-        'Cinema/Toy shop',
-        'Market/Bicycle',
-        'Restaurant/Car',
-        'Toy shop/Bus',
-        'Zoo/Playground'
-    ];
+        $ans = [
+            'Cinema/Toy shop',
+            'Market/Bicycle',
+            'Restaurant/Car',
+            'Toy shop/Bus',
+            'Zoo/Playground'
+        ];
 
-    $audio = $AudioDomain."Grade_2/Lesson_36/Listen_and_write/";
-    $img = $ImageDomain."Grade_2/Lesson_36/Listen_and_write/";
+        $audio = $AudioDomain . "Grade_2/Lesson_36/Listen_and_write/";
+        $img = $ImageDomain . "Grade_2/Lesson_36/Listen_and_write/";
 
-    foreach ($audio_q as $key => $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 433,
-                'round' => $key + 1,
-                'q_audio' => $audio.$val.".mp3",
-                'q_content' => $given_ques[$key][0],
-                // 'q_conver'  =>  "Where is the $val ?". $second_q_contents[$key] ,
-                'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
-            ]
-        ]);
-
-
-
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 433,
-                'round'  => $key +  1,
-                'q_content' => $given_ques[$key][1],
-                'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
-            ]
-        ]);
-
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 433,
-                'round'  => $key +  1,
-                'q_content' => $given_ques[$key][2],
-                'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
-            ]
-        ]);
+        foreach ($audio_q as $key => $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 433,
+                    'round' => $key + 1,
+                    'q_audio' => $audio . $val . ".mp3",
+                    'q_content' => $given_ques[$key][0],
+                    // 'q_conver'  =>  "Where is the $val ?". $second_q_contents[$key] ,
+                    'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
+                ]
+            ]);
 
 
-    }
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 433,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][1],
+                    'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
+                ]
+            ]);
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 433,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][2],
+                    'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
+                ]
+            ]);
+        }
 
 
-     // Lesson -36 Unit -4 Speak  <speaking_and_recording>
+        // Lesson -36 Unit -4 Speak  <speaking_and_recording>
 
-        $contentImg = ['restaurant','library','birthday_restaurant','cinema',];
+        $contentImg = ['restaurant', 'library', 'birthday_restaurant', 'cinema',];
 
 
         $questionContent = [
@@ -3062,7 +3043,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'q_content' => $value,
                     'q_image' => $img . str_replace(' ', '-', $contentImg[$key]) . ".png",
                     'a_content' => null,
-                    'q_audio' => $audio.$questionAudio[$key],
+                    'q_audio' => $audio . $questionAudio[$key],
                 ]
 
             ]);
@@ -3106,7 +3087,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     [
                         'round' => $i + 1,
                         'game_id' => 435,
-                        'q_audio' => $audios . str_replace(' ','-',strtolower($value)) . ".mp3",
+                        'q_audio' => $audios . str_replace(' ', '-', strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $L32U5_given_q[$i][1] ? 1 : 0
                     ]
@@ -3136,188 +3117,190 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    //////////////////////////////// Lesson -37  ////////////////////////////////
+        //////////////////////////////// Lesson -37  ////////////////////////////////
+
+        DB::table('ans_n_ques')->insert(['game_id' => 436, 'a_content' => '943914196', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 436, 'a_content' => 'lesson_37 (Global)', 'isLocal' => 0]);
 
 
 
         // Lesson 37 unit-2 listen and learn <reading_carousel>
-        $contents = range(1,10);
+        $contents = range(1, 10);
 
-        $audio = $AudioDomain."Grade_2/Lesson_37/Listen_and_Learn/Reading-1/";
-        $img = $ImageDomain."Grade_2/Lesson_37/Listen_and_Learn/Reading-1/";
+        $audio = $AudioDomain . "Grade_2/Lesson_37/Listen_and_Learn/Reading-1/";
+        $img = $ImageDomain . "Grade_2/Lesson_37/Listen_and_Learn/Reading-1/";
 
         foreach ($contents as $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 437,
-                    'a_content' => $val." bottle",
-                    'a_image' => $img.str_replace(' ','-',$val).".png",
-                    'a_audio' => $audio.str_replace(' ','-',$val."-green-bottles").".mp3"
+                    'a_content' => $val . " bottle",
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val . "-green-bottles") . ".mp3"
                 ],
             ]);
         }
 
 
 
-    //  Unit -4 Speak <speaking_and_recording>
+        //  Unit -4 Speak <speaking_and_recording>
 
 
 
         $contents = [
-           "10-bottles", "8-bottles", "1-bottle", "3-bottles", "4-bottles",
+            "10-bottles", "8-bottles", "1-bottle", "3-bottles", "4-bottles",
         ];
 
         $Question_contents = "Look at the picture and speak.";
         // $Question_contents = null;
 
-        $audio = $AudioDomain."Grade_2/Lesson_37/Speak/";
-        $img = $ImageDomain."Grade_2/Lesson_37/Speak/";
+        $audio = $AudioDomain . "Grade_2/Lesson_37/Speak/";
+        $img = $ImageDomain . "Grade_2/Lesson_37/Speak/";
 
         foreach ($contents as $key => $value) {
 
-        $data = [
-                    'game_id' => 439,
-                    'round' => $key + 1,
-                    'round_instruction' => $audio."Look-at-the-picture-and-speak.mp3",
-                    'q_content' => $Question_contents,
-                    'q_audio' => $audio.$value.".mp3",
-                    'q_image' => $img.$value . ".png",
-                ];
-        if($key == 0) {
-            $data['q_content'] = $data['q_content']." \nExample \nTen green bottles standing on the wall.";
-        }
-        DB::table('ans_n_ques')->insert($data);
-    }
-
-
-
-    ///////////////////////////////// Lesson - 38 /////////////////////////////////////
-
-
-
-    DB::table('ans_n_ques')->insert(['game_id' => 440, 'a_content' => 'lesson_38', 'isLocal' => 1]);
-    DB::table('ans_n_ques')->insert(['game_id' => 440, 'a_content' => 'lesson_38 (Global)', 'isLocal' => 0]);
-
-    // Lesson - 38  Unit - 2 Reading <reading_carousel>
-
-    // sub -1
-    $contents = range(1,10);
-
-    $audio = $AudioDomain."Grade_2/Lesson_38/Reading-1/";
-    $img = $ImageDomain."Grade_2/Lesson_38/Reading-1/";
-
-    foreach ($contents as $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 441, 'a_content' => $val,
-                'a_image' => $img.str_replace(' ','-',$val).".png",
-                'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
-            ],
-        ]);
-    }
-
-
-    // sub -2
-
-    $contents = [
-        'eight watermelons','five cars','four bananas','nine cats','two balls',
-        'one apple','seven oranges','six bottles' ,'ten dogs', 'three cups'
-     ];
-
-     $audio = $AudioDomain."Grade_2/Lesson_38/Reading-2/";
-     $img = $ImageDomain."Grade_2/Lesson_38/Reading-2/";
-
-     foreach ($contents as $val) {
-         DB::table('ans_n_ques')->insert([
-             [
-                'game_id' => 442,
-                'a_content' => $val,
-                'a_image' => $img.str_replace(' ','-',$val).".png",
-                'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
-             ],
-         ]);
-     }
-
-
-
-
-
-    //  Unit -3 Tracing < sentence_tracing >
-
-    $words = [
-        'Six','Five','Ten','Two','One',
-    ];
-
-    $letters = [
-        ['S','i','x'],
-        ['F','i','v','e'],
-        ['T','e','n'],
-        ['T','w','o'],
-        ['O','n','e'],
-    ];
-
-    $counts = [
-        [1,2,4],
-        [3,2,2,2],
-        [2,2,2],
-        [2,4,1],
-        [1,2,2]
-    ];
-
-
-    $audio = $AudioDomain."Grade_2/Lesson_38/Tracing/";
-    $img = $ImageDomain."Grade_2/Lesson_38/Tracing/";
-
-
-    foreach ($words as $key => $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 443,
+            $data = [
+                'game_id' => 439,
                 'round' => $key + 1,
-                'q_image' => $img.$val.".png",
-                'q_audio' => $audio.$val.".mp3",
-                'a_content' => $val
+                'round_instruction' => $audio . "Look-at-the-picture-and-speak.mp3",
+                'q_content' => $Question_contents,
+                'q_audio' => $audio . $value . ".mp3",
+                'q_image' => $img . $value . ".png",
+            ];
+            if ($key == 0) {
+                $data['q_content'] = $data['q_content'] . " \nExample \nTen green bottles standing on the wall.";
+            }
+            DB::table('ans_n_ques')->insert($data);
+        }
 
-            ]
-        ]);
 
 
-        foreach ($letters[$key] as $k => $value) {
+        ///////////////////////////////// Lesson - 38 /////////////////////////////////////
+
+
+
+        DB::table('ans_n_ques')->insert(['game_id' => 440, 'a_content' => 'lesson_38', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 440, 'a_content' => 'lesson_38 (Global)', 'isLocal' => 0]);
+
+        // Lesson - 38  Unit - 2 Reading <reading_carousel>
+
+        // sub -1
+        $contents = range(1, 10);
+
+        $audio = $AudioDomain . "Grade_2/Lesson_38/Reading-1/";
+        $img = $ImageDomain . "Grade_2/Lesson_38/Reading-1/";
+
+        foreach ($contents as $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 441, 'a_content' => $val,
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
+                ],
+            ]);
+        }
+
+
+        // sub -2
+
+        $contents = [
+            'eight watermelons', 'five cars', 'four bananas', 'nine cats', 'two balls',
+            'one apple', 'seven oranges', 'six bottles', 'ten dogs', 'three cups'
+        ];
+
+        $audio = $AudioDomain . "Grade_2/Lesson_38/Reading-2/";
+        $img = $ImageDomain . "Grade_2/Lesson_38/Reading-2/";
+
+        foreach ($contents as $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 442,
+                    'a_content' => $val,
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
+                ],
+            ]);
+        }
+
+
+
+
+
+        //  Unit -3 Tracing < sentence_tracing >
+
+        $words = [
+            'Six', 'Five', 'Ten', 'Two', 'One',
+        ];
+
+        $letters = [
+            ['S', 'i', 'x'],
+            ['F', 'i', 'v', 'e'],
+            ['T', 'e', 'n'],
+            ['T', 'w', 'o'],
+            ['O', 'n', 'e'],
+        ];
+
+        $counts = [
+            [1, 2, 4],
+            [3, 2, 2, 2],
+            [2, 2, 2],
+            [2, 4, 1],
+            [1, 2, 2]
+        ];
+
+
+        $audio = $AudioDomain . "Grade_2/Lesson_38/Tracing/";
+        $img = $ImageDomain . "Grade_2/Lesson_38/Tracing/";
+
+
+        foreach ($words as $key => $val) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 443,
                     'round' => $key + 1,
-                    'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value.".png",
-                    'a_content' => $value,
-                    'a_image' => ctype_lower($value) ? $sm_traceSuccess. $value . ".png" : $cap_traceSuccess. $value.".png",
-                    'a_extra' => $counts[$key][$k]
+                    'q_image' => $img . $val . ".png",
+                    'q_audio' => $audio . $val . ".mp3",
+                    'a_content' => $val
 
                 ]
             ]);
+
+
+            foreach ($letters[$key] as $k => $value) {
+                DB::table('ans_n_ques')->insert([
+                    [
+                        'game_id' => 443,
+                        'round' => $key + 1,
+                        'q_content' => ctype_lower($value) ? $sm_traceDotted . $value . ".png" : $cap_traceDotted . $value . ".png",
+                        'a_content' => $value,
+                        'a_image' => ctype_lower($value) ? $sm_traceSuccess . $value . ".png" : $cap_traceSuccess . $value . ".png",
+                        'a_extra' => $counts[$key][$k]
+
+                    ]
+                ]);
+            }
         }
 
-    }
 
 
 
-
-    // Unit -4  Arranging Letters <rearrange_with_audio>
+        // Unit -4  Arranging Letters <rearrange_with_audio>
 
         $Questions = [
             ['O', 'F', 'U', 'R'],
             ['F', 'V', 'I', 'E'],
             ['H', 'R', 'T', 'E', 'E',],
             ['N', 'V', 'S', 'E', 'E'],
-            ['W','T','O'],
-            ['E','N','O'],
-            ['E','N','T'],
-            ['E','N','N','I'],
-            ['R','O','F','U'],
-            ['S','X','I'],
+            ['W', 'T', 'O'],
+            ['E', 'N', 'O'],
+            ['E', 'N', 'T'],
+            ['E', 'N', 'N', 'I'],
+            ['R', 'O', 'F', 'U'],
+            ['S', 'X', 'I'],
         ];
 
         $answers = [
-            'FOUR', 'FIVE', 'THREE','SEVEN','TWO','ONE','TEN','NINE','FOUR','SIX'
+            'FOUR', 'FIVE', 'THREE', 'SEVEN', 'TWO', 'ONE', 'TEN', 'NINE', 'FOUR', 'SIX'
         ];
 
         for ($i = 0; $i < count($Questions); $i++) {
@@ -3349,11 +3332,11 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // Lesson -38 unit 5 Matching <Matching_column>
+        // Lesson -38 unit 5 Matching <Matching_column>
 
-     $contents = [
-         ['Five', 'Ten', 'One', 'Four', 'Nine'],
-         ['Six', 'Three', 'Two', 'Seven', 'Eight'],
+        $contents = [
+            ['Five', 'Ten', 'One', 'Four', 'Nine'],
+            ['Six', 'Three', 'Two', 'Seven', 'Eight'],
         ];
 
         $randomValues = [
@@ -3395,9 +3378,9 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    // Lesson - 38 Unit -6 Speak
+        // Lesson - 38 Unit -6 Speak
 
-       $contents = [
+        $contents = [
             "two cats", "ten dogs", "five apples", "seven balls", "five bottles"
         ];
 
@@ -3421,10 +3404,10 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 [
                     'game_id' => 446,
                     'round' => $key + 1,
-                    'round_instruction' =>  $audio."Look-at-the-picture-and-speak.mp3",
+                    'round_instruction' =>  $audio . "Look-at-the-picture-and-speak.mp3",
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $audio.str_replace(' ', '-', $value).".mp3",
-                    'q_image' => $img.str_replace(' ', '-', $value). ".png",
+                    'q_audio' => $audio . str_replace(' ', '-', $value) . ".mp3",
+                    'q_image' => $img . str_replace(' ', '-', $value) . ".png",
                 ]
 
             ]);
@@ -3436,209 +3419,206 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
 
-    ///////////////////////////////// Lesson - 39 /////////////////////////////////////
+        ///////////////////////////////// Lesson - 39 /////////////////////////////////////
 
 
-    DB::table('ans_n_ques')->insert(['game_id' => 447, 'a_content' => 'lesson_39', 'isLocal' => 1]);
-    DB::table('ans_n_ques')->insert(['game_id' => 447, 'a_content' => 'lesson_39 (Global)', 'isLocal' => 0]);
+        DB::table('ans_n_ques')->insert(['game_id' => 447, 'a_content' => '943914278', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 447, 'a_content' => 'lesson_39 (Global)', 'isLocal' => 0]);
 
 
-    // Lesson - 39  Unit - 2 Reading <reading_carousel>
+        // Lesson - 39  Unit - 2 Reading <reading_carousel>
 
-    // sub -1
-    $contents = range(1,12);
+        // sub -1
+        $contents = range(1, 12);
 
-    $audio = $AudioDomain."Grade_2/Lesson_39/Listen_and_Repeat/Reading-1/";
-    $img = $ImageDomain."Grade_2/Lesson_39/Listen_and_Repeat/Reading-1/";
+        $audio = $AudioDomain . "Grade_2/Lesson_39/Listen_and_Repeat/Reading-1/";
+        $img = $ImageDomain . "Grade_2/Lesson_39/Listen_and_Repeat/Reading-1/";
 
-    foreach ($contents as $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 448, 'a_content' => $val,
-                'a_image' => $img.str_replace(' ','-',$val).".png",
-                'a_audio' => $audio.str_replace(' ','-',$val)."hr.mp3"
-            ],
-        ]);
-    }
-
-
-    // sub -2
-
-    $contents = [
-        'time-to-go-home','time-to-have-dinner','time-to-get-up','time-to-have-breakfast',
-        'time-to-go-to-school','time-to-go-bed','time-to-have-lunch',
-     ];
-
-     $audio = $AudioDomain."Grade_2/Lesson_39/Listen_and_Repeat/Reading-2/";
-     $img = $ImageDomain."Grade_2/Lesson_39/Listen_and_Repeat/Reading-2/";
-
-     foreach ($contents as $val) {
-         DB::table('ans_n_ques')->insert([
-             [
-                'game_id' => 449,
-                'a_content' => $val,
-                'a_image' => $img.str_replace(' ','-',$val).".png",
-                'a_audio' => $audio.str_replace(' ','-',$val).".mp3"
-             ],
-         ]);
-    }
+        foreach ($contents as $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 448, 'a_content' => $val,
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . "hr.mp3"
+                ],
+            ]);
+        }
 
 
+        // sub -2
+
+        $contents = [
+            'time-to-go-home', 'time-to-have-dinner', 'time-to-get-up', 'time-to-have-breakfast',
+            'time-to-go-to-school', 'time-to-go-bed', 'time-to-have-lunch',
+        ];
+
+        $audio = $AudioDomain . "Grade_2/Lesson_39/Listen_and_Repeat/Reading-2/";
+        $img = $ImageDomain . "Grade_2/Lesson_39/Listen_and_Repeat/Reading-2/";
+
+        foreach ($contents as $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 449,
+                    'a_content' => $val,
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . ".mp3"
+                ],
+            ]);
+        }
 
 
 
-    //Lesson -39 Unit - 3 Look and write <listening_choosing_answer>
 
 
-      $audio_q = [
-        "1-O-clock",
-        "3-O-clock",
-        "5-O-clock",
-        "7-O-clock",
-        "9-O-clock",
-        "12-O-clock",
-        "2-O-clock",
-        "4-O-clock",
-        "6-O-clock",
-        "8-O-clock",
-      ];
+        //Lesson -39 Unit - 3 Look and write <listening_choosing_answer>
 
-      $given_ques = [
-            ["1 O'clock","5 O'clock","9 O'clock"],
-            ["4 O'clock","3 O'clock","9 O'clock"],
-            ["12 O'clock","3 O'clock","5 O'clock"],
-            ["11 O'clock","7 O'clock","6 O'clock"],
-            ["9 O'clock","7 O'clock","10 O'clock"],
-            ["9 O'clock","7 O'clock","12 O'clock"],
-            ["2 O'clock","7 O'clock","12 O'clock"],
-            ["2 O'clock","4 O'clock","12 O'clock"],
-            ["2 O'clock","4 O'clock","6 O'clock"],
-            ["2 O'clock","8 O'clock","6 O'clock"],
-      ];
 
-    $ans = [
-        "1 O'clock","3 O'clock","5 O'clock","7 O'clock","9 O'clock",
-        "12 O'clock","2 O'clock","4 O'clock","6 O'clock","8 O'clock",
-    ];
+        $audio_q = [
+            "1-O-clock",
+            "3-O-clock",
+            "5-O-clock",
+            "7-O-clock",
+            "9-O-clock",
+            "12-O-clock",
+            "2-O-clock",
+            "4-O-clock",
+            "6-O-clock",
+            "8-O-clock",
+        ];
 
-    $aud = [1,3,5,7,9,12,2,4,6,8];
+        $given_ques = [
+            ["1 O'clock", "5 O'clock", "9 O'clock"],
+            ["4 O'clock", "3 O'clock", "9 O'clock"],
+            ["12 O'clock", "3 O'clock", "5 O'clock"],
+            ["11 O'clock", "7 O'clock", "6 O'clock"],
+            ["9 O'clock", "7 O'clock", "10 O'clock"],
+            ["9 O'clock", "7 O'clock", "12 O'clock"],
+            ["2 O'clock", "7 O'clock", "12 O'clock"],
+            ["2 O'clock", "4 O'clock", "12 O'clock"],
+            ["2 O'clock", "4 O'clock", "6 O'clock"],
+            ["2 O'clock", "8 O'clock", "6 O'clock"],
+        ];
 
-    $audio = $AudioDomain."Grade_2/Lesson_39/Look_and_write/";
-    $img = $ImageDomain."Grade_2/Lesson_39/Look_and_write/";
+        $ans = [
+            "1 O'clock", "3 O'clock", "5 O'clock", "7 O'clock", "9 O'clock",
+            "12 O'clock", "2 O'clock", "4 O'clock", "6 O'clock", "8 O'clock",
+        ];
+
+        $aud = [1, 3, 5, 7, 9, 12, 2, 4, 6, 8];
+
+        $audio = $AudioDomain . "Grade_2/Lesson_39/Look_and_write/";
+        $img = $ImageDomain . "Grade_2/Lesson_39/Look_and_write/";
 
         foreach ($audio_q as $key => $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 450,
-                'round' => $key + 1,
-                'q_audio' => $audio.$aud[$key]."hr.mp3",
-                'q_content' => $given_ques[$key][0],
-                'q_image' => $img.$val.".png",
-                // 'q_conver'  =>  "Where is the $val ?". $second_q_contents[$key] ,
-                'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
-            ]
-        ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 450,
+                    'round' => $key + 1,
+                    'q_audio' => $audio . $aud[$key] . "hr.mp3",
+                    'q_content' => $given_ques[$key][0],
+                    'q_image' => $img . $val . ".png",
+                    // 'q_conver'  =>  "Where is the $val ?". $second_q_contents[$key] ,
+                    'a_content' => $given_ques[$key][0] == $ans[$key] ? true : false
+                ]
+            ]);
 
 
 
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 450,
-                'round'  => $key +  1,
-                'q_content' => $given_ques[$key][1],
-                'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
-            ]
-        ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 450,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][1],
+                    'a_content' => $given_ques[$key][1] == $ans[$key] ? true : false
+                ]
+            ]);
 
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 450,
-                'round'  => $key +  1,
-                'q_content' => $given_ques[$key][2],
-                'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
-            ]
-        ]);
-
-
-    }
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 450,
+                    'round'  => $key +  1,
+                    'q_content' => $given_ques[$key][2],
+                    'a_content' => $given_ques[$key][2] == $ans[$key] ? true : false
+                ]
+            ]);
+        }
 
 
-    // Unit -4 ================== <reading_conversation>
-    // Sub -1
+        // Unit -4 ================== <reading_conversation>
+        // Sub -1
 
-    /////////////////
+        /////////////////
 
         $chars = [
-            ['teacher','boy','girl'],
-            ['teacher','boy','girl'],
-            ['boy','girl'],
-            ['boy','girl'],
+            ['teacher', 'boy', 'girl'],
+            ['teacher', 'boy', 'girl'],
+            ['boy', 'girl'],
+            ['boy', 'girl'],
         ];
 
 
         $convers = [
-            ['What-time-is-it-teacher',"It-is-12-O-clock",null],
-            ["Ok-It-is-time-to-have-lunch",null,null],
-            ['What-time-is-it-boy',"It-is-3-O-clock",null],
-            ["Ok-It-is-time-to-go-home",null],
+            ['What-time-is-it-teacher', "It-is-12-O-clock", null],
+            ["Ok-It-is-time-to-have-lunch", null, null],
+            ['What-time-is-it-boy', "It-is-3-O-clock", null],
+            ["Ok-It-is-time-to-go-home", null],
         ];
 
-        $audio = $AudioDomain."Grade_2/Lesson_39/Speak/Speak-1/";
-        $img = $ImageDomain."Grade_2/Lesson_39/Speak/Speak-1/";
+        $audio = $AudioDomain . "Grade_2/Lesson_39/Speak/Speak-1/";
+        $img = $ImageDomain . "Grade_2/Lesson_39/Speak/Speak-1/";
 
 
-    foreach ($chars as $key => $char) {
+        foreach ($chars as $key => $char) {
 
-        foreach ($char as $k => $v) {
+            foreach ($char as $k => $v) {
 
                 DB::table('ans_n_ques')->insert([
                     [
                         'game_id' => 451,
                         'round' => $key + 1,
-                        'a_image' => $img.$v.".gif",
-                        'a_audio' => $convers[$key][$k] ? $audio.$convers[$key][$k].".mp3" : null,
-                        'a_conver' => $convers[$key][$k] ? $img.$convers[$key][$k].".png" : null,
-                        "background" => $img."bg.png"
+                        'a_image' => $img . $v . ".gif",
+                        'a_audio' => $convers[$key][$k] ? $audio . $convers[$key][$k] . ".mp3" : null,
+                        'a_conver' => $convers[$key][$k] ? $img . $convers[$key][$k] . ".png" : null,
+                        "background" => $img . "bg.png"
                     ]
                 ]);
-
+            }
         }
-    }
 
 
 
 
 
 
-    // Unit - 4 ==============
+        // Unit - 4 ==============
 
 
-    $contents = [
-            "7 O'clock", "6 O'clock","5 O'clock", "8 O'clock", "10 O'clock",
+        $contents = [
+            "7 O'clock", "6 O'clock", "5 O'clock", "8 O'clock", "10 O'clock",
         ];
 
-    $data = [
-        7,6,5,8,10
-    ];
+        $data = [
+            7, 6, 5, 8, 10
+        ];
 
-    $questions = [
-        // "Look at the clock and speak the time, \n It is time to have breakfast",
-        // "Look at the clock and speak the time",
-        // "Look at the clock and speak the time",
-        // "Look at the clock and speak the time",
-        // "Look at the clock and speak the time",
-        "Example \nIt is time to have breakfast",
-        null,
-        null,
-        null,
-        null,
-    ];
+        $questions = [
+            // "Look at the clock and speak the time, \n It is time to have breakfast",
+            // "Look at the clock and speak the time",
+            // "Look at the clock and speak the time",
+            // "Look at the clock and speak the time",
+            // "Look at the clock and speak the time",
+            "Example \nIt is time to have breakfast",
+            null,
+            null,
+            null,
+            null,
+        ];
 
-    $round_ins = "Look at the clock and speak the time";
+        $round_ins = "Look at the clock and speak the time";
 
 
-    $audio = $AudioDomain."Grade_2/Lesson_39/Speak/Speak-2/";
-    $img = $ImageDomain."Grade_2/Lesson_39/Speak/Speak-2/";
+        $audio = $AudioDomain . "Grade_2/Lesson_39/Speak/Speak-2/";
+        $img = $ImageDomain . "Grade_2/Lesson_39/Speak/Speak-2/";
 
 
 
@@ -3649,124 +3629,120 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 [
                     'game_id' => 452,
                     'round' => $key + 1,
-                    'round_instruction' => $audio."Look-at-the-clock-and-speak-the-time.mp3",
+                    'round_instruction' => $audio . "Look-at-the-clock-and-speak-the-time.mp3",
                     'q_content' =>  $questions[$key],
                     'q_image' => $img . $data[$key] . ".png",
-                    'q_audio' => $audio.$data[$key].".mp3",
+                    'q_audio' => $audio . $data[$key] . ".mp3",
                 ]
 
             ]);
         }
 
-/////////////////////////////////////// Lesson 40 /////////////////////////////////////////
+        /////////////////////////////////////// Lesson 40 /////////////////////////////////////////
 
 
 
 
-    DB::table('ans_n_ques')->insert(['game_id' => 453, 'a_content' => 'lesson_40', 'isLocal' => 1]);
-    DB::table('ans_n_ques')->insert(['game_id' => 453, 'a_content' => 'lesson_40 (Global)', 'isLocal' => 0]);
+        DB::table('ans_n_ques')->insert(['game_id' => 453, 'a_content' => '948252015', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 453, 'a_content' => 'lesson_40 (Global)', 'isLocal' => 0]);
 
 
-// Unit -2 Listen and Repeat
+        // Unit -2 Listen and Repeat
 
- $contents = [3,5,6,7,8,10];
+        $contents = [3, 5, 6, 7, 8, 10];
 
-    $audio = $AudioDomain."Grade_2/Lesson_40/Listen_and_Repeat/";
-    $img = $ImageDomain."Grade_2/Lesson_40/Listen_and_Repeat/";
+        $audio = $AudioDomain . "Grade_2/Lesson_40/Listen_and_Repeat/";
+        $img = $ImageDomain . "Grade_2/Lesson_40/Listen_and_Repeat/";
 
-    foreach ($contents as $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 454, 'a_content' => $val,
-                'a_image' => $img.str_replace(' ','-',$val).".png",
-                'a_audio' => $audio.str_replace(' ','-',$val)."hr.mp3"
-            ],
-        ]);
-    }
-
-
-
-
-    // Unit -3 Listen and Practice <mcq_grammar>
-
-    $imgs = [
-        7,5,12,10,6
-    ];
-
-
-    $ques = [
-      [9,3,7],
-      [8,5,6],
-      [12,11,4],
-      [10,6,3],
-      [2,8,6]
-    ];
-
-
-    $audio = $AudioDomain."Grade_2/Lesson_40/Listen_and_Practice/";
-    $img = $ImageDomain."Grade_2/Lesson_40/Listen_and_Practice/";
-
-
-
-    $ans = [
-        7,5,12,10,6
-    ];
-
-    foreach ($imgs as $key => $val) {
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 455,
-                'round' => $key + 1,
-                'q_image' => $img.$val.".png",
-                'q_audio' => $audio.$val.".mp3",
-                'q_content' => $ques[$key][0],
-                'q_conver'  =>  "What time is it? \n It's ___O'clock." ,
-                'a_content' => $ques[$key][0] == $ans[$key] ? true : false
-            ]
-        ]);
-
-
-
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 455,
-                'round'  => $key +  1,
-                'q_content' => $ques[$key][1],
-                'a_content' => $ques[$key][1] == $ans[$key] ? true : false
-            ]
-        ]);
-
-        DB::table('ans_n_ques')->insert([
-            [
-                'game_id' => 455,
-                'round'  => $key +  1,
-                'q_content' => $ques[$key][2],
-                'a_content' => $ques[$key][2] == $ans[$key] ? true : false
-            ]
-        ]);
-
-
-    }
+        foreach ($contents as $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 454, 'a_content' => $val,
+                    'a_image' => $img . str_replace(' ', '-', $val) . ".png",
+                    'a_audio' => $audio . str_replace(' ', '-', $val) . "hr.mp3"
+                ],
+            ]);
+        }
 
 
 
 
-    // lesson 40 Unit - 4 Matching
+        // Unit -3 Listen and Practice <mcq_grammar>
 
-     $contents = [
-         ["4 O'clock", "3 O'clock", "2 O'clock","1 O'clock","11 O'clock"],
-         ["10 O'clock", "5 O'clock", "7 O'clock","9 O'clock","6 O'clock"],
+        $imgs = [
+            7, 5, 12, 10, 6
+        ];
+
+
+        $ques = [
+            [9, 3, 7],
+            [8, 5, 6],
+            [12, 11, 4],
+            [10, 6, 3],
+            [2, 8, 6]
+        ];
+
+
+        $audio = $AudioDomain . "Grade_2/Lesson_40/Listen_and_Practice/";
+        $img = $ImageDomain . "Grade_2/Lesson_40/Listen_and_Practice/";
+
+
+
+        $ans = [
+            7, 5, 12, 10, 6
+        ];
+
+        foreach ($imgs as $key => $val) {
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 455,
+                    'round' => $key + 1,
+                    'q_image' => $img . $val . ".png",
+                    'q_audio' => $audio . $val . ".mp3",
+                    'q_content' => $ques[$key][0],
+                    'q_conver'  =>  "What time is it? \n It's ___O'clock.",
+                    'a_content' => $ques[$key][0] == $ans[$key] ? true : false
+                ]
+            ]);
+
+
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 455,
+                    'round'  => $key +  1,
+                    'q_content' => $ques[$key][1],
+                    'a_content' => $ques[$key][1] == $ans[$key] ? true : false
+                ]
+            ]);
+
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 455,
+                    'round'  => $key +  1,
+                    'q_content' => $ques[$key][2],
+                    'a_content' => $ques[$key][2] == $ans[$key] ? true : false
+                ]
+            ]);
+        }
+
+
+
+
+        // lesson 40 Unit - 4 Matching
+
+        $contents = [
+            ["4 O'clock", "3 O'clock", "2 O'clock", "1 O'clock", "11 O'clock"],
+            ["10 O'clock", "5 O'clock", "7 O'clock", "9 O'clock", "6 O'clock"],
         ];
 
 
         $randomValues = [
-           [2,11,4,3,1],
-           [5,6,10,7,9],
+            [2, 11, 4, 3, 1],
+            [5, 6, 10, 7, 9],
         ];
 
-        $randomQ_contents = [
-
-        ];
+        $randomQ_contents = [];
 
         $audio = $AudioDomain . "Grade_2/Lesson_40/Matching/";
         $img = $ImageDomain . "Grade_2/Lesson_40/Matching/";
@@ -3781,7 +3757,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                         'round' => $i + 1,
                         'q_content' => $q,
                         'q_image' => $q,
-                        'q_audio' => $audio . strtolower(str_replace(' ','-',$q)) . ".mp3",
+                        'q_audio' => $audio . strtolower(str_replace(' ', '-', $q)) . ".mp3",
                     ]
                 ]);
             }
@@ -3792,9 +3768,9 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     [
                         'game_id' => 456,
                         'round' => $i + 1,
-                        'q_content' => strtolower($q)." O'clock" ,
+                        'q_content' => strtolower($q) . " O'clock",
                         'q_image' => $img . strtolower($q) . "hr.png",
-                        'q_audio' => $audio . $q."-o'clock" . ".mp3",
+                        'q_audio' => $audio . $q . "-o'clock" . ".mp3",
                     ]
                 ]);
             }
@@ -3846,7 +3822,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     [
                         'round' => $i + 1,
                         'game_id' => 457,
-                        'q_audio' => $audios . str_replace(' ','-',strtolower($value)) . ".mp3",
+                        'q_audio' => $audios . str_replace(' ', '-', strtolower($value)) . ".mp3",
                         'q_content' => $value,
                         'a_content' => $value == $given_q[$i][1] ? 1 : 0
                     ]
@@ -3872,27 +3848,5 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 ]
             ]);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

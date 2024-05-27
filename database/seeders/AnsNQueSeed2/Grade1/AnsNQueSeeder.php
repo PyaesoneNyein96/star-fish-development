@@ -32,7 +32,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 12, 'a_content' => 'lesson_3_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 12, 'a_content' => '943657484', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 12, 'a_content' => 'lesson_3_video_global', 'isLocal' => 0]);
 
 
@@ -216,7 +216,7 @@ class AnsNQueSeeder extends Seeder
         ////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 17, 'a_content' => 'lesson_4_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 17, 'a_content' => '943658164', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 17, 'a_content' => 'lesson_4_video_global', 'isLocal' => 0]);
 
 
@@ -430,7 +430,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 5 Game 22 (  Target Language & Grammar Explanation  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 22, 'a_content' => 'lesson_5_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 22, 'a_content' => '943666848', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 22, 'a_content' => 'lesson_5_video', 'isLocal' => 0]);
 
 
@@ -616,7 +616,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 6 Game 28 (  Target Language ...  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 28, 'a_content' => 'lesson_6_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 28, 'a_content' => '943671918', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 28, 'a_content' => 'lesson_6_video_global', 'isLocal' => 0]);
 
 
@@ -966,7 +966,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 8 Game 41 (  Video  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 41, 'a_content' => 'lesson_8_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 41, 'a_content' => '943678375', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 41, 'a_content' => 'lesson_8_video_global', 'isLocal' => 0]);
 
 
@@ -1344,7 +1344,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 9 Game 48 (  Target language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 48, 'a_content' => 'lesson_9_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 48, 'a_content' => '943678785', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 48, 'a_content' => 'lesson_9_video_global', 'isLocal' => 0]);
 
 
@@ -1672,7 +1672,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 10 Game 54 (  Target language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 54, 'a_content' => 'lesson_10_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 54, 'a_content' => '943681209', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 54, 'a_content' => 'lesson_10_video_global', 'isLocal' => 0]);
 
 
@@ -2035,7 +2035,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 11 Game 60 (  Target language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 60, 'a_content' => 'lesson_11_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 60, 'a_content' => '943682105', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 60, 'a_content' => 'lesson_11_video_global', 'isLocal' => 0]);
 
 
@@ -2245,7 +2245,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 13 Game 73 (  Target language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 73, 'a_content' => 'lesson_13_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 73, 'a_content' => '943690928', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 73, 'a_content' => 'lesson_13_video_global', 'isLocal' => 0]);
 
 
@@ -2406,7 +2406,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 14 Game 78 (  Target language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 78, 'a_content' => 'lesson_14_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 78, 'a_content' => '943692330', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 78, 'a_content' => 'lesson_14_video_global', 'isLocal' => 0]);
 
 
@@ -2471,29 +2471,29 @@ class AnsNQueSeeder extends Seeder
 
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "SubBlock_This-is-a-cat-Its-small-Its.mp3", 'q_conver' => "This is a cat. It's small. It's yellow.", 'q_content' => "true", 'a_content' => 1, 'q_image' =>  $l14G80image . "cat.png"],
-            ['round' => 1, 'game_id' => 80, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 1, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "SubBlock_This-is-a-cat-Its-small-Its.mp3", 'q_content' => "true", 'a_content' => 1, 'q_image' =>  $l14G80image . "cat.png"],
+            ['round' => 1, 'game_id' => 80, 'q_audio' => null,  'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 2, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-hat-Its-new-Its.mp3", 'q_conver' => "This is a hat. It's new. It's blue.", 'q_content' => "true", 'a_content' => 0, 'q_image' =>  $l14G80image . "hat.png"],
-            ['round' => 2, 'game_id' => 80, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
+            ['round' => 2, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-hat-Its-new-Its.mp3", 'q_content' => "true", 'a_content' => 0, 'q_image' =>  $l14G80image . "hat.png"],
+            ['round' => 2, 'game_id' => 80, 'q_audio' => null,  'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 3, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-house-Its-big-It.mp3", 'q_conver' => "This house is big. It's big. It's white.", 'q_content' => "true", 'a_content' => 1, 'q_image' =>  $l14G80image . "house.png"],
-            ['round' => 3, 'game_id' => 80, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 3, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-house-Its-big-It.mp3", 'q_content' => "true", 'a_content' => 1, 'q_image' =>  $l14G80image . "house.png"],
+            ['round' => 3, 'game_id' => 80, 'q_audio' => null,  'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 4, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-cake-Its-hard-It.mp3", 'q_conver' => "It's a cake. It's hard. It's yellow", 'q_content' => "true", 'a_content' => 0, 'q_image' =>  $l14G80image . "cake.png"],
-            ['round' => 4, 'game_id' => 80, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
+            ['round' => 4, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-cake-Its-hard-It.mp3", 'q_content' => "true", 'a_content' => 0, 'q_image' =>  $l14G80image . "cake.png"],
+            ['round' => 4, 'game_id' => 80, 'q_audio' => null,  'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 5, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-car-Its-old-and-sl-2.mp3", 'q_conver' => "This is a car. It's old and slow. It's green", 'q_content' => "true", 'a_content' => 1, 'q_image' =>  $l14G80image . "car.png"],
-            ['round' => 5, 'game_id' => 80, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 5, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-car-Its-old-and-sl-2.mp3",  'q_content' => "true", 'a_content' => 1, 'q_image' =>  $l14G80image . "car.png"],
+            ['round' => 5, 'game_id' => 80, 'q_audio' => null,  'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 6, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "Its-a-doll-Its-soft-Its-y.mp3", 'q_conver' => "It's a doll. It's soft. It's yellow.", 'q_content' => "true", 'a_content' => 1, 'q_image' =>  $l14G80image . "doll.png"],
-            ['round' => 6, 'game_id' => 80, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 6, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "Its-a-doll-Its-soft-Its-y.mp3", 'q_content' => "true", 'a_content' => 1, 'q_image' =>  $l14G80image . "doll.png"],
+            ['round' => 6, 'game_id' => 80, 'q_audio' => null,  'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 7, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-bag-Its-old-Its.mp3", 'q_conver' => "This is a bag. It's old. It's red.", 'q_content' => "true", 'a_content' => 0, 'q_image' =>  $l14G80image . "bag.png"],
-            ['round' => 7, 'game_id' => 80, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
+            ['round' => 7, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-bag-Its-old-Its.mp3", 'q_content' => "true", 'a_content' => 0, 'q_image' =>  $l14G80image . "bag.png"],
+            ['round' => 7, 'game_id' => 80, 'q_audio' => null,  'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 8, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-pen-Its-long-Its.mp3", 'q_conver' => "This is a pen. It's long. It's brown.", 'q_content' => "true", 'a_content' => 0, 'q_image' =>  $l14G80image . "pen.png"],
-            ['round' => 8, 'game_id' => 80, 'q_audio' => null, 'q_conver' => null, 'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
+            ['round' => 8, 'game_id' => 80, 'q_audio' => $AudioDomain . $G1_L14_listen_and_practice_path . "This-is-a-pen-Its-long-Its.mp3", 'q_content' => "true", 'a_content' => 0, 'q_image' =>  $l14G80image . "pen.png"],
+            ['round' => 8, 'game_id' => 80, 'q_audio' => null,  'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
 
         ]);
 
@@ -2678,7 +2678,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 15 Game 84 (  Target language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 84, 'a_content' => 'lesson_15_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 84, 'a_content' => '943703406', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 84, 'a_content' => 'lesson_15_video_global', 'isLocal' => 0]);
 
 
@@ -2931,7 +2931,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 16 Game 92 (  Target language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 92, 'a_content' => 'lesson_16_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 92, 'a_content' => '943703716', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 92, 'a_content' => 'lesson_16_video_global', 'isLocal' => 0]);
 
 
@@ -3227,7 +3227,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 18 Game 107 (  Grammar Explanation  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 107, 'a_content' => 'lesson_18_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 107, 'a_content' => '943706545', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 107, 'a_content' => 'lesson_18_video_global', 'isLocal' => 0]);
 
 
@@ -3431,7 +3431,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 19 Game 113 (  Target Language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 113, 'a_content' => 'lesson_19_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 113, 'a_content' => '943706690', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 113, 'a_content' => 'lesson_19_video_global', 'isLocal' => 0]);
 
 
@@ -3616,7 +3616,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 20 Game 119 (  Target Language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 119, 'a_content' => 'lesson_20_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 119, 'a_content' => '943711236', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 119, 'a_content' => 'lesson_20_video_global', 'isLocal' => 0]);
 
 
@@ -3877,7 +3877,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 21 Game 127 (  Target Language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 127, 'a_content' => 'lesson_21_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 127, 'a_content' => '943711433', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 127, 'a_content' => 'lesson_21_video_global', 'isLocal' => 0]);
 
 
@@ -4052,7 +4052,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 22 Game 133 (  Target Language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 133, 'a_content' => 'lesson_22_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 133, 'a_content' => '943711509', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 133, 'a_content' => 'lesson_22_video_global', 'isLocal' => 0]);
 
 
@@ -4362,7 +4362,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 23 Game 140 (  Target Language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 140, 'a_content' => 'lesson_23_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 140, 'a_content' => '943713746', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 140, 'a_content' => 'lesson_23_video_global', 'isLocal' => 0]);
 
 
@@ -4564,7 +4564,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 24 Game 147 (  Target Language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 147, 'a_content' => 'lesson_24_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 147, 'a_content' => '943713831', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 147, 'a_content' => 'lesson_24_video_global', 'isLocal' => 0]);
 
 
@@ -4848,7 +4848,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 25 Game 153 (  Target Language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 153, 'a_content' => 'lesson_25_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 153, 'a_content' => '943714093', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 153, 'a_content' => 'lesson_25_video_global', 'isLocal' => 0]);
 
 
@@ -5114,7 +5114,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 26 Game 160 (  Target Language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 160, 'a_content' => 'lesson_26_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 160, 'a_content' => '943881886', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 160, 'a_content' => 'lesson_26_video_global', 'isLocal' => 0]);
 
 
@@ -5305,7 +5305,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 27 Game 166 (  Target Language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 166, 'a_content' => 'lesson_27_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 166, 'a_content' => '943883699', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 166, 'a_content' => 'lesson_27_video_global', 'isLocal' => 0]);
 
 
@@ -5534,7 +5534,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 28 Game 172 (  Target Language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 172, 'a_content' => 'lesson_28_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 172, 'a_content' => '943883828', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 172, 'a_content' => 'lesson_28_video_global', 'isLocal' => 0]);
 
 
@@ -5747,7 +5747,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 29 Game 178 (  Target Language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 178, 'a_content' => 'lesson_29_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 178, 'a_content' => '943883959', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 178, 'a_content' => 'lesson_29_video_global', 'isLocal' => 0]);
 
 
@@ -5947,7 +5947,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 1  Lesson 30 Game 184 (  Target Language  )
         ////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 184, 'a_content' => 'lesson_30_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 184, 'a_content' => '943884486', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 184, 'a_content' => 'lesson_30_video_global', 'isLocal' => 0]);
 
 

@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('conversations', function (Blueprint $table) {
+        Schema::create('assessment_each_record_finish_data', function (Blueprint $table) {
             $table->id();
-            $table->string('content')->nullable();
-            $table->string('image')->nullable();
-            $table->string('audio')->nullable();
-            $table->string('round_id')->nullable();
-            $table->integer('game_id')->nullable()->constrained();
+            $table->integer("student_id");
+            $table->integer("assess_id");
+            $table->integer("assess_name");
+            $table->integer("grade_id");
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('conversations');
+        Schema::dropIfExists('assessment_each_record_finish_data');
     }
 };

@@ -17,6 +17,7 @@ class GameAuthMiddleware
 
         if(!$student) return response()->json("Student not found.", 404);
 
+        $request->merge(['student' => $student]);
         return $next($request);
     }
 }

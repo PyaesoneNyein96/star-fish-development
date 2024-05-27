@@ -31,6 +31,7 @@ return new class extends Migration
 
             $table->integer("point")->default(0);
             $table->integer("finish")->default(0);
+            $table->integer("claim")->default(0);
             $table->timestamps();
         });
     }

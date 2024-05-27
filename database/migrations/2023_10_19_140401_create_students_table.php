@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->nullable()->uniqid();
             $table->string('age');
             $table->string('profile_picture')->nullable();
+            $table->string('profile_frame')->nullable();
             $table->string('role')->nullable();
             $table->string('grade_chosen')->nullable();
             $table->string('token')->nullable();

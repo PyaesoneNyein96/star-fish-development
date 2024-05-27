@@ -14,7 +14,7 @@ const Student = ({ students }) => {
     const [perPage, setPerPage] = useState(10);
     const [currentPage, setCurrentPage] = useState(1);
 
-    const { studentToDetail: clickDetail, toDelete: clickDelete } = useSelector((state) => state.componentSlice)
+    const { studentToDetail: clickDetail } = useSelector((state) => state.componentSlice)
     const dispatch = useDispatch();
 
     const query = search.toLowerCase().replace(/\s/g, "");
@@ -74,6 +74,9 @@ const Student = ({ students }) => {
         }
     };
 
+    const btnClickToDelete = (s) => {
+        router.get(`/dashboard/student/delete/${s.id}`)
+    }
 
     const handleLogout = (e, student) => {
         e.preventDefault();
@@ -123,91 +126,89 @@ const Student = ({ students }) => {
 
     return (
         <main id="main" className="main " >
-            {clickDetail ? <Details student={clickDetail} /> :
-                clickDelete ? <Delete student={clickDelete} /> :
-                    (
-                        <div className="mt-3 ">
-                            <div className=" mb-4 pt-3 border-bottom">
-                                <h1 className='font-bold text-xl'>Students</h1>
-                                <hr />
+            <div className="mt-3 ">
+                <div className=" mb-4 pt-3 border-bottom">
+                    <h1 className='font-bold text-xl'>Students</h1>
+                    <hr />
+                </div>
+                {clickDetail ? <Details student={clickDetail} /> :
+                    (<>
+                        <div className="flex justify-between mb-3 ">
+                            <div>
+                                <select
+                                    className="border-0 rounded drop-shadow mb-2 "
+                                    style={{ width: "190px" }}
+                                    onClick={(e) => setUserTypeFilter(e.target.value)}
+                                >
+                                    <option value="all">All Users</option>
+                                    <option value="free">Free User</option>
+                                    <option value="ss">Subscriped User</option>
+                                </select>
+
+                                <select
+                                    className="border-0 rounded drop-shadow mb-2"
+                                    style={{ width: "130px" }}
+                                    onClick={(e) => setTierFilter(e.target.value)}
+                                >
+                                    <option value="all">All Tiers</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="platinum">Platinum</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="diamond">Diamond</option>
+                                </select>
+
+                                <select
+                                    className="border-0 rounded drop-shadow mb-2"
+                                    style={{ width: "140px" }}
+                                    onClick={(e) => setStatusFilter(e.target.value)}
+                                >
+                                    <option value="all">All Status</option>
+                                    <option value="online">Online</option>
+                                    <option value="offline">Offline</option>
+                                </select>
                             </div>
-
-                            <div className="flex justify-between mb-3 ">
-                                <div>
-                                    <select
-                                        className="border-0 rounded drop-shadow mb-2 "
-                                        style={{ width: "190px" }}
-                                        onClick={(e) => setUserTypeFilter(e.target.value)}
-                                    >
-                                        <option value="all">All Users</option>
-                                        <option value="free">Free User</option>
-                                        <option value="ss">Subscriped User</option>
-                                    </select>
-
-                                    <select
-                                        className="border-0 rounded drop-shadow mb-2"
-                                        style={{ width: "130px" }}
-                                        onClick={(e) => setTierFilter(e.target.value)}
-                                    >
-                                        <option value="all">All Tiers</option>
-                                        <option value="silver">Silver</option>
-                                        <option value="platinum">Platinum</option>
-                                        <option value="gold">Gold</option>
-                                        <option value="diamond">Diamond</option>
-                                    </select>
-
-                                    <select
-                                        className="border-0 rounded drop-shadow mb-2"
-                                        style={{ width: "140px" }}
-                                        onClick={(e) => setStatusFilter(e.target.value)}
-                                    >
-                                        <option value="all">All Status</option>
-                                        <option value="online">Online</option>
-                                        <option value="offline">Offline</option>
-                                    </select>
-                                </div>
-                                <div className="">
-                                    <input type="text" className=" drop-shadow" style={{ width: "250px" }} placeholder="Search . . . " value={search}
-                                        onChange={(e) => setSearch(e.target.value)}
-                                    />
-                                </div>
+                            <div className="">
+                                <input type="text" className=" drop-shadow" style={{ width: "250px" }} placeholder="Search . . . " value={search}
+                                    onChange={(e) => setSearch(e.target.value)}
+                                />
                             </div>
+                        </div>
 
-                            <div className='overflow-y-scroll h-[22rem] drop-shadow rounded-lg '>
-                                <table className=" border  w-full rounded-lg bg-white " >
-                                    <thead className='table-auto w-full '>
-                                        <tr className=' text-left'>
-                                            <th className='border px-4 py-2'>id</th>
-                                            <th className='border px-4 py-2'>Name</th>
-                                            <th className='border px-4 py-2'>Email</th>
-                                            <th className='border px-4 py-2'>Phone</th>
-                                            <th className='border px-4 py-2'>Status</th>
-                                            <th className='border px-4 py-2'></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {filtered.length ?
-                                            filtered.map((s) => (
+                        <div className='overflow-y-scroll h-[22rem] drop-shadow rounded-lg '>
+                            <table className=" border  w-full rounded-lg bg-white " >
+                                <thead className='table-auto w-full '>
+                                    <tr className=' text-left'>
+                                        <th className='border px-4 py-2'>id</th>
+                                        <th className='border px-4 py-2'>Name</th>
+                                        <th className='border px-4 py-2'>Email</th>
+                                        <th className='border px-4 py-2'>Phone</th>
+                                        <th className='border px-4 py-2'>Status</th>
+                                        <th className='border px-4 py-2'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filtered.length ?
+                                        filtered.map((s) => (
 
-                                                <tr key={s.id}>
-                                                    <td className="border px-4 py-2" >{s.id}</td>
-                                                    <td className="border px-4 py-2">{s.name}</td>
-                                                    <td className="border px-4 py-2">{s.email ? s.email : "-"}</td>
-                                                    <td className="border px-4 py-2">{s.phone ? s.phone : "-"}</td>
-                                                    <td className={`border px-4 py-2 ${s.isAuth == 1 ? "text-emerald-400" : ""}`}>{s.isAuth == "1" ? "online" : "offline"}</td>
-                                                    <td className="border px-4 py-2 ">
-                                                        <div className='flex justify-center content-center'>
+                                            <tr key={s.id}>
+                                                <td className="border px-4 py-2" >{s.id}</td>
+                                                <td className="border px-4 py-2">{s.name}</td>
+                                                <td className="border px-4 py-2">{s.email ? s.email : "-"}</td>
+                                                <td className="border px-4 py-2">{s.phone ? s.phone : "-"}</td>
+                                                <td className={`border px-4 py-2 ${s.isAuth == 1 ? "text-emerald-400" : ""}`}>{s.isAuth == "1" ? "online" : "offline"}</td>
+                                                <td className="border px-4 py-2 ">
+                                                    <div className='flex justify-center content-center'>
 
-                                                            <button
-                                                                className={`border px-2 py-1 mx-2 text-white  rounded-md drop-shadow ${s.isAuth == "0" ? "bg-zinc-400" : "bg-zinc-600  hover:bg-zinc-700"}`}
-                                                                title='Logout'
-                                                                onClick={(e) => handleLogout(e, s)}
-                                                                disabled={s.isAuth == "0"}
-                                                            >
-                                                                <i className="fa-solid fa-right-from-bracket"></i>
-                                                            </button>
+                                                        <button
+                                                            className={`border px-2 py-1 mx-2 text-white  rounded-md drop-shadow ${s.isAuth == "0" ? "bg-zinc-400" : "bg-zinc-600  hover:bg-zinc-700"}`}
+                                                            title='Logout'
+                                                            onClick={(e) => handleLogout(e, s)}
+                                                            disabled={s.isAuth == "0"}
+                                                        >
+                                                            <i className="fa-solid fa-right-from-bracket"></i>
+                                                        </button>
 
-                                                            {/* <button
+                                                        {/* <button
                                                         className="border px-2 py-1 mx-2 hover:bg-zinc-600 text-white bg-zinc-500 rounded-md drop-shadow"
                                                         title='Details'
                                                         onClick={() => dispatch(btnClickToDetail(s))}
@@ -216,60 +217,58 @@ const Student = ({ students }) => {
                                                     </button> */}
 
 
-                                                            <button
-                                                                className="border px-2 py-1 mx-2 hover:bg-sky-700 text-white bg-sky-600 rounded-md drop-shadow "
-                                                                title='Edit'
-                                                                onClick={() => dispatch(btnClickToDetail(s))}
-                                                            >
-                                                                <i className="fa-solid fa-pen-to-square"></i>
-                                                            </button>
+                                                        <button
+                                                            className="border px-2 py-1 mx-2 hover:bg-sky-700 text-white bg-sky-600 rounded-md drop-shadow "
+                                                            title='Edit'
+                                                            onClick={() => dispatch(btnClickToDetail(s))}
+                                                        >
+                                                            <i className="fa-solid fa-pen-to-square"></i>
+                                                        </button>
 
 
-                                                            <button
-                                                                className="border px-2 py-1 mx-2 hover:bg-red-600 text-white bg-red-500 rounded-md drop-shadow"
-                                                                title='Delete'
-                                                                onClick={() => dispatch(btnClickToDelete(s))}
-                                                            >
-                                                                <i className="fa-solid fa-trash-can"></i>
-                                                            </button >
-                                                        </div>
+                                                        <button
+                                                            className="border px-2 py-1 mx-2 hover:bg-red-600 text-white bg-red-500 rounded-md drop-shadow"
+                                                            title='Delete'
+                                                            onClick={() => dispatch(btnClickToDelete(s))}
+                                                        >
+                                                            <i className="fa-solid fa-trash-can"></i>
+                                                        </button >
+                                                    </div>
 
-                                                    </td>
-                                                </tr>
-                                            )) :
-
-
-                                            <tr>
-                                                <td colspan="6" className="w-full text-center border py-3 font-bold text-gray-500">
-                                                    No results found.
                                                 </td>
                                             </tr>
+                                        )) :
+                                        <tr>
+                                            <td colspan="6" className="w-full text-center border py-3 font-bold text-gray-500">
+                                                No results found.
+                                            </td>
+                                        </tr>
+                                    }
 
-                                        }
-
-                                    </tbody >
-                                </table >
-                            </div>
-                            {/* pagination  */}
-                            <div className=" flex justify-between mt-4">
-                                <p>Showing <strong>{start + 1}</strong> to <strong>{end > students.length ? students.length : end}</strong> of <strong>{students.length}</strong> entries</p>
-                                <nav >
-                                    <ul className="pagination flex text-gray-600 text-md cursor-pointer">
-                                        <li className="page-item border px-5 py-1 rounded bg-white  drop-shadow " disabled={currentPage === 1} onClick={() => prevPage()}>
-                                            <a className="page-link" href="#"><i class="fa-solid fa-angles-left"></i></a>
-                                        </li>
-                                        <div className='flex '>
-                                            {renderPaginationItems()}
-                                        </div>
-                                        <li className="page-item border px-5 py-1  rounded bg-white  drop-shadow " onClick={() => nextPage()} disabled={currentPage === totalPages}>
-                                            <a className="page-link" href="#"><i class="fa-solid fa-angles-right"></i></a>
-                                        </li >
-                                    </ul >
-                                </nav >
-                            </div >
+                                </tbody >
+                            </table >
+                        </div>
+                        {/* pagination  */}
+                        <div className=" flex justify-between mt-4">
+                            <p>Showing <strong>{start + 1}</strong> to <strong>{end > students.length ? students.length : end}</strong> of <strong>{students.length}</strong> entries</p>
+                            <nav >
+                                <ul className="pagination flex text-gray-600 text-md cursor-pointer">
+                                    <li className="page-item border px-5 py-1 rounded bg-white  drop-shadow " disabled={currentPage === 1} onClick={() => prevPage()}>
+                                        <a className="page-link" href="#"><i className="fa-solid fa-angles-left"></i></a>
+                                    </li>
+                                    <div className='flex '>
+                                        {renderPaginationItems()}
+                                    </div>
+                                    <li className="page-item border px-5 py-1  rounded bg-white  drop-shadow " onClick={() => nextPage()} disabled={currentPage === totalPages}>
+                                        <a className="page-link" href="#"><i className="fa-solid fa-angles-right"></i></a>
+                                    </li >
+                                </ul >
+                            </nav >
                         </div >
+                    </>
                     )
-            }
+                }
+            </div >
         </main >
     )
 }

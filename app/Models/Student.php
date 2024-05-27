@@ -25,6 +25,7 @@ class Student extends Model
         'age',
         'password',
         'profile_picture',
+        'profile_frame',
         'role',
         'grade',
         'otp',
@@ -86,17 +87,46 @@ class Student extends Model
         return $this->belongsToMany(Game::class, 'student_games', 'student_id', 'game_id');
     }
 
-    public function certificates(){
+    public function certificates()
+    {
         return $this->hasMany(Certificate::class);
     }
 
 
-/////////////////// Order Transaction //////////////////
+    /////////////////// Order Transaction //////////////////
 
-    public function orderTransaction(){
+    public function orderTransaction()
+    {
         return $this->hasMany(OrderTransaction::class);
     }
 
+
+    //////////////////// Loin Bonus /////////////////////
+
+    public function loginBonus()
+    {
+        return $this->hasMany(StudentLoginBonus::class);
+    }
+
+    public function questionBonus()
+    {
+        return $this->hasMany(QuestionBonus::class);
+    }
+
+    public function championBonus()
+    {
+        return $this->hasMany(ChampionshipBonus::class);
+    }
+
+    public function dailyBonus()
+    {
+        return $this->hasMany(DailyBonus::class);
+    }
+
+    public function assessmentFinishRecords()
+    {
+        return $this->hasMany(AssessmentFinishData::class);
+    }
 
 
 

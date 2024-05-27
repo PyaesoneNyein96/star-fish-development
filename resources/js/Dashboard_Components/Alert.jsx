@@ -8,7 +8,7 @@ const Alert = ({ alertType, children }) => {
 
     return (
         <motion.div
-            className='absolute w-[80%] flex justify-end mt-5 '
+            className='absolute w-[80%] flex justify-end mt-5'
             initial={{ transform: "translateY(-100%)" }}
             animate={{ transform: "translateY(0%)" }}
             exit={{ transform: "translateY(-100%)" }}

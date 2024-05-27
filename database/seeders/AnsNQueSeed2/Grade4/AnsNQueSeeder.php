@@ -23,7 +23,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 757, 'a_content' => 'lesson_1_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 757, 'a_content' => '945254605', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 757, 'a_content' => 'lesson_1_video_global', 'isLocal' => 0]);
 
 
@@ -307,7 +307,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 767, 'a_content' => 'lesson_2_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 767, 'a_content' => '945254806', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 767, 'a_content' => 'lesson_2_video_global', 'isLocal' => 0]);
 
 
@@ -563,7 +563,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 777, 'a_content' => 'lesson_3_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 777, 'a_content' => '945254897', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 777, 'a_content' => 'lesson_3_video_global', 'isLocal' => 0]);
 
 
@@ -912,7 +912,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 4 Game 788 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 788, 'a_content' => 'lesson_4_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 788, 'a_content' => '945254953', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 788, 'a_content' => 'lesson_4_video_global', 'isLocal' => 0]);
 
 
@@ -1107,7 +1107,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 795, 'a_content' => 'lesson_5_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 795, 'a_content' => '945255176', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 795, 'a_content' => 'lesson_5_video_global', 'isLocal' => 0]);
 
 
@@ -1450,7 +1450,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 836, 'a_content' => 'lesson_10_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 836, 'a_content' => '945256097', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 836, 'a_content' => 'lesson_10_video_global', 'isLocal' => 0]);
 
 
@@ -1713,7 +1713,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 11 Game 845 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 845, 'a_content' => 'lesson_11_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 845, 'a_content' => '945256539', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 845, 'a_content' => 'lesson_11_video_global', 'isLocal' => 0]);
 
 
@@ -1942,7 +1942,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 852, 'a_content' => 'lesson_12_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 852, 'a_content' => '945256792', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 852, 'a_content' => 'lesson_12_video_global', 'isLocal' => 0]);
 
 
@@ -2190,7 +2190,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 13 Game 861 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 861, 'a_content' => 'lesson_13_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 861, 'a_content' => '945257118', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 861, 'a_content' => 'lesson_13_video_global', 'isLocal' => 0]);
 
 
@@ -2428,7 +2428,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 14 Game 868 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 868, 'a_content' => 'lesson_14_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 868, 'a_content' => '94525732', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 868, 'a_content' => 'lesson_14_video_global', 'isLocal' => 0]);
 
 
@@ -2624,7 +2624,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 874, 'a_content' => 'lesson_15_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 874, 'a_content' => '945257418', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 874, 'a_content' => 'lesson_15_video_global', 'isLocal' => 0]);
 
 
@@ -2885,7 +2885,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 883, 'a_content' => 'lesson_16_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 883, 'a_content' => '945257470', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 883, 'a_content' => 'lesson_16_video_global', 'isLocal' => 0]);
 
 
@@ -3057,7 +3057,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 889, 'a_content' => 'lesson_17_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 889, 'a_content' => '945257856', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 889, 'a_content' => 'lesson_17_video_global', 'isLocal' => 0]);
 
 
@@ -3086,14 +3086,14 @@ class AnsNQueSeeder extends Seeder
         // Game 891
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "girl.gif", "a_audio" => $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "audio.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "can-i-help.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
-            ['round' => 1, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "boy.gif", "a_audio" => $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "audio.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "you-have-notebook.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
+            ['round' => 1, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "girl.gif", "a_audio" => $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "SubBlock_Can-I-help-you.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "can-i-help.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
+            ['round' => 1, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "boy.gif", "a_audio" => $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "SubBlock_Do-you-have-any-notebooks.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "you-have-notebook.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
 
-            ['round' => 2, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "audio.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "sure-how-many.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
-            ['round' => 2, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "boy.gif", "a_audio" => $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "audio.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "two-please.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
+            ['round' => 2, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "SubBlock_Sure-How-many-do-you-want.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "sure-how-many.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
+            ['round' => 2, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "boy.gif", "a_audio" => $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "SubBlock_Two-please.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "two-please.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
 
-            ['round' => 3, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "audio.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "here-you.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
-            ['round' => 3, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "boy.gif", "a_audio" => $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "audio.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "thank-y.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
+            ['round' => 3, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "SubBlock_Here-you-are.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "here-you.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
+            ['round' => 3, 'game_id' => 891, 'a_image' => $l17_G890_G891_image . "2/"  . "boy.gif", "a_audio" => $AudioDomain . $G4_L17_listen_n_repeat . "2/" . "SubBlock_Thank-you.mp3", "a_conver" => $l17_G890_G891_image . "2/"  . "thank-y.png", "background" =>  $l17_G890_G891_image . "2/"  . "bg.jpg"],
 
         ]);
 
@@ -3225,7 +3225,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 896, 'a_content' => 'lesson_18_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 896, 'a_content' => '945258000', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 896, 'a_content' => 'lesson_18_video_global', 'isLocal' => 0]);
 
 
@@ -3474,7 +3474,7 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
-        DB::table('ans_n_ques')->insert(['game_id' => 905, 'a_content' => 'lesson_19_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 905, 'a_content' => '945258154', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 905, 'a_content' => 'lesson_19_video_global', 'isLocal' => 0]);
 
 
@@ -3727,7 +3727,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 20 Game 914 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 914, 'a_content' => 'lesson_20_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 914, 'a_content' => '945258262', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 914, 'a_content' => 'lesson_20_video_global', 'isLocal' => 0]);
 
 
@@ -3755,19 +3755,19 @@ class AnsNQueSeeder extends Seeder
         // Game 916
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "can-i-help-u.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
-            ['round' => 1, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "i-want-some.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 1, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_Can-I-help-you.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "can-i-help-u.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 1, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_I-want-some-puddings-please.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "i-want-some.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
 
-            ['round' => 2, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "yes-we-do.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
-            ['round' => 2, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "how-much.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 2, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_Yes-we-do.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "yes-we-do.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 2, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_How-much-is-one.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "how-much.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
 
-            ['round' => 3, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "500-kyat.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
-            ['round' => 3, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "i-want-six.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 3, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_Its-500-kyats.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "500-kyat.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 3, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_I-want-six-please.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "i-want-six.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
 
-            ['round' => 4, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "3000-kyat.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
-            ['round' => 4, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "here-you-are.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 4, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_OK-That-will-be-3000-kyats.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "3000-kyat.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 4, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_Here-you-are.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "here-you-are.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
 
-            ['round' => 5, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L20_listen_n_repeat . "audio.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "thank-u.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
+            ['round' => 5, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "girl.gif", "a_audio" =>  $AudioDomain . $G4_L20_listen_n_repeat . "SubBlock_Thank-you.mp3", "a_conver" => $l20_G915_G916_image . "2/" . "thank-u.png", "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
             ['round' => 5, 'game_id' => 916, 'a_image' => $l20_G915_G916_image . "2/" . "boy.gif", "a_audio" => null, "a_conver" => null, "background" =>  $l20_G915_G916_image . "2/" . "bg.jpg"],
 
         ]);
@@ -3890,7 +3890,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 21 Game 922 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 922, 'a_content' => 'lesson_21_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 922, 'a_content' => '945258507', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 922, 'a_content' => 'lesson_21_video_global', 'isLocal' => 0]);
 
 
@@ -4100,7 +4100,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 22 Game 930 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 930, 'a_content' => 'lesson_22_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 930, 'a_content' => '945258664', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 930, 'a_content' => 'lesson_22_video_global', 'isLocal' => 0]);
 
 
@@ -4394,7 +4394,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 23 Game 939 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 939, 'a_content' => 'lesson_23_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 939, 'a_content' => '945259160', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 939, 'a_content' => 'lesson_23_video_global', 'isLocal' => 0]);
 
 
@@ -4776,7 +4776,7 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 25 Game 953 ( video )
         //////////////////////////////////////////////////////////////
 
-        DB::table('ans_n_ques')->insert(['game_id' => 953, 'a_content' => 'lesson_25_video', 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 953, 'a_content' => '945259378', 'isLocal' => 1]);
         DB::table('ans_n_ques')->insert(['game_id' => 953, 'a_content' => 'lesson_25_video_global', 'isLocal' => 0]);
 
 

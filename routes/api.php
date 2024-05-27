@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\WorkshopController;
+use App\Http\Controllers\API\TestingController;
 use App\Http\Controllers\API\Auth\AuthController;
 use App\Http\Controllers\API\Chat\ChatController;
 use App\Http\Controllers\API\Lessons\GameController;
@@ -10,20 +10,12 @@ use App\Http\Controllers\API\Reward\RewardController;
 use App\Http\Controllers\API\Auth\LocalAuthController;
 use App\Http\Controllers\API\Lessons\LessonController;
 use App\Http\Controllers\API\Auth\GlobalAuthController;
+use App\Http\Controllers\API\Mission\MissionController;
+use App\Http\Controllers\API\Board\ChampionsBoardController;
 use App\Http\Controllers\API\Assessment\AssessmentController;
 use App\Http\Controllers\API\Subscribe\SubscriptionController;
 use App\Http\Controllers\API\Version\VersionAndUpdateController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
@@ -61,7 +53,7 @@ Route::prefix('auth')->group(function () {
     Route::get('versionCheck/android', [VersionAndUpdateController::class, 'AndroidVersionCheck']);
     Route::get('versionCheck/ios', [VersionAndUpdateController::class, 'IosVersionCheck']);
 
-    Route::post('version/add', [VersionAndUpdateController::class,'addVersion']);
+    Route::post('version/add', [VersionAndUpdateController::class, 'addVersion']);
 
 
     //Account Setting
@@ -76,15 +68,21 @@ Route::prefix('auth')->group(function () {
 
 Route::prefix('points')->group(function () {
     Route::get('/{id}', [RewardController::class, 'getPoint']);
-    Route::post('/', [RewardController::class, 'addPoint']);
+    Route::post('/', [RewardController::class, 'addPoint'])->name('addPoint');
 });
 
 Route::prefix('reward')->group(function () {
     Route::get('/all', [RewardController::class, 'displayAllReward']);
     Route::get('/each', [RewardController::class, 'displayEachReward']);
     Route::get('/profiles', [RewardController::class, 'displayEachProfile']);
+    Route::get('/frames', [RewardController::class, 'getProfileFrames']);
+    Route::get('/level-up', [RewardController::class, 'getLevelUp']);
     Route::get('/', [RewardController::class, 'getReward']);
     Route::post('/', [RewardController::class, 'buyReward']);
+});
+
+Route::prefix('profile')->group(function () {
+    Route::post('/update', [RewardController::class, "updateProfile"]);
 });
 
 Route::prefix('chat')->group(function () {
@@ -127,13 +125,66 @@ Route::prefix('payment')->group(function () {
 Route::prefix('assessment')->group(function () {
     Route::get('/', [AssessmentController::class, 'getAllAssess']);
     Route::get('game', [AssessmentController::class, 'enterGame']);
+    Route::get('each/game', [AssessmentController::class, 'recordEachGame']);
     Route::get('end_match', [AssessmentController::class, 'endGame']);
+    Route::get('certificate', [AssessmentController::class, 'callCertificate']);
 });
 
 
+Route::prefix('board')->group(function () {
+    Route::get('/', [ChampionsBoardController::class, 'getAll']);
+});
+
+// Route::get('/testing', [AssessmentController::class, 'maketest'])->name('testing');
+
+///////////////// Mission //////////////////////
+
+Route::prefix('mission')->middleware('isSubscriber')->group(function () {
+
+
+    Route::get('notify', [MissionController::class, 'notify']);
+
+    Route::prefix('repetitive')->group(function () {
+
+        // Route::get('/lesson-list', [MissionController::class, 'repetitiveLessonList']);
+        Route::get('/game-list', [MissionController::class, 'repetitiveGameList']);
+        Route::get('/claim_game', [MissionController::class, 'repetitiveClaimGame']);
+    });
+
+    Route::prefix('assessment')->group(function () {
+        Route::get("/assess-list", [MissionController::class, 'assessmentList']);
+        Route::get("/claim_lesson", [MissionController::class, 'assessmentClaim']);
+    });
+
+    Route::prefix('daily')->group(function () {
+        Route::get('check', [MissionController::class, 'dailyBonusCheck']);
+        Route::get('bonus', [MissionController::class, 'dailyBonusList']);
+        Route::get('claim', [MissionController::class, 'dailyBonusClaim']);
+    });
+
+    Route::prefix('login')->group(function () {
+        Route::get('check', [MissionController::class, 'checkLogin']);
+        Route::get('bonus', [MissionController::class, 'loginBonusList']);
+        Route::get('claim', [MissionController::class, 'loginBonusClaim']);
+    });
+
+    Route::prefix('question')->group(function () {
+        Route::get('bonus', [MissionController::class, 'questionBonusList']);
+        Route::get('claim', [MissionController::class, 'questionBonusClaim']);
+    });
+
+    Route::prefix('championship')->group(function () {
+        Route::get('bonus', [MissionController::class, 'championshipBonusList']);
+        Route::get('claim', [MissionController::class, 'championshipBonusClaim']);
+    });
+});
+
+Route::prefix('testing')->middleware('GameAuth')->group(function () {
+    Route::get('lesson-seed', [TestingController::class,'lessonRecordSeeding']);
+    Route::get('lesson-del', [TestingController::class,'lessonRecordDelete']);
+});
 
 // ===============================
 // ============ test =============
 // ===============================
 Route::get('/test', [GameController::class, 'test']);
-

@@ -11,7 +11,14 @@ class StudentLesson extends Model
 
     protected $hidden = ['pivot','created_at','updated_at'];
 
-    protected $fillable  = ['student_id','lesson_id','grade_id'];
+    protected $fillable  = [
+        'student_id',
+        'grade_id',
+        'lesson_id',
+        'count',
+        'claimed_3',
+        'claimed_5',
+    ];
 
     //========================
     public function toArray(){

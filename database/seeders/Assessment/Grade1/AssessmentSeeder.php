@@ -38,7 +38,7 @@ class AssessmentSeeder extends Seeder
             ["T", "E", "R", "D", "S", "U"],
             ["C", "I", "L", "E", "N", "P"],
             ["A", "P", "L", "T",  "E"],
-            ["N", "O", "Y", "C", "R", "A", "T", "S", "R"],
+            ["N", "O", "Y", "C", "R", "A"],
 
         ];
 
@@ -256,11 +256,11 @@ class AssessmentSeeder extends Seeder
             ['A', 'E', 'C', 'H', 'A'],
             ['A', 'P', 'C', 'H', 'A'],
             ['A', 'D', 'C', 'H', 'O'],
-            ['R', 'C', 'I', 'H', 'O'],
-            ['R', 'G', 'I', 'A', 'O'],
+            ['R', 'C', 'I', 'H', 'A'],
+            ['R', 'G', 'I', 'A', 'B'],
             ['C', 'H', 'A', 'H', 'T'],
             ['Y', 'G', 'F', 'B', 'D'],
-            ['K', 'L', 'F', 'C', 'Z'],
+            ['K', 'L', 'F', 'C', 'C'],
             ['L', 'A', 'E', 'B', 'T'],
             ['A', 'A', 'E', 'B', 'N'],
 
@@ -333,11 +333,11 @@ class AssessmentSeeder extends Seeder
             ['H', 'G', 'E', 'G'],
             ['I', 'E', 'K', 'T'],
             ['L', 'E', 'F', 'W'],
-            ['L', 'I', 'F', 'R'],
+            ['B', 'I', 'F', 'D'],
             ['E', 'I', 'G', 'C'],
-            ['S', 'I', 'H', 'C', 'D'],
-            ['O', 'I', 'K', 'C', 'D'],
-            ['O', 'C', 'L', 'Z', 'U'],
+            ['F', 'I', 'H', 'C', 'D'],
+            ['C', 'I', 'K', 'C', 'D'],
+            ['O', 'C', 'L', 'Z', 'K'],
 
         ];
 
@@ -403,12 +403,12 @@ class AssessmentSeeder extends Seeder
 
         $g1_A3_ID16_fill_in_the_blank_q1 = [
 
-            ['C', 'H', 'K', 'I', 'R'],
+            ['A', 'H', 'K', 'I', 'R'],
             ['H', 'D', 'L', 'E', 'A'],
-            ['K', 'I', 'K', 'R', "E"],
+            ['N', 'I', 'K', 'R', "E"],
             ['G', 'Y', 'L', 'E', "J"],
-            ['B', 'I', 'L', 'R', "C"],
-            ['C', 'I', 'K', 'R', "E"],
+            ['B', 'I', 'L', 'E', "C"],
+            ['N', 'I', 'K', 'R', "E"],
             ['E', 'I', 'G', 'K', "L"],
             ['N', 'G', 'E', 'A', 'M'],
             ['N', 'G', 'I', 'A', 'L'],
@@ -481,9 +481,9 @@ class AssessmentSeeder extends Seeder
             ['R', 'O', 'T', 'W', 'N'],
             ['N', 'P', 'T', 'U', 'N'],
             ['G', 'V', 'T', 'U', "A"],
-            ['C', 'F', 'T', 'U', "A"],
-            ['C', 'R', 'T', 'U', "A"],
-            ['S', 'R', 'T', 'E', "A"],
+            ['J', 'F', 'T', 'U', "A"],
+            ['W', 'R', 'T', 'U', "A"],
+            ['S', 'R', 'V', 'E', "A"],
             ['O', 'Z', 'W', 'X', "T"],
             ['E', 'R', 'W', 'E', "T"],
             ['O', 'R', 'D', 'E', 'A'],
@@ -558,10 +558,10 @@ class AssessmentSeeder extends Seeder
             ['O', 'X', 'K', 'Y', 'N'],
             ['I', 'P', 'N', 'Z', "G"],
             ['I', 'O', 'K', 'Z', "O"],
-            ['A', 'O', 'E', 'R', "O"],
-            ['N', 'O', 'E', 'L', "C"],
-            ['H', 'O', 'R', 'L', "D"],
-            ['S', 'O', 'R', 'S', "D"],
+            ['A', 'Z', 'E', 'R', "B"],
+            ['N', 'U', 'E', 'L', "C"],
+            ['H', 'G', 'R', 'L', "T"],
+            ['C', 'U', 'R', 'S', "D"],
             ['U', 'R', 'T', 'N', 'G'],
 
         ];
@@ -667,7 +667,7 @@ class AssessmentSeeder extends Seeder
             ['round' => 1, 'assess_id' => 10,  'q_audio' =>  null, "q_content" => "hand", "a_content" => 0],
 
             ['round' => 2, 'assess_id' => 10,  'q_audio' =>  $AudioDomain . $G1_A2_listening . "This-is-my-house-It-is-big-T" . ".mp3", "q_content" => "flower",  "a_content" => 0],
-            ['round' => 2, 'assess_id' => 10,  'q_audio' =>  null, "q_content" => "hosue", "a_content" => 1],
+            ['round' => 2, 'assess_id' => 10,  'q_audio' =>  null, "q_content" => "house", "a_content" => 1],
             ['round' => 2, 'assess_id' => 10,  'q_audio' =>  null, "q_content" => "grass", "a_content" => 0],
 
             ['round' => 3, 'assess_id' => 10,  'q_audio' =>  $AudioDomain . $G1_A2_listening . "This-is-my-house-It-is-big-T" . ".mp3", "q_content" => "gate", "a_content" => 0],
@@ -730,19 +730,19 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 12, "q_image" => $G1_A2_grammar . "horse.png", "q_conver" => "It's ____ horse.", 'q_content' => "an", 'a_content' => 0],
+            ['round' => 1, 'assess_id' => 12, "q_image" => $A2_ID12_image . "horse.png", "q_conver" => "It's ____ horse.", 'q_content' => "an", 'a_content' => 0],
             ['round' => 1, 'assess_id' => 12, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 1],
 
-            ['round' => 2, 'assess_id' => 12, "q_image" => $G1_A2_grammar . "goat.png", "q_conver" => "It's ____ goat.", 'q_content' => "an", 'a_content' => 0],
+            ['round' => 2, 'assess_id' => 12, "q_image" => $A2_ID12_image . "goat.png", "q_conver" => "It's ____ goat.", 'q_content' => "an", 'a_content' => 0],
             ['round' => 2, 'assess_id' => 12, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 1],
 
-            ['round' => 3, 'assess_id' => 12, "q_image" => $G1_A2_grammar . "egg.png", "q_conver" => "It's ____ egg.", 'q_content' => "an", 'a_content' => 1],
+            ['round' => 3, 'assess_id' => 12, "q_image" => $A2_ID12_image . "egg.png", "q_conver" => "It's ____ egg.", 'q_content' => "an", 'a_content' => 1],
             ['round' => 3, 'assess_id' => 12, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 0],
 
-            ['round' => 4, 'assess_id' => 12, "q_image" => $G1_A2_grammar . "ant.png", "q_conver" => "It's ____ ant.", 'q_content' => "an", 'a_content' => 1],
+            ['round' => 4, 'assess_id' => 12, "q_image" => $A2_ID12_image . "ant.png", "q_conver" => "It's ____ ant.", 'q_content' => "an", 'a_content' => 1],
             ['round' => 4, 'assess_id' => 12, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 0],
 
-            ['round' => 5, 'assess_id' => 12, "q_image" => $G1_A2_grammar . "jacket.png", "q_conver" => "It's ____ jacket.", 'q_content' => "an", 'a_content' => 0],
+            ['round' => 5, 'assess_id' => 12, "q_image" => $A2_ID12_image . "jacket.png", "q_conver" => "It's ____ jacket.", 'q_content' => "an", 'a_content' => 0],
             ['round' => 5, 'assess_id' => 12, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 1],
 
         ]);
@@ -907,20 +907,20 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_This-is-my-father.mp3", 'q_content' => $A5_ID30_image .  "father.png", "q_conver" => $A5_ID30_image .  "father-text.png", 'a_content' => 1, 'q_image' => $A5_ID30_image . "girl.png"],
-            ['round' => 1, 'assess_id' => 30, 'q_audio' => null, 'q_content' => $A5_ID30_image . "mother.png", "q_conver" => null, 'a_content' => 0, 'q_image' => null],
+            ['round' => 1, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_This-is-my-father.mp3", 'q_image' => $A5_ID30_image .  "father.png", "q_conver" => $A5_ID30_image .  "father-text.png", 'a_content' => 1, 'q_content' => $A5_ID30_image . "girl.png"],
+            ['round' => 1, 'assess_id' => 30, 'q_audio' => null, 'q_image' => $A5_ID30_image . "mother.png", "q_conver" => null, 'a_content' => 0, 'q_content' => null],
 
-            ['round' => 2, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_She-is-my-mother.mp3", 'q_content' => $A5_ID30_image .  "father.png", "q_conver" => $A5_ID30_image . "mother-text.png", 'a_content' => 0, 'q_image' => $A5_ID30_image . "girl.png"],
-            ['round' => 2, 'assess_id' => 30, 'q_audio' => null, 'q_content' => $A5_ID30_image . "mother.png", "q_conver" => null, 'a_content' => 1, 'q_image' => null],
+            ['round' => 2, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_She-is-my-mother.mp3", 'q_image' => $A5_ID30_image .  "father.png", "q_conver" => $A5_ID30_image . "mother-text.png", 'a_content' => 0, 'q_content' => $A5_ID30_image . "girl.png"],
+            ['round' => 2, 'assess_id' => 30, 'q_audio' => null, 'q_image' => $A5_ID30_image . "mother.png", "q_conver" => null, 'a_content' => 1, 'q_content' => null],
 
-            ['round' => 3, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_He-is-my-brother.mp3", 'q_content' => $A5_ID30_image .  "brother.png", "q_conver" => $A5_ID30_image . "brother-text.png", 'a_content' => 1, 'q_image' => $A5_ID30_image . "girl.png"],
-            ['round' => 3, 'assess_id' => 30, 'q_audio' => null, 'q_content' => $A5_ID30_image . "old.png", "q_conver" => null, 'a_content' => 0, 'q_image' => null],
+            ['round' => 3, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_He-is-my-brother.mp3", 'q_image' => $A5_ID30_image .  "brother.png", "q_conver" => $A5_ID30_image . "brother-text.png", 'a_content' => 1, 'q_content' => $A5_ID30_image . "girl.png"],
+            ['round' => 3, 'assess_id' => 30, 'q_audio' => null, 'q_image' => $A5_ID30_image . "old.png", "q_conver" => null, 'a_content' => 0, 'q_content' => null],
 
-            ['round' => 4, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_She-is-my-older-sister.mp3", 'q_content' => $A5_ID30_image .  "brother.png", "q_conver" => $A5_ID30_image . "older-sister-text.png", 'a_content' => 0, 'q_image' => $A5_ID30_image . "girl.png"],
-            ['round' => 4, 'assess_id' => 30, 'q_audio' => null, 'q_content' => $A5_ID30_image . "sister.png", "q_conver" => null, 'a_content' => 1, 'q_image' => null],
+            ['round' => 4, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_She-is-my-older-sister.mp3", 'q_image' => $A5_ID30_image .  "brother.png", "q_conver" => $A5_ID30_image . "older-sister-text.png", 'a_content' => 0, 'q_content' => $A5_ID30_image . "girl.png"],
+            ['round' => 4, 'assess_id' => 30, 'q_audio' => null, 'q_image' => $A5_ID30_image . "sister.png", "q_conver" => null, 'a_content' => 1, 'q_content' => null],
 
-            ['round' => 5, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_This-is-my-grandmother.mp3", 'q_content' => $A5_ID30_image .  "grandpa.png", "q_conver" => $A5_ID30_image . "grandma-text.png", 'a_content' => 0, 'q_image' => $A5_ID30_image . "girl.png"],
-            ['round' => 5, 'assess_id' => 30, 'q_audio' => null, 'q_content' => $A5_ID30_image . "grandma.png", "q_conver" => null, 'a_content' => 1, 'q_image' => null],
+            ['round' => 5, 'assess_id' => 30, 'q_audio' => $AudioDomain . $G1_A5_multiply_choice . "SubBlock_This-is-my-grandmother.mp3", 'q_image' => $A5_ID30_image .  "grandpa.png", "q_conver" => $A5_ID30_image . "grandma-text.png", 'a_content' => 0, 'q_content' => $A5_ID30_image . "girl.png"],
+            ['round' => 5, 'assess_id' => 30, 'q_audio' => null, 'q_image' => $A5_ID30_image . "grandma.png", "q_conver" => null, 'a_content' => 1, 'q_content' => null],
 
         ]);
 
@@ -937,8 +937,8 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 4, "q_image" => $A1_ID4_image . "classroom.png", "q_audio" => $G1_A1_drag_n_drop . "classroom.mp3"],
-            ['round' => 1, 'assess_id' => 4, "q_image" => $A1_ID4_image . "bedroom.png", "q_audio" => $G1_A1_drag_n_drop . "bedroom.mp3"],
+            ['round' => 1, 'assess_id' => 4, "q_image" => $A1_ID4_image . "classroom.png", "q_audio" => $AudioDomain . $G1_A1_drag_n_drop . "classroom.mp3"],
+            ['round' => 1, 'assess_id' => 4, "q_image" => $A1_ID4_image . "bedroom.png", "q_audio" => $AudioDomain . $G1_A1_drag_n_drop . "bedroom.mp3"],
         ]);
 
         DB::table('assessment_ans_n_ques')->insert([
@@ -968,7 +968,7 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 18, "q_image" => $A3_ID18_image . "pic.png", "q_audio" => $G1_A3_drag_n_drop . "SubBlock_My-names-Anna-I-like-juice.mp3"],
+            ['round' => 1, 'assess_id' => 18, "q_image" => $A3_ID18_image . "pic.png", "q_audio" => $AudioDomain . $G1_A3_drag_n_drop . "SubBlock_My-names-Anna-I-like-juice.mp3"],
         ]);
 
         DB::table('assessment_ans_n_ques')->insert([
@@ -999,7 +999,7 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 31, "q_image" => $A5_ID31_image . "pic.png", "q_audio" => $G1_A5_drag_n_drop . "SubBlock_Good-morning-students-Open-t.mp3"],
+            ['round' => 1, 'assess_id' => 31, "q_image" => $A5_ID31_image . "pic.png", "q_audio" => $AudioDomain . $G1_A5_drag_n_drop . "SubBlock_Good-morning-students-Open-t.mp3"],
         ]);
 
         DB::table('assessment_ans_n_ques')->insert([
@@ -1029,23 +1029,22 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "olives"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "snail"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "sun"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "quail"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "ostrich"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "queen"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "sea"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "owl"],
-            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S", "a_content" => "quince"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "olives"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "snail"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "sun"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "quail"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "ostrich"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "queen"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "sea"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "owl"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "quince"],
 
-            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => "uncle"],
-            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => "watch"],
-            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => "white"],
-            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => "unicorn"],
-            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => "wall"],
-            ['round' => 2, 'assess_id' => 25, "q_content" => "U W", "a_content" => "uniform"],
-
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "uncle"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "watch"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "white"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "unicorn"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "wall"],
+            ['round' => 1, 'assess_id' => 25, "q_content" => "O Q S U W", "a_content" => "uniform"],
         ]);
 
 
@@ -1059,9 +1058,9 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 11, "q_image" => $A2_ID11_image . "pencil.png", "q_audio" => $G1_A2_drag_n_drop . "SubBlock_This-is-a-pencil-Its-hard-I.mp3"],
-            ['round' => 1, 'assess_id' => 11, "q_image" => $A2_ID11_image . "jacket.png", "q_audio" => $G1_A2_drag_n_drop . "SubBlock_This-is-a-new-jacket-Its-whi.mp3"],
-            ['round' => 1, 'assess_id' => 11, "q_image" => $A2_ID11_image . "turtle.png", "q_audio" => $G1_A2_drag_n_drop . "SubBlock_Its-a-turtle-Its-green-It.mp3"],
+            ['round' => 1, 'assess_id' => 11, "q_image" => $A2_ID11_image . "pencil.png", "q_audio" => $AudioDomain . $G1_A2_drag_n_drop . "SubBlock_This-is-a-pencil-Its-hard-I.mp3"],
+            ['round' => 1, 'assess_id' => 11, "q_image" => $A2_ID11_image . "jacket.png", "q_audio" => $AudioDomain . $G1_A2_drag_n_drop . "SubBlock_This-is-a-new-jacket-Its-whi.mp3"],
+            ['round' => 1, 'assess_id' => 11, "q_image" => $A2_ID11_image . "turtle.png", "q_audio" => $AudioDomain . $G1_A2_drag_n_drop . "SubBlock_Its-a-turtle-Its-green-It.mp3"],
         ]);
 
         DB::table('assessment_ans_n_ques')->insert([
@@ -1090,7 +1089,7 @@ class AssessmentSeeder extends Seeder
         $images = $ImageDomain . "Grade_1/Assessments/Assessment_1/Reading_passage_1/";
         $audios = $AudioDomain . "Grade_1/Assessments/Assessment_1/Reading_passage_1/";
 
-         $para = "Hi, my name is Dan. I'm 5 years old. In the afternoon, I say 'Good Afternoon. \n Hello and how are you?' They say 'I'm fine.And you?' I say 'I'm great.' \n It's going to be wonderful day.";
+        $para = "Hi, my name is Dan. I'm 5 years old. In the afternoon, I say 'Good Afternoon. Hello and how are you?' They say 'I'm fine.And you?' I say 'I'm great.' It's going to be wonderful day.";
 
         $given_q = [
             ["What is my name ?", "Dan"],
@@ -1112,11 +1111,11 @@ class AssessmentSeeder extends Seeder
         $paraName = "Dan.mp3";
 
         $given_answer = [
-            ['Dat', 'Dam','Dan'],
+            ['Dat', 'Dam', 'Dan'],
             ['Good morning', "Good Afternoon", "Good evening"],
             ["What's your name?", 'How are you?', 'Who are you?'],
             ['Good bye', "And you", "I'm great"],
-            ['5', '6','7'],
+            ['5', '6', '7'],
         ];
 
 
@@ -1166,8 +1165,7 @@ class AssessmentSeeder extends Seeder
         $images = $ImageDomain . "Grade_1/Assessments/Assessment_1/Reading_passage_2/";
         $audios = $AudioDomain . "Grade_1/Assessments/Assessment_1/Reading_passage_2/";
 
-         $para = "Hi,I'm Dan. This is my room. I love coloring. \n My color pencils, crayons, a sharpener \n
-         and  eraser are on the table. I love playing with toys. A ball in under my chair.";
+        $para = "Hi,I'm Dan. This is my room. I love coloring. My color pencils, crayons, a sharpener and  eraser are on the table. I love playing with toys. A ball in under my chair.";
 
         $given_q = [
             ["Select the things Dan has in his room.", "Color Pencils"],
@@ -1195,7 +1193,7 @@ class AssessmentSeeder extends Seeder
             ['ball', "dolls", "dog"],
             ['table', 'mat', 'fan'],
             ['duster', "eraser", "clock"],
-            ['crayon', 'duster','pen'],
+            ['crayon', 'duster', 'pen'],
             ['Pen', 'Color pencils', 'Ruler'],
         ];
 
@@ -1238,9 +1236,9 @@ class AssessmentSeeder extends Seeder
 
 
 
-    ////////////////////////////////////////////////////////
-    ////    Grade 1  Assessment 2 ID 13 ( Reading Passages )
-    ////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Assessment 2 ID 13 ( Reading Passages )
+        ////////////////////////////////////////////////////////
 
 
 
@@ -1274,11 +1272,11 @@ class AssessmentSeeder extends Seeder
         $paraName = "Anna-farm.mp3";
 
         $given_answer = [
-            ['True','False'],
-            ['True','False'],
-            ['True','False'],
-            ['True','False'],
-            ['True','False'],
+            ['True', 'False'],
+            ['True', 'False'],
+            ['True', 'False'],
+            ['True', 'False'],
+            ['True', 'False'],
         ];
 
 
@@ -1319,9 +1317,9 @@ class AssessmentSeeder extends Seeder
         }
 
 
-    ////////////////////////////////////////////////////////
-    ////    Grade 1  Assessment 2 ID 14 ( Reading Passages )
-    ////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Assessment 2 ID 14 ( Reading Passages )
+        ////////////////////////////////////////////////////////
 
 
 
@@ -1350,11 +1348,11 @@ class AssessmentSeeder extends Seeder
         $paraName = "Anna-farm.mp3";
 
         $given_answer = [
-            ['True','False'],
-            ['True','False'],
-            ['True','False'],
-            ['True','False'],
-            ['True','False'],
+            ['True', 'False'],
+            ['True', 'False'],
+            ['True', 'False'],
+            ['True', 'False'],
+            ['True', 'False'],
         ];
 
 
@@ -1399,16 +1397,16 @@ class AssessmentSeeder extends Seeder
 
 
 
-    ////////////////////////////////////////////////////////
-    ////    Grade 1  Assessment 3 ID 20 ( Reading Passages )
-    ////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Assessment 3 ID 20 ( Reading Passages )
+        ////////////////////////////////////////////////////////
 
 
 
         $images = $ImageDomain . "Grade_1/Assessments/Assessment_3/Reading_passage_1/";
         $audios = $AudioDomain . "Grade_1/Assessments/Assessment_3/Reading_passage_1/";
 
-         $para = "This is yellow mango. She has a big face. She has green hair. She has two brown eyes. \n
+        $para = "This is yellow mango. She has a big face. She has green hair. She has two brown eyes. \n
          Her lips are red. She has no ears.";
 
         $given_q = [
@@ -1479,16 +1477,16 @@ class AssessmentSeeder extends Seeder
 
 
 
-    ////////////////////////////////////////////////////////
-    ////    Grade 1  Assessment 3 ID 21 ( Reading Passages )
-    ////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Assessment 3 ID 21 ( Reading Passages )
+        ////////////////////////////////////////////////////////
 
 
 
         $images = $ImageDomain . "Grade_1/Assessments/Assessment_3/Reading_passage_2/";
         $audios = $AudioDomain . "Grade_1/Assessments/Assessment_3/Reading_passage_2/";
 
-         $para = "The boy: I like chicken. I eat chicken and egg. \n I drink water. I don't like fruits. I don't like juice. \n
+        $para = "The boy: I like chicken. I eat chicken and egg. \n I drink water. I don't like fruits. I don't like juice. \n
          The girl: I like meat. I eat meat. I don't like  vegetables. \n I don't like milk. I drink water. I like fruits.
          ";
 
@@ -1560,9 +1558,9 @@ class AssessmentSeeder extends Seeder
 
 
 
-    ////////////////////////////////////////////////////////
-    ////    Grade 1  Assessment 4 ID 27 ( Reading Passages )
-    ////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Assessment 4 ID 27 ( Reading Passages )
+        ////////////////////////////////////////////////////////
 
 
 
@@ -1590,11 +1588,11 @@ class AssessmentSeeder extends Seeder
         $paraName = "I-like-fruits.mp3";
 
         $given_answer = [
-            ['True','False'],
-            ['True','False'],
-            ['True','False'],
-            ['True','False'],
-            ['True','False'],
+            ['True', 'False'],
+            ['True', 'False'],
+            ['True', 'False'],
+            ['True', 'False'],
+            ['True', 'False'],
         ];
 
 
@@ -1640,16 +1638,16 @@ class AssessmentSeeder extends Seeder
 
 
 
-    ////////////////////////////////////////////////////////
-    ////    Grade 1  Assessment 5 ID 33 ( Reading Passages )
-    ////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////
+        ////    Grade 1  Assessment 5 ID 33 ( Reading Passages )
+        ////////////////////////////////////////////////////////
 
 
 
         $images = $ImageDomain . "Grade_1/Assessments/Assessment_5/Reading_passage/";
         $audios = $AudioDomain . "Grade_1/Assessments/Assessment_5/Reading_passage/";
 
-         $para = "The teacher asks us to sing the ABC songs.\n We raise hands and answer. We sing and dance. \n  Our friends stand up and clap hands. The teacher asks us to draw a picture. \n Our friends raise hands and answer. They draw a ball. \n They draw a car. They draw a airplane. I stand up and clap hands.";
+        $para = "The teacher asks us to sing the ABC songs.\n We raise hands and answer. We sing and dance. \n  Our friends stand up and clap hands. The teacher asks us to draw a picture. \n Our friends raise hands and answer. They draw a ball. \n They draw a car. They draw a airplane. I stand up and clap hands.";
 
         $given_q = [
             ["They drew an ___'.", "airplane"],
@@ -1714,17 +1712,5 @@ class AssessmentSeeder extends Seeder
                 ]
             ]);
         }
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

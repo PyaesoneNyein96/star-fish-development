@@ -7,25 +7,45 @@ use App\Models\Game;
 use App\Models\Grade;
 use App\Models\Country;
 use App\Models\Student;
+use App\Models\DailyBonus;
+use App\Models\LoginBonus;
 use App\Models\StudentGame;
 use App\Models\StudentUnit;
 use Illuminate\Support\Str;
 use App\Models\StudentGrade;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
+use App\Models\QuestionBonus;
 use App\Models\StudentLesson;
 use App\Models\OrderTransaction;
 use App\Models\SubscriptionPlan;
+use App\Models\ChampionshipBonus;
+use App\Models\StudentLoginBonus;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Http\Traits\removePlanTrait;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
 class SubscriptionController extends Controller
 {
-    // public $token, $grade_id, $subscription_id, $student ;
+    use removePlanTrait;
 
     private $token, $grade_id, $subscription_id, $student, $time, $orderId, $nonce_str, $domain, $prepay_id;
+
+
+    // Production
+    private $appId = "kp6d29862312994fa09afb52c00e6687";
+    private $merch_code = "70244201";
+    private $appKey = "ddfa5a774af37d9137f51d90c1871cb1";
+
+    // Testing
+    // private $appId = "kp0480c579f02f48ae8c37ce82260511";
+    // private $merch_code = "70050901";
+    // private $appKey = "starfish@123";
+
+
+
 
     public function __construct(Request $request)
     {
@@ -46,70 +66,14 @@ class SubscriptionController extends Controller
 
     public function plans(Request $request)
     {
-
         $student = Student::where('token', $this->token)->first();
         return Subscription::all();
     }
 
-    // public function removePlan(Request $request) {
-
-    //     $student = Student::where('token', $this->token)->where('status',1)->first();
-
-    //     $gradeLessons = Grade::find($this->grade_id)->lessons;
-
-    //     $gradeUnit = Grade::find($this->grade_id)->units->pluck('id');
-
-    //     $gradeGames = Game::whereIn('unit_id', $gradeUnit)->get();
-
-
-    //     DB::beginTransaction();
-
-    //     try {
-
-    //         $del_lessons = $gradeLessons->filter(function($l) use($student) {
-    //             return $student->lessons->contains('id', $l->id);
-    //         })->pluck('id');
-
-    //         $res1= StudentLesson::where('student_id', $student->id)->whereIn('id', $del_lessons)->delete();
-
-    //     //////////////////////////////
-
-    //         $del_units = $gradeUnit->filter(function($l) use($student){
-    //             return $student->units->contains('id', $l->id);
-    //         })->pluck('id');
-
-    //         $res2 = StudentUnit::where('student_id', $student->id)->whereIn('id', $del_units)->delete();
-
-    //     //////////////////////////////
-
-    //         $del_games = $gradeGames->filter(function($g) use($student) {
-    //             return $student->games->contains('id', $g->id);
-    //         })->pluck('id');
-
-    //         $res3 = StudentGame::where('student_id',$student->id)->whereIn('id',$del_games)->delete();
-
-    //         if($res1 && $res3){
-    //             StudentGrade::where('grade_id',$this->grade_id)->delete();
-    //         }
-
-    //         DB::commit();
-
-    //         return true;
-
-
-    //    } catch (\Throwable $th) {
-    //         DB::rollback();
-    //         return $th;
-    //    }
 
 
 
-
-    // }
-
-
-
-    /////////////////////// Get Prepay ID /////////////////////// first step
+    /////////////////////// Get Prepay ID ///////////////////////
 
     public function getPrepay_id(Request $request)
     {
@@ -128,15 +92,19 @@ class SubscriptionController extends Controller
 
             if ((int)$day_count > 0) {
                 return response()->json([
-                    "message" => "You are already purchased the plan."
+                    "message" => "You have already purchased the plan."
                 ], 402);
             }
         }
 
         // skip payment process
-        // $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
-        // return "ok";
+        // try {
+        //     return $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
+        // } catch (\Throwable $th) {
+        //     return $th->getMessage();
+        // }
 
+        //ts
 
 
         DB::beginTransaction();
@@ -144,19 +112,18 @@ class SubscriptionController extends Controller
 
             $order_id = $this->order_generator()->id;
 
-            // $response = $this->request_prepay_id($this->time, $this->orderId, $this->nonce_str);
             $response = $this->request_prepay_id($this->time, $order_id, $this->nonce_str);
 
-            // return $response;
+
             $result = $response['Response']['result'] == "SUCCESS";
             if (!$result) return response()->json(["message" => $response['Response']], 402);
 
 
-            $data = ['timestamp' => $this->time, 'appid' => "kp6d29862312994fa09afb52c00e6687", 'merch_code' => "70244201"];
+            $data = ['timestamp' => $this->time, 'appid' => $this->appId, 'merch_code' => $this->merch_code];
 
-            $params = "appid=kp6d29862312994fa09afb52c00e6687&merch_code=70244201&nonce_str=" . $this->nonce_str . "&prepay_id=" . $response['Response']['prepay_id'] . "&timestamp=" . $this->time;
+            $params = "appid=" . $this->appId . "&merch_code=" . $this->merch_code . "&nonce_str=" . $this->nonce_str . "&prepay_id=" . $response['Response']['prepay_id'] . "&timestamp=" . $this->time;
 
-            $result = strtoupper(hash('sha256', $params . "&key=ddfa5a774af37d9137f51d90c1871cb1"));
+            $result = strtoupper(hash('sha256', $params . "&key=" . $this->appKey));
 
             $data["orderinfo"] = $params . "&sign=$result";
 
@@ -166,7 +133,7 @@ class SubscriptionController extends Controller
         } catch (\Throwable $th) {
             DB::rollback();
             logger($th);
-            throw $th;
+            return $th->getMessage();
         }
     }
 
@@ -177,8 +144,8 @@ class SubscriptionController extends Controller
     public function checkPaymentResult(Request $request)
     {
 
-        // $kbzCheckURL = "http://api.kbzpay.com/payment/gateway/uat/queryorder";
-        $kbzCheckURL = "http://api.kbzpay.com/payment/gateway/queryorder";
+        $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/queryorder";
+        // $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/uat/queryorder";
         $orderId = $request->header('order_id');
 
         $data = [
@@ -190,8 +157,8 @@ class SubscriptionController extends Controller
                 "sign" => $this->convert_SHA256_query_result($this->nonce_str, $orderId, $this->time),
                 "version" => "3.0",
                 "biz_content" => [
-                    "appid" => "kp6d29862312994fa09afb52c00e6687",
-                    "merch_code" => "70244201",
+                    "appid" => $this->appId,
+                    "merch_code" => $this->merch_code,
                     "merch_order_id" => $orderId,
                 ]
             ]
@@ -228,8 +195,8 @@ class SubscriptionController extends Controller
             $payInfo = OrderTransaction::where("id", $request["Request"]["merch_order_id"])->first();
             if (
                 $payInfo &&
-                $request["Request"]["merch_code"] == 70244201 &&
-                $request["Request"]["appid"] == "kp6d29862312994fa09afb52c00e6687" &&
+                $request["Request"]["merch_code"] == $this->merch_code &&
+                $request["Request"]["appid"] == $this->appId &&
                 $request["Request"]["trade_status"] == "PAY_SUCCESS"
             ) {
                 return "success";
@@ -281,7 +248,6 @@ class SubscriptionController extends Controller
 
         $isLocal = $this->student->isLocal;
         $price = Grade::find($this->grade_id)->local_price;
-        // $price = ($isLocal == 0) ? $grade->local_price : $grade->global_price;
 
         $sign = $this->convert_SHA256($orderId, $time, $nonce_str, $price);
 
@@ -297,9 +263,8 @@ class SubscriptionController extends Controller
                 "version" => "1.0",
                 "biz_content" => [
                     "merch_order_id" => $orderId,
-                    // "merch_code" => "70050901", Uat
-                    "merch_code" => "70244201", // production
-                    "appid" => "kp6d29862312994fa09afb52c00e6687",
+                    "merch_code" => $this->merch_code,
+                    "appid" => $this->appId,
                     "trade_type" => "PWAAPP",
                     "total_amount" => $price,
                     "trans_currency" => "MMK",
@@ -307,8 +272,6 @@ class SubscriptionController extends Controller
             ]
         ];
 
-
-        // return $data;
         if ($sign) {
             return Http::post($kbzRequestURL, $data);
         }
@@ -318,18 +281,18 @@ class SubscriptionController extends Controller
     private function convert_SHA256($order_id, $time, $nonce_str, $price)
     {
 
-        $stringA = "appid=kp6d29862312994fa09afb52c00e6687&merch_code=70244201&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=".$this->domain."/payment/notify&timestamp=$time&total_amount=$price&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
+        $stringA = "appid=" . $this->appId . "&merch_code=" . $this->merch_code . "&merch_order_id=$order_id&method=kbz.payment.precreate&nonce_str=$nonce_str&notify_url=".$this->domain."payment/notify&timestamp=$time&total_amount=$price&trade_type=PWAAPP&trans_currency=MMK&version=1.0";
 
-        return strtoupper(hash('sha256', $stringA . "&key=ddfa5a774af37d9137f51d90c1871cb1"));
+        return strtoupper(hash('sha256', $stringA . "&key=" . $this->appKey));
     }
 
 
     private function convert_SHA256_query_result($nonce_str, $orderId, $time)
     {
 
-        $stringA = "appid=kp6d29862312994fa09afb52c00e6687&merch_code=70244201&merch_order_id=$orderId&method=kbz.payment.queryorder&nonce_str=$nonce_str&timestamp=$time&version=3.0";
+        $stringA = "appid=" . $this->appId . "&merch_code=" . $this->merch_code . "&merch_order_id=$orderId&method=kbz.payment.queryorder&nonce_str=$nonce_str&timestamp=$time&version=3.0";
 
-        return strtoupper(hash('sha256', $stringA . "&key=ddfa5a774af37d9137f51d90c1871cb1"));
+        return strtoupper(hash('sha256', $stringA . "&key=" . $this->appKey));
     }
 
     private function order_generator()
@@ -341,9 +304,8 @@ class SubscriptionController extends Controller
             ->first();
 
         if ($isOrdered) {
-            // $closeUrl = "https://api.kbzpay.com/payment/gateway/uat/closeorder";
             $closeUrl = "https://api.kbzpay.com/payment/gateway/closeorder";
-            $signString = "appid=kp6d29862312994fa09afb52c00e6687&merch_code=70244201&merch_order_id=$isOrdered->id&method=kbz.payment.closeorder&nonce_str=" . $this->nonce_str . "&timestamp=" . $this->time . "&version=3.0&key=ddfa5a774af37d9137f51d90c1871cb1";
+            $signString = "appid=" . $this->appId . "&merch_code=" . $this->merch_code . "&merch_order_id=$isOrdered->id&method=kbz.payment.closeorder&nonce_str=" . $this->nonce_str . "&timestamp=" . $this->time . "&version=3.0&key=".$this->appKey;
             $dataBody = [
                 "Request" => [
                     "timestamp" => $this->time,
@@ -354,8 +316,8 @@ class SubscriptionController extends Controller
                     "version" => "3.0",
                     "biz_content" => [
                         "merch_order_id" => $isOrdered->id,
-                        "merch_code" => "70244201",
-                        "appid" => "kp6d29862312994fa09afb52c00e6687"
+                        "merch_code" => $this->merch_code,
+                        "appid" => $this->appId
                     ]
                 ]
             ];
@@ -401,28 +363,45 @@ class SubscriptionController extends Controller
 
         try {
 
-            $now = Carbon::now(strval($student->country['timezone']));
+            // $now = Carbon::now(strval($student->country['timezone']));
+            $now = Carbon::now();
 
             StudentGrade::create([
                 'student_id' => $student->id,
                 'grade_id' => $grade_id,
                 'subscription_id' => $subscription_id,
-                'created_at' => Carbon::now(strval($student->country['timezone'])),
+                'created_at' => Carbon::now(),
                 'expire_date' => $now->addYear(),
             ]);
 
             $student->update([
                 'isSubscriber' => 1,
                 'grade_chosen' => null,
-                'created_at' => Carbon::now(strval($student->country['timezone'])),
-                'updated_at' => Carbon::now(strval($student->country['timezone']))
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
 
             $latest_date = StudentGrade::where('grade_id', $grade_id)
                 ->pluck('expire_date');
 
-            $this->addedSubscriptionDate($latest_date, $student);
 
+            if ($student->grades->count() == 1) {
+
+                //Daily Bonus Record Adding
+                $this->addDailyBonusRecord($student);
+
+                //Login Bonus Record Adding
+                $this->addLoginBonusRecord($student);
+
+                //Login Bonus Record Adding
+                $this->addQuestionBonusRecords($student);
+
+                //Championship Bonus Record Adding
+                $this->addChampionshipBonusRecords($student);
+            }
+
+
+            $this->addedSubscriptionDate($latest_date, $student);
 
             DB::commit();
 
@@ -431,7 +410,103 @@ class SubscriptionController extends Controller
             ], 200);
         } catch (\Throwable $th) {
             DB::rollback();
-            return $th;
+            return $th->getMessage();
+        }
+    }
+
+
+    private function addDailyBonusRecord($student)
+    {
+
+        try {
+            $duplicate = DailyBonus::where('student_id', $student->id)->get();
+
+            if ($duplicate->count() == 0) {
+                DailyBonus::create([
+                    'student_id' => $student->id,
+                    'fifteen' => null,
+                    'thirty' => null,
+                    'daily' => null,
+                ]);
+            }
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+
+    private function addLoginBonusRecord($student)
+    {
+
+        $already = StudentLoginBonus::where('student_id', $student->id)->get();
+
+        try {
+            if ($already->count() == 0) {
+
+                $allDays = LoginBonus::all();
+
+                StudentLoginBonus::create([
+                    'student_id' => $student->id,
+                    'date' => Carbon::now(),
+                    'day_count' => 1,
+                ]);
+            }
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+
+    private function addQuestionBonusRecords($student)
+    {
+
+        $already = $student->questionBonus;
+
+        try {
+
+            if ($already->count() == 0) {
+
+                foreach (range(1, 8) as $num) {
+                    QuestionBonus::create([
+                        'student_id' => $student->id,
+                        'point' => $num * 10,
+                        'question_count' => $num * 100
+                    ]);
+                }
+            }
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+
+
+    private function addChampionshipBonusRecords($student)
+    {
+
+        $already = $student->championBonus;
+
+        $champions = [
+            ['platinum', 50],
+            ['gold', 100],
+            ['diamond', 200]
+        ];
+
+        try {
+
+            if ($already->count() == 0) {
+
+                foreach ($champions as $champ) {
+                    ChampionshipBonus::create([
+                        'student_id' => $student->id,
+                        'point' => 1,
+                        'champion' => $champ[0],
+                        'fix_level' => $champ[1],
+                    ]);
+                }
+            }
+        } catch (\Throwable $th) {
+            throw $th;
         }
     }
 }

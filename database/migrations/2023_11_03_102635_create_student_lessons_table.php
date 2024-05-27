@@ -16,7 +16,9 @@ return new class extends Migration
             $table->foreignId('student_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('lesson_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('grade_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('status')->default(0);
+            $table->integer('count')->default(1);
+            // $table->integer('claimed_3')->default(0);
+            // $table->integer('claimed_5')->default(0);
             $table->timestamps();
         });
     }
