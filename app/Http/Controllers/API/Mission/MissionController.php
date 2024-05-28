@@ -69,7 +69,7 @@ class MissionController extends Controller
             $repeat = optional($repeat);
 
 
-            if($exist && $repeat->count >= 3 && $repeat->count < 5){
+            if($exist && $repeat->count >= 3){
 
                 if( $repeat->claimed_3 == 0){
                     $claimed = false;
@@ -91,7 +91,7 @@ class MissionController extends Controller
                 'game_id' => $raw->id,
                 'name' => "Game - " . $raw->name . ": 3 repetitive practices",
                 // 'grade' => $raw->unit->grade->name,
-                'allowed' => $repeat->count == 3 || $repeat->count == 4,
+                'allowed' => $repeat->count >= 3 ,
                 'claimed' => $claimed ,
                 'count' => $repeat->count,
                 'point' =>  3,
@@ -129,7 +129,7 @@ class MissionController extends Controller
 
             if ($lesson['allowed'] && !$lesson['claimed']) {
                 return 0;
-            } elseif ($lesson['claimed'] && $lesson['allowed']) {
+            } elseif ($lesson['allowed'] && $lesson['claimed']) {
                 return 1;
             }  elseif ($lesson['claimed']) {
                 return 2;
@@ -173,7 +173,7 @@ class MissionController extends Controller
                 ->where('student_id', $request->student->id)->first();
 
             $sms = null;
-            if ($claimUpdate->claimed_3 == 0 && ($count == 3 || $count == 4)) {
+            if ($claimUpdate->claimed_3 == 0 && ($count >= 3 && $count <= 5)) {
                 $claimUpdate->claimed_3 = 1;
                 $sms = 3;
                 $this->point_lvl($student, 1);
@@ -756,7 +756,7 @@ class MissionController extends Controller
 
         return $record->map(function ($record) use($student){
             return [
-                'name' => $record->champion,
+                'name' => ucfirst($record->champion),
                 'point' => $record->point,
                 'allowed' => $record->champion == $student->board || $record->fix_level < $student->level,
                 'claimed' => $record->claim && true
@@ -858,7 +858,7 @@ class MissionController extends Controller
         // Champion
         // ==================================
         $champion_count = $student->championBonus->where('claim',0)
-        ->where('champion', $student->board)->where('fix_level','<',$student->level)->count();
+        ->where('fix_level','<',$student->level)->count();
 
 
         // ==================================

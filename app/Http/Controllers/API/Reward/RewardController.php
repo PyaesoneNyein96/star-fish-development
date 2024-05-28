@@ -382,8 +382,6 @@ class RewardController extends Controller
 
         $level = floor($newFixPoint / 10);
 
-        logger($level);
-
         if ($level <= 50) {
             $board = 'silver';
         }

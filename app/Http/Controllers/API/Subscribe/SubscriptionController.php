@@ -35,14 +35,14 @@ class SubscriptionController extends Controller
 
 
     // Production
-    private $appId = "kp6d29862312994fa09afb52c00e6687";
-    private $merch_code = "70244201";
-    private $appKey = "ddfa5a774af37d9137f51d90c1871cb1";
+    // private $appId = "kp6d29862312994fa09afb52c00e6687";
+    // private $merch_code = "70244201";
+    // private $appKey = "ddfa5a774af37d9137f51d90c1871cb1";
 
     // Testing
-    // private $appId = "kp0480c579f02f48ae8c37ce82260511";
-    // private $merch_code = "70050901";
-    // private $appKey = "starfish@123";
+    private $appId = "kp0480c579f02f48ae8c37ce82260511";
+    private $merch_code = "70050901";
+    private $appKey = "starfish@123";
 
 
 
@@ -80,7 +80,9 @@ class SubscriptionController extends Controller
 
         $student = Student::where('token', $this->token)->where('status', 1)->first();
 
-        if (!$student) return response()->json(["status" => "you are not allowed for this process."], 403);
+        if (!$student) return response()->json(["error" => "you are not allowed for this process."], 403);
+
+        // if ($student->isLocal == 0) return response()->json(["error" => "you need to be a local user for this process."], 403);
 
 
         $alreadyBought = StudentGrade::where('student_id', $student->id)->where('grade_id', $request->header('grade_id'))->first();
@@ -98,11 +100,11 @@ class SubscriptionController extends Controller
         }
 
         // skip payment process
-        // try {
-        //     return $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
-        // } catch (\Throwable $th) {
-        //     return $th->getMessage();
-        // }
+        try {
+            return $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
 
         //ts
 
@@ -303,35 +305,51 @@ class SubscriptionController extends Controller
             ->where("status", "pending")
             ->first();
 
-        if ($isOrdered) {
-            $closeUrl = "https://api.kbzpay.com/payment/gateway/closeorder";
-            $signString = "appid=" . $this->appId . "&merch_code=" . $this->merch_code . "&merch_order_id=$isOrdered->id&method=kbz.payment.closeorder&nonce_str=" . $this->nonce_str . "&timestamp=" . $this->time . "&version=3.0&key=" . $this->appKey;
-            $dataBody = [
-                "Request" => [
-                    "timestamp" => $this->time,
-                    "method" => "kbz.payment.closeorder",
-                    "nonce_str" => $this->nonce_str,
-                    "sign_type" => "SHA256",
-                    "sign" => strtoupper(hash('sha256', $signString)),
-                    "version" => "3.0",
-                    "biz_content" => [
-                        "merch_order_id" => $isOrdered->id,
-                        "merch_code" => $this->merch_code,
-                        "appid" => $this->appId
+        DB::beginTransaction();
+        try {
+
+            if ($isOrdered) {
+                $closeUrl = "https://api.kbzpay.com/payment/gateway/uat/closeorder";
+                $signString = "appid=" . $this->appId . "&merch_code=" . $this->merch_code . "&merch_order_id=$isOrdered->id&method=kbz.payment.closeorder&nonce_str=" . $this->nonce_str . "&timestamp=" . $this->time . "&version=3.0&key=" . $this->appKey;
+                $dataBody = [
+                    "Request" => [
+                        "timestamp" => $this->time,
+                        "method" => "kbz.payment.closeorder",
+                        "nonce_str" => $this->nonce_str,
+                        "sign_type" => "SHA256",
+                        "sign" => strtoupper(hash('sha256', $signString)),
+                        "version" => "3.0",
+                        "biz_content" => [
+                            "merch_order_id" => $isOrdered->id,
+                            "merch_code" => $this->merch_code,
+                            "appid" => $this->appId
+                        ]
                     ]
-                ]
-            ];
-            $closeOrder = Http::post($closeUrl, $dataBody);
-            if ($closeOrder["Response"]["result"] == "SUCCESS") $isOrdered->delete();
+                ];
+                $closeOrder = Http::post($closeUrl, $dataBody);
+                if ($closeOrder["Response"]["result"] == "SUCCESS") $isOrdered->delete();
+
+            }
+
+            $order_transaction = OrderTransaction::create([
+                'student_id' => $this->student->id,
+                'subscription_id' => $this->subscription_id,
+                'grade_id' => $this->grade_id,
+            ]);
+
+            DB::commit();
+            if ($order_transaction) return $order_transaction;
+
+
+
+        } catch (\Throwable $th) {
+            DB::rollback();
+            throw $th;
+
         }
 
-        $order_transaction = OrderTransaction::create([
-            'student_id' => $this->student->id,
-            'subscription_id' => $this->subscription_id,
-            'grade_id' => $this->grade_id,
-        ]);
 
-        if ($order_transaction) return $order_transaction;
+
     }
 
 
@@ -509,4 +527,18 @@ class SubscriptionController extends Controller
             throw $th;
         }
     }
+
+    public function autoSeed(Request $request){
+
+        $students = Student::whereIn('id',[1,10,11,12,13])->get();
+
+        foreach ($students as $k => $student) {
+            $this->getGradeAccess($student,1,1);
+        }
+
+        return "ok";
+
+    }
+
+
 }

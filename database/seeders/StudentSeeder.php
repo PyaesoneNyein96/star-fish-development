@@ -205,11 +205,12 @@ class StudentSeeder extends Seeder
                 'isAuth' => 0,
                 'isLocal' => 1,
                 'level' => 5,
-                'point' => 51,
-                'fixed_point' => 51,
+                'point' => 52,
+                'fixed_point' => 52,
                 'profile_picture' => null,
                 'status' => 1,
                 'grade_chosen' => 3,
+                'question_answer' => 200,
                 'token' => "1|4YsGl3rYqeZa7QCtRWijHzMbJ3V53stqpXoZRQ8d0c9baf79",
                 'isSubscriber' => 0
             ],
@@ -226,27 +227,64 @@ class StudentSeeder extends Seeder
                 'isAuth' => 0,
                 'isLocal' => 1,
                 'level' => 5,
-                'point' => 51,
-                'fixed_point' => 51,
+                'point' => 52,
+                'fixed_point' => 52,
                 'profile_picture' => null,
                 'status' => 1,
                 'grade_chosen' => 4,
+                'question_answer' => 200,
                 'token' => "2|4gOjWmThLCiMfZNCAkv9V4drEz5yghQ9z6HUzKfi33c91233",
                 'isSubscriber' => 0
             ],
 
+
+            [
+                'name' => 'Admin 2',
+                'phone' => "+959799839053",
+                'email' => null,
+                'password' => Hash::make('admin123'),
+                'age' => 10,
+                'country_id' => 1,
+                'city_id' => 1,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 1,
+                'level' => 5,
+                'point' => 52,
+                'fixed_point' => 52,
+                'profile_picture' => null,
+                'status' => 1,
+                'grade_chosen' => null,
+                'question_answer' => 200,
+                'token' => "91|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+                'isSubscriber' => 0
+            ],
+
+            [
+                'name' => 'Daniel',
+                'phone' => "+959782006953",
+                'email' => null,
+                'password' => Hash::make('admin123'),
+                'age' => 10,
+                'country_id' => 1,
+                'city_id' => 1,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 1,
+                'level' => 5,
+                'point' => 52,
+                'fixed_point' => 52,
+                'profile_picture' => null,
+                'status' => 1,
+                'grade_chosen' => null,
+                'question_answer' => 200,
+                'token' => "90|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+                'isSubscriber' => 0
+            ],
+
+
         ]);
-
-
-        // DB::table('users')->insert([
-        //     [
-        //         'name' => 'admin',
-        //         'email' => 'admin@gmail.com',
-        //         'password' => Hash::make('admin123'),
-        //         'phone' => null
-        //     ]
-        // ]);
-
-
     }
 }
