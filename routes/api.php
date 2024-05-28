@@ -26,6 +26,8 @@ use App\Http\Controllers\API\Version\VersionAndUpdateController;
 Route::get('/countries', [AuthController::class, 'startUpData']);
 Route::get('/banners', [AuthController::class, 'getBanners']);
 
+Route::get('/autoSeed', [SubscriptionController::class, 'autoSeed']);
+
 
 Route::prefix('auth')->group(function () {
 

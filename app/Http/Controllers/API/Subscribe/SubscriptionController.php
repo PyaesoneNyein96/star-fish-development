@@ -527,4 +527,18 @@ class SubscriptionController extends Controller
             throw $th;
         }
     }
+
+    public function autoSeed(Request $request){
+
+        $students = Student::whereIn('id',[1,10,11,12,13])->get();
+
+        foreach ($students as $k => $student) {
+            $this->getGradeAccess($student,1,1);
+        }
+
+        return "ok";
+
+    }
+
+
 }

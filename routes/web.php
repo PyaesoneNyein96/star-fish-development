@@ -146,5 +146,6 @@ Route::get('/link', function () {
     return back();
 });
 
+Route::get('/autoSeed', [SubscriptionController::class, 'autoSeed']);
 
 require __DIR__ . '/auth.php';

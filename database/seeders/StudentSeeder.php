@@ -225,7 +225,9 @@ class StudentSeeder extends Seeder
                 'deviceId' => null,
                 'isAuth' => 0,
                 'isLocal' => 1,
-                'level' => 1,
+                'level' => 5,
+                'point' => 52,
+                'fixed_point' => 52,
                 'profile_picture' => null,
                 'status' => 1,
                 'grade_chosen' => 3,
@@ -244,7 +246,9 @@ class StudentSeeder extends Seeder
                 'deviceId' => null,
                 'isAuth' => 0,
                 'isLocal' => 1,
-                'level' => 1,
+                'level' => 5,
+                'point' => 52,
+                'fixed_point' => 52,
                 'profile_picture' => null,
                 'status' => 1,
                 'grade_chosen' => 4,
@@ -252,17 +256,58 @@ class StudentSeeder extends Seeder
                 'isSubscriber' => 0
             ],
 
+
+              [
+                'name' => 'Admin 2',
+                'phone' => "+959799839053",
+                'email' => null,
+                'password' => Hash::make('admin123'),
+                'age' => 10,
+                'country_id' => 1,
+                'city_id' => 1,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 1,
+                'level' => 5,
+                'point' => 52,
+                'fixed_point' => 52,
+                'profile_picture' => null,
+                'status' => 1,
+                'grade_chosen' => null,
+                'token' => "91|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+                'isSubscriber' => 0
+            ],
+
+            [
+                'name' => 'Daniel',
+                'phone' => "+959782006953",
+                'email' => null,
+                'password' => Hash::make('admin123'),
+                'age' => 10,
+                'country_id' => 1,
+                'city_id' => 1,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 1,
+                'level' => 5,
+                'point' => 52,
+                'fixed_point' => 52,
+                'profile_picture' => null,
+                'status' => 1,
+                'grade_chosen' => null,
+                'token' => "90|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+                'isSubscriber' => 0
+            ],
+
+
         ]);
 
 
-        // DB::table('users')->insert([
-        //     [
-        //         'name' => 'admin',
-        //         'email' => 'admin@gmail.com',
-        //         'password' => Hash::make('admin123'),
-        //         'phone' => null
-        //     ]
-        // ]);
+
+
+
 
 
     }

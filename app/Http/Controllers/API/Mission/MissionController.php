@@ -173,7 +173,7 @@ class MissionController extends Controller
                 ->where('student_id', $request->student->id)->first();
 
             $sms = null;
-            if ($claimUpdate->claimed_3 == 0 && ($count == 3 || $count == 4)) {
+            if ($claimUpdate->claimed_3 == 0 && ($count >= 3 && $count <= 5)) {
                 $claimUpdate->claimed_3 = 1;
                 $sms = 3;
                 $this->point_lvl($student, 1);
@@ -756,7 +756,7 @@ class MissionController extends Controller
 
         return $record->map(function ($record) use($student){
             return [
-                'name' => $record->champion,
+                'name' => ucfirst($record->champion),
                 'point' => $record->point,
                 'allowed' => $record->champion == $student->board || $record->fix_level < $student->level,
                 'claimed' => $record->claim && true
