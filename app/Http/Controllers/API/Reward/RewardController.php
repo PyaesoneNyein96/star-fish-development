@@ -11,7 +11,7 @@ use Mockery\Undefined;
 
 class RewardController extends Controller
 {
-    private $domain, $achieve, $each_ach, $profiles, $frames;
+    private $domain, $achieve, $each_ach, $profiles, $frames, $levelUp;
 
     public function __construct()
     {
@@ -20,6 +20,7 @@ class RewardController extends Controller
         $this->each_ach = $this->domain . "/storage/images/Achievement/Each_achieve/";
         $this->profiles = $this->domain . "/storage/images/Achievement/Profiles/";
         $this->frames = $this->domain . "/storage/images/Achievement/Frames/";
+        $this->levelUp = $this->domain . "/storage/images/level-up/";
     }
 
 
@@ -264,6 +265,29 @@ class RewardController extends Controller
             "level" => $stu->level,
         ];
 
+        switch ($stu->level) {
+            case 2:
+                $res["pic"] = $this->levelUp . $stu->level . ".png";
+                $res["background"] = $this->levelUp . $stu->level . "-bg" . ".jpg";
+                break;
+            case 50:
+                $res["pic"] = $this->levelUp . $stu->level . ".png";
+                $res["background"] = $this->levelUp . $stu->level . "-bg" . ".jpg";
+                break;
+            case 100:
+                $res["pic"] = $this->levelUp . $stu->level . ".png";
+                $res["background"] = $this->levelUp . $stu->level . "-bg" . ".jpg";
+                break;
+            case 200:
+                $res["pic"] = $this->levelUp . $stu->level . ".png";
+                $res["background"] = $this->levelUp . $stu->level . "-bg" . ".jpg";
+                break;
+            case 300:
+                $res["pic"] = $this->levelUp . $stu->level . ".png";
+                $res["background"] = $this->levelUp . $stu->level . "-bg" . ".jpg";
+                break;
+        }
+
         $reward = [];
         foreach ($profile as $val) {
             if ($val->point <= $stu->fixed_point) {
@@ -279,6 +303,7 @@ class RewardController extends Controller
                         "id" => $val->id,
                         "url" => $this->profiles .  str_replace(' ', '-', $val->name) . "/" . $val->item . ".png"
                     ];
+
                     array_push($reward, $url);
                     Stud_reward::create($data);
                 } else {
@@ -286,6 +311,7 @@ class RewardController extends Controller
                         "id" => $val->id,
                         "url" => $this->profiles .  str_replace(' ', '-', $val->name) . "/" . $val->item . ".png"
                     ];
+
                     array_push($reward, $url);
                 }
             }
