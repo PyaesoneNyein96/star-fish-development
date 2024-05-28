@@ -2,8 +2,13 @@
 
 namespace App\Http\Traits;
 
+use App\Models\Unit;
+use App\Models\Lesson;
 use App\Models\StudentGame;
+use App\Models\StudentUnit;
+use App\Models\StudentGrade;
 use App\Models\StudentLesson;
+use App\Models\AssessmentFinishData;
 
 trait gameTraits
 {
