@@ -146,9 +146,9 @@ class GameController extends Controller
                 'grade_id' => $lesson->grade_id,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
-                'allowed' => $GradeChosen ? $complete || ($index > $ls_count - 1 ? false : true) : $index < ($ls == 0 ? 1 : $ls),// Free open for BETA
+                // 'allowed' => $GradeChosen ? $complete || ($index > $ls_count - 1 ? false : true) : $index < ($ls == 0 ? 1 : $ls),// Free open for BETA
 
-                // 'allowed' => $GradeChosen ? ($index == 0 ? true : false) : $index < ($ls == 0 ? 1 : $ls) , // ‌include Assessment for - REAL - (only lesson 1 open if student is free user and chose grade * )
+                'allowed' => $GradeChosen ? ($index == 0 ? true : false) : $index < ($ls == 0 ? 1 : $ls) , // ‌include Assessment for - REAL - (only lesson 1 open if student is free user and chose grade * )
 
 
             ];

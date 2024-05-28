@@ -270,11 +270,11 @@ class AssessmentController extends Controller
 
                     // Del  lessons(total/8) by assessment (1)  =========================================
 
-                    $calculate_data = AssessmentFinishData::where('student_id', $studentId)
-                        ->where('grade_id', $assessment->grade_id)->count();
+                    // $calculate_data = AssessmentFinishData::where('student_id', $studentId)
+                    //     ->where('grade_id', $assessment->grade_id)->count();
 
 
-                    $lesson_ids = StudentLesson::where('lesson_id', '<=', $calculate_data * 8)->where('grade_id', $assessment->grade_id)->delete();
+                    // $lesson_ids = StudentLesson::where('lesson_id', '<=', $calculate_data * 8)->where('grade_id', $assessment->grade_id)->delete();
 
 
                     ////////////////////
@@ -328,10 +328,10 @@ class AssessmentController extends Controller
                         $recorded["certificate"] = $certificate;
 
                         // Del lessons =========================================
-                        // StudentLesson::where('student_id', $Stu->id)
-                        //     ->whereIn('lesson_id', Lesson::where('grade_id',$assessment->grade_id)->pluck('id'))
-                        //     ->where('grade_id', $assessment->grade_id)
-                        //     ->delete();
+                        StudentLesson::where('student_id', $Stu->id)
+                            ->whereIn('lesson_id', Lesson::where('grade_id',$assessment->grade_id)->pluck('id'))
+                            ->where('grade_id', $assessment->grade_id)
+                            ->delete();
 
 
                     };
