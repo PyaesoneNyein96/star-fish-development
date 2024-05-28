@@ -57,6 +57,12 @@ return array(
          */
         "font_cache" => storage_path('fonts/'),
 
+        // 'font' => [
+        //     'AlbertusNova' => [
+        //         'R' => 'Albertus-Medium-Regular.ttf',
+        //     ],
+        // ],
+
         /**
          * The location of a temporary directory.
          *

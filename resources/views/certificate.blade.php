@@ -48,7 +48,6 @@
             font-size: 4rem;
             text-align: center;
             font-family: "AlbertusNova", sans-serif;
-            /* font-family: "EB Garamond"; */
         }
 
         .grade-id {

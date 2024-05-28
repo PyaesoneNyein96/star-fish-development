@@ -2,6 +2,9 @@
 
 namespace App\Http\Traits;
 
+use App\Models\StudentGame;
+use App\Models\StudentLesson;
+
 trait gameTraits
 {
 
@@ -57,6 +60,7 @@ trait gameTraits
     {
 
         if (isset($game[0])) $game = $game[0];
+
 
         $rounds =  $game->ans_n_ques->groupBy('round')->values();
 
@@ -131,6 +135,29 @@ trait gameTraits
 
         if (isset($game[0])) $game = $game[0];
 
+
+        $alreadyDone = StudentGame::where('student_id', $student->id)
+        ->where('game_id', $game->id)->first();
+
+        if(!$alreadyDone) {
+        StudentGame::insert([
+            'student_id' => $student->id,
+            'game_id' => $game->id,
+            'unit_id' => $unit->id,
+            'count' => 1 ,
+        ]);
+
+        $this->addPointFunction($student, 1, 1);
+
+        }else if($alreadyDone && $alreadyDone->count < 5 )
+        {
+                $alreadyDone->count = $alreadyDone->count + 1;
+                $alreadyDone->save();
+        }
+
+
+
+
         $data = $game->ans_n_ques;
 
         $result = $data->filter(function ($v) use ($student) {
@@ -166,11 +193,33 @@ trait gameTraits
     {
         if (isset($game[0])) $game = $game[0];
 
+
+
+        $alreadyDone = StudentGame::where('student_id', $student->id)
+        ->where('game_id', $game->id)->first();
+
+        if(!$alreadyDone) {
+        StudentGame::insert([
+            'student_id' => $student->id,
+            'game_id' => $game->id,
+            'unit_id' => $unit->id,
+            'count' => 1 ,
+        ]);
+
+        $this->addPointFunction($student, 1, 1);
+
+        }else if($alreadyDone && $alreadyDone->count < 5 )
+        {
+                $alreadyDone->count = $alreadyDone->count + 1;
+                $alreadyDone->save();
+        }
+
+
+
+
         $result = $game->ans_n_ques->filter(function ($s) use ($student) {
             return $s->isLocal == $student->isLocal;
         });
-
-        // return $result->values();
 
         $songs = $result->values()->map(function ($s) {
             return [
