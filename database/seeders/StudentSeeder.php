@@ -231,6 +231,7 @@ class StudentSeeder extends Seeder
                 'profile_picture' => null,
                 'status' => 1,
                 'grade_chosen' => 3,
+                'question_answer' => 200,
                 'token' => "1|4YsGl3rYqeZa7QCtRWijHzMbJ3V53stqpXoZRQ8d0c9baf79",
                 'isSubscriber' => 0
             ],
@@ -252,6 +253,7 @@ class StudentSeeder extends Seeder
                 'profile_picture' => null,
                 'status' => 1,
                 'grade_chosen' => 4,
+                'question_answer' => 200,
                 'token' => "2|4gOjWmThLCiMfZNCAkv9V4drEz5yghQ9z6HUzKfi33c91233",
                 'isSubscriber' => 0
             ],
@@ -275,6 +277,7 @@ class StudentSeeder extends Seeder
                 'profile_picture' => null,
                 'status' => 1,
                 'grade_chosen' => null,
+                'question_answer' => 200,
                 'token' => "91|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
                 'isSubscriber' => 0
             ],
@@ -297,6 +300,7 @@ class StudentSeeder extends Seeder
                 'profile_picture' => null,
                 'status' => 1,
                 'grade_chosen' => null,
+                'question_answer' => 200,
                 'token' => "90|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
                 'isSubscriber' => 0
             ],
