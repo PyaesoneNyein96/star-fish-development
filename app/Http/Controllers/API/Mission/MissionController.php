@@ -756,7 +756,7 @@ class MissionController extends Controller
 
         return $record->map(function ($record) use($student){
             return [
-                'name' => $record->champion,
+                'name' => ucfirst($record->champion),
                 'point' => $record->point,
                 'allowed' => $record->champion == $student->board || $record->fix_level < $student->level,
                 'claimed' => $record->claim && true
