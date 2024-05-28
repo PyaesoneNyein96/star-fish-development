@@ -11,7 +11,8 @@ class TestingController extends Controller
 {
     //
 
-    public function lessonRecordSeeding(Request $request){
+    public function lessonRecordSeeding(Request $request)
+    {
 
 
         $grade_id = $request->header('grade_id');
@@ -24,13 +25,13 @@ class TestingController extends Controller
         $isValid = Grade::find($grade_id)->lessons->pluck('id');
 
 
-        if(!$grade_id || !$start_id || !($end_id ||$count )) return response()->json(['message' => "Invalid request format!" ],403);
+        if (!$grade_id || !$start_id || !($end_id || $count)) return response()->json(['message' => "Invalid request format!"], 403);
 
 
-        if($end_id){
+        if ($end_id) {
             $range = range($start_id, $end_id);
-        }else{
-            $range = range($start_id ,$start_id + $count);
+        } else {
+            $range = range($start_id, $start_id + $count);
         }
 
 
@@ -38,13 +39,13 @@ class TestingController extends Controller
         $isValid_start = in_array($start_id, $isValid->toArray());
         $isValid_end = in_array(collect($range)->last(), $isValid->toArray());
 
-        if(!$isValid_start || !$isValid_end){
+        if (!$isValid_start || !$isValid_end) {
             return "lesson not match with grade";
         }
 
         $oldRecords = $student->lessons;
 
-        $filter = collect($range)->filter(function ($r) use($oldRecords){
+        $filter = collect($range)->filter(function ($r) use ($oldRecords) {
             return !in_array($r, $oldRecords->pluck('id')->toArray());
         });
 
@@ -56,16 +57,15 @@ class TestingController extends Controller
                 'lesson_id' => $value,
                 'count' => 1,
             ]);
-
         }
 
 
         return "done";
-
     }
 
 
-    public function lessonRecordDelete(Request $request){
+    public function lessonRecordDelete(Request $request)
+    {
 
         $student = $request->student;
 
@@ -75,26 +75,19 @@ class TestingController extends Controller
         $end = $request->header('end_lesson_id');
 
 
-        $rec = $recordsId->filter(function ($r) use($start, $end) {
+        $rec = $recordsId->filter(function ($r) use ($start, $end) {
             return $r >= $start && $r <= $end;
         });
 
 
-        if($rec->count() > 0){
+        if ($rec->count() > 0) {
             $del = StudentLesson::where('student_id', $student->id)
-            ->whereIn('lesson_id',$rec)->delete();
-        }else{
+                ->whereIn('lesson_id', $rec)->delete();
+        } else {
             return "nothing to delete";
         }
 
 
-        if($del) return "deleted";
-
-
-
-
-
+        if ($del) return "deleted";
     }
-
-
 }

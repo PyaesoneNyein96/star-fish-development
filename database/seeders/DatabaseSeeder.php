@@ -118,8 +118,5 @@ class DatabaseSeeder extends Seeder
 
         // Admin
         $this->call(AdminUserSeeder::class);
-
-
-
     }
 }

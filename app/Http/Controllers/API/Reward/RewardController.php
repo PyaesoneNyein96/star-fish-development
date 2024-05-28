@@ -255,7 +255,61 @@ class RewardController extends Controller
     {
         $token = $request->header("token");
         if (!$token) return response()->json(["error" => "token is required."], 400);
+        return $this->levelUpFun($token);
+    }
 
+    // Profile
+    public function updateProfile(Request $request)
+    {
+        $token = $request->token;
+        $id = $request->id;
+        if (!$token || !$id) return response()->json(["error" => "token or id is required."], 400);
+
+        $student = Student::where("token", $token)->first();
+        $stud_id = $student->id;
+        $checkReward = Stud_reward::where('student_id', $stud_id)->where("reward_id", $id)->first();
+
+        if ($checkReward) {
+            $profile = Reward::where("id", $id)->first();
+            if ($profile->type === "profile") {
+                $student->update(["profile_picture" => $this->profiles .  str_replace(' ', '-', $profile->name) . "/" . $profile->item . ".png"]);
+                return response()->json(["message" => "User profile updated."]);
+            } else if ($profile->type === "frames") {
+                $student->update(["profile_frame" => $this->frames . $profile->item . ".png"]);
+                return response()->json(["message" => "User frame updated."]);
+            }
+            return response()->json(["error" => "item isn't profile or frame."], 403);
+        } else {
+            return response()->json(["error" => "You don't have this item."], 403);
+        }
+    }
+
+    // private
+    private function addPointFunction($request)
+    {
+        $oldPoint = Student::where('id', $request->student_id)->first();
+        $newPoint = $oldPoint->point + (int)$request->point;
+        $newFixPoint = $oldPoint->fixed_point + (int)$request->point;
+
+        $level = floor($newFixPoint / 10);
+
+        if ($level <= 50) {
+            $board = 'silver';
+        }
+        if ($level >= 51 && $level <= 100) {
+            $board = 'platinum';
+        }
+        if ($level >= 101 && $level <= 200) {
+            $board = 'gold';
+        }
+        if ($level >= 201) {
+            $board = 'diamond';
+        }
+        return [$newPoint, $newFixPoint, $board];
+    }
+
+    private function levelUpFun($token)
+    {
         $stu = Student::where("token", $token)->first();
         $profile = Reward::where("type", "profile")->get();
         $frames = Reward::where("type", "frames")->get();
@@ -347,53 +401,21 @@ class RewardController extends Controller
         return $res;
     }
 
-    // Profile
-    public function updateProfile(Request $request)
+    // test seed
+    public function autoSeed()
     {
-        $token = $request->token;
-        $id = $request->id;
-        if (!$token || !$id) return response()->json(["error" => "token or id is required."], 400);
+        $tokens = [
+            "1|4YsGl3rYqeZa7QCtRWijHzMbJ3V53stqpXoZRQ8d0c9baf79",
+            "2|4gOjWmThLCiMfZNCAkv9V4drEz5yghQ9z6HUzKfi33c91233",
+            "91|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+            "90|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
 
-        $student = Student::where("token", $token)->first();
-        $stud_id = $student->id;
-        $checkReward = Stud_reward::where('student_id', $stud_id)->where("reward_id", $id)->first();
+            "1|xX0ZvemvpMedgbhDOCcOqICgKg0YTjpfv2KnV1Traa776425"
+        ];
 
-        if ($checkReward) {
-            $profile = Reward::where("id", $id)->first();
-            if ($profile->type === "profile") {
-                $student->update(["profile_picture" => $this->profiles .  str_replace(' ', '-', $profile->name) . "/" . $profile->item . ".png"]);
-                return response()->json(["message" => "User profile updated."]);
-            } else if ($profile->type === "frames") {
-                $student->update(["profile_frame" => $this->frames . $profile->item . ".png"]);
-                return response()->json(["message" => "User frame updated."]);
-            }
-            return response()->json(["error" => "item isn't profile or frame."], 403);
-        } else {
-            return response()->json(["error" => "You don't have this item."], 403);
+        foreach ($tokens as $token) {
+            $this->levelUpFun($token);
         }
-    }
-
-    // private
-    private function addPointFunction($request)
-    {
-        $oldPoint = Student::where('id', $request->student_id)->first();
-        $newPoint = $oldPoint->point + (int)$request->point;
-        $newFixPoint = $oldPoint->fixed_point + (int)$request->point;
-
-        $level = floor($newFixPoint / 10);
-
-        if ($level <= 50) {
-            $board = 'silver';
-        }
-        if ($level >= 51 && $level <= 100) {
-            $board = 'platinum';
-        }
-        if ($level >= 101 && $level <= 200) {
-            $board = 'gold';
-        }
-        if ($level >= 201) {
-            $board = 'diamond';
-        }
-        return [$newPoint, $newFixPoint, $board];
+        return "ok";
     }
 }

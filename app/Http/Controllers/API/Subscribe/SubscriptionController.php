@@ -328,7 +328,6 @@ class SubscriptionController extends Controller
                 ];
                 $closeOrder = Http::post($closeUrl, $dataBody);
                 if ($closeOrder["Response"]["result"] == "SUCCESS") $isOrdered->delete();
-
             }
 
             $order_transaction = OrderTransaction::create([
@@ -339,17 +338,10 @@ class SubscriptionController extends Controller
 
             DB::commit();
             if ($order_transaction) return $order_transaction;
-
-
-
         } catch (\Throwable $th) {
             DB::rollback();
             throw $th;
-
         }
-
-
-
     }
 
 
@@ -528,17 +520,15 @@ class SubscriptionController extends Controller
         }
     }
 
-    public function autoSeed(Request $request){
+    public function autoSeed()
+    {
 
-        $students = Student::whereIn('id',[1,10,11,12,13])->get();
+        $students = Student::whereIn('id', [1, 10, 11, 12, 13])->get();
 
         foreach ($students as $k => $student) {
-            $this->getGradeAccess($student,1,1);
+            $this->getGradeAccess($student, 1, 1);
         }
 
         return "ok";
-
     }
-
-
 }

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\API\Lessons\GameController;
+use App\Http\Controllers\API\Reward\RewardController as RewardRewardController;
 use App\Http\Controllers\Dashboard\RewardController;
 use App\Http\Controllers\Dashboard\StudentController;
 use App\Http\Controllers\Dashboard\DashboardController;
@@ -146,6 +147,8 @@ Route::get('/link', function () {
     return back();
 });
 
+// seed
 Route::get('/autoSeed', [SubscriptionController::class, 'autoSeed']);
+Route::get('/auto-levelup', [RewardRewardController::class, 'autoSeed']);
 
 require __DIR__ . '/auth.php';

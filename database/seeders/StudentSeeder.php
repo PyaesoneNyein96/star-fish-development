@@ -40,6 +40,26 @@ class StudentSeeder extends Seeder
             ],
 
             [
+                'name' => 'ko nyain maung',
+                'phone' => null,
+                'email' => "+959795686096",
+                'password' => Hash::make('admin123'),
+                'age' => 7,
+                'country_id' => 1,
+                'city_id' => 1,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 0,
+                'level' => 1,
+                'profile_picture' => $domain . "/storage/images/Achievement/Profiles/Princess/item1.png",
+                'status' => 1,
+                'grade_chosen' => null,
+                'question_answer' => 0,
+                'token' => "10|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+                'isSubscriber' => 0
+            ],
+            [
                 'name' => 'soe soe lay',
                 'phone' => null,
                 'email' => "devsophiesoe@gmail.com",
