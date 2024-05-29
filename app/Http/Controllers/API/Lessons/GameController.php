@@ -146,9 +146,9 @@ class GameController extends Controller
                 'grade_id' => $lesson->grade_id,
                 'name' => $lesson->name,
                 'complete' => $studentLessons->contains('id', $lesson->id),
-                'allowed' => $GradeChosen ? $complete || ($index > $ls_count - 1 ? false : true) : $index < ($ls == 0 ? 1 : $ls),// Free open for BETA
+                // 'allowed' => $GradeChosen ? $complete || ($index > $ls_count - 1 ? false : true) : $index < ($ls == 0 ? 1 : $ls),// Free open for BETA
 
-                // 'allowed' => $GradeChosen ? ($index == 0 ? true : false) : $index < ($ls == 0 ? 1 : $ls) , // ‌include Assessment for - REAL - (only lesson 1 open if student is free user and chose grade * )
+                'allowed' => $GradeChosen ? ($index == 0 ? true : false) : $index < ($ls == 0 ? 1 : $ls) , // ‌include Assessment for - REAL - (only lesson 1 open if student is free user and chose grade * )
 
 
             ];
@@ -443,9 +443,9 @@ class GameController extends Controller
         return response()->json([
             'message' => 'success and recorded',
             'fixed_point' => $updateStudent->fixed_point,
-            'level' => $updateStudent->level,
+            'level' => $student->level != $updateStudent->level ? $updateStudent->level : null,
             'question_answer' => $updateStudent->question_answer,
-            'board' => $updateStudent->board,
+            'board' => $student->board !=  $updateStudent->board ? $updateStudent->board : null,
             'completed_lesson_id' => $lesson_completed ? $game->lesson->id : 0,
             'completed_lesson_name' => $lesson_completed ? $game->lesson->name : 0,
             // 'repetitive' => $alreadyDone && true

@@ -146,8 +146,8 @@ class SubscriptionController extends Controller
     public function checkPaymentResult(Request $request)
     {
 
-        // $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/queryorder";
-        $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/uat/queryorder";
+        $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/queryorder";
+        // $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/uat/queryorder";
         $orderId = $request->header('order_id');
 
         $data = [
@@ -173,8 +173,8 @@ class SubscriptionController extends Controller
     // referer kpay
     public function referer(Request $request)
     {
-        $redirectUrl = "https://static.kbzpay.com/pgw/uat/pwa/#/";
-        // $redirectUrl = "https://static.kbzpay.com/pgw/pwa/#/";
+        // $redirectUrl = "https://static.kbzpay.com/pgw/uat/pwa/#/";
+        $redirectUrl = "https://static.kbzpay.com/pgw/pwa/#/";
 
         $appid = $request->query("appid");
         $merch_code = $request->query("merch_code");
@@ -245,8 +245,8 @@ class SubscriptionController extends Controller
     private function request_prepay_id($time, $orderId, $nonce_str)
     {
 
-        $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
-        // $kbzRequestURL = "https://api.kbzpay.com/payment/gateway/precreate";
+        // $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
+        $kbzRequestURL = "https://api.kbzpay.com/payment/gateway/precreate";
 
         $isLocal = $this->student->isLocal;
         $price = Grade::find($this->grade_id)->local_price;
@@ -309,7 +309,8 @@ class SubscriptionController extends Controller
         try {
 
             if ($isOrdered) {
-                $closeUrl = "https://api.kbzpay.com/payment/gateway/uat/closeorder";
+                // $closeUrl = "https://api.kbzpay.com/payment/gateway/uat/closeorder";
+                $closeUrl = "https://api.kbzpay.com/payment/gateway/closeorder";
                 $signString = "appid=" . $this->appId . "&merch_code=" . $this->merch_code . "&merch_order_id=$isOrdered->id&method=kbz.payment.closeorder&nonce_str=" . $this->nonce_str . "&timestamp=" . $this->time . "&version=3.0&key=" . $this->appKey;
                 $dataBody = [
                     "Request" => [

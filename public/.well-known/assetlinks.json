@@ -1,0 +1,12 @@
+[
+    {
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.starfish.academy",
+            "sha256_cert_fingerprints": [
+                "A2:16:AA:94:2A:42:16:20:2A:9D:81:18:C1:A5:21:93:88:55:7A:58:62:FB:02:3C:BB:FB:A3:E7:1C:3B:B6:02"
+            ]
+        }
+    }
+]
