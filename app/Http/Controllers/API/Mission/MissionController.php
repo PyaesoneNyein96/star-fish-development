@@ -4,12 +4,14 @@ namespace App\Http\Controllers\API\Mission;
 
 use Carbon\Carbon;
 use App\Models\Game;
+use App\Models\Grade;
 use App\Models\Lesson;
-use App\Models\Student;
 
+use App\Models\Student;
 use App\Models\DailyBonus;
 use App\Models\LoginBonus;
 use App\Models\StudentGame;
+use App\Models\StudentGrade;
 use Illuminate\Http\Request;
 use App\Models\QuestionBonus;
 use App\Models\StudentLesson;
@@ -41,23 +43,25 @@ class MissionController extends Controller
 
     public function repetitiveGameList(Request $request){
 
-        $repeat = StudentGame::where('student_id', $request->student->id)
-            ->get();
 
-        $repetitiveRecords =  StudentGame::where('student_id', $request->student->id)->where('count', '<=', 5)->get();
+        $repeat = StudentGame::where('student_id', $request->student->id)->get();
+
+        $repetitiveRecords =  StudentGame::where('student_id', $request->student->id)
+        ->where('count', '<=', 5)->get();
 
 
-        $grades = Student::find($request->student->id)->grades;
 
+        $stu_grades = StudentGrade::where('student_id', $request->student->id)
+        ->orderBy('created_at','desc')->pluck('grade_id');
+
+        $grades = Grade::whereIn('id',$stu_grades)->orderByRaw('FIELD(id, 2, 1)')->get();
 
         if (!$grades || $grades->count() == 0) return response()->json(["message" => "You must be a subscriber for this feature."], 200);
 
         $gradeCacheKey = implode('_', $grades->pluck('id')->toArray());
 
-        $rawUnits = Cache::rememberForever($gradeCacheKey, function () use($grades) {
-            return $grades->pluck('units')->flatten()->pluck('games')->flatten();
-        });
 
+        $rawUnits = $grades->pluck('units')->flatten()->pluck('games')->flatten();
 
 
         /// ====================== 3 times
@@ -90,7 +94,7 @@ class MissionController extends Controller
             return [
                 'game_id' => $raw->id,
                 'name' => "Game - " . $raw->name . ": 3 repetitive practices",
-                // 'grade' => $raw->unit->grade->name,
+                'grade' => $raw->unit->grade->name,
                 'allowed' => $repeat->count >= 3 ,
                 'claimed' => $claimed ,
                 'count' => $repeat->count,
@@ -111,7 +115,7 @@ class MissionController extends Controller
             return [
                 'game_id' => $raw->id,
                 'name' => "Game - " . $raw->name . ": 5 repetitive practices",
-                // 'grade' => $raw->grade->name,
+                'grade' => $raw->unit->grade->name,
                 'allowed' => $repeat->count == 5,
                 'claimed' =>  $repeat->count < 5 ? false : ($repeat->count == 5 && $repeat->claimed_5 == 0 ? false : true),
                 'count' => $repeat->count,
@@ -125,19 +129,25 @@ class MissionController extends Controller
 
         $collection = new Collection($collection);
 
-        $collection = $collection->sortBy(function ($lesson) {
+        // $collection = $collection->sortBy(function ($lesson) {
 
-            if ($lesson['allowed'] && !$lesson['claimed']) {
-                return 0;
-            } elseif ($lesson['allowed'] && $lesson['claimed']) {
-                return 1;
-            }  elseif ($lesson['claimed']) {
-                return 2;
-            } else {
-                return 3;
-            }
+        //     if ($lesson['allowed']) {
+        //         return 0;
+        //     }
+        //     else{
+        //         return 1;
+        //     }
+        //     // elseif ($lesson['allowed'] && $lesson['claimed']) {
+        //     //     return 1;
+        //     // }  elseif ($lesson['claimed']) {
+        //     //     return 2;
+        //     // } else {
+        //     //     return 3;
+        //     // }
 
-        });
+        // });
+
+        // $collection = $collection->sortByDesc('grade');
 
         $perPage = $request->header('perPage') ? $request->header('perPage') : 20;
         $page = $request->header('page') ? $request->header('page') : 1;
@@ -173,7 +183,7 @@ class MissionController extends Controller
                 ->where('student_id', $request->student->id)->first();
 
             $sms = null;
-            if ($claimUpdate->claimed_3 == 0 && ($count == 3 || $count == 4)) {
+            if ($claimUpdate->claimed_3 == 0 && $count <= 3 ) {
                 $claimUpdate->claimed_3 = 1;
                 $sms = 3;
                 $this->point_lvl($student, 1);
@@ -393,12 +403,12 @@ class MissionController extends Controller
 
                 // daily Update process
                 $dailyRecord->update([
-                    'first' => Carbon::now()->addMinutes(1),
-                    'second' => Carbon::now()->addMinutes(3),
-                    'daily' => Carbon::Now()->addHours(1),
-                    // 'first' => Carbon::now()->addMinutes(15),
-                    // 'second' => Carbon::now()->addMinutes(30),
-                    // 'daily' => Carbon::Now()->addDays(1),
+                    // 'first' => Carbon::now()->addMinutes(1),
+                    // 'second' => Carbon::now()->addMinutes(3),
+                    // 'daily' => Carbon::Now()->addHours(1),
+                    'first' => Carbon::now()->addMinutes(15),
+                    'second' => Carbon::now()->addMinutes(30),
+                    'daily' => Carbon::Now()->addDays(1),
                     'day_count' => $day_count,
                     'updated_at' => Carbon::now()
                 ]);
@@ -870,14 +880,14 @@ class MissionController extends Controller
             ->where("claim", 0)->count();
 
 
-        // return [
-        //     'repetitive' => $repetitive_count,
-        //     'daily' => $daily_count,
-        //     'login' => $login_count,
-        //     'question' => $question_count,
-        //     'champion' => $champion_count,
-        //     'assessment' => $assessment_count
-        // ];
+        logger([
+            'repetitive' => $repetitive_count,
+            'daily' => $daily_count,
+            'login' => $login_count,
+            'question' => $question_count,
+            'champion' => $champion_count,
+            'assessment' => $assessment_count
+        ]);
 
 
        $total = intval($repetitive_count) + intval($daily_count) + intval($login_count) + intval($question_count) + intval($champion_count) + intval(0) + intval($assessment_count);

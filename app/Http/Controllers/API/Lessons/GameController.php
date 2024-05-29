@@ -443,9 +443,9 @@ class GameController extends Controller
         return response()->json([
             'message' => 'success and recorded',
             'fixed_point' => $updateStudent->fixed_point,
-            'level' => $updateStudent->level,
+            'level' => $student->level != $updateStudent->level ? $updateStudent->level : null,
             'question_answer' => $updateStudent->question_answer,
-            'board' => $updateStudent->board,
+            'board' => $student->board !=  $updateStudent->board ? $updateStudent->board : null,
             'completed_lesson_id' => $lesson_completed ? $game->lesson->id : 0,
             'completed_lesson_name' => $lesson_completed ? $game->lesson->name : 0,
             // 'repetitive' => $alreadyDone && true

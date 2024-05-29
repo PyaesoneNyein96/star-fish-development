@@ -8,15 +8,16 @@ use App\Models\Student;
 use App\Models\Assessment;
 use App\Models\Certificate;
 use Illuminate\Http\Request;
+use App\Jobs\MakeCertificate;
 use App\Models\StudentLesson;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\AssessmentAnsNQues;
 use App\Models\AssessmentCategory;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Jobs\MakeCertificate;
-use App\Models\AssessmentEachRecordFinishData;
 use App\Models\AssessmentFinishData;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Storage;
+use App\Models\AssessmentEachRecordFinishData;
 
 class AssessmentController extends Controller
 {
@@ -201,145 +202,157 @@ class AssessmentController extends Controller
             128, 136, 144, 152, 160
         ];
 
-        foreach ($lessonId as $lesId) {
-            if (in_array($lesId->lesson_id, $assesLessArray)) {
+        DB::beginTransaction();
+        try {
 
-                $assessment = AssessmentEachRecordFinishData::where("student_id", $studentId)->first();
-                $data = Assessment::where("grade_id", $assessment->grade_id)
-                    ->where("name", $assessment->assess_name)
-                    ->get();
+            foreach ($lessonId as $lesId) {
+                if (in_array($lesId->lesson_id, $assesLessArray)) {
 
-                $isExistAssessFinish = AssessmentFinishData::where("student_id", $studentId)
-                    ->where("grade_id", $assessment->grade_id)
-                    ->where("assess_name", $data[0]->name)
-                    ->where("finish", 1)->first();
-
-                if ($isExistAssessFinish) return response()->json(['message' => 'completed assessment.'], 403);
-                if (!count($data)) return response()->json(['message' => 'Grade Id and Lesson Id not match.'], 403);
-
-                if ($point !== null) {
-                    $oldPoint = $student;
-                    $newPoint = $oldPoint->point + (int)$point;
-                    $newFixPoint = $oldPoint->fixed_point + (int)$point;
-
-                    $level = floor($newFixPoint / 10);
-
-                    if ($level <= 50) {
-                        $board = 'silver';
-                    }
-                    if ($level >= 51 && $level <= 100) {
-                        $board = 'platinum';
-                    }
-                    if ($level >= 101 && $level <= 200) {
-                        $board = 'gold';
-                    }
-                    if ($level >= 201) {
-                        $board = 'diamond';
-                    }
-
-                    $newFixPoint = $newFixPoint > 3000 ? 3000 : $newFixPoint;
-                    $newPoint = $newPoint > 3000 ? 3000 : $newPoint;
-
-                    if ($newFixPoint >= 0 && $newFixPoint <= 3000) {
-                        $level = floor($newFixPoint / 10);
-                        Student::where('id', $studentId)->update([
-                            'point' => $newPoint,
-                            'fixed_point' => $newFixPoint,
-                            'level' => $level,
-                            'board' => $board
-                        ]);
-                    } else {
-                        Student::where('id', $studentId)->update([
-                            'point' => $newPoint,
-                            'fixed_point' => $newFixPoint,
-                            'board' => $board
-                        ]);
-                    }
-
-                    $addData = [
-                        "student_id" => $studentId,
-                        "grade_id" => $assessment->grade_id,
-                        "assess_name" => $data[0]->name,
-                        "point" => $point,
-                        "finish" => 1
-                    ];
-
-                    AssessmentFinishData::create($addData);
-
-                    ////////////////////
-
-                    // Del  lessons(total/8) by assessment (1)  =========================================
-
-                    // $calculate_data = AssessmentFinishData::where('student_id', $studentId)
-                    //     ->where('grade_id', $assessment->grade_id)->count();
-
-
-                    // $lesson_ids = StudentLesson::where('lesson_id', '<=', $calculate_data * 8)->where('grade_id', $assessment->grade_id)->delete();
-
-
-                    ////////////////////
-
-                    AssessmentEachRecordFinishData::where("student_id", $studentId)
-                        ->where("assess_name", $data[0]->name)
-                        ->where("grade_id", $assessment->grade_id)
-                        ->delete();
-
-                    $recorded = [
-                        "grade" => $assessment->grade_id,
-                        "assess_name" => $data[0]->name,
-                        "percentage" => $point
-                    ];
-
-                    $assessGrade = Assessment::select("total_assess_ques", "name")
-                        ->where("grade_id", $assessment->grade_id)
-                        ->groupby("name")
-                        ->groupby("total_assess_ques")
+                    $assessment = AssessmentEachRecordFinishData::where("student_id", $studentId)->first();
+                    $data = Assessment::where("grade_id", $assessment->grade_id)
+                        ->where("name", $assessment->assess_name)
                         ->get();
 
-                    $isfinish = AssessmentFinishData::where("student_id", $studentId)
+                    $isExistAssessFinish = AssessmentFinishData::where("student_id", $studentId)
                         ->where("grade_id", $assessment->grade_id)
-                        ->where("assess_name", count($assessGrade))
-                        ->first();
+                        ->where("assess_name", $data[0]->name)
+                        ->where("finish", 1)->first();
 
-                    if ($isfinish != null) {
-                        $sum_point = 0;
-                        $total_grade_point = 0;
-                        $total_point = AssessmentFinishData::where("student_id", $studentId)
-                            ->where("grade_id", $assessment->grade_id)
-                            ->get();
+                    if ($isExistAssessFinish) return response()->json(['message' => 'completed assessment.'], 403);
+                    if (!count($data)) return response()->json(['message' => 'Grade Id and Lesson Id not match.'], 403);
 
-                        foreach ($total_point as $tp) $sum_point += (int)$tp->point;
-                        foreach ($assessGrade as $ag) $total_grade_point += (int)$ag->total_assess_ques;
+                    if ($point !== null) {
+                        $oldPoint = $student;
+                        $newPoint = $oldPoint->point + (int)$point;
+                        $newFixPoint = $oldPoint->fixed_point + (int)$point;
 
-                        $total_percentage = floor(($sum_point / $total_grade_point) * 100);
+                        $level = floor($newFixPoint / 10);
 
-                        $certi = [
+                        if ($level <= 50) {
+                            $board = 'silver';
+                        }
+                        if ($level >= 51 && $level <= 100) {
+                            $board = 'platinum';
+                        }
+                        if ($level >= 101 && $level <= 200) {
+                            $board = 'gold';
+                        }
+                        if ($level >= 201) {
+                            $board = 'diamond';
+                        }
+
+                        $newFixPoint = $newFixPoint > 3000 ? 3000 : $newFixPoint;
+                        $newPoint = $newPoint > 3000 ? 3000 : $newPoint;
+
+                        if ($newFixPoint >= 0 && $newFixPoint <= 3000) {
+                            $level = floor($newFixPoint / 10);
+                            Student::where('id', $studentId)->update([
+                                'point' => $newPoint,
+                                'fixed_point' => $newFixPoint,
+                                'level' => $level,
+                                'board' => $board
+                            ]);
+                        } else {
+                            Student::where('id', $studentId)->update([
+                                'point' => $newPoint,
+                                'fixed_point' => $newFixPoint,
+                                'board' => $board
+                            ]);
+                        }
+
+                        $addData = [
                             "student_id" => $studentId,
                             "grade_id" => $assessment->grade_id,
-                            "total_percentage" => $total_percentage,
+                            "assess_name" => $data[0]->name,
+                            "point" => $point,
+                            "finish" => 1
                         ];
 
-                        $certificate = Certificate::create($certi);
+                        AssessmentFinishData::create($addData);
 
-                        $certificate["name"] = $student->name;
-                        $certificate["certificate_num"] =  str_pad($certificate->id, 7, '0', STR_PAD_LEFT);
-                        $certificate["date"] = Carbon::now()->format('d M Y');
+                        ////////////////////
 
-                        $recorded["certificate"] = $certificate;
+                        // Del  lessons(total/8) by assessment (1)  =========================================
 
-                        // Del lessons =========================================
-                        StudentLesson::where('student_id', $Stu->id)
-                            ->whereIn('lesson_id', Lesson::where('grade_id',$assessment->grade_id)->pluck('id'))
-                            ->where('grade_id', $assessment->grade_id)
+                        // $calculate_data = AssessmentFinishData::where('student_id', $studentId)
+                        //     ->where('grade_id', $assessment->grade_id)->count();
+
+
+                        // $lesson_ids = StudentLesson::where('lesson_id', '<=', $calculate_data * 8)->where('grade_id', $assessment->grade_id)->delete();
+
+
+                        ////////////////////
+
+                        AssessmentEachRecordFinishData::where("student_id", $studentId)
+                            ->where("assess_name", $data[0]->name)
+                            ->where("grade_id", $assessment->grade_id)
                             ->delete();
 
+                        $recorded = [
+                            "grade" => $assessment->grade_id,
+                            "assess_name" => $data[0]->name,
+                            "percentage" => $point
+                        ];
 
-                    };
-                } else  return response()->json(['message' => 'Point field is required.'], 403);
+                        $assessGrade = Assessment::select("total_assess_ques", "name")
+                            ->where("grade_id", $assessment->grade_id)
+                            ->groupby("name")
+                            ->groupby("total_assess_ques")
+                            ->get();
 
-                return response()->json($recorded);
+                        $isfinish = AssessmentFinishData::where("student_id", $studentId)
+                            ->where("grade_id", $assessment->grade_id)
+                            ->where("assess_name", count($assessGrade))
+                            ->first();
+
+                        if ($isfinish != null) {
+                            $sum_point = 0;
+                            $total_grade_point = 0;
+                            $total_point = AssessmentFinishData::where("student_id", $studentId)
+                                ->where("grade_id", $assessment->grade_id)
+                                ->get();
+
+                            foreach ($total_point as $tp) $sum_point += (int)$tp->point;
+                            foreach ($assessGrade as $ag) $total_grade_point += (int)$ag->total_assess_ques;
+
+                            $total_percentage = floor(($sum_point / $total_grade_point) * 100);
+
+                            $certi = [
+                                "student_id" => $studentId,
+                                "grade_id" => $assessment->grade_id,
+                                "total_percentage" => $total_percentage,
+                            ];
+
+                            $certificate = Certificate::create($certi);
+
+                            $certificate["name"] = $student->name;
+                            $certificate["certificate_num"] =  str_pad($certificate->id, 7, '0', STR_PAD_LEFT);
+                            $certificate["date"] = Carbon::now()->format('d M Y');
+
+                            $recorded["certificate"] = $certificate;
+
+                            // Del lessons =========================================
+                            StudentLesson::where('student_id', $student->id)
+                                ->whereIn('lesson_id', Lesson::where('grade_id',$assessment->grade_id)->pluck('id'))
+                                ->where('grade_id', $assessment->grade_id)
+                                ->delete();
+
+
+                        };
+                    }
+                    DB::commit();
+                    return response()->json($recorded);
+                }
             }
+
+
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return $th;
         }
+
+
+
         return response()->json(['error' => "please finish lessons"], 403);
     }
 
