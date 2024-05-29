@@ -9,6 +9,8 @@ use App\Models\StudentUnit;
 use App\Models\StudentGrade;
 use App\Models\StudentLesson;
 use App\Models\AssessmentFinishData;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 trait gameTraits
 {
@@ -29,6 +31,15 @@ trait gameTraits
     // matching_columns,
     // listening_and_choosing_pics_two,
     // drag_n_drop_and_pics
+
+    private $domain, $vd_path;
+
+    public function __construct()
+    {
+        $this->domain = app('domain');
+        // $this->vd_path = $this->domain . "/storage/images/";
+    }
+
 
     ///////////////////////////////////////////////////////////////
     /// SUb Unit Games ************
@@ -140,114 +151,6 @@ trait gameTraits
 
         if (isset($game[0])) $game = $game[0];
 
-        /////////////// ------------ start del
-
-        $lessonUnit = Unit::where('lesson_id', $game->lesson->id)->get();
-        $ExistLesson =  StudentLesson::where('student_id', $student->id)
-                ->where('lesson_id', $game->lesson->id)->first();
-
-        ///////////////
-
-        $alreadyDone = StudentGame::where('student_id', $student->id)
-        ->where('game_id', $game->id)->first();
-
-        if(!$alreadyDone) {
-        StudentGame::insert([
-            'student_id' => $student->id,
-            'game_id' => $game->id,
-            'unit_id' => $unit->id,
-            'count' => 1 ,
-        ]);
-
-        if(!$ExistLesson) $this->addPointFunction($student, 1, 1);
-
-        $this->addPointFunction($student, 1, 1);
-
-        }else if($alreadyDone && $alreadyDone->count < 5 )
-        {
-                $alreadyDone->count = $alreadyDone->count + 1;
-                $alreadyDone->save();
-        }
-
-
-        ///////////////////////////////////////////////
-
-        $unitDone = $student->units;
-        $gameDone = $student->games;
-
-        /// Check sub game check
-        $subGameCheck = $unit->games->reject(function ($g) use ($gameDone) {
-            return $gameDone->contains('id', $g->id);
-        });
-
-        /// Check duplicate unit
-        $dup_unit_check = $unitDone->filter(function($done) use($unit){
-            return $done->id == $unit->id;
-        });
-
-        ////// populate Unit records
-        if(count($subGameCheck) == 0 && count($dup_unit_check) == 0) {
-
-            // return "in";
-
-            $unitInsert = StudentUnit::insert([
-                'student_id' => $student->id,
-                'unit_id' => $unit->id,
-                'lesson_id' => $game->lesson->id,
-            ]);
-
-        }
-
-
-
-        /// unit left in each lesson ?
-        $unit_left_check = empty($this->lessonCheck($student, $lessonUnit, $unitDone));
-
-
-        $lesson_completed = false;
-        if($unit_left_check) {
-            $lesson_completed = true;
-            // Subscription checkpoint (** block adding & updating lesson records **)
-            $grade_id = Lesson::find($game->lesson->id)->grade['id'];
-            $studentGrade = StudentGrade::where('student_id', $student->id)->where('grade_id', $grade_id)->first();
-
-            $assessment_prove = AssessmentFinishData::where('student_id',$student->id)
-            ->where('grade_id',$grade_id)->count() * 8 + ($grade_id - 1 ) * 40;
-
-
-            if ($studentGrade && !$ExistLesson && ($game->lesson->id > $assessment_prove)){
-
-                $lessonInsert = StudentLesson::create([
-                    'student_id' => $student->id,
-                    'lesson_id' => $game->lesson->id,
-                    'grade_id' => $grade_id,
-                    'count' => 1,
-                ]);
-
-            }
-
-            /// Delete units and games after add lesson record
-            $lessonGamesId = Lesson::find($game->lesson->id)->games->pluck('id');
-
-            StudentUnit::where('student_id', $student->id)->where('lesson_id', $game->lesson->id)->delete();
-            // StudentGame::where('student_id', $student->id)->whereIn('game_id', $lessonGamesId)->delete();
-
-
-            //  For Subscription and Real Server (** block adding lesson records **)
-
-                if (!$studentGrade) return response()->json(
-                    ["message" => "You are not a subscriber"],402);
-
-            //----------------
-
-        }
-
-
-
-        /////////////////////////////////////////////// end - del
-
-
-
         $data = $game->ans_n_ques;
 
         $result = $data->filter(function ($v) use ($student) {
@@ -262,6 +165,24 @@ trait gameTraits
             ];
         });
 
+        /*
+            image thumbnail
+        */
+        $vd = $videos->first();
+        $vimeo_link = "http://vimeo.com/api/oembed.json?url=http%3A//vimeo.com/";
+        $data = Http::get($vimeo_link . $vd['video_id']);
+        $thumbnail = Http::get($data['thumbnail_url']);
+        $names = $game->lesson;
+
+        $path = "images/video_thumbnail/Grade_$names->grade_id/lesson_$names->name/" . $vd["video_id"] . ".png";
+        $thumb_path = $this->domain . "/storage/$path";
+        $publicPath = "public/$path";
+
+        Storage::put($publicPath, $thumbnail);
+        /*
+            end image thumbnail
+        */
+
         return [
             'game_id' => $game->id,
             'lesson_id' => $unit->lesson_id,
@@ -272,6 +193,10 @@ trait gameTraits
             'category' => $game->category->name,
             'instructionGIF' => $game->instructionGIF,
             'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
+
+            "thumbnail_url" => $thumb_path,
+            "title" => $data["title"],
+
             'data' => $videos->first(),
 
         ];
@@ -287,29 +212,27 @@ trait gameTraits
         /////////////// ------------ start del
         $lessonUnit = Unit::where('lesson_id', $game->lesson->id)->get();
         $ExistLesson =  StudentLesson::where('student_id', $student->id)
-                ->where('lesson_id', $game->lesson->id)->first();
+            ->where('lesson_id', $game->lesson->id)->first();
 
         ///////////////
 
         $alreadyDone = StudentGame::where('student_id', $student->id)
-        ->where('game_id', $game->id)->first();
+            ->where('game_id', $game->id)->first();
 
-        if(!$alreadyDone) {
-        StudentGame::insert([
-            'student_id' => $student->id,
-            'game_id' => $game->id,
-            'unit_id' => $unit->id,
-            'count' => 1 ,
-        ]);
+        if (!$alreadyDone) {
+            StudentGame::insert([
+                'student_id' => $student->id,
+                'game_id' => $game->id,
+                'unit_id' => $unit->id,
+                'count' => 1,
+            ]);
 
-        if(!$ExistLesson) $this->addPointFunction($student, 1, 1);
+            if (!$ExistLesson) $this->addPointFunction($student, 1, 1);
 
-        $this->addPointFunction($student, 1, 1);
-
-        }else if($alreadyDone && $alreadyDone->count < 5 )
-        {
-                $alreadyDone->count = $alreadyDone->count + 1;
-                $alreadyDone->save();
+            $this->addPointFunction($student, 1, 1);
+        } else if ($alreadyDone && $alreadyDone->count < 5) {
+            $alreadyDone->count = $alreadyDone->count + 1;
+            $alreadyDone->save();
         }
 
 
@@ -324,12 +247,12 @@ trait gameTraits
         });
 
         /// Check duplicate unit
-        $dup_unit_check = $unitDone->filter(function($done) use($unit){
+        $dup_unit_check = $unitDone->filter(function ($done) use ($unit) {
             return $done->id == $unit->id;
         });
 
         ////// populate Unit records
-        if(count($subGameCheck) == 0 && count($dup_unit_check) == 0) {
+        if (count($subGameCheck) == 0 && count($dup_unit_check) == 0) {
 
             // return "in";
 
@@ -338,7 +261,6 @@ trait gameTraits
                 'unit_id' => $unit->id,
                 'lesson_id' => $game->lesson->id,
             ]);
-
         }
 
 
@@ -348,17 +270,17 @@ trait gameTraits
 
 
         $lesson_completed = false;
-        if($unit_left_check) {
+        if ($unit_left_check) {
             $lesson_completed = true;
             // Subscription checkpoint (** block adding & updating lesson records **)
             $grade_id = Lesson::find($game->lesson->id)->grade['id'];
             $studentGrade = StudentGrade::where('student_id', $student->id)->where('grade_id', $grade_id)->first();
 
-            $assessment_prove = AssessmentFinishData::where('student_id',$student->id)
-            ->where('grade_id',$grade_id)->count() * 8 + ($grade_id - 1 ) * 40;
+            $assessment_prove = AssessmentFinishData::where('student_id', $student->id)
+                ->where('grade_id', $grade_id)->count() * 8 + ($grade_id - 1) * 40;
 
 
-            if ($studentGrade && !$ExistLesson && ($game->lesson->id > $assessment_prove)){
+            if ($studentGrade && !$ExistLesson && ($game->lesson->id > $assessment_prove)) {
 
                 $lessonInsert = StudentLesson::create([
                     'student_id' => $student->id,
@@ -366,7 +288,6 @@ trait gameTraits
                     'grade_id' => $grade_id,
                     'count' => 1,
                 ]);
-
             }
 
             /// Delete units and games after add lesson record
@@ -378,8 +299,10 @@ trait gameTraits
 
             //  For Subscription and Real Server (** block adding lesson records **)
 
-                if (!$studentGrade) return response()->json(
-                    ["message" => "You are not a subscriber"],402);
+            if (!$studentGrade) return response()->json(
+                ["message" => "You are not a subscriber"],
+                402
+            );
 
             //----------------
 

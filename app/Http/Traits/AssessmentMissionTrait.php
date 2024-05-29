@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 trait AssessmentMissionTrait
 {
+
     public function assessmentList(Request $request)
     {
         $stud_id = $request->student->id;
@@ -23,6 +24,7 @@ trait AssessmentMissionTrait
 
         $assess = [];
         $res = Assessment::select("name", "grade_id", "total_assess_ques")->get();
+
         $id = 1;
         foreach ($res as $index => $data) {
 
@@ -109,6 +111,7 @@ trait AssessmentMissionTrait
 
         $sub_gradeId = StudentGrade::where("student_id", $stud_id)->orderBy('id', 'desc')
             ->first();
+
         $sub_gradeId = $sub_gradeId->grade_id;
 
         // $result = $this->sort($assess);
