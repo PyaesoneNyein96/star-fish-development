@@ -203,7 +203,7 @@ class StudentSeeder extends Seeder
                 'question_answer' => 300,
                 'token' => "1|kOmYAEqfpoVE3mFQa5DeDBq93S7N6Pp3peZl5bBId1aa4575",
                 'isSubscriber' => 0
-            ]
+            ],
 
 
 

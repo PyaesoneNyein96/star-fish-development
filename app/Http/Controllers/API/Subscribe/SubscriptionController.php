@@ -35,14 +35,14 @@ class SubscriptionController extends Controller
 
 
     // Production
-    // private $appId = "kp6d29862312994fa09afb52c00e6687";
-    // private $merch_code = "70244201";
-    // private $appKey = "ddfa5a774af37d9137f51d90c1871cb1";
+    private $appId = "kp6d29862312994fa09afb52c00e6687";
+    private $merch_code = "70244201";
+    private $appKey = "ddfa5a774af37d9137f51d90c1871cb1";
 
     // Testing
-    private $appId = "kp0480c579f02f48ae8c37ce82260511";
-    private $merch_code = "70050901";
-    private $appKey = "starfish@123";
+    // private $appId = "kp0480c579f02f48ae8c37ce82260511";
+    // private $merch_code = "70050901";
+    // private $appKey = "starfish@123";
 
 
 
@@ -100,11 +100,11 @@ class SubscriptionController extends Controller
         }
 
         // skip payment process
-        try {
-            return $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
-        } catch (\Throwable $th) {
-            return $th->getMessage();
-        }
+        // try {
+        //     return $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
+        // } catch (\Throwable $th) {
+        //     return $th->getMessage();
+        // }
 
         //ts
 
@@ -146,8 +146,8 @@ class SubscriptionController extends Controller
     public function checkPaymentResult(Request $request)
     {
 
-        // $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/queryorder";
-        $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/uat/queryorder";
+        $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/queryorder";
+        // $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/uat/queryorder";
         $orderId = $request->header('order_id');
 
         $data = [
@@ -173,8 +173,8 @@ class SubscriptionController extends Controller
     // referer kpay
     public function referer(Request $request)
     {
-        $redirectUrl = "https://static.kbzpay.com/pgw/uat/pwa/#/";
-        // $redirectUrl = "https://static.kbzpay.com/pgw/pwa/#/";
+        // $redirectUrl = "https://static.kbzpay.com/pgw/uat/pwa/#/";
+        $redirectUrl = "https://static.kbzpay.com/pgw/pwa/#/";
 
         $appid = $request->query("appid");
         $merch_code = $request->query("merch_code");
@@ -245,8 +245,8 @@ class SubscriptionController extends Controller
     private function request_prepay_id($time, $orderId, $nonce_str)
     {
 
-        $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
-        // $kbzRequestURL = "https://api.kbzpay.com/payment/gateway/precreate";
+        // $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
+        $kbzRequestURL = "https://api.kbzpay.com/payment/gateway/precreate";
 
         $isLocal = $this->student->isLocal;
         $price = Grade::find($this->grade_id)->local_price;
@@ -309,7 +309,8 @@ class SubscriptionController extends Controller
         try {
 
             if ($isOrdered) {
-                $closeUrl = "https://api.kbzpay.com/payment/gateway/uat/closeorder";
+                // $closeUrl = "https://api.kbzpay.com/payment/gateway/uat/closeorder";
+                $closeUrl = "https://api.kbzpay.com/payment/gateway/closeorder";
                 $signString = "appid=" . $this->appId . "&merch_code=" . $this->merch_code . "&merch_order_id=$isOrdered->id&method=kbz.payment.closeorder&nonce_str=" . $this->nonce_str . "&timestamp=" . $this->time . "&version=3.0&key=" . $this->appKey;
                 $dataBody = [
                     "Request" => [

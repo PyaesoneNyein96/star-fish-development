@@ -68,7 +68,10 @@ class LocalAuthController extends Controller
 
                 $token = $this->tokenGenerator($user);
 
+
                 $OTP = Otp::digits(6)->expiry(3)->create($user->phone);
+
+                logger($OTP);
 
                 Student::where('phone', $user->phone)->update([
                     'token' => $token,

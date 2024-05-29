@@ -18,7 +18,8 @@ return new class extends Migration
             $table->decimal('local_price',10,2);
             $table->decimal('global_price',5,2);
             $table->integer('status')->default(1);
-            $table->string('expiry')->default('365');
+            $expiry = Carbon::now()->isLeapYear() ? 366 : 365;
+            $table->integer('expiry')->default($expiry);
             $table->timestamps();
         });
     }
