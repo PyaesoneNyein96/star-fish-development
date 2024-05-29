@@ -5,6 +5,7 @@ namespace App\Http\Traits;
 use App\Models\Assessment;
 use App\Models\AssessmentFinishData;
 use App\Models\Student;
+use App\Models\StudentGrade;
 use Illuminate\Http\Request;
 
 trait AssessmentMissionTrait
@@ -66,26 +67,27 @@ trait AssessmentMissionTrait
                         case 6:
                             $gradename = 'six';
                             break;
-                        case 6:
+                        case 7:
                             $gradename = 'seven';
                             break;
-                        case 5:
+                        case 8:
                             $gradename = 'eight';
                             break;
-                        case 5:
+                        case 9:
                             $gradename = 'nine';
                             break;
-                        case 5:
+                        case 10:
                             $gradename = 'ten';
                             break;
-                        case 5:
+                        case 11:
                             $gradename = 'eleven';
                             break;
-                        case 5:
+                        case 12:
                             $gradename = 'twelve';
                             break;
                         default:
                             $gradename = 'unknown';
+                            break;
                     }
 
 
@@ -104,10 +106,13 @@ trait AssessmentMissionTrait
                 }
             }
         }
-        $result = $this->sort($assess);
-        // foreach ($assess as $as) {
-        //     if()
-        // }
+
+        $sub_gradeId = StudentGrade::where("student_id", $stud_id)->orderBy('id', 'desc')
+            ->first();
+        $sub_gradeId = $sub_gradeId->grade_id;
+
+        // $result = $this->sort($assess);
+        $result = $this->sort_with_grade($assess, $sub_gradeId);
 
         return $result;
     }
@@ -200,5 +205,17 @@ trait AssessmentMissionTrait
             }
         }
         return array_merge($result, $left, $right);
+    }
+
+    private function sort_with_grade($arr, $sub_id)
+    {
+        $result = [];
+        foreach ($arr as $data) {
+            if ($data['grade_id'] == $sub_id) array_push($result, $data);
+        }
+        foreach ($arr as $data) {
+            if ($data['grade_id'] != $sub_id) array_push($result, $data);
+        }
+        return $result;
     }
 }
