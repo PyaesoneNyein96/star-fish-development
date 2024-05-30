@@ -35,14 +35,14 @@ class SubscriptionController extends Controller
 
 
     // Production
-    // private $appId = "kp6d29862312994fa09afb52c00e6687";
-    // private $merch_code = "70244201";
-    // private $appKey = "ddfa5a774af37d9137f51d90c1871cb1";
+    private $appId = "kp6d29862312994fa09afb52c00e6687";
+    private $merch_code = "70244201";
+    private $appKey = "ddfa5a774af37d9137f51d90c1871cb1";
 
     // Testing
-    private $appId = "kp0480c579f02f48ae8c37ce82260511";
-    private $merch_code = "70050901";
-    private $appKey = "starfish@123";
+    // private $appId = "kp0480c579f02f48ae8c37ce82260511";
+    // private $merch_code = "70050901";
+    // private $appKey = "starfish@123";
 
 
 
@@ -100,11 +100,11 @@ class SubscriptionController extends Controller
         }
 
         // skip payment process
-        try {
-            return $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
-        } catch (\Throwable $th) {
-            return $th->getMessage();
-        }
+        // try {
+        //     return $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
+        // } catch (\Throwable $th) {
+        //     return $th->getMessage();
+        // }
 
         //ts
 
