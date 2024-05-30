@@ -157,6 +157,8 @@ trait gameTraits
             return $v->isLocal == $student->isLocal;
         });
 
+
+
         $videos = $result->values()->map(function ($v) use ($student) {
             return [
                 'video_id' => $v->a_content,
