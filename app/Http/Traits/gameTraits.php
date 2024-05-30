@@ -154,8 +154,8 @@ trait gameTraits
         $data = $game->ans_n_ques;
 
         $result = $data->filter(function ($v) use ($student) {
+             return $v->isLocal == $student->isLocal;
         });
-
 
 
         $videos = $result->values()->map(function ($v) use ($student) {
