@@ -18,8 +18,8 @@ class StructuredDataSeeder extends Seeder
         // Login Bonus seeder
 
         // $loginRange = [3,5,7,10,12,15,20,22];
-        $leapYear = Carbon::now()->year % 4 == 0;
-        $loginRange = [7,15,30,60,90,120,180, $leapYear ? 366 : 365];
+        $leapYear = Carbon::now()->isLeapYear();
+        $loginRange = [7,15,30,60,90,120,180, $leapYear  ? 366 : 365];
 
         foreach ($loginRange as $k => $l) {
             DB::table('login_bonuses')->insert([

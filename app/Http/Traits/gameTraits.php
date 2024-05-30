@@ -179,6 +179,14 @@ trait gameTraits
         $thumb_path = $this->domain . "/storage/$path";
         $publicPath = "public/$path";
 
+        $directoryPath = dirname(storage_path("app/$publicPath"));
+
+        if (!Storage::exists(dirname($publicPath))) {
+            Storage::makeDirectory(dirname($publicPath));
+        }
+
+        chmod($directoryPath, 0555);
+
         Storage::put($publicPath, $thumbnail);
         /*
             end image thumbnail
