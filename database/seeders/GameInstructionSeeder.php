@@ -2258,6 +2258,8 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Choose the right word to fill in the blank.", 'game_id' => 818, 'audio' => $Instructions . "Choose-the-right-word-to-fill-in-the-blank.mp3"],
 
+            ['content' => "listen and choose the picture", 'game_id' => 819, 'audio' => $Instructions . "listen_and_choose_the_PIC.mp3"],
+
 
 
             // Lesson - 8
@@ -2269,6 +2271,8 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Choose the right words for the given picture", 'game_id' => 823, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
 
             ['content' => "Listen to the description and choose the right animal from the list", 'game_id' => 824, 'audio' => $Instructions . "Listen-to-the-description-and-choose-the-right-animal-from-the-list.mp3"],
+
+            ['content' => "listen and choose the picture", 'game_id' => 825, 'audio' => $Instructions . "listen_and_choose_the_PIC.mp3"],
 
             ['content' => "Write about your favorite animal", 'game_id' => 827, 'audio' => $Instructions . "Write-about-your-favorite-animal.mp3"],
 

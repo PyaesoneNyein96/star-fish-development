@@ -355,8 +355,10 @@ class GameController extends Controller
             return $done->id == $unit->id;
         });
 
+        $dup_unit_check = StudentUnit::where('student_id', $student->id)->where('unit_id', $unit->id)->first();
+
         ////// populate Unit records
-        if(count($subGameCheck) == 0 && count($dup_unit_check) == 0) {
+        if(count($subGameCheck) == 0 && !$dup_unit_check) {
 
             $unitInsert = StudentUnit::insert([
                 'student_id' => $student->id,
