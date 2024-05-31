@@ -401,12 +401,16 @@ class GameController extends Controller
             $lessonGamesId = Lesson::find($lesson_id)->games->pluck('id');
 
             StudentUnit::where('student_id', $student->id)->where('lesson_id', $lesson_id)->delete();
-            // StudentGame::where('student_id', $student->id)->whereIn('game_id', $lessonGamesId)->delete();
 
 
             //  For Subscription and Real Server (** block adding lesson records **)
 
-                if (!$studentGrade) return response()->json(
+            // return $studentGrade;
+            if(!$studentGrade){
+                StudentGame::where('student_id', $student->id)->whereIn('game_id', $lessonGamesId)->delete();
+            }
+
+            if (!$studentGrade) return response()->json(
                     ["message" => "You are not a subscriber"],402
                 );
 
