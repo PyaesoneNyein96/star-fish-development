@@ -171,7 +171,7 @@ trait gameTraits
         $vd = $videos->first();
         $vimeo_link = "http://vimeo.com/api/oembed.json?url=http%3A//vimeo.com/";
         $data = Http::get($vimeo_link . $vd['video_id']);
-        $thumbnail = Http::get($data['thumbnail_url']);
+        if ($vd['isLocal']) $thumbnail = Http::get($data['thumbnail_url']);
         $names = $game->lesson;
 
         $path = "images/video_thumbnail/Grade_$names->grade_id/lesson_$names->name/" . $vd["video_id"] . ".png";
@@ -186,7 +186,7 @@ trait gameTraits
 
         chmod($directoryPath, 0555);
 
-        Storage::put($publicPath, $thumbnail);
+        if ($vd['isLocal']) Storage::put($publicPath, $thumbnail);
         /*
             end image thumbnail
         */
@@ -202,8 +202,8 @@ trait gameTraits
             'instructionGIF' => $game->instructionGIF,
             'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
 
-            "thumbnail_url" => $thumb_path,
-            "title" => $data["title"],
+            "thumbnail_url" => $vd['isLocal'] ? $thumb_path : null,
+            "title" => $vd['isLocal'] ? $data["title"] : null,
 
             'data' => $videos->first(),
 

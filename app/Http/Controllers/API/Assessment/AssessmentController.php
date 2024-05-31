@@ -333,19 +333,15 @@ class AssessmentController extends Controller
 
                             // Del lessons =========================================
                             StudentLesson::where('student_id', $student->id)
-                                ->whereIn('lesson_id', Lesson::where('grade_id',$assessment->grade_id)->pluck('id'))
+                                ->whereIn('lesson_id', Lesson::where('grade_id', $assessment->grade_id)->pluck('id'))
                                 ->where('grade_id', $assessment->grade_id)
                                 ->delete();
-
-
                         };
                     }
                     DB::commit();
                     return response()->json($recorded);
                 }
             }
-
-
         } catch (\Throwable $th) {
             DB::rollback();
             return $th;

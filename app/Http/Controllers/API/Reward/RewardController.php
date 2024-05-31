@@ -86,13 +86,16 @@ class RewardController extends Controller
 
         $point = 30;
         foreach ($data as $name => $item) {
+            $expl = explode(".", $name);
+            $extension = count($expl) == 2 && ($expl[1] === "png" || $expl[1] === "jpg") ? "" : ".png";
+
             $reward[] = [
                 "name" => $name,
                 "item" => $this->achieve .  str_replace(
                     ' ',
                     '-',
                     $name
-                ) . ".png",
+                ) . $extension,
                 "lock" => $stu->fixed_point < $point ? 1 : 0,
             ];
             $point += 30;
@@ -116,7 +119,10 @@ class RewardController extends Controller
 
         foreach ($data as $d) {
             $stuReward = Stud_reward::where("student_id", $id->id)->where("reward_id", $d->id)->first();
-            $d["item"] = $this->each_ach . str_replace(' ', '-', $name) . "/" . $d->item . ".png";
+
+            $expl = explode(".", $d->item);
+            $extension = count($expl) == 2 && ($expl[1] === "png" || $expl[1] === "jpg") ? "" : ".png";
+            $d["item"] = $this->each_ach . str_replace(' ', '-', $name) . "/" . $d->item . $extension;
             $d["bought"] = $stuReward ? 1 : 0;
         }
 
@@ -138,8 +144,10 @@ class RewardController extends Controller
         $reward = [];
         foreach ($data as $idx => $value) {
             $stuReward = Stud_reward::where("student_id", $stu->id)->where("reward_id", $value->id)->first();
+            $expl = explode(".", $value->item);
+            $extension = count($expl) == 2 && ($expl[1] === "png" || $expl[1] === "jpg") ? "" : ".png";
 
-            $value['item'] = $this->profiles . str_replace(' ', '-', $value->name) . "/" .  $value->item . ".png";
+            $value['item'] = $this->profiles . str_replace(' ', '-', $value->name) . "/" .  $value->item . $extension;
             $value['lock'] = $stu->fixed_point < $value->point ? 1 : 0;
             $value["own"] = $stuReward ? 1 : 0;
             array_push($reward, $value);
@@ -165,7 +173,12 @@ class RewardController extends Controller
             ->get();
 
         if (count($studReward) == 0) return response()->json(["error" => "You haven't bought any item."], 403);
-        foreach ($studReward as $val) $val->item = $this->each_ach . str_replace(' ', '-',  $val->name) . "/" . $val->item . ".png";
+        foreach ($studReward as $val) {
+            $expl = explode(".", $val->item);
+            $extension = count($expl) == 2 && ($expl[1] === "png" || $expl[1] === "jpg") ? "" : ".png";
+
+            $val->item = $this->each_ach . str_replace(' ', '-',  $val->name) . "/" . $val->item . $extension;
+        }
 
         return $studReward->where('type', "achieve");
     }
@@ -239,7 +252,10 @@ class RewardController extends Controller
         foreach ($data as $idx => $value) {
             $stuReward = Stud_reward::where("student_id", $stu->id)->where("reward_id", $value->id)->first();
 
-            $value['item'] = $this->frames . $value->item . ".png";
+            $expl = explode(".", $value->item);
+            $extension = count($expl) == 2 && ($expl[1] === "png" || $expl[1] === "jpg") ? "" : ".png";
+
+            $value['item'] = $this->frames . $value->item . $extension;
             $value['lock'] = $stu->fixed_point < $value->point ? 1 : 0;
             $value["own"] = $stuReward ? 1 : 0;
             array_push($reward, $value);
@@ -271,11 +287,15 @@ class RewardController extends Controller
 
         if ($checkReward) {
             $profile = Reward::where("id", $id)->first();
+
+            $expl = explode(".", $profile->item);
+            $extension = count($expl) == 2 && ($expl[1] === "png" || $expl[1] === "jpg") ? "" : ".png";
+
             if ($profile->type === "profile") {
-                $student->update(["profile_picture" => $this->profiles .  str_replace(' ', '-', $profile->name) . "/" . $profile->item . ".png"]);
+                $student->update(["profile_picture" => $this->profiles .  str_replace(' ', '-', $profile->name) . "/" . $profile->item . $extension]);
                 return response()->json(["message" => "User profile updated."]);
             } else if ($profile->type === "frames") {
-                $student->update(["profile_frame" => $this->frames . $profile->item . ".png"]);
+                $student->update(["profile_frame" => $this->frames . $profile->item . $extension]);
                 return response()->json(["message" => "User frame updated."]);
             }
             return response()->json(["error" => "item isn't profile or frame."], 403);
@@ -344,6 +364,10 @@ class RewardController extends Controller
 
         $reward = [];
         foreach ($profile as $val) {
+
+            $expl = explode(".", $val->item);
+            $extension = count($expl) == 2 && ($expl[1] === "png" || $expl[1] === "jpg") ? "" : ".png";
+
             if ($val->point <= $stu->fixed_point) {
                 $inReward = Stud_reward::where("reward_id", $val->id)
                     ->where('student_id', $stu->id)
@@ -355,7 +379,7 @@ class RewardController extends Controller
                     ];
                     $url = [
                         "id" => $val->id,
-                        "url" => $this->profiles .  str_replace(' ', '-', $val->name) . "/" . $val->item . ".png"
+                        "url" => $this->profiles .  str_replace(' ', '-', $val->name) . "/" . $val->item . $extension
                     ];
 
                     array_push($reward, $url);
@@ -363,7 +387,7 @@ class RewardController extends Controller
                 } else {
                     $url = [
                         "id" => $val->id,
-                        "url" => $this->profiles .  str_replace(' ', '-', $val->name) . "/" . $val->item . ".png"
+                        "url" => $this->profiles .  str_replace(' ', '-', $val->name) . "/" . $val->item . $extension
                     ];
 
                     array_push($reward, $url);
@@ -372,6 +396,9 @@ class RewardController extends Controller
         }
 
         foreach ($frames as $val) {
+            $expl = explode(".", $val->item);
+            $extension = count($expl) == 2 && ($expl[1] === "png" || $expl[1] === "jpg") ? "" : ".png";
+
             if ($val->point <= $stu->fixed_point) {
                 $inReward = Stud_reward::where("reward_id", $val->id)
                     ->where('student_id', $stu->id)
@@ -383,14 +410,14 @@ class RewardController extends Controller
                     ];
                     $url = [
                         "id" => $val->id,
-                        "url" => $this->frames . $val->item . ".png"
+                        "url" => $this->frames . $val->item . $extension
                     ];
                     array_push($reward, $url);
                     Stud_reward::create($data);
                 } else {
                     $url = [
                         "id" => $val->id,
-                        "url" => $this->frames . $val->item . ".png"
+                        "url" => $this->frames . $val->item . $extension
                     ];
                     array_push($reward, $url);
                 }
