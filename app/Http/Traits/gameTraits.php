@@ -145,7 +145,7 @@ trait gameTraits
     }
 
     ///////////////////////////////////////////////////////////////
-    // Video
+
     public function video_player_lessons($game, $student, $unit)
     {
 
@@ -153,11 +153,10 @@ trait gameTraits
 
         $data = $game->ans_n_ques;
 
+
         $result = $data->filter(function ($v) use ($student) {
             return $v->isLocal == $student->isLocal;
         });
-
-
 
         $videos = $result->values()->map(function ($v) use ($student) {
             return [
@@ -167,31 +166,48 @@ trait gameTraits
             ];
         });
 
+        // return $result;
+
         /*
             image thumbnail
         */
         $vd = $videos->first();
         $vimeo_link = "http://vimeo.com/api/oembed.json?url=http%3A//vimeo.com/";
+
         $data = Http::get($vimeo_link . $vd['video_id']);
-        $thumbnail = Http::get($data['thumbnail_url']);
-        $names = $game->lesson;
-
-        $path = "images/video_thumbnail/Grade_$names->grade_id/lesson_$names->name/" . $vd["video_id"] . ".png";
-        $thumb_path = $this->domain . "/storage/$path";
-        $publicPath = "public/$path";
-
-        $directoryPath = dirname(storage_path("app/$publicPath"));
-
-        if (!Storage::exists(dirname($publicPath))) {
-            Storage::makeDirectory(dirname($publicPath));
+        $dataExist = false;
+        try {
+            $data = Http::get($vimeo_link . $vd['video_id']);
+            $dataExist = isset($data['type']);
+        } catch (\Throwable $th) {
+            $dataExist = false;
         }
 
-        chmod($directoryPath, 0555);
 
-        Storage::put($publicPath, $thumbnail);
-        /*
-            end image thumbnail
-        */
+
+        if($dataExist){
+            $thumbnail = Http::get($data['thumbnail_url']);
+            $names = $game->lesson;
+
+            $path = "images/video_thumbnail/Grade_$names->grade_id/lesson_$names->name/" . $vd["video_id"] . ".png";
+            $thumb_path = $this->domain . "/storage/$path";
+            $publicPath = "public/$path";
+
+            $directoryPath = dirname(storage_path("app/$publicPath"));
+
+            if (!Storage::exists(dirname($publicPath))) {
+                Storage::makeDirectory(dirname($publicPath));
+            }
+
+            chmod($directoryPath, 0555);
+
+            Storage::put($publicPath, $thumbnail);
+            /*
+                end image thumbnail
+            */
+        }
+
+
 
         return [
             'game_id' => $game->id,
@@ -204,10 +220,11 @@ trait gameTraits
             'instructionGIF' => $game->instructionGIF,
             'instructions' =>  $game->instructions->count() == 0 ? null : $game->instructions,
 
-            "thumbnail_url" => $thumb_path,
-            "title" => $data["title"],
-
-            'data' => $videos->first(),
+            // "thumbnail_url" => $vd['isLocal'] ? $thumb_path : null,
+            // "title" => $vd['isLocal'] ? $data["title"] : null,
+            "thumbnail_url" => $dataExist ? $thumb_path : null ,
+            "title" => $dataExist ? $data["title"] : null,
+            'data' =>  $dataExist ? $videos->first() : null,
 
         ];
     }
