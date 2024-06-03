@@ -1,53 +1,57 @@
+## Requirement
 
-## Requirement  
-- php version : 8.2.4 (min php version 8.1)
-- Composer version : 2.5.8 
-- Laravel version : 10.48.1 (min php version 8.1)
-- node : 18.16.1
-- Web Server : Apache, Nginx or PHP's build-in service
-- Database : Mysql
+-   php version : 8.2.4 (min php version 8.1)
+-   Composer version : 2.5.8
+-   Laravel version : 10.48.1 (min php version 8.1)
+-   node : 18.16.1
+-   Web Server : Apache, Nginx or PHP's build-in service
+-   Database : Mysql
+
 ##
 
 ### Installation Steps
+
 #
+
 After cloned the project from the repository...
 
 #### - Composer installation
+
 run `composer install`
 
 #### - Create .env
+
 run `cp .env.example .env`
 
 #### - Configuration .env
+
 configure your environment variables in .env
 
-Example 
-> DB_CONNECTION=mysql    
-DB_HOST=127.0.0.1   
-DB_PORT=3306   
-DB_DATABASE=your_database_name
-DB_USERNAME=your_database_user / root
-DB_PASSWORD=your_database_password 
+Example
 
+> DB_CONNECTION=mysql  
+> DB_HOST=127.0.0.1  
+> DB_PORT=3306  
+> DB_DATABASE=your_database_name
+> DB_USERNAME=your_database_user / root
+> DB_PASSWORD=your_database_password
 
 #### - Generate Application Key
+
 run `php artisan key:generate`
 
 #### - Run migration and seeders
+
 run `php artisan migrate`
 run `php artisan db:seed`
 
 #### - Install Node.js Dependencies (for Admin Dashboard and some features)
-run `npm install` & `npm run dev` 
+
+run `npm install` & `npm run dev`
 
 #### - Serve the Application
+
 run `php artisan serve`
-
-
-
-
-
-
 
 #
 
@@ -249,7 +253,7 @@ Field ( body ) = student_id , nick_name
 ### Get All Assessments
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/assessment](https://star-fish.myanmargateway.net/api/assessment)  
-Field ( header ) = token
+Field ( header ) = token , grade_id
 
 ### Enter into Game
 
@@ -259,12 +263,12 @@ Field ( header ) = assess_game_id
 ### Record Each Game
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/assessment/each/game](https://star-fish.myanmargateway.net/api/assessment/each/game)  
-Field ( header ) = token , assess_game_id
+Field ( header ) = token , assess_game_id , timer
 
 ### End Match
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/assessment/end_match](https://star-fish.myanmargateway.net/api/assessment/end_match)  
-Field ( header ) = token , point
+Field ( header ) = token , point , timer
 
 ### Certificate
 
@@ -372,13 +376,16 @@ Field (header) = token
 (Method: GET) [https://star-fish.myanmargateway.net/api/mission/assessment/claim_lesson](https://star-fish.myanmargateway.net/api/mission/assessment/claim_lesson)  
 Field (header) = token , name , grade_id , point
 
+#
 
 #
-#
+
 ## For Testing
 
 ### Seed lessons
+
 (Method: GET) [https://star-fish.myanmargateway.net/api/testing/lesson-seed](https://star-fish.myanmargateway.net/api/testing/lesson-seed) Field (header) token, grade_id, start_lesson_id, end_lesson_id/ count
 
 ### Delete lessons
+
 (Method: GET) [https://star-fish.myanmargateway.net/api/testing/lesson-del](https://star-fish.myanmargateway.net/api/testing/lesson-del) Field (header) token, grade_id, start_lesson_id, end_lesson_id

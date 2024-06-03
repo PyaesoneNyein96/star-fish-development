@@ -17,6 +17,9 @@ return new class extends Migration
             $table->integer("assess_id");
             $table->integer("assess_name");
             $table->integer("grade_id");
+
+            $table->integer('timer')->nullable();
+
             $table->timestamps();
         });
     }
