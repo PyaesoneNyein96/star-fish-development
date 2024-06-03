@@ -8,6 +8,7 @@ use App\Models\Grade;
 use App\Models\Lesson;
 
 use App\Models\Student;
+use App\Models\Assessment;
 use App\Models\DailyBonus;
 use App\Models\LoginBonus;
 use App\Models\StudentGame;
@@ -50,7 +51,6 @@ class MissionController extends Controller
         ->where('count', '<=', 5)->get();
 
 
-
         $stu_grades = StudentGrade::where('student_id', $request->student->id)
         ->orderBy('created_at','desc')->pluck('grade_id');
 
@@ -58,17 +58,21 @@ class MissionController extends Controller
 
         if (!$grades || $grades->count() == 0) return response()->json(["message" => "You must be a subscriber for this feature."], 200);
 
-        $gradeCacheKey = implode('_', $grades->pluck('id')->toArray());
+        $grade_Cache_Key = implode('_', $grades->pluck('id')->toArray());
 
+        // $rawUnitGames = $grades->pluck('units')->flatten()->pluck('games')->flatten();
 
-        $rawUnits = $grades->pluck('units')->flatten()->pluck('games')->flatten();
+        $rawUnitGames = Cache::rememberForever($grade_Cache_Key, function() use($grades){
+            return $grades->pluck('units')->flatten()->pluck('games')->flatten();
+        });
+
 
 
         /// ====================== 3 times
 
-        $ThreeTimes = $rawUnits->map(function ($raw) use ($repetitiveRecords) {
+        $ThreeTimes = $rawUnitGames->map(function ($raw) use ($repetitiveRecords) {
 
-            $repeat = $repetitiveRecords->where('unit_id', $raw->id)->first();
+            $repeat = $repetitiveRecords->where('game_id', $raw->id)->first();
             $exist = isset($repeat);
             $repeat = optional($repeat);
 
@@ -94,7 +98,7 @@ class MissionController extends Controller
             return [
                 'game_id' => $raw->id,
                 'name' => "Game - " . $raw->name . ": 3 repetitive practices",
-                'grade' => $raw->unit->grade->name,
+                // 'grade' => $raw->unit->grade->name,
                 'allowed' => $repeat->count >= 3 ,
                 'claimed' => $claimed ,
                 'count' => $repeat->count,
@@ -107,15 +111,15 @@ class MissionController extends Controller
 
         /// ====================== 5 times
 
-        $FiveTimes = $rawUnits->map(function ($raw) use ($repetitiveRecords) {
+        $FiveTimes = $rawUnitGames->map(function ($raw) use ($repetitiveRecords) {
 
-            $repeat = $repetitiveRecords->where('unit_id', $raw->id)->first();
+            $repeat = $repetitiveRecords->where('game_id', $raw->id)->first();
 
             $repeat = optional($repeat);
             return [
                 'game_id' => $raw->id,
                 'name' => "Game - " . $raw->name . ": 5 repetitive practices",
-                'grade' => $raw->unit->grade->name,
+                // 'grade' => $raw->unit->grade->name,
                 'allowed' => $repeat->count == 5,
                 'claimed' =>  $repeat->count < 5 ? false : ($repeat->count == 5 && $repeat->claimed_5 == 0 ? false : true),
                 'count' => $repeat->count,
@@ -129,23 +133,24 @@ class MissionController extends Controller
 
         $collection = new Collection($collection);
 
-        // $collection = $collection->sortBy(function ($lesson) {
+        $collection = $collection->sortBy(function ($lesson) {
 
-        //     if ($lesson['allowed']) {
-        //         return 0;
-        //     }
-        //     else{
-        //         return 1;
-        //     }
-        //     // elseif ($lesson['allowed'] && $lesson['claimed']) {
-        //     //     return 1;
-        //     // }  elseif ($lesson['claimed']) {
-        //     //     return 2;
-        //     // } else {
-        //     //     return 3;
-        //     // }
+            if ($lesson['allowed']) {
+                return 0;
+            }
+            else{
+                return 1;
+            }
 
-        // });
+            // elseif ($lesson['allowed'] && $lesson['claimed']) {
+            //     return 1;
+            // }  elseif ($lesson['claimed']) {
+            //     return 2;
+            // } else {
+            //     return 3;
+            // }
+
+        });
 
         // $collection = $collection->sortByDesc('grade');
 
@@ -875,18 +880,40 @@ class MissionController extends Controller
         // Assessment
         // ==================================
 
-        $assessment_count = AssessmentFinishData::where("student_id", $student->id)
-            ->where("finish", 1)
-            ->where("claim", 0)->count();
+        // $assessment_count = AssessmentFinishData::where("student_id", $student->id)
+        //     ->where("finish", 1)
+        //     ->where("claim", 0)->count();
 
 
+        ///////////////////////////
+        // Assessment Detail
+        ///////////////////////////
+
+        $res = Assessment::select("name", "grade_id", "total_assess_ques")->get();
+
+        $assessment_count = [];
+
+        foreach ($res as $index => $data) {
+        $isExistData = AssessmentFinishData::where("student_id", $student->id)
+                                ->where("claim", 0)
+                                ->where('grade_id', $data->grade_id)
+                                ->where('assess_name', $data->name)
+                                ->first();
+
+       if($isExistData)
+       {
+        $percentage = ($isExistData->point / $data->total_assess_ques) * 100;
+        array_push($assessment_count, floor($percentage/ 10) * 10);
+
+       }
+    }
         logger([
             'repetitive' => $repetitive_count,
             'daily' => $daily_count,
             'login' => $login_count,
             'question' => $question_count,
             'champion' => $champion_count,
-            'assessment' => $assessment_count
+            'assessment' => collect($assessment_count)->unique()->count()
         ]);
 
 
