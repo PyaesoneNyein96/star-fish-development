@@ -190,7 +190,7 @@ class AssessmentController extends Controller
         $point = $request->header('point');
         $timer = $request->header("timer");
 
-        if (!$token) return response()->json(['error' => 'Token is required.'], 400);
+        if (!$token || !$timer) return response()->json(['error' => 'Token or timer is required.'], 400);
 
         $student = Student::where("token", $token)->first();
         if (!$student) return response()->json(['error' => 'Stduent Not Found.'], 404);
@@ -374,6 +374,24 @@ class AssessmentController extends Controller
 
 
         return response()->json(['error' => "please finish lessons"], 403);
+    }
+
+    // retart Games
+    public function restartGame(Request $request)
+    {
+        $token = $request->header("token");
+        $grade = $request->header("grade_id");
+
+        if (!$token || !$grade) return response()->json(['error' => 'Token or Grade id is required.'], 400);
+
+        $student = Student::where("token", $token)->first();
+        if (!$student) return response()->json(['error' => 'Stduent Not Found.'], 404);
+
+        $assess = AssessmentEachRecordFinishData::where("student_id", $student->id)->where("grade_id", $grade);
+        if (!count($assess->get())) return response()->json(["error" => "Assessment Games haven't finish."], 403);
+
+        $assess->delete();
+        return response()->json(["message" => "Assessment Games records deleted."]);
     }
 
 

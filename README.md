@@ -265,6 +265,11 @@ Field ( header ) = assess_game_id
 (Method: GET) [https://star-fish.myanmargateway.net/api/assessment/each/game](https://star-fish.myanmargateway.net/api/assessment/each/game)  
 Field ( header ) = token , assess_game_id , timer
 
+### Restart Game Record
+
+(Method: GET) [https://star-fish.myanmargateway.net/api/assessment/restart](https://star-fish.myanmargateway.net/api/assessment/restart)  
+Field ( header ) = token , grade_id
+
 ### End Match
 
 (Method: GET) [https://star-fish.myanmargateway.net/api/assessment/end_match](https://star-fish.myanmargateway.net/api/assessment/end_match)  

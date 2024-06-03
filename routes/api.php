@@ -127,6 +127,7 @@ Route::prefix('payment')->group(function () {
 Route::prefix('assessment')->group(function () {
     Route::get('/', [AssessmentController::class, 'getAllAssess']);
     Route::get('game', [AssessmentController::class, 'enterGame']);
+    Route::get('restart', [AssessmentController::class, 'restartGame']);
     Route::get('each/game', [AssessmentController::class, 'recordEachGame']);
     Route::get('end_match', [AssessmentController::class, 'endGame']);
     Route::get('certificate', [AssessmentController::class, 'callCertificate']);
@@ -182,8 +183,8 @@ Route::prefix('mission')->middleware('isSubscriber')->group(function () {
 });
 
 Route::prefix('testing')->middleware('GameAuth')->group(function () {
-    Route::get('lesson-seed', [TestingController::class,'lessonRecordSeeding']);
-    Route::get('lesson-del', [TestingController::class,'lessonRecordDelete']);
+    Route::get('lesson-seed', [TestingController::class, 'lessonRecordSeeding']);
+    Route::get('lesson-del', [TestingController::class, 'lessonRecordDelete']);
 });
 
 // ===============================
