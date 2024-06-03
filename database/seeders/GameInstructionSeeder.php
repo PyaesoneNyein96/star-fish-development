@@ -22,7 +22,7 @@ class GameInstructionSeeder extends Seeder
         $Speaking_GameID = [
 
             // Grade 1 > Lesson 1 - 30
-            16, 26, 32, 45, 52, 58, 64, 77, 83, 90, 96, 97, 112, 118, 123, 124, 132, 139, 146, 151, 157, 165, 170, 177, 183, 188,
+            32, 45, 52, 58, 64, 77, 83, 90, 96, 97, 112, 118, 123, 124, 132, 139, 146, 151, 157, 165, 170, 177, 183, 188,
             //
             38, 70, 196, 204, 209, 214, 221, 226, 233, 238, 245, 251,
 
@@ -31,15 +31,32 @@ class GameInstructionSeeder extends Seeder
             360, 371,
 
             // Grade 3 > Lesson 1 - 20
-            462, 469, 471, 476, 478, 483, 491, 493, 498, 501, 506, 508, 513, 523, 524, 530, 533, 539, 540, 546, 549, 555, 562, 569, 575, 584, 590, 598, 605,
+            462, 469,  476,  491, 493, 498, 506, 513, 523,  530, 539,  546, 555, 562, 575, 584, 590, 598, 605,
 
             // Grade 4 > Lesson 1 - 5 , 10 - 25 , 38 -40
-            762, 763, 765, 773, 775, 784, 786, 791, 793, 800, 802, 839, 842, 848, 850, 855, 858, 863, 866, 870, 872, 878, 881, 886, 887, 892, 894, 899, 902, 909, 912, 917, 919, 925, 927, 934, 937, 942, 944, 948, 951, 957, 959, 1048, 1051, 1055, 1057, 1060, 1062
+            762, 763, 765, 773, 784, 793, 800, 802, 839, 842, 848, 855,  863, 866, 870, 872, 878,  887, 893,  899, 909, 917, 919, 925, 927, 934, 942,  948, 957, 959, 1048, 1051,  1057, 1062
         ];
 
         foreach ($Speaking_GameID as $value) {
             DB::table('game_instructions')->insert([
-                ['content' => "Speaking", 'game_id' => $value, 'audio' =>  $Instructions . "speaking-audio" . ".mp3"],
+                ['content' => "Look at the pictures and speak", 'game_id' => $value, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
+            ]);
+        }
+
+        $free_practice = [
+            // Grade 1
+            16, 26,
+
+            // Grade 3
+            471, 478, 483, 501, 508, 524, 533, 540, 549,  569, 655, 663, 702, 711, 718, 726, 741, 748, 756,
+
+            // Grade 4
+            775, 786, 791, 827, 835, 851, 859, 882, 888, 895, 945, 903, 913, 920, 938, 952, 1025, 1031, 1038, 1044, 1048, 1054, 1060,
+        ];
+
+        foreach ($free_practice as $value) {
+            DB::table('game_instructions')->insert([
+                ['content' => "Free practice", 'game_id' => $value, 'audio' =>  $Instructions . "Free-practice" . ".mp3"],
             ]);
         }
 
@@ -1087,7 +1104,7 @@ class GameInstructionSeeder extends Seeder
 
             // ['content' => "Look at the pictures and write", 'game_id' => 406, 'audio' => $Instructions . "Look-at-the-pictures-and-write.mp3"],
 
-           ['content' => "Listen and Write.", 'game_id' => 406, 'audio' => $Instructions . "Listen-and-write.mp3"],
+            ['content' => "Listen and Write.", 'game_id' => 406, 'audio' => $Instructions . "Listen-and-write.mp3"],
 
             ['content' => "Look at the pictures and match them with the words", 'game_id' => 407, 'audio' =>  $Instructions . "Look-at-the-pictures-and-match-them-with-the-words" . ".mp3"],
 
@@ -1969,10 +1986,10 @@ class GameInstructionSeeder extends Seeder
 
 
             // G-4 lesson_5 U-752
-            ['content' => "Listen and Repeat", 'game_id' => 795, 'audio' => $Instructions . "Read-the-following-letters-and.mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 795, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             // G-4 lesson_5 U-752
-            ['content' => "Listen and Repeat", 'game_id' => 796, 'audio' => $Instructions . "Read-the-following-letters-and.mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 796, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             // G-4 lesson_5 U-753
             ['content' => "Look at the pictures and rearrange the letter", 'game_id' => 797, 'audio' => $Instructions . "Look-at-the-pictures-and-rearr.mp3"],

@@ -1099,7 +1099,7 @@ class AnsNQueSeeder extends Seeder
 
 
         DB::table('ans_n_ques')->insert(['game_id' => 794, 'a_content' =>  null, 'isLocal' => 1]);
-        DB::table('ans_n_ques')->insert(['game_id' => 794, 'a_content' => null , 'isLocal' => 0]);
+        DB::table('ans_n_ques')->insert(['game_id' => 794, 'a_content' => null, 'isLocal' => 0]);
 
 
 

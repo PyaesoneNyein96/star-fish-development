@@ -148,8 +148,8 @@ class RewardController extends Controller
             $extension = count($expl) == 2 && ($expl[1] === "png" || $expl[1] === "jpg") ? "" : ".png";
 
             $value['item'] = $this->profiles . str_replace(' ', '-', $value->name) . "/" .  $value->item . $extension;
-            $value['lock'] = $stu->fixed_point < $value->point ? 1 : 0;
-            $value["own"] = $stuReward ? 1 : 0;
+            $value['lock'] = ($stu->fixed_point < $value->point) || !$stuReward ? 1 : 0;
+
             array_push($reward, $value);
 
             // if (isset($data[$idx + 1]) && $value->name !== $data[$idx + 1]->name) $point += 50;
@@ -256,8 +256,8 @@ class RewardController extends Controller
             $extension = count($expl) == 2 && ($expl[1] === "png" || $expl[1] === "jpg") ? "" : ".png";
 
             $value['item'] = $this->frames . $value->item . $extension;
-            $value['lock'] = $stu->fixed_point < $value->point ? 1 : 0;
-            $value["own"] = $stuReward ? 1 : 0;
+            $value['lock'] = ($stu->fixed_point < $value->point) || !$stuReward ? 1 : 0;
+
             array_push($reward, $value);
 
             // if (isset($data[$idx + 1]) && $value->name !== $data[$idx + 1]->name) $point += 20;
