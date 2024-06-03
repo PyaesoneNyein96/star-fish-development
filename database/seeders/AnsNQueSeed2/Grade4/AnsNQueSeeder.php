@@ -1098,6 +1098,8 @@ class AnsNQueSeeder extends Seeder
         //////////////////////////////////////////////////////////////
 
 
+        DB::table('ans_n_ques')->insert(['game_id' => 794, 'a_content' =>  null, 'isLocal' => 1]);
+        DB::table('ans_n_ques')->insert(['game_id' => 794, 'a_content' => null , 'isLocal' => 0]);
 
 
 
@@ -2723,25 +2725,25 @@ class AnsNQueSeeder extends Seeder
 
         $G4_L15_Game878_listen_n_practice_image = [
 
-            ['speaker', "speaker", 'speaker', 'speaker', 'speaker', 'speaker'],
+            ['speaker', "speaker", 'speaker', 'speaker', 'speaker'],
 
         ];
 
         $G4_L15_Game878_listen_n_practice_image_ans = [
 
-            ["Water festival", "Chinese New Year", 'Halloween', 'Thadingyut', 'Christmas',  "Valentine's Day",],
+            ["Water festival", "Chinese New Year", 'Halloween', 'Thadingyut', 'Christmas'],
 
         ];
 
         $G4_L15_Game878_listen_n_practice_audio = [
 
-            ['SubBlock_It-is-in-April-People-throw-w', "SubBlock_It-is-in-October-People-pay-h", 'SubBlock_It-is-in-October-People-wear', 'SubBlock_It-is-known-as-the-festival-of', 'SubBlock_It-is-usually-in-December-Dur', 'SubBlock_It-is-usually-in-February-Peo'],
+            ['SubBlock_It-is-in-April-People-throw-w', "SubBlock_It-is-in-October-People-pay-h", 'SubBlock_It-is-in-October-People-wear', 'SubBlock_It-is-known-as-the-festival-of', 'SubBlock_It-is-usually-in-December-Dur'],
 
         ];
 
         $G4_L15_Game878_listen_n_practice = [
 
-            ['Christmas', 'Halloween', 'Thadingyut', "Valentine's Day", "Water festival", "Chinese New Year"],
+            ['Christmas', 'Halloween', 'Thadingyut', "Water festival", "Chinese New Year"],
 
         ];
 

@@ -372,7 +372,11 @@ class GameController extends Controller
 
         $lesson_completed = false;
         if($unit_left_check) {
-        $lesson_completed = true;
+            if($ExistLesson){
+                $lesson_completed = false;
+            }else{
+                $lesson_completed = true;
+            }
 
             // Subscription checkpoint (** block adding & updating lesson records **)
             $grade_id = Lesson::find($lesson_id)->grade['id'];
@@ -397,13 +401,18 @@ class GameController extends Controller
             $lessonGamesId = Lesson::find($lesson_id)->games->pluck('id');
 
             StudentUnit::where('student_id', $student->id)->where('lesson_id', $lesson_id)->delete();
-            // StudentGame::where('student_id', $student->id)->whereIn('game_id', $lessonGamesId)->delete();
 
 
             //  For Subscription and Real Server (** block adding lesson records **)
 
-                if (!$studentGrade) return response()->json(
-                    ["message" => "You are not a subscriber"],402);
+            // return $studentGrade;
+            if(!$studentGrade){
+                StudentGame::where('student_id', $student->id)->whereIn('game_id', $lessonGamesId)->delete();
+            }
+
+            if (!$studentGrade) return response()->json(
+                    ["message" => "You are not a subscriber"],402
+                );
 
             //----------------
 
@@ -443,6 +452,7 @@ class GameController extends Controller
         return response()->json([
             'message' => 'success and recorded',
             'fixed_point' => $updateStudent->fixed_point,
+            'point' => $updateStudent->point,
             'level' => $student->level != $updateStudent->level ? $updateStudent->level : null,
             'question_answer' => $updateStudent->question_answer,
             'board' => $student->board !=  $updateStudent->board ? $updateStudent->board : null,

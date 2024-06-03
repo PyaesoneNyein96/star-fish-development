@@ -595,6 +595,9 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Matching things.", "game_id" => 195, 'audio' =>  $Instructions . "Matching-things" . ".mp3"],
 
 
+            ['content' => "Jumbled letters", 'game_id' => 198, 'audio' =>  $Instructions . "Jumbled-letters" . ".mp3"],
+
+
             // G-1 lesson_32
             // Game 3 (201)
             ['content' => "Listen-and-tap-what-you-hear.", "game_id" => 201, 'audio' =>  $Instructions . "Listen-and-tap-what-you-hear" . ".mp3"],
