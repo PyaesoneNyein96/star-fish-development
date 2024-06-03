@@ -273,6 +273,7 @@ class GameController extends Controller
     }
 
 
+    //////// End Match -==============
 
     public function end_match(Request $request)
     {
@@ -410,11 +411,9 @@ class GameController extends Controller
             // return $studentGrade;
             if(!$studentGrade){
                 StudentGame::where('student_id', $student->id)->whereIn('game_id', $lessonGamesId)->delete();
+                response()->json(["message" => "You are not a subscriber"],402);
             }
 
-            if (!$studentGrade) return response()->json(
-                    ["message" => "You are not a subscriber"],402
-                );
 
             //----------------
 
