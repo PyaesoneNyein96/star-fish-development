@@ -524,10 +524,15 @@ class SubscriptionController extends Controller
     public function autoSeed()
     {
 
-        $students = Student::whereIn('id', [1, 10, 11, 12, 13])->get();
+        // $students = Student::whereIn('id', [1, 10, 11, 12, 13])->get();
+        $students = Student::whereIn('id', [1,2,3,4,5,6,7,8,9])->get();
+
 
         foreach ($students as $k => $student) {
-            $this->getGradeAccess($student, 1, 1);
+            $studentGrade = StudentGrade::where('student_id', $student->id)->where('grade_id',1)->first();
+            if(!$studentGrade) {
+                $this->getGradeAccess($student, 1, 1);
+            }
         }
 
         return "ok";
