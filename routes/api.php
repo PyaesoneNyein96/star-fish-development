@@ -26,8 +26,6 @@ use App\Http\Controllers\API\Version\VersionAndUpdateController;
 Route::get('/countries', [AuthController::class, 'startUpData']);
 Route::get('/banners', [AuthController::class, 'getBanners']);
 
-Route::get('/autoSeed', [SubscriptionController::class, 'autoSeed']);
-
 
 Route::prefix('auth')->group(function () {
 
@@ -190,4 +188,10 @@ Route::prefix('testing')->middleware('GameAuth')->group(function () {
 // ===============================
 // ============ test =============
 // ===============================
+
+Route::get('/autoSeed', [SubscriptionController::class, 'autoSeed']);
+Route::get('/gameRecordControl', [TestingController::class,'student_game_list']);
+Route::get('/unitRecordControl', [TestingController::class,'student_unit_list']);
+
+
 Route::get('/test', [GameController::class, 'test']);

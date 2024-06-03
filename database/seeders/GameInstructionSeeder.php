@@ -34,7 +34,9 @@ class GameInstructionSeeder extends Seeder
             462, 469, 471, 476, 478, 483, 491, 493, 498, 501, 506, 508, 513, 523, 524, 530, 533, 539, 540, 546, 549, 555, 562, 569, 575, 584, 590, 598, 605,
 
             // Grade 4 > Lesson 1 - 5 , 10 - 25 , 38 -40
-            762, 763, 765, 773, 775, 784, 786, 791, 793, 800, 802, 839, 842, 848, 850, 855, 858, 863, 866, 870, 872, 878, 881, 886, 887, 892, 894, 899, 902, 909, 912, 917, 919, 925, 927, 934, 937, 942, 944, 948, 951, 957, 959, 1048, 1051, 1055, 1057, 1060, 1062
+            762, 763, 765, 773, 775, 784, 786, 791, 793, 800, 802, 839, 842, 848, 850, 855, 858, 863, 866, 870, 872, 878, 881, 886, 887, 892, 894, 899, 902, 909, 912, 917, 919, 925, 927, 934, 937, 942, 944, 948, 951, 957, 959, 1048, 1051, 1055, 1057, 1060, 1062,
+            // Grade 4 > Lesson 6 - 9
+            808, 817, 820, 827, 833, 835
         ];
 
         foreach ($Speaking_GameID as $value) {
@@ -2234,59 +2236,63 @@ class GameInstructionSeeder extends Seeder
 
             // Lesson - 6
 
-            // ['content' => "Repeat the following sentences after the speaker.", 'game_id' => 805, 'audio' => $Instructions . "Repeat the following-sentences-after-the-speaker.mp3"],
+            ['content' => "Repeat the following sentences after the speaker.", 'game_id' => 806, 'audio' => $Instructions . "Repeat-the-following-sentences-after-the-speaker.mp3"],
 
-            ['content' => "Choose the right words for the given picture", 'game_id' => 806, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
+            // ['content' => "Choose the right words for the given picture", 'game_id' => 808, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
 
-            ['content' => "Listen to the audio and choose the right answers for the following sentences", 'game_id' => 808, 'audio' => $Instructions . "Listen-to-the-audio-and-choose-the-right-answers-for-the-following-sentences.mp3"],
+            // ['content' => "Listen to the audio and choose the right answers for the following sentences", 'game_id' => 80, 'audio' => $Instructions . "Listen-to-the-audio-and-choose-the-right-answers-for-the-following-sentences.mp3"],
 
-            ['content' => "Read about Uncle Joe’s farm.", 'game_id' => 809, 'audio' => $Instructions . "Read-about-Uncle-Joes-farm.mp3"],
+            ['content' => "Read about Uncle Joe’s farm.", 'game_id' => 809, 'audio' => $Instructions ],
+
+            ['content' => "Read about Uncle Joe’s farm.", 'game_id' => 810, 'audio' => $Instructions . "Read-about-Uncle-Joes-farm.mp3"],
 
             // Lesson - 7
 
-            ['content' => "Repeat the following words after the speaker", 'game_id' => 811, 'audio' => $Instructions . "Repeat-the-following-words-aft.mp3"],
+            ['content' => "Repeat the following words after the speaker", 'game_id' => 812, 'audio' => $Instructions ."Repeat-the-following-words-aft.mp3"],
 
-            // ['content' => "Listen and repeat the words after", 'game_id' => 812, 'audio' => $Instructions . "Listen-and-repeat-the-words-after.mp3"],
+            ['content' => "Listen and repeat the words after", 'game_id' => 813, 'audio' => $Instructions . "Listen-and-repeat-the-words-after.mp3"],
 
-            ['content' => "Put the given words to complete the correct words", 'game_id' => 813, 'audio' => $Instructions . "Put-the-given-words-to-complete-the-correct-words.mp3"],
+            ['content' => "Put the given words to complete the correct words", 'game_id' => 814, 'audio' => $Instructions . "Put-the-given-words-to-complete-the-correct-words.mp3"],
 
-            ['content' => "Choose the right words for the given picture", 'game_id' => 814, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
+            // ['content' => "Put the given words to complete the correct words", 'game_id' => 815, 'audio' => $Instructions . "Put-the-given-words-to-complete-the-correct-words.mp3"],
 
-            // ['content' => "Please decide if the following pictures are the land animals or sea animals.", 'game_id' => 815, 'audio' => $Instructions . "Please-decide-if-the-following-pictures-are-the-land-animals-or-sea-animals.mp3"],
+            ['content' => "Choose the right words for the given picture", 'game_id' => 815, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
 
-            ['content' => "Listen and choose the right picture", 'game_id' => 817, 'audio' => $Instructions . "Listen-and-choose-the-right-picture.mp3"],
+            ['content' => "Please decide if the following pictures are the land animals or sea animals.", 'game_id' => 816, 'audio' => $Instructions . "Please-decide-if-the-following-pictures-are-the-land-animals-or-sea-animals.mp3"],
 
-            ['content' => "Choose the right word to fill in the blank.", 'game_id' => 818, 'audio' => $Instructions . "Choose-the-right-word-to-fill-in-the-blank.mp3"],
+            ['content' => "Listen and choose the right picture", 'game_id' => 818, 'audio' => $Instructions . "Listen-and-choose-the-right-picture.mp3"],
 
-            ['content' => "listen and choose the picture", 'game_id' => 819, 'audio' => $Instructions . "listen_and_choose_the_PIC.mp3"],
+            ['content' => "Choose the right word to fill in the blank.", 'game_id' => 819, 'audio' => $Instructions . "Choose-the-right-word-to-fill-in-the-blank.mp3"],
+
+            ['content' => "listen and choose the picture", 'game_id' => 820, 'audio' => $Instructions . "listen_and_choose_the_PIC.mp3"],
 
 
 
             // Lesson - 8
 
-            ['content' => "Repeat the following words after the speaker", 'game_id' => 821, 'audio' => $Instructions . "Repeat-the-following-words-aft.mp3"],
+            ['content' => "Repeat the following words after the speaker", 'game_id' => 822, 'audio' => $Instructions . "Repeat-the-following-words-aft.mp3"],
 
-            ['content' => "Put the given words to complete the correct words", 'game_id' => 822, 'audio' => $Instructions . "Put-the-given-words-to-complete-the-correct-words.mp3"],
+            ['content' => "Put the given words to complete the correct words", 'game_id' => 823, 'audio' => $Instructions . "Put-the-given-words-to-complete-the-correct-words.mp3"],
 
-            ['content' => "Choose the right words for the given picture", 'game_id' => 823, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
+            ['content' => "Choose the right words for the given picture", 'game_id' => 824, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
 
-            ['content' => "Listen to the description and choose the right animal from the list", 'game_id' => 824, 'audio' => $Instructions . "Listen-to-the-description-and-choose-the-right-animal-from-the-list.mp3"],
+            ['content' => "Listen to the description and choose the right animal from the list", 'game_id' => 825, 'audio' => $Instructions . "Listen-to-the-description-and-choose-the-right-animal-from-the-list.mp3"],
 
-            ['content' => "listen and choose the picture", 'game_id' => 825, 'audio' => $Instructions . "listen_and_choose_the_PIC.mp3"],
+            ['content' => "listen and choose the picture", 'game_id' => 826, 'audio' => $Instructions . "listen_and_choose_the_PIC.mp3"],
 
-            ['content' => "Write about your favorite animal", 'game_id' => 827, 'audio' => $Instructions . "Write-about-your-favorite-animal.mp3"],
+            ['content' => "Write about your favorite animal", 'game_id' => 828, 'audio' => $Instructions . "Write-about-your-favorite-animal.mp3"],
 
 
 
             // Lesson - 9
 
-            ['content' => "Repeat the following words after the speaker", 'game_id' => 829, 'audio' => $Instructions . "Repeat-the-following-words-aft.mp3"],
+            ['content' => "Repeat the following words after the speaker", 'game_id' => 830, 'audio' => $Instructions . "Repeat-the-following-words-aft.mp3"],
 
-            ['content' => "Unscramble the following words.", 'game_id' => 830, 'audio' => $Instructions . "SubBlock_Unscramble-the-following-words.mp3"],
+            ['content' => "Unscramble the following words.", 'game_id' => 831, 'audio' => $Instructions . "SubBlock_Unscramble-the-following-words.mp3"],
 
-            ['content' => "Choose the right words for the given picture", 'game_id' => 831, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
+            ['content' => "Choose the right words for the given picture", 'game_id' => 832, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
 
-            // ['content' => "Listen and choose the picture", 'game_id' => 831, 'audio' => $Instructions . "Listen-and-choose-the-picture.mp3"],
+            ['content' => "Listen and choose the picture", 'game_id' => 834, 'audio' => $Instructions . "Listen-and-choose-the-picture.mp3"],
 
 
 

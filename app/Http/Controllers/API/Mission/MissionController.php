@@ -655,7 +655,6 @@ class MissionController extends Controller
         $points = LoginBonus::where('days',$days)->first();
 
 
-
         DB::beginTransaction();
         try {
 
