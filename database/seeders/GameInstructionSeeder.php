@@ -38,7 +38,7 @@ class GameInstructionSeeder extends Seeder
             895, 900, 903, 910, 913, 918, 920, 926, 928, 935, 938, 943, 945, 949, 952, 958, 960, 1048, 1051, 1054, 1058, 1063, 1065,
 
             // Grade 4 > Lesson 6 - 9
-            808, 817, 820, 827, 833, 835
+            808, 817, 820, 826, 833,
         ];
 
         foreach ($Speaking_GameID as $value) {
@@ -2283,7 +2283,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Choose the right word to fill in the blank.", 'game_id' => 819, 'audio' => $Instructions . "Choose-the-right-word-to-fill-in-the-blank.mp3"],
 
-            ['content' => "listen and choose the picture", 'game_id' => 820, 'audio' => $Instructions . "listen_and_choose_the_PIC.mp3"],
+            // ['content' => "listen and choose the picture", 'game_id' => 820, 'audio' => $Instructions . "listen_and_choose_the_PIC.mp3"],
 
 
 
@@ -2297,7 +2297,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Listen to the description and choose the right animal from the list", 'game_id' => 825, 'audio' => $Instructions . "Listen-to-the-description-and-choose-the-right-animal-from-the-list.mp3"],
 
-            ['content' => "listen and choose the picture", 'game_id' => 826, 'audio' => $Instructions . "listen_and_choose_the_PIC.mp3"],
+            // ['content' => "listen and choose the picture", 'game_id' => 826, 'audio' => $Instructions . "listen_and_choose_the_PIC.mp3"],
 
             ['content' => "Write about your favorite animal", 'game_id' => 828, 'audio' => $Instructions . "Write-about-your-favorite-animal.mp3"],
 
