@@ -1703,7 +1703,7 @@ class GameSeeder extends Seeder
             ['name' => 'Spelling Game', 'unit_id' => 896, 'category_id' => 14, "instructionGIF" => $Gif_path . "Re-arrange-in-order.gif"],
             ['name' => 'Practice ( 1 )', 'unit_id' => 897, 'category_id' => 7, "instructionGIF" => $Gif_path . "Matching.gif"],
             ['name' => 'Speaking Practice', 'unit_id' => 898, 'category_id' => 11, "instructionGIF" => $Gif_path . "Speaking.gif"],
-            ['name' => 'Listening Practice', 'unit_id' => 899, 'category_id' => 28, "instructionGIF" =>  $Gif_path . "Listen-and-Practice-2.gif"],
+            ['name' => 'Listening Practice', 'unit_id' => 899, 'category_id' => 60, "instructionGIF" =>  $Gif_path . "Listen-and-Practice-2.gif"],
             ['name' => 'Speaking Topic', 'unit_id' => 900, 'category_id' => 11, "instructionGIF" => $Gif_path . "Speaking.gif"],
             ['name' => 'Writing Topic', 'unit_id' => 901, 'category_id' => 26, "instructionGIF" => $Gif_path . "Writing.gif"],
 
