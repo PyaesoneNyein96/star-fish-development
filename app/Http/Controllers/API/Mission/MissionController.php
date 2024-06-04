@@ -413,7 +413,7 @@ class MissionController extends Controller
                     // 'daily' => Carbon::Now()->addHours(1),
                     'first' => Carbon::now()->addMinutes(15),
                     'second' => Carbon::now()->addMinutes(30),
-                    'daily' => Carbon::Now()->addDays(),
+                    'daily' => Carbon::Now(),
                     'day_count' => $day_count,
                     'updated_at' => Carbon::now()
                 ]);
