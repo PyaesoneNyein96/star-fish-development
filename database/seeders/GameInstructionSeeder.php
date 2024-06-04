@@ -2257,6 +2257,8 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Repeat the following sentences after the speaker.", 'game_id' => 806, 'audio' => $Instructions . "Repeat-the-following-sentences-after-the-speaker.mp3"],
 
+            ['content' => "Choose the right words for the given picture", 'game_id' => 807, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
+
             // ['content' => "Choose the right words for the given picture", 'game_id' => 808, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
 
             // ['content' => "Listen to the audio and choose the right answers for the following sentences", 'game_id' => 80, 'audio' => $Instructions . "Listen-to-the-audio-and-choose-the-right-answers-for-the-following-sentences.mp3"],
@@ -2295,9 +2297,9 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Choose the right words for the given picture", 'game_id' => 824, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
 
-            ['content' => "Listen to the description and choose the right animal from the list", 'game_id' => 825, 'audio' => $Instructions . "Listen-to-the-description-and-choose-the-right-animal-from-the-list.mp3"],
+            // ['content' => "Listen to the description and choose the right animal from the list", 'game_id' => 825, 'audio' => $Instructions . "Listen-to-the-description-and-choose-the-right-animal-from-the-list.mp3"],
 
-            // ['content' => "listen and choose the picture", 'game_id' => 826, 'audio' => $Instructions . "listen_and_choose_the_PIC.mp3"],
+            ['content' => "listen and choose the picture", 'game_id' => 825, 'audio' => $Instructions . "listen_and_choose_the_PIC.mp3"],
 
             ['content' => "Write about your favorite animal", 'game_id' => 828, 'audio' => $Instructions . "Write-about-your-favorite-animal.mp3"],
 
@@ -2311,7 +2313,9 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Choose the right words for the given picture", 'game_id' => 832, 'audio' => $Instructions . "Choose-the-right-words-for-the-given-picture.mp3"],
 
-            ['content' => "Listen and choose the picture", 'game_id' => 834, 'audio' => $Instructions . "Listen-and-choose-the-picture.mp3"],
+            ['content' => "listen and choose the picture", 'game_id' => 834, 'audio' => $Instructions . "listen_and_choose_the_PIC.mp3"],
+
+            // ['content' => "Listen and choose the picture", 'game_id' => 834, 'audio' => $Instructions . "Listen-and-choose-the-picture.mp3"],
 
 
 
