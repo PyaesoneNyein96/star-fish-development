@@ -4946,8 +4946,8 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 25 Game 959 (  Listen and Practice )
         //////////////////////////////////////////////////////////////
 
-        $G4_L25_listen_n_practice = "Grade_25/Lesson_25/Listen_and_Practice/";
-        $l25_G959image = $domain .  "/storage/images/Grade_25/lesson_25/Listen_and_Practice/";
+        $G4_L25_listen_n_practice = "Grade_4/Lesson_25/Listen_and_Practice/";
+        $l25_G959image = $domain .  "/storage/images/Grade_4/lesson_25/Listen_and_Practice/";
 
         $G4L25U5 = range(1, 4);
         $G4L25U5content = [

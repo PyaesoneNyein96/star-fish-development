@@ -1472,7 +1472,7 @@ class GameSeeder extends Seeder
             ['name' => 'Speaking Practice',  'unit_id' => 748, 'category_id' => 11, "instructionGIF" =>  $Gif_path . "Speaking.gif"],
             ['name' => 'Listen and Practice',  'unit_id' => 749, 'category_id' => 28, "instructionGIF" => $Gif_path . "Listen-and-Practice-2.gif"],
             ['name' => 'Speaking Topic',  'unit_id' => 750, 'category_id' => 11, "instructionGIF" =>  $Gif_path . "Speaking.gif"],
-        // ***
+            // ***
             // ['name' => 'Video',  'unit_id' => 751, 'category_id' => 26, "instructionGIF" =>  null],
             ['name' => 'Video',  'unit_id' => 751, 'category_id' => 1, "instructionGIF" =>  null],
 
@@ -1612,7 +1612,7 @@ class GameSeeder extends Seeder
             ['name' => 'Video', 'unit_id' => 838, 'category_id' => 1, "instructionGIF" => null],
             ['name' => 'Listen and Repeat ( 1 )', 'unit_id' => 839, 'category_id' => 2, "instructionGIF" => null],
             ['name' => 'Listen and Repeat ( 2 )', 'unit_id' => 839, 'category_id' => 8, "instructionGIF" => $Gif_path . "Conversation.gif"],
-            ['name' => 'Practice', 'unit_id' => 840, 'category_id' => 7, "instructionGIF" => $Gif_path . "Matching.gif"],
+            ['name' => 'Practice', 'unit_id' => 840, 'category_id' => 37, "instructionGIF" => $Gif_path . "Matching.gif"],
             ['name' => 'Speaking Practice', 'unit_id' => 841, 'category_id' => 11, "instructionGIF" => $Gif_path . "Speaking.gif"],
             ['name' => 'Listening Practice', 'unit_id' => 842, 'category_id' => 39, "instructionGIF" =>  $Gif_path .  "Listen-and-choose-correct.gif"],
             ['name' => 'Speaking Topic', 'unit_id' => 843, 'category_id' => 11, "instructionGIF" => $Gif_path . "Speaking.gif"],
