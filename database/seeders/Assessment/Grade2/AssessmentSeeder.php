@@ -1452,8 +1452,8 @@ class AssessmentSeeder extends Seeder
         ////    Grade 2  Assessment 5 ID 72 ( Reading Passages )
         ////////////////////////////////////////////////////////
 
-        $G2_A5_reading_passage = "Grade_2/" . "Assessments/" . "Assessment_4/" . "reading_passage/";
-        $A5_ID72_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_4/reading_passage/";
+        $G2_A5_reading_passage = "Grade_2/" . "Assessments/" . "Assessment_5/" . "reading_passage/";
+        $A5_ID72_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_5/reading_passage/";
 
         $A5_ID72_q_audio = [
             "chris-has",
@@ -1514,7 +1514,7 @@ class AssessmentSeeder extends Seeder
                 [
                     'round' => $i + 1,
                     'assess_id' => 72,
-                    "q_audio" => $AudioDomain . $G2_A5_reading_passage . "jane-n-rosy-audio" . ".mp3",
+                    "q_audio" => $AudioDomain . $G2_A5_reading_passage . "chris-n-jack-audio" . ".mp3",
                     "q_conver" => "Chris and Jack are good friends. Chris has a dog and Jack has a cat. Every morning, they go to school together. They eat lunch at 12 o'clock. Chris eats a hamburger for lunch and Jack eats fried noodles. After lunch, they go to the library and read books. They go back home at 3 o'clock. They go to the playground and play their dog and cat at 4 o'clock. They eat dinner at 5 o'clock and go to bed at 9 o'clock.",
                     "background" => $A5_ID72_image . "bg.png",
                     "q_content" => "Chris and Jack",

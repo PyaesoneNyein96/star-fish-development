@@ -136,6 +136,7 @@ class AssessmentController extends Controller
     public function recordEachGame(Request $request)
     {
         $token =  $request->header('token');
+        $point = $request->header('point');
         $assessGameId = $request->header('assess_game_id');
         $timer = $request->header("timer");
 
@@ -170,6 +171,7 @@ class AssessmentController extends Controller
             "assess_id" => $assessGameId,
             "assess_name" => $assess->name,
             "grade_id" => $assess->grade_id,
+            "total_point" => $point,
             "timer" => $timer
         ];
 
@@ -306,10 +308,10 @@ class AssessmentController extends Controller
 
                         ////////////////////
 
-                        AssessmentEachRecordFinishData::where("student_id", $studentId)
-                            ->where("assess_name", $data[0]->name)
-                            ->where("grade_id", $assessment->grade_id)
-                            ->delete();
+                        // AssessmentEachRecordFinishData::where("student_id", $studentId)
+                        //     ->where("assess_name", $data[0]->name)
+                        //     ->where("grade_id", $assessment->grade_id)
+                        //     ->delete();
 
                         $recorded = [
                             "grade" => $assessment->grade_id,

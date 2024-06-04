@@ -14,6 +14,7 @@ class AssessmentEachRecordFinishData extends Model
         "assess_id",
         "assess_name",
         "grade_id",
+        "total_point",
         "timer"
     ];
 
