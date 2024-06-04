@@ -67,7 +67,7 @@ class AssessmentSeeder extends Seeder
 
         // Grade 3
         $category_3 = [
-            [8, 16, 3, 20, 5, 5],
+            [8, 16, 3, 13, 5, 5],
             [1, 3, 1, 5, 16],
             [13, 1, 8, 3, 15, 1, 5, 5],
             [8, 7, 3, 15, 1, 5, 5],

@@ -101,8 +101,9 @@ class MissionController extends Controller
                 // 'grade' => $raw->unit->grade->name,
                 'allowed' => $repeat->count >= 3 ,
                 'claimed' => $claimed ,
-                'count' => $repeat->count,
-                'point' =>  3,
+                // 'count' => $repeat->count,
+                'count' => 3,
+                'point' =>  1,
 
             ];
         });
@@ -122,8 +123,9 @@ class MissionController extends Controller
                 // 'grade' => $raw->unit->grade->name,
                 'allowed' => $repeat->count == 5,
                 'claimed' =>  $repeat->count < 5 ? false : ($repeat->count == 5 && $repeat->claimed_5 == 0 ? false : true),
-                'count' => $repeat->count,
-                'point' => 5
+                // 'count' => $repeat->count,
+                'count' => 5,
+                'point' => 3
             ];
         });
 
