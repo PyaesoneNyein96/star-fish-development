@@ -658,19 +658,21 @@ class MissionController extends Controller
         DB::beginTransaction();
         try {
 
-            $record = $request->student->loginBonus->where('day_count',$days)->first();
+            // $record = $request->student->loginBonus->where('day_count',$days)->first();
+
+            $record = StudentLoginBonus::where('student_id',$request->student->id)
+            ->where('day_count',$days)->first();
 
 
             if(!$record) return response()->json(['error' => "Wrong days payload!"],404);
 
             if($record->claim == 1) return response()->json(['message' => "You already claimed this bonus!"],208);
 
-            if($record->created_at->addDays($days)->isSameDay(Carbon::now()->addDays($days))){
-
+            // if($record->created_at->addDays($days)->isSameDay(Carbon::now()->addDays($days))){
+            if($record && $record->claim == 0){
                 $record->update([
                     'claim' => 1
                 ]);
-
 
                 $this->point_lvl($request->student, $points->point);
 
