@@ -758,19 +758,19 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 26, "q_image" => $G1_A4_grammar . "pineapple.png", "q_conver" => "It's ____ pineapple.", 'q_content' => "an", 'a_content' => 0],
+            ['round' => 1, 'assess_id' => 26, "q_image" => $A4_ID26_image . "pineapple.png", "q_conver" => "It's ____ pineapple.", 'q_content' => "an", 'a_content' => 0],
             ['round' => 1, 'assess_id' => 26, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 1],
 
-            ['round' => 2, 'assess_id' => 26, "q_image" => $G1_A4_grammar . "guava.png", "q_conver" => "It's ____ guava.", 'q_content' => "an", 'a_content' => 0],
+            ['round' => 2, 'assess_id' => 26, "q_image" => $A4_ID26_image . "guava.png", "q_conver" => "It's ____ guava.", 'q_content' => "an", 'a_content' => 0],
             ['round' => 2, 'assess_id' => 26, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 1],
 
-            ['round' => 3, 'assess_id' => 26, "q_image" => $G1_A4_grammar . "coconut.png", "q_conver" => "It's ____ coconut.", 'q_content' => "an", 'a_content' => 0],
+            ['round' => 3, 'assess_id' => 26, "q_image" => $A4_ID26_image . "coconut.png", "q_conver" => "It's ____ coconut.", 'q_content' => "an", 'a_content' => 0],
             ['round' => 3, 'assess_id' => 26, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 1],
 
-            ['round' => 4, 'assess_id' => 26, "q_image" => $G1_A4_grammar . "orange.png", "q_conver" => "It's ____ orange.", 'q_content' => "an", 'a_content' => 1],
+            ['round' => 4, 'assess_id' => 26, "q_image" => $A4_ID26_image . "orange.png", "q_conver" => "It's ____ orange.", 'q_content' => "an", 'a_content' => 1],
             ['round' => 4, 'assess_id' => 26, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 0],
 
-            ['round' => 5, 'assess_id' => 26, "q_image" => $G1_A4_grammar . "avocado.png", "q_conver" => "It's ____ avocado.", 'q_content' => "an", 'a_content' => 1],
+            ['round' => 5, 'assess_id' => 26, "q_image" => $A4_ID26_image . "avocado.png", "q_conver" => "It's ____ avocado.", 'q_content' => "an", 'a_content' => 1],
             ['round' => 5, 'assess_id' => 26, "q_image" => null, "q_conver" => null, 'q_content' => "a", 'a_content' => 0],
 
         ]);
