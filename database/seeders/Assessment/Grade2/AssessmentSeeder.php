@@ -750,8 +750,8 @@ class AssessmentSeeder extends Seeder
             ['round' => 3, 'assess_id' => 53, 'q_image' => $A3_ID53_image . "hippo.png", "q_content" => "Hippo", "a_content" => 1],
             ['round' => 3, 'assess_id' => 53, 'q_image' => null, "q_content" => "Rhino", "a_content" => 0],
 
-            ['round' => 4, 'assess_id' => 53, 'q_image' => $A3_ID53_image . "rabbit.png", "q_content" => "Snake", "a_content" => 0],
-            ['round' => 4, 'assess_id' => 53, 'q_image' => null, "q_content" => "Rabbit", "a_content" => 1],
+            ['round' => 4, 'assess_id' => 53, 'q_image' => $A3_ID53_image . "snake.png", "q_content" => "Snake", "a_content" => 1],
+            ['round' => 4, 'assess_id' => 53, 'q_image' => null, "q_content" => "Rabbit", "a_content" => 0],
 
             ['round' => 5, 'assess_id' => 53, 'q_image' => $A3_ID53_image . "quilt.png", "q_content" => "Quilt", "a_content" => 1],
             ['round' => 5, 'assess_id' => 53, 'q_image' => null, "q_content" => "Quiz", "a_content" => 0],
