@@ -140,7 +140,7 @@ class AssessmentController extends Controller
         $assessGameId = $request->header('assess_game_id');
         $timer = $request->header("timer");
 
-        if (!$token || !$assessGameId || !$timer || !$point) return response()->json(['error' => 'Token or Assessment id or timer or point is required.'], 400);
+        if (!$token || !$assessGameId || !$timer || $point === null) return response()->json(['error' => 'Token or Assessment id or timer or point is required.'], 400);
 
         $studentId = Student::where("token", $token)->first();
         if (!$studentId) return response()->json(['error' => 'Stduent Not Found.'], 404);
