@@ -854,7 +854,13 @@ class MissionController extends Controller
         // $daily = DailyBonus::where('student_id',$student->id)->first();
         $daily = $student->dailyBonus->first();
 
-        $daily_count = intval($daily->first != 1) + intval($daily->second != 1) + intval($daily->daily != 1);
+
+        $first = $daily->first != 1 && Carbon::parse($daily->first)->greaterThanOrEqualTo(Carbon::now());
+        $sec = $daily->second != 1 && Carbon::parse($daily->second)->greaterThanOrEqualTo(Carbon::now());
+
+        $daily_count = intval($first) + intval($sec) + intval($daily->daily != 1 && $daily->daily != null);
+
+        // $daily_count = intval($daily->first != 1) + intval($daily->second != 1) + intval($daily->daily != 1);
 
 
         // ==================================
