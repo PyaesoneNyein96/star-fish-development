@@ -140,7 +140,7 @@ class AssessmentController extends Controller
         $assessGameId = $request->header('assess_game_id');
         $timer = $request->header("timer");
 
-        if (!$token || !$assessGameId || !$timer) return response()->json(['error' => 'Token or Assessment id or timer is required.'], 400);
+        if (!$token || !$assessGameId || !$timer || !$point) return response()->json(['error' => 'Token or Assessment id or timer or point is required.'], 400);
 
         $studentId = Student::where("token", $token)->first();
         if (!$studentId) return response()->json(['error' => 'Stduent Not Found.'], 404);
@@ -166,12 +166,29 @@ class AssessmentController extends Controller
         if ($isExistData || $completedData) return response()->json(['error' => 'completed assessment.'], 403);
         if ($toValidate && ($toValidate->grade_id !== $assess->grade_id || $toValidate->assess_name != $assess->name)) return response()->json(['error' => "didn't submit assessment."], 403);
 
+        $assess_total_point = Assessment::where("id", $assessGameId)->first();
+        if ($assess_total_point->total_point < $point) return  response()->json(['error' => 'Your point is greater than total point.'], 403);
+
+        // point
+        $game = AssessmentAnsNQues::where("assess_id", $assessGameId)->get();
+        $roundExist = array_key_exists('round', $game[0]->toArray());
+
+        if ($roundExist) {
+            $data = $game->groupBy('round')->values();
+            if (count($data[0]) == 1) $data = $game;
+        } else {
+            $data = $game;
+        }
+        // return count($data);
+        if (count($data) === (int)$point) $point = $assess_total_point->total_point;
+        //end point
+
         $AddData = [
             "student_id" => $studentId,
             "assess_id" => $assessGameId,
             "assess_name" => $assess->name,
             "grade_id" => $assess->grade_id,
-            "total_point" => $point,
+            "total_point" => (int)$point,
             "timer" => $timer
         ];
 
@@ -189,8 +206,8 @@ class AssessmentController extends Controller
     public function endGame(Request $request)
     {
         $token =  $request->header('token');
-        $point = $request->header('point');
         $timer = $request->header("timer");
+        // $point = $request->header('point');
 
         if (!$token || !$timer) return response()->json(['error' => 'Token or timer is required.'], 400);
 
@@ -211,6 +228,9 @@ class AssessmentController extends Controller
         } else {
             return response()->json(['error' => "didn't complete assessment lessons"], 403);
         }
+
+        $point = 0;
+        foreach ($finishDataCount as $value) $point = $point += $value->total_point;
 
         $assesLessArray = [
             // Grade 1
@@ -308,10 +328,10 @@ class AssessmentController extends Controller
 
                         ////////////////////
 
-                        // AssessmentEachRecordFinishData::where("student_id", $studentId)
-                        //     ->where("assess_name", $data[0]->name)
-                        //     ->where("grade_id", $assessment->grade_id)
-                        //     ->delete();
+                        AssessmentEachRecordFinishData::where("student_id", $studentId)
+                            ->where("assess_name", $data[0]->name)
+                            ->where("grade_id", $assessment->grade_id)
+                            ->delete();
 
                         $recorded = [
                             "grade" => $assessment->grade_id,
