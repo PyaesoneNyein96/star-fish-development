@@ -925,7 +925,7 @@ class MissionController extends Controller
             'assessment' => collect($assessment_count)->unique()->count()
         ]);
 
-        return $daily_count;
+        // return $daily_count;
 
        $total = intval($repetitive_count) + intval($daily_count) + intval($login_count) + intval($question_count) + intval($champion_count) + intval(0) + intval($assessment_count);
 
