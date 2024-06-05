@@ -855,8 +855,8 @@ class MissionController extends Controller
         $daily = $student->dailyBonus->first();
 
 
-        $first = $daily->first != 1 && Carbon::parse($daily->first)->greaterThanOrEqualTo(Carbon::now());
-        $sec = $daily->second != 1 && Carbon::parse($daily->second)->greaterThanOrEqualTo(Carbon::now());
+        $first = $daily->first != 1 && Carbon::parse($daily->first)->lessThanOrEqualTo(Carbon::now());
+        $sec = $daily->second != 1 && Carbon::parse($daily->second)->lessThanOrEqualTo(Carbon::now());
 
         $daily_count = intval($first) + intval($sec) + intval($daily->daily != 1 && $daily->daily != null);
 
@@ -925,6 +925,7 @@ class MissionController extends Controller
             'assessment' => collect($assessment_count)->unique()->count()
         ]);
 
+        return $daily_count;
 
        $total = intval($repetitive_count) + intval($daily_count) + intval($login_count) + intval($question_count) + intval($champion_count) + intval(0) + intval($assessment_count);
 
