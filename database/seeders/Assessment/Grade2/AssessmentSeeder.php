@@ -321,13 +321,16 @@ class AssessmentSeeder extends Seeder
         $G2_A2_ID42_tracing = "Grade_2/" . "Assessments/" . "Assessment_2/" . "tracing/";
         $A2_ID42_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_2/tracing/";
 
-        $Id42_items = ["Girl", "Goose", "Gym", "Hand", "Hat"];
+        $Id42_items = [
+            "Girl",
+            // "Goose", "Gym", "Hand", "Hat"
+        ];
         $Id42_items_stroke = [
             [2, 2, 2, 1],
-            [2, 1, 1, 1, 1],
-            [2, 2, 3],
-            [3, 2, 2, 2],
-            [3, 2, 2]
+            // [2, 1, 1, 1, 1],
+            // [2, 2, 3],
+            // [3, 2, 2, 2],
+            // [3, 2, 2]
         ];
 
         foreach ($Id42_items as $idx => $val) {
@@ -615,14 +618,17 @@ class AssessmentSeeder extends Seeder
         $G2_A3_ID50_tracing = "Grade_2/" . "Assessments/" . "Assessment_3/" . "tracing/";
         $A3_ID50_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_3/tracing/";
 
-        $Id50_items = ["Man", "Moon", "Mug", "Nail", "Nest", "Note"];
+        $Id50_items = [
+            "Man",
+            //  "Moon", "Mug", "Nail", "Nest", "Note"
+        ];
         $Id50_items_stroke = [
             [4, 2, 2],
-            [4, 1, 1, 2],
-            [4, 2, 2],
-            [3, 2, 2, 1],
-            [3, 1, 1, 2],
-            [3, 1, 2, 1]
+            // [4, 1, 1, 2],
+            // [4, 2, 2],
+            // [3, 2, 2, 1],
+            // [3, 1, 1, 2],
+            // [3, 1, 2, 1]
         ];
 
         foreach ($Id50_items as $idx => $val) {
@@ -929,12 +935,15 @@ class AssessmentSeeder extends Seeder
         $G2_A4_ID58_tracing = "Grade_2/" . "Assessments/" . "Assessment_4/" . "tracing/";
         $A4_ID58_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_4/tracing/";
 
-        $Id58_items = ["Ship", "Shoe", "Taxi", "Tree"];
+        $Id58_items = [
+            "Ship",
+            //  "Shoe", "Taxi", "Tree"
+        ];
         $Id58_items_stroke = [
             [1, 2, 2, 2],
-            [1, 2, 1, 1],
-            [2, 2, 2, 2],
-            [2, 2, 1, 1]
+            // [1, 2, 1, 1],
+            // [2, 2, 2, 2],
+            // [2, 2, 1, 1]
         ];
 
         foreach ($Id58_items as $idx => $val) {
@@ -1213,13 +1222,16 @@ class AssessmentSeeder extends Seeder
         $G2_A4_ID65_tracing = "Grade_2/" . "Assessments/" . "Assessment_5/" . "tracing/";
         $A4_ID65_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_5/tracing/";
 
-        $Id65_items = ["Yawn", "Yolk", "Yo-yo", "Zero", "Zip"];
+        $Id65_items = [
+            "Yawn",
+            //  "Yolk", "Yo-yo", "Zero", "Zip"
+        ];
         $Id65_items_stroke = [
             [3, 2, 4, 2],
-            [3, 1, 1, 3],
-            [3, 1, 0, 2, 1],
-            [3, 1, 2, 1],
-            [3, 2, 2],
+            // [3, 1, 1, 3],
+            // [3, 1, 0, 2, 1],
+            // [3, 1, 2, 1],
+            // [3, 2, 2],
         ];
 
         foreach ($Id65_items as $idx => $val) {
