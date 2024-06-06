@@ -7,6 +7,7 @@ use App\Models\Lesson;
 use App\Models\Student;
 use App\Models\Assessment;
 use App\Models\Certificate;
+use App\Models\StudentGrade;
 use Illuminate\Http\Request;
 use App\Jobs\MakeCertificate;
 use App\Models\StudentLesson;
@@ -411,17 +412,21 @@ class AssessmentController extends Controller
 
                         $recorded["certificate"] = $certificate;
 
-                        // Del lessons =========================================
-                        StudentLesson::where('student_id', $student->id)
-                            ->whereIn('lesson_id', Lesson::where('grade_id', $assessment->grade_id)->pluck('id'))
-                            ->where('grade_id', $assessment->grade_id)
-                            ->delete();
-                    };
+                            // Del lessons =========================================
+                            StudentLesson::where('student_id', $student->id)
+                                ->whereIn('lesson_id', Lesson::where('grade_id', $assessment->grade_id)->pluck('id'))
+                                ->where('grade_id', $assessment->grade_id)
+                                ->delete();
+
+                            StudentGrade::where('student_id', $student->id)
+                                  ->where('grade_id', $assessment->grade_id)->update(['isDone' => 1,]);
+
+                        };
+                    }
+                    DB::commit();
+                    return response()->json($recorded);
                 }
-                DB::commit();
-                return response()->json($recorded);
             }
-            // }
         } catch (\Throwable $th) {
             DB::rollback();
             return $th;
