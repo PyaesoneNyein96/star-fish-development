@@ -1396,7 +1396,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         $audios = $AudioDomain . "Grade_2/Lesson_28/Reading_Short/";
         // $L32U5_content = ['umbrella','violin','vase'];
 
-        $L32U5_para = "This is Saturday. Jane and Chris go to the zoo. They are very happy today. There are many animals there. In the picture, the giraffe is behind the wall. It's tall, It't yellow and brown. It has a long neck. The monkey is on the tree. It's small. It's brown too. It's very fast. Jane likes giraffe and Chris's favorite animal is monkey.";
+        $L32U5_para = "This is Saturday. Jane and Chris go to the zoo. They are very happy today. There are many animals there. In the picture, the giraffe is behind the wall. It's tall, It's yellow and brown. It has a long neck. The monkey is on the tree. It's small. It's brown too. It's very fast. Jane likes giraffe and Chris's favorite animal is monkey.";
 
         $L32U5_given_q = [
             ["The monkey is slow.", "No"],

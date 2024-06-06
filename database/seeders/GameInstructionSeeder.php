@@ -1052,7 +1052,10 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Arranging the letters", 'game_id' => 370, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
 
-            // ['content' => "Look at the pictures and speak", 'game_id' => 371, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
+            ['content' => "Sophia", 'game_id' => 372, 'audio' =>  $Instructions],
+
+
+            //////////////// G-2 L-25
 
             ['content' => "Students listen and repeat the words and sentences", 'game_id' => 374, 'audio' =>  $Instructions . "Students-listen-and-repeat-the-words-and-sentences.mp3"],
 
@@ -1087,6 +1090,10 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Matching the words and the picture", 'game_id' => 391, 'audio' =>  $Instructions . "Matching-the-words-and-the-picture" . ".mp3"],
 
+            ['content' => "Jane-and-Chris-go-to-the-zoo", 'game_id' => 392, 'audio' =>  $Instructions],
+
+            //G -2  l 29
+
             ['content' => "Students listen and repeat the words and sentences", 'game_id' => 394, 'audio' =>  $Instructions . "Students-listen-and-repeat-the-words-and-sentences.mp3"],
 
             ['content' => "Students listen and repeat the words and sentences", 'game_id' => 395, 'audio' =>  $Instructions . "Students-listen-and-repeat-the-words-and-sentences.mp3"],
@@ -1120,6 +1127,10 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Matching the words and the picture.", 'game_id' => 412, 'audio' =>  $Instructions . "Matching-the-words-and-the-picture" . ".mp3"],
 
             ['content' => "Arranging the letters", 'game_id' => 413, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+
+            ['content' => "Rosy and jack", 'game_id' => 414, 'audio' =>  $Instructions],
+
+            ///////// G-2 L- 33
 
             ['content' => "Students-listen-and-repeat-the-sentences", 'game_id' => 416, 'audio' =>  $Instructions . "Students-listen-and-repeat-the-sentences.mp3"],
 
@@ -1161,6 +1172,9 @@ class GameInstructionSeeder extends Seeder
 
             // ['content' => "Look at the pictures and make sentences", 'game_id' => 434, 'audio' => $Instructions . "Look-at-the-pictures-and-make-sentences.mp3"],
 
+            ['content' => "Jack-and-There-are-four-members-in-my-family", 'game_id' => 435, 'audio' => $Instructions],
+
+
             //G-2 37
             ['content' => "Listen and repeat the phrases", 'game_id' => 437, 'audio' => $Instructions . "Listen-and-repeat-the-phrases.mp3"],
 
@@ -1192,6 +1206,8 @@ class GameInstructionSeeder extends Seeder
             // G-40
 
             ['content' => "Look at the clocks and match them with the times", 'game_id' => 456, 'audio' => $Instructions . "Look-at-the-clocks-and-match-them-with-the-times.mp3"],
+
+            ['content' => "Chris is student", 'game_id' => 457, 'audio' => $Instructions],
 
 
 
