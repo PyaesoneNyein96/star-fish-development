@@ -1052,7 +1052,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Arranging the letters", 'game_id' => 370, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
 
-            ['content' => "Sophia", 'game_id' => 372, 'audio' =>  $Instructions],
+            ['content' => "Answer the question", 'game_id' => 372, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
 
 
             //////////////// G-2 L-25
