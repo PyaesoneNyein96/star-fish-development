@@ -1090,7 +1090,9 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Matching the words and the picture", 'game_id' => 391, 'audio' =>  $Instructions . "Matching-the-words-and-the-picture" . ".mp3"],
 
-            ['content' => "Jane-and-Chris-go-to-the-zoo", 'game_id' => 392, 'audio' =>  $Instructions],
+            ['content' => "Answer True or False", 'game_id' => 392, 'audio' =>  $Instructions . "Answer-True-or-False" . ".mp3"
+            ],
+
 
             //G -2  l 29
 
@@ -1128,7 +1130,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Arranging the letters", 'game_id' => 413, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
 
-            ['content' => "Rosy and jack", 'game_id' => 414, 'audio' =>  $Instructions],
+            ['content' => "Choose the correct answers", 'game_id' => 414, 'audio' =>  $Instructions . "Choose-the-correct-answers" . ".mp3"],
 
             ///////// G-2 L- 33
 
@@ -1172,7 +1174,8 @@ class GameInstructionSeeder extends Seeder
 
             // ['content' => "Look at the pictures and make sentences", 'game_id' => 434, 'audio' => $Instructions . "Look-at-the-pictures-and-make-sentences.mp3"],
 
-            ['content' => "Jack-and-There-are-four-members-in-my-family", 'game_id' => 435, 'audio' => $Instructions],
+            ['content' => "Answer True or False", 'game_id' => 435, 'audio' =>  $Instructions . "Answer-True-or-False" . ".mp3"
+            ],
 
 
             //G-2 37
@@ -1207,8 +1210,9 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Look at the clocks and match them with the times", 'game_id' => 456, 'audio' => $Instructions . "Look-at-the-clocks-and-match-them-with-the-times.mp3"],
 
-            ['content' => "Chris is student", 'game_id' => 457, 'audio' => $Instructions],
+            // ['content' => "Chris is student", 'game_id' => 457, 'audio' => $Instructions],
 
+            ['content' => "Choose the correct answers", 'game_id' => 457, 'audio' =>  $Instructions . "Choose-the-correct-answers" . ".mp3"],
 
 
 
