@@ -1269,7 +1269,7 @@ class UnitSeeder extends Seeder
             ['name' => 'Speaking Practice', 'lesson_id' => 124],
             ['name' => 'Listen and Practice', 'lesson_id' => 124],
             ['name' => 'Speaking Topic', 'lesson_id' => 124],
-            ['name' => 'Writing Topic', 'lesson_id' => 124],
+            // ['name' => 'Writing Topic', 'lesson_id' => 124],
 
 
             // // G4 lesson 5
