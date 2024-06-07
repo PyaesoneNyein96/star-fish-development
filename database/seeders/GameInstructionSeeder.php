@@ -1053,7 +1053,10 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Arranging the letters", 'game_id' => 370, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
 
-            // ['content' => "Look at the pictures and speak", 'game_id' => 371, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],
+            ['content' => "Answer the question", 'game_id' => 372, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
+
+
+            //////////////// G-2 L-25
 
             ['content' => "Listen and Repeat", 'game_id' => 374, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
@@ -1091,6 +1094,20 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Students listen and write the words they hear", 'game_id' => 390, 'audio' =>  $Instructions . "Students-listen-and-write-the-words-they-hear.mp3"],
 
             ['content' => "Matching the words and the picture", 'game_id' => 391, 'audio' =>  $Instructions . "Matching-the-words-and-the-picture" . ".mp3"],
+
+            [
+                'content' => "Answer True or False", 'game_id' => 392, 'audio' =>  $Instructions . "Answer-True-or-False" . ".mp3"
+            ],
+
+
+            //G -2  l 29
+
+            [
+                'content' => "Answer True or False", 'game_id' => 392, 'audio' =>  $Instructions . "Answer-True-or-False" . ".mp3"
+            ],
+
+
+            //G -2  l 29
 
             // lesson - 29
             ['content' => "Listen and Repeat", 'game_id' => 394, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
@@ -1134,6 +1151,10 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Arranging the letters", 'game_id' => 413, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
 
+            ['content' => "Choose the correct answers", 'game_id' => 414, 'audio' =>  $Instructions . "Choose-the-correct-answers" . ".mp3"],
+
+            ///////// G-2 L- 33
+
             ['content' => "Students-listen-and-repeat-the-sentences", 'game_id' => 416, 'audio' =>  $Instructions . "Students-listen-and-repeat-the-sentences.mp3"],
 
 
@@ -1175,6 +1196,11 @@ class GameInstructionSeeder extends Seeder
 
             // ['content' => "Look at the pictures and make sentences", 'game_id' => 434, 'audio' => $Instructions . "Look-at-the-pictures-and-make-sentences.mp3"],
 
+            [
+                'content' => "Answer True or False", 'game_id' => 435, 'audio' =>  $Instructions . "Answer-True-or-False" . ".mp3"
+            ],
+
+
             //G-2 37
             ['content' => "Listen and repeat the phrases", 'game_id' => 437, 'audio' => $Instructions . "Listen-and-repeat-the-phrases.mp3"],
 
@@ -1212,6 +1238,10 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Listen to the audio and choose the right answer.", 'game_id' => 455, 'audio' => $Instructions . "SubBlock_Listen-to-the-audio-and-choose.mp3"],
 
             ['content' => "Look at the clocks and match them with the times", 'game_id' => 456, 'audio' => $Instructions . "Look-at-the-clocks-and-match-them-with-the-times.mp3"],
+
+            // ['content' => "Chris is student", 'game_id' => 457, 'audio' => $Instructions],
+
+            ['content' => "Choose the correct answers", 'game_id' => 457, 'audio' =>  $Instructions . "Choose-the-correct-answers" . ".mp3"],
 
 
 
