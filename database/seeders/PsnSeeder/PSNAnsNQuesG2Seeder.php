@@ -163,7 +163,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         // ========================================
         // Unit -4  <speaking_and_recording>
 
-        $contentImg = ['frisbee', 'football', 'basketball', 'hopscotch', 'volleyball', 'hide and seek', 'jump-rope'];
+        $contentImg = ['frisbee', 'football', 'basketball', 'volleyball', 'hide and seek'];
 
 
         $questionContent = [
@@ -172,18 +172,14 @@ class PSNAnsNQuesG2Seeder extends Seeder
             "I can play ___. ___ ___ ___ ___? ___.",
             "I can play ___. ___ ___ ___ ___? ___",
             "I can play ___. ___ ___ ___ ___? ___",
-            "I can play ___. ___ ___ ___ ___? ___",
-            "I can play ___. ___ ___ ___ ___? ___",
         ];
 
         $questionAudio = [
             "They-Can-Play-frisbee.mp3",
             "I-Cant-Play-football.mp3",
             "I-Can-Play-Basketball.mp3",
-            "I-Can-Play-hopscotch.mp3",
             "I-Can-Play-Volleyball.mp3",
             "I-Can-Play-hide-and-seek.mp3",
-            "I-Can-Play-jump-rope.mp3",
         ];
 
         $img = $ImageDomain . "Grade_2/Lesson_21/Speaking/";
@@ -234,7 +230,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         $contentImg = ['badminton', 'rope-jump', 'hopscotch', 'draw-picture', 'sing-english-songs', 'football',];
 
         $questionContent = [
-            "Look at the picture and speak \n Example \n I can play badminton. Can you play it? \n Yes,I can. I can play badminton better than you.",
+            "Look at the picture and speak. \n Example \n I can play badminton. Can you play it? \n Yes,I can. I can play badminton better than you.",
             "I can play ___ . Can you play it? Yes,I can.I can play ___ ___ than you.",
             "I can play ___ . Can you play it? Yes,I can.I can play ___ ___ than you.",
             "I can draw ___ . Can you ___ ___? Yes,I can. I can ___ ___ ___ than you.",
@@ -571,7 +567,6 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
         $Questions = [
             ['I', 'O', 'D', 'R', 'A'],
-            ['O', 'P', 'R', 'E'],
             ['I', 'N', 'R', 'C', 'O', 'A', 'A', 'T'],
             ['I', 'U', 'Q', 'Z'],
             ['R', 'U', 'R', 'E', 'L'],
@@ -583,7 +578,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ];
 
         $answers = [
-            'RADIO', 'ROPE', 'RAINCOAT', 'QUIZ', 'RULER', 'ROPE', 'RHINO', 'QUESTION', 'QUEEN', 'ROCKET'
+            'RADIO', 'RAINCOAT', 'QUIZ', 'RULER', 'ROPE', 'RHINO', 'QUESTION', 'QUEEN', 'ROCKET'
         ];
 
         for ($i = 0; $i < count($Questions); $i++) {
@@ -613,20 +608,20 @@ class PSNAnsNQuesG2Seeder extends Seeder
         //// Lesson 24 Unit 6 (Speaking) <speaking_and_recording>
 
         $contents = [
-            "What-is-it-quail", "Food", "What-is-it-rabbit", "Rabbit-like", "Rocket",
             "Quail-yes-no", "Raincoat-yes-no", "Rocket-yes-no",
+            "What-is-it-quail", "Food", "What-is-it-rabbit", "Rabbit-like", "Rocket",
         ];
 
         $Question_contents = [
+            "Can you draw ___? \n Yes,___ ___. No ___, ___.", //  Quail
+            "Do you like ___? \n Yes,______,No ___ ___.", // Raincoat
+            "Can you draw a rocket? \n Yes, I can.",  //rocket
+
             'What is it?',      // quail
             'What is your favorite food?', // Food
             'What is it?',          // rabbit
             'Do you like rabbit ?',   // rabbit -like
             'Can you draw a rocket ?',
-
-            "Can you draw ___? \n Yes,___ ___. No ___, ___.", //  Quail
-            "Do you like ___? \n Yes,______,No ___ ___.", // Raincoat
-            "Can you draw a rocket? \n Yes, I can.",  //rocket
         ];
 
 
@@ -883,12 +878,12 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
         $Question_contents = [
             "Look at the picture and speak. \n Example \n The cow is beside the farm house.",
-            'The bird is ___',
-            'The eggs are ___',
-            'The dog is ___',
-            'The cat is ___',
-            'The quail is ___',
-            'The rabbit is ___',
+            'The bird is ___.',
+            'The eggs are ___.',
+            'The dog is ___.',
+            'The cat is ___.',
+            'The quail is ___.',
+            'The rabbit is ___.',
         ];
 
 
@@ -1173,15 +1168,15 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ];
 
         $given_ques = [
-            ['in front of', 'Beside', 'on'],
-            ['Beside', 'in', 'on'],
-            ['Behind', 'Beside', 'on'],
-            ['Behind', 'in', 'on'],
-            ['Behind', 'Beside', 'in front of'],
+            ['in front of', 'beside', 'on'],
+            ['beside', 'in', 'on'],
+            ['behind', 'beside', 'on'],
+            ['behind', 'in', 'on'],
+            ['behind', 'beside', 'in front of'],
         ];
 
         $ans = [
-            'in front of', 'Beside', 'on', 'in', 'Behind'
+            'in front of', 'beside', 'on', 'in', 'behind'
         ];
 
         $audio = $AudioDomain . "Grade_2/Lesson_27/Listen_and_write/";
@@ -1538,14 +1533,14 @@ class PSNAnsNQuesG2Seeder extends Seeder
             ['Pink blouse', 'Sport shirt', 'Black sandals'],
             ['Brown shorts', 'White skirt', 'Yellow sandals'],
             ['Brown shorts', 'White skirt', 'Yellow sandals'],
-            ['Pink blouse', 'Sport shirt', 'Black sandals'],
+            ['Pink blouse', 'Green Sport shirt', 'Black sandals'],
             ['Pink blouse', 'Sport shirt', 'Black sandals'],
 
 
         ];
 
         $ans = [
-            'Black sandals', 'Brown shorts', 'White skirt', 'Sport shirt', 'Pink blouse'
+            'Black sandals', 'Brown shorts', 'White skirt', 'Green Sport shirt', 'Pink blouse'
         ];
 
         $audio = $AudioDomain . "Grade_2/Lesson_29/Look_and_write/";
@@ -2020,11 +2015,11 @@ class PSNAnsNQuesG2Seeder extends Seeder
         ];
 
         $Question_contents = [
-            'He is wearing ___',
-            'She is wearing ___',
-            'She is wearing ___',
-            'She is wearing ___',
-            'He is wearing ___',
+            'He is wearing ___.',
+            'She is wearing ___.',
+            'She is wearing ___.',
+            'She is wearing ___.',
+            'He is wearing ___.',
         ];
 
         $img = $ImageDomain . "Grade_2/Lesson_31/Speak/";
@@ -2394,24 +2389,24 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
 
         $chars = [
+            ['San-San', 'Toe-Toe', 'Moe-Moe', 'Ni-Ni'],
             ['Toe-Toe', 'Moe-Moe', 'Ni-Ni'],
             ['Moe-Moe', 'Toe-Toe', 'Ni-Ni'],
             ['Ni-Ni', 'Moe-Moe', 'Toe-Toe'],
-            ['San-San', 'Toe-Toe', 'Moe-Moe', 'Ni-Ni'],
         ];
 
 
         $convers = [ // စာ-ပုံ
+            ['San-San-conversation', 'Toe-Toe', 'Moe-Moe', 'Ni-Ni'],
             ['Toe-Toe-conversation', null, null],
             ['Moe-Moe-conversation', null, null],
             ['Ni-Ni-conversation', null, null],
-            ['San-San-conversation', 'Toe-Toe', 'Moe-Moe', 'Ni-Ni'],
         ];
         $aud = [ // စာ-ပုံ
+            ['San-San-conversation', null, null, null],
             ['Toe-Toe-conversation', null, null],
             ['Moe-Moe-conversation', null, null],
             ['Ni-Ni-conversation', null, null],
-            ['San-San-conversation', null, null, null],
         ];
 
         $images = $ImageDomain . "Grade_2/Lesson_33/Listen_and_Repeat/";
@@ -2449,15 +2444,15 @@ class PSNAnsNQuesG2Seeder extends Seeder
         $kids = ['Chris', 'Jack', 'Jane'];
 
         $questions = [
-            "Chris is wearing a ___ sport shirt', 'black ___ and red socks.",
-            "Jack is wearing a yellow. t-shirt, ___trousers, and blue ___.",
+            "Chris is wearing a ___ sport shirt, black ___ and red socks.",
+            "Jack is wearing a yellow, t-shirt, ___ trousers, and blue ___.",
             "Hello, I am Jane. I have three ___. They are Rosy, jack, and Chris."
         ];
 
         $ans = [
-            "Chris is wearing a red sport shirt', 'black short and red socks.",
-            "Jack is wearing a yellow. t-shirt, black trousers, and blue cap.",
-            "Hello, I am Jane. I have three friends. They are Rosy, jack, and Chris."
+            "red, shorts",
+            "black, cap/shoes",
+            "friends"
         ];
 
 
@@ -3012,13 +3007,12 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
         // Lesson -36 Unit -4 Speak  <speaking_and_recording>
 
-        $contentImg = ['restaurant', 'library', 'birthday_restaurant', 'cinema',];
+        $contentImg = ['restaurant', 'library',  'cinema',];
 
 
         $questionContent = [
             "Example \nToday is Friday! I like fried noodles. So,let's go to the restaurant.Let's go to the restaurant by car.",
             "Today is ___! I like ___.So,let's go ____.Let's go to the ___ by ___.",
-            "Today is _____! I like hamburgers. So, let's go to the _____. Let's go to the _____ by _____.",
             "Today is ___! I like movie.So,let's go to the ____.Let's go to the ___ by ___.",
 
         ];
@@ -3026,7 +3020,6 @@ class PSNAnsNQuesG2Seeder extends Seeder
         $questionAudio = [
             "today_is_friday_restaurant.mp3",
             "today_is_Sunday_library.mp3",
-            "today_is_birthday_restaurant.mp3",
             "today_is_Saturday_cinema.mp3",
         ];
 
@@ -3168,7 +3161,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                 'q_image' => $img . $value . ".png",
             ];
             if ($key == 0) {
-                $data['q_content'] = $data['q_content'] . " \nExample \nTen green bottles standing on the wall.";
+                $data['q_content'] = $data['q_content'] . " \nExample \nTen green bottles are standing on the wall.";
             }
             DB::table('ans_n_ques')->insert($data);
         }
@@ -3295,12 +3288,11 @@ class PSNAnsNQuesG2Seeder extends Seeder
             ['E', 'N', 'O'],
             ['E', 'N', 'T'],
             ['E', 'N', 'N', 'I'],
-            ['R', 'O', 'F', 'U'],
             ['S', 'X', 'I'],
         ];
 
         $answers = [
-            'FOUR', 'FIVE', 'THREE', 'SEVEN', 'TWO', 'ONE', 'TEN', 'NINE', 'FOUR', 'SIX'
+            'FOUR', 'FIVE', 'THREE', 'SEVEN', 'TWO', 'ONE', 'TEN', 'NINE',  'SIX'
         ];
 
         for ($i = 0; $i < count($Questions); $i++) {
@@ -3607,7 +3599,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
             // "Look at the clock and speak the time",
             // "Look at the clock and speak the time",
             // "Look at the clock and speak the time",
-            "Example \nIt is time to have breakfast",
+            "Example \nIt is time to have breakfast.",
             null,
             null,
             null,
@@ -3784,7 +3776,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         $images = $ImageDomain . "Grade_2/Lesson_40/Reading_passage/";
         $audios = $AudioDomain . "Grade_2/Lesson_40/Reading_passage/";
 
-        $para = "Chris is a student. He goes to school Monday to Friday. On Saturday, he gets up at 8 o’clock. He eats breakfast at 9 o’clock. He eats fried rice. Next, he plays with his dog. He eats lunch at 1 o’clock. He eats rice and chicken. After lunch, he sleeps for 30 minutes. He eats dinner at 6 o’clock. He eats friend noodles and drinks apple juice. Finally, he goes to bed at 10 o’clock.  .";
+        $para = "Chris is a student. He goes to school Monday to Friday. On Saturday, he gets up at 8 o’clock. He eats breakfast at 9 o’clock. He eats fried rice. Next, he plays with his dog. He eats lunch at 1 o’clock. He eats rice and chicken. After lunch, he sleeps for 30 minutes. He eats dinner at 6 o’clock. He eats friend noodles and drinks apple juice. Finally, he goes to bed at 10 o’clock.";
 
         $given_q = [
             ["On Saturday, he gets up at ___.", "8 O'clock"],

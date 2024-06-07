@@ -420,11 +420,11 @@ class UnitSeeder extends Seeder
 
             // lesson 2's units count(6) start (239,244)
 
+            ['name' => 'Video', 'lesson_id' => 42],
             ['name' => 'Reading', 'lesson_id' => 42,],                // 239
             ['name' => 'Trace Word', 'lesson_id' => 42],
             ['name' => 'Matching', 'lesson_id' => 42],
             ['name' => 'Listen and Write', 'lesson_id' => 42],
-            ['name' => 'Video', 'lesson_id' => 42],
             ['name' => 'Listen & Speak', 'lesson_id' => 42],         //244
 
 
@@ -661,7 +661,7 @@ class UnitSeeder extends Seeder
 
             ['name' => 'Grammar Explanation', 'lesson_id' => 69],            // 370
             ['name' => 'Listen and Repeat', 'lesson_id' => 69],
-            ['name' => 'Look and Write', 'lesson_id' => 69],
+            ['name' => 'Look and Choose', 'lesson_id' => 69],
             ['name' => 'Speak', 'lesson_id' => 69],                          // 373
 
 
@@ -678,7 +678,7 @@ class UnitSeeder extends Seeder
 
             ['name' => 'Video', 'lesson_id' => 71],              // 379
             ['name' => 'Listen and Repeat', 'lesson_id' => 71],
-            ['name' => 'Look and Write', 'lesson_id' => 71],
+            ['name' => 'Listen and Write', 'lesson_id' => 71],
             ['name' => 'Matching', 'lesson_id' => 71],
             ['name' => 'Speak', 'lesson_id' => 71],              // 383
 

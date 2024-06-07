@@ -543,11 +543,11 @@ class GameSeeder extends Seeder
             // // unit 2's games
 
 
-            ['name' => 'Reading', 'unit_id' => 239, 'category_id' => 2, 'instructionGIF' => null],
-            ['name' => 'Trace Word', 'unit_id' => 240, 'category_id' => 31, 'instructionGIF' => $Gif_path . "Tracing.gif"],
-            ['name' => 'Matching', 'unit_id' => 241, 'category_id' => 7, 'instructionGIF' => $Gif_path . "Matching.gif"],
-            ['name' => 'Listen and Write', 'unit_id' => 242, 'category_id' => 14, 'instructionGIF' =>  $Gif_path . "Re-arrange-in-order.gif"],
-            ['name' => 'Video', 'unit_id' => 243, 'category_id' => 1, 'instructionGIF' =>  null],
+            ['name' => 'Video', 'unit_id' => 239, 'category_id' => 1, 'instructionGIF' =>  null],
+            ['name' => 'Reading', 'unit_id' => 240, 'category_id' => 2, 'instructionGIF' => null],
+            ['name' => 'Trace Word', 'unit_id' => 241, 'category_id' => 31, 'instructionGIF' => $Gif_path . "Tracing.gif"],
+            ['name' => 'Matching', 'unit_id' => 242, 'category_id' => 7, 'instructionGIF' => $Gif_path . "Matching.gif"],
+            ['name' => 'Listen and Write', 'unit_id' => 243, 'category_id' => 14, 'instructionGIF' =>  $Gif_path . "Re-arrange-in-order.gif"],
             ['name' => 'Listen & Speak', 'unit_id' => 244, 'category_id' => 32, 'instructionGIF' => $Gif_path . "Conversation.gif"],
 
 
@@ -838,7 +838,7 @@ class GameSeeder extends Seeder
             ['name' => 'Grammar Explanation', 'unit_id' => 370, 'category_id' => 1,  'instructionGIF' => null],
             ['name' => 'Reading 1', 'unit_id' => 371, 'category_id' => 2,  'instructionGIF' => null],
             ['name' => 'Reading 2', 'unit_id' => 371, 'category_id' => 2,  'instructionGIF' => null],
-            ['name' => 'Look and Write', 'unit_id' => 372, 'category_id' => 39,  'instructionGIF' => $Gif_path . "Listen-and-choose-correct.gif"],
+            ['name' => 'Look and Choose', 'unit_id' => 372, 'category_id' => 39,  'instructionGIF' => $Gif_path . "Listen-and-choose-correct.gif"],
             ['name' => 'Speak', 'unit_id' => 373, 'category_id' => 11,  'instructionGIF' => $Gif_path . "Speaking.gif"],
 
 
