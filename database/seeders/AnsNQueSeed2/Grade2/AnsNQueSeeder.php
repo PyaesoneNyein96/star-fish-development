@@ -2596,25 +2596,25 @@ class AnsNQueSeeder extends Seeder
 
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 334, 'q_audio' => $AudioDomain . $G2_L17_true_or_false_path . "On-Wednesday-she-eats-a-salad.mp3", "q_conver" => "On Wednesday, \nshe eats a salad.", 'q_content' =>  "true", 'a_content' => 0, 'q_image' =>  $l17G334image . "watermelon.png"],
+            ['round' => 1, 'game_id' => 334, 'q_audio' => $AudioDomain . $G2_L17_true_or_false_path . "On-Wednesday-she-eats-a-salad.mp3", "q_conver" => $l17G334image . "wed-text.png", 'q_content' =>  "true", 'a_content' => 0, 'q_image' =>  $l17G334image . "watermelon.png"],
             ['round' => 1, 'game_id' => 334, 'q_audio' => null, "q_conver" => null, 'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 2, 'game_id' => 334, 'q_audio' => $AudioDomain . $G2_L17_true_or_false_path . "On-Thursday-she-eats-two-bana.mp3", "q_conver" => "On Thursday, \nshe eats two bananas.", 'q_content' =>  "true", 'a_content' => 1, 'q_image' =>  $l17G334image . "banana.png"],
+            ['round' => 2, 'game_id' => 334, 'q_audio' => $AudioDomain . $G2_L17_true_or_false_path . "On-Thursday-she-eats-two-bana.mp3", "q_conver" => $l17G334image . "thur-text.png", 'q_content' =>  "true", 'a_content' => 1, 'q_image' =>  $l17G334image . "banana.png"],
             ['round' => 2, 'game_id' => 334, 'q_audio' => null, "q_conver" => null, 'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 3, 'game_id' => 334, 'q_audio' => $AudioDomain . $G2_L17_true_or_false_path . "On-Friday-she-eats-two-apples.mp3", "q_conver" => "On Friday, \nshe eats two apples.", 'q_content' =>  "true", 'a_content' => 0, 'q_image' =>  $l17G334image . "strawberry.png"],
+            ['round' => 3, 'game_id' => 334, 'q_audio' => $AudioDomain . $G2_L17_true_or_false_path . "On-Friday-she-eats-two-apples.mp3", "q_conver" => $l17G334image . "fri-text.png", 'q_content' =>  "true", 'a_content' => 0, 'q_image' =>  $l17G334image . "strawberry.png"],
             ['round' => 3, 'game_id' => 334, 'q_audio' => null, "q_conver" => null, 'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 4, 'game_id' => 334, 'q_audio' => $AudioDomain . $G2_L17_true_or_false_path . "On-Saturday-she-eats-a-cake.mp3", "q_conver" => "On Saturday, \nshe eats a cake.", 'q_content' =>  "true", 'a_content' => 1, 'q_image' =>  $l17G334image . "cake.png"],
+            ['round' => 4, 'game_id' => 334, 'q_audio' => $AudioDomain . $G2_L17_true_or_false_path . "On-Saturday-she-eats-a-cake.mp3", "q_conver" => $l17G334image . "sat-text.png", 'q_content' =>  "true", 'a_content' => 1, 'q_image' =>  $l17G334image . "cake.png"],
             ['round' => 4, 'game_id' => 334, 'q_audio' => null, "q_conver" => null, 'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 5, 'game_id' => 334, 'q_audio' => $AudioDomain . $G2_L17_true_or_false_path . "On-Sunday-she-eats-a-hot-dog.mp3", "q_conver" => "On Sunday, \nshe eats a hot dog.", 'q_content' =>  "true", 'a_content' => 0, 'q_image' =>  $l17G334image . "pineapple.png"],
+            ['round' => 5, 'game_id' => 334, 'q_audio' => $AudioDomain . $G2_L17_true_or_false_path . "On-Sunday-she-eats-a-hot-dog.mp3", "q_conver" => $l17G334image . "sun-text.png", 'q_content' =>  "true", 'a_content' => 0, 'q_image' =>  $l17G334image . "pineapple.png"],
             ['round' => 5, 'game_id' => 334, 'q_audio' => null, "q_conver" => null, 'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 6, 'game_id' => 334, 'q_audio' => $AudioDomain . $G2_L17_true_or_false_path . "On-Tuesday-she-eats-a-waterme.mp3", "q_conver" => "On Tuesday, \nshe eats a watermelon.", 'q_content' =>  "true", 'a_content' => 0, 'q_image' =>  $l17G334image . "hamburger.png"],
+            ['round' => 6, 'game_id' => 334, 'q_audio' => $AudioDomain . $G2_L17_true_or_false_path . "On-Tuesday-she-eats-a-waterme.mp3", "q_conver" => $l17G334image . "tue-text.png", 'q_content' =>  "true", 'a_content' => 0, 'q_image' =>  $l17G334image . "hamburger.png"],
             ['round' => 6, 'game_id' => 334, 'q_audio' => null, "q_conver" => null, 'q_content' =>  "false", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 7, 'game_id' => 334, 'q_audio' => $AudioDomain . $G2_L17_true_or_false_path . "On-Monday-she-eats-a-mango-T.mp3", "q_conver" => "On Monday, \nshe eats a mango.", 'q_content' =>  "true", 'a_content' => 1, 'q_image' =>  $l17G334image . "mango.png"],
+            ['round' => 7, 'game_id' => 334, 'q_audio' => $AudioDomain . $G2_L17_true_or_false_path . "On-Monday-she-eats-a-mango-T.mp3", "q_conver" => $l17G334image . "mon-text.png", 'q_content' =>  "true", 'a_content' => 1, 'q_image' =>  $l17G334image . "mango.png"],
             ['round' => 7, 'game_id' => 334, 'q_audio' => null, "q_conver" => null, 'q_content' =>  "false", 'a_content' => 0, 'q_image' => null],
 
         ]);
