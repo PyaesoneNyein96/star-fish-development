@@ -33,54 +33,54 @@ class TestingDataSeeder extends Seeder
 
         ];
 
-        $lessons =  range(1, 10);
+        // $lessons =  range(1, 10);
 
-        foreach ($userId as $key => $user) {
-            foreach ($lessons as $k => $l) {
-                DB::table('student_lessons')->insert([
-                    [
-                        'student_id' => $user,
-                        'grade_id' => 1,
-                        'lesson_id' => $l,
-                        'count' => $done[$k]['count'],
-                        // 'claimed_3' => $done[$k]['claimed_3'],
-                        // 'claimed_5' => $done[$k]['claimed_5'],
+        // foreach ($userId as $key => $user) {
+        //     foreach ($lessons as $k => $l) {
+        //         DB::table('student_lessons')->insert([
+        //             [
+        //                 'student_id' => $user,
+        //                 'grade_id' => 1,
+        //                 'lesson_id' => $l,
+        //                 'count' => $done[$k]['count'],
+        //                 // 'claimed_3' => $done[$k]['claimed_3'],
+        //                 // 'claimed_5' => $done[$k]['claimed_5'],
 
-                    ]
-                ]);
-            }
-        }
+        //             ]
+        //         ]);
+        //     }
+        // }
 
-        foreach (range(1, 40) as $k => $l) {
-            DB::table('student_lessons')->insert([
-                'student_id' => 3,
-                'grade_id' => 1,
-                'lesson_id' => $l,
-                'count' => 1,
-                // 'claimed_3' => 0,
-                // 'claimed_5' => 0,
-            ]);
-        }
-        foreach (range(41, 80) as $k => $l) {
-            DB::table('student_lessons')->insert([
-                'student_id' => 3,
-                'grade_id' => 2,
-                'lesson_id' => $l,
-                'count' => 1,
-                // 'claimed_3' => 0,
-                // 'claimed_5' => 0,
-            ]);
-        }
-        foreach (range(81, 120) as $k => $l) {
-            DB::table('student_lessons')->insert([
-                'student_id' => 3,
-                'grade_id' => 3,
-                'lesson_id' => $l,
-                'count' => 1,
-                // 'claimed_3' => 0,
-                // 'claimed_5' => 0,
-            ]);
-        }
+        // foreach (range(1, 40) as $k => $l) {
+        //     DB::table('student_lessons')->insert([
+        //         'student_id' => 3,
+        //         'grade_id' => 1,
+        //         'lesson_id' => $l,
+        //         'count' => 1,
+        //         // 'claimed_3' => 0,
+        //         // 'claimed_5' => 0,
+        //     ]);
+        // }
+        // foreach (range(41, 80) as $k => $l) {
+        //     DB::table('student_lessons')->insert([
+        //         'student_id' => 3,
+        //         'grade_id' => 2,
+        //         'lesson_id' => $l,
+        //         'count' => 1,
+        //         // 'claimed_3' => 0,
+        //         // 'claimed_5' => 0,
+        //     ]);
+        // }
+        // foreach (range(81, 120) as $k => $l) {
+        //     DB::table('student_lessons')->insert([
+        //         'student_id' => 3,
+        //         'grade_id' => 3,
+        //         'lesson_id' => $l,
+        //         'count' => 1,
+        //         // 'claimed_3' => 0,
+        //         // 'claimed_5' => 0,
+        //     ]);
+        // }
         // foreach (range(121, 160) as $k => $l) {
         //     DB::table('student_lessons')->insert([
         //         'student_id' => 3,
@@ -347,5 +347,33 @@ class TestingDataSeeder extends Seeder
                 'grade_id' => 1,
             ]
         ]);
+
+
+        // client testing user's lesson records -----------
+        $lessons =  range(1, 8);
+
+        // foreach ([10,11,12,13] as  $id) {
+        foreach (range(1,9) as  $id) {
+            foreach ($lessons as $l) {
+                DB::table('student_lessons')->insert([
+                    [
+                        'student_id' => $id,
+                        'grade_id' => 1,
+                        'lesson_id' => $l,
+                        // 'claimed_3' => $done[$k]['claimed_3'],
+                        // 'claimed_5' => $done[$k]['claimed_5'],
+
+                    ]
+                ]);
+            }
+        }
+
+
+
+
+
+
+
+
     }
 }

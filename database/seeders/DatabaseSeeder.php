@@ -65,6 +65,7 @@ class DatabaseSeeder extends Seeder
 
 
 
+
         // App Versions
 
 
@@ -118,8 +119,5 @@ class DatabaseSeeder extends Seeder
 
         // Admin
         $this->call(AdminUserSeeder::class);
-
-
-
     }
 }

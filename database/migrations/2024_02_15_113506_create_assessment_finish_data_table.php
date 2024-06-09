@@ -29,6 +29,8 @@ return new class extends Migration
             // $table->integer("game_9")->default(0);
             // $table->integer("game_10")->default(0);
 
+            // $table->integer('timer')->nullable();
+
             $table->integer("point")->default(0);
             $table->integer("finish")->default(0);
             $table->integer("claim")->default(0);

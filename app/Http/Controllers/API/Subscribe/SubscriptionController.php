@@ -146,8 +146,8 @@ class SubscriptionController extends Controller
     public function checkPaymentResult(Request $request)
     {
 
-        // $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/queryorder";
-        $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/uat/queryorder";
+        $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/queryorder";
+        // $kbzCheckURL = "https://api.kbzpay.com/payment/gateway/uat/queryorder";
         $orderId = $request->header('order_id');
 
         $data = [
@@ -173,8 +173,8 @@ class SubscriptionController extends Controller
     // referer kpay
     public function referer(Request $request)
     {
-        $redirectUrl = "https://static.kbzpay.com/pgw/uat/pwa/#/";
-        // $redirectUrl = "https://static.kbzpay.com/pgw/pwa/#/";
+        // $redirectUrl = "https://static.kbzpay.com/pgw/uat/pwa/#/";
+        $redirectUrl = "https://static.kbzpay.com/pgw/pwa/#/";
 
         $appid = $request->query("appid");
         $merch_code = $request->query("merch_code");
@@ -245,8 +245,8 @@ class SubscriptionController extends Controller
     private function request_prepay_id($time, $orderId, $nonce_str)
     {
 
-        $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
-        // $kbzRequestURL = "https://api.kbzpay.com/payment/gateway/precreate";
+        // $kbzRequestURL = "http://api.kbzpay.com/payment/gateway/uat/precreate";
+        $kbzRequestURL = "https://api.kbzpay.com/payment/gateway/precreate";
 
         $isLocal = $this->student->isLocal;
         $price = Grade::find($this->grade_id)->local_price;
@@ -309,7 +309,8 @@ class SubscriptionController extends Controller
         try {
 
             if ($isOrdered) {
-                $closeUrl = "https://api.kbzpay.com/payment/gateway/uat/closeorder";
+                // $closeUrl = "https://api.kbzpay.com/payment/gateway/uat/closeorder";
+                $closeUrl = "https://api.kbzpay.com/payment/gateway/closeorder";
                 $signString = "appid=" . $this->appId . "&merch_code=" . $this->merch_code . "&merch_order_id=$isOrdered->id&method=kbz.payment.closeorder&nonce_str=" . $this->nonce_str . "&timestamp=" . $this->time . "&version=3.0&key=" . $this->appKey;
                 $dataBody = [
                     "Request" => [
@@ -328,7 +329,6 @@ class SubscriptionController extends Controller
                 ];
                 $closeOrder = Http::post($closeUrl, $dataBody);
                 if ($closeOrder["Response"]["result"] == "SUCCESS") $isOrdered->delete();
-
             }
 
             $order_transaction = OrderTransaction::create([
@@ -339,17 +339,10 @@ class SubscriptionController extends Controller
 
             DB::commit();
             if ($order_transaction) return $order_transaction;
-
-
-
         } catch (\Throwable $th) {
             DB::rollback();
             throw $th;
-
         }
-
-
-
     }
 
 
@@ -526,5 +519,22 @@ class SubscriptionController extends Controller
         } catch (\Throwable $th) {
             throw $th;
         }
+    }
+
+    public function autoSeed()
+    {
+
+        // $students = Student::whereIn('id', [1, 10, 11, 12, 13])->get();
+        $students = Student::whereIn('id', [1,2,3,4,5,6,7,8,9])->get();
+
+
+        foreach ($students as $k => $student) {
+            $studentGrade = StudentGrade::where('student_id', $student->id)->where('grade_id',1)->first();
+            if(!$studentGrade) {
+                $this->getGradeAccess($student, 1, 1);
+            }
+        }
+
+        return "ok";
     }
 }

@@ -4,12 +4,15 @@ namespace App\Http\Controllers\API\Mission;
 
 use Carbon\Carbon;
 use App\Models\Game;
+use App\Models\Grade;
 use App\Models\Lesson;
-use App\Models\Student;
 
+use App\Models\Student;
+use App\Models\Assessment;
 use App\Models\DailyBonus;
 use App\Models\LoginBonus;
 use App\Models\StudentGame;
+use App\Models\StudentGrade;
 use Illuminate\Http\Request;
 use App\Models\QuestionBonus;
 use App\Models\StudentLesson;
@@ -39,22 +42,28 @@ class MissionController extends Controller
     // REPETITIVE GAME -
     //===============================================================//
 
-    public function repetitiveGameList(Request $request){
-
-        $repeat = StudentGame::where('student_id', $request->student->id)
-            ->get();
-
-        $repetitiveRecords =  StudentGame::where('student_id', $request->student->id)->where('count', '<=', 5)->get();
+    public function repetitiveGameList(Request $request)
+    {
 
 
-        $grades = Student::find($request->student->id)->grades;
+        $repeat = StudentGame::where('student_id', $request->student->id)->get();
 
+        $repetitiveRecords =  StudentGame::where('student_id', $request->student->id)
+            ->where('count', '<=', 5)->get();
+
+
+        $stu_grades = StudentGrade::where('student_id', $request->student->id)
+            ->orderBy('created_at', 'desc')->pluck('grade_id');
+
+        $grades = Grade::whereIn('id', $stu_grades)->orderByRaw('FIELD(id, 2, 1)')->get();
 
         if (!$grades || $grades->count() == 0) return response()->json(["message" => "You must be a subscriber for this feature."], 200);
 
-        $gradeCacheKey = implode('_', $grades->pluck('id')->toArray());
+        $grade_Cache_Key = implode('_', $grades->pluck('id')->toArray());
 
-        $rawUnits = Cache::rememberForever($gradeCacheKey, function () use($grades) {
+        // $rawUnitGames = $grades->pluck('units')->flatten()->pluck('games')->flatten();
+
+        $rawUnitGames = Cache::rememberForever($grade_Cache_Key, function () use ($grades) {
             return $grades->pluck('units')->flatten()->pluck('games')->flatten();
         });
 
@@ -62,27 +71,23 @@ class MissionController extends Controller
 
         /// ====================== 3 times
 
-        $ThreeTimes = $rawUnits->map(function ($raw) use ($repetitiveRecords) {
+        $ThreeTimes = $rawUnitGames->map(function ($raw) use ($repetitiveRecords) {
 
-            $repeat = $repetitiveRecords->where('unit_id', $raw->id)->first();
+            $repeat = $repetitiveRecords->where('game_id', $raw->id)->first();
             $exist = isset($repeat);
             $repeat = optional($repeat);
 
 
-            if($exist && $repeat->count >= 3){
+            if ($exist && $repeat->count >= 3) {
 
-                if( $repeat->claimed_3 == 0){
+                if ($repeat->claimed_3 == 0) {
                     $claimed = false;
-                }
-                else if($repeat->claimed_3 == 1){
+                } else if ($repeat->claimed_3 == 1) {
                     $claimed = true;
-                }
-                else if($repeat->count < 3 && $repeat->claimed_3 == 0){
+                } else if ($repeat->count < 3 && $repeat->claimed_3 == 0) {
                     $claimed = false;
                 }
-
-            }
-            else{
+            } else {
                 $claimed = false;
             }
 
@@ -91,10 +96,11 @@ class MissionController extends Controller
                 'game_id' => $raw->id,
                 'name' => "Game - " . $raw->name . ": 3 repetitive practices",
                 // 'grade' => $raw->unit->grade->name,
-                'allowed' => $repeat->count >= 3 ,
-                'claimed' => $claimed ,
-                'count' => $repeat->count,
-                'point' =>  3,
+                'allowed' => $repeat->count >= 3,
+                'claimed' => $claimed,
+                // 'count' => $repeat->count,
+                'count' => 3,
+                'point' =>  1,
 
             ];
         });
@@ -103,19 +109,20 @@ class MissionController extends Controller
 
         /// ====================== 5 times
 
-        $FiveTimes = $rawUnits->map(function ($raw) use ($repetitiveRecords) {
+        $FiveTimes = $rawUnitGames->map(function ($raw) use ($repetitiveRecords) {
 
-            $repeat = $repetitiveRecords->where('unit_id', $raw->id)->first();
+            $repeat = $repetitiveRecords->where('game_id', $raw->id)->first();
 
             $repeat = optional($repeat);
             return [
                 'game_id' => $raw->id,
                 'name' => "Game - " . $raw->name . ": 5 repetitive practices",
-                // 'grade' => $raw->grade->name,
+                // 'grade' => $raw->unit->grade->name,
                 'allowed' => $repeat->count == 5,
                 'claimed' =>  $repeat->count < 5 ? false : ($repeat->count == 5 && $repeat->claimed_5 == 0 ? false : true),
-                'count' => $repeat->count,
-                'point' => 5
+                // 'count' => $repeat->count,
+                'count' => 5,
+                'point' => 3
             ];
         });
 
@@ -127,17 +134,23 @@ class MissionController extends Controller
 
         $collection = $collection->sortBy(function ($lesson) {
 
-            if ($lesson['allowed'] && !$lesson['claimed']) {
+            if ($lesson['allowed']) {
                 return 0;
-            } elseif ($lesson['allowed'] && $lesson['claimed']) {
-                return 1;
-            }  elseif ($lesson['claimed']) {
-                return 2;
             } else {
-                return 3;
+                return 1;
             }
 
+            // elseif ($lesson['allowed'] && $lesson['claimed']) {
+            //     return 1;
+            // }  elseif ($lesson['claimed']) {
+            //     return 2;
+            // } else {
+            //     return 3;
+            // }
+
         });
+
+        // $collection = $collection->sortByDesc('grade');
 
         $perPage = $request->header('perPage') ? $request->header('perPage') : 20;
         $page = $request->header('page') ? $request->header('page') : 1;
@@ -153,13 +166,12 @@ class MissionController extends Controller
             'page' => $page,
             'total' => $data->count()
         ], 200);
-
     }
 
 
     // Repetitive Bonus Claim
 
-     public function repetitiveClaimGame(Request $request)
+    public function repetitiveClaimGame(Request $request)
     {
 
         $student = $request->student;
@@ -173,7 +185,7 @@ class MissionController extends Controller
                 ->where('student_id', $request->student->id)->first();
 
             $sms = null;
-            if ($claimUpdate->claimed_3 == 0 && ($count == 3 || $count == 4)) {
+            if ($claimUpdate->claimed_3 == 0 && $count <= 3) {
                 $claimUpdate->claimed_3 = 1;
                 $sms = 3;
                 $this->point_lvl($student, 1);
@@ -393,12 +405,12 @@ class MissionController extends Controller
 
                 // daily Update process
                 $dailyRecord->update([
-                    'first' => Carbon::now()->addMinutes(1),
-                    'second' => Carbon::now()->addMinutes(3),
-                    'daily' => Carbon::Now()->addHours(1),
-                    // 'first' => Carbon::now()->addMinutes(15),
-                    // 'second' => Carbon::now()->addMinutes(30),
-                    // 'daily' => Carbon::Now()->addDays(1),
+                    // 'first' => Carbon::now()->addMinutes(1),
+                    // 'second' => Carbon::now()->addMinutes(3),
+                    // 'daily' => Carbon::Now()->addHours(1),
+                    'first' => Carbon::now()->addMinutes(15),
+                    'second' => Carbon::now()->addMinutes(30),
+                    'daily' => Carbon::Now(),
                     'day_count' => $day_count,
                     'updated_at' => Carbon::now()
                 ]);
@@ -433,14 +445,14 @@ class MissionController extends Controller
         $result = [
             [
                 'name' => "15 mins",
-                'allowed' => $record->first == 1 || ($record->first != 1 && Carbon::parse($record->first) <= Carbon::now()) ,
-                'claimed' => $record->first == 1 ,
+                'allowed' => $record->first == 1 || ($record->first != 1 && Carbon::parse($record->first) <= Carbon::now()),
+                'claimed' => $record->first == 1,
                 'full_name' => "15 minutes time spent in the app."
             ],
             [
                 'name' => "30 mins",
-                 'allowed' => $record->second == 1 || ($record->second != 1 && Carbon::parse($record->second) <= Carbon::now()) ,
-                'claimed' => $record->second == 1 ,
+                'allowed' => $record->second == 1 || ($record->second != 1 && Carbon::parse($record->second) <= Carbon::now()),
+                'claimed' => $record->second == 1,
                 'full_name' => "30 minutes time spent in the app."
             ],
             [
@@ -533,7 +545,8 @@ class MissionController extends Controller
     // ===============================================================//
 
 
-    public function checkLogin(Request $request){
+    public function checkLogin(Request $request)
+    {
 
         $record = StudentLoginBonus::where('student_id', $request->student->id)->latest('created_at')->first();
         // return $record;
@@ -547,15 +560,14 @@ class MissionController extends Controller
 
 
         $now = Carbon::now()
-        ->addDays($testing_day)
-        ;
+            ->addDays($testing_day);
 
 
         DB::beginTransaction();
 
         try {
 
-            if($add_date->isSameDay($now) && !in_array($record->day_count, $givenDates) ){
+            if ($add_date->isSameDay($now) && !in_array($record->day_count, $givenDates)) {
                 $record->update([
                     'updated_at' => $now,
                     'date' => $now,
@@ -563,8 +575,7 @@ class MissionController extends Controller
                 ]);
                 DB::commit();
                 return response()->json(['message' => "login bonus record was updated"], 200);
-
-            }else if($add_date->isSameDay($now) && $record->claim == 0  && in_array($record->day_count, $givenDates) ){
+            } else if ($add_date->isSameDay($now) && $record->claim == 0  && in_array($record->day_count, $givenDates)) {
 
                 StudentLoginBonus::create([
                     'student_id' => $request->student->id,
@@ -574,8 +585,7 @@ class MissionController extends Controller
                 ]);
                 DB::commit();
                 return response()->json(['message' => "create new one"], 200);
-
-            }else if ($add_date < $now){
+            } else if ($add_date < $now) {
 
                 foreach ($all_records as $key => $rd) {
                     $rd->delete();
@@ -590,28 +600,26 @@ class MissionController extends Controller
 
                 DB::commit();
                 return response()->json(['message' => "reset login bonus counting circle"], 200);
-            }else{
+            } else {
                 return response()->json(['message' => "nth 🤭"], 201);
             }
 
             DB::commit();
-
         } catch (\Throwable $th) {
             DB::rollback();
             throw $th;
         }
-
-
     }
 
 
-    public function loginBonusList(Request $request){
+    public function loginBonusList(Request $request)
+    {
 
         $loginBonus = LoginBonus::all();
 
         $student_bonus = $request->student->loginBonus;
 
-        $result = $loginBonus->map(function($bl,$index) use($student_bonus) {
+        $result = $loginBonus->map(function ($bl, $index) use ($student_bonus) {
 
             $now = Carbon::now()->addDays(1);
             $same_record = $bl->days == isset($student_bonus[$index]);
@@ -620,66 +628,56 @@ class MissionController extends Controller
                 'day' => $bl->days,
                 'point' => $bl->point,
                 'allowed' => $student_bonus->contains('day_count', $bl->days),
-                'claimed' => $same_record ? ($student_bonus[$index]->claim ? true : false ) : false ,
+                'claimed' => $same_record ? ($student_bonus[$index]->claim ? true : false) : false,
             ];
-
         });
 
 
         return $result;
-
-
-
     }
 
     // Login bonus claim
-    public function loginBonusClaim (Request $request){
+    public function loginBonusClaim(Request $request)
+    {
 
         $days = $request->header('days');
 
-        $points = LoginBonus::where('days',$days)->first();
-
+        $points = LoginBonus::where('days', $days)->first();
 
 
         DB::beginTransaction();
         try {
 
-            $record = $request->student->loginBonus->where('day_count',$days)->first();
+            // $record = $request->student->loginBonus->where('day_count',$days)->first();
+
+            $record = StudentLoginBonus::where('student_id', $request->student->id)
+                ->where('day_count', $days)->first();
 
 
-            if(!$record) return response()->json(['error' => "Wrong days payload!"],404);
+            if (!$record) return response()->json(['error' => "Wrong days payload!"], 404);
 
-            if($record->claim == 1) return response()->json(['message' => "You already claimed this bonus!"],208);
+            if ($record->claim == 1) return response()->json(['message' => "You already claimed this bonus!"], 208);
 
-            if($record->created_at->addDays($days)->isSameDay(Carbon::now()->addDays($days))){
-
+            // if($record->created_at->addDays($days)->isSameDay(Carbon::now()->addDays($days))){
+            if ($record && $record->claim == 0) {
                 $record->update([
                     'claim' => 1
                 ]);
 
-
                 $this->point_lvl($request->student, $points->point);
 
-            DB::commit();
+                DB::commit();
 
-            return response()->json(['message' => "successfully claimed"], 200);
-
-            }else{
+                return response()->json(['message' => "successfully claimed"], 200);
+            } else {
                 return response()->json([
-                'error' => "Days not match."
+                    'error' => "Days not match."
                 ], 403);
             }
-
         } catch (\Throwable $th) {
             DB::rollback();
             throw $th;
-
-
         }
-
-
-
-
     }
 
 
@@ -687,14 +685,15 @@ class MissionController extends Controller
     // Question Bonus -
     // ===============================================================//
 
-    public function questionBonusList(Request $request){
+    public function questionBonusList(Request $request)
+    {
 
         $student = $request->student;
 
         $records = $student->questionBonus;
 
 
-        return  $records->map(function ($record) use($student) {
+        return  $records->map(function ($record) use ($student) {
 
             return [
                 'name' => $record->question_count,
@@ -702,13 +701,12 @@ class MissionController extends Controller
                 'allowed' => $record->question_count <= $student->question_answer,
                 'claimed' => $record->claim && true
             ];
-
         });
-
     }
 
 
-    public function questionBonusClaim(Request $request){
+    public function questionBonusClaim(Request $request)
+    {
 
         $student = $request->student;
         $name = $request->header('name');
@@ -719,9 +717,9 @@ class MissionController extends Controller
             $record = $student->questionBonus->where('question_count', $name)->first();
             $allowed = $student->question_answer >= $name;
 
-            if(!$allowed) return response()->json(['error' => "not enough question for this Questions bonus"], 403);
+            if (!$allowed) return response()->json(['error' => "not enough question for this Questions bonus"], 403);
 
-            if($record && $allowed){
+            if ($record && $allowed) {
                 $record->update(['claim' => 1]);
 
                 $this->point_lvl($request->student, $record->point);
@@ -731,16 +729,10 @@ class MissionController extends Controller
                     'message' => "Successfully Claim for $name questions Bonus"
                 ], 200);
             }
-
-
-
         } catch (\Throwable $th) {
             DB::rollback();
             throw $th;
         }
-
-
-
     }
 
 
@@ -748,15 +740,16 @@ class MissionController extends Controller
 
 
 
-    public function championshipBonusList(Request $request){
+    public function championshipBonusList(Request $request)
+    {
 
         $student = $request->student;
 
         $record = $student->championBonus;
 
-        return $record->map(function ($record) use($student){
+        return $record->map(function ($record) use ($student) {
             return [
-                'name' => $record->champion,
+                'name' => ucfirst($record->champion),
                 'point' => $record->point,
                 'allowed' => $record->champion == $student->board || $record->fix_level < $student->level,
                 'claimed' => $record->claim && true
@@ -765,7 +758,8 @@ class MissionController extends Controller
     }
 
 
-    public function championshipBonusClaim(Request $request){
+    public function championshipBonusClaim(Request $request)
+    {
 
         $student =  $request->student;
         $name = $request->header('name');
@@ -778,9 +772,9 @@ class MissionController extends Controller
             $record = $student->championBonus->where('champion', $name)->first();
             $allowed = $student->board == $name || $record->fix_level <= $student->level;
 
-            if(!$allowed) return response()->json(['error' => "not enough level for championship bonus"], 403);
+            if (!$allowed) return response()->json(['error' => "not enough level for championship bonus"], 403);
 
-            if($record && $allowed){
+            if ($record && $allowed) {
 
                 $record->update(['claim' => 1]);
 
@@ -790,18 +784,11 @@ class MissionController extends Controller
                 return response()->json([
                     'message' => "Successfully Claim for $name champion Bonus"
                 ], 200);
-
             }
-
-
-        } catch (\Throwable $th){
+        } catch (\Throwable $th) {
             DB::rollback();
             throw $th;
         }
-
-
-
-
     }
 
 
@@ -810,7 +797,8 @@ class MissionController extends Controller
     // ===============================================================//
 
 
-    public function notify(Request $request){
+    public function notify(Request $request)
+    {
 
         $student = $request->student;
 
@@ -819,14 +807,14 @@ class MissionController extends Controller
         // Repetitive
         // ==================================
         $repetitive_3 = StudentGame::where('student_id', $student->id)
-        ->where('count', '>=' , 3)->where('count', '<' , 5)
-        ->where('claimed_3', 0)->get()->toArray();
+            ->where('count', '>=', 3)->where('count', '<', 5)
+            ->where('claimed_3', 0)->get()->toArray();
 
         $repetitive_5 = StudentGame::where('student_id', $student->id)
-        ->where('count', 5)
-        ->where('claimed_5', 0)->get()->toArray();
+            ->where('count', 5)
+            ->where('claimed_5', 0)->get()->toArray();
 
-        $repetitive_count = collect(array_merge($repetitive_3,$repetitive_5))->count();
+        $repetitive_count = collect(array_merge($repetitive_3, $repetitive_5))->count();
 
 
 
@@ -836,58 +824,59 @@ class MissionController extends Controller
         // $daily = DailyBonus::where('student_id',$student->id)->first();
         $daily = $student->dailyBonus->first();
 
-        $daily_count = intval($daily->first != 1) + intval($daily->second != 1) + intval($daily->daily != 1);
+
+        $first = $daily->first != 1 && Carbon::parse($daily->first)->lessThanOrEqualTo(Carbon::now());
+        $sec = $daily->second != 1 && Carbon::parse($daily->second)->lessThanOrEqualTo(Carbon::now());
+
+        $daily_count = intval($first) + intval($sec) + intval($daily->daily != 1 && $daily->daily != null);
+
+        // $daily_count = intval($daily->first != 1) + intval($daily->second != 1) + intval($daily->daily != 1);
 
 
         // ==================================
         // Login
         // ==================================
 
-        $login_count = $student->loginBonus->whereIn('day_count',LoginBonus::all()->pluck('days'))->where('claim',0)->count();
+        $login_count = $student->loginBonus->whereIn('day_count', LoginBonus::all()->pluck('days'))->where('claim', 0)->count();
 
 
 
         // ==================================
         // Question
         // ==================================
-        $question_count = $student->questionBonus->where('claim','!=', 1)
-        ->where('question_count','<=',$student->question_answer)->values()->count();
+        $question_count = $student->questionBonus->where('claim', '!=', 1)
+            ->where('question_count', '<=', $student->question_answer)->values()->count();
 
 
         // ==================================
         // Champion
         // ==================================
-        $champion_count = $student->championBonus->where('claim',0)
-        ->where('fix_level','<',$student->level)->count();
+        $champion_count = $student->championBonus->where('claim', 0)
+            ->where('fix_level', '<', $student->level)->count();
 
 
         // ==================================
         // Assessment
         // ==================================
 
-        $assessment_count = AssessmentFinishData::where("student_id", $student->id)
-            ->where("finish", 1)
-            ->where("claim", 0)->count();
+        $assessment_count = $this->assess_notify($student->id);
 
+        logger([
+            'repetitive' => $repetitive_count,
+            'daily' => $daily_count,
+            'login' => $login_count,
+            'question' => $question_count,
+            'champion' => $champion_count,
+            'assessment' => $assessment_count
+        ]);
 
-        // return [
-        //     'repetitive' => $repetitive_count,
-        //     'daily' => $daily_count,
-        //     'login' => $login_count,
-        //     'question' => $question_count,
-        //     'champion' => $champion_count,
-        //     'assessment' => $assessment_count
-        // ];
+        // return $daily_count;
 
+        $total = intval($repetitive_count) + intval($daily_count) + intval($login_count) + intval($question_count) + intval($champion_count) + intval(0) + intval($assessment_count);
 
-       $total = intval($repetitive_count) + intval($daily_count) + intval($login_count) + intval($question_count) + intval($champion_count) + intval(0) + intval($assessment_count);
-
-       if($total > 0) {
-         return response()->json(['notify_count' => $total], 200);
-       }
+        if ($total > 0) {
+            return response()->json(['notify_count' => $total], 200);
+        }
         return response()->json(['notify_count' => 0], 200);
-
     }
-
-
 }

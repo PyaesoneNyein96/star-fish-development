@@ -11,7 +11,7 @@ class StudentGrade extends Model
 
     // protected $hidden = ['pivot'];
 
-    protected $hidden = ['pivot','created_at','updated_at'];
+    protected $hidden = ['pivot','updated_at'];
 
     protected $fillable = [
         'student_id',

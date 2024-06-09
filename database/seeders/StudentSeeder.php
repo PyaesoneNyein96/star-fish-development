@@ -38,28 +38,27 @@ class StudentSeeder extends Seeder
                 'token' => "1|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
                 'isSubscriber' => 0
             ],
+
             [
-                'name' => 'Ko Nyein Maung',
-                'phone' => "09795686097",
-                'email' => null,
+                'name' => 'ko nyain maung',
+                'phone' => null,
+                'email' => "+959795686096",
                 'password' => Hash::make('admin123'),
-                'age' => 5,
-                'country_id' => 2,
-                'city_id' => 2,
+                'age' => 7,
+                'country_id' => 1,
+                'city_id' => 1,
                 'agreeToPolicy' => 1,
                 'deviceId' => null,
                 'isAuth' => 0,
-                'isLocal' => 1,
+                'isLocal' => 0,
                 'level' => 1,
-                'profile_picture' => null,
+                'profile_picture' => $domain . "/storage/images/Achievement/Profiles/Princess/item1.png",
                 'status' => 1,
                 'grade_chosen' => null,
                 'question_answer' => 0,
                 'token' => "10|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
                 'isSubscriber' => 0
             ],
-
-
             [
                 'name' => 'soe soe lay',
                 'phone' => null,
@@ -204,7 +203,7 @@ class StudentSeeder extends Seeder
                 'question_answer' => 300,
                 'token' => "1|kOmYAEqfpoVE3mFQa5DeDBq93S7N6Pp3peZl5bBId1aa4575",
                 'isSubscriber' => 0
-            ]
+            ],
 
 
 
@@ -217,7 +216,7 @@ class StudentSeeder extends Seeder
                 'name' => 'Dana',
                 'phone' => '+959974373370',
                 'email' => null,
-                'password' => '$2y$10$Nidhx.cznJLXiFIuI5OyS.ug5sez05w42mcrUI7WJUP6wANmHcWr.',
+                'password' => Hash::make('admin123'),
                 'age' => 25,
                 'country_id' => 1,
                 'city_id' => 1,
@@ -225,10 +224,13 @@ class StudentSeeder extends Seeder
                 'deviceId' => null,
                 'isAuth' => 0,
                 'isLocal' => 1,
-                'level' => 1,
+                'level' => 5,
+                'point' => 52,
+                'fixed_point' => 52,
                 'profile_picture' => null,
                 'status' => 1,
                 'grade_chosen' => 3,
+                'question_answer' => 200,
                 'token' => "1|4YsGl3rYqeZa7QCtRWijHzMbJ3V53stqpXoZRQ8d0c9baf79",
                 'isSubscriber' => 0
             ],
@@ -236,7 +238,7 @@ class StudentSeeder extends Seeder
                 'name' => 'Tpo',
                 'phone' => "+959973659244",
                 'email' => null,
-                'password' => '$2y$10$WxFVcp4UqnCn/UjNVlQqveaCQ2bWTWqMR9PpQYHBfAV/400NJitbO',
+                'password' => Hash::make('admin123'),
                 'age' => 27,
                 'country_id' => 1,
                 'city_id' => 1,
@@ -244,26 +246,65 @@ class StudentSeeder extends Seeder
                 'deviceId' => null,
                 'isAuth' => 0,
                 'isLocal' => 1,
-                'level' => 1,
+                'level' => 5,
+                'point' => 52,
+                'fixed_point' => 52,
                 'profile_picture' => null,
                 'status' => 1,
                 'grade_chosen' => 4,
+                'question_answer' => 200,
                 'token' => "2|4gOjWmThLCiMfZNCAkv9V4drEz5yghQ9z6HUzKfi33c91233",
                 'isSubscriber' => 0
             ],
 
+
+            [
+                'name' => 'Admin 2',
+                'phone' => "+959799839053",
+                'email' => null,
+                'password' => Hash::make('admin123'),
+                'age' => 10,
+                'country_id' => 1,
+                'city_id' => 1,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 1,
+                'level' => 5,
+                'point' => 52,
+                'fixed_point' => 52,
+                'profile_picture' => null,
+                'status' => 1,
+                'grade_chosen' => null,
+                'question_answer' => 200,
+                'token' => "91|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+                'isSubscriber' => 0
+            ],
+
+            [
+                'name' => 'Daniel',
+                'phone' => "+959782006953",
+                'email' => null,
+                'password' => Hash::make('admin123'),
+                'age' => 10,
+                'country_id' => 1,
+                'city_id' => 1,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 1,
+                'level' => 5,
+                'point' => 52,
+                'fixed_point' => 52,
+                'profile_picture' => null,
+                'status' => 1,
+                'grade_chosen' => null,
+                'question_answer' => 200,
+                'token' => "90|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+                'isSubscriber' => 0
+            ],
+
+
         ]);
-
-
-        // DB::table('users')->insert([
-        //     [
-        //         'name' => 'admin',
-        //         'email' => 'admin@gmail.com',
-        //         'password' => Hash::make('admin123'),
-        //         'phone' => null
-        //     ]
-        // ]);
-
-
     }
 }

@@ -182,7 +182,7 @@ class AssessmentSeeder extends Seeder
             ['round' => 6, 'assess_id' => 111, "q_image" => null, 'q_content' => "oxs", "q_conver" => null, 'a_content' => 0],
             ['round' => 6, 'assess_id' => 111, "q_image" => null, 'q_content' => "oxen", "q_conver" => null, 'a_content' => 1],
 
-            ['round' => 7, 'assess_id' => 111, "q_image" => $A1_ID111_image . "dog.png", "q_content" => "am", 'q_conver' => "How may dogs ____ there?", 'a_content' => 0],
+            ['round' => 7, 'assess_id' => 111, "q_image" => $A1_ID111_image . "dog.png", "q_content" => "am", 'q_conver' => "How many dogs ____ there?", 'a_content' => 0],
             ['round' => 7, 'assess_id' => 111, "q_image" => null, 'q_content' => "is", "q_conver" => null, 'a_content' => 0],
             ['round' => 7, 'assess_id' => 111, "q_image" => null, 'q_content' => "are", "q_conver" => null, 'a_content' => 1],
 

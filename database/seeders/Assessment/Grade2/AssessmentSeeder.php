@@ -321,13 +321,16 @@ class AssessmentSeeder extends Seeder
         $G2_A2_ID42_tracing = "Grade_2/" . "Assessments/" . "Assessment_2/" . "tracing/";
         $A2_ID42_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_2/tracing/";
 
-        $Id42_items = ["Girl", "Goose", "Gym", "Hand", "Hat"];
+        $Id42_items = [
+            "Girl",
+            // "Goose", "Gym", "Hand", "Hat"
+        ];
         $Id42_items_stroke = [
             [2, 2, 2, 1],
-            [2, 1, 1, 1, 1],
-            [2, 2, 3],
-            [3, 2, 2, 2],
-            [3, 2, 2]
+            // [2, 1, 1, 1, 1],
+            // [2, 2, 3],
+            // [3, 2, 2, 2],
+            // [3, 2, 2]
         ];
 
         foreach ($Id42_items as $idx => $val) {
@@ -615,14 +618,17 @@ class AssessmentSeeder extends Seeder
         $G2_A3_ID50_tracing = "Grade_2/" . "Assessments/" . "Assessment_3/" . "tracing/";
         $A3_ID50_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_3/tracing/";
 
-        $Id50_items = ["Man", "Moon", "Mug", "Nail", "Nest", "Note"];
+        $Id50_items = [
+            "Man",
+            //  "Moon", "Mug", "Nail", "Nest", "Note"
+        ];
         $Id50_items_stroke = [
             [4, 2, 2],
-            [4, 1, 1, 2],
-            [4, 2, 2],
-            [3, 2, 2, 1],
-            [3, 1, 1, 2],
-            [3, 1, 2, 1]
+            // [4, 1, 1, 2],
+            // [4, 2, 2],
+            // [3, 2, 2, 1],
+            // [3, 1, 1, 2],
+            // [3, 1, 2, 1]
         ];
 
         foreach ($Id50_items as $idx => $val) {
@@ -750,8 +756,8 @@ class AssessmentSeeder extends Seeder
             ['round' => 3, 'assess_id' => 53, 'q_image' => $A3_ID53_image . "hippo.png", "q_content" => "Hippo", "a_content" => 1],
             ['round' => 3, 'assess_id' => 53, 'q_image' => null, "q_content" => "Rhino", "a_content" => 0],
 
-            ['round' => 4, 'assess_id' => 53, 'q_image' => $A3_ID53_image . "rabbit.png", "q_content" => "Snake", "a_content" => 0],
-            ['round' => 4, 'assess_id' => 53, 'q_image' => null, "q_content" => "Rabbit", "a_content" => 1],
+            ['round' => 4, 'assess_id' => 53, 'q_image' => $A3_ID53_image . "snake.png", "q_content" => "Snake", "a_content" => 1],
+            ['round' => 4, 'assess_id' => 53, 'q_image' => null, "q_content" => "Rabbit", "a_content" => 0],
 
             ['round' => 5, 'assess_id' => 53, 'q_image' => $A3_ID53_image . "quilt.png", "q_content" => "Quilt", "a_content" => 1],
             ['round' => 5, 'assess_id' => 53, 'q_image' => null, "q_content" => "Quiz", "a_content" => 0],
@@ -929,12 +935,15 @@ class AssessmentSeeder extends Seeder
         $G2_A4_ID58_tracing = "Grade_2/" . "Assessments/" . "Assessment_4/" . "tracing/";
         $A4_ID58_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_4/tracing/";
 
-        $Id58_items = ["Ship", "Shoe", "Taxi", "Tree"];
+        $Id58_items = [
+            "Ship",
+            //  "Shoe", "Taxi", "Tree"
+        ];
         $Id58_items_stroke = [
             [1, 2, 2, 2],
-            [1, 2, 1, 1],
-            [2, 2, 2, 2],
-            [2, 2, 1, 1]
+            // [1, 2, 1, 1],
+            // [2, 2, 2, 2],
+            // [2, 2, 1, 1]
         ];
 
         foreach ($Id58_items as $idx => $val) {
@@ -1213,13 +1222,16 @@ class AssessmentSeeder extends Seeder
         $G2_A4_ID65_tracing = "Grade_2/" . "Assessments/" . "Assessment_5/" . "tracing/";
         $A4_ID65_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_5/tracing/";
 
-        $Id65_items = ["Yawn", "Yolk", "Yo-yo", "Zero", "Zip"];
+        $Id65_items = [
+            "Yawn",
+            //  "Yolk", "Yo-yo", "Zero", "Zip"
+        ];
         $Id65_items_stroke = [
             [3, 2, 4, 2],
-            [3, 1, 1, 3],
-            [3, 1, 0, 2, 1],
-            [3, 1, 2, 1],
-            [3, 2, 2],
+            // [3, 1, 1, 3],
+            // [3, 1, 0, 2, 1],
+            // [3, 1, 2, 1],
+            // [3, 2, 2],
         ];
 
         foreach ($Id65_items as $idx => $val) {
@@ -1452,8 +1464,8 @@ class AssessmentSeeder extends Seeder
         ////    Grade 2  Assessment 5 ID 72 ( Reading Passages )
         ////////////////////////////////////////////////////////
 
-        $G2_A5_reading_passage = "Grade_2/" . "Assessments/" . "Assessment_4/" . "reading_passage/";
-        $A5_ID72_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_4/reading_passage/";
+        $G2_A5_reading_passage = "Grade_2/" . "Assessments/" . "Assessment_5/" . "reading_passage/";
+        $A5_ID72_image = $domain . "/storage/images/Grade_2/Assessments/Assessment_5/reading_passage/";
 
         $A5_ID72_q_audio = [
             "chris-has",
@@ -1514,7 +1526,7 @@ class AssessmentSeeder extends Seeder
                 [
                     'round' => $i + 1,
                     'assess_id' => 72,
-                    "q_audio" => $AudioDomain . $G2_A5_reading_passage . "jane-n-rosy-audio" . ".mp3",
+                    "q_audio" => $AudioDomain . $G2_A5_reading_passage . "chris-n-jack-audio" . ".mp3",
                     "q_conver" => "Chris and Jack are good friends. Chris has a dog and Jack has a cat. Every morning, they go to school together. They eat lunch at 12 o'clock. Chris eats a hamburger for lunch and Jack eats fried noodles. After lunch, they go to the library and read books. They go back home at 3 o'clock. They go to the playground and play their dog and cat at 4 o'clock. They eat dinner at 5 o'clock and go to bed at 9 o'clock.",
                     "background" => $A5_ID72_image . "bg.png",
                     "q_content" => "Chris and Jack",

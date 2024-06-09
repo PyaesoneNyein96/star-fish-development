@@ -3,12 +3,15 @@
 namespace App\Http\Traits;
 
 use App\Models\Assessment;
+use App\Models\AssessmentEachRecordFinishData;
 use App\Models\AssessmentFinishData;
 use App\Models\Student;
+use App\Models\StudentGrade;
 use Illuminate\Http\Request;
 
 trait AssessmentMissionTrait
 {
+
     public function assessmentList(Request $request)
     {
         $stud_id = $request->student->id;
@@ -22,6 +25,7 @@ trait AssessmentMissionTrait
 
         $assess = [];
         $res = Assessment::select("name", "grade_id", "total_assess_ques")->get();
+
         $id = 1;
         foreach ($res as $index => $data) {
 
@@ -66,26 +70,27 @@ trait AssessmentMissionTrait
                         case 6:
                             $gradename = 'six';
                             break;
-                        case 6:
+                        case 7:
                             $gradename = 'seven';
                             break;
-                        case 5:
+                        case 8:
                             $gradename = 'eight';
                             break;
-                        case 5:
+                        case 9:
                             $gradename = 'nine';
                             break;
-                        case 5:
+                        case 10:
                             $gradename = 'ten';
                             break;
-                        case 5:
+                        case 11:
                             $gradename = 'eleven';
                             break;
-                        case 5:
+                        case 12:
                             $gradename = 'twelve';
                             break;
                         default:
                             $gradename = 'unknown';
+                            break;
                     }
 
 
@@ -104,10 +109,14 @@ trait AssessmentMissionTrait
                 }
             }
         }
-        $result = $this->sort($assess);
-        // foreach ($assess as $as) {
-        //     if()
-        // }
+
+        $sub_gradeId = StudentGrade::where("student_id", $stud_id)->orderBy('id', 'desc')
+            ->first();
+
+        $sub_gradeId = $sub_gradeId->grade_id;
+
+        // $result = $this->sort($assess);
+        $result = $this->sort_with_grade($assess, $sub_gradeId);
 
         return $result;
     }
@@ -200,5 +209,53 @@ trait AssessmentMissionTrait
             }
         }
         return array_merge($result, $left, $right);
+    }
+
+    private function sort_with_grade($arr, $sub_id)
+    {
+        $result = [];
+        foreach ($arr as $data) {
+            if ($data['grade_id'] == $sub_id) array_push($result, $data);
+        }
+        foreach ($arr as $data) {
+            if ($data['grade_id'] != $sub_id) array_push($result, $data);
+        }
+        return $result;
+    }
+
+
+    // assessment notification func
+    public function assess_notify($stud_id)
+    {
+        $res = Assessment::select("name", "grade_id", "total_assess_ques")->get();
+
+        $assessment_count = [];
+
+        foreach ($res as $index => $data) {
+            $isExistData = AssessmentFinishData::where("student_id", $stud_id)
+                ->where("claim", 0)
+                ->where('grade_id', $data->grade_id)
+                ->where('assess_name', $data->name)
+                ->first();
+
+            if ($isExistData && ($data->name !== $res[$index + 1]->name)) {
+                /*
+                    $assess_percent = AssessmentEachRecordFinishData::where("student_id", $stud_id)
+                        ->where('grade_id', $data->grade_id)
+                        ->where('assess_name', $data->name)->get();
+
+                    $points = 0;
+                    foreach ($assess_percent as $val) $points += $val->total_point;
+
+                    $percentage = ($points / $data->total_point) * 100;
+                */
+
+                $percentage = ($isExistData->point / $data->total_assess_ques) * 100;
+                $floor_val = floor($percentage / 10) * 10;
+
+                if ($floor_val >= 50) array_push($assessment_count, $floor_val);
+            }
+        }
+        return count($assessment_count);
     }
 }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('audio')->nullable();
             $table->string('content')->nullable();
-            $table->integer('game_id')->nullable();
+            $table->integer('game_id')->nullable()->constrained()->onDelete('cascade');
             $table->integer('round_id')->nullable();
             $table->integer('unit_id')->nullable();
             $table->timestamps();
