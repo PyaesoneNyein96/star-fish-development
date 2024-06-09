@@ -35,7 +35,8 @@ class GameInstructionSeeder extends Seeder
 
             // Grade 4 > Lesson 1 - 5 , 10 - 25 , 38 -40
             762, 763, 765, 773, 784, 793, 801, 803, 839, 843, 848, 855, 864, 866, 870, 873, 878, 881, 886, 887, 892,
-            894, 899, 902, 909, 912, 917, 919, 925, 927, 934, 937, 942, 944, 948, 957, 959, 965 , 975, 981, 984, 990, 998, 1005 ,1012 ,1047, 1050, 1053, 1057, 1062, 1064,
+            894, 899, 902, 909, 912, 917, 919, 925, 927, 934, 937, 942, 944, 948, 957, 959, 965 , 975, 981, 984, 990, 998, 1005 ,1012 ,1021 ,1023, 1026,
+            1034 , 1040, 1044 ,1047, 1050, 1053, 1057, 1062, 1064,
 
             // Grade 4 > Lesson 6 - 9
             807, 817, 820, 826, 832,
@@ -55,7 +56,7 @@ class GameInstructionSeeder extends Seeder
             471, 478, 483, 501, 508, 524, 533, 540, 549,  569, 655, 663, 702, 711, 718, 726, 741, 748, 756,
 
             // Grade 4
-            775, 786, 791, 827, 834, 850, 858, 882, 888, 895, 945, 903, 913, 919, 938, 951, 968, 973, 992 , 1001 , 1007, 1015,  1025, 1031, 1038, 1044, 1048, 1054, 1060,
+            775, 786, 791, 827, 834, 850, 858, 882, 888, 895, 945, 903, 913, 919, 938, 951, 968, 973, 992 , 1001 , 1007, 1015, 1029, 1036, 1042, 1046, 1052, 1058,
         ];
 
         foreach ($free_practice as $value) {
@@ -2505,94 +2506,84 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Match the verbs and their past tenses.", 'game_id' => 1020, 'audio' => $Instructions . "Match-the-verbs-and-their-past-tenses.mp3"],
 
-            // ['content' => "Listen to the audio. Anna will talk about her last week. Answer the questions.", 'game_id' => 1021, 'audio' => $Instructions . "Listen-to-the-audio-Anna-will-talk-about-her-last-week-Answer-the-questions.mp3"],
+
 
             ['content' => "Answer the question", 'game_id' => 1022, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
 
-            ['content' => "Take notes. Write down what you usually eat in day. Use the prompts.", 'game_id' => 1026, 'audio' => $Instructions . "Take-notes-Write-down-what-you-usually-eat-in-day-Use-the-prompts.mp3"],
+            ['content' => "Take notes. Write down what you usually eat in day. Use the prompts.", 'game_id' => 1024, 'audio' => $Instructions . "Take-notes-Write-down-what-you-usually-eat-in-day-Use-the-prompts.mp3"],
 
 
 
             // Lesson -34
 
-            // ['content' => "Listen and Repeat", 'game_id' => 1024, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 1025, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
-            // ['content' => "Listen and choose the correct option", 'game_id' => 1026, 'audio' => $Instructions . "Listen-and-choose-the-correct-option.mp3"],
+            ['content' => "Listen and choose the correct option", 'game_id' => 1027, 'audio' => $Instructions . "Listen-and-choose-the-correct-option.mp3"],
 
             [
-                'content' => "Look at the following letters and answer the questions", 'game_id' => 1027,
+                'content' => "Look at the following letters and answer the questions", 'game_id' => 1028,
                 'audio' => $Instructions . "Look-at-the-following-letters-and-answer-the-questions.mp3"
             ],
 
-            [
-                'content' => "Complete the following sentences with past tense of the verbs. Talk about them",
-                'game_id' => 1028, 'audio' => $Instructions . "Complete-the-following-sentences-with-past-tense-of-the-verbs.mp3"
-            ],
+            // [
+            //     'content' => "Complete the following sentences with past tense of the verbs. Talk about them",
+            //     'game_id' => 1029, 'audio' => $Instructions . "Complete-the-following-sentences-with-past-tense-of-the-verbs.mp3"
+            // ],
 
 
 
             // Lesson -35
 
-            ['content' => "Listen and Repeat", 'game_id' => 1029, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 1030, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
-            ['content' => "Unscramble the following words.", 'game_id' => 1030, 'audio' => $Instructions . "SubBlock_Unscramble-the-following-words.mp3"],
+            ['content' => "Unscramble the following words.", 'game_id' => 1031, 'audio' => $Instructions . "SubBlock_Unscramble-the-following-words.mp3"],
 
-            ['content' => "Match the verbs and their past tenses.", 'game_id' => 1031, 'audio' => $Instructions . "Match-the-verbs-and-their-past-tenses.mp3"],
+            ['content' => "Match the verbs and their past tenses.", 'game_id' => 1032, 'audio' => $Instructions . "Match-the-verbs-and-their-past-tenses.mp3"],
 
             [
-                'content' => "Choose the right option for the following sentences", 'game_id' => 1032,
+                'content' => "Choose the right option for the following sentences", 'game_id' => 1033,
                 'audio' => $Instructions . "Choose-the-right-option-for-the-following-sentences.mp3"
             ],
 
             [
-                'content' => "Listen to the audio and choose the right answers.", 'game_id' => 1033,
+                'content' => "Listen to the audio and choose the right answers.", 'game_id' => 1035,
                 'audio' => $Instructions . "Listen-to-the-audio-and-choose-the-right-answers.mp3"
             ],
 
             [
-                'content' => "Take notes on the table. Talk about what you did last week.", 'game_id' => 1035,
-                'audio' => $Instructions . "Take-notes-on-the-table-Talk-about-what-you-did-last-week.mp3"
-            ],
-
-            [
                 'content' => "Write a letter to a friend. Tell him/her what you did last week. Use the prompts below.",
-                'game_id' => 1036, 'audio' => $Instructions . "Write-a-letter-to-a-friend-Tell-him-her-what-you-did-last-week.mp3"
+                'game_id' => 1037, 'audio' => $Instructions . "Write-a-letter-to-a-friend-Tell-him-her-what-you-did-last-week.mp3"
             ],
 
 
 
             // Lesson -36
 
-            ['content' => "Listen and Repeat", 'game_id' => 1037, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+            ['content' => "Listen and Repeat", 'game_id' => 1038, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
-            // ['content' => "Look at the pictures and choose the right words for the following.", 'game_id' => 1038,
-            // 'audio' => $Instructions . "Look-at-the-pictures-and-choose-the-right-words-for-the-following.mp3"],
+            ['content' => "Look at the pictures and choose the right words for the following.", 'game_id' => 1039,
+            'audio' => $Instructions . "Look-at-the-pictures-and-choose-the-right-words-for-the-following.mp3"],
 
-            // ['content' => "Read the passage and answer the questions.", 'game_id' => 1040, 'audio' => $Instructions . "Read-the-passage-and-answer-the-questions.mp3"],
+            ['content' => "Read the passage and answer the questions.", 'game_id' => 1041, 'audio' => $Instructions . "Read-the-passage-and-answer-the-questions.mp3"],
+
+            // [
+            //     'content' => "Talk about your last holiday. What did you do during your last Thadingyut holiday?", 'game_id' => 1041,
+            //     'audio' => $Instructions . "Talk-about-your-last-holiday-What-did-you-do-Thadingyut-holiday.mp3"
+            // ],
+
+
+
+            // Lesson -37
+
+            ['content' => "Listen and Repeat", 'game_id' => 1043, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             [
-                'content' => "Talk about your last holiday. What did you do during your last Thadingyut holiday?", 'game_id' => 1041,
-                'audio' => $Instructions . "Talk-about-your-last-holiday-What-did-you-do-Thadingyut-holiday.mp3"
-            ],
-
-
-
-            // Lesson -36
-
-            ['content' => "Listen and Repeat", 'game_id' => 1042, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
-
-            [
-                'content' => "Listen to the audio. Max will talk about what he will do tomorrow. Answer the questions.", 'game_id' => 1044,
+                'content' => "Listen to the audio. Max will talk about what he will do tomorrow. Answer the questions.", 'game_id' => 1045,
                 'audio' => $Instructions . "Listen-to-the-audio-Max-will-talk-about-what-he-will-do-tomorrow.mp3"
             ],
 
             [
-                'content' => "What will you do tomorrow? Talk about your plan.", 'game_id' => 1045,
-                'audio' => $Instructions . "What-will-you-do-tomorrow-Talk-about-your-plan.mp3"
-            ],
-
-            [
-                'content' => "Take notes. Write down what you will do tomorrow.", 'game_id' => 1046,
+                'content' => "Take notes. Write down what you will do tomorrow.", 'game_id' => 1047,
                 'audio' => $Instructions . "Take-notes-Write-down-what-you-will-do-tomorrow.mp3"
             ],
 
