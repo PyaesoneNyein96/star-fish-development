@@ -1687,7 +1687,7 @@ class GameSeeder extends Seeder
 
 
             // // G4 lesson 24
-            ['name' => 'Listen and Repeat ( 1 )', 'unit_id' => 887, 'category_id' => 1, "instructionGIF" => null],
+            ['name' => 'Listen and Repeat ( 1 )', 'unit_id' => 887, 'category_id' => 2, "instructionGIF" => null],
             ['name' => 'Listen and Repeat ( 2 )', 'unit_id' => 887, 'category_id' => 33, "instructionGIF" => null],
             ['name' => 'Practice', 'unit_id' => 888, 'category_id' => 45, "instructionGIF" => null],
             ['name' => 'Speaking Practice', 'unit_id' => 889, 'category_id' => 11, "instructionGIF" => $Gif_path . "Speaking.gif"],
