@@ -1930,11 +1930,16 @@ class AnsNQueSeeder extends Seeder
         ////    Grade 4  Lesson 11 Game 850 (  Speaking Topic )
         //////////////////////////////////////////////////////////////
 
-        $G4_L11_speaking_topic = "Grade_4/" . "Lesson_11/" . "speaking_topic/";
+        $G4_L11_speaking_topic =  "Grade_4/" . "Lesson_11/" . "speaking_topic/";
         $l11_G851image = $domain . "/storage/images/Grade_4/lesson_11/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 850, "q_image" => $G4_L11_speaking_topic . "star_round.png", "q_audio" => $AudioDomain . $G4_L11_speaking_topic . "audio.mp3", "q_conver" => $l11_G851image . "text.png", "round_instruction" => $AudioDomain . $G4_L11_speaking_topic . "audio" . ".mp3"],
+            [
+                'round' => 1, 'game_id' => 850,
+                "q_image" => $l11_G851image . "star_round.png",
+                "q_audio" => $AudioDomain . $G4_L11_speaking_topic . "audio.mp3",
+                "q_conver" => $l11_G851image . "text.png",
+                "round_instruction" => $AudioDomain . $G4_L11_speaking_topic . "audio" . ".mp3"],
         ]);
 
 
@@ -2170,7 +2175,11 @@ class AnsNQueSeeder extends Seeder
         $l12_G859image = $domain . "/storage/images/Grade_4/lesson_12/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 858, "q_image" => $G4_L12_speaking_topic . "star_round.png", "q_conver" => $l12_G859image . "text.png", "round_instruction" => $AudioDomain . $G4_L12_speaking_topic . "SubBlock_Talk-about-your-favorite-seaso" . ".mp3"],
+            [
+                'round' => 1, 'game_id' => 858,
+                "q_image" => $domain. $G4_L12_speaking_topic . "star_round.png",
+                "q_conver" => $l12_G859image . "text.png",
+                "round_instruction" => $AudioDomain . $G4_L12_speaking_topic . "SubBlock_Talk-about-your-favorite-seaso" . ".mp3"],
         ]);
 
 
@@ -2196,7 +2205,7 @@ class AnsNQueSeeder extends Seeder
         DB::table('ans_n_ques')->insert(['game_id' => 860, 'a_content' => 'lesson_13_video_global', 'isLocal' => 0]);
 
 
-        ////////////////////////////////////////////////////////
+        //////////////////////////////////////////////// ////////
         ////    Grade 4  Lesson 13 Game 861 (  Liaten and Repeat  )
         ////////////////////////////////////////////////////////
 
