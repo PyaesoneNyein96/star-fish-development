@@ -647,7 +647,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_content' => "Say the word?",
                     'q_audio' => $AudioDomain . "Grade_1/Lesson_12/Speaking_and_recording/" . $value . ".mp3",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_12/Speaking_practice/" . $value . ".png",
-                    'a_content' => $value,
+                    // 'a_content' => $value,
                     'round_instruction' => $AudioDomain . "Grade_1/Lesson_12/Speaking_and_recording/" . "Say_the_word" . ".mp3",
 
                 ]
@@ -1010,9 +1010,12 @@ class PSNAnsNQuesSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
 
                 [
-                    'game_id' => 106, 'round' => $key + 1, 'q_content' => "Look at the picture say the sentence." . "\n" . $g1L17U6QC[$key],
+                    'game_id' => 106, 'round' => $key + 1, 'q_content' =>
+                    // "Look at the picture say the sentence." . "\n" .
+                    $g1L17U6QC[$key],
                     'q_audio' => $AudioDomain . "Grade_1/Lesson_17/Speaking_Practice/" . $g1L17U6Audio[$key] . ".mp3",
-                    'q_image' => $ImageDomain . "Grade_1/Lesson_17/Speaking_Practice/" . $value . ".png", 'a_content' => $g1L17U6AC[$key]
+                    'q_image' => $ImageDomain . "Grade_1/Lesson_17/Speaking_Practice/" . $value . ".png",
+                    // 'a_content' => $g1L17U6AC[$key]
                 ]
 
             ]);
@@ -1173,7 +1176,8 @@ class PSNAnsNQuesSeeder extends Seeder
                     'game_id' => 196,
                     'round' => $key + 1,
                     'q_content' => "What do you see in this picture?",
-                    'q_image' => $ImageDomain . "Grade_1/Lesson_31/Speaking/" . $L31_U5_img[$key] . ".png", 'a_content' => $L31_U5_img[$key],
+                    'q_image' => $ImageDomain . "Grade_1/Lesson_31/Speaking/" . $L31_U5_img[$key] . ".png",
+                    // 'a_content' => $L31_U5_img[$key],
                     'round_instruction' => $AudioDomain . "/Grade_1/Lesson_31/Speaking/" . "What-do-you-see-in-the-picture.mp3",
                     'q_audio' => $value !== null ? $AudioDomain . "/Grade_1/Lesson_31/Speaking/" . $value . ".mp3" : null,
                 ]
@@ -1464,7 +1468,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_image' => $ImageDomain . "Grade_1/Lesson_32/Speaking/" . $value . ".png",
                     'q_content' => "Look at the picture and say a word.",
                     'q_audio' => $AudioDomain . "Grade_1/Lesson_32/Speaking/" . $value . ".mp3",
-                    'a_content' => $value,
+                    // 'a_content' => $value,
                     'round_instruction' => $AudioDomain . "Grade_1/Lesson_32/Speaking/" . $L32_U6_q . ".mp3"
                 ]
 
@@ -1606,7 +1610,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'q_content' => "Look at this picture and say.",
                     'q_audio' => $AudioDomain . "/Grade_1/Lesson_33/Speaking/" . $value . ".mp3",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_33/Speaking/" . $value . ".png",
-                    'a_content' => str_replace('-', ' ', $value),
+                    // 'a_content' => str_replace('-', ' ', $value),
                     'round_instruction' => $AudioDomain . "/Grade_1/Lesson_33/Speaking/" . "Look-at-the-picture-and-say" . ".mp3"
                 ]
 
@@ -1781,7 +1785,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'round' => $key + 1,
                     'q_content' => "Look at the picture and say.",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_34/Speaking/" . str_replace(' ', '-', $L34_U3_q_img[$key]) . ".png",
-                    'a_content' => $value,
+                    // 'a_content' => $value,
                     'q_audio' => $AudioDomain . "Grade_1/Lesson_34/Speaking/" . str_replace(' ', '-', $value) . ".mp3",
                     'round_instruction' => $AudioDomain . "Grade_1/Lesson_34/Speaking/" . "Look-at-the-picture-and-say.mp3"
                 ]
@@ -2020,7 +2024,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'round' => $key + 1,
                     'q_content' => "Look at the picture and say.",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_35/Speaking/" . str_replace(' ', '-', $value) . ".png",
-                    'a_content' => $conver[$key],
+                    // 'a_content' => $conver[$key],
                     'q_audio' => $AudioDomain . "Grade_1/Lesson_35/Speaking/" . str_replace(' ', '-', $value) . ".mp3",
                     'round_instruction' =>  $AudioDomain . "Grade_1/Lesson_35/Speaking/" . "Look-at-the-picture-and-say.mp3"
                 ]
@@ -2150,7 +2154,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'round' => $key + 1,
                     'q_content' => "Look at the picture and say a word.",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_36/Speaking/" . str_replace(' ', '-', $content[$key]) . ".png",
-                    'a_content' => $value,
+                    // 'a_content' => $value,
                     'q_audio' => $AudioDomain . "Grade_1/Lesson_36/Speaking/" . $value . ".mp3",
                     'round_instruction' => $AudioDomain . "Grade_1/Lesson_36/Speaking/" . "Look-at-the-picture-and-say-a-word.mp3",
                 ]
@@ -2418,7 +2422,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'round' => $key + 1,
                     'q_content' => "This is my $value." . "\n" . $likes[$key] . ".",
                     'q_image' => $ImageDomain . "Grade_1/Lesson_37/Speaking/" . str_replace(' ', '-', $content[$key]) . ".png",
-                    'a_content' => $value,
+                    // 'a_content' => $value,
                     'q_audio' => $audio_content[$key] ? $AudioDomain . "Grade_1/Lesson_37/Speaking/" . "This-is-my-$value." . str_replace(' ', '-', $likes[$key]) . ".mp3" : null,
                 ]
 
@@ -2610,7 +2614,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'round_instruction' => $AudioDomain . $prefix_q[$key] . ".mp3",
                     'q_content' =>  $names[$key],
                     'q_image' => $ImageDomain . "Grade_1/Lesson_38/Speaking/" . str_replace(' ', '-', $content[$key]) . ".png",
-                    'a_content' => $value,
+                    // 'a_content' => $value,
                     'q_audio' => $AudioDomain . "Grade_1/Lesson_38/Speaking/" . str_replace(' ', '-', $content[$key]) . ".mp3",
                 ]
 
@@ -3096,7 +3100,7 @@ class PSNAnsNQuesSeeder extends Seeder
                     'round' => $key + 1,
                     'q_content' => $value,
                     'q_image' => $img . str_replace(' ', '-', $contentImg[$key]) . ".png",
-                    'a_content' => $contents[$key],
+                    // 'a_content' => $contents[$key],
                     'q_audio' => $AudioDomain . "Grade_1/Lesson_40/Speaking/" . str_replace(' ', '-', $questionAudio[$key]) . ".mp3"
                 ]
 

@@ -1939,7 +1939,8 @@ class AnsNQueSeeder extends Seeder
                 "q_image" => $l11_G851image . "star_round.png",
                 "q_audio" => $AudioDomain . $G4_L11_speaking_topic . "audio.mp3",
                 "q_conver" => $l11_G851image . "text.png",
-                "round_instruction" => $AudioDomain . $G4_L11_speaking_topic . "audio" . ".mp3"],
+                "round_instruction" => $AudioDomain . $G4_L11_speaking_topic . "audio" . ".mp3"
+            ],
         ]);
 
 
@@ -2177,9 +2178,10 @@ class AnsNQueSeeder extends Seeder
         DB::table('ans_n_ques')->insert([
             [
                 'round' => 1, 'game_id' => 858,
-                "q_image" => $domain. $G4_L12_speaking_topic . "star_round.png",
+                "q_image" => $l12_G859image . "star_round.png",
                 "q_conver" => $l12_G859image . "text.png",
-                "round_instruction" => $AudioDomain . $G4_L12_speaking_topic . "SubBlock_Talk-about-your-favorite-seaso" . ".mp3"],
+                "round_instruction" => $AudioDomain . $G4_L12_speaking_topic . "SubBlock_Talk-about-your-favorite-seaso" . ".mp3"
+            ],
         ]);
 
 
@@ -3226,7 +3228,7 @@ class AnsNQueSeeder extends Seeder
         $l17_G895image = $domain . "/storage/images/Grade_4/lesson_17/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 894, "q_conver" => $l17_G895image . "text.png", "q_image" => $G4_L17_speaking_topic . "star_round.png", "round_instruction" => $AudioDomain . $G4_L17_speaking_topic . "SubBlock_Please-make-a-shopping-list-T" . ".mp3"],
+            ['round' => 1, 'game_id' => 894, "q_conver" => $l17_G895image . "text.png", "q_image" =>  $l17_G895image . "star_round.png", "round_instruction" => $AudioDomain . $G4_L17_speaking_topic . "SubBlock_Please-make-a-shopping-list-T" . ".mp3"],
         ]);
 
 
