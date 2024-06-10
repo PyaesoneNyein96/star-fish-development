@@ -531,7 +531,9 @@ class SubscriptionController extends Controller
         foreach ($students as $k => $student) {
             $studentGrade = StudentGrade::where('student_id', $student->id)->where('grade_id',1)->first();
             if(!$studentGrade) {
-                $this->getGradeAccess($student, 1, 1);
+                foreach (range(1,4) as $id) {
+                    $this->getGradeAccess($student, 1, $id);
+                }
             }
         }
 
