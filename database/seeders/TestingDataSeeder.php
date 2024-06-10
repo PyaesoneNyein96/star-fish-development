@@ -354,17 +354,19 @@ class TestingDataSeeder extends Seeder
 
         // foreach ([10,11,12,13] as  $id) {
         foreach (range(1,9) as  $id) {
-            foreach ($lessons as $l) {
-                DB::table('student_lessons')->insert([
-                    [
-                        'student_id' => $id,
-                        'grade_id' => 1,
-                        'lesson_id' => $l,
-                        // 'claimed_3' => $done[$k]['claimed_3'],
-                        // 'claimed_5' => $done[$k]['claimed_5'],
+            if($id != 3){
+                foreach ($lessons as $l) {
+                    DB::table('student_lessons')->insert([
+                        [
+                            'student_id' => $id,
+                            'grade_id' => 1,
+                            'lesson_id' => $l,
+                            // 'claimed_3' => $done[$k]['claimed_3'],
+                            // 'claimed_5' => $done[$k]['claimed_5'],
 
-                    ]
-                ]);
+                        ]
+                    ]);
+                }
             }
         }
 
