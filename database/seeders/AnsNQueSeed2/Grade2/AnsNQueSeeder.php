@@ -508,7 +508,7 @@ class AnsNQueSeeder extends Seeder
         ]);
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 14, 'game_id' => 265,  'q_image' => $l3_G265_image . "teacher_chara.png", "q_content" => null, "q_conver" => $l3_G265_image . "Hello-what-is-your-name.png", "round_instruction" => $AudioDomain . $G2_L3_Speaking . "SubBlock_hello-what-is-your-name-how" . ".mp3"],
+            ['round' => 14, 'game_id' => 265,  'q_image' => $l3_G265_image . "teacher_chara.png", "q_content" => null, "q_conver" => $l3_G265_image . "small_Hello-what-is-your-name.png", "round_instruction" => $AudioDomain . $G2_L3_Speaking . "SubBlock_hello-what-is-your-name-how" . ".mp3"],
         ]);
 
 
