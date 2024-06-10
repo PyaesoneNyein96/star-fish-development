@@ -2395,7 +2395,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Listen and choose the right picture", 'game_id' => 817, 'audio' => $Instructions . "Listen-and-choose-the-right-picture.mp3"],
 
-            ['content' => "Choose the right word to fill in the blank.", 'game_id' => 818, 'audio' => $Instructions ."Choose_the_right_word_to_fill_in-the_blank.mp3"], // 404
+            ['content' => "Choose the right word to fill in the blank.", 'game_id' => 818, 'audio' => $Instructions ."Choose_the_right_word_to_fill_in_the_blank.mp3"], // 404
 
             // ['content' => "listen and choose the picture", 'game_id' => 818, 'audio' => $Instructions . "listen_and_choose_the_PIC.mp3"],
 
