@@ -4592,7 +4592,8 @@ class AnsNQueSeeder extends Seeder
         foreach ($ans_G946 as $key) {
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 945, 'a_content' => $key, 'a_image' => $l24_G946_G947_image . "1/" . $key  . ".png",
+                    'game_id' => 945, 'a_content' => $key,
+                    'a_image' => $l24_G946_G947_image . "1/" . $key  . ".png",
                     'a_audio' => $AudioDomain . $G4_L24_listen_n_repeat . strtolower($key) . ".mp3"
                 ],
             ]);
