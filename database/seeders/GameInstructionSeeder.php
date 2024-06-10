@@ -34,8 +34,8 @@ class GameInstructionSeeder extends Seeder
             462, 469,  476,  491, 493, 498, 506, 513, 523,  530, 539,  546, 555, 562, 575, 584, 590, 598, 605,
 
             // Grade 4 > Lesson 1 - 5 , 10 - 25 , 38 -40
-            762, 763, 765, 773, 784, 793, 800, 802, 839, 842, 848, 855, 864, 866, 870, 873, 878, 881, 886, 887, 892,
-            894, 899, 902, 909, 912, 917, 919, 925, 927, 934, 937, 942, 944, 948, 957, 959, 965 , 975, 981, 984, 990, 998, 1005 ,1012 ,1021 ,1023, 1026,
+            762, 763, 765, 773, 784, 793, 800, 802, 839, 842, 848, 855, 863, 866, 870, 872, 878, 886, 892,
+             899, 902, 909, 917, 919, 925, 927, 934, 937, 942, 944, 948, 957, 959, 965 , 975, 981, 984, 990, 998, 1005 ,1012 ,1021 ,1023, 1026,
             1034 , 1040, 1044 , 1049, 1056, 1061,
 
             // Grade 4 > Lesson 6 - 9
@@ -56,7 +56,7 @@ class GameInstructionSeeder extends Seeder
             471, 478, 483, 501, 508, 524, 533, 540, 549,  569, 655, 663, 702, 711, 718, 726, 741, 748, 756,
 
             // Grade 4
-            775, 786, 791, 826, 834, 850, 858, 882, 888, 895, 945, 903, 913, 919, 938, 951, 968, 973, 992 , 1001 , 1007, 1015, 1029, 1036, 1042, 1046, 1052, 1058, 1063
+            775, 786, 791, 826, 834, 850, 858, 881, 887, 895, 945, 902, 912, 919, 938, 951, 968, 973, 992 , 1001 , 1007, 1015, 1029, 1036, 1042, 1046, 1052, 1058, 1063
         ];
 
         foreach ($free_practice as $value) {
@@ -2195,7 +2195,9 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Listen to the audio and choose the right answer.", 'game_id' => 910, 'audio' => $Instructions . "SubBlock_Listen-to-the-audio-and-choose.mp3"],
 
-            ['content' => "Answer the questions below. Choose the right answer.", 'game_id' => 911, 'audio' => $Instructions . "SubBlock_Answer-the-questions-below-Ch.mp3"],
+            ['content' => "Answer the questions below. Choose the right answer.", 'game_id' => 911, 'audio' => $Instructions
+            //  . "SubBlock_Answer-the-questions-below-Ch.mp3"
+            ],
 
 
 
