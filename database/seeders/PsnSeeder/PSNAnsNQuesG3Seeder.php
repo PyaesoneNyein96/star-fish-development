@@ -856,10 +856,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "swimming",
             "computer_game",
             "reading",
-            "watch TV",
-            "ride bike",
-            "play piano",
-            "play football",
+            "watch_TV",
+            "ride_bike",
+            "play_piano",
+            "play_football",
         ];
 
         $questions = [
@@ -873,13 +873,13 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            "go swimming",
-            "play game",
-            "read a book",
-            "watch TV and sleep",
-            "ride a bike",
-            "play a musical instrument",
-            "play football",
+            "Yes, I go swimming.",
+            "Yes, I play game.",
+            "Yes, I read a book.",
+            "Yes, I watch TV and sleep.",
+            "I ride a bike.",
+            "Yes, I play a musical instrument.",
+            "Yes, I play football.",
         ];
 
 
@@ -1065,13 +1065,13 @@ class PSNAnsNQuesG3Seeder extends Seeder
         $para = "It’s a busy week for me. On Monday I play tennis for one hour and on Tuesday I go swimming for one hour. On Wednesday and Friday I watch TV and read a book. On Thursday I ride my bike with my friend. We ride our bikes for two hours.  Saturday is my favorite day.  I go to the park and play with friends. We play football. On Sunday I watch TV and play computer games. What do you do at the weekend?";
 
         $given_q = [
-            ["On Friday ___.", "Watch TV and read a book"],
-            ["On Tuesday ___.", "Go swimming"],
-            ["On Monday ___ .", 'Play Tennis'],
-            ["On Thursday ___ .", 'Ride my bike'],
-            ["On Wednesday ___ .", 'Watch TV and read a book'],
-            ["On Sunday ___ .", 'Watch TV and play computer games'],
-            ["On Saturday ___ .", 'Play football with friends at the park'],
+            ["On Friday, I ___.", "Watch TV and read a book"],
+            ["On Tuesday, I ___.", "Go swimming"],
+            ["On Monday, I ___ .", 'Play Tennis'],
+            ["On Thursday, I ___ .", 'Ride my bike'],
+            ["On Wednesday, I ___ .", 'Watch TV and read a book'],
+            ["On Sunday, I ___ .", 'Watch TV and play computer games'],
+            ["On Saturday, I ___ .", 'Play football with friends at the park'],
 
         ];
 
@@ -1198,7 +1198,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $questions = [
-            "Can He skate?",
+            "Can he skate?",
             "Can she teach?",
             "Can they swim?",
             "Can he ride a bike?",
@@ -1209,14 +1209,14 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            "No, I can’t.",
+            "No, he can't.",
             "Yes, she can.",
             "Yes, they can.",
             "Yes, he can.",
             "Yes, he can.",
-            "No, they can’t.",
-            "No, I can’t.",
-            "No, he can’t."
+            "No, they can't.",
+            "No, I can't.",
+            "No, he can't."
         ];
 
 
@@ -1462,14 +1462,14 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
         $ans = [
-            "It’s 2:45",
-            "It’s 11:15",
-            "It is 1:30",
-            "It’s 2:10",
-            "It’s 9:45",
-            "It’s 10:20",
-            "It’s 6:30",
-            "It’s 7:00"
+            "It's 2:45.",
+            "It's 11:15.",
+            "It is 1:30.",
+            "It's 2:10.",
+            "It's 9:45.",
+            "It's 10:20.",
+            "It's 6:30.",
+            "It's 7:00."
         ];
 
 
@@ -1785,6 +1785,18 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
         $contents = [
+            'I always go to school at 8:25.',
+            'I usually have breakfast at 7:30.',
+            "I often do the housework at 4:30.",
+            "I usually go home at 3:45.",
+            "I sometime watch TV at 8:30.",
+            "I usually study my lesson at 7:30.",
+            "I usually go to bed at 9:00.",
+            "I often have a bath at 6:15.",
+            "I usually get up at 6:00.",
+        ];
+
+        $contents_img = [
             'I always go to school at 8:25',
             'I usually have breakfast at 7:30',
             "I often do the housework at 4:30",
@@ -1818,7 +1830,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 [
                     'game_id' => 652,
                     'round' => $key + 1,
-                    'q_image' => $images . $this->removeSpace($val) . ".png",
+                    'q_image' => $images . $this->removeSpace($contents_img[$key]) . ".png",
                     'q_audio' => $audio . $this->removeSpace($val) . ".mp3",
                     'q_content' => $val,
                     'a_content' => $ans[$key],
@@ -1827,9 +1839,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         }
 
 
-
         // Unit - 4 Listen and write <listening_choosing_answer>
-
 
 
         $audio_q = [
@@ -1912,12 +1922,12 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $Question_contents = [
             "What time do you usually have a bath",
-            "What time do you alway go to school",
-            "What time sometime watch TV",
+            "What time do you always go to school",
+            "What time do you sometimes watch TV",
             "What time do you usually study the lesson",
-            "What time do you alway go to bed",
-            "What time do you alway have  breakfast",
-            "What time do you alway get up in the morning"
+            "What time do you always go to bed",
+            "What time do you always have  breakfast",
+            "What time do you always get up in the morning"
 
         ];
 
