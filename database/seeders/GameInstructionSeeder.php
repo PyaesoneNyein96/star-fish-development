@@ -2285,7 +2285,8 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Unscramble the following words.", 'game_id' => 932, 'audio' => $Instructions . "SubBlock_Unscramble-the-following-words.mp3"],
 
-            ['content' => "Look at the map of the country and choose the right currency of the country.", 'game_id' => 933, 'audio' => $Instructions . "SubBlock_Look-at-the-map-of-the-country.mp3"],
+            // ['content' => "Look at the map of the country and choose the right currency of the country.", 'game_id' => 933, 'audio' => $Instructions . "SubBlock_Look-at-the-map-of-the-country.mp3"],
+            ['content' => "Look at the pictures and choose the right answer", 'game_id' => 933, 'audio' =>  $Instructions . "look-at-the-pictures-and-choos" . ".mp3"],
 
             ['content' => "Max will talk about his last vacation in Southeast Asia countries. Listen to the audio and choose the right answer.", 'game_id' => 935, 'audio' => $Instructions . "SubBlock_Max-will-talk-about-his-last-v.mp3"],
 
@@ -2579,7 +2580,8 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Listen and Repeat", 'game_id' => 1019, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
-            ['content' => "Match the verbs and their past tenses.", 'game_id' => 1020, 'audio' => $Instructions . "Match-the-verbs-and-their-past-tenses.mp3"],
+            // ['content' => "Match the verbs and their past tenses.", 'game_id' => 1020, 'audio' => $Instructions . "Match-the-verbs-and-their-past-tenses.mp3"],
+            ['content' => "Match the words and the pictures.", 'game_id' => 1020, 'audio' => $Instructions . "SubBlock_Match-the-words-and-the-pictur.mp3"],
 
 
             ['content' => "Answer the question", 'game_id' => 1022, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],

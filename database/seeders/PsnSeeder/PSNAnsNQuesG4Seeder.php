@@ -3235,77 +3235,88 @@ class PSNAnsNQuesG4Seeder extends Seeder
         $img = $ImageDomain . "Grade_4/Lesson_32/Practice/";
 
 
-        // $given_ans = [
-        //     ['Watermelon', 'Pumpkin', 'Potato'],
-        //     ['Rice', 'Pudding', 'Egg'],
-        //     ['Rice', 'Pudding', 'Egg'],
-        //     ['Banana', 'Carrot', 'Corn'],
-        //     ['Banana', 'Cauliflower', 'Watermelon'],
-        //     ['Banana', 'Cauliflower', 'Watermelon'],
-        // ];
+        $given_ans = [
+            ['Watermelon', 'Pumpkin', 'Potato'],
+            ['Rice', 'Pudding', 'Egg'],
+            ['Rice', 'Pudding', 'Egg'],
+            ['Banana', 'Carrot', 'Corn'],
+            ['Banana', 'Cauliflower', 'Watermelon'],
+            ['Banana', 'Cauliflower', 'Watermelon'],
+        ];
 
-        // $ans = [
-        //     "Pumpkin", "Rice", "Egg", "Carrot", "Banana", "Watermelon"
-        // ];
+        $ans = [
+            "Pumpkin", "Rice", "Egg", "Carrot", "Banana", "Watermelon"
+        ];
 
-        // foreach ($given_ans as $key => $ga) {
+        $conver = [
+            "I am green outside. I am yellow outside. \nI am good for your health.",
+            "I am the main meal. I am white. You eat it every day. \nI am good for your energy.",
+            "I am round and oval. I am brown. I am white. \nI am good for your growth.",
+            "I am orange. I am tall. \nI am good for your health.",
+            "I am yellow outside. I am sweet. \nI am good for your health.",
+            "I am green outside. I am red inside. \nI am good for your health."
+        ];
+
+        foreach ($given_ans as $key => $ga) {
 
 
-        //     DB::table('ans_n_ques')->insert([
-        //         [
-        //             'game_id' => 1010,
-        //             'round' => $key + 1,
-        //             'q_image' => $img . $this->removeSpace($ans[$key]) . ".png",
-        //             'q_content' =>  $ga[0],
-        //             'a_content' => $ga[0] == $ans[$key] ? true : false
-        //         ]
-        //     ]);
-        //     DB::table('ans_n_ques')->insert([
-        //         [
-        //             'game_id' => 1010,
-        //             'round' => $key + 1,
-        //             'q_content' =>  $ga[1],
-        //             'a_content' => $ga[1] == $ans[$key] ? true : false
-        //         ]
-        //     ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 1010,
+                    'round' => $key + 1,
+                    // 'q_image' => $img . $this->removeSpace($ans[$key]) . ".png",
+                    'q_audio' => $img . $this->removeSpace($ans[$key]) . ".png",
+                    "q_conver" =>  $conver[$key],
+                    'q_content' =>  $ga[0],
+                    'a_content' => $ga[0] == $ans[$key] ? true : false
+                ]
+            ]);
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 1010,
+                    'round' => $key + 1,
+                    'q_content' =>  $ga[1],
+                    'a_content' => $ga[1] == $ans[$key] ? true : false
+                ]
+            ]);
 
-        //     DB::table('ans_n_ques')->insert([
-        //         [
-        //             'game_id' => 1010,
-        //             'round' => $key + 1,
-        //             'q_content' =>  $ga[2],
-        //             'a_content' => $ga[2] == $ans[$key] ? true : false
-        //         ]
-        //     ]);
-        // }
+            DB::table('ans_n_ques')->insert([
+                [
+                    'game_id' => 1010,
+                    'round' => $key + 1,
+                    'q_content' =>  $ga[2],
+                    'a_content' => $ga[2] == $ans[$key] ? true : false
+                ]
+            ]);
+        }
 
-        DB::table('ans_n_ques')->insert([
+        // DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 1011, "q_conver" => "I am green outside. I am red inside. \nI am good for your health.", "q_content" => "Banana", "a_content" => 0],
-            ['round' => 1, 'game_id' => 1011, "q_conver" => null, "q_content" => "Cauliflower", "a_content" => 0],
-            ['round' => 1, 'game_id' => 1011, "q_conver" => null, "q_content" => "Watermelon", "a_content" => 1],
+        //     ['round' => 1, 'game_id' => 1011, "q_conver" => "I am green outside. I am red inside. \nI am good for your health.", "q_content" => "Banana", "a_content" => 0],
+        //     ['round' => 1, 'game_id' => 1011, "q_conver" => null, "q_content" => "Cauliflower", "a_content" => 0],
+        //     ['round' => 1, 'game_id' => 1011, "q_conver" => null, "q_content" => "Watermelon", "a_content" => 1],
 
-            ['round' => 2, 'game_id' => 1011, "q_conver" => "I am yellow outside. I am sweet. \nI am good for your health.", "q_content" => "Banana", "a_content" => 1],
-            ['round' => 2, 'game_id' => 1011, "q_conver" => null, "q_content" => "Cauliflower", "a_content" => 0],
-            ['round' => 2, 'game_id' => 1011, "q_conver" => null, "q_content" => "Watermelon", "a_content" => 0],
+        //     ['round' => 2, 'game_id' => 1011, "q_conver" => "I am yellow outside. I am sweet. \nI am good for your health.", "q_content" => "Banana", "a_content" => 1],
+        //     ['round' => 2, 'game_id' => 1011, "q_conver" => null, "q_content" => "Cauliflower", "a_content" => 0],
+        //     ['round' => 2, 'game_id' => 1011, "q_conver" => null, "q_content" => "Watermelon", "a_content" => 0],
 
-            ['round' => 3, 'game_id' => 1011, "q_conver" => "I am green outside. I am yellow outside. \nI am good for your health.", "q_content" => "Watermelon", "a_content" => 0],
-            ['round' => 3, 'game_id' => 1011, "q_conver" => null, "q_content" => "Pumpkin", "a_content" => 1],
-            ['round' => 3, 'game_id' => 1011, "q_conver" => null, "q_content" => "Large", "a_content" => 0],
+        //     ['round' => 3, 'game_id' => 1011, "q_conver" => "I am green outside. I am yellow outside. \nI am good for your health.", "q_content" => "Watermelon", "a_content" => 0],
+        //     ['round' => 3, 'game_id' => 1011, "q_conver" => null, "q_content" => "Pumpkin", "a_content" => 1],
+        //     ['round' => 3, 'game_id' => 1011, "q_conver" => null, "q_content" => "Large", "a_content" => 0],
 
-            ['round' => 4, 'game_id' => 1011, "q_conver" => "I am the main meal. I am white. You eat it every day. \nI am good for your energy.", "q_content" => "Rice", "a_content" => 1],
-            ['round' => 4, 'game_id' => 1011, "q_conver" => null, "q_content" => "Pudding", "a_content" => 0],
-            ['round' => 4, 'game_id' => 1011, "q_conver" => null, "q_content" => "Egg", "a_content" => 0],
+        //     ['round' => 4, 'game_id' => 1011, "q_conver" => "I am the main meal. I am white. You eat it every day. \nI am good for your energy.", "q_content" => "Rice", "a_content" => 1],
+        //     ['round' => 4, 'game_id' => 1011, "q_conver" => null, "q_content" => "Pudding", "a_content" => 0],
+        //     ['round' => 4, 'game_id' => 1011, "q_conver" => null, "q_content" => "Egg", "a_content" => 0],
 
-            ['round' => 5, 'game_id' => 1011, "q_conver" => "I am round and oval. I am brown. I am white. \nI am good for your growth.", "q_content" => "Rice", "a_content" => 0],
-            ['round' => 5, 'game_id' => 1011, "q_conver" => null, "q_content" => "Pudding", "a_content" => 0],
-            ['round' => 5, 'game_id' => 1011, "q_conver" => null, "q_content" => "Egg", "a_content" => 1],
+        //     ['round' => 5, 'game_id' => 1011, "q_conver" => "I am round and oval. I am brown. I am white. \nI am good for your growth.", "q_content" => "Rice", "a_content" => 0],
+        //     ['round' => 5, 'game_id' => 1011, "q_conver" => null, "q_content" => "Pudding", "a_content" => 0],
+        //     ['round' => 5, 'game_id' => 1011, "q_conver" => null, "q_content" => "Egg", "a_content" => 1],
 
-            ['round' => 6, 'game_id' => 1011, "q_conver" => "I am orange. I am tall. \nI am good for your health.", "q_content" => "Banana", "a_content" => 0],
-            ['round' => 6, 'game_id' => 1011, "q_conver" => null, "q_content" => "Carrot", "a_content" => 1],
-            ['round' => 6, 'game_id' => 1011, "q_conver" => null, "q_content" => "Corn", "a_content" => 0],
+        //     ['round' => 6, 'game_id' => 1011, "q_conver" => "I am orange. I am tall. \nI am good for your health.", "q_content" => "Banana", "a_content" => 0],
+        //     ['round' => 6, 'game_id' => 1011, "q_conver" => null, "q_content" => "Carrot", "a_content" => 1],
+        //     ['round' => 6, 'game_id' => 1011, "q_conver" => null, "q_content" => "Corn", "a_content" => 0],
 
-        ]);
+        // ]);
 
         // Lesson 32 Unit 5 Speaking Practice <speaking_and_recording>
 

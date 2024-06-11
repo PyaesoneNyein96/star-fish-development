@@ -4686,29 +4686,29 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 949, 'q_image' => $l24_G950_image .  "france.png", "q_conver" => "What is the capital of France?", "q_content" => "Berlin", "a_content" => 0],
-            ['round' => 1, 'game_id' => 949, 'q_image' => null, "q_conver" => null, "q_content" => "Rome", "a_content" => 0],
-            ['round' => 1, 'game_id' => 949, 'q_image' => null, "q_conver" => null, "q_content" => "Paris", "a_content" => 1],
+            ['round' => 1, 'game_id' => 949, "q_audio" =>  $AudioDomain . $G4_L24_listening_practice_path . "audio" . ".mp3", 'q_image' => $l24_G950_image .  "france.png", "q_conver" => "What is the capital of France?", "q_content" => "Berlin", "a_content" => 0],
+            ['round' => 1, 'game_id' => 949, "q_audio" => null, 'q_image' => null, "q_conver" => null, "q_content" => "Rome", "a_content" => 0],
+            ['round' => 1, 'game_id' => 949, "q_audio" => null, 'q_image' => null, "q_conver" => null, "q_content" => "Paris", "a_content" => 1],
 
-            ['round' => 2, 'game_id' => 949, 'q_image' => $l24_G950_image .  "germany.png", "q_conver" => "What is the capital of Germany?", "q_content" => "Berlin", "a_content" => 1],
-            ['round' => 2, 'game_id' => 949, 'q_image' => null, "q_conver" => null, "q_content" => "Rome", "a_content" => 0],
-            ['round' => 2, 'game_id' => 949, 'q_image' => null, "q_conver" => null, "q_content" => "Paris", "a_content" => 0],
+            ['round' => 2, 'game_id' => 949, "q_audio" =>  $AudioDomain . $G4_L24_listening_practice_path . "audio" . ".mp3", 'q_image' => $l24_G950_image .  "germany.png", "q_conver" => "What is the capital of Germany?", "q_content" => "Berlin", "a_content" => 1],
+            ['round' => 2, 'game_id' => 949, "q_audio" => null, 'q_image' => null, "q_conver" => null, "q_content" => "Rome", "a_content" => 0],
+            ['round' => 2, 'game_id' => 949, "q_audio" => null, 'q_image' => null, "q_conver" => null, "q_content" => "Paris", "a_content" => 0],
 
-            ['round' => 3, 'game_id' => 949, 'q_image' => $l24_G950_image .  "italty.png", "q_conver" => "What is the capital of Italy?", "q_content" => "Berlin", "a_content" => 0],
-            ['round' => 3, 'game_id' => 949, 'q_image' => null, "q_conver" => null, "q_content" => "Rome", "a_content" => 1],
-            ['round' => 3, 'game_id' => 949, 'q_image' => null, "q_conver" => null, "q_content" => "Paris", "a_content" => 0],
+            ['round' => 3, 'game_id' => 949, "q_audio" =>  $AudioDomain . $G4_L24_listening_practice_path . "audio" . ".mp3", 'q_image' => $l24_G950_image .  "italty.png", "q_conver" => "What is the capital of Italy?", "q_content" => "Berlin", "a_content" => 0],
+            ['round' => 3, 'game_id' => 949, "q_audio" => null, 'q_image' => null, "q_conver" => null, "q_content" => "Rome", "a_content" => 1],
+            ['round' => 3, 'game_id' => 949, "q_audio" => null, 'q_image' => null, "q_conver" => null, "q_content" => "Paris", "a_content" => 0],
 
-            ['round' => 4, 'game_id' => 949, 'q_image' => $l24_G950_image .  "pound.png", "q_conver" => "What do France and Germany use?", "q_content" => "Krona", "a_content" => 0],
-            ['round' => 4, 'game_id' => 949, 'q_image' => null, "q_conver" => null, "q_content" => "Dollar", "a_content" => 0],
-            ['round' => 4, 'game_id' => 949, 'q_image' => null, "q_conver" => null, "q_content" => "Euro", "a_content" => 1],
+            ['round' => 4, 'game_id' => 949, "q_audio" =>  $AudioDomain . $G4_L24_listening_practice_path . "audio" . ".mp3", 'q_image' => $l24_G950_image .  "pound.png", "q_conver" => "What do France and Germany use?", "q_content" => "Krona", "a_content" => 0],
+            ['round' => 4, 'game_id' => 949, "q_audio" => null, 'q_image' => null, "q_conver" => null, "q_content" => "Dollar", "a_content" => 0],
+            ['round' => 4, 'game_id' => 949, "q_audio" => null, 'q_image' => null, "q_conver" => null, "q_content" => "Euro", "a_content" => 1],
 
-            ['round' => 5, 'game_id' => 949, 'q_image' => $l24_G950_image .  "dollar.png", "q_conver" => "What is the currency of the US?", "q_content" => "Pound", "a_content" => 0],
-            ['round' => 5, 'game_id' => 949, 'q_image' => null, "q_conver" => null, "q_content" => "Dollar", "a_content" => 1],
-            ['round' => 5, 'game_id' => 949, 'q_image' => null, "q_conver" => null, "q_content" => "Euro", "a_content" => 0],
+            ['round' => 5, 'game_id' => 949, "q_audio" =>  $AudioDomain . $G4_L24_listening_practice_path . "audio" . ".mp3", 'q_image' => $l24_G950_image .  "dollar.png", "q_conver" => "What is the currency of the US?", "q_content" => "Pound", "a_content" => 0],
+            ['round' => 5, 'game_id' => 949, "q_audio" => null, 'q_image' => null, "q_conver" => null, "q_content" => "Dollar", "a_content" => 1],
+            ['round' => 5, 'game_id' => 949, "q_audio" => null, 'q_image' => null, "q_conver" => null, "q_content" => "Euro", "a_content" => 0],
 
-            ['round' => 6, 'game_id' => 949, 'q_image' => $l24_G950_image .  "euro.png", "q_conver" => "What is the currency of the UK?", "q_content" => "Pound", "a_content" => 1],
-            ['round' => 6, 'game_id' => 949, 'q_image' => null, "q_conver" => null, "q_content" => "Dollar", "a_content" => 0],
-            ['round' => 6, 'game_id' => 949, 'q_image' => null, "q_conver" => null, "q_content" => "Euro", "a_content" => 0],
+            ['round' => 6, 'game_id' => 949, "q_audio" =>  $AudioDomain . $G4_L24_listening_practice_path . "audio" . ".mp3", 'q_image' => $l24_G950_image .  "euro.png", "q_conver" => "What is the currency of the UK?", "q_content" => "Pound", "a_content" => 1],
+            ['round' => 6, 'game_id' => 949, "q_audio" => null, 'q_image' => null, "q_conver" => null, "q_content" => "Dollar", "a_content" => 0],
+            ['round' => 6, 'game_id' => 949, "q_audio" => null, 'q_image' => null, "q_conver" => null, "q_content" => "Euro", "a_content" => 0],
         ]);
 
 
@@ -5152,7 +5152,7 @@ class AnsNQueSeeder extends Seeder
         $l38_G1054image = $domain . "/storage/images/Grade_4/lesson_38/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 1052,  'q_image' => $l38_G1054image . "green-star_round.png", "round_instruction" => $AudioDomain . $G4_L38_speaking_topic . "SubBlock_Look-at-the-table-below-Talk" . ".mp3", "q_content" => $l38_G1054image . "text.png"],
+            ['round' => 1, 'game_id' => 1052,  'q_image' => $l38_G1054image . "green-star_round.png", "round_instruction" => $AudioDomain . $G4_L38_speaking_topic . "SubBlock_Look-at-the-table-below-Talk" . ".mp3", "q_conver" => $l38_G1054image . "text.png"],
         ]);
 
 
