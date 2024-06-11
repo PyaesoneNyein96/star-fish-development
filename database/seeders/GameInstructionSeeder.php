@@ -1345,7 +1345,8 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Listen and Repeat", 'game_id' => 473, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             // G-3 lesson_3 U-444
-            ['content' => "Look at the pictures and write", 'game_id' => 474, 'audio' => $Instructions . "Look-at-the-pictures-and-write.mp3"],
+            // ['content' => "Look at the pictures and write", 'game_id' => 474, 'audio' => $Instructions . "Look-at-the-pictures-and-write.mp3"],
+            ['content' => "Look at the pictures and write sentences", 'game_id' => 474, 'audio' => $Instructions . "Look-at-the-pictures-and-write-sentences.mp3"],
 
             // G-3 lesson_3 U-445
             ['content' => "Listen and write the jobs for each person", 'game_id' => 475, 'audio' => $Instructions . "Listen-and-write-the-jobs-for.mp3"],
@@ -1499,11 +1500,13 @@ class GameInstructionSeeder extends Seeder
 
 
 
-            // G-3 lesson_12 U-509
-            ['content' => "Listen and Repeat", 'game_id' => 542, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+             // G-3 lesson_12 U-510
+            ['content' => "Look at the pictures and rearrange the letter", 'game_id' => 542, 'audio' => $Instructions . "Look-at-the-pictures-and-rearr.mp3"],
 
-            // G-3 lesson_12 U-510
-            ['content' => "Look at the pictures and rearrange the letter", 'game_id' => 543, 'audio' => $Instructions . "Look-at-the-pictures-and-rearr.mp3"],
+
+            // G-3 lesson_12 U-509
+            ['content' => "Listen and Repeat", 'game_id' => 543, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
+
 
             // G-3 lesson_12 U-511
             ['content' => "Rearrange to make the correct sentences.", 'game_id' => 544, 'audio' => $Instructions . "Rearrange-to-make-the-correct.mp3"],
@@ -1695,7 +1698,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Read and write Yes or No", 'game_id' => 619, 'audio' =>  $Instructions . "Read-and-write-Yes-or-No" . ".mp3"],
 
-            ['content' => "Write about what you do in school?", 'game_id' => 620, 'audio' =>  $Instructions . "Write-about-what-you-do-in-school" . ".mp3"],
+            ['content' => "Write about what you do in school.", 'game_id' => 620, 'audio' =>  $Instructions . "Write-about-what-you-do-in-school" . ".mp3"],
 
 
 

@@ -296,8 +296,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            'Yes, Listen to songs', 'yes, help each other', 'Yes, water the plants',
-            'Yes, draw pictures', 'Yes, work alone', 'Yes, play games', 'Yes, study in library', 'Yes, listen to the teacher',
+            'Yes, Listen to songs.', 'yes, help each other.', 'Yes, water the plants.',
+            'Yes, draw pictures.', 'Yes, work alone.', 'Yes, play games.', 'Yes, study in library.', 'Yes, listen to the teacher.',
         ];
 
 
@@ -327,11 +327,11 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $questions = [
             "what do you sometimes do in your class?",
-            "what do you alway do at school?",
+            "what do you always do at school?",
             "what do you usually do at school?",
             "what do you often do in your class?",
             "what do you sometimes do in your class?",
-            "what do you alway do at school?",
+            "what do you always do at school?",
             "what do you often do in your class?",
         ];
 
@@ -474,7 +474,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $given_q = [
             ["Anna doesn't work in groups.", "True"],
-            ["Anna doesn't study in the library", "False"],
+            ["Anna doesn't study in the library.", "False"],
             ["They do physical exercise in the afternoon.", 'False'],
             ["Anna loves doing physical exercise.", "True"],
             ["Anna sometime plays games with friends.", 'True'],
