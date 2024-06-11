@@ -4090,10 +4090,10 @@ class AnsNQueSeeder extends Seeder
         $l21_G928image = $domain . "/storage/images/Grade_4/lesson_21/speaking_topic/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 927,  'q_image' => $l21_G928image . "map.png", "q_audio" => $AudioDomain . $G4_L21_speaking_topic . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L21_speaking_topic . "SubBlock_Look-at-the-following-picture" . ".mp3", "q_content" => "Where is the school?"],
-            ['round' => 2, 'game_id' => 927,  'q_image' => $l21_G928image . "map.png", "q_audio" => $AudioDomain . $G4_L21_speaking_topic . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L21_speaking_topic . "SubBlock_Look-at-the-following-picture" . ".mp3",  "q_content" => "Where is the pharmacy?"],
-            ['round' => 3, 'game_id' => 927,  'q_image' => $l21_G928image . "map.png", "q_audio" => $AudioDomain . $G4_L21_speaking_topic . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L21_speaking_topic . "SubBlock_Look-at-the-following-picture" . ".mp3",  "q_content" => "Where is the park?"],
-            ['round' => 4, 'game_id' => 927,  'q_image' => $l21_G928image . "map.png", "q_audio" => $AudioDomain . $G4_L21_speaking_topic . "" . ".mp3", "round_instruction" => $AudioDomain . $G4_L21_speaking_topic . "SubBlock_Look-at-the-following-picture" . ".mp3",  "q_content" => "Where is the cinema?"],
+            ['round' => 1, 'game_id' => 927,  'q_image' => $l21_G928image . "map.png", "q_audio" => $AudioDomain . $G4_L21_speaking_topic . "audio" . ".mp3", "round_instruction" => $AudioDomain . $G4_L21_speaking_topic . "SubBlock_Look-at-the-following-picture" . ".mp3", "q_content" => "Where is the school?"],
+            ['round' => 2, 'game_id' => 927,  'q_image' => $l21_G928image . "map.png", "q_audio" => $AudioDomain . $G4_L21_speaking_topic . "audio" . ".mp3", "round_instruction" => $AudioDomain . $G4_L21_speaking_topic . "SubBlock_Look-at-the-following-picture" . ".mp3",  "q_content" => "Where is the pharmacy?"],
+            ['round' => 3, 'game_id' => 927,  'q_image' => $l21_G928image . "map.png", "q_audio" => $AudioDomain . $G4_L21_speaking_topic . "audio" . ".mp3", "round_instruction" => $AudioDomain . $G4_L21_speaking_topic . "SubBlock_Look-at-the-following-picture" . ".mp3",  "q_content" => "Where is the park?"],
+            ['round' => 4, 'game_id' => 927,  'q_image' => $l21_G928image . "map.png", "q_audio" => $AudioDomain . $G4_L21_speaking_topic . "audio" . ".mp3", "round_instruction" => $AudioDomain . $G4_L21_speaking_topic . "SubBlock_Look-at-the-following-picture" . ".mp3",  "q_content" => "Where is the cinema?"],
         ]);
 
 
