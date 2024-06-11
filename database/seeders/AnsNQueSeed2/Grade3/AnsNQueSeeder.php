@@ -728,7 +728,7 @@ class AnsNQueSeeder extends Seeder
         $q_content_G3_L5_Game489_img = [ "strawberry", "banana","carrot", "papaya", "potato", "eggplant", "watermelon", "tomato", "mango", "asparagus", "cabbage", "pineapple", ];
 
         $a_content_G3_L5_Game489 = [
-               "I don't like strawberry.",
+            "I don't like strawberry.",
             "I like banana.",
             "I like carrot.",
             "I don't like papaya.",
@@ -743,16 +743,16 @@ class AnsNQueSeeder extends Seeder
         ];
 
         $a_audio_G3_L5_Game489 = [
-            "I-like",
-            "I-dont-like",
             "I-dont-like",
             "I-like",
             "I-like",
             "I-dont-like",
-            "I-like",
-            "I-dont-like",
             "I-dont-like",
             "I-like",
+            "I-like",
+            "I-dont-like",
+            "I-like",
+            "I-dont-like",
             "I-dont-like",
             "I-like"
         ];
@@ -1183,9 +1183,9 @@ class AnsNQueSeeder extends Seeder
 
         $a_content_G3_L7_Game505 = [
 
-            "My favorite subject is myanmar. I m good at myanmar. I'm not good at english.",
-            "My favorite subject is maths. I m good at maths. I'm not good at science.",
-            "My favorite subject is science. I m good at science. I'm not good at maths.",
+            "My favorite subject is myanmar. I'm good at myanmar. I'm not good at english.",
+            "My favorite subject is maths. I'm good at maths. I'm not good at science.",
+            "My favorite subject is science. I'm good at science. I'm not good at maths.",
 
         ];
 
@@ -2356,7 +2356,7 @@ class AnsNQueSeeder extends Seeder
         $l12_G546image = $domain . "/storage/images/Grade_3/lesson_12/practice_speaking/";
 
         DB::table('ans_n_ques')->insert([
-            ['round' => 1, 'game_id' => 546, "q_audio" => $AudioDomain . $G3_L12_practice_speaking . "Do-you-like-polar-bears" . ".mp3", 'q_image' => $l12_G546image . "polar-bear.png", "q_content" => "Do you love polar bears? ", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "polar-bear" . ".mp3", "a_content" => "Yes, I do. I like polar bears. \nThey are very beautiful."],
+            ['round' => 1, 'game_id' => 546, "q_audio" => $AudioDomain . $G3_L12_practice_speaking . "Do-you-like-polar-bears" . ".mp3", 'q_image' => $l12_G546image . "polar-bear.png", "q_content" => "Do you love polar bears? ", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "polar-bear" . ".mp3", "a_content" => "Do you love polar bears? \nYes, I do. I like polar bears. \nThey are very beautiful."],
         ]);
         DB::table('ans_n_ques')->insert([
             ['round' => 2, 'game_id' => 546, 'q_image' => $l12_G546image . "crocodile.png", "q_content" => "Do you love crocodiles?", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "crocodiles" . ".mp3"],

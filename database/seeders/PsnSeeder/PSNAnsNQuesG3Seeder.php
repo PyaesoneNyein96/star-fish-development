@@ -2022,7 +2022,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "What is she doing?",
             "What is she doing?",
             "What are you doing?",
-            "What is he doing?",
+            "What is she doing?",
             "What is she doing?",
         ];
 
@@ -2033,7 +2033,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "she is fishing.",
             "I am sleeping.",
             "She is acting in a play.",
-            "he is planting flowers."
+            "she is planting flowers."
         ];
 
 
@@ -2429,7 +2429,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $given_ques = [
             ["going shopping", "playing the guitar", "playing tag"],
-            ["dancing", "playing the guitar", "waling dog"],
+            ["dancing", "playing the guitar", "walking dog"],
             ["dancing", "playing the guitar", "waling dog"],
             ["going shopping", "Playing marbles", "playing tag"],
             ["playing football", "drawing", "dancing"],
@@ -2490,23 +2490,23 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $Question_contents = [
             "What are you doing? \n I am reading.",
+            "What is he doing?",
             "What are they doing?",
             "What are they doing?",
             "What is he doing?",
             "What is she doing?",
             "What is she doing?",
-            "What is he doing?",
             "What are you doing?",
         ];
 
         $answers = [
             'What are you doing',
+            'What is he doing',
             'What are they doing',
             'What are they doing',
             'What is he doing',
             'What is she doing',
             'What is she doing',
-            'What is he doing',
             'What are you doing',
         ];
 
