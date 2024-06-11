@@ -3235,7 +3235,7 @@ class AnsNQueSeeder extends Seeder
                     'game_id' => 577, 'round' => $key + 1,
                     'q_image' => $l16_G577_image . $value . ".jpg",
                     'q_audio' => $AudioDomain . $G3_L16_answer_the_question . $value . ".mp3",
-                    // 'a_content' => $a_content_G3_L16_Game577[$key],
+                    'a_content' => $a_content_G3_L16_Game577[$key],
                 ],
             ]);
         }
