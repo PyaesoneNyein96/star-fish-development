@@ -881,7 +881,7 @@ class GameInstructionSeeder extends Seeder
 
             // G-2 lesson_8 U-269
             ['content' => "Arranging the letters", 'game_id' => 289, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
-            ['content' => "Look at the pictures and choose the right answer", 'game_id' => 490, 'audio' =>  $Instructions . "look-at-the-pictures-and-choos" . ".mp3"],
+            ['content' => "Look at the pictures and choose the right answer", 'game_id' => 290, 'audio' =>  $Instructions . "look-at-the-pictures-and-choos" . ".mp3"],
 
             // G-2 lesson_8 U-271
             ['content' => "Choose the correct answer", 'game_id' => 291, 'audio' =>  $Instructions . "Choose-the-correct-answer" . ".mp3"],
@@ -1969,6 +1969,8 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Read and write Yes or No", 'game_id' => 739, 'audio' =>  $Instructions . "Read-and-write-Yes-or-No" . ".mp3"],
 
+            ['content' => "You are going to invite people to your home. Draw a map and write direction to help them to get here.", 'game_id' => 740, 'audio' =>  $Instructions . "You-are-going-to-invite-people" . ".mp3"],
+
             // ['content' => "Prepare to speak", 'game_id' => 741, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
 
 
@@ -1980,7 +1982,9 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Match the words with the picture", 'game_id' => 745, 'audio' =>  $Instructions . "Match-the-words-with-the-picture" . ".mp3"],
 
-            ['content' => "Listen and circle the words you hear", 'game_id' => 746, 'audio' =>  $Instructions . "Listen-and-circle-the-words-you-hear" . ".mp3"],
+            // ['content' => "Listen and circle the words you hear", 'game_id' => 746, 'audio' =>  $Instructions . "Listen-and-circle-the-words-you-hear" . ".mp3"],
+
+            ['content' => "Listen and choose the word you hear", 'game_id' => 746, 'audio' =>  $Instructions . "Listen-and-choose-the-word-you" . ".mp3"],
 
             // ['content' => "Prepare to speak", 'game_id' => 748, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
 
