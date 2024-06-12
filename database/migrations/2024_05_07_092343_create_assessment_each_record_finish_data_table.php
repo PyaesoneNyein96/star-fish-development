@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer("assess_name");
             $table->integer("grade_id");
 
-            // $table->integer('total_point')->nullable();
-            // $table->integer('timer')->nullable();
+            $table->integer('total_point')->nullable();
+            $table->integer('timer')->nullable();
 
             $table->timestamps();
         });
