@@ -273,6 +273,7 @@ class GameController extends Controller
     }
 
 
+    //////// End Match -==============
 
     public function end_match(Request $request)
     {
@@ -410,11 +411,9 @@ class GameController extends Controller
             // return $studentGrade;
             if(!$studentGrade){
                 StudentGame::where('student_id', $student->id)->whereIn('game_id', $lessonGamesId)->delete();
+                response()->json(["message" => "You are not a subscriber"],402);
             }
 
-            if (!$studentGrade) return response()->json(
-                    ["message" => "You are not a subscriber"],402
-                );
 
             //----------------
 
@@ -532,11 +531,11 @@ class GameController extends Controller
                 $board = 'silver';
             }else if
             ($lvl > 50 && $lvl <= 100) {
-                $board = 'platinum';
+                $board = 'gold';
             }
             else if
             ($lvl > 100 && $lvl <= 200) {
-                $board = 'gold';
+                $board = 'platinum';
             }
             else if
             ($lvl > 200) {

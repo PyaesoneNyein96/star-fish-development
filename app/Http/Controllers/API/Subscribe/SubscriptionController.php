@@ -35,14 +35,14 @@ class SubscriptionController extends Controller
 
 
     // Production
-    private $appId = "kp6d29862312994fa09afb52c00e6687";
-    private $merch_code = "70244201";
-    private $appKey = "ddfa5a774af37d9137f51d90c1871cb1";
+    // private $appId = "kp6d29862312994fa09afb52c00e6687";
+    // private $merch_code = "70244201";
+    // private $appKey = "ddfa5a774af37d9137f51d90c1871cb1";
 
     // Testing
-    // private $appId = "kp0480c579f02f48ae8c37ce82260511";
-    // private $merch_code = "70050901";
-    // private $appKey = "starfish@123";
+    private $appId = "kp0480c579f02f48ae8c37ce82260511";
+    private $merch_code = "70050901";
+    private $appKey = "starfish@123";
 
 
 
@@ -100,11 +100,11 @@ class SubscriptionController extends Controller
         }
 
         // skip payment process
-        // try {
-        //     return $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
-        // } catch (\Throwable $th) {
-        //     return $th->getMessage();
-        // }
+        try {
+            return $this->getGradeAccess($student, $this->grade_id, $this->subscription_id);
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
 
         //ts
 
@@ -498,8 +498,8 @@ class SubscriptionController extends Controller
         $already = $student->championBonus;
 
         $champions = [
-            ['platinum', 50],
-            ['gold', 100],
+            ['gold', 50],
+            ['platinum', 100],
             ['diamond', 200]
         ];
 
@@ -524,10 +524,17 @@ class SubscriptionController extends Controller
     public function autoSeed()
     {
 
-        $students = Student::whereIn('id', [1, 10, 11, 12, 13])->get();
+        // $students = Student::whereIn('id', [1, 10, 11, 12, 13])->get();
+        $students = Student::whereIn('id', [1,2,3,4,5,6,7,8,9])->get();
+
 
         foreach ($students as $k => $student) {
-            $this->getGradeAccess($student, 1, 1);
+            $studentGrade = StudentGrade::where('student_id', $student->id)->where('grade_id',1)->first();
+            if(!$studentGrade) {
+                foreach (range(1,4) as $id) {
+                    $this->getGradeAccess($student, 1, $id);
+                }
+            }
         }
 
         return "ok";

@@ -296,8 +296,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            'Yes, Listen to songs', 'yes, help each other', 'Yes, water the plants',
-            'Yes, draw pictures', 'Yes, work alone', 'Yes, play games', 'Yes, study in library', 'Yes, listen to the teacher',
+            'Yes, Listen to songs.', 'yes, help each other.', 'Yes, water the plants.',
+            'Yes, draw pictures.', 'Yes, work alone.', 'Yes, play games.', 'Yes, study in library.', 'Yes, listen to the teacher.',
         ];
 
 
@@ -327,11 +327,11 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $questions = [
             "what do you sometimes do in your class?",
-            "what do you alway do at school?",
+            "what do you always do at school?",
             "what do you usually do at school?",
             "what do you often do in your class?",
             "what do you sometimes do in your class?",
-            "what do you alway do at school?",
+            "what do you always do at school?",
             "what do you often do in your class?",
         ];
 
@@ -474,7 +474,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $given_q = [
             ["Anna doesn't work in groups.", "True"],
-            ["Anna doesn't study in the library", "False"],
+            ["Anna doesn't study in the library.", "False"],
             ["They do physical exercise in the afternoon.", 'False'],
             ["Anna loves doing physical exercise.", "True"],
             ["Anna sometime plays games with friends.", 'True'],
@@ -856,10 +856,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "swimming",
             "computer_game",
             "reading",
-            "watch TV",
-            "ride bike",
-            "play piano",
-            "play football",
+            "watch_TV",
+            "ride_bike",
+            "play_piano",
+            "play_football",
         ];
 
         $questions = [
@@ -873,13 +873,13 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            "go swimming",
-            "play game",
-            "read a book",
-            "watch TV and sleep",
-            "ride a bike",
-            "play a musical instrument",
-            "play football",
+            "Yes, I go swimming.",
+            "Yes, I play game.",
+            "Yes, I read a book.",
+            "Yes, I watch TV and sleep.",
+            "I ride a bike.",
+            "Yes, I play a musical instrument.",
+            "Yes, I play football.",
         ];
 
 
@@ -1065,13 +1065,13 @@ class PSNAnsNQuesG3Seeder extends Seeder
         $para = "It’s a busy week for me. On Monday I play tennis for one hour and on Tuesday I go swimming for one hour. On Wednesday and Friday I watch TV and read a book. On Thursday I ride my bike with my friend. We ride our bikes for two hours.  Saturday is my favorite day.  I go to the park and play with friends. We play football. On Sunday I watch TV and play computer games. What do you do at the weekend?";
 
         $given_q = [
-            ["On Friday ___.", "Watch TV and read a book"],
-            ["On Tuesday ___.", "Go swimming"],
-            ["On Monday ___ .", 'Play Tennis'],
-            ["On Thursday ___ .", 'Ride my bike'],
-            ["On Wednesday ___ .", 'Watch TV and read a book'],
-            ["On Sunday ___ .", 'Watch TV and play computer games'],
-            ["On Saturday ___ .", 'Play football with friends at the park'],
+            ["On Friday, I ___.", "Watch TV and read a book"],
+            ["On Tuesday, I ___.", "Go swimming"],
+            ["On Monday, I ___ .", 'Play Tennis'],
+            ["On Thursday, I ___ .", 'Ride my bike'],
+            ["On Wednesday, I ___ .", 'Watch TV and read a book'],
+            ["On Sunday, I ___ .", 'Watch TV and play computer games'],
+            ["On Saturday, I ___ .", 'Play football with friends at the park'],
 
         ];
 
@@ -1198,7 +1198,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $questions = [
-            "Can He skate?",
+            "Can he skate?",
             "Can she teach?",
             "Can they swim?",
             "Can he ride a bike?",
@@ -1209,14 +1209,14 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            "No, I can’t.",
+            "No, he can't.",
             "Yes, she can.",
             "Yes, they can.",
             "Yes, he can.",
             "Yes, he can.",
-            "No, they can’t.",
-            "No, I can’t.",
-            "No, he can’t."
+            "No, they can't.",
+            "No, I can't.",
+            "No, he can't."
         ];
 
 
@@ -1462,14 +1462,14 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
         $ans = [
-            "It’s 2:45",
-            "It’s 11:15",
-            "It is 1:30",
-            "It’s 2:10",
-            "It’s 9:45",
-            "It’s 10:20",
-            "It’s 6:30",
-            "It’s 7:00"
+            "It's 2:45.",
+            "It's 11:15.",
+            "It is 1:30.",
+            "It's 2:10.",
+            "It's 9:45.",
+            "It's 10:20.",
+            "It's 6:30.",
+            "It's 7:00."
         ];
 
 
@@ -1785,6 +1785,18 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
         $contents = [
+            'I always go to school at 8:25.',
+            'I usually have breakfast at 7:30.',
+            "I often do the housework at 4:30.",
+            "I usually go home at 3:45.",
+            "I sometime watch TV at 8:30.",
+            "I usually study my lesson at 7:30.",
+            "I usually go to bed at 9:00.",
+            "I often have a bath at 6:15.",
+            "I usually get up at 6:00.",
+        ];
+
+        $contents_img = [
             'I always go to school at 8:25',
             'I usually have breakfast at 7:30',
             "I often do the housework at 4:30",
@@ -1818,7 +1830,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                 [
                     'game_id' => 652,
                     'round' => $key + 1,
-                    'q_image' => $images . $this->removeSpace($val) . ".png",
+                    'q_image' => $images . $this->removeSpace($contents_img[$key]) . ".png",
                     'q_audio' => $audio . $this->removeSpace($val) . ".mp3",
                     'q_content' => $val,
                     'a_content' => $ans[$key],
@@ -1827,9 +1839,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         }
 
 
-
         // Unit - 4 Listen and write <listening_choosing_answer>
-
 
 
         $audio_q = [
@@ -1854,7 +1864,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             ["6:15", "6:50", "6:45"],
             ["7:50", "7:20", "7:15"],
             ["4:35", "4:25", "4:45"],
-            ["3:30", "4:30", "4:30"],
+            ["3:30", "4:30", "4:10"],
 
         ];
 
@@ -1912,12 +1922,12 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $Question_contents = [
             "What time do you usually have a bath",
-            "What time do you alway go to school",
-            "What time sometime watch TV",
+            "What time do you always go to school",
+            "What time do you sometimes watch TV",
             "What time do you usually study the lesson",
-            "What time do you alway go to bed",
-            "What time do you alway have  breakfast",
-            "What time do you alway get up in the morning"
+            "What time do you always go to bed",
+            "What time do you always have  breakfast",
+            "What time do you always get up in the morning"
 
         ];
 
@@ -2012,7 +2022,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "What is she doing?",
             "What is she doing?",
             "What are you doing?",
-            "What is he doing?",
+            "What is she doing?",
             "What is she doing?",
         ];
 
@@ -2023,7 +2033,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "she is fishing.",
             "I am sleeping.",
             "She is acting in a play.",
-            "he is planting flowers."
+            "she is planting flowers."
         ];
 
 
@@ -2419,7 +2429,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $given_ques = [
             ["going shopping", "playing the guitar", "playing tag"],
-            ["dancing", "playing the guitar", "waling dog"],
+            ["dancing", "playing the guitar", "walking dog"],
             ["dancing", "playing the guitar", "waling dog"],
             ["going shopping", "Playing marbles", "playing tag"],
             ["playing football", "drawing", "dancing"],
@@ -2480,23 +2490,23 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $Question_contents = [
             "What are you doing? \n I am reading.",
+            "What is he doing?",
             "What are they doing?",
             "What are they doing?",
             "What is he doing?",
             "What is she doing?",
             "What is she doing?",
-            "What is he doing?",
             "What are you doing?",
         ];
 
         $answers = [
             'What are you doing',
+            'What is he doing',
             'What are they doing',
             'What are they doing',
             'What is he doing',
             'What is she doing',
             'What is she doing',
-            'What is he doing',
             'What are you doing',
         ];
 
@@ -2914,11 +2924,11 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $questions = [
-            "g___, d___.",
-            "d___, y___.",
+            "g___ d___.",
+            "d___ y___.",
             "J___",
             "t___",
-            "m___,c___"
+            "m___ c___"
         ];
 
         $images = $ImageDomain . "Grade_3/Lesson_31/Fill_in_the_blank/";
@@ -2931,7 +2941,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'game_id' => 682,
                     'round' => $key + 1,
                     'q_image' => $images . $this->removeSpace($contents[$key]) . ".png",
-                    // 'q_audio' => $audios.$this->removeSpace($contents[$key]).".mp3",
+                    'q_audio' => $audios . $this->removeSpace($contents[$key]) . ".mp3",
                     'q_content' => $q,
                     'a_content' => $contents[$key],
                 ]
@@ -2987,17 +2997,17 @@ class PSNAnsNQuesG3Seeder extends Seeder
         // Unit - 5 Listen and write <listening_choosing_answer>
 
         $audio_q = [
-            'traveling', 'music', 'origami', 'does-not-like-traveling', 'mountain'
+            'travelling', 'music', 'origami', 'does-not-like-traveling', 'mountain'
         ];
 
         $given_ans = ["Yes", "No"];
 
         $ques = [
-            "Jane like traveling.",
+            "Jane like travelling.",
             "Jane doesn't like listening to music.",
             "They both like making origami.",
-            "Amy doesn't like traveling.",
-            "Amy likes mountain climbing",
+            "Amy doesn't like travelling.",
+            "Amy likes mountain climbing.",
         ];
 
         $ans = [
@@ -3085,7 +3095,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 686,
                 'round' => 1,
-                'q_content' =>  "What are you hobbies? \n What do you like doing in your free time? \n What don't you like doing?",
+                'q_content' =>  "What are your hobbies? \n What do you like doing in your free time? \n What don't you like doing?",
                 'q_audio' => $audios . "What-are-ur-hobbies.mp3",
                 'q_image' => $images . "green_animal_round" . ".png",
             ]
@@ -3188,7 +3198,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "he is angry.",
             "she is nervous.",
             "it is hungry.",
-            "she is thirsty",
+            "she is thirsty.",
             "he is embarrassed.",
             "she is tired."
         ];
@@ -3405,11 +3415,21 @@ class PSNAnsNQuesG3Seeder extends Seeder
             'I always yawn when I am tired.',
             'I always bite my nail when I am bored.',
             'I always is covering my eyes when I am scare.',
-            'I always cover my eyes when I am nervous.',
             'I always blush  when I am embarrassed.',
+            'I always cover my eyes when I am nervous.',
             'I cry when I am sad.',
         ];
 
+        $que = [
+            "What do you do when you are happy?",
+            "What do you do when you are angry?",
+            "What do you do when you are tired?",
+            "What do you do when you are bored?",
+            "What do you do when you are scared?",
+            "What do you do when you are embarrassed?",
+            "What do you do when you are nervous?",
+            "What do you do when you are sad?",
+        ];
 
         $images = $ImageDomain . "Grade_3/Lesson_32/Writing/";
         $audios = $AudioDomain . "Grade_3/Lesson_32/Writing/";
@@ -3422,6 +3442,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'round' => $key + 1,
                     'q_image' => $images . $this->removeSpace($val) . ".png",
                     'q_audio' => $audios . $this->removeSpace($val) . ".mp3",
+                    'q_content' => $que[$key],
                     'a_content' => $ans[$key],
                 ]
             ]);
@@ -3533,7 +3554,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         $given_ans = [
             ['Are', '?', 'married', 'they'],
             ['difficult', 'English', 'Is', '?'],
-            ['new', 'car', 'Is', 'there', '?'],
+            ['new', 'car', 'Is', 'there', 'a', '?'],
             ['noisy', 'he', 'Is', 'or', 'quiet', '?'],
             ['dog', 'your', 'large', '?', 'Is'],
             ['busy', 'you', 'Are', '?']
@@ -3543,7 +3564,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         $audio = $AudioDomain . "Grade_3/Lesson_33/Writing/";
 
         $answers = [
-            'Are they married', 'Is English difficult', 'Is there new car',
+            'Are they married', 'Is English difficult', 'Is there a new car',
             'Is he quiet or noisy', 'Is your dog large', 'Are you busy'
         ];
 
@@ -3755,7 +3776,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'game_id' => 705,
                     'round' => $key + 1,
                     'q_image' => $images . $contents[$key] . ".png",
-                    // 'q_audio' => $audios.$contents[$key].".mp3",
+                    'q_audio' => $audios . $contents[$key] . ".mp3",
                     'q_content' => $q,
                     'a_content' => $ans[$key],
                 ]
@@ -3771,10 +3792,10 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $questions = [
-            "How is the weather in New York.",
-            "How is the weather in Rome.",
-            "How is the weather in Miami.",
-            "How is the weather in Mexico.",
+            "How is the weather in New York?",
+            "How is the weather in Rome?",
+            "How is the weather in Miami?",
+            "How is the weather in Mexico?",
         ];
 
         $ans = [
@@ -4185,7 +4206,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            'Museum',
+            'Cinema',
             'Library',
             'Hospital',
             'Police station',
@@ -4700,6 +4721,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'q_image' => $images . $this->removeSpace($contents[$key]) . ".png",
                     'q_audio' => $audios . $this->removeSpace($contents[$key]) . ".mp3",
                     'q_content' => $q,
+                    'a_content' => $ans[$key]
                 ]
             ]);
         }
@@ -4817,7 +4839,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             [
                 'game_id' => 733,
                 'round' => 1,
-                'q_content' => "Prepare to speak.\n Look at the map of your town and describe it",
+                'q_content' => "Prepare to speak.\n Look at the map of your town and describe it.",
                 'round_instruction' => $audios . "Look-at-map.mp3",
                 'q_image' => $images . "Map-img.png",
             ]
@@ -4876,8 +4898,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "How do i get to University from here?",
             "How do i get to the police station from here?",
             "How do i get to the Bus station from here?",
-            "How do i get to the Bus market from here?",
-            "How do i get to the Bus bakery from here?",
+            "How do i get to the market from here?",
+            "How do i get to the bakery from here?",
 
         ];
 
@@ -5193,9 +5215,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
         $given_ans = [
             ['like', 'jacket', 'you', '?', 'Do', 'this'],
             ['?', 'you', 'shorts', 'like', 'these', 'Do'],
-            ['t-shirt', 'Do', '?', 'you', 'like', 'this'],
+            ['shirt', 'Do', '?', 'you', 'like', 'this'],
             ['you', '?', 'like', 'jeans', 'these', 'Do'],
-            ['these', 'you', 'shoe', 'Do', 'like', '?'],
+            ['these', 'you', 'shoes', 'Do', 'like', '?'],
             ['this', 'Do', 'hat', 'like', 'you', '?'],
         ];
 
@@ -5205,7 +5227,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         $answers = [
             'Do you like this jacket',
             'Do you like these shorts',
-            'Do you like this t-shirt',
+            'Do you like this shirt',
             'Do you like these jeans',
             'Do you like these shoe',
             'Do you like this hat',
@@ -5302,8 +5324,8 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "Do you like this sweater?",
             "Do you like these shoes?",
             "Do you like this dress?",
-            "Do you like this socks?",
-            "Do you like this t-shirt?",
+            "Do you like these socks?",
+            "Do you like this shirt?",
             "Do you like this belt?",
             "Do you like this jacket?",
         ];
@@ -5472,12 +5494,12 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $contents = [
             ['earrings', 'coat', 'watch', 'umbrella', 'boots'],
-            ['stocking', 'purse', 'hat', 'mitten', 'bracelet']
+            ['stockings', 'purse', 'hat', 'mittens', 'bracelet']
         ];
 
         $randomValues = [
             ['boots', 'earrings', 'umbrella', 'coat', 'watch'],
-            ['purse', 'stocking', 'bracelet', 'hat', 'mitten']
+            ['purse', 'stockings', 'bracelet', 'hat', 'mittens']
         ];
 
         $audio = $AudioDomain . "Grade_3/Lesson_40/Matching/";
@@ -5526,9 +5548,9 @@ class PSNAnsNQuesG3Seeder extends Seeder
         $given_ques = [
             ["Gloves", "Glasses", "Purses"],
             ["Bag", "Watch", "Hat"],
-            ["Boot", "Coat", "Blouse"],
+            ["Boots", "Coat", "Blouse"],
             ["Earrings", "Stockings", "Briefcase"],
-            ["Boot", "Coat", "Blouse"],
+            ["Boots", "Coat", "Blouse"],
         ];
 
         $ans = [
@@ -5584,17 +5606,17 @@ class PSNAnsNQuesG3Seeder extends Seeder
         // Unit 6 Speaking <speaking_and_recording>
 
         $contents = [
-            "umbrella", "boots", "purse", "glasses", "coat", "earrings", "necklace",
+            "earrings", "necklace", "umbrella", "boots", "purse", "glasses", "coat",
         ];
 
         $Question_contents = [
+            "Excuse me. I think those are my earrings. \n I don't think so. I think these are my earings.",
+            "Excuse me. I think that is my necklace. \n I don't think so. I think this is my necklace.",
             "Excuse me. I think this is my umbrella. \n I don't think so. I think ___.",
             "Excuse me. I think those are my boots. \n I don't think so. I think ___.",
             "Excuse me. I think that is my purse. \n I don't think so. I think ___.",
             "Excuse me. I think those are my glasses. \n I don't think so. I think ___.",
             "Excuse me. I think that is my coat. \n I don't think so. I think ___.",
-            "Excuse me. I think those are my earrings. \n I don't think so. I think ___.",
-            "Excuse me. I think that is my necklace. \n I don't think so. I think ___.",
         ];
 
 

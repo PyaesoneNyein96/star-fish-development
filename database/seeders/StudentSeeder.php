@@ -306,5 +306,30 @@ class StudentSeeder extends Seeder
 
 
         ]);
+
+        DB::table('students')->insert([
+            [
+                'name' => 'ss',
+                'phone' => "+959966300826",
+                'email' => null,
+                'password' => Hash::make('admin123'),
+                'age' => 10,
+                'country_id' => 1,
+                'city_id' => 1,
+                'agreeToPolicy' => 1,
+                'deviceId' => null,
+                'isAuth' => 0,
+                'isLocal' => 1,
+                'level' => 1,
+                'point' => 0,
+                'fixed_point' => 0,
+                'profile_picture' => null,
+                'status' => 1,
+                'grade_chosen' => null,
+                'question_answer' => 0,
+                'token' => "95|CzVjS995QURoAlVl9bLE8RofkbHFTevMaLS62RA22e28071b",
+                'isSubscriber' => 0
+            ],
+        ]);
     }
 }

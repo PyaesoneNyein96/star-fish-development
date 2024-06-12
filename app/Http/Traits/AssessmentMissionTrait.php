@@ -3,6 +3,7 @@
 namespace App\Http\Traits;
 
 use App\Models\Assessment;
+use App\Models\AssessmentEachRecordFinishData;
 use App\Models\AssessmentFinishData;
 use App\Models\Student;
 use App\Models\StudentGrade;
@@ -147,10 +148,10 @@ trait AssessmentMissionTrait
             }
 
             if ($oldPoint->level >= 51 && $oldPoint->level <= 100) {
-                $board = 'platinum';
+                $board = 'gold';
             }
             if ($oldPoint->level >= 101 && $oldPoint->level <= 200) {
-                $board = 'gold';
+                $board = 'platinum';
             }
             if ($oldPoint->level >= 201 && $oldPoint->level <= 300) {
                 $board = 'diamond';
@@ -220,5 +221,41 @@ trait AssessmentMissionTrait
             if ($data['grade_id'] != $sub_id) array_push($result, $data);
         }
         return $result;
+    }
+
+
+    // assessment notification func
+    public function assess_notify($stud_id)
+    {
+        $res = Assessment::select("name", "grade_id", "total_assess_ques")->get();
+
+        $assessment_count = [];
+
+        foreach ($res as $index => $data) {
+            $isExistData = AssessmentFinishData::where("student_id", $stud_id)
+                ->where("claim", 0)
+                ->where('grade_id', $data->grade_id)
+                ->where('assess_name', $data->name)
+                ->first();
+
+            if ($isExistData && ($data->name !== $res[$index + 1]->name)) {
+                /*
+                    $assess_percent = AssessmentEachRecordFinishData::where("student_id", $stud_id)
+                        ->where('grade_id', $data->grade_id)
+                        ->where('assess_name', $data->name)->get();
+
+                    $points = 0;
+                    foreach ($assess_percent as $val) $points += $val->total_point;
+
+                    $percentage = ($points / $data->total_point) * 100;
+                */
+
+                $percentage = ($isExistData->point / $data->total_assess_ques) * 100;
+                $floor_val = floor($percentage / 10) * 10;
+
+                if ($floor_val >= 50) array_push($assessment_count, $floor_val);
+            }
+        }
+        return count($assessment_count);
     }
 }

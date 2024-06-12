@@ -84,6 +84,7 @@ const Details = ({ reward, back }) => {
                 const editForm = {
                     id,
                     type,
+                    "name": reward[0].name,
                     "item": data.files.item(0),
                     "point": editStar
                 }
@@ -179,7 +180,11 @@ const Details = ({ reward, back }) => {
                                                     >
                                                         <option value="null">stars</option>
                                                         <option value="30" >30</option>
+                                                        <option value="50" >50</option>
                                                         <option value="100" >100</option>
+                                                        <option value="150" >150</option>
+                                                        <option value="150" >200</option>
+                                                        <option value="150" >250</option>
                                                     </select>
                                                     :
                                                     <>
@@ -270,7 +275,11 @@ const Details = ({ reward, back }) => {
                                 >
                                     <option value="null">select stars</option>
                                     <option value="30" >30</option>
+                                    <option value="50" >50</option>
                                     <option value="100" >100</option>
+                                    <option value="150" >150</option>
+                                    <option value="150" >200</option>
+                                    <option value="150" >250</option>
                                 </select>
                             </div>
                         </div>

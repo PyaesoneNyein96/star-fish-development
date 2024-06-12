@@ -26,8 +26,6 @@ use App\Http\Controllers\API\Version\VersionAndUpdateController;
 Route::get('/countries', [AuthController::class, 'startUpData']);
 Route::get('/banners', [AuthController::class, 'getBanners']);
 
-Route::get('/autoSeed', [SubscriptionController::class, 'autoSeed']);
-
 
 Route::prefix('auth')->group(function () {
 
@@ -127,6 +125,7 @@ Route::prefix('payment')->group(function () {
 Route::prefix('assessment')->group(function () {
     Route::get('/', [AssessmentController::class, 'getAllAssess']);
     Route::get('game', [AssessmentController::class, 'enterGame']);
+    Route::get('restart', [AssessmentController::class, 'restartGame']);
     Route::get('each/game', [AssessmentController::class, 'recordEachGame']);
     Route::get('end_match', [AssessmentController::class, 'endGame']);
     Route::get('certificate', [AssessmentController::class, 'callCertificate']);
@@ -182,11 +181,17 @@ Route::prefix('mission')->middleware('isSubscriber')->group(function () {
 });
 
 Route::prefix('testing')->middleware('GameAuth')->group(function () {
-    Route::get('lesson-seed', [TestingController::class,'lessonRecordSeeding']);
-    Route::get('lesson-del', [TestingController::class,'lessonRecordDelete']);
+    Route::get('lesson-seed', [TestingController::class, 'lessonRecordSeeding']);
+    Route::get('lesson-del', [TestingController::class, 'lessonRecordDelete']);
 });
 
 // ===============================
 // ============ test =============
 // ===============================
+
+Route::get('/autoSeed', [SubscriptionController::class, 'autoSeed']);
+Route::get('/gameRecordControl', [TestingController::class,'student_game_list']);
+Route::get('/unitRecordControl', [TestingController::class,'student_unit_list']);
+
+
 Route::get('/test', [GameController::class, 'test']);

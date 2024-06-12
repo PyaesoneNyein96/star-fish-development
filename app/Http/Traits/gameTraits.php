@@ -185,7 +185,7 @@ trait gameTraits
 
 
 
-        if($dataExist){
+        if ($dataExist) {
             $thumbnail = Http::get($data['thumbnail_url']);
             $names = $game->lesson;
 
@@ -222,7 +222,7 @@ trait gameTraits
 
             // "thumbnail_url" => $vd['isLocal'] ? $thumb_path : null,
             // "title" => $vd['isLocal'] ? $data["title"] : null,
-            "thumbnail_url" => $dataExist ? $thumb_path : null ,
+            "thumbnail_url" => $dataExist ? $thumb_path : null,
             "title" => $dataExist ? $data["title"] : null,
             'data' =>  $dataExist ? $videos->first() : null,
 
