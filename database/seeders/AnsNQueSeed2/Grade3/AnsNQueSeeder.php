@@ -1837,24 +1837,13 @@ class AnsNQueSeeder extends Seeder
             "There are chairs next to the table.",
         ];
 
-         $a_content_G3_L10_Game528_audio = [
-            "There is an apple in front of the glass",
-            "There is a cat in front of the chair",
-            "There is a pencil next to the book",
-            "There is a computer on the table",
-            "There are three cats under the table",
-            "There are books on the table",
-            "There are flowers in the vase",
-            "There are chairs next to the table",
-        ];
-
         foreach ($q_content_G3_L10_Game528_img as $key => $value) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 528, 'round' => $key + 1,
                     // 'q_content' => $q_content_G3_L10_Game528[$key],
                     'q_image' => $l10_G527_image . "2/" . $value . ".png",
-                    'q_audio' => $AudioDomain . $G3_L10_language_n_practice .$a_content_G3_L10_Game528_audio[$key] . ".mp3",
+                    'q_audio' => $AudioDomain . $G3_L10_language_n_practice ."practice_2_".$value . ".mp3",
                     'a_content' => $a_content_G3_L10_Game528[$key],
                 ],
             ]);
