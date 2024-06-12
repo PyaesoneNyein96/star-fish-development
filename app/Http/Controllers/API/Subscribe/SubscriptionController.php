@@ -498,8 +498,8 @@ class SubscriptionController extends Controller
         $already = $student->championBonus;
 
         $champions = [
-            ['platinum', 50],
-            ['gold', 100],
+            ['gold', 50],
+            ['platinum', 100],
             ['diamond', 200]
         ];
 
