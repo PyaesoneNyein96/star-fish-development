@@ -155,9 +155,9 @@ class AssessmentController extends Controller
         if (!$assess) return response()->json(['error' => 'Assessment Not Found.'], 404);
 
         $studentId = $studentId->id;
-        $assessFinishData = AssessmentFinishData::where("student_id", $studentId)
-            ->where("grade_id", $assess->grade_id)
-            ->where("finish", 1);
+        // $assessFinishData = AssessmentFinishData::where("student_id", $studentId)
+        //     ->where("grade_id", $assess->grade_id)
+        //     ->where("finish", 1);
 
         $completedData = AssessmentFinishData::where("student_id", $studentId)
             ->where("grade_id", $assess->grade_id)
@@ -311,10 +311,10 @@ class AssessmentController extends Controller
                         $board = 'silver';
                     }
                     if ($level >= 51 && $level <= 100) {
-                        $board = 'platinum';
+                        $board = 'gold';
                     }
                     if ($level >= 101 && $level <= 200) {
-                        $board = 'gold';
+                        $board = 'platinum';
                     }
                     if ($level >= 201) {
                         $board = 'diamond';

@@ -3188,7 +3188,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "he is angry.",
             "she is nervous.",
             "it is hungry.",
-            "she is thirsty",
+            "she is thirsty.",
             "he is embarrassed.",
             "she is tired."
         ];
