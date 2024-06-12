@@ -32,7 +32,7 @@ class GameInstructionSeeder extends Seeder
 
             // Grade 3 > Lesson 1 - 20
             462, 469,  476,  491, 493, 498, 506, 513, 523,  530, 539,  546, 555, 562, 575, 584, 590, 598, 605,
-            612, 618, 626, 632, 639, 646, 654, 660, 669, 676, 685, 686, 692, 701, 708, 717, 724, 732, 738, 747, 754,
+            612, 618, 626, 632, 639, 646, 654, 660, 669, 676, 685, 692, 701, 708, 717, 724, 732, 738, 747, 754,
 
             // Grade 4 > Lesson 1 - 5 , 10 - 25 , 38 -40
             762, 763, 765, 773, 784, 793, 800, 802, 839, 842, 848, 855, 863, 866, 870, 872, 878, 886, 892,
@@ -54,7 +54,7 @@ class GameInstructionSeeder extends Seeder
             16, 26,
 
             // Grade 3
-            471, 478, 483, 501, 508, 524, 533, 540, 549,  569, 640, 649, 655, 663, 695, 702, 711, 718, 726, 741, 748, 756, 733,
+            471, 478, 483, 501, 508, 524, 533, 540, 549,  569, 640, 649, 655, 663, 686, 695, 702, 711, 718, 726, 741, 748, 756, 733,
 
             // Grade 4
             775, 786, 791, 826, 834, 850, 858, 881, 887, 894, 945, 902, 912, 919, 937, 944, 951, 968, 973, 1023, 1029, 1036, 1042, 1046, 1052, 1058, 1063
@@ -1866,9 +1866,9 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Listen and Say", 'game_id' => 681, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
 
-            ['content' => "Look at the picture and answer the question", 'game_id' => 682, 'audio' =>  $Instructions . "Look-at-the-picture-and-answer-the-question" . ".mp3"],
+            ['content' => "Look at the pictures and complete the sentences", 'game_id' => 682, 'audio' => $Instructions . "Look-at-the-pictures-and-compl.mp3"],
+            ['content' => "Look at the picture and answer the question", 'game_id' => 683, 'audio' =>  $Instructions . "Look-at-the-picture-and-answer-the-question" . ".mp3"],
 
-            ['content' => "Look at the pictures and complete the sentences", 'game_id' => 683, 'audio' => $Instructions . "Look-at-the-pictures-and-compl.mp3"],
 
             ['content' => "Listen and Choice", 'game_id' => 684, 'audio' => $Instructions . "Listen-and-Choice.mp3"],
 
