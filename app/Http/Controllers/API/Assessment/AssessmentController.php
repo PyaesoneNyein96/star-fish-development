@@ -470,7 +470,7 @@ class AssessmentController extends Controller
 
         if ($certificate_path && !$certificate_path->pdf_path) {
             $Stu = Student::where("id", $stu)->first();
-            $stuName = uniqid() . "_" . str_replace(' ', '-', strtolower($Stu->name));
+            // $stuName = uniqid() . "_" . str_replace(' ', '-', strtolower($Stu->name));
 
             // name capitalize
             $split = explode(" ", $Stu->name);
@@ -497,8 +497,8 @@ class AssessmentController extends Controller
             // ->setOption('chroot', public_path('fonts'));
             // ->setOption('chroot', storage_path('fonts'));
 
-            Storage::put("public/certificate_pdf/$stuName.pdf", $pdf->output());
-            $certi["pdf_path"] = app('domain') . "/storage/certificate_pdf/$stuName.pdf";
+            Storage::put("public/certificate_pdf/" . str_replace(' ', '-', $stuName) . ".pdf", $pdf->output());
+            $certi["pdf_path"] = app('domain') . "/storage/certificate_pdf/" . str_replace(' ', '-', $stuName) . ".pdf";
             Certificate::where('id', $certificate_path->id)->update(["pdf_path" => $certi["pdf_path"]]);
         }
     }
