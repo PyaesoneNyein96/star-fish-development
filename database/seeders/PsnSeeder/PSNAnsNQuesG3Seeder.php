@@ -159,7 +159,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'game_id' => 610,
                     'round' => $key + 1,
                     'q_image' => $images . $contents[$key] . ".png",
-                    // 'q_audio' => $audios.$contents[$key].".mp3",
+                    'q_audio' => $audios.$contents[$key].".mp3",
                     'q_content' => $q,
                     'a_content' => $ans[$key],
                 ]
