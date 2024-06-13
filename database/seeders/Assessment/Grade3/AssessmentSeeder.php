@@ -133,8 +133,8 @@ class AssessmentSeeder extends Seeder
         ////////////////////////////////////////////////////////
 
 
-        $G3_A1_listen_n_choice = "Grade_3/" . "Assessments/" . "Assessment_2/" . "multiple_choice_listening/";
-        $A1_ID75_image = $domain . "/storage/images/Grade_3/Assessments/Assessment_2/multiple_choice_listening/";
+        $G3_A1_listen_n_choice = "Grade_3/" . "Assessments/" . "Assessment_1/" . "multiple_choice_listening/";
+        $A1_ID75_image = $domain . "/storage/images/Grade_3/Assessments/Assessment_1/multiple_choice_listening/";
 
         DB::table('assessment_ans_n_ques')->insert([
 

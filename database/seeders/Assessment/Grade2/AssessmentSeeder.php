@@ -220,20 +220,20 @@ class AssessmentSeeder extends Seeder
 
         DB::table('assessment_ans_n_ques')->insert([
 
-            ['round' => 1, 'assess_id' => 40, 'q_content' => "true",  'a_content' => 1, 'q_image' => $A1_ID40_image . "jack-n-chris.png"],
-            ['round' => 1, 'assess_id' => 40, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 1, 'assess_id' => 40, 'q_audio' => $AudioDomain . $G2_A1_true_false . "jack-n-chris.mp3",  'q_content' => "true",  'a_content' => 1, 'q_image' => $A1_ID40_image . "jack-n-chris.png"],
+            ['round' => 1, 'assess_id' => 40, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 2, 'assess_id' => 40, 'q_content' => "true",  'a_content' => 0, 'q_image' => $A1_ID40_image . "dont-like-ant.png"],
-            ['round' => 2, 'assess_id' => 40, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
+            ['round' => 2, 'assess_id' => 40, 'q_audio' => $AudioDomain . $G2_A1_true_false . "dont-like-ant.mp3",  'q_content' => "true",  'a_content' => 0, 'q_image' => $A1_ID40_image . "dont-like-ant.png"],
+            ['round' => 2, 'assess_id' => 40, 'q_audio' => null, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 3, 'assess_id' => 40, 'q_content' => "true",  'a_content' => 0, 'q_image' => $A1_ID40_image . "bread.png"],
-            ['round' => 3, 'assess_id' => 40, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
+            ['round' => 3, 'assess_id' => 40, 'q_audio' => $AudioDomain . $G2_A1_true_false . "bread.mp3",  'q_content' => "true",  'a_content' => 0, 'q_image' => $A1_ID40_image . "bread.png"],
+            ['round' => 3, 'assess_id' => 40, 'q_audio' => null, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
 
-            ['round' => 4, 'assess_id' => 40, 'q_content' => "true", 'a_content' => 1, 'q_image' => $A1_ID40_image . "fast-car.png"],
-            ['round' => 4, 'assess_id' => 40, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
+            ['round' => 4, 'assess_id' => 40, 'q_audio' => $AudioDomain . $G2_A1_true_false . "fast-car.mp3",  'q_content' => "true", 'a_content' => 1, 'q_image' => $A1_ID40_image . "fast-car.png"],
+            ['round' => 4, 'assess_id' => 40, 'q_audio' => null, 'q_content' => "false", 'a_content' => 0, 'q_image' => null],
 
-            ['round' => 5, 'assess_id' => 40, 'q_content' => "true",  'a_content' => 0, 'q_image' => $A1_ID40_image . "thin-cat.png"],
-            ['round' => 5, 'assess_id' => 40, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
+            ['round' => 5, 'assess_id' => 40, 'q_audio' => $AudioDomain . $G2_A1_true_false . "thin-cat.mp3",  'q_content' => "true",  'a_content' => 0, 'q_image' => $A1_ID40_image . "thin-cat.png"],
+            ['round' => 5, 'assess_id' => 40, 'q_audio' => null, 'q_content' => "false", 'a_content' => 1, 'q_image' => null],
 
         ]);
 
