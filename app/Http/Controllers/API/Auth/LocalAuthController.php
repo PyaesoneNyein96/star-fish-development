@@ -50,19 +50,7 @@ class LocalAuthController extends Controller
 
             try {
 
-                Student::create([
-                    'name' => $request->name,
-                    'phone' => $request->phone,
-                    'age' => $request->age,
-                    'country_id' => $request->country_id,
-                    'city_id' => $request->city_id,
-                    'agreeToPolicy' => $request->agreeToPolicy,
-                    'deviceId' => $request->deviceId,
-                    'isLocal' => 1,
-                    'password' => Hash::make($request->password),
-
-                ]);
-
+                Student::create($this->getData($request));
 
                 $user = Student::where('phone', $request->phone)->first();
 
@@ -71,11 +59,10 @@ class LocalAuthController extends Controller
 
                 $OTP = Otp::digits(6)->expiry(3)->create($user->phone);
 
-                logger($OTP);
-
                 Student::where('phone', $user->phone)->update([
                     'token' => $token,
                     'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
                 ]);
 
 
@@ -147,9 +134,9 @@ class LocalAuthController extends Controller
 
             return response()->json([
               'message'  => "success",
+              'local' =>1,
               'auth' => 1,
               'data' => $user,
-              'local' =>1
             ], 200);
 
         }
@@ -157,7 +144,6 @@ class LocalAuthController extends Controller
         // 401 || 408
         return response()->json([
         'message' => "Wrong OTP code or User Not Match our DB records,Please try again.",
-
         'auth' => 0,
         ], 401);
 
@@ -227,6 +213,20 @@ class LocalAuthController extends Controller
     }
 
 
+
+    private function getData($request){
+        return [
+            'name' => $request->name,
+            'phone'=> $request->phone,
+            'password' => Hash::make($request->password),
+            'age'=> $request->age,
+            'agreeToPolicy' => $request->agreeToPolicy,
+            'country_id' => $request->country_id,
+            'city_id' => $request->city_id,
+            'deviceId'=> $request->deviceId,
+            'isLocal'=> 1,
+        ];
+    }
 
 
 
