@@ -1729,12 +1729,12 @@ class AnsNQueSeeder extends Seeder
         DB::table('ans_n_ques')->insert([
 
             [
-                'round' => 1, 'game_id' => 303, "q_audio" => $AudioDomain . $G2_L11_Speaking . "book.mp3", 'q_image' => $l11_G303_image . "girl-with-dog.png", "round_instruction" => $AudioDomain . $G2_L11_Speaking . "Look-at-the-pictures-and-speak.mp3",
+                'round' => 1, 'game_id' => 303, "q_audio" => $AudioDomain . $G2_L11_Speaking . "dog.mp3", 'q_image' => $l11_G303_image . "girl-with-dog.png", "round_instruction" => $AudioDomain . $G2_L11_Speaking . "Look-at-the-pictures-and-speak.mp3",
                 "q_content" => "Look at the picture and speak. \n Example \n Is this his dog? \n No,it isn't. It is her dog. \n Is it white? \n Yes, it is."
             ],
 
             [
-                'round' => 2, 'game_id' => 303, "q_audio" => $AudioDomain . $G2_L11_Speaking . "dog.mp3", 'q_image' => $l11_G303_image . "boy-with-book.png", "round_instruction" => $AudioDomain . $G2_L11_Speaking . "Look-at-the-pictures-and-speak.mp3",
+                'round' => 2, 'game_id' => 303, "q_audio" => $AudioDomain . $G2_L11_Speaking . "book.mp3", 'q_image' => $l11_G303_image . "boy-with-book.png", "round_instruction" => $AudioDomain . $G2_L11_Speaking . "Look-at-the-pictures-and-speak.mp3",
                 "q_content" => "Look at the picture and speak. \n Example \n Is this your book? \n No,it isn't. It is his book. \n is it heavy? \n Yes,it is."
             ],
 

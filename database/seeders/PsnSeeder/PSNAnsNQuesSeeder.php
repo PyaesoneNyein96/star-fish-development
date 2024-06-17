@@ -1173,7 +1173,8 @@ class PSNAnsNQuesSeeder extends Seeder
         $L31_U5 = [
             "Snail", 'Tiger', 'Shark', 'Snake', 'Squirrel', 'Teeth', 'Sea', 'Turtle',
             // 'Tiger_Snail_Squirrel', 'Tree_Sun_Sand_Turtle_Sea',
-            null, null
+            // null, null
+            "animal", "beach"
         ];
 
         foreach ($L31_U5 as $key => $value) {
