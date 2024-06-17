@@ -1299,7 +1299,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "Can you swim?",
             "Can you sing a song?",
             "Can you speak english?",
-            "Can you bake cake?",
+            "Can you bake a cake?",
             "Can you ski?",
             "Can you ride a bike?",
             "Can you cook?",
@@ -1318,7 +1318,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
                     'round' => $key + 1,
                     // 'round_instruction' => "Look at this picture and speak.",
                     'q_content' => $Question_contents[$key],
-                    'q_audio' => $audio . $contents[$key] . ".mp3",
+                    'q_audio' => $audios . $contents[$key] . ".mp3",
                     'q_image' => $images . $value . ".png",
                 ]
 
