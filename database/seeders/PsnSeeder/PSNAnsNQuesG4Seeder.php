@@ -1283,7 +1283,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             ['sunny', 'cloudy', 'hot'],
             ['cloudy', 'stormy', 'snowy'],
             ['rainy', 'sunny', 'windy'],
-            ['hot', 'sunny', 'hot'],
+            ['hot', 'sunny', 'rainy'],
             ['foggy', 'rainy', 'stormy'],
         ];
 

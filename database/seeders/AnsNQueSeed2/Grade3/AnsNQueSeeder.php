@@ -728,7 +728,7 @@ class AnsNQueSeeder extends Seeder
         $q_content_G3_L5_Game489_img = [ "strawberry", "banana","carrot", "papaya", "potato", "eggplant", "watermelon", "tomato", "mango", "asparagus", "cabbage", "pineapple", ];
 
         $a_content_G3_L5_Game489 = [
-            "I don't like strawberry.",
+            "I don't like strawberries.",
             "I like banana.",
             "I like carrot.",
             "I don't like papaya.",
