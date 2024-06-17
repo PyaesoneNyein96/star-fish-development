@@ -526,7 +526,7 @@ class GameController extends Controller
         $newFixPoint = $oldPoint->fixed_point + (int)$point;
 
             $lvl = floor($newFixPoint / 10) ;
-            logger($lvl);
+
             if ($lvl <= 50) {
                 $board = 'silver';
             }else if
