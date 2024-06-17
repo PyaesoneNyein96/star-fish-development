@@ -912,7 +912,8 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Listen and Repeat", 'game_id' => 299, 'audio' => $Instructions . "Listen-and-Repeat.mp3"],
 
             // G-2 lesson_10 U-280
-            ['content' => "Arranging the letters", 'game_id' => 300, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+            // ['content' => "Arranging the letters", 'game_id' => 300, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
+            ['content' => "Look and Write", 'game_id' => 300, 'audio' => $Instructions . "Look-and-write.mp3"],
 
             // G-2 lesson_10 U-281
             // ['content' => "Look at the pictures and speak", 'game_id' => 301, 'audio' =>  $Instructions . "Look-at-the-pictures-and-speak" . ".mp3"],

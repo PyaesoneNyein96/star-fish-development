@@ -497,8 +497,13 @@ class AssessmentController extends Controller
             // ->setOption('chroot', public_path('fonts'));
             // ->setOption('chroot', storage_path('fonts'));
 
-            Storage::put("public/certificate_pdf/" . str_replace(' ', '-', $stuName) . ".pdf", $pdf->output());
-            $certi["pdf_path"] = app('domain') . "/storage/certificate_pdf/" . str_replace(' ', '-', $stuName) . ".pdf";
+            // Storage::put("public/certificate_pdf/$stuName.pdf", $pdf->output());
+            // $certi["pdf_path"] = app('domain') . "/storage/certificate_pdf/$stuName.pdf";
+
+            Storage::put("public/certificate_pdf/" . str_replace(' ', '-', $stuName) . "/Starfish-Grade-".$id.".pdf", $pdf->output());
+            $certi["pdf_path"] = app('domain') . "/storage/certificate_pdf/" . str_replace(' ', '-', $stuName) . "/Starfish-Grade-".$id.".pdf";
+
+
             Certificate::where('id', $certificate_path->id)->update(["pdf_path" => $certi["pdf_path"]]);
         }
     }
