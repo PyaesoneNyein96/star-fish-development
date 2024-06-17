@@ -531,11 +531,11 @@ class GameController extends Controller
                 $board = 'silver';
             }else if
             ($lvl > 50 && $lvl <= 100) {
-                $board = 'gold';
+                $board = 'platinum';
             }
             else if
             ($lvl > 100 && $lvl <= 200) {
-                $board = 'platinum';
+                $board = 'gold';
             }
             else if
             ($lvl > 200) {

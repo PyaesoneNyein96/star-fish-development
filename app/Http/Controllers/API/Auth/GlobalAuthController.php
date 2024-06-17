@@ -147,7 +147,8 @@ class GlobalAuthController extends Controller
         }
 
         return response()->json([
-            'message' => "Wrong OTP code or User Not Match our DB records,Please try again."
+            'message' => "Wrong OTP code or User Not Match our DB records,Please try again.",
+            'auth' => 0,
             ], 401);
 
     } // end of submit OTP

@@ -65,6 +65,10 @@ trait removePlanTrait {
 
                 ChampionshipBonus::where('student_id', $student->id)->delete();
 
+                $student->update([
+                    'isSubscriber' => 0
+                ]);
+
             }
 
         DB::commit();

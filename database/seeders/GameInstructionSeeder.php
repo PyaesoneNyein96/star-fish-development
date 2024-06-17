@@ -1748,7 +1748,8 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Listen and Say", 'game_id' => 636, 'audio' =>  $Instructions . "Listen-and-say" . ".mp3"],
 
-            ['content' => "Look at the pictures and answer the question", 'game_id' => 637, 'audio' =>  $Instructions . "Look-at-the-pictures-and-answe" . ".mp3"],
+            // ['content' => "Look at the pictures and answer the question", 'game_id' => 637, 'audio' =>  $Instructions . "Look-at-the-pictures-and-answe" . ".mp3"],
+            ['content' => "Listen and check can or can't", 'game_id' => 637, 'audio' =>  $Instructions . "Listen-and-check-can-or-cant.mp3"],
 
             ['content' => "What can you do?", 'game_id' => 638, 'audio' =>  $Instructions . "What-can-you-do" . ".mp3"],
 

@@ -1837,24 +1837,13 @@ class AnsNQueSeeder extends Seeder
             "There are chairs next to the table.",
         ];
 
-         $a_content_G3_L10_Game528_audio = [
-            "There is an apple in front of the glass",
-            "There is a cat in front of the chair",
-            "There is a pencil next to the book",
-            "There is a computer on the table",
-            "There are three cats under the table",
-            "There are books on the table",
-            "There are flowers in the vase",
-            "There are chairs next to the table",
-        ];
-
         foreach ($q_content_G3_L10_Game528_img as $key => $value) {
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 528, 'round' => $key + 1,
                     // 'q_content' => $q_content_G3_L10_Game528[$key],
                     'q_image' => $l10_G527_image . "2/" . $value . ".png",
-                    'q_audio' => $AudioDomain . $G3_L10_language_n_practice .$a_content_G3_L10_Game528_audio[$key] . ".mp3",
+                    'q_audio' => $AudioDomain . $G3_L10_language_n_practice ."practice_2_".$value . ".mp3",
                     'a_content' => $a_content_G3_L10_Game528[$key],
                 ],
             ]);
@@ -2271,6 +2260,7 @@ class AnsNQueSeeder extends Seeder
 
         $G3_L12_learning_practice = "Grade_3/" . "Lesson_12/" . "learning_practice/";
         $l12_G544_image = $domain . "/storage/images/Grade_3/lesson_12/learning_practice/";
+        $l12_G544_audio = $domain . "/storage/audios/Grade_3/Lesson_12/learning_practice/";
 
 
         $q_G544 = [
@@ -2313,7 +2303,7 @@ class AnsNQueSeeder extends Seeder
                 [
                     'round' => $i + 1, 'game_id' => 544,
                     'q_image' => $l12_G544_image . str_replace(' ', '', strtolower($audio_img_G544[$G544_Index])) . ".png",
-                    'a_audio' => $AudioDomain . $G3_L9_language_n_practice . strtolower($audio_img_G544[$G544_Index]) . ".mp3",
+                    'a_audio' => $l12_G544_audio . strtolower($audio_img_G544[$G544_Index]) . ".mp3",
                     'a_content' => $a_G544[$G544_Index],
                 ],
             ]);
@@ -2893,13 +2883,14 @@ class AnsNQueSeeder extends Seeder
         $G3_L14_writing = "Grade_3/" . "Lesson_14/" . "writing/";
 
 
-        $ques_G3_L14_game564 = "- What is your favorite food? \n- What food don't you like? \n- What do you like for breakfast? \n- What do you like for lunch and dinner";
+           $ques_G3_L12_game564 = $l14_G564_image . "pic.png";
+
 
         $sampleANS_G3_L14_game564 = "My favorite food is beef steak. I like steak a lot.I don't like fried chicken. I like omelet for breakfast. I like  rice and curry for lunch and dinner. I also like spaghetti for lunch and dinner";
 
         DB::table('ans_n_ques')->insert([
             [
-                'game_id' => 564, 'q_content' => $ques_G3_L14_game564,
+                'game_id' => 564, 'q_content' => $l14_G564_image,
                 'a_content' => $sampleANS_G3_L14_game564
             ],
         ]);
@@ -3741,15 +3732,15 @@ class AnsNQueSeeder extends Seeder
         $G3_L18_writing = "Grade_3/" . "Lesson_18/" . "writing/";
 
 
-        $ques_G3_L18_game592 = "1.How many students are there in your school? \n2. How many teachers are there? \n3. How many students are there in your classroom? \n4.How many boys are there? \n5.How many girls are there?";
+        // $ques_G3_L18_game592 = "1.How many students are there in your school? \n2. How many teachers are there? \n3. How many students are there in your classroom? \n4.How many boys are there? \n5.How many girls are there?";
 
-        $sampleANS_G3_L18_game592 = "My favorite food is beef steak. I like steak a lot.I don't like fried chicken. I like omelet for breakfast. I like  rice and curry for lunch and dinner. I also like spaghetti for lunch and dinner";
+        $sampleANS_G3_L18_game592 = "My favorite food is beef steak.\n I like steak a lot.I don't like fried chicken. \nI like omelet for breakfast. I like  rice and curry for \nlunch and dinner. I also like spaghetti for lunch and dinner";
 
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 592,
-                "a_image" => $l18_G592_image . "classroom.png",
-                'q_content' => $ques_G3_L18_game592,
+                "q_content" => $l18_G592_image . "classroom.png",
+                // 'q_content' => $ques_G3_L18_game592,
                 'a_content' => $sampleANS_G3_L18_game592
             ],
         ]);
@@ -4005,13 +3996,13 @@ class AnsNQueSeeder extends Seeder
 
         ];
         $a_content_G3_L20_Game601_audio = [
-            "Yes, it has",
-            "Yes, it has",
-            "No, it hasn't",
-            "No, it hasn't",
-            "Yes, it has",
-            "No, it hasn't",
-            "No, it hasn't",
+            "Yes_it_has",
+            "Yes_it_has",
+            "No_it_hasnt",
+            "No_it_hasnt",
+            "Yes_it_has",
+            "No_it_hasnt",
+            "No_it_hasnt",
 
         ];
 
