@@ -1317,7 +1317,7 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Listen and choose the correct answer", 'game_id' => 461, 'audio' =>  $Instructions . "Listen-and-choose-the-correct" . ".mp3"],
 
             // G-3 lesson_1 U-433
-            ['content' => "Write about your family members and their jobs", 'game_id' => 463, 'audio' =>  $Instructions . "SubBlock_Write-about-your-family-member" . ".mp3"],
+            ['content' => "Write about your family members and their jobs. \n(Write 20 words for the Topic and click Submit to see the sample)", 'game_id' => 463, 'audio' =>  $Instructions . "SubBlock_Write-about-your-family-member" . ".mp3"],
 
             // G-3 lesson_1 U-434
             ['content' => "Describe your family member", 'game_id' => 464, 'audio' =>  $Instructions . "Describe-your-family-members-H" . ".mp3"],
@@ -1412,7 +1412,7 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Listen to the conversation and choose the right answer.", 'game_id' => 499, 'audio' => $Instructions . "SubBlock_Listen-to-the-conversation-and.mp3"],
 
             // G-3 lesson_6 U-469
-            ['content' => "Complete the sentences", 'game_id' => 500, 'audio' => $Instructions . "Complete-the-sentences.mp3"],
+            ['content' => "Complete the sentences.", 'game_id' => 500, 'audio' => $Instructions . "Complete-the-sentences.mp3"],
 
 
 
@@ -1487,7 +1487,8 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Answer the question", 'game_id' => 531, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
 
             // G-3 lesson_10 U-499
-            ['content' => "Look and Write", 'game_id' => 532, 'audio' => $Instructions . "Look-and-write.mp3"],
+            // ['content' => "Look and Write", 'game_id' => 532, 'audio' => $Instructions . "Look-and-write.mp3"],
+            ['content' => "After you write 20 words, click submit to appear sample writing.", 'game_id' => 532, 'audio' => $Instructions . "After-you-write-20-words-clic.mp3"],
 
 
             // G-3 lesson_11 U-502
@@ -1639,7 +1640,7 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Listen and write Yes or No", 'game_id' => 591, 'audio' => $Instructions . "Listen-and-write-Yes-or-No.mp3"],
 
             // G-3 lesson_18 U-558
-            ['content' => "Write about your school", 'game_id' => 592, 'audio' => $Instructions . "SubBlock_Write-about-your-school.mp3"],
+            ['content' => "Write about your school.", 'game_id' => 592, 'audio' => $Instructions . "SubBlock_Write-about-your-school.mp3"],
 
 
 
@@ -1775,7 +1776,7 @@ class GameInstructionSeeder extends Seeder
                 'audio' => $Instructions . "Read-and-answer-the-questions.mp3"
             ],
             [
-                'content' => "Write about your daily routine", 'game_id' => 648,
+                'content' => "Write about your daily routine.", 'game_id' => 648,
                 'audio' => $Instructions . "Write-about-your-daily-routine.mp3"
             ],
 
@@ -1856,7 +1857,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Read and write Yes or No", 'game_id' => 677, 'audio' =>  $Instructions . "Read-and-write-Yes-or-No" . ".mp3"],
 
-            ['content' => "Write about your birthday", 'game_id' => 678, 'audio' =>  $Instructions . "Write-about-your-birthday" . ".mp3"],
+            ['content' => "Write about your birthday. \nWhat do you do on your birthday?", 'game_id' => 678, 'audio' =>  $Instructions . "Write-about-your-birthday" . ".mp3"],
 
             ['content' => "Prepare to speak", 'game_id' => 679, 'audio' =>  $Instructions . "Prepare-to-speak" . ".mp3"],
 
@@ -1920,7 +1921,7 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Read and write Yes or No", 'game_id' => 709, 'audio' =>  $Instructions . "Read-and-write-Yes-or-No" . ".mp3"],
 
             [
-                'content' => "Write about your vacation at the beach", 'game_id' => 710,
+                'content' => "Write about your vacation at the beach.", 'game_id' => 710,
                 'audio' =>  $Instructions . "Write-about-your-vacation-at-the-beach" . ".mp3"
             ],
 
@@ -1946,7 +1947,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Look at the picture and answer the question", 'game_id' => 721, 'audio' =>  $Instructions . "Look-at-the-picture-and-answer-the-question" . ".mp3"],
 
-            ['content' => "Answer the question", 'game_id' => 722, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
+            ['content' => "Answer the question.", 'game_id' => 722, 'audio' =>  $Instructions . "Answer-the-question" . ".mp3"],
 
             ['content' => "Listen and choose the correct picture.", 'game_id' => 723, 'audio' => $Instructions . "Listen-and-choose-the-correct-pic.mp3"],
 
@@ -2064,7 +2065,8 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Listen and repeat. Match the pictures with the description", 'game_id' => 774, 'audio' =>  $Instructions . "Listen-and-repeat-Match-the-p" . ".mp3"],
 
             // G-4 lesson_2 U-733
-            ['content' => "After you write 20 words, click submit to appear sample writing.", 'game_id' => 776, 'audio' => $Instructions . "After-you-write-20-words-clic.mp3"],
+            // ['content' => "After you write 20 words, click submit to appear sample writing.", 'game_id' => 776, 'audio' => $Instructions . "After-you-write-20-words-clic.mp3"],
+            ['content' => "Who is your teaher? \nDoes she have long hair? Does she have straight hair?", 'game_id' => 776, 'audio' => $Instructions . "Who-is-your-teacher.mp3"],
 
 
 
@@ -2090,7 +2092,7 @@ class GameInstructionSeeder extends Seeder
             ['content' => "Listen and repeat. Match the pictures with the description", 'game_id' => 785, 'audio' =>  $Instructions . "Listen-and-repeat-Match-the-p" . ".mp3"],
 
             // G-4 lesson_3 U-744
-            ['content' => "write a paragraph describing your teacher", 'game_id' => 787, 'audio' =>  $Instructions . "SubBlock_write-a-paragraph-describing-y" . ".mp3"],
+            ['content' => "write a paragraph describing your teacher.", 'game_id' => 787, 'audio' =>  $Instructions . "SubBlock_write-a-paragraph-describing-y" . ".mp3"],
 
 
 
@@ -2242,7 +2244,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Going Shopping", 'game_id' => 901, 'audio' => $Instructions . "SubBlock_Going-Shopping.mp3"],
 
-            ['content' => "Write about your favorite shop. Use the prompts below", 'game_id' => 903, 'audio' => $Instructions . "Write-about-your-favorite-shop-Use-the-prompts-below.mp3"],
+            ['content' => "Write about your favorite shop. Use the prompts below.", 'game_id' => 903, 'audio' => $Instructions . "Write-about-your-favorite-shop-Use-the-prompts-below.mp3"],
 
 
 
@@ -2289,7 +2291,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Listen to the audio and choose the right answer.", 'game_id' => 926, 'audio' => $Instructions . "SubBlock_Listen-to-the-audio-and-choose.mp3"],
 
-            ['content' => "Write about your neighbourhood. Which places are located to the north, east, south, west of your house? Use the prompts.", 'game_id' => 928, 'audio' => $Instructions . "SubBlock_Write-about-your-neighbourhood.mp3"],
+            ['content' => "Write about your neighbourhood. Which places are located \nto the north, east, south, west of your house? Use the prompts.", 'game_id' => 928, 'audio' => $Instructions . "SubBlock_Write-about-your-neighbourhood.mp3"],
 
 
 
@@ -2435,7 +2437,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "listen and choose the picture", 'game_id' => 824, 'audio' => $Instructions . "listen_and_choose_the_PIC.mp3"],
 
-            ['content' => "Write about your favorite animal", 'game_id' => 827, 'audio' => $Instructions . "Write-about-your-favorite-animal.mp3"],
+            ['content' => "Write about your favorite animal. Use the following prompt and write about 5 sentences.", 'game_id' => 827, 'audio' => $Instructions . "Write-about-your-favorite-animal.mp3"],
 
 
 

@@ -213,16 +213,15 @@ class PSNAnsNQuesSeeder extends Seeder
         $G1_l2_U9_rounds = [
             [
                 'D', 'z', 'h',
-                //  'e',
+                'e',
                 'a', 'f',
-                //  'e',
+                'e',
                 'I'
             ],
             ['h', 'z', 'g', 'v', 'a', 'o', 'x', 'P'],
             ['i', 'z', 'g', 'y', 's', 'o', 'x', 'P'],
             [
-                'i', 't', 'c', 'n', 'm', 'r', 'l'
-                // , 'e'
+                'i', 't', 'c', 'n', 'm', 'r', 'l', 'e'
             ],
         ];
 

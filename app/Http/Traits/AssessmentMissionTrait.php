@@ -148,10 +148,10 @@ trait AssessmentMissionTrait
             }
 
             if ($oldPoint->level >= 51 && $oldPoint->level <= 100) {
-                $board = 'gold';
+                $board = 'platinum';
             }
             if ($oldPoint->level >= 101 && $oldPoint->level <= 200) {
-                $board = 'platinum';
+                $board = 'gold';
             }
             if ($oldPoint->level >= 201 && $oldPoint->level <= 300) {
                 $board = 'diamond';

@@ -2955,20 +2955,22 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
         $contents = [
-            'movie', 'swimming', 'music', 'stories', 'traveling'
+            'movie',
+            //  'swimming',
+            'music', 'stories', 'travelling'
         ];
 
         $questions = [
             "Do they like seeing a movie?",
-            "Does he like swimming?",
+            // "Does he like swimming?",
             "Does he like listening music?",
             "Do you like writing stories?",
-            "Do you like traveling?",
+            "Do you like travelling?",
         ];
 
         $ans = [
             "Yes, they do. They like seeing a movie.",
-            "No, he doesn't. He don't like swimming.",
+            // "No, he doesn't. He don't like swimming.",
             "No, he doesn't. He doesn't like listening to music.",
             "No, I don't. I don't like writing stories.",
             "Yes, I do. I like travelling.",
@@ -4355,14 +4357,16 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
 
         $contents = [
-            "restaurant", "hospital", "hotel", "clinic", "gas-station", "bakery", "post-office", "bank"
+            "restaurant", "hospital", "hotel",
+            // "clinic",
+            "gas-station", "bakery", "post-office", "bank"
         ];
 
         $questions = [
             "Where is the restaurant?",
             "Where is the hospital?",
             "Where is the hotel?",
-            "Where is the clinic?",
+            // "Where is the clinic?",
             "Where is the gas station?",
             "Where is the bakery?",
             "Where is the post office?",
@@ -4373,7 +4377,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             "It's between the bank and the library.",
             "It's around the corner from the movie theater.",
             "It is opposite the library.",
-            "It's around the corner from the fire station.",
+            // "It's around the corner from the fire station.",
             "It's next to the bus station.",
             "It's between the video store and barber shop.",
             "It's opposite the park.",
