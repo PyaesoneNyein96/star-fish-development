@@ -2267,8 +2267,8 @@ class AnsNQueSeeder extends Seeder
 
             ["monkeys", "Do", "bananas", "like", "?"],
             ["the zebra", "Does", "fruit", "eat", "?"],
-            ["hippos", "a sleep", "do", "like", "after lunch", "?"],
-            ["the seal", "swimming", "does", "?", "like"],
+            ["hippos", "a sleep", "Do", "like", "after lunch", "?"],
+            ["the seal", "swimming", "Does", "?", "like"],
             ["cats", "a lot", "sleeping", "Do", "like", "?"],
             ["bamboo", "the panda", "like", "Does", "?"],
             ["lions", "like", "Do", "vegetables", "?"],
