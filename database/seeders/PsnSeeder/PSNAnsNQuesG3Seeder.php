@@ -5245,7 +5245,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
             'Do you like these shorts',
             'Do you like this shirt',
             'Do you like these jeans',
-            'Do you like these shoe',
+            'Do you like these shoes',
             'Do you like this hat',
 
         ];
