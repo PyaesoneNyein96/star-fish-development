@@ -168,7 +168,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
         $questionContent = [
             "Example \n They can play frisbee. Can you play it? Yes,I can.",
-            "Example \n I can play football. Can you play it? No,I can't.",
+            "Example \n I can play football. Can you play it? Yes,I can.",
             "I can play ___. ___ ___ ___ ___? ___.",
             "I can play ___. ___ ___ ___ ___? ___",
             "I can play ___. ___ ___ ___ ___? ___",
@@ -195,7 +195,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
                     'q_content' => $value,
                     'q_image' => $img . str_replace(' ', '-', $contentImg[$key]) . ".png",
                     'a_content' => null,
-                    'q_audio' => $audio . $questionAudio[$key] . ".mp3",
+                    'q_audio' => $audio . $questionAudio[$key],
                 ]
 
             ]);
@@ -879,7 +879,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
         $Question_contents = [
             "Look at the picture and speak. \n Example \n The cow is beside the farm house.",
             'The bird is ___.',
-            'The eggs are ___.',
+            'The egg is ___.',
             'The dog is ___.',
             'The cat is ___.',
             'The quail is ___.',
@@ -893,7 +893,7 @@ class PSNAnsNQuesG2Seeder extends Seeder
 
                 [
                     'game_id' => 377, 'round' => $key + 1,
-                    'round_instruction' => $key == 0 ? $AudioDomain . "/Grade_2/Lesson_25/Speaking/" . "look-at-the-picture-and-speak.mp3" : null,
+                    // 'round_instruction' => $key == 0 ? $AudioDomain . "/Grade_2/Lesson_25/Speaking/" . "look-at-the-picture-and-speak.mp3" : null,
                     'q_content' => $Question_contents[$key],
                     'q_audio' => $AudioDomain . "/Grade_2/Lesson_25/Speaking/" . $contents[$key] . ".mp3",
                     'q_image' => $ImageDomain . "Grade_2/Lesson_25/Speaking/" . $value . ".png",

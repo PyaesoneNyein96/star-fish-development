@@ -1153,9 +1153,9 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Listen and repeat the sentences", 'game_id' => 395, 'audio' =>  $Instructions . "Listen-and-repeat-the-sentences" . ".mp3"],
 
-            ['content' => "Look at the pictures and write the word", 'game_id' => 396, 'audio' =>  $Instructions . "Look-at-the-pictures-and-write-the-word" . ".mp3"],
+            ['content' => "Look at the pictures and write the word.", 'game_id' => 396, 'audio' =>  $Instructions . "Look-at-the-pictures-and-write-the-word" . ".mp3"],
 
-            ['content' => "Talk about you. Say what you are wearing", 'game_id' => 397, 'audio' =>  $Instructions . "Talk-about-you-Say-what-you-are-wearing.mp3"],
+            ['content' => "Talk about you. Say what you are wearing.", 'game_id' => 397, 'audio' =>  $Instructions . "Talk-about-you-Say-what-you-are-wearing.mp3"],
 
             // ['content' => "Students listen and repeat", 'game_id' => 398, 'audio' => $Instructions . "Students-listen-and-repeat.mp3"],
 
@@ -1163,7 +1163,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Trace and write", "game_id" => 399, 'audio' =>  $Instructions . "Trace-and-write" . ".mp3"],
 
-            ['content' => "Look at the pictures and match them with the words", 'game_id' => 400, 'audio' =>  $Instructions . "Look-at-the-pictures-and-match-them-with-the-words" . ".mp3"],
+            ['content' => "Look at the pictures and match them with the words.", 'game_id' => 400, 'audio' =>  $Instructions . "Look-at-the-pictures-and-match-them-with-the-words" . ".mp3"],
 
             ['content' => "Arranging the letters", 'game_id' => 401, 'audio' =>  $Instructions . "Arranging-the-letters" . ".mp3"],
 
@@ -2308,7 +2308,7 @@ class GameInstructionSeeder extends Seeder
             // ['content' => "Look at the map of the country and choose the right currency of the country.", 'game_id' => 933, 'audio' => $Instructions . "SubBlock_Look-at-the-map-of-the-country.mp3"],
             ['content' => "Look at the pictures and choose the right answer", 'game_id' => 933, 'audio' =>  $Instructions . "look-at-the-pictures-and-choos" . ".mp3"],
 
-            ['content' => "Max will talk about his last vacation in Southeast Asia countries. Listen to the audio and choose the right answer.", 'game_id' => 935, 'audio' => $Instructions . "SubBlock_Max-will-talk-about-his-last-v.mp3"],
+            ['content' => "Max will talk about his last vacation in Southeast Asia countries.\n Listen to the audio and choose the right answer.", 'game_id' => 935, 'audio' => $Instructions . "SubBlock_Max-will-talk-about-his-last-v.mp3"],
 
             ['content' => "Read the passage and answer the following questions.", 'game_id' => 936, 'audio' => $Instructions . "SubBlock_Read-the-passage-and-answer-th.mp3"],
 
@@ -2322,7 +2322,7 @@ class GameInstructionSeeder extends Seeder
 
             ['content' => "Look at the map of the country and choose the right option.", 'game_id' => 941, 'audio' => $Instructions . "SubBlock_Look-at-the-map-of-the-country.mp3"],
 
-            ['content' => "Ben is from Thailand. He is going to talk about his country. Listen and choose the right options.", 'game_id' => 943, 'audio' => $Instructions . "Ben-is-from-Thailand-He-is-go.mp3"],
+            ['content' => "Ben is from Thailand. He is going to talk about his country.\n Listen and choose the right options.", 'game_id' => 943, 'audio' => $Instructions . "Ben-is-from-Thailand-He-is-go.mp3"],
 
 
 

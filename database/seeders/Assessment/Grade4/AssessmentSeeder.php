@@ -360,14 +360,14 @@ class AssessmentSeeder extends Seeder
         $G4_A2_I114_matching = [
 
             ['Spring', 'Twenty-sixth', 'Thirty-first', 'Fall', "Foggy"],
-            ["Hill", "Rainbow", "Eleventh", "Windy", "Sunny"]
+            ["Hail", "Rainbow", "Eleventh", "Windy", "Sunny"]
 
         ];
 
         $G4_A2_I114_matching_image = [
 
             ["Foggy",  'Fall', 'Thirty-first', 'Spring', 'Twenty-sixth'],
-            ["Windy", "Sunny", "Rainbow", "Eleventh", "Hill"]
+            ["Windy", "Sunny", "Rainbow", "Eleventh", "Hail"]
 
         ];
 
@@ -1585,7 +1585,7 @@ class AssessmentSeeder extends Seeder
 
         $A5_ID137_q_audio_ans = [
             ["the swimming pool", "another country", "the beach"],
-            ["bt car", "by plane", "by boat"],
+            ["by car", "by plane", "by boat"],
             ["Yes, she did", "No, she didn't"],
             ["walked", "had lunch", "cooked seafood"],
             ["swam", "rode the bicycle", "walk on the beach"],

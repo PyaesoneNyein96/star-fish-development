@@ -4881,7 +4881,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             ['The shopping mall', 'The swimming pool', 'The sport center'],
             ['Will swim in the pool', 'Will help his mother', 'Will ride on the bicycle'],
             ['Chicken rice', 'Noodle', 'Hamburger'],
-            ['Go shopping', 'Go swimming', 'Go tot the music festival'],
+            ['Go shopping', 'Go swimming', 'Go to the music festival'],
             ['The shopping mall', 'The swimming pool', 'The sport center'],
             ["Yes,he does", "No,he doesn't"],
         ];
