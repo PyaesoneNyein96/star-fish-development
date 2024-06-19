@@ -1732,7 +1732,7 @@ class GameSeeder extends Seeder
             // // G4 Lesson 28
             ['name' => 'Video Lesson', 'unit_id' => 914, 'category_id' => 1, "instructionGIF" => null],
             ['name' => 'Listen and Repeat (1)', 'unit_id' => 915, 'category_id' => 2, "instructionGIF" => null],
-            ['name' => 'Listen and Repeat (2)', 'unit_id' => 915, 'category_id' => 2, "instructionGIF" => null],
+            ['name' => 'Listen and Repeat (2)', 'unit_id' => 915, 'category_id' => 33, "instructionGIF" => null],
             ['name' => 'Listen and Repeat (3)', 'unit_id' => 915, 'category_id' => 2, "instructionGIF" => null],
             ['name' => 'Practice', 'unit_id' => 916, 'category_id' => 45, "instructionGIF" => null],
             ['name' => 'Speaking Practice', 'unit_id' => 917, 'category_id' => 11, "instructionGIF" => $Gif_path . "Speaking.gif"],

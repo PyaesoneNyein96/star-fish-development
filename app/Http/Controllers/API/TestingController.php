@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\Grade;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Models\StudentLesson;
 use App\Http\Controllers\Controller;
@@ -90,4 +91,28 @@ class TestingController extends Controller
 
         if ($del) return "deleted";
     }
+
+
+
+    public function testingUserAccess(Request $request){
+
+        if($request->header('email')){
+            $user = Student::where('email',$request->header('email'))->first();
+        }
+        else if ($request->header('phone')) {
+            $user = Student::where('phone','like',"%".$request->header('phone')."%")->get();
+        }
+        else if ($request->header('name')) {
+            $user = Student::where('name',$request->header('name'))->get();
+        }
+
+        if(!isset($user) ) return response()->json(["error" => "User not found!"], 404);
+
+        return $user;
+
+    }
+
+
+
+
 }

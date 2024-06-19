@@ -49,7 +49,7 @@ run `php artisan db:seed`
 
 run `npm install` & `npm run dev`
 
-#### - Serve the Application
+#### - Serve the Application for backend
 
 run `php artisan serve`
 
@@ -59,9 +59,9 @@ run `php artisan serve`
 
 Method (GET) [https://star-fish.myanmargateway.net/api/countries](https://star-fish.myanmargateway.net/api/countries)
 
-### Name Check
+<!-- ### Name Check
 
-Method (POST) [https://star-fish.myanmargateway.net/api/auth/nameCheck](https://star-fish.myanmargateway.net/api/auth/nameCheck)
+Method (POST) [https://star-fish.myanmargateway.net/api/auth/nameCheck](https://star-fish.myanmargateway.net/api/auth/nameCheck) -->
 
 ## LOCAL
 
@@ -102,6 +102,9 @@ Method (POST) [ https://star-fish.myanmargateway.net/api/auth/logout](https://st
 Field (deviceId),
 
 Method (GET) [ https://star-fish.myanmargateway.net/api/auth/userData](https://star-fish.myanmargateway.net/api/auth/userData)  
+Field (token (Header)),
+
+Method (GET) [ https://star-fish.myanmargateway.net/api/auth/autoLogoutCheck](https://star-fish.myanmargateway.net/api/auth/autoLogoutCheck)  
 Field (token (Header)),
 
 ## Grade & Lesson & Game
