@@ -3265,7 +3265,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
                     'game_id' => 1011,
                     'round' => $key + 1,
                     // 'q_image' => $img . $this->removeSpace($ans[$key]) . ".png",
-                    'q_audio' => $img . $this->removeSpace($ans[$key]) . ".png",
+                    'q_audio' => $img . $this->removeSpace($ans[$key]) . ".mp3",
                     "q_conver" =>  $conver[$key],
                     'q_content' =>  $ga[0],
                     'a_content' => $ga[0] == $ans[$key] ? true : false

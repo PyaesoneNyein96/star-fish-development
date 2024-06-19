@@ -3107,12 +3107,12 @@ class AnsNQueSeeder extends Seeder
         $q_content_G3_L16_Game573_img = ["triangle", "heart", "circle", "star", "square", "oval",];
 
         $a_content_G3_L16_Game573 = [
-            "There are three triangles",
-            "There are four hearts",
-            "There are seven circles",
-            "There are two stars",
-            "There are eight squares",
-            "There are nine ovals",
+            "There are three triangles.",
+            "There are four hearts.",
+            "There are seven circles.",
+            "There are two stars.",
+            "There are eight squares.",
+            "There are nine ovals.",
 
         ];
 
