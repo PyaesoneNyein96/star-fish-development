@@ -3661,7 +3661,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         ];
 
         $ans = [
-            "Yes", "No", "No", "Yes", "Yes"
+            "Yes", "No", "Yes", "Yes", "Yes"
         ];
 
         $audio = $AudioDomain . "Grade_3/Lesson_33/Listen/";
