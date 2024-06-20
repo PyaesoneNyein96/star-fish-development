@@ -105,6 +105,9 @@ class TestingController extends Controller
         else if ($request->header('name')) {
             $user = Student::where('name',$request->header('name'))->get();
         }
+        else if ($request->header('id')) {
+            $user = Student::where('id',$request->header('id'))->first();
+        }
 
         if(!isset($user) ) return response()->json(["error" => "User not found!"], 404);
 

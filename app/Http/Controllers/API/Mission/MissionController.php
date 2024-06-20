@@ -389,7 +389,8 @@ class MissionController extends Controller
     // Daily Bonus -
     // ===============================================================//
 
-    public function dailyBonusCheck(Request $request)
+    // public function dailyBonusCheck(Request $request)
+    public function dailyBonusCheck($request)
     {
 
         try {
@@ -423,9 +424,9 @@ class MissionController extends Controller
                 ]);
             }
 
-            return response()->json([
-                'message' => 'Daily-bonus record updated successfully.'
-            ], 200);
+            // return response()->json([
+            //     'message' => 'Daily-bonus record updated successfully.'
+            // ], 200);
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -435,6 +436,7 @@ class MissionController extends Controller
     // Daily Bonus list
     public function dailyBonusList(Request $request)
     {
+        $this->dailyBonusCheck($request);
 
         $record =  $request->student->dailyBonus->first();
 

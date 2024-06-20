@@ -80,7 +80,7 @@ class SubscriptionController extends Controller
 
         $student = Student::where('token', $this->token)->where('status', 1)->first();
 
-        if (!$student) return response()->json(["error" => "you are not allowed for this process."], 403);
+        if (!$student) return response()->json(["error" => "you are not allowed."], 403);
 
         // if ($student->isLocal == 0) return response()->json(["error" => "you need to be a local user for this process."], 403);
 
