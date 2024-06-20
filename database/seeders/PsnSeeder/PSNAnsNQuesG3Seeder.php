@@ -1668,7 +1668,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
         $para = "Hi, My name is Toby. I am 8 years old. I am a Grade 3 student. Today is very busy. In the morning I get up at 6:30. And I brush my teeth, take a bath and eat breakfast at 7:00. Then I get dressed, and I go to school. In the afternoon I eat my lunch at 12:30. And I play with my friends at school. I come back home at 3:00 in the afternoon. I do my homework at 5:00,and  I eat dinner at 6:00 in the evening. After dinner, I watch TV for a while. I go to bed at 8:00. I have a very busy day.";
 
         $given_q = [
-            ["What does he do after lunch at school?", "He plays with his friends at school after lunch at school."],
+            ["What does he do after lunch at school?", "He plays with his friends after lunch at school."],
             ["What time does he eat dinner?", "He eats dinner at 6:00 in the evening."],
             ["What time does he go to bed?", "He goes to bed at 8:00."],
             ["What time does he eat breakfast in the morning?", "He eats breakfast at 7:00 in the morning."],
@@ -2361,7 +2361,7 @@ class PSNAnsNQuesG3Seeder extends Seeder
 
         $ans = [
             'Going Shopping', 'Playing the guitar', 'Playing marbles',
-            'Doing yoga', 'Watching Tv', 'Playing football', 'Playing with toys',
+            'Doing yoga', 'Watching TV', 'Playing football', 'Playing with toys',
             'Eating out', 'Reading', 'Dancing'
         ];
 
