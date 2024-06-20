@@ -80,7 +80,7 @@ class SubscriptionController extends Controller
 
         $student = Student::where('token', $this->token)->where('status', 1)->first();
 
-        if (!$student) return response()->json(["error" => "you are not allowed for this process."], 403);
+        if (!$student) return response()->json(["error" => "you are not allowed."], 403);
 
         // if ($student->isLocal == 0) return response()->json(["error" => "you need to be a local user for this process."], 403);
 
@@ -498,8 +498,8 @@ class SubscriptionController extends Controller
         $already = $student->championBonus;
 
         $champions = [
-            ['gold', 50],
-            ['platinum', 100],
+            ['platinum', 50],
+            ['gold', 100],
             ['diamond', 200]
         ];
 

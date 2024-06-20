@@ -728,7 +728,7 @@ class AnsNQueSeeder extends Seeder
         $q_content_G3_L5_Game489_img = [ "strawberry", "banana","carrot", "papaya", "potato", "eggplant", "watermelon", "tomato", "mango", "asparagus", "cabbage", "pineapple", ];
 
         $a_content_G3_L5_Game489 = [
-            "I don't like strawberry.",
+            "I don't like strawberries.",
             "I like banana.",
             "I like carrot.",
             "I don't like papaya.",
@@ -2260,14 +2260,15 @@ class AnsNQueSeeder extends Seeder
 
         $G3_L12_learning_practice = "Grade_3/" . "Lesson_12/" . "learning_practice/";
         $l12_G544_image = $domain . "/storage/images/Grade_3/lesson_12/learning_practice/";
+        $l12_G544_audio = $domain . "/storage/audios/Grade_3/Lesson_12/learning_practice/";
 
 
         $q_G544 = [
 
             ["monkeys", "Do", "bananas", "like", "?"],
             ["the zebra", "Does", "fruit", "eat", "?"],
-            ["hippos", "a sleep", "do", "like", "after lunch", "?"],
-            ["the seal", "swimming", "does", "?", "like"],
+            ["hippos", "a sleep", "Do", "like", "after lunch", "?"],
+            ["the seal", "swimming", "Does", "?", "like"],
             ["cats", "a lot", "sleeping", "Do", "like", "?"],
             ["bamboo", "the panda", "like", "Does", "?"],
             ["lions", "like", "Do", "vegetables", "?"],
@@ -2302,7 +2303,7 @@ class AnsNQueSeeder extends Seeder
                 [
                     'round' => $i + 1, 'game_id' => 544,
                     'q_image' => $l12_G544_image . str_replace(' ', '', strtolower($audio_img_G544[$G544_Index])) . ".png",
-                    'a_audio' => $AudioDomain . $G3_L9_language_n_practice . strtolower($audio_img_G544[$G544_Index]) . ".mp3",
+                    'a_audio' => $l12_G544_audio . strtolower($audio_img_G544[$G544_Index]) . ".mp3",
                     'a_content' => $a_G544[$G544_Index],
                 ],
             ]);
@@ -2348,13 +2349,13 @@ class AnsNQueSeeder extends Seeder
             ['round' => 1, 'game_id' => 546, "q_audio" => $AudioDomain . $G3_L12_practice_speaking . "Do-you-like-polar-bears" . ".mp3", 'q_image' => $l12_G546image . "polar-bear.png", "q_content" => "Do you love polar bears? ", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "polar-bear" . ".mp3", "a_content" => "Do you love polar bears? \nYes, I do. I like polar bears. \nThey are very beautiful."],
         ]);
         DB::table('ans_n_ques')->insert([
-            ['round' => 2, 'game_id' => 546, 'q_image' => $l12_G546image . "crocodile.png", "q_content" => "Do you love crocodiles?", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "crocodiles" . ".mp3"],
-            ['round' => 3, 'game_id' => 546, 'q_image' => $l12_G546image . "parrot.png", "q_content" => "Do you love parrots?", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "parrots" . ".mp3"],
-            ['round' => 4, 'game_id' => 546, 'q_image' => $l12_G546image . "snake.png", "q_content" => "Do you love snakes?", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "snakes" . ".mp3"],
-            ['round' => 5, 'game_id' => 546, 'q_image' => $l12_G546image . "elephants.png", "q_content" => "Does Peter love elephants?", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "elephants" . ".mp3"],
-            ['round' => 6, 'game_id' => 546, 'q_image' => $l12_G546image . "panda-bear.png", "q_content" => "Does James love Panda Bears?", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "panda-bear" . ".mp3"],
-            ['round' => 7, 'game_id' => 546, 'q_image' => $l12_G546image . "monkey.png", "q_content" => "Do they love monkeys?", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "monkeys" . ".mp3"],
-            ['round' => 8, 'game_id' => 546, 'q_image' => $l12_G546image . "lions.png", "q_content" => "Do you love lions?", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "lions" . ".mp3"],
+            ['round' => 2, 'game_id' => 546, 'q_image' => $l12_G546image . "crocodile.png", "q_content" => "Do you like crocodiles?", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "crocodiles" . ".mp3"],
+            ['round' => 3, 'game_id' => 546, 'q_image' => $l12_G546image . "parrot.png", "q_content" => "Do you like parrots?", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "parrots" . ".mp3"],
+            ['round' => 4, 'game_id' => 546, 'q_image' => $l12_G546image . "snake.png", "q_content" => "Do you like snakes?", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "snakes" . ".mp3"],
+            ['round' => 5, 'game_id' => 546, 'q_image' => $l12_G546image . "elephants.png", "q_content" => "Does Peter like elephants?", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "elephants" . ".mp3"],
+            ['round' => 6, 'game_id' => 546, 'q_image' => $l12_G546image . "panda-bear.png", "q_content" => "Does James like Panda Bears?", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "panda-bear" . ".mp3"],
+            ['round' => 7, 'game_id' => 546, 'q_image' => $l12_G546image . "monkey.png", "q_content" => "Do they like monkeys?", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "monkeys" . ".mp3"],
+            ['round' => 8, 'game_id' => 546, 'q_image' => $l12_G546image . "lions.png", "q_content" => "Do you like lions?", "round_instruction" => $AudioDomain . $G3_L12_practice_speaking . "lions" . ".mp3"],
         ]);
 
 
@@ -2882,13 +2883,14 @@ class AnsNQueSeeder extends Seeder
         $G3_L14_writing = "Grade_3/" . "Lesson_14/" . "writing/";
 
 
-        $ques_G3_L14_game564 = "- What is your favorite food? \n- What food don't you like? \n- What do you like for breakfast? \n- What do you like for lunch and dinner";
+           $ques_G3_L12_game564 = $l14_G564_image . "pic.png";
+
 
         $sampleANS_G3_L14_game564 = "My favorite food is beef steak. I like steak a lot.I don't like fried chicken. I like omelet for breakfast. I like  rice and curry for lunch and dinner. I also like spaghetti for lunch and dinner";
 
         DB::table('ans_n_ques')->insert([
             [
-                'game_id' => 564, 'q_content' => $ques_G3_L14_game564,
+                'game_id' => 564, 'q_content' => $l14_G564_image,
                 'a_content' => $sampleANS_G3_L14_game564
             ],
         ]);
@@ -3105,12 +3107,12 @@ class AnsNQueSeeder extends Seeder
         $q_content_G3_L16_Game573_img = ["triangle", "heart", "circle", "star", "square", "oval",];
 
         $a_content_G3_L16_Game573 = [
-            "There are three triangles",
-            "There are four hearts",
-            "There are seven circles",
-            "There are two stars",
-            "There are eight squares",
-            "There are nine ovals",
+            "There are three triangles.",
+            "There are four hearts.",
+            "There are seven circles.",
+            "There are two stars.",
+            "There are eight squares.",
+            "There are nine ovals.",
 
         ];
 
@@ -3730,15 +3732,15 @@ class AnsNQueSeeder extends Seeder
         $G3_L18_writing = "Grade_3/" . "Lesson_18/" . "writing/";
 
 
-        $ques_G3_L18_game592 = "1.How many students are there in your school? \n2. How many teachers are there? \n3. How many students are there in your classroom? \n4.How many boys are there? \n5.How many girls are there?";
+        // $ques_G3_L18_game592 = "1.How many students are there in your school? \n2. How many teachers are there? \n3. How many students are there in your classroom? \n4.How many boys are there? \n5.How many girls are there?";
 
-        $sampleANS_G3_L18_game592 = "My favorite food is beef steak. I like steak a lot.I don't like fried chicken. I like omelet for breakfast. I like  rice and curry for lunch and dinner. I also like spaghetti for lunch and dinner";
+        $sampleANS_G3_L18_game592 = "My favorite food is beef steak.\n I like steak a lot.I don't like fried chicken. \nI like omelet for breakfast. I like  rice and curry for \nlunch and dinner. I also like spaghetti for lunch and dinner";
 
         DB::table('ans_n_ques')->insert([
             [
                 'game_id' => 592,
-                "a_image" => $l18_G592_image . "classroom.png",
-                'q_content' => $ques_G3_L18_game592,
+                "q_content" => $l18_G592_image . "classroom.png",
+                // 'q_content' => $ques_G3_L18_game592,
                 'a_content' => $sampleANS_G3_L18_game592
             ],
         ]);
@@ -3994,13 +3996,13 @@ class AnsNQueSeeder extends Seeder
 
         ];
         $a_content_G3_L20_Game601_audio = [
-            "Yes, it has",
-            "Yes, it has",
-            "No, it hasn't",
-            "No, it hasn't",
-            "Yes, it has",
-            "No, it hasn't",
-            "No, it hasn't",
+            "Yes_it_has",
+            "Yes_it_has",
+            "No_it_hasnt",
+            "No_it_hasnt",
+            "Yes_it_has",
+            "No_it_hasnt",
+            "No_it_hasnt",
 
         ];
 

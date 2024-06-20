@@ -1283,7 +1283,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             ['sunny', 'cloudy', 'hot'],
             ['cloudy', 'stormy', 'snowy'],
             ['rainy', 'sunny', 'windy'],
-            ['hot', 'sunny', 'hot'],
+            ['hot', 'sunny', 'rainy'],
             ['foggy', 'rainy', 'stormy'],
         ];
 
@@ -3262,10 +3262,10 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 1010,
+                    'game_id' => 1011,
                     'round' => $key + 1,
                     // 'q_image' => $img . $this->removeSpace($ans[$key]) . ".png",
-                    'q_audio' => $img . $this->removeSpace($ans[$key]) . ".png",
+                    'q_audio' => $img . $this->removeSpace($ans[$key]) . ".mp3",
                     "q_conver" =>  $conver[$key],
                     'q_content' =>  $ga[0],
                     'a_content' => $ga[0] == $ans[$key] ? true : false
@@ -3273,7 +3273,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             ]);
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 1010,
+                    'game_id' => 1011,
                     'round' => $key + 1,
                     'q_content' =>  $ga[1],
                     'a_content' => $ga[1] == $ans[$key] ? true : false
@@ -3282,7 +3282,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
 
             DB::table('ans_n_ques')->insert([
                 [
-                    'game_id' => 1010,
+                    'game_id' => 1011,
                     'round' => $key + 1,
                     'q_content' =>  $ga[2],
                     'a_content' => $ga[2] == $ans[$key] ? true : false
@@ -4881,7 +4881,7 @@ class PSNAnsNQuesG4Seeder extends Seeder
             ['The shopping mall', 'The swimming pool', 'The sport center'],
             ['Will swim in the pool', 'Will help his mother', 'Will ride on the bicycle'],
             ['Chicken rice', 'Noodle', 'Hamburger'],
-            ['Go shopping', 'Go swimming', 'Go tot the music festival'],
+            ['Go shopping', 'Go swimming', 'Go to the music festival'],
             ['The shopping mall', 'The swimming pool', 'The sport center'],
             ["Yes,he does", "No,he doesn't"],
         ];

@@ -133,8 +133,8 @@ class AssessmentSeeder extends Seeder
         ////////////////////////////////////////////////////////
 
 
-        $G3_A1_listen_n_choice = "Grade_3/" . "Assessments/" . "Assessment_2/" . "multiple_choice_listening/";
-        $A1_ID75_image = $domain . "/storage/images/Grade_3/Assessments/Assessment_2/multiple_choice_listening/";
+        $G3_A1_listen_n_choice = "Grade_3/" . "Assessments/" . "Assessment_1/" . "multiple_choice_listening/";
+        $A1_ID75_image = $domain . "/storage/images/Grade_3/Assessments/Assessment_1/multiple_choice_listening/";
 
         DB::table('assessment_ans_n_ques')->insert([
 
@@ -357,7 +357,7 @@ class AssessmentSeeder extends Seeder
                     'round' => $i + 1,
                     'assess_id' => 78,
                     "q_audio" => $AudioDomain . $G3_A1_reading_passage_2 . "jane-toby-audio" . ".mp3",
-                    "q_conver" => "Janes: what is your favorite food? Toby: My favorite food is fried chicken. I like coffee and bread for breakfast. I like fried chicken and rice for lunch and dinner. But I don't like fish. What about you? Jane: I don't like fried chicken. My favorite food is hamburger. I also like beef steak. They are the best. I don't eat vegetables a lot. I don't like fish either.",
+                    "q_conver" => "Janes: what is your favorite food? Toby: My favorite food is fried chicken. I like coffee and bread for breakfast. I like fried chicken and rice for lunch and dinner. But I don't like fish. What about you? Janes: I don't like fried chicken. My favorite food is hamburger. I also like beef steak. They are the best. I don't eat vegetables a lot. I don't like fish either.",
                     "q_content" => "My favorite sport",
                     "background" => $A1_ID78_image . "bg.png"
                 ],

@@ -50,6 +50,7 @@ Route::prefix('auth')->group(function () {
     Route::post('login', [AuthController::class, 'login']);
     Route::post('logout', [AuthController::class, 'logout']);
     Route::get('userData', [AuthController::class, 'userData']);
+    Route::get('autoLogoutCheck', [AuthController::class, 'autoLogoutCheck']);
     Route::get('versionCheck/android', [VersionAndUpdateController::class, 'AndroidVersionCheck']);
     Route::get('versionCheck/ios', [VersionAndUpdateController::class, 'IosVersionCheck']);
 
@@ -183,6 +184,7 @@ Route::prefix('mission')->middleware('isSubscriber')->group(function () {
 Route::prefix('testing')->middleware('GameAuth')->group(function () {
     Route::get('lesson-seed', [TestingController::class, 'lessonRecordSeeding']);
     Route::get('lesson-del', [TestingController::class, 'lessonRecordDelete']);
+    Route::get('userAccess', [TestingController::class,'testingUserAccess'])->withoutMiddleware('GameAuth');
 });
 
 // ===============================
@@ -190,8 +192,6 @@ Route::prefix('testing')->middleware('GameAuth')->group(function () {
 // ===============================
 
 Route::get('/autoSeed', [SubscriptionController::class, 'autoSeed']);
-Route::get('/gameRecordControl', [TestingController::class,'student_game_list']);
-Route::get('/unitRecordControl', [TestingController::class,'student_unit_list']);
 
 
 Route::get('/test', [GameController::class, 'test']);

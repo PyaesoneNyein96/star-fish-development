@@ -3369,27 +3369,27 @@ class AnsNQueSeeder extends Seeder
 
         DB::table('ans_n_ques')->insert([
 
-            ['round' => 1, 'game_id' => 900,  'q_audio' =>  $AudioDomain . $G4_L18_listening . "SubBlock_Ben-goes-to-a-stationery-shop" . ".mp3", "q_conver" => "Where does Ben go?", "q_content" => "A bakery", "a_content" => 0],
+            ['round' => 1, 'game_id' => 900,  'q_audio' =>  $AudioDomain . $G4_L18_listening . "Ben" . ".mp3", "q_conver" => "Where does Ben go?", "q_content" => "A bakery", "a_content" => 0],
             ['round' => 1, 'game_id' => 900,  'q_audio' =>  null, "q_conver" => null, "q_content" => "A stationery", "a_content" => 1],
             ['round' => 1, 'game_id' => 900,  'q_audio' =>  null, "q_conver" => null, "q_content" => "A toy shop", "a_content" => 0],
 
-            ['round' => 2, 'game_id' => 900,  'q_audio' =>  $AudioDomain . $G4_L18_listening . "SubBlock_Ben-goes-to-a-stationery-shop" . ".mp3", "q_conver" => "How many pencil cases does he buy?", "q_content" => 1, "a_content" => 1],
+            ['round' => 2, 'game_id' => 900,  'q_audio' =>  $AudioDomain . $G4_L18_listening . "Ben" . ".mp3", "q_conver" => "How many pencil cases does he buy?", "q_content" => 1, "a_content" => 1],
             ['round' => 2, 'game_id' => 900,  'q_audio' =>  null, "q_conver" => null, "q_content" => 3, "a_content" => 0],
             ['round' => 2, 'game_id' => 900,  'q_audio' =>  null, "q_conver" => null, "q_content" => 4, "a_content" => 0],
 
-            ['round' => 3, 'game_id' => 900,  'q_audio' =>  $AudioDomain . $G4_L18_listening . "SubBlock_Ben-goes-to-a-stationery-shop" . ".mp3", "q_conver" => "Which shop does Emma go to?", "q_content" => "A bakery", "a_content" => 1],
+            ['round' => 3, 'game_id' => 900,  'q_audio' =>  $AudioDomain . $G4_L18_listening . "Emma" . ".mp3", "q_conver" => "Which shop does Emma go to?", "q_content" => "A bakery", "a_content" => 1],
             ['round' => 3, 'game_id' => 900,  'q_audio' =>  null, "q_conver" => null, "q_content" => "A stationery", "a_content" => 0],
             ['round' => 3, 'game_id' => 900,  'q_audio' =>  null, "q_conver" => null, "q_content" => "A toy shop", "a_content" => 0],
 
-            ['round' => 4, 'game_id' => 900,  'q_audio' =>  $AudioDomain . $G4_L18_listening . "SubBlock_Ben-goes-to-a-stationery-shop" . ".mp3", "q_conver" => "What kind of cake does she buy?", "q_content" => "A strawberry", "a_content" => 0],
+            ['round' => 4, 'game_id' => 900,  'q_audio' =>  $AudioDomain . $G4_L18_listening . "Emma" . ".mp3", "q_conver" => "What kind of cake does she buy?", "q_content" => "A strawberry", "a_content" => 0],
             ['round' => 4, 'game_id' => 900,  'q_audio' =>  null, "q_conver" => null, "q_content" => "A vanilla", "a_content" => 0],
             ['round' => 4, 'game_id' => 900,  'q_audio' =>  null, "q_conver" => null, "q_content" => "A chocolate", "a_content" => 1],
 
-            ['round' => 5, 'game_id' => 900,  'q_audio' =>  $AudioDomain . $G4_L18_listening . "SubBlock_Ben-goes-to-a-stationery-shop" . ".mp3", "q_conver" => "Where does Max go to?", "q_content" => "A bakery", "a_content" => 0],
+            ['round' => 5, 'game_id' => 900,  'q_audio' =>  $AudioDomain . $G4_L18_listening . "Max" . ".mp3", "q_conver" => "Where does Max go to?", "q_content" => "A bakery", "a_content" => 0],
             ['round' => 5, 'game_id' => 900,  'q_audio' =>  null, "q_conver" => null, "q_content" => "A stationery", "a_content" => 0],
             ['round' => 5, 'game_id' => 900,  'q_audio' =>  null, "q_conver" => null, "q_content" => "A toy shop", "a_content" => 1],
 
-            ['round' => 6, 'game_id' => 900,  'q_audio' =>  $AudioDomain . $G4_L18_listening . "SubBlock_Ben-goes-to-a-stationery-shop" . ".mp3", "q_conver" => "Which toy does he buy for his litter sister?", "q_content" => "A toy robot", "a_content" => 0],
+            ['round' => 6, 'game_id' => 900,  'q_audio' =>  $AudioDomain . $G4_L18_listening . "Max" . ".mp3", "q_conver" => "Which toy does he buy for his litter sister?", "q_content" => "A toy robot", "a_content" => 0],
             ['round' => 6, 'game_id' => 900,  'q_audio' =>  null, "q_conver" => null, "q_content" => "A toy barbie", "a_content" => 1],
             ['round' => 6, 'game_id' => 900,  'q_audio' =>  null, "q_conver" => null, "q_content" => "A toy bear", "a_content" => 0],
         ]);
@@ -4655,7 +4655,7 @@ class AnsNQueSeeder extends Seeder
 
             ['round' => 6, 'game_id' => 947, 'q_image' => $l24_G948_image .  "sweden.png",  "q_content" => "US Dollar", "a_content" => 0],
             ['round' => 6, 'game_id' => 947, 'q_image' => null, "q_content" => "Pound", "a_content" => 0],
-            ['round' => 6, 'game_id' => 947, 'q_image' => null, "q_content" => "Euro", "a_content" => 1],
+            ['round' => 6, 'game_id' => 947, 'q_image' => null, "q_content" => "Krona", "a_content" => 1],
         ]);
 
 
@@ -4973,7 +4973,7 @@ class AnsNQueSeeder extends Seeder
             DB::table('ans_n_ques')->insert([
                 [
                     'game_id' => 958, 'q_image' => $l25_G959image . $G4L25U5[$v - 1] . ".png",
-                    'q_audio' =>  $AudioDomain . $G4_L25_listen_n_practice . "Listening-2" . ".mp3", 'a_content' => $G4L25U5content[$v - 1]
+                    'q_audio' =>  $AudioDomain . $G4_L25_listen_n_practice . "Listening-" . $v . ".mp3", 'a_content' => $G4L25U5content[$v - 1]
                 ],
             ]);
         }
@@ -5250,7 +5250,7 @@ class AnsNQueSeeder extends Seeder
             ['round' => 4, 'game_id' => 1057,  'q_audio' =>  $AudioDomain . $G4_L39_listening . "conver" . ".mp3", "q_conver" => "Will Jack join him?", "q_content" => "Yes, he will", "a_content" => 1],
             ['round' => 4, 'game_id' => 1057,  'q_audio' =>  null, "q_conver" => null, "q_content" => "No, he won't", "a_content" => 0],
 
-            ['round' => 5, 'game_id' => 1057,  'q_audio' =>  $AudioDomain . $G4_L39_listening . "conver" . ".mp3", "q_conver" => "When will Rose's friend go to the shopping centre?", "q_content" => "The park", "a_content" => 0],
+            ['round' => 5, 'game_id' => 1057,  'q_audio' =>  $AudioDomain . $G4_L39_listening . "conver" . ".mp3", "q_conver" => "Where will Rose's friend go?", "q_content" => "The park", "a_content" => 0],
             ['round' => 5, 'game_id' => 1057,  'q_audio' =>  null, "q_conver" => null, "q_content" => "The zoo", "a_content" => 0],
             ['round' => 5, 'game_id' => 1057,  'q_audio' =>  null, "q_conver" => null, "q_content" => "The shopping centre", "a_content" => 1],
 

@@ -16,6 +16,7 @@ use App\Http\Traits\mailTraits;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Cache;
 
 class AuthController extends Controller
 {
@@ -75,13 +76,17 @@ class AuthController extends Controller
             ], 401);
         }
 
-        if($student->isAuth !== 1 && $student->deviceId == null) {
+        // if($student->deviceId !== $request->deviceId || $student->deviceId == null) {
+        if($student) {
+
+            $newToken = $student->createToken(Carbon::now())->plainTextToken;
 
             $pw = Hash::check($request->password, $student->password);
 
             if($pw == 1){
                 $student->update([
                     'isAuth' => 1,
+                    'token' => $newToken,
                     'deviceId' => $request->deviceId
                 ]);
 
@@ -90,6 +95,7 @@ class AuthController extends Controller
                     'auth' => 1,
                     'local' => $student->isLocal,
                     'data' => $student,
+                    // 'new_token' => $newToken
                 ], 200);
 
             }else{
@@ -102,17 +108,19 @@ class AuthController extends Controller
         }
 
         // if($student->isAuth == 1 && $student->deviceId == null) {
-        if($student->isAuth == 1) {
 
-            return response()->json([
-                'message' => "One Account per device allowed!",
-                'auth' => 0
-            ], 409);
+        // if($student->isAuth == 1 && $student->deviceId !== $request->deviceId) {
 
-        }
+
+        //     return response()->json([
+        //         'message' => "One Account per device allowed!",
+        //         'auth' => 0
+        //     ], 409);
+
+        // }
 
         return response()->json([
-            'message' => "something wrong",
+            'message' => "Already logged in or something went wrong.",
             'auth' => 0
         ], 401);
 
@@ -131,23 +139,23 @@ class AuthController extends Controller
     // Name Check
     // =====================
 
-    public function nameCheck(Request $request){
+    // public function nameCheck(Request $request){
 
-        $isAllowed = Student::where('name', $request->name)->exists();
+    //     $isAllowed = Student::where('name', $request->name)->exists();
 
-        if($isAllowed){
-            return response()->json([
-                'message' =>  "name is already taken.",
-                 'status' => false
-            ], 401);
-        }
+    //     if($isAllowed){
+    //         return response()->json([
+    //             'message' =>  "name is already taken.",
+    //              'status' => false
+    //         ], 401);
+    //     }
 
-          return response()->json([
-                'status' => true
-            ], 200);
+    //       return response()->json([
+    //             'status' => true
+    //         ], 200);
 
 
-    }
+    // }
 
 
     // User Data
@@ -170,9 +178,6 @@ class AuthController extends Controller
             logger($th);
             return $th->getMessage();
         }
-
-
-
 
     }
 
@@ -262,11 +267,23 @@ class AuthController extends Controller
             return $th;
         }
 
-
-
-
     }
 
+
+    public function autoLogoutCheck(Request $request){
+
+        $token = $request->header('token');
+
+        $student = Cache::remember($token, now()->addHours(3), function () use($token) {
+            return Student::where('token', $token)->exists();
+        });
+        // $student = Student::where('token', $token)->exists();
+
+        return response()->json([
+            "status" => $student && true
+        ], $student ? 200 : 403);
+
+    }
 
 
 

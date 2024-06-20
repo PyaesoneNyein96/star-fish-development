@@ -184,6 +184,42 @@ class TestingDataSeeder extends Seeder
         //         'finish' => 1,
         //     ]
         // ]);
+        // DB::table('assessment_finish_data')->insert([
+        //     [
+        //         'student_id' => 9,
+        //         'grade_id' => 1,
+        //         'assess_name' => 1,
+        //         'point' => 30,
+        //         'finish' => 1,
+        //     ]
+        // ]);
+        // DB::table('assessment_finish_data')->insert([
+        //     [
+        //         'student_id' => 9,
+        //         'grade_id' => 1,
+        //         'assess_name' => 2,
+        //         'point' => 40,
+        //         'finish' => 1,
+        //     ]
+        // ]);
+        // DB::table('assessment_finish_data')->insert([
+        //     [
+        //         'student_id' => 9,
+        //         'grade_id' => 1,
+        //         'assess_name' => 3,
+        //         'point' => 50,
+        //         'finish' => 1,
+        //     ]
+        // ]);
+        // DB::table('assessment_finish_data')->insert([
+        //     [
+        //         'student_id' => 9,
+        //         'grade_id' => 1,
+        //         'assess_name' => 4,
+        //         'point' => 35,
+        //         'finish' => 1,
+        //     ]
+        // ]);
         // // DB::table('assessment_finish_data')->insert([
         // //     [
         // //         'student_id' => 9,
@@ -194,7 +230,7 @@ class TestingDataSeeder extends Seeder
         // //     ]
         // // ]);
 
-        // // Assessment Finished Data for A Soe
+        // Assessment Finished Data for A Soe
         // DB::table('assessment_finish_data')->insert([
         //     [
         //         'student_id' => 3,
@@ -353,29 +389,21 @@ class TestingDataSeeder extends Seeder
         // $lessons =  range(1, 8);
 
         // // foreach ([10,11,12,13] as  $id) {
-        // foreach (range(1,9) as  $id) {
-        //     if($id != 3){
-        //         foreach ($lessons as $l) {
-        //             DB::table('student_lessons')->insert([
-        //                 [
-        //                     'student_id' => $id,
-        //                     'grade_id' => 1,
-        //                     'lesson_id' => $l,
-        //                     // 'claimed_3' => $done[$k]['claimed_3'],
-        //                     // 'claimed_5' => $done[$k]['claimed_5'],
+        // foreach (range(1, 9) as  $id) {
+        //     // if($id != 3){
+        //     foreach ($lessons as $l) {
+        //         DB::table('student_lessons')->insert([
+        //             [
+        //                 'student_id' => $id,
+        //                 'grade_id' => 1,
+        //                 'lesson_id' => $l,
+        //                 // 'claimed_3' => $done[$k]['claimed_3'],
+        //                 // 'claimed_5' => $done[$k]['claimed_5'],
 
-        //                 ]
-        //             ]);
-        //         }
+        //             ]
+        //         ]);
         //     }
+        //     // }
         // }
-
-
-
-
-
-
-
-
     }
 }

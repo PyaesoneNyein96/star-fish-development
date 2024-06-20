@@ -211,10 +211,18 @@ class PSNAnsNQuesSeeder extends Seeder
         ////////////////////////////////////////////////////////
 
         $G1_l2_U9_rounds = [
-            ['D', 'z', 'h', 'e', 'a', 'f', 'e', 'I'],
+            [
+                'D', 'z', 'h',
+                'e',
+                'a', 'f',
+                'e',
+                'I'
+            ],
             ['h', 'z', 'g', 'v', 'a', 'o', 'x', 'P'],
             ['i', 'z', 'g', 'y', 's', 'o', 'x', 'P'],
-            ['i', 't', 'c', 'n', 'm', 'r', 'l', 'e'],
+            [
+                'i', 't', 'c', 'n', 'm', 'r', 'l', 'e'
+            ],
         ];
 
         for ($i = 0; $i < count($G1_l2_U9_rounds); $i++) {
@@ -1165,7 +1173,8 @@ class PSNAnsNQuesSeeder extends Seeder
         $L31_U5 = [
             "Snail", 'Tiger', 'Shark', 'Snake', 'Squirrel', 'Teeth', 'Sea', 'Turtle',
             // 'Tiger_Snail_Squirrel', 'Tree_Sun_Sand_Turtle_Sea',
-            null, null
+            // null, null
+            "animal", "beach"
         ];
 
         foreach ($L31_U5 as $key => $value) {

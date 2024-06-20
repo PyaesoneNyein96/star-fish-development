@@ -3762,7 +3762,7 @@ class AnsNQueSeeder extends Seeder
 
             // game 123
             ['round' => 1, 'game_id' => 123, 'q_audio' => $AudioDomain . $G1_L20_Speaking . "noodles.mp3", 'q_image' => $l20_G123_G124_image . "noodlesoup.png", "round_instruction" => $AudioDomain . $G1_L20_Speaking . "This-is-noodle-soup-What-do-y.mp3", "q_content" => "This is noodle soup. \nWhat do you see in the picture?"],
-            ['round' => 2, 'game_id' => 123, 'q_audio' => $AudioDomain . $G1_L20_Speaking . "banana.mp3", 'q_image' => $l20_G123_G124_image . "mango_milkshake.png", "round_instruction" => $AudioDomain . $G1_L20_Speaking . "This-is-mango-milkshake-What.mp3", "q_content" => "This is mango milkshake. \nWhat do you see in the picture?"],
+            ['round' => 2, 'game_id' => 123, 'q_audio' => $AudioDomain . $G1_L20_Speaking . "banana.mp3", 'q_image' => $l20_G123_G124_image . "mango_milkshake.png", "round_instruction" => $AudioDomain . $G1_L20_Speaking . "This-is-mango-milkshake-What.mp3", "q_content" => "This is banana milkshake. \nWhat do you see in the picture?"],
 
             // game 124
             ['round' => 1, 'game_id' => 124, 'q_audio' => $AudioDomain . $G1_L20_Speaking . "meat.mp3", 'q_image' => $l20_G123_G124_image . "meat.png", "round_instruction" => $AudioDomain . $G1_L20_Speaking . "Look-at-the-half-of-the-pictur.mp3", "q_content" => "Look at the half of the picture and say a word."],
