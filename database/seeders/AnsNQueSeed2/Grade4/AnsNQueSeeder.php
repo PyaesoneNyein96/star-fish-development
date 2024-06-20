@@ -5250,7 +5250,7 @@ class AnsNQueSeeder extends Seeder
             ['round' => 4, 'game_id' => 1057,  'q_audio' =>  $AudioDomain . $G4_L39_listening . "conver" . ".mp3", "q_conver" => "Will Jack join him?", "q_content" => "Yes, he will", "a_content" => 1],
             ['round' => 4, 'game_id' => 1057,  'q_audio' =>  null, "q_conver" => null, "q_content" => "No, he won't", "a_content" => 0],
 
-            ['round' => 5, 'game_id' => 1057,  'q_audio' =>  $AudioDomain . $G4_L39_listening . "conver" . ".mp3", "q_conver" => "When will Rose's friend go to the shopping centre?", "q_content" => "The park", "a_content" => 0],
+            ['round' => 5, 'game_id' => 1057,  'q_audio' =>  $AudioDomain . $G4_L39_listening . "conver" . ".mp3", "q_conver" => "Where will Rose's friend go?", "q_content" => "The park", "a_content" => 0],
             ['round' => 5, 'game_id' => 1057,  'q_audio' =>  null, "q_conver" => null, "q_content" => "The zoo", "a_content" => 0],
             ['round' => 5, 'game_id' => 1057,  'q_audio' =>  null, "q_conver" => null, "q_content" => "The shopping centre", "a_content" => 1],
 
