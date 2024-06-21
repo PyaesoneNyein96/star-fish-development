@@ -45,7 +45,7 @@ trait PointAddingTrait{
 
             if ($newFixPoint >= 0 && $newFixPoint <= 3000) {
                     $level = floor($newFixPoint / 10);
-                    $data['level'] = $level;
+                    $data['level'] = $level < 1 ?  1 : $level;
                     Student::where('id', $student->id)->update($data);
             } else {
                     Student::where('id', $student->id)->update($data);

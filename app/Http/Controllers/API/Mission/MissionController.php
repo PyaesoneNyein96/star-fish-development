@@ -390,7 +390,7 @@ class MissionController extends Controller
     // ===============================================================//
 
     // public function dailyBonusCheck(Request $request)
-    public function dailyBonusCheck($request)
+    public function dailyBonusCheck(Request $request)
     {
 
         try {
@@ -424,9 +424,9 @@ class MissionController extends Controller
                 ]);
             }
 
-            // return response()->json([
-            //     'message' => 'Daily-bonus record updated successfully.'
-            // ], 200);
+            return response()->json([
+                'message' => 'Daily-bonus record updated successfully.'
+            ], 200);
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -436,7 +436,9 @@ class MissionController extends Controller
     // Daily Bonus list
     public function dailyBonusList(Request $request)
     {
-        $this->dailyBonusCheck($request);
+        $this->innerDetectDaily($request);
+
+
 
         $record =  $request->student->dailyBonus->first();
 
@@ -444,23 +446,55 @@ class MissionController extends Controller
             // ->addMinutes(35)
         ;
 
+        if(strval($record->first) == 1){
+            $first = true;
+        }
+        else if (Carbon::parse($record->first) <= Carbon::now()){
+            $first = true;
+        }
+        else{
+            $first = false;
+        }
+
+        if(strval($record->second) == 1){
+            $second = true;
+        }
+        else if (Carbon::parse($record->second) <= Carbon::now()){
+            $second = true;
+        }
+        else{
+            $second = false;
+        }
+
+        if(strval($record->daily) == 1){
+            $daily = true;
+        }
+        else if (Carbon::parse($record->daily) <= Carbon::now()){
+            $daily = true;
+        }
+        else{
+            $daily = false;
+        }
+
         $result = [
             [
                 'name' => "15 mins",
-                'allowed' => $record->first == 1 || ($record->first != 1 && Carbon::parse($record->first) <= Carbon::now()),
-                'claimed' => $record->first == 1,
+                // 'allowed' => $record->first == 1 || ($record->first != 1 && Carbon::parse($record->first) <= Carbon::now()),
+                'allowed' => $first,
+                'claimed' => strval($record->first) == 1,
                 'full_name' => "15 minutes time spent in the app."
             ],
             [
                 'name' => "30 mins",
-                'allowed' => $record->second == 1 || ($record->second != 1 && Carbon::parse($record->second) <= Carbon::now()),
-                'claimed' => $record->second == 1,
+                // 'allowed' => $record->second == 1 || ($record->second != 1 && Carbon::parse($record->second) <= Carbon::now()),
+                'allowed' => $second,
+                'claimed' => strval($record->second) == 1,
                 'full_name' => "30 minutes time spent in the app."
             ],
             [
                 'name' => "daily",
-                'allowed' => $record->daily == 1 || ($record->daily != 1 && Carbon::parse($record->daily)->isSameDay(Carbon::now())),
-                'claimed' => $record->daily == 1,
+                'allowed' => $daily,
+                'claimed' => strval($record->daily) == 1,
                 'full_name' => "Daily Loging"
             ],
         ];
@@ -881,4 +915,49 @@ class MissionController extends Controller
         }
         return response()->json(['notify_count' => 0], 200);
     }
+
+    private function innerDetectDaily($request) {
+
+    try {
+
+        $dailyRecord = $request->student->dailyBonus->first();
+
+
+        $day_count = $dailyRecord->created_at->diffInDays(Carbon::now());
+
+        if (($dailyRecord->updated_at->addDays() <= Carbon::now() ||
+            !$dailyRecord->first || !$dailyRecord->second || !$dailyRecord->daily) && $day_count < 7) {
+
+
+            // daily Update process
+            $dailyRecord->update([
+                // 'first' => Carbon::now()->addMinutes(1),
+                // 'second' => Carbon::now()->addMinutes(3),
+                // 'daily' => Carbon::Now()->addHours(1),
+                'first' => Carbon::now()->addMinutes(15),
+                'second' => Carbon::now()->addMinutes(30),
+                'daily' => Carbon::Now(),
+                'day_count' => $day_count,
+                'updated_at' => Carbon::now()
+            ]);
+        } else if ($day_count > 7) {
+
+            $dailyRecord->update([
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'day_count' => 0,
+            ]);
+        }
+
+        // return response()->json([
+        //     'message' => 'Daily-bonus record updated successfully.'
+        // ], 200);
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+}
+
+
+
+
 }
